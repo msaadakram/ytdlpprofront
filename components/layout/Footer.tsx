@@ -2,7 +2,7 @@ import Link from "next/link";
 import { Download } from "lucide-react";
 
 const footerLinks = [
-  { title: "Product", links: [["Features", "#features"], ["Platforms", "#platforms"], ["Pricing", "/pricing"], ["API", "/api"]] },
+  { title: "Product", links: [["YouTube Download", "/youtube-download"], ["Features", "#features"], ["Platforms", "#platforms"], ["Pricing", "/pricing"], ["API", "/api"]] },
   { title: "Resources", links: [["Documentation", "/api"], ["API Status", "#"], ["Changelog", "#"], ["Blog", "#"]] },
   { title: "Company", links: [["About", "#"], ["Privacy", "/privacy"], ["Terms", "#"], ["Contact", "#"]] },
 ];

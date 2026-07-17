@@ -6,6 +6,7 @@ import { motion, AnimatePresence } from "motion/react";
 import { Download, Menu, X, BarChart2 } from "lucide-react";
 
 const navLinks: [string, string][] = [
+  ["YouTube Download", "/youtube-download"],
   ["Features", "#features"],
   ["Platforms", "#platforms"],
   ["Pricing", "/pricing"],
