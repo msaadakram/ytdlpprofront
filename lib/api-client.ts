@@ -167,6 +167,16 @@ export async function universalDownloadAudio(
   });
 }
 
+export async function universalDownloadTranscript(
+  url: string,
+  format: string = "srt",
+): Promise<ApiResponse<JobStart>> {
+  return request<JobStart>("/api/proxy/transcribe", {
+    method: "POST",
+    body: JSON.stringify({ url, format }),
+  });
+}
+
 /** ─── Job polling ─── */
 
 export async function getJobStatus(

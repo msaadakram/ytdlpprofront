@@ -8,7 +8,7 @@ import {
 } from "lucide-react";
 import type { ComponentType, SVGProps } from "react";
 
-export type DownloadType = "video" | "audio" | "thumbnail";
+export type DownloadType = "video" | "audio" | "thumbnail" | "transcript";
 export type Format = { label: string; ext: string; quality?: string };
 export type PricingPlan = {
   name: string; price: string; period: string;
@@ -62,6 +62,13 @@ export const thumbnailFormats: Format[] = [
   { label: "JPG • HQ", ext: "jpg", quality: "hqdefault" },
   { label: "PNG • Maximum", ext: "png", quality: "maxresdefault" },
   { label: "WebP • Optimized", ext: "webp", quality: "maxresdefault" },
+];
+
+export const transcriptFormats: Format[] = [
+  { label: "SRT • Timestamps", ext: "srt" },
+  { label: "VTT • WebVTT", ext: "vtt" },
+  { label: "TXT • Plain Text", ext: "txt" },
+  { label: "JSON • Structured", ext: "json" },
 ];
 
 export const steps = [

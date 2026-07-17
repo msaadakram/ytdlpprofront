@@ -3,14 +3,15 @@
 import { useState, useRef, useCallback, useEffect } from "react";
 import { motion, AnimatePresence } from "motion/react";
 import {
-  Download, Music, Image, Video, ChevronDown, CheckCircle2, Play, X,
+  Download, Music, Image, Video, ChevronDown, CheckCircle2, Play, X, FileText,
 } from "lucide-react";
-import { videoFormats, audioFormats, thumbnailFormats } from "@/lib/constants";
+import { videoFormats, audioFormats, thumbnailFormats, transcriptFormats } from "@/lib/constants";
 import type { DownloadType, Format } from "@/lib/constants";
 import {
   universalGetInfo,
   universalDownloadVideo,
   universalDownloadAudio,
+  universalDownloadTranscript,
   getJobStatus,
   getJobResult,
   triggerDownload,
@@ -82,12 +83,14 @@ export function Hero() {
 
   const formats = activeType === "video" ? videoFormats
     : activeType === "audio" ? audioFormats
+    : activeType === "transcript" ? transcriptFormats
     : thumbnailFormats;
 
   const typeConfig = {
     video: { icon: Video, label: "Video" },
     audio: { icon: Music, label: "Audio" },
     thumbnail: { icon: Image, label: "Thumbnail" },
+    transcript: { icon: FileText, label: "Transcript" },
   };
 
   async function handleDownload() {
@@ -125,6 +128,14 @@ export function Hero() {
           throw new Error(res.error?.message || "Download failed to start");
         }
         setStatusText("Processing...");
+        await pollUntilDone(res.data.job_id);
+      } else if (activeType === "transcript") {
+        const fmt = formats[selectedFormat];
+        const res = await universalDownloadTranscript(url, fmt.ext);
+        if (!res.success || !res.data) {
+          throw new Error(res.error?.message || "Transcription failed to start");
+        }
+        setStatusText("Transcribing...");
         await pollUntilDone(res.data.job_id);
       } else {
         /* Thumbnail: fetch info and download thumbnail URL directly */
@@ -263,7 +274,7 @@ export function Hero() {
 
         <motion.div className="flex justify-center mb-5" initial={{ opacity: 0, y: 16 }} animate={{ opacity: 1, y: 0 }} transition={{ delay: 0.35 }}>
           <div className="inline-flex bg-white border border-border rounded-full p-1 shadow-sm gap-1 relative">
-            {(["video", "audio", "thumbnail"] as DownloadType[]).map((type) => {
+              {(["video", "audio", "thumbnail", "transcript"] as DownloadType[]).map((type) => {
               const cfg = typeConfig[type];
               const Icon = cfg.icon;
               const active = activeType === type;

@@ -3,14 +3,15 @@
 import { useState, useRef, useCallback, useEffect } from "react";
 import { motion, AnimatePresence } from "motion/react";
 import {
-  Download, CheckCircle2, Play, X, Sparkles, Music, Image, Loader2,
+  Download, CheckCircle2, Play, X, Sparkles, Music, Image, Loader2, FileText,
 } from "lucide-react";
-import { videoFormats, audioFormats, thumbnailFormats } from "@/lib/constants";
+import { videoFormats, audioFormats, thumbnailFormats, transcriptFormats } from "@/lib/constants";
 import type { DownloadType, Format } from "@/lib/constants";
 import {
   universalGetInfo,
   universalDownloadVideo,
   universalDownloadAudio,
+  universalDownloadTranscript,
   getJobStatus,
   getJobResult,
   triggerDownload,
@@ -103,12 +104,14 @@ export function PlatformHero({ platform }: { platform: string }) {
 
   const formats = activeType === "video" ? videoFormats
     : activeType === "audio" ? audioFormats
+    : activeType === "transcript" ? transcriptFormats
     : thumbnailFormats;
 
   const typeConfig = {
     video: { icon: Play, label: "Video" },
     audio: { icon: Music, label: "Audio" },
     thumbnail: { icon: Image, label: "Thumbnail" },
+    transcript: { icon: FileText, label: "Transcript" },
   };
 
   async function handleDownload() {
@@ -146,6 +149,14 @@ export function PlatformHero({ platform }: { platform: string }) {
           throw new Error(res.error?.message || "Download failed to start");
         }
         setStatusText("Processing...");
+        await pollUntilDone(res.data.job_id);
+      } else if (activeType === "transcript") {
+        const fmt = formats[selectedFormat];
+        const res = await universalDownloadTranscript(url, fmt.ext);
+        if (!res.success || !res.data) {
+          throw new Error(res.error?.message || "Transcription failed to start");
+        }
+        setStatusText("Transcribing...");
         await pollUntilDone(res.data.job_id);
       } else {
         const info = await universalGetInfo(url);
@@ -322,7 +333,7 @@ export function PlatformHero({ platform }: { platform: string }) {
           transition={{ delay: 0.35 }}
         >
           <div className="inline-flex bg-white/80 backdrop-blur-sm border border-border rounded-full p-1 shadow-sm gap-1 relative">
-            {(["video", "audio", "thumbnail"] as DownloadType[]).map((type) => {
+            {(["video", "audio", "thumbnail", "transcript"] as DownloadType[]).map((type) => {
               const cfg = typeConfig[type];
               const Icon = cfg.icon;
               const active = activeType === type;
@@ -492,7 +503,7 @@ export function PlatformHero({ platform }: { platform: string }) {
                 <div className="flex items-center gap-2 mb-3">
                   <Sparkles className="w-3.5 h-3.5" style={{ color: config.brandColor }} />
                   <span className="text-xs font-semibold text-foreground font-sans">
-                    Choose {activeType === "video" ? "video quality" : activeType === "audio" ? "audio quality" : "thumbnail format"}
+                    Choose {activeType === "video" ? "video quality" : activeType === "audio" ? "audio quality" : activeType === "transcript" ? "transcript format" : "thumbnail format"}
                   </span>
                 </div>
                 <FormatGrid

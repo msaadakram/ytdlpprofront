@@ -27,6 +27,11 @@ function qualityBars(format: Format, type: DownloadType): number {
     if (l.includes("192")) return 1;
     return 2;
   }
+  if (type === "transcript") {
+    if (format.ext === "json") return 3;
+    if (format.ext === "vtt") return 2;
+    return 1;
+  }
   return 2;
 }
 
@@ -35,6 +40,13 @@ function resolutionLabel(format: Format, type: DownloadType): string {
   if (type === "audio") {
     const m = format.label.match(/•\s*(.+)/);
     return m ? m[1].trim() : "";
+  }
+  if (type === "transcript") {
+    if (format.ext === "srt") return "SubRip subtitle";
+    if (format.ext === "vtt") return "WebVTT subtitle";
+    if (format.ext === "txt") return "Plain text";
+    if (format.ext === "json") return "Timestamps + text";
+    return "";
   }
   return format.quality ? format.quality.replace("maxresdefault", "1920×1080").replace("hqdefault", "480×360") : "";
 }
@@ -81,7 +93,7 @@ export function FormatGrid({ formats, selectedIndex, onSelect, type }: FormatGri
               </span>
             </span>
 
-            {type !== "thumbnail" && (
+            {type !== "thumbnail" && type !== "transcript" && (
               <div className="flex items-center gap-0.5 mt-1">
                 {Array.from({ length: bars }).map((_, b) => (
                   <motion.span

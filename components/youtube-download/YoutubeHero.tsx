@@ -3,14 +3,15 @@
 import { useState, useRef, useCallback, useEffect } from "react";
 import { motion, AnimatePresence } from "motion/react";
 import {
-  Youtube, Music, Image, Download, CheckCircle2, Play, X, Sparkles,
+  Youtube, Music, Image, Download, CheckCircle2, Play, X, Sparkles, FileText,
 } from "lucide-react";
-import { videoFormats, audioFormats, thumbnailFormats } from "@/lib/constants";
+import { videoFormats, audioFormats, thumbnailFormats, transcriptFormats } from "@/lib/constants";
 import type { DownloadType, Format } from "@/lib/constants";
 import {
   universalGetInfo,
   universalDownloadVideo,
   universalDownloadAudio,
+  universalDownloadTranscript,
   getJobStatus,
   getJobResult,
   triggerDownload,
@@ -84,12 +85,14 @@ export function YoutubeHero() {
 
   const formats = activeType === "video" ? videoFormats
     : activeType === "audio" ? audioFormats
+    : activeType === "transcript" ? transcriptFormats
     : thumbnailFormats;
 
   const typeConfig = {
     video: { icon: Youtube, label: "Video" },
     audio: { icon: Music, label: "Audio" },
     thumbnail: { icon: Image, label: "Thumbnail" },
+    transcript: { icon: FileText, label: "Transcript" },
   };
 
   async function handleDownload() {
@@ -127,6 +130,14 @@ export function YoutubeHero() {
           throw new Error(res.error?.message || "Download failed to start");
         }
         setStatusText("Processing...");
+        await pollUntilDone(res.data.job_id);
+      } else if (activeType === "transcript") {
+        const fmt = formats[selectedFormat];
+        const res = await universalDownloadTranscript(url, fmt.ext);
+        if (!res.success || !res.data) {
+          throw new Error(res.error?.message || "Transcription failed to start");
+        }
+        setStatusText("Transcribing...");
         await pollUntilDone(res.data.job_id);
       } else {
         const info = await universalGetInfo(url);
@@ -255,7 +266,7 @@ export function YoutubeHero() {
         >
           Download YouTube Videos
           <br />
-          <span className="text-[#5baab8]">in 4K</span>, Audio & Thumbnails
+          <span className="text-[#5baab8]">in 4K</span>, Audio, Thumbnails & Transcripts
         </motion.h1>
 
         <motion.p
@@ -264,7 +275,7 @@ export function YoutubeHero() {
           animate={{ opacity: 1, y: 0 }}
           transition={{ delay: 0.25, duration: 0.6 }}
         >
-          Paste any YouTube link and download in seconds. Choose from 4K video, high-bitrate audio, or HD thumbnails — no account required.
+           Paste any YouTube link and download in seconds. Choose from 4K video, high-bitrate audio, HD thumbnails, or AI transcripts — no account required.
         </motion.p>
 
         <motion.div
@@ -274,7 +285,7 @@ export function YoutubeHero() {
           transition={{ delay: 0.35 }}
         >
           <div className="inline-flex bg-white border border-border rounded-full p-1 shadow-sm gap-1 relative">
-            {(["video", "audio", "thumbnail"] as DownloadType[]).map((type) => {
+            {(["video", "audio", "thumbnail", "transcript"] as DownloadType[]).map((type) => {
               const cfg = typeConfig[type];
               const Icon = cfg.icon;
               const active = activeType === type;
@@ -400,7 +411,7 @@ export function YoutubeHero() {
                 <div className="flex items-center gap-2 mb-3">
                   <Sparkles className="w-3.5 h-3.5 text-[#5baab8]" />
                   <span className="text-xs font-semibold text-foreground font-sans">
-                    Choose {activeType === "video" ? "video quality" : activeType === "audio" ? "audio quality" : "thumbnail format"}
+                    Choose {activeType === "video" ? "video quality" : activeType === "audio" ? "audio quality" : activeType === "transcript" ? "transcript format" : "thumbnail format"}
                   </span>
                 </div>
                 <FormatGrid
