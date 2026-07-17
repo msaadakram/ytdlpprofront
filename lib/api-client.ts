@@ -103,17 +103,20 @@ async function request<T>(
       headers: { "Content-Type": "application/json", ...options.headers },
       ...options,
     });
-    const data = await res.json();
+    const json = await res.json();
     if (!res.ok) {
       return {
         success: false,
-        error: data.error || {
+        error: json.error || {
           code: "UNKNOWN_ERROR",
           message: `HTTP ${res.status}: ${res.statusText}`,
         },
       };
     }
-    return { success: true, data };
+    if (typeof json === "object" && json !== null && "success" in json) {
+      return json as ApiResponse<T>;
+    }
+    return { success: true, data: json };
   } catch (err) {
     return {
       success: false,
