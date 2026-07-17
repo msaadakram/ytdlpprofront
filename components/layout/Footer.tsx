@@ -1,8 +1,26 @@
 import Link from "next/link";
 import { Download } from "lucide-react";
 
+const platformLinks: [string, string][] = [
+  ["YouTube Download", "/youtube-download"],
+  ["Facebook Download", "/download/facebook"],
+  ["Instagram Download", "/download/instagram"],
+  ["TikTok Download", "/download/tiktok"],
+  ["Twitter / X Download", "/download/twitter"],
+  ["Vimeo Download", "/download/vimeo"],
+  ["Dailymotion Download", "/download/dailymotion"],
+  ["Twitch Download", "/download/twitch"],
+  ["Reddit Download", "/download/reddit"],
+  ["Pinterest Download", "/download/pinterest"],
+  ["LinkedIn Download", "/download/linkedin"],
+  ["Snapchat Download", "/download/snapchat"],
+  ["SoundCloud Download", "/download/soundcloud"],
+  ["Kick Download", "/download/kick"],
+  ["Niconico Download", "/download/niconico"],
+];
+
 const footerLinks = [
-  { title: "Product", links: [["YouTube Download", "/youtube-download"], ["Features", "#features"], ["Platforms", "#platforms"], ["Pricing", "/pricing"], ["API", "/api"]] },
+  { title: "Product", links: [["Features", "#features"], ["Pricing", "/pricing"], ["API", "/api"], ["Dashboard", "/dashboard"]] },
   { title: "Resources", links: [["Documentation", "/api"], ["API Status", "#"], ["Changelog", "#"], ["Blog", "#"]] },
   { title: "Company", links: [["About", "#"], ["Privacy", "/privacy"], ["Terms", "#"], ["Contact", "#"]] },
 ];
@@ -11,7 +29,7 @@ export function Footer() {
   return (
     <footer className="bg-[#0d1f26] text-white">
       <div className="max-w-6xl mx-auto px-6 py-16">
-        <div className="grid grid-cols-2 md:grid-cols-4 gap-10">
+        <div className="grid grid-cols-2 md:grid-cols-5 gap-10">
           <div className="col-span-2 md:col-span-1">
             <Link href="/" className="flex items-center gap-2 mb-4">
               <div className="w-8 h-8 rounded-lg bg-white/10 flex items-center justify-center">
@@ -23,6 +41,20 @@ export function Footer() {
               Download any video, audio or thumbnail from 200+ platforms. Fast, free, and secure.
             </p>
           </div>
+
+          <div>
+            <h4 className="text-sm font-semibold text-white/80 mb-4 font-heading">Platforms</h4>
+            <ul className="flex flex-col gap-2.5">
+              {platformLinks.map(([label, href]) => (
+                <li key={label}>
+                  <Link href={href} className="text-sm text-white/50 hover:text-white transition-colors font-sans">
+                    {label}
+                  </Link>
+                </li>
+              ))}
+            </ul>
+          </div>
+
           {footerLinks.map((group) => (
             <div key={group.title}>
               <h4 className="text-sm font-semibold text-white/80 mb-4 font-heading">{group.title}</h4>
