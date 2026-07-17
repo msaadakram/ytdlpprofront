@@ -39,7 +39,7 @@ function PlatformCard({ name }: { name: string }) {
 const featuredPlatforms = [
   "YouTube", "Facebook", "Instagram", "TikTok", "Twitter / X",
   "Vimeo", "Dailymotion", "Twitch", "Reddit", "Pinterest",
-  "LinkedIn", "Snapchat",
+  "LinkedIn", "Snapchat", "SoundCloud", "Kick", "Niconico",
 ];
 
 export function PlatformGrid() {
@@ -67,7 +67,7 @@ export function PlatformGrid() {
         </motion.div>
 
         <motion.div
-          className="grid grid-cols-2 md:grid-cols-4 gap-4"
+          className="grid grid-cols-2 sm:grid-cols-3 md:grid-cols-5 gap-4"
           initial="hidden"
           whileInView="visible"
           viewport={{ once: true, margin: "-30px" }}

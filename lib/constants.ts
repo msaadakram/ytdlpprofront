@@ -1,7 +1,7 @@
 import {
   YoutubeLogo, FacebookLogo, InstagramLogo, TikTokLogo, XLogo,
   VimeoLogo, DailymotionLogo, TwitchLogo, RedditLogo, PinterestLogo,
-  LinkedInLogo, SnapchatLogo,
+  LinkedInLogo, SnapchatLogo, SoundCloudLogo, KickLogo, NiconicoLogo,
 } from "@/components/shared/brand-logos";
 import {
   Globe, Zap, Shield, MonitorPlay, Clock, Star, Copy, Sparkles,
@@ -34,6 +34,9 @@ export const platforms: BrandPlatform[] = [
   { name: "Pinterest",   bg: "#E60023", fg: "#ffffff", Logo: PinterestLogo },
   { name: "LinkedIn",    bg: "#0A66C2", fg: "#ffffff", Logo: LinkedInLogo },
   { name: "Snapchat",    bg: "#FFFC00", fg: "#000000", Logo: SnapchatLogo },
+  { name: "SoundCloud",  bg: "#FF5500", fg: "#ffffff", Logo: SoundCloudLogo },
+  { name: "Kick",        bg: "#53FC18", fg: "#000000", Logo: KickLogo },
+  { name: "Niconico",    bg: "#FF69B3", fg: "#ffffff", Logo: NiconicoLogo },
 ];
 
 export const videoFormats: Format[] = [

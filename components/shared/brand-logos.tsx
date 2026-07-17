@@ -107,7 +107,7 @@ export function SoundCloudLogo({ className, style }: BrandLogoProps) {
 export function KickLogo({ className, style }: BrandLogoProps) {
   return (
     <svg viewBox="0 0 24 24" className={className} style={style} fill="currentColor">
-      <path d="M4.5 2.25h15v3.75H12v3.75h7.5v3.75H12v3.75h7.5V22.5h-15V2.25z" />
+      <path d="M3 2h6v5l7-5h5l-8 10 8 10h-5l-7-5v5H3V2z" />
     </svg>
   );
 }
