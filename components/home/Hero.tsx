@@ -11,6 +11,7 @@ import {
   universalGetInfo,
   universalDownloadVideo,
   universalDownloadAudio,
+  getJobStatus,
   getJobResult,
   triggerDownload,
 } from "@/lib/api-client";
@@ -27,6 +28,14 @@ const CONTAINER_MAP: Record<string, string> = {
   mp4: "mp4", mkv: "mkv", webm: "webm",
 };
 
+function formatBytes(bytes: number): string {
+  if (!bytes || bytes <= 0) return "";
+  if (bytes < 1024) return `${bytes} B`;
+  if (bytes < 1024 * 1024) return `${(bytes / 1024).toFixed(1)} KB`;
+  if (bytes < 1024 * 1024 * 1024) return `${(bytes / 1024 / 1024).toFixed(1)} MB`;
+  return `${(bytes / 1024 / 1024 / 1024).toFixed(2)} GB`;
+}
+
 export function Hero() {
   const [url, setUrl] = useState("");
   const [activeType, setActiveType] = useState<DownloadType>("video");
@@ -39,6 +48,10 @@ export function Hero() {
   const [done, setDone] = useState(false);
   const [progress, setProgress] = useState(0);
   const [statusText, setStatusText] = useState("");
+  const [downloadSpeed, setDownloadSpeed] = useState("");
+  const [downloadEta, setDownloadEta] = useState<string | number | null>(null);
+  const [downloadedBytes, setDownloadedBytes] = useState(0);
+  const [totalBytes, setTotalBytes] = useState(0);
   const [error, setError] = useState("");
   const cancelPoll = useRef<(() => void) | null>(null);
 
@@ -86,6 +99,10 @@ export function Hero() {
     setProcessing(true);
     setProgress(0);
     setStatusText("Starting...");
+    setDownloadSpeed("");
+    setDownloadEta(null);
+    setDownloadedBytes(0);
+    setTotalBytes(0);
     setDone(false);
 
     try {
@@ -140,7 +157,7 @@ export function Hero() {
   async function pollUntilDone(jobId: string): Promise<void> {
     return new Promise((resolve, reject) => {
       let retries = 0;
-      const maxRetries = 120;
+      const maxRetries = 180;
 
       const poll = async () => {
         if (retries >= maxRetries) {
@@ -150,7 +167,7 @@ export function Hero() {
         retries++;
 
         try {
-          const res = await getJobResult(jobId);
+          const res = await getJobStatus(jobId);
           if (!res.success || !res.data) {
             reject(new Error(res.error?.message || "Failed to check status"));
             return;
@@ -158,19 +175,26 @@ export function Hero() {
 
           const job = res.data;
           setProgress(job.progress ?? 0);
+          setDownloadSpeed(job.speed ?? "");
+          setDownloadEta(job.eta ?? null);
+          setDownloadedBytes(job.downloaded ?? 0);
+          setTotalBytes(job.total ?? 0);
+
           if (job.status === "downloading") {
-            setStatusText(
-              `${job.progress?.toFixed(1) ?? 0}% · ${job.speed || ""} · ETA ${typeof job.eta === "number" ? `${Math.round(job.eta)}s` : job.eta || ""}`
-            );
+            setStatusText("Downloading...");
           } else if (job.status === "processing") {
             setStatusText("Processing...");
+          } else if (job.status === "queued") {
+            setStatusText("Queued...");
           }
 
           if (job.status === "completed") {
             setProgress(100);
             setStatusText("Complete!");
-            if (job.downloadUrl) {
-              triggerDownload(job.downloadUrl, job.filename);
+
+            const finalRes = await getJobResult(jobId);
+            if (finalRes.success && finalRes.data?.downloadUrl) {
+              triggerDownload(finalRes.data.downloadUrl, finalRes.data.filename);
             }
             setProcessing(false);
             setDone(true);
@@ -184,7 +208,7 @@ export function Hero() {
             return;
           }
 
-          setTimeout(poll, 1500);
+          setTimeout(poll, 1000);
         } catch (err) {
           reject(err);
         }
@@ -365,15 +389,44 @@ export function Hero() {
             <motion.div
               initial={{ opacity: 0, height: 0 }}
               animate={{ opacity: 1, height: "auto" }}
-              className="mt-3"
+              className="mt-4"
             >
-              <div className="w-full bg-[#eef6f8] rounded-full h-1.5 overflow-hidden">
-                <motion.div
-                  className="h-full bg-[#5baab8] rounded-full"
-                  initial={{ width: 0 }}
-                  animate={{ width: `${Math.max(progress, 5)}%` }}
-                  transition={{ duration: 0.3 }}
-                />
+              <div className="flex items-center gap-4 mb-2">
+                <span className="text-2xl font-bold tabular-nums text-[#0d1f26] font-mono">
+                  {Math.round(progress)}%
+                </span>
+                <div className="flex-1">
+                  <div className="w-full bg-[#eef6f8] rounded-full h-2.5 overflow-hidden">
+                    <motion.div
+                      className="h-full rounded-full"
+                      style={{
+                        background: `linear-gradient(90deg, #5baab8 ${Math.max(progress, 5)}%, #3d8896 ${Math.max(progress, 5)}%)`,
+                      }}
+                      initial={{ width: 0 }}
+                      animate={{ width: `${Math.max(progress, 5)}%` }}
+                      transition={{ duration: 0.3, ease: "easeOut" }}
+                    />
+                  </div>
+                </div>
+              </div>
+
+              <div className="flex flex-wrap items-center gap-x-4 gap-y-1 text-xs font-mono text-muted-foreground">
+                {downloadedBytes > 0 && totalBytes > 0 && (
+                  <span className="tabular-nums">
+                    {formatBytes(downloadedBytes)} / {formatBytes(totalBytes)}
+                  </span>
+                )}
+                {downloadSpeed && (
+                  <span className="tabular-nums">{downloadSpeed}</span>
+                )}
+                {downloadEta != null && downloadEta !== "" && (
+                  <span className="tabular-nums">
+                    ETA {typeof downloadEta === "number" ? `${Math.round(downloadEta)}s` : String(downloadEta)}
+                  </span>
+                )}
+                <span className="text-[10px] uppercase tracking-wider text-muted-foreground/60 font-sans">
+                  {statusText}
+                </span>
               </div>
             </motion.div>
           )}
