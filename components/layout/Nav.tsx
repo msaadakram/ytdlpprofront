@@ -3,8 +3,9 @@
 import { useState, useRef, useEffect } from "react";
 import Link from "next/link";
 import { motion, AnimatePresence } from "motion/react";
-import { Download, Menu, X, BarChart2, Play, Music, Image, FileText, ChevronDown } from "lucide-react";
+import { Download, Menu, X, BarChart2, Play, Music, Image, FileText, ChevronDown, LogOut } from "lucide-react";
 import { platforms } from "@/lib/constants";
+import { useAuth } from "@/lib/auth-context";
 
 function platformSlug(name: string): string {
   return name.toLowerCase().replace(/ \/ x$/, "").replace(/\s+/g, "");
@@ -24,6 +25,7 @@ const simpleLinks: [string, string][] = [
 ];
 
 export function Nav() {
+  const { isLoggedIn, logout } = useAuth();
   const [menuOpen, setMenuOpen] = useState(false);
   const [openDropdown, setOpenDropdown] = useState<number | null>(null);
   const navRef = useRef<HTMLElement>(null);
@@ -157,15 +159,25 @@ export function Nav() {
         </nav>
 
         <div className="hidden md:flex items-center gap-3">
-          <Link href="/dashboard" className="text-sm font-medium text-muted-foreground hover:text-foreground transition-colors px-4 py-2 flex items-center gap-1.5 font-sans">
-            <BarChart2 className="w-3.5 h-3.5" /> Dashboard
-          </Link>
-          <Link href="/sign-in" className="text-sm font-medium text-foreground hover:text-accent transition-colors px-4 py-2 font-sans">
-            Sign in
-          </Link>
-          <Link href="/sign-up" className="block text-sm font-semibold bg-[#0d1f26] text-white px-5 py-2.5 rounded-full hover:bg-[#1a3545] transition-colors font-sans">
-            Start Free
-          </Link>
+          {isLoggedIn ? (
+            <>
+              <Link href="/dashboard" className="text-sm font-medium text-foreground hover:text-accent transition-colors px-4 py-2 flex items-center gap-1.5 font-sans">
+                <BarChart2 className="w-3.5 h-3.5" /> Dashboard
+              </Link>
+              <button onClick={logout} className="text-sm font-medium text-muted-foreground hover:text-destructive transition-colors px-4 py-2 flex items-center gap-1.5 font-sans">
+                <LogOut className="w-3.5 h-3.5" /> Log out
+              </button>
+            </>
+          ) : (
+            <>
+              <Link href="/sign-in" className="text-sm font-medium text-foreground hover:text-accent transition-colors px-4 py-2 font-sans">
+                Sign in
+              </Link>
+              <Link href="/sign-up" className="block text-sm font-semibold bg-[#0d1f26] text-white px-5 py-2.5 rounded-full hover:bg-[#1a3545] transition-colors font-sans">
+                Start Free
+              </Link>
+            </>
+          )}
         </div>
 
         <button className="md:hidden p-2 rounded-lg hover:bg-muted transition-colors" onClick={() => setMenuOpen(!menuOpen)}>
@@ -229,8 +241,21 @@ export function Nav() {
               </div>
 
               <div className="flex items-center gap-3 pt-3 mt-1 border-t border-border">
-                <Link href="/sign-in" onClick={closeAll} className="text-sm font-medium text-foreground px-2 py-3">Sign in</Link>
-                <Link href="/sign-up" onClick={closeAll} className="flex-1 text-sm font-semibold bg-[#0d1f26] text-white px-5 py-3 rounded-full text-center">Start Free</Link>
+                {isLoggedIn ? (
+                  <>
+                    <Link href="/dashboard" onClick={closeAll} className="flex-1 text-sm font-medium text-foreground px-2 py-3 flex items-center gap-1.5">
+                      <BarChart2 className="w-3.5 h-3.5" /> Dashboard
+                    </Link>
+                    <button onClick={() => { logout(); closeAll(); }} className="flex-1 text-sm font-medium text-muted-foreground px-5 py-3 rounded-full border border-border text-center hover:text-destructive transition-colors">
+                      Log out
+                    </button>
+                  </>
+                ) : (
+                  <>
+                    <Link href="/sign-in" onClick={closeAll} className="text-sm font-medium text-foreground px-2 py-3">Sign in</Link>
+                    <Link href="/sign-up" onClick={closeAll} className="flex-1 text-sm font-semibold bg-[#0d1f26] text-white px-5 py-3 rounded-full text-center">Start Free</Link>
+                  </>
+                )}
               </div>
             </div>
           </motion.div>
