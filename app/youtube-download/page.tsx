@@ -4,6 +4,8 @@ import { Footer } from "@/components/layout/Footer";
 import { YoutubeHero } from "@/components/youtube-download/YoutubeHero";
 import { RelatedTips } from "@/components/youtube-download/RelatedTips";
 import { FaqSection } from "@/components/youtube-download/FaqSection";
+import { PlatformToolFeatures } from "@/components/platform-download/PlatformToolFeatures";
+import { PlatformHowItWorks } from "@/components/platform-download/PlatformHowItWorks";
 
 export const metadata: Metadata = {
   title: "YouTube Video Downloader — Download YouTube Videos in 4K, MP3 & Thumbnails | fetchwave",
@@ -129,6 +131,8 @@ export default function YoutubeDownloadPage() {
       />
       <main>
         <YoutubeHero />
+        <PlatformToolFeatures platform="youtube" />
+        <PlatformHowItWorks platform="youtube" />
         <RelatedTips />
         <FaqSection />
       </main>

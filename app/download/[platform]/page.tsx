@@ -5,6 +5,8 @@ import { Footer } from "@/components/layout/Footer";
 import { PlatformHero } from "@/components/platform-download/PlatformHero";
 import { PlatformTips } from "@/components/platform-download/PlatformTips";
 import { PlatformFaq } from "@/components/platform-download/PlatformFaq";
+import { PlatformToolFeatures } from "@/components/platform-download/PlatformToolFeatures";
+import { PlatformHowItWorks } from "@/components/platform-download/PlatformHowItWorks";
 import { platformConfigs, platformSlugs } from "@/lib/platform-config";
 
 type Props = { params: Promise<{ platform: string }> };
@@ -87,6 +89,8 @@ export default async function PlatformDownloadPage({ params }: Props) {
       />
       <main>
         <PlatformHero platform={config.id} />
+        <PlatformToolFeatures platform={config.id} />
+        <PlatformHowItWorks platform={config.id} />
         <PlatformTips platform={config.id} />
         <PlatformFaq platform={config.id} />
       </main>

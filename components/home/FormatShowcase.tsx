@@ -1,10 +1,31 @@
+"use client";
+
+import { useState } from "react";
+import { motion, AnimatePresence } from "motion/react";
+import { Monitor, Headphones, Image } from "lucide-react";
 import { videoFormats, audioFormats, thumbnailFormats } from "@/lib/constants";
 
+const tabs = [
+  { key: "video" as const, label: "Video", icon: Monitor, formats: videoFormats },
+  { key: "audio" as const, label: "Audio", icon: Headphones, formats: audioFormats },
+  { key: "thumbnail" as const, label: "Thumbnail", icon: Image, formats: thumbnailFormats },
+];
+
 export function FormatShowcase() {
+  const [activeTab, setActiveTab] = useState<"video" | "audio" | "thumbnail">("video");
+  const current = tabs.find((t) => t.key === activeTab)!;
+
   return (
     <section className="py-20 px-6 bg-white">
-      <div className="max-w-6xl mx-auto">
-        <div className="text-center mb-14">
+      <div className="max-w-5xl mx-auto">
+        <motion.div
+          initial={{ opacity: 0, y: 16 }}
+          whileInView="visible"
+          viewport={{ once: true, margin: "-60px" }}
+          variants={{ visible: { opacity: 1, y: 0 } }}
+          transition={{ duration: 0.5 }}
+          className="text-center mb-10"
+        >
           <span className="inline-block text-xs font-semibold tracking-widest uppercase text-[#5baab8] mb-3 font-mono">
             Formats
           </span>
@@ -14,51 +35,79 @@ export function FormatShowcase() {
           <p className="text-muted-foreground max-w-lg mx-auto font-sans">
             From 4K video to lossless audio — choose exactly what you need.
           </p>
-        </div>
+        </motion.div>
 
-        <div className="grid md:grid-cols-3 gap-8">
-          <div className="bg-[#eef6f8] rounded-2xl p-8">
-            <h3 className="text-lg font-bold text-foreground mb-5 font-heading flex items-center gap-2">
-              <span className="w-2 h-2 rounded-full bg-[#5baab8]" /> Video
-            </h3>
-            <ul className="space-y-3">
-              {videoFormats.map((f, i) => (
-                <li key={i} className="flex items-center justify-between text-sm">
-                  <span className="text-foreground font-medium font-sans">{f.label}</span>
-                  <span className="text-xs uppercase text-muted-foreground font-mono">{f.ext}</span>
-                </li>
-              ))}
-            </ul>
-          </div>
-
-          <div className="bg-[#eef6f8] rounded-2xl p-8">
-            <h3 className="text-lg font-bold text-foreground mb-5 font-heading flex items-center gap-2">
-              <span className="w-2 h-2 rounded-full bg-[#5baab8]" /> Audio
-            </h3>
-            <ul className="space-y-3">
-              {audioFormats.map((f, i) => (
-                <li key={i} className="flex items-center justify-between text-sm">
-                  <span className="text-foreground font-medium font-sans">{f.label}</span>
-                  <span className="text-xs uppercase text-muted-foreground font-mono">{f.ext}</span>
-                </li>
-              ))}
-            </ul>
-          </div>
-
-          <div className="bg-[#eef6f8] rounded-2xl p-8">
-            <h3 className="text-lg font-bold text-foreground mb-5 font-heading flex items-center gap-2">
-              <span className="w-2 h-2 rounded-full bg-[#5baab8]" /> Thumbnail
-            </h3>
-            <ul className="space-y-3">
-              {thumbnailFormats.map((f, i) => (
-                <li key={i} className="flex items-center justify-between text-sm">
-                  <span className="text-foreground font-medium font-sans">{f.label}</span>
-                  <span className="text-xs uppercase text-muted-foreground font-mono">{f.ext}</span>
-                </li>
-              ))}
-            </ul>
+        <div className="flex justify-center mb-8">
+          <div className="inline-flex bg-[#eef6f8] rounded-xl p-1 gap-1">
+            {tabs.map((tab) => {
+              const active = activeTab === tab.key;
+              const Icon = tab.icon;
+              return (
+                <motion.button
+                  key={tab.key}
+                  onClick={() => setActiveTab(tab.key)}
+                  whileHover={{ scale: active ? 1 : 1.03 }}
+                  whileTap={{ scale: 0.97 }}
+                  className={`relative flex items-center gap-2 px-5 py-2.5 rounded-lg text-sm font-semibold transition-colors font-sans ${
+                    active ? "text-white" : "text-muted-foreground hover:text-foreground"
+                  }`}
+                >
+                  {active && (
+                    <motion.span
+                      layoutId="formatTab"
+                      className="absolute inset-0 bg-[#0d1f26] rounded-lg shadow-md"
+                      transition={{ type: "spring", stiffness: 400, damping: 32 }}
+                    />
+                  )}
+                  <Icon className="w-3.5 h-3.5 relative z-10" />
+                  <span className="relative z-10">{tab.label}</span>
+                </motion.button>
+              );
+            })}
           </div>
         </div>
+
+        <AnimatePresence mode="wait">
+          <motion.div
+            key={activeTab}
+            initial={{ opacity: 0, y: 12, rotateX: 5 }}
+            animate={{ opacity: 1, y: 0, rotateX: 0 }}
+            exit={{ opacity: 0, y: -12, rotateX: -5 }}
+            transition={{ duration: 0.35, ease: [0.21, 0.6, 0.35, 1] }}
+            className="bg-[#eef6f8] rounded-2xl p-8"
+          >
+            <div className="flex items-center gap-2 mb-6">
+              <motion.div
+                className="w-8 h-8 rounded-lg flex items-center justify-center"
+                style={{ backgroundColor: "#5baab8" }}
+                initial={{ rotate: -10, scale: 0 }}
+                animate={{ rotate: 0, scale: 1 }}
+                transition={{ type: "spring", stiffness: 300, damping: 15 }}
+              >
+                <current.icon className="w-4 h-4 text-white" />
+              </motion.div>
+              <h3 className="text-lg font-bold text-foreground font-heading">{current.label} Formats</h3>
+            </div>
+            <ul className="space-y-2">
+              {current.formats.map((f, i) => (
+                <motion.li
+                  key={i}
+                  initial={{ opacity: 0, x: -12 }}
+                  animate={{ opacity: 1, x: 0 }}
+                  transition={{ duration: 0.3, delay: i * 0.04 }}
+                  className="flex items-center justify-between bg-white/70 backdrop-blur-sm rounded-xl px-4 py-3 hover:bg-white hover:shadow-sm transition-all group"
+                >
+                  <span className="text-sm text-foreground font-medium font-sans group-hover:text-[#5baab8] transition-colors">
+                    {f.label}
+                  </span>
+                  <span className="text-[11px] uppercase text-muted-foreground font-mono px-2 py-0.5 rounded-md bg-[#eef6f8] group-hover:bg-[#d4ecf0] transition-colors">
+                    {f.ext}
+                  </span>
+                </motion.li>
+              ))}
+            </ul>
+          </motion.div>
+        </AnimatePresence>
       </div>
     </section>
   );

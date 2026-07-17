@@ -398,6 +398,34 @@ export const platformConfigs: Record<string, PlatformConfig> = {
     keywords: ["kick video downloader", "download kick streams", "kick vod downloader", "kick clip downloader", "kick to mp4", "download kick videos", "kick stream saver", "kick vod to mp3", "kick downloader free", "kick highlight downloader"],
   },
 
+  youtube: {
+    id: "youtube", name: "YouTube", slug: "youtube",
+    brandColor: "#FF0000", fgColor: "#ffffff",
+    Logo: YoutubeLogo, defaultType: "video",
+    badge: "YouTube Downloader",
+    heading: "Download YouTube Videos",
+    headingAccent: "in 4K",
+    subheading: "Paste any YouTube video link and download in seconds. Save videos in 4K, 1080p, 720p. Extract audio as MP3 320kbps, FLAC — no account required.",
+    placeholder: "Paste your YouTube video URL here...",
+    inputIcon: Youtube,
+    features: [
+      { icon: Video, title: "4K Ultra HD Downloads", desc: "Download YouTube videos in up to 4K (2160p) resolution. Also supports 1440p, 1080p Full HD, 720p HD, and standard definition." },
+      { icon: Music, title: "High-Quality Audio", desc: "Convert YouTube videos to MP3 up to 320 kbps, AAC 256 kbps, FLAC lossless, WAV uncompressed, and OGG. Perfect for music and podcasts." },
+      { icon: Image, title: "HD Thumbnail Downloads", desc: "Save YouTube video thumbnails in maximum resolution up to 1920×1080. Available in JPG, PNG, and WebP formats." },
+      { icon: Globe, title: "Works with All YouTube URLs", desc: "Supports regular videos, Shorts, live streams, community posts, and embedded clips. Paste any YouTube link." },
+    ],
+    faqs: [
+      { q: "What video qualities are available?", a: "YouTube videos can be downloaded in multiple qualities including 4K (2160p), 1440p, 1080p (Full HD), 720p (HD), 480p, and 360p. The available qualities depend on what the original uploader provided." },
+      { q: "What audio formats do you support?", a: "We support MP3 (up to 320 kbps), AAC (256 kbps), FLAC (lossless), WAV (uncompressed), and OGG (192 kbps). For music production and archiving, FLAC is recommended." },
+      { q: "Can I download YouTube Shorts?", a: "Yes, YouTube Shorts are fully supported. Paste any Shorts URL and choose your preferred format — video, audio, or thumbnail." },
+      { q: "Is downloading YouTube videos legal?", a: "Downloading for personal offline use is generally permitted. Always respect copyright and use downloaded content responsibly." },
+      { q: "How long are downloaded files stored?", a: "Files are stored temporarily and deleted automatically after the download is complete. We do not keep copies of your downloaded content." },
+    ],
+    metaTitle: "YouTube Video Downloader — Download YouTube Videos in 4K, MP3 & Thumbnails | fetchwave",
+    metaDescription: "Free YouTube video downloader. Download YouTube videos in 4K, 1080p, 720p. Extract audio as MP3 320kbps, FLAC, AAC. Get HD thumbnails. No sign-up required.",
+    keywords: ["youtube video downloader", "download youtube videos", "youtube to mp4", "youtube to mp3", "youtube 4k downloader", "free youtube downloader", "youtube video saver", "youtube thumbnail downloader", "youtube audio extractor", "youtube mp3 converter"],
+  },
+
   niconico: {
     id: "niconico", name: "Niconico", slug: "niconico",
     brandColor: "#FF69B3", fgColor: "#ffffff",
