@@ -33,7 +33,7 @@ export function PlatformTips({ platform }: { platform: string }) {
             Get the Most from {config.name} Downloads
           </h2>
           <p className="text-muted-foreground text-sm max-w-xl mx-auto font-sans">
-            Whether you need video for editing, audio for podcasts, or thumbnails for projects — we have you covered.
+            Whether you need video for editing, audio for podcasts, thumbnails for projects, or AI transcripts for accessibility — we have you covered.
           </p>
         </motion.div>
 

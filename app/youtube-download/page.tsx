@@ -8,13 +8,13 @@ import { PlatformToolFeatures } from "@/components/platform-download/PlatformToo
 import { PlatformHowItWorks } from "@/components/platform-download/PlatformHowItWorks";
 
 export const metadata: Metadata = {
-  title: "YouTube Video Downloader — Download YouTube Videos in 4K, MP3 & Thumbnails | fetchwave",
+  title: "YouTube Video Downloader — Download YouTube Videos in 4K, MP3, Transcripts & Thumbnails | fetchwave",
   description:
-    "Free YouTube video downloader. Download YouTube videos in 4K, 1080p, 720p. Extract audio as MP3 320kbps, FLAC, AAC. Get HD thumbnails. No sign-up required. Fast, free & secure.",
+    "Free YouTube video downloader. Download YouTube videos in 4K, 1080p, 720p. Extract audio as MP3 320kbps, FLAC, AAC. Get AI transcripts as SRT, VTT, TXT or JSON. Get HD thumbnails. No sign-up required.",
   openGraph: {
-    title: "YouTube Video Downloader — Download YouTube Videos in 4K, MP3 & Thumbnails | fetchwave",
+    title: "YouTube Video Downloader — Download YouTube Videos in 4K, MP3, Transcripts & Thumbnails | fetchwave",
     description:
-      "Free YouTube video downloader. Download YouTube videos in 4K, 1080p, 720p. Extract audio as MP3 320kbps, FLAC, AAC. Get HD thumbnails. No sign-up required.",
+      "Free YouTube video downloader. Download YouTube videos in 4K, 1080p, 720p. Extract audio as MP3 320kbps, FLAC, AAC. Get AI transcripts as SRT, VTT, TXT or JSON. No sign-up required.",
     url: "https://fetchwave.com/youtube-download",
     siteName: "fetchwave",
     locale: "en_US",
@@ -22,9 +22,9 @@ export const metadata: Metadata = {
   },
   twitter: {
     card: "summary_large_image",
-    title: "YouTube Video Downloader — Download YouTube Videos in 4K, MP3 & Thumbnails",
+    title: "YouTube Video Downloader — Download YouTube Videos in 4K, MP3, Transcripts & Thumbnails",
     description:
-      "Free YouTube video downloader. Download YouTube videos in 4K, 1080p, 720p. Extract audio as MP3, FLAC, AAC. No sign-up required.",
+      "Free YouTube video downloader. Download YouTube videos in 4K, 1080p, 720p. Extract audio as MP3, FLAC, AAC. Get AI transcripts as SRT, VTT, TXT or JSON. No sign-up required.",
   },
   robots: {
     index: true,
@@ -44,6 +44,10 @@ export const metadata: Metadata = {
     "youtube thumbnail downloader",
     "youtube audio extractor",
     "youtube mp3 converter",
+    "youtube transcript downloader",
+    "youtube subtitle downloader",
+    "youtube srt download",
+    "youtube ai transcript",
     "online youtube downloader",
     "youtube hd downloader",
   ],
@@ -66,7 +70,7 @@ const jsonLd = {
       name: "fetchwave YouTube Video Downloader",
       url: "https://fetchwave.com/youtube-download",
       description:
-        "Free online YouTube video downloader. Download videos up to 4K, extract audio as MP3/FLAC/AAC, save HD thumbnails. No registration required.",
+        "Free online YouTube video downloader. Download videos up to 4K, extract audio as MP3/FLAC/AAC, generate AI transcripts as SRT/VTT/TXT/JSON, save HD thumbnails. No registration required.",
       applicationCategory: "Multimedia",
       operatingSystem: "All",
       browserRequirements: "Requires JavaScript",
@@ -114,6 +118,14 @@ const jsonLd = {
           acceptedAnswer: {
             "@type": "Answer",
             text: "Files are stored temporarily and deleted automatically after the download is complete. We do not keep copies of your downloaded content. For Pro users, files remain available for 24 hours.",
+          },
+        },
+        {
+          "@type": "Question",
+          name: "Can I download YouTube transcripts and subtitles?",
+          acceptedAnswer: {
+            "@type": "Answer",
+            text: "Yes, select the Transcript mode and choose from SRT, VTT, TXT, or JSON formats. Our AI generates accurate transcripts with timestamps from any video with audio.",
           },
         },
       ],

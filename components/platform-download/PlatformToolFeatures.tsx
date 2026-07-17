@@ -7,7 +7,7 @@ import { platformConfigs } from "@/lib/platform-config";
 const stats = [
   { icon: Zap, label: "Blazing Fast", value: "< 3 seconds", desc: "Server-side processing with instant CDN delivery" },
   { icon: Shield, label: "Private & Secure", value: "Zero Storage", desc: "Files processed ephemerally and deleted immediately" },
-  { icon: MonitorPlay, label: "Formats & Qualities", value: "4K · FLAC · WebP", desc: "Video, audio & thumbnails in any resolution" },
+  { icon: MonitorPlay, label: "Formats & Qualities", value: "4K · FLAC · SRT", desc: "Video, audio, thumbnails & AI transcripts in any format" },
   { icon: Globe, label: "Platform Support", value: "200+ Sites", desc: "From major platforms to the most obscure" },
   { icon: Star, label: "No Account Required", value: "Free Forever", desc: "Start downloading instantly — no sign-up needed" },
   { icon: Copy, label: "Batch Processing", value: "Playlists", desc: "Download entire channels in one click (Pro)" },

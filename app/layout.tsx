@@ -3,13 +3,13 @@ import { ThemeProvider } from "next-themes";
 import "@/styles/globals.css";
 
 export const metadata: Metadata = {
-  title: "fetchwave — Download any video, audio or thumbnail",
+  title: "fetchwave — Download any video, audio, thumbnail or transcript",
   description:
-    "Paste a link from YouTube, Facebook, TikTok, Instagram and 200+ more. Get your file in seconds — no account required.",
+    "Paste a link from YouTube, Facebook, TikTok, Instagram and 200+ more. Download video, audio, thumbnails, or AI transcripts — no account required.",
   openGraph: {
-    title: "fetchwave — Download any video, audio or thumbnail",
+    title: "fetchwave — Download any video, audio, thumbnail or transcript",
     description:
-      "Paste a link from YouTube, Facebook, TikTok, Instagram and 200+ more. Get your file in seconds — no account required.",
+      "Paste a link from YouTube, Facebook, TikTok, Instagram and 200+ more. Download video, audio, thumbnails, or AI transcripts — no account required.",
     type: "website",
   },
 };

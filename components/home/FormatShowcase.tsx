@@ -2,17 +2,18 @@
 
 import { useState } from "react";
 import { motion, AnimatePresence } from "motion/react";
-import { Monitor, Headphones, Image } from "lucide-react";
-import { videoFormats, audioFormats, thumbnailFormats } from "@/lib/constants";
+import { Monitor, Headphones, Image, FileText } from "lucide-react";
+import { videoFormats, audioFormats, thumbnailFormats, transcriptFormats } from "@/lib/constants";
 
 const tabs = [
   { key: "video" as const, label: "Video", icon: Monitor, formats: videoFormats },
   { key: "audio" as const, label: "Audio", icon: Headphones, formats: audioFormats },
   { key: "thumbnail" as const, label: "Thumbnail", icon: Image, formats: thumbnailFormats },
+  { key: "transcript" as const, label: "Transcript", icon: FileText, formats: transcriptFormats },
 ];
 
 export function FormatShowcase() {
-  const [activeTab, setActiveTab] = useState<"video" | "audio" | "thumbnail">("video");
+  const [activeTab, setActiveTab] = useState<"video" | "audio" | "thumbnail" | "transcript">("video");
   const current = tabs.find((t) => t.key === activeTab)!;
 
   return (
@@ -33,7 +34,7 @@ export function FormatShowcase() {
             Any format, any quality
           </h2>
           <p className="text-muted-foreground max-w-lg mx-auto font-sans">
-            From 4K video to lossless audio — choose exactly what you need.
+            From 4K video to AI transcripts — choose exactly what you need.
           </p>
         </motion.div>
 

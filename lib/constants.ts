@@ -79,7 +79,7 @@ export const steps = [
   },
   {
     number: "02", title: "Choose format & quality",
-    desc: "Select your preferred format — MP4, MP3, FLAC, WebP — and the quality level that suits your needs.",
+    desc: "Select your preferred format — MP4, MP3, FLAC, SRT — and the quality level that suits your needs. Video, audio, thumbnails, and transcripts available.",
     icon: Sparkles,
   },
   {
@@ -93,7 +93,7 @@ export const features = [
   { icon: Globe, title: "200+ Supported Platforms", desc: "From YouTube to niche platforms. If there's a video, we can fetch it." },
   { icon: Zap, title: "Blazing Fast Processing", desc: "Server-side conversion with CDN delivery. Your download starts in under 3 seconds." },
   { icon: Shield, title: "Private & Secure", desc: "We don't store your URLs or files. Everything is processed ephemerally and deleted immediately." },
-  { icon: MonitorPlay, title: "Any Quality, Any Format", desc: "4K, 1080p, 720p video. Lossless FLAC and 320 kbps MP3 audio. PNG and WebP thumbnails." },
+  { icon: MonitorPlay, title: "Any Quality, Any Format", desc: "4K, 1080p, 720p video. Lossless FLAC and 320 kbps MP3 audio. PNG and WebP thumbnails. SRT, VTT, TXT, and JSON transcripts." },
   { icon: Clock, title: "No Queue, No Wait", desc: "Pro plans process in parallel. No waiting in line — start the next download immediately." },
   { icon: Star, title: "Batch Downloads", desc: "Download entire playlists or channels in one click with our Pro and Team plans." },
 ];
@@ -101,12 +101,12 @@ export const features = [
 export const plans: PricingPlan[] = [
   {
     name: "Free", price: "$0", period: "forever",
-    features: ["10 downloads / day", "Up to 1080p video", "MP3 & MP4 formats", "Standard processing speed", "50+ platforms supported"],
+    features: ["10 downloads / day", "Up to 1080p video", "MP3, MP4 & SRT formats", "Standard processing speed", "50+ platforms supported"],
     cta: "Get Started Free", highlight: false,
   },
   {
     name: "Pro", price: "$9", period: "per month",
-    features: ["Unlimited downloads", "4K Ultra HD video", "All formats incl. FLAC & WebP", "Priority processing", "200+ platforms supported", "Batch playlist downloads", "No ads"],
+    features: ["Unlimited downloads", "4K Ultra HD video", "All formats incl. FLAC, WebP & SRT", "Priority processing", "200+ platforms supported", "Batch playlist downloads", "No ads"],
     cta: "Start Pro Trial", highlight: true,
   },
   {

@@ -29,6 +29,10 @@ const faqs = [
     q: "How long are downloaded files stored?",
     a: "Files are stored temporarily and deleted automatically after the download is complete. We do not keep copies of your downloaded content. For Pro users, files remain available for 24 hours in case you need to download again.",
   },
+  {
+    q: "Can I download transcripts and subtitles?",
+    a: "Yes! Select the Transcript mode and choose from SRT, VTT, TXT, or JSON formats. Our AI generates accurate transcripts with timestamps from any video with audio. SRT and VTT are perfect for subtitle files, TXT for plain text, and JSON for structured data with timestamps.",
+  },
 ];
 
 export function FaqSection() {

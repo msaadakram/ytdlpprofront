@@ -13,7 +13,7 @@ const steps = [
   {
     icon: ListChecks,
     title: "Pick Your Format",
-    desc: "Choose from 4K video, 1080p HD, MP3 audio up to 320kbps, FLAC lossless, or HD thumbnails. Whatever you need — we have it.",
+    desc: "Choose from 4K video, 1080p HD, MP3 audio up to 320kbps, FLAC lossless, HD thumbnails, or AI transcripts in SRT, VTT, TXT & JSON. Whatever you need.",
   },
   {
     icon: Download,

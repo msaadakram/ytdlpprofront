@@ -1,7 +1,7 @@
 "use client";
 
 import { motion } from "motion/react";
-import { Music, Video, Image, Layers } from "lucide-react";
+import { Music, Video, Image, Layers, FileText } from "lucide-react";
 
 const tips = [
   {
@@ -13,6 +13,11 @@ const tips = [
     icon: Music,
     title: "Extract Audio as MP3 or FLAC",
     desc: "Convert YouTube videos to high-quality audio files. Choose from MP3 up to 320 kbps or lossless FLAC for music production and offline listening.",
+  },
+  {
+    icon: FileText,
+    title: "AI Transcripts in Any Format",
+    desc: "Generate accurate AI transcripts from any video. Download as SRT subtitles, VTT web captions, plain TXT, or structured JSON with timestamps.",
   },
   {
     icon: Image,
@@ -45,7 +50,7 @@ export function RelatedTips() {
             Get the Most from YouTube Downloads
           </h2>
           <p className="text-muted-foreground text-sm max-w-xl mx-auto font-sans">
-            Whether you need video for editing, audio for podcasts, or thumbnails for projects — we have you covered.
+            Whether you need video for editing, audio for podcasts, thumbnails for projects, or AI transcripts for accessibility — we have you covered.
           </p>
         </motion.div>
 

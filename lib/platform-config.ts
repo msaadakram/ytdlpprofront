@@ -1,7 +1,7 @@
 import type { ComponentType } from "react";
 import {
   Youtube, Music, Image, Layers, Download, Globe, Video, Film,
-  Headphones, Radio, MessageSquare, Hash, Play, Camera, Monitor,
+  Headphones, Radio, MessageSquare, Hash, Play, Camera, Monitor, FileText,
 } from "lucide-react";
 import {
   YoutubeLogo, FacebookLogo, InstagramLogo, TikTokLogo, XLogo,
@@ -41,7 +41,7 @@ export const platformConfigs: Record<string, PlatformConfig> = {
     badge: "Facebook Downloader",
     heading: "Download Facebook Videos",
     headingAccent: "in HD",
-    subheading: "Paste any Facebook video link and download in seconds. Save Facebook Watch videos, live streams, and Reels — no account required.",
+    subheading: "Paste any Facebook video link and download in seconds. Save Facebook Watch videos, live streams, and Reels. Get AI transcripts too — no account required.",
     placeholder: "Paste your Facebook video URL here...",
     inputIcon: Video,
     features: [
@@ -49,6 +49,7 @@ export const platformConfigs: Record<string, PlatformConfig> = {
       { icon: Music, title: "Extract Audio", desc: "Convert Facebook videos to MP3 or FLAC audio. Great for saving audio from interviews, live sessions, and video podcasts." },
       { icon: Image, title: "Save Thumbnails", desc: "Download Facebook video thumbnails in high resolution. Available in JPG, PNG, and WebP formats." },
       { icon: Globe, title: "Works with All Facebook URLs", desc: "Supports public videos, Watch shows, page posts, group videos, and embedded clips across Facebook." },
+      { icon: FileText, title: "AI Transcripts", desc: "Generate accurate transcripts with timestamps from any Facebook video. Download as SRT, VTT, TXT, or JSON subtitles." },
     ],
     faqs: [
       { q: "Can I download private Facebook videos?", a: "Our service can only download publicly accessible Facebook videos. Private or friends-only videos cannot be accessed due to Facebook's privacy restrictions." },
@@ -69,7 +70,7 @@ export const platformConfigs: Record<string, PlatformConfig> = {
     badge: "Instagram Downloader",
     heading: "Download Instagram Videos",
     headingAccent: "Reels & Stories",
-    subheading: "Save Instagram Reels, Stories, IGTV, and posts in seconds. Download video, audio, or thumbnails — instantly, no account needed.",
+    subheading: "Save Instagram Reels, Stories, IGTV, and posts in seconds. Download video, audio, thumbnails, or AI transcripts — instantly, no account needed.",
     placeholder: "Paste your Instagram URL here...",
     inputIcon: Video,
     features: [
@@ -77,6 +78,7 @@ export const platformConfigs: Record<string, PlatformConfig> = {
       { icon: Music, title: "Extract Reels Audio", desc: "Convert Instagram Reels to high-quality MP3 or FLAC audio. Great for saving viral audio tracks and sound bites." },
       { icon: Image, title: "Download Profile Pictures", desc: "Save Instagram profile pictures and post thumbnails in full resolution. Available in JPG and PNG formats." },
       { icon: Layers, title: "Batch Instagram Downloads", desc: "With a Pro plan, download multiple Instagram posts or Reels at once. No need to process each URL individually." },
+      { icon: FileText, title: "AI Transcripts", desc: "Generate accurate transcripts with timestamps from any Instagram video or Reel. Download as SRT, VTT, TXT, or JSON subtitles." },
     ],
     faqs: [
       { q: "Can I download Instagram Stories?", a: "Yes, you can download Instagram Stories by pasting the story URL. This works for both regular stories and highlighted stories." },
@@ -97,7 +99,7 @@ export const platformConfigs: Record<string, PlatformConfig> = {
     badge: "TikTok Downloader",
     heading: "Download TikTok Videos",
     headingAccent: "No Watermark",
-    subheading: "Save TikTok videos without watermarks. Download in HD, extract audio as MP3, or save thumbnails. Quick, free, no sign-up needed.",
+    subheading: "Save TikTok videos without watermarks. Download in HD, extract audio as MP3, save thumbnails, or get AI transcripts. Quick, free, no sign-up needed.",
     placeholder: "Paste your TikTok video URL here...",
     inputIcon: Music,
     features: [
@@ -105,6 +107,7 @@ export const platformConfigs: Record<string, PlatformConfig> = {
       { icon: Music, title: "Extract Viral Audio", desc: "Convert TikTok videos to MP3 or FLAC audio. Perfect for saving trending sounds, music tracks, and voiceovers." },
       { icon: Image, title: "Save Video Thumbnails", desc: "Download TikTok video thumbnails in maximum resolution. Great for cover images and reference." },
       { icon: Camera, title: "Supports All TikTok Content", desc: "Works with regular posts, slideshows, and photo mode videos. Paste any public TikTok URL and download instantly." },
+      { icon: FileText, title: "AI Transcripts", desc: "Generate accurate transcripts with timestamps from any TikTok video. Download as SRT, VTT, TXT, or JSON subtitles." },
     ],
     faqs: [
       { q: "Do downloaded TikTok videos have watermarks?", a: "Videos downloaded through our platform are watermark-free. We use the original video source without the TikTok overlay." },
@@ -125,7 +128,7 @@ export const platformConfigs: Record<string, PlatformConfig> = {
     badge: "Twitter Downloader",
     heading: "Download Twitter Videos",
     headingAccent: "& GIFs",
-    subheading: "Save Twitter videos, GIFs, and media from any tweet. Download in HD, extract audio, or grab thumbnails — fast and free.",
+    subheading: "Save Twitter videos, GIFs, and media from any tweet. Download in HD, extract audio, grab thumbnails, or get AI transcripts — fast and free.",
     placeholder: "Paste your tweet URL here...",
     inputIcon: MessageSquare,
     features: [
@@ -133,6 +136,7 @@ export const platformConfigs: Record<string, PlatformConfig> = {
       { icon: Play, title: "Download GIFs as Video", desc: "Twitter GIFs can be saved as video files. Download animated GIFs in MP4 format for easy sharing and editing." },
       { icon: Music, title: "Extract Audio from Tweets", desc: "Convert Twitter video content to MP3 or FLAC audio. Great for saving audio from interviews and live broadcasts." },
       { icon: Image, title: "Save Tweet Thumbnails", desc: "Download video thumbnails from Twitter posts in high resolution. Available in JPG, PNG, and WebP formats." },
+      { icon: FileText, title: "AI Transcripts", desc: "Generate accurate transcripts with timestamps from any Twitter/X video. Download as SRT, VTT, TXT, or JSON subtitles." },
     ],
     faqs: [
       { q: "Can I download videos from any tweet?", a: "Yes, any publicly accessible tweet containing a video can be downloaded. Just paste the tweet URL into the input above." },
@@ -153,7 +157,7 @@ export const platformConfigs: Record<string, PlatformConfig> = {
     badge: "Vimeo Downloader",
     heading: "Download Vimeo Videos",
     headingAccent: "in 4K",
-    subheading: "Download Vimeo videos in up to 4K Ultra HD. Save professional content, extract audio as FLAC, or grab HD thumbnails.",
+    subheading: "Download Vimeo videos in up to 4K Ultra HD. Save professional content, extract audio as FLAC, grab HD thumbnails, or get AI transcripts.",
     placeholder: "Paste your Vimeo video URL here...",
     inputIcon: Play,
     features: [
@@ -161,6 +165,7 @@ export const platformConfigs: Record<string, PlatformConfig> = {
       { icon: Headphones, title: "Lossless Audio Extraction", desc: "Extract pristine audio from Vimeo videos. Get FLAC lossless or WAV uncompressed for professional audio production." },
       { icon: Image, title: "HD Thumbnail Downloads", desc: "Save Vimeo video thumbnails in full resolution. Perfect for portfolio references and project covers." },
       { icon: Film, title: "Supports All Vimeo Content", desc: "Works with public Vimeo videos, Staff Picks, and embedded content. Paste any Vimeo URL and download instantly." },
+      { icon: FileText, title: "AI Transcripts", desc: "Generate accurate transcripts with timestamps from any Vimeo video. Download as SRT, VTT, TXT, or JSON subtitles." },
     ],
     faqs: [
       { q: "Can I download Vimeo staff picks?", a: "Yes, Vimeo Staff Picks and other publicly available videos can be downloaded if they are not password-protected by the uploader." },
@@ -181,7 +186,7 @@ export const platformConfigs: Record<string, PlatformConfig> = {
     badge: "Dailymotion Downloader",
     heading: "Download Dailymotion Videos",
     headingAccent: "in HD",
-    subheading: "Save Dailymotion videos, news clips, and user content. Download in HD, extract audio, or grab thumbnails — quick and free.",
+    subheading: "Save Dailymotion videos, news clips, and user content. Download in HD, extract audio, grab thumbnails, or get AI transcripts — quick and free.",
     placeholder: "Paste your Dailymotion URL here...",
     inputIcon: Play,
     features: [
@@ -189,6 +194,7 @@ export const platformConfigs: Record<string, PlatformConfig> = {
       { icon: Headphones, title: "Audio Extraction", desc: "Convert Dailymotion videos to MP3 or AAC audio. Great for saving music videos, interviews, and podcast-style content." },
       { icon: Image, title: "Save Video Thumbnails", desc: "Download Dailymotion thumbnails in high quality. Available in multiple resolutions and formats including JPG and PNG." },
       { icon: Globe, title: "Works Worldwide", desc: "Access Dailymotion content from any region. Supports both regular Dailymotion and short url (dai.ly) links." },
+      { icon: FileText, title: "AI Transcripts", desc: "Generate accurate transcripts with timestamps from any Dailymotion video. Download as SRT, VTT, TXT, or JSON subtitles." },
     ],
     faqs: [
       { q: "Can I download Dailymotion news videos?", a: "Yes, Dailymotion news and user-uploaded content can be downloaded as long as they are publicly accessible on the platform." },
@@ -209,7 +215,7 @@ export const platformConfigs: Record<string, PlatformConfig> = {
     badge: "Twitch Downloader",
     heading: "Download Twitch Clips",
     headingAccent: "& VODs",
-    subheading: "Save Twitch clips, VODs, and highlights. Download in HD, extract audio for podcasts, or grab thumbnails — no login required.",
+    subheading: "Save Twitch clips, VODs, and highlights. Download in HD, extract audio for podcasts, grab thumbnails, or get AI transcripts — no login required.",
     placeholder: "Paste your Twitch URL here...",
     inputIcon: Monitor,
     features: [
@@ -217,6 +223,7 @@ export const platformConfigs: Record<string, PlatformConfig> = {
       { icon: Headphones, title: "Extract Stream Audio", desc: "Convert Twitch VODs to MP3 or AAC audio. Perfect for listening to streams as podcasts during commutes." },
       { icon: Image, title: "Download Thumbnails", desc: "Save Twitch clip and stream thumbnails in high resolution. Great for social media sharing and stream archiving." },
       { icon: Radio, title: "Supports All Twitch Content", desc: "Works with Twitch clips, VODs, highlights, and uploaded content. Paste any public Twitch URL and download instantly." },
+      { icon: FileText, title: "AI Transcripts", desc: "Generate accurate transcripts with timestamps from any Twitch VOD or clip. Download as SRT, VTT, TXT, or JSON subtitles." },
     ],
     faqs: [
       { q: "Can I download live Twitch streams?", a: "Currently, we support downloading completed VODs and clips. Live streams must finish before they can be processed for download." },
@@ -237,7 +244,7 @@ export const platformConfigs: Record<string, PlatformConfig> = {
     badge: "Reddit Downloader",
     heading: "Download Reddit Videos",
     headingAccent: "& GIFs",
-    subheading: "Save videos, GIFs, and media from any Reddit post. Download in HD quality, extract audio, or grab thumbnails — quick and free.",
+    subheading: "Save videos, GIFs, and media from any Reddit post. Download in HD quality, extract audio, grab thumbnails, or get AI transcripts — quick and free.",
     placeholder: "Paste your Reddit post URL here...",
     inputIcon: MessageSquare,
     features: [
@@ -245,6 +252,7 @@ export const platformConfigs: Record<string, PlatformConfig> = {
       { icon: Play, title: "Download Reddit GIFs", desc: "Reddit GIFs can be saved as MP4 video files. Download animated content for sharing and editing outside of Reddit." },
       { icon: Headphones, title: "Extract Audio from Posts", desc: "Convert Reddit video posts to MP3 or FLAC audio. Great for saving audio from music shares, podcasts, and interviews." },
       { icon: Image, title: "Save Post Thumbnails", desc: "Download Reddit post thumbnails in high resolution. Available in JPG, PNG, and WebP formats." },
+      { icon: FileText, title: "AI Transcripts", desc: "Generate accurate transcripts with timestamps from any Reddit video. Download as SRT, VTT, TXT, or JSON subtitles." },
     ],
     faqs: [
       { q: "Can I download videos from any subreddit?", a: "Yes, videos from any public subreddit can be downloaded as long as they are publicly accessible Reddit-hosted videos." },
@@ -265,7 +273,7 @@ export const platformConfigs: Record<string, PlatformConfig> = {
     badge: "Pinterest Downloader",
     heading: "Download Pinterest Videos",
     headingAccent: "& Pins",
-    subheading: "Save Pinterest videos, Idea Pins, and video pins. Download in HD, extract audio, or save thumbnails — instantly, no account required.",
+    subheading: "Save Pinterest videos, Idea Pins, and video pins. Download in HD, extract audio, save thumbnails, or get AI transcripts — instantly, no account required.",
     placeholder: "Paste your Pinterest URL here...",
     inputIcon: Image,
     features: [
@@ -273,6 +281,7 @@ export const platformConfigs: Record<string, PlatformConfig> = {
       { icon: Music, title: "Extract Pin Audio", desc: "Convert Pinterest video pins to MP3 or AAC audio. Great for saving audio from music pins and instructional content." },
       { icon: Image, title: "Download Pin Images", desc: "Save high-resolution images from Pinterest pins. Get the full quality version without compression or cropping." },
       { icon: Hash, title: "Supports All Pin Types", desc: "Works with video pins, Idea Pins, and standard image pins. Paste any public Pinterest URL and download instantly." },
+      { icon: FileText, title: "AI Transcripts", desc: "Generate accurate transcripts with timestamps from any Pinterest video pin. Download as SRT, VTT, TXT, or JSON subtitles." },
     ],
     faqs: [
       { q: "Can I download Idea Pins?", a: "Yes, Pinterest Idea Pins (formerly Story Pins) are fully supported. Download the video or extract audio from multi-page Idea Pins." },
@@ -293,7 +302,7 @@ export const platformConfigs: Record<string, PlatformConfig> = {
     badge: "LinkedIn Downloader",
     heading: "Download LinkedIn Videos",
     headingAccent: "& Learning",
-    subheading: "Save LinkedIn videos, company content, and Learning courses. Download in HD, extract audio, or grab thumbnails — fast and free.",
+    subheading: "Save LinkedIn videos, company content, and Learning courses. Download in HD, extract audio, grab thumbnails, or get AI transcripts — fast and free.",
     placeholder: "Paste your LinkedIn URL here...",
     inputIcon: Hash,
     features: [
@@ -301,6 +310,7 @@ export const platformConfigs: Record<string, PlatformConfig> = {
       { icon: Headphones, title: "Extract Course Audio", desc: "Convert LinkedIn Learning videos to MP3 or AAC audio. Great for learning on the go by listening to course content." },
       { icon: Image, title: "Save Post Thumbnails", desc: "Download LinkedIn video thumbnails in high resolution. Useful for archiving and portfolio documentation." },
       { icon: Globe, title: "Public Content Access", desc: "Works with publicly shared LinkedIn videos and content visible without login. Privacy-restricted content requires authentication." },
+      { icon: FileText, title: "AI Transcripts", desc: "Generate accurate transcripts with timestamps from any LinkedIn video. Download as SRT, VTT, TXT, or JSON subtitles." },
     ],
     faqs: [
       { q: "Can I download LinkedIn Learning courses?", a: "LinkedIn Learning videos can be downloaded for personal offline study as long as they are publicly accessible through the platform." },
@@ -321,7 +331,7 @@ export const platformConfigs: Record<string, PlatformConfig> = {
     badge: "Snapchat Downloader",
     heading: "Download Snapchat Videos",
     headingAccent: "& Spotlight",
-    subheading: "Save Snapchat Spotlight videos and public stories. Download in original quality, extract audio, or grab thumbnails — fast and free.",
+    subheading: "Save Snapchat Spotlight videos and public stories. Download in original quality, extract audio, grab thumbnails, or get AI transcripts — fast and free.",
     placeholder: "Paste your Snapchat URL here...",
     inputIcon: Camera,
     features: [
@@ -329,6 +339,7 @@ export const platformConfigs: Record<string, PlatformConfig> = {
       { icon: Music, title: "Extract Spotlight Audio", desc: "Convert Snapchat videos to MP3 or AAC audio. Great for saving soundtracks and audio from popular Spotlight posts." },
       { icon: Image, title: "Save Video Thumbnails", desc: "Download Snapchat video thumbnails in high resolution. Available in JPG and PNG formats." },
       { icon: Camera, title: "Supports Public Content", desc: "Works with publicly shared Snapchat Spotlight videos and public story content that is accessible to all users." },
+      { icon: FileText, title: "AI Transcripts", desc: "Generate accurate transcripts with timestamps from any Snapchat Spotlight video. Download as SRT, VTT, TXT, or JSON subtitles." },
     ],
     faqs: [
       { q: "Can I download private Snapchat stories?", a: "Only publicly shared content like Spotlight videos and public stories can be downloaded. Private stories are not accessible." },
@@ -349,7 +360,7 @@ export const platformConfigs: Record<string, PlatformConfig> = {
     badge: "SoundCloud Downloader",
     heading: "Download SoundCloud Tracks",
     headingAccent: "as MP3 & FLAC",
-    subheading: "Save SoundCloud tracks, playlists, and remixes. Download as high-quality MP3, FLAC, AAC, or WAV — no account required.",
+    subheading: "Save SoundCloud tracks, playlists, and remixes. Download as high-quality MP3, FLAC, AAC, WAV, or get AI transcripts — no account required.",
     placeholder: "Paste your SoundCloud track URL here...",
     inputIcon: Headphones,
     features: [
@@ -357,6 +368,7 @@ export const platformConfigs: Record<string, PlatformConfig> = {
       { icon: Radio, title: "Lossless FLAC & WAV", desc: "Extract SoundCloud audio as lossless FLAC or uncompressed WAV. Ideal for DJs, producers, and audiophiles." },
       { icon: Layers, title: "Download Full Playlists", desc: "Save entire SoundCloud playlists and albums in one go with a Pro subscription. No need to process tracks individually." },
       { icon: Globe, title: "Supports All SoundCloud Content", desc: "Works with tracks, playlists, albums, and reposts. Paste any public SoundCloud URL and download instantly." },
+      { icon: FileText, title: "AI Transcripts", desc: "Generate accurate transcripts with timestamps from any SoundCloud track or podcast. Download as SRT, VTT, TXT, or JSON subtitles." },
     ],
     faqs: [
       { q: "What audio quality does SoundCloud use?", a: "SoundCloud streams at 128 kbps MP3 for free users. Premium tracks may be available at higher bitrates. Our downloads match the source quality." },
@@ -377,7 +389,7 @@ export const platformConfigs: Record<string, PlatformConfig> = {
     badge: "Kick Downloader",
     heading: "Download Kick Videos",
     headingAccent: "& Streams",
-    subheading: "Download Kick VODs, clips, and highlights. Save in HD, extract audio, or grab thumbnails — fast, free, no sign-up needed.",
+    subheading: "Download Kick VODs, clips, and highlights. Save in HD, extract audio, grab thumbnails, or get AI transcripts — fast, free, no sign-up needed.",
     placeholder: "Paste your Kick URL here...",
     inputIcon: Monitor,
     features: [
@@ -385,6 +397,7 @@ export const platformConfigs: Record<string, PlatformConfig> = {
       { icon: Headphones, title: "Extract Stream Audio", desc: "Convert Kick VODs to MP3 or AAC audio. Great for creating stream podcasts or saving audio highlights." },
       { icon: Image, title: "Save Video Thumbnails", desc: "Download Kick stream thumbnails in high resolution. Available in JPG, PNG, and WebP formats." },
       { icon: Radio, title: "Supports All Kick Content", desc: "Works with Kick VODs, clips, and highlighted moments from any public channel on the platform." },
+      { icon: FileText, title: "AI Transcripts", desc: "Generate accurate transcripts with timestamps from any Kick VOD or clip. Download as SRT, VTT, TXT, or JSON subtitles." },
     ],
     faqs: [
       { q: "Can I download live Kick streams?", a: "Currently, we support downloading completed VODs and clips. Live streams need to finish before they can be processed." },
@@ -405,7 +418,7 @@ export const platformConfigs: Record<string, PlatformConfig> = {
     badge: "YouTube Downloader",
     heading: "Download YouTube Videos",
     headingAccent: "in 4K",
-    subheading: "Paste any YouTube video link and download in seconds. Save videos in 4K, 1080p, 720p. Extract audio as MP3 320kbps, FLAC — no account required.",
+    subheading: "Paste any YouTube video link and download in seconds. Save videos in 4K, extract audio as MP3 320kbps, get AI transcripts, or save HD thumbnails — no account required.",
     placeholder: "Paste your YouTube video URL here...",
     inputIcon: Youtube,
     features: [
@@ -413,6 +426,7 @@ export const platformConfigs: Record<string, PlatformConfig> = {
       { icon: Music, title: "High-Quality Audio", desc: "Convert YouTube videos to MP3 up to 320 kbps, AAC 256 kbps, FLAC lossless, WAV uncompressed, and OGG. Perfect for music and podcasts." },
       { icon: Image, title: "HD Thumbnail Downloads", desc: "Save YouTube video thumbnails in maximum resolution up to 1920×1080. Available in JPG, PNG, and WebP formats." },
       { icon: Globe, title: "Works with All YouTube URLs", desc: "Supports regular videos, Shorts, live streams, community posts, and embedded clips. Paste any YouTube link." },
+      { icon: FileText, title: "AI Transcripts", desc: "Generate accurate transcripts with timestamps from any YouTube video. Download as SRT, VTT, TXT, or JSON subtitles." },
     ],
     faqs: [
       { q: "What video qualities are available?", a: "YouTube videos can be downloaded in multiple qualities including 4K (2160p), 1440p, 1080p (Full HD), 720p (HD), 480p, and 360p. The available qualities depend on what the original uploader provided." },
@@ -433,7 +447,7 @@ export const platformConfigs: Record<string, PlatformConfig> = {
     badge: "Niconico Downloader",
     heading: "Download Niconico Videos",
     headingAccent: "in HD",
-    subheading: "Save Niconico Douga videos, live recordings, and user content. Download in HD, extract audio, or grab thumbnails — quick and free.",
+    subheading: "Save Niconico Douga videos, live recordings, and user content. Download in HD, extract audio, grab thumbnails, or get AI transcripts — quick and free.",
     placeholder: "Paste your Niconico URL here...",
     inputIcon: Play,
     features: [
@@ -441,6 +455,7 @@ export const platformConfigs: Record<string, PlatformConfig> = {
       { icon: Headphones, title: "Extract Video Audio", desc: "Convert Niconico videos to MP3 or AAC audio. Great for listening to music covers, vocaloid tracks, and spoken content." },
       { icon: Image, title: "Save Video Thumbnails", desc: "Download Niconico video thumbnails in high resolution. Available in JPG and PNG formats." },
       { icon: Globe, title: "Supports Niconico Content", desc: "Works with publicly accessible Niconico Douga videos from both nicovideo.jp and niconico.jp domains." },
+      { icon: FileText, title: "AI Transcripts", desc: "Generate accurate transcripts with timestamps from any Niconico video. Download as SRT, VTT, TXT, or JSON subtitles." },
     ],
     faqs: [
       { q: "Can I download Niconico videos with comments?", a: "Our service downloads the raw video file without the Niconico comment overlay. The video content itself is preserved in full quality." },

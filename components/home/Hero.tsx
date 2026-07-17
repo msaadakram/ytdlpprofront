@@ -260,7 +260,7 @@ export function Hero() {
         >
           Download any video,
           <br />
-          <span className="text-[#5baab8]">audio</span> or thumbnail.
+          <span className="text-[#5baab8]">audio</span>, thumbnail or transcript.
         </motion.h1>
 
         <motion.p
@@ -269,7 +269,7 @@ export function Hero() {
           animate={{ opacity: 1, y: 0 }}
           transition={{ delay: 0.25, duration: 0.6 }}
         >
-          Paste a link from YouTube, Facebook, TikTok, Instagram and 200+ more. Get your file in seconds — no account required.
+           Paste a link from YouTube, Facebook, TikTok, Instagram and 200+ more. Download video, audio, thumbnails, or AI transcripts — no account required.
         </motion.p>
 
         <motion.div className="flex justify-center mb-5" initial={{ opacity: 0, y: 16 }} animate={{ opacity: 1, y: 0 }} transition={{ delay: 0.35 }}>
