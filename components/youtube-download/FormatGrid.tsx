@@ -49,12 +49,13 @@ export function FormatGrid({ formats, selectedIndex, onSelect, type }: FormatGri
           <motion.button
             key={i}
             onClick={() => onSelect(i)}
-            whileHover={{ scale: 1.02, y: -1 }}
-            whileTap={{ scale: 0.98 }}
-            className={`relative flex flex-col items-start gap-1 rounded-xl border p-3 text-left transition-all ${
+            whileHover={{ scale: 1.03, y: -2 }}
+            whileTap={{ scale: 0.97 }}
+            layout
+            className={`relative flex flex-col items-start gap-1 rounded-xl border p-3 text-left transition-all duration-200 ${
               selected
-                ? "border-[#5baab8] ring-2 ring-[#5baab8]/20 bg-[#eef6f8]"
-                : "border-border bg-white hover:border-[#5baab8]/40 hover:shadow-sm"
+                ? "bg-white/90 backdrop-blur-sm border-[#5baab8] ring-2 ring-[#5baab8]/20 shadow-md"
+                : "bg-white/70 backdrop-blur-sm border-border hover:border-[#5baab8]/40 hover:shadow-sm"
             }`}
           >
             <div className="flex items-center justify-between w-full">
@@ -63,9 +64,9 @@ export function FormatGrid({ formats, selectedIndex, onSelect, type }: FormatGri
               </span>
               {selected && (
                 <motion.span
-                  initial={{ scale: 0 }}
-                  animate={{ scale: 1 }}
-                  transition={{ type: "spring", stiffness: 400, damping: 20 }}
+                  initial={{ scale: 0, rotate: -90 }}
+                  animate={{ scale: 1, rotate: 0 }}
+                  transition={{ type: "spring", stiffness: 300, damping: 14 }}
                 >
                   <CheckCircle2 className="w-3.5 h-3.5 text-[#5baab8]" />
                 </motion.span>
@@ -83,19 +84,27 @@ export function FormatGrid({ formats, selectedIndex, onSelect, type }: FormatGri
             {type !== "thumbnail" && (
               <div className="flex items-center gap-0.5 mt-1">
                 {Array.from({ length: bars }).map((_, b) => (
-                  <span
+                  <motion.span
                     key={b}
-                    className={`h-1 rounded-full transition-all ${
+                    initial={{ width: 0 }}
+                    animate={{ width: b === 0 ? "0.75rem" : b === 1 ? "1.25rem" : b === 2 ? "1.75rem" : "2.25rem" }}
+                    transition={{ duration: 0.4, delay: i * 0.05 + b * 0.08, ease: "easeOut" }}
+                    className={`h-1 rounded-full ${
                       selected ? "bg-[#5baab8]" : "bg-[#d4ecf0]"
-                    } ${b === 0 ? "w-3" : b === 1 ? "w-5" : b === 2 ? "w-7" : "w-9"}`}
+                    }`}
                   />
                 ))}
               </div>
             )}
 
-            <span className="text-[10px] text-muted-foreground font-mono mt-0.5">
+            <motion.span
+              className="text-[10px] text-muted-foreground font-mono mt-0.5"
+              initial={{ opacity: 0, y: 4 }}
+              animate={{ opacity: 1, y: 0 }}
+              transition={{ duration: 0.3, delay: i * 0.05 + 0.15 }}
+            >
               {resolutionLabel(fmt, type)}
-            </span>
+            </motion.span>
           </motion.button>
         );
       })}

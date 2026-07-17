@@ -2,7 +2,7 @@
 
 import { useState } from "react";
 import { motion, AnimatePresence } from "motion/react";
-import { ChevronDown } from "lucide-react";
+import { Plus, Minus } from "lucide-react";
 import { platformConfigs } from "@/lib/platform-config";
 
 export function PlatformFaq({ platform }: { platform: string }) {
@@ -40,49 +40,64 @@ export function PlatformFaq({ platform }: { platform: string }) {
             return (
               <motion.div
                 key={i}
-                initial={{ opacity: 0, y: 12 }}
+                initial={{ opacity: 0, x: -8 }}
                 whileInView="visible"
                 viewport={{ once: true, margin: "-30px" }}
-                variants={{ visible: { opacity: 1, y: 0 } }}
-                transition={{ duration: 0.35, delay: i * 0.04 }}
-                className="bg-white rounded-2xl border border-border overflow-hidden"
+                variants={{ visible: { opacity: 1, x: 0 } }}
+                transition={{ duration: 0.35, delay: i * 0.05 }}
+                className={`bg-white rounded-2xl border overflow-hidden transition-shadow duration-200 ${
+                  isOpen ? "shadow-md border-[#5baab8]/20" : "border-border shadow-sm"
+                }`}
                 itemScope
                 itemType="https://schema.org/Question"
               >
                 <dt>
                   <button
                     onClick={() => setOpenIndex(isOpen ? null : i)}
-                    className="w-full flex items-center justify-between px-5 py-4 text-left"
+                    className="w-full flex items-center justify-between px-5 py-4 text-left group"
                     aria-expanded={isOpen}
-                    aria-controls={`plat-faq-answer-${config.id}-${i}`}
+                    aria-controls={`faq-answer-${config.id}-${i}`}
                   >
-                    <span className="text-sm font-semibold text-foreground pr-4 font-heading" itemProp="name">
+                    <span className="text-sm font-semibold text-foreground pr-4 font-heading group-hover:text-[#5baab8] transition-colors" itemProp="name">
                       {faq.q}
                     </span>
                     <motion.span
-                      animate={{ rotate: isOpen ? 180 : 0 }}
-                      transition={{ duration: 0.2 }}
-                      className="shrink-0"
+                      animate={{ rotate: isOpen ? 90 : 0 }}
+                      transition={{ type: "spring", stiffness: 400, damping: 20 }}
+                      className="shrink-0 w-6 h-6 rounded-full bg-[#eef6f8] flex items-center justify-center"
+                      style={{ backgroundColor: isOpen ? `${config.brandColor}15` : undefined }}
                     >
-                      <ChevronDown className="w-4 h-4 text-muted-foreground" />
+                      {isOpen ? (
+                        <Minus className="w-3.5 h-3.5" style={{ color: config.brandColor }} />
+                      ) : (
+                        <Plus className="w-3.5 h-3.5 text-muted-foreground" />
+                      )}
                     </motion.span>
                   </button>
                 </dt>
                 <AnimatePresence initial={false}>
                   {isOpen && (
                     <motion.dd
-                      id={`plat-faq-answer-${config.id}-${i}`}
+                      id={`faq-answer-${config.id}-${i}`}
                       initial={{ height: 0, opacity: 0 }}
                       animate={{ height: "auto", opacity: 1 }}
                       exit={{ height: 0, opacity: 0 }}
-                      transition={{ duration: 0.25, ease: "easeInOut" }}
+                      transition={{ type: "spring", stiffness: 200, damping: 25, mass: 0.8 }}
                       className="overflow-hidden"
                       itemScope
                       itemType="https://schema.org/Answer"
                     >
-                      <p className="px-5 pb-4 text-sm text-muted-foreground leading-relaxed font-sans" itemProp="text">
-                        {faq.a}
-                      </p>
+                      <div className="px-5 pb-4">
+                        <div
+                          className="w-8 h-0.5 rounded-full mb-3"
+                          style={{ backgroundColor: config.brandColor }}
+                        />
+                        <p className="text-sm text-muted-foreground leading-relaxed font-sans" itemProp="text">
+                          <span className="font-semibold text-foreground">{faq.a.split(" ").slice(0, 3).join(" ")}</span>
+                          {" "}
+                          {faq.a.split(" ").slice(3).join(" ")}
+                        </p>
+                      </div>
                     </motion.dd>
                   )}
                 </AnimatePresence>

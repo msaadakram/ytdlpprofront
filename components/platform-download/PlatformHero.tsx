@@ -3,7 +3,7 @@
 import { useState, useRef, useCallback, useEffect } from "react";
 import { motion, AnimatePresence } from "motion/react";
 import {
-  Download, CheckCircle2, Play, X, Sparkles, Music, Image,
+  Download, CheckCircle2, Play, X, Sparkles, Music, Image, Loader2,
 } from "lucide-react";
 import { videoFormats, audioFormats, thumbnailFormats } from "@/lib/constants";
 import type { DownloadType, Format } from "@/lib/constants";
@@ -29,6 +29,23 @@ function parseBitrate(fmt: Format): string {
 const CONTAINER_MAP: Record<string, string> = {
   mp4: "mp4", mkv: "mkv", webm: "webm",
 };
+
+function SkeletonPreview() {
+  return (
+    <div className="mt-4 animate-pulse" role="status" aria-label="Loading video information">
+      <div className="h-px bg-border mb-4" />
+      <div className="flex flex-col md:flex-row gap-4">
+        <div className="md:w-72 lg:w-80 aspect-video md:aspect-[4/3] bg-muted rounded-xl" />
+        <div className="flex-1 space-y-3 py-2">
+          <div className="h-4 bg-muted rounded w-3/4" />
+          <div className="h-3 bg-muted rounded w-1/2" />
+          <div className="h-3 bg-muted rounded w-2/3" />
+          <div className="h-3 bg-muted rounded w-1/3" />
+        </div>
+      </div>
+    </div>
+  );
+}
 
 export function PlatformHero({ platform }: { platform: string }) {
   const config = platformConfigs[platform];
@@ -222,33 +239,57 @@ export function PlatformHero({ platform }: { platform: string }) {
   }
 
   const InputIcon = config.inputIcon;
+  const Logo = config.Logo;
 
   return (
     <section className="pt-32 pb-20 px-6 relative overflow-hidden">
+      <div
+        className="absolute inset-0 pointer-events-none"
+        style={{
+          backgroundImage: `radial-gradient(circle, rgba(0,0,0,0.04) 1px, transparent 1px)`,
+          backgroundSize: "28px 28px",
+        }}
+      />
+
       <motion.div
-        className="absolute top-0 right-0 w-[600px] h-[600px] rounded-full opacity-30 pointer-events-none"
-        style={{ background: `radial-gradient(circle, ${config.brandColor}33 0%, transparent 70%)` }}
-        animate={{ x: ["30%", "20%", "30%"], y: ["-30%", "-20%", "-30%"], scale: [1, 1.1, 1] }}
-        transition={{ duration: 12, repeat: Infinity, ease: "easeInOut" }}
+        className="absolute top-[-10%] right-[-5%] w-[500px] h-[500px] rounded-full opacity-20 pointer-events-none"
+        style={{ background: `radial-gradient(circle, ${config.brandColor} 0%, transparent 70%)` }}
+        animate={{ x: ["0%", "15%", "0%"], y: ["0%", "-10%", "0%"], scale: [1, 1.2, 1] }}
+        transition={{ duration: 10, repeat: Infinity, ease: "easeInOut" }}
       />
       <motion.div
-        className="absolute bottom-0 left-0 w-[400px] h-[400px] rounded-full opacity-20 pointer-events-none"
-        style={{ background: "radial-gradient(circle, #a8d4dc 0%, transparent 70%)" }}
-        animate={{ x: ["-40%", "-30%", "-40%"], y: ["40%", "30%", "40%"], scale: [1, 1.15, 1] }}
-        transition={{ duration: 14, repeat: Infinity, ease: "easeInOut" }}
+        className="absolute top-[20%] left-[-8%] w-[350px] h-[350px] rounded-full opacity-15 pointer-events-none"
+        style={{ background: `radial-gradient(circle, #5baab8 0%, transparent 70%)` }}
+        animate={{ x: ["0%", "-10%", "0%"], y: ["0%", "15%", "0%"], scale: [1, 1.15, 1] }}
+        transition={{ duration: 13, repeat: Infinity, ease: "easeInOut" }}
+      />
+      <motion.div
+        className="absolute bottom-[-5%] right-[10%] w-[300px] h-[300px] rounded-full opacity-10 pointer-events-none"
+        style={{ background: `radial-gradient(circle, ${config.brandColor} 0%, transparent 70%)` }}
+        animate={{ x: ["0%", "-20%", "0%"], y: ["0%", "10%", "0%"], scale: [1, 1.25, 1] }}
+        transition={{ duration: 15, repeat: Infinity, ease: "easeInOut" }}
       />
 
       <div className="max-w-4xl mx-auto relative">
+        <motion.div
+          className="hidden md:block absolute top-[-40px] right-[-60px] opacity-[0.04] pointer-events-none"
+          initial={{ opacity: 0, scale: 0.5, rotate: -10 }}
+          animate={{ opacity: 0.04, scale: 1, rotate: 0 }}
+          transition={{ delay: 0.3, duration: 1, ease: "easeOut" }}
+        >
+          <Logo className="w-48 h-48" />
+        </motion.div>
+
         <motion.div
           className="flex justify-center mb-6"
           initial={{ opacity: 0, y: 12 }}
           animate={{ opacity: 1, y: 0 }}
           transition={{ delay: 0.1 }}
         >
-          <span className="inline-flex items-center gap-2 text-xs font-semibold tracking-widest uppercase px-4 py-2 rounded-full bg-white border border-border text-muted-foreground shadow-sm font-mono">
+          <span className="inline-flex items-center gap-2 text-xs font-semibold tracking-widest uppercase px-4 py-2 rounded-full bg-white/80 backdrop-blur-sm border border-border text-muted-foreground shadow-sm font-mono">
             <span
               className="w-1.5 h-1.5 rounded-full animate-pulse"
-              style={{ backgroundColor: config.brandColor }}
+              style={{ backgroundColor: config.brandColor, boxShadow: `0 0 4px ${config.brandColor}` }}
             />
             {config.badge}
           </span>
@@ -280,7 +321,7 @@ export function PlatformHero({ platform }: { platform: string }) {
           animate={{ opacity: 1, y: 0 }}
           transition={{ delay: 0.35 }}
         >
-          <div className="inline-flex bg-white border border-border rounded-full p-1 shadow-sm gap-1 relative">
+          <div className="inline-flex bg-white/80 backdrop-blur-sm border border-border rounded-full p-1 shadow-sm gap-1 relative">
             {(["video", "audio", "thumbnail"] as DownloadType[]).map((type) => {
               const cfg = typeConfig[type];
               const Icon = cfg.icon;
@@ -289,14 +330,15 @@ export function PlatformHero({ platform }: { platform: string }) {
                 <button
                   key={type}
                   onClick={() => { setActiveType(type); setSelectedFormat(0); setError(""); }}
-                  className={`relative flex items-center gap-2 px-5 py-2 rounded-full text-sm font-semibold transition-colors font-sans ${
+                  className={`relative flex items-center gap-2 px-4 md:px-5 py-2 rounded-full text-sm font-semibold transition-colors font-sans ${
                     active ? "text-white" : "text-muted-foreground hover:text-foreground"
                   }`}
                 >
                   {active && (
                     <motion.span
                       layoutId="platTypePill"
-                      className="absolute inset-0 bg-[#0d1f26] rounded-full shadow-md"
+                      className="absolute inset-0 rounded-full shadow-md"
+                      style={{ backgroundColor: config.brandColor }}
                       transition={{ type: "spring", stiffness: 400, damping: 32 }}
                     />
                   )}
@@ -309,14 +351,39 @@ export function PlatformHero({ platform }: { platform: string }) {
         </motion.div>
 
         <motion.div
-          className="bg-white rounded-2xl shadow-xl border border-border p-4 md:p-5"
+          className="bg-white/80 backdrop-blur-xl rounded-2xl shadow-2xl shadow-black/5 border border-border/60 p-4 md:p-5 relative"
           initial={{ opacity: 0, y: 24, scale: 0.98 }}
           animate={{ opacity: 1, y: 0, scale: 1 }}
           transition={{ delay: 0.4, duration: 0.6 }}
         >
+          <div
+            className="absolute inset-x-0 top-0 h-0.5 rounded-t-2xl"
+            style={{ background: `linear-gradient(90deg, ${config.brandColor}, #5baab8, ${config.brandColor})` }}
+          />
+
           <div className="flex flex-col md:flex-row gap-3">
-            <div className="flex-1 flex items-center gap-3 bg-[#eef6f8] rounded-xl px-4 py-3 focus-within:ring-2 focus-within:ring-[#5baab8]/40 transition-all">
-              <InputIcon className="w-4 h-4 text-muted-foreground flex-shrink-0" />
+            <div
+              className="flex-1 flex items-center gap-3 bg-white/70 backdrop-blur-sm rounded-xl px-4 py-3 transition-all duration-300"
+              style={{ boxShadow: "inset 0 1px 2px rgba(0,0,0,0.04)" }}
+              onFocus={(e) => {
+                const parent = e.currentTarget;
+                parent.style.boxShadow = `inset 0 1px 2px rgba(0,0,0,0.04), 0 0 0 2px ${config.brandColor}40`;
+                parent.style.backgroundColor = "white";
+              }}
+              onBlur={(e) => {
+                const parent = e.currentTarget;
+                parent.style.boxShadow = "inset 0 1px 2px rgba(0,0,0,0.04)";
+                parent.style.backgroundColor = "rgba(255,255,255,0.7)";
+              }}
+            >
+              <span
+                className="flex-shrink-0 transition-transform duration-300"
+                style={{ color: config.brandColor }}
+                onMouseEnter={(e) => e.currentTarget.style.transform = "scale(1.15)"}
+                onMouseLeave={(e) => e.currentTarget.style.transform = "scale(1)"}
+              >
+                <InputIcon className="w-4 h-4" />
+              </span>
               <div className="flex-1 min-w-0">
                 <input
                   ref={inputRef}
@@ -327,12 +394,6 @@ export function PlatformHero({ platform }: { platform: string }) {
                   placeholder={config.placeholder}
                   className="w-full bg-transparent text-sm text-foreground placeholder:text-muted-foreground outline-none font-sans"
                 />
-                {fetchingInfo && (
-                  <p className="text-[10px] text-muted-foreground flex items-center gap-1 mt-0.5 font-sans">
-                    <span className="w-2 h-2 border border-[#5baab8] border-t-transparent rounded-full animate-spin" />
-                    Fetching media info...
-                  </p>
-                )}
               </div>
               {url && (
                 <button onClick={() => { setUrl(""); setMediaInfo(null); setInfoError(false); }} className="text-muted-foreground hover:text-foreground transition-colors shrink-0">
@@ -346,28 +407,52 @@ export function PlatformHero({ platform }: { platform: string }) {
               disabled={processing}
               whileHover={{ scale: processing ? 1 : 1.03 }}
               whileTap={{ scale: processing ? 1 : 0.97 }}
-              className="flex items-center justify-center gap-2 bg-[#0d1f26] hover:bg-[#1a3545] text-white font-semibold text-sm px-7 py-3 rounded-xl transition-colors disabled:opacity-70 whitespace-nowrap min-w-[150px] font-sans"
+              className="flex items-center justify-center gap-2 text-white font-semibold text-sm px-7 py-3 rounded-xl transition-all duration-300 disabled:opacity-70 whitespace-nowrap min-w-[150px] font-sans relative overflow-hidden group"
+              style={{
+                background: `linear-gradient(135deg, #0d1f26, ${config.brandColor}DD)`,
+              }}
             >
-              <AnimatePresence mode="wait">
-                {processing ? (
-                  <motion.span key="proc" initial={{ opacity: 0 }} animate={{ opacity: 1 }} exit={{ opacity: 0 }} className="flex items-center gap-2">
-                    <span className="w-4 h-4 border-2 border-white/30 border-t-white rounded-full animate-spin" />
-                    {statusText || "Processing..."}
-                  </motion.span>
-                ) : done ? (
-                  <motion.span key="done" initial={{ opacity: 0, scale: 0.8 }} animate={{ opacity: 1, scale: 1 }} exit={{ opacity: 0 }} className="flex items-center gap-2">
-                    <CheckCircle2 className="w-4 h-4 text-[#5baab8]" />
-                    Ready!
-                  </motion.span>
-                ) : (
-                  <motion.span key="idle" initial={{ opacity: 0 }} animate={{ opacity: 1 }} exit={{ opacity: 0 }} className="flex items-center gap-2">
-                    <Download className="w-4 h-4" />
-                    Download
-                  </motion.span>
-                )}
-              </AnimatePresence>
+              <motion.span
+                className="absolute inset-0 opacity-0 group-hover:opacity-100 transition-opacity duration-300"
+                style={{
+                  background: `linear-gradient(135deg, ${config.brandColor}DD, #0d1f26)`,
+                }}
+              />
+              <span className="relative z-10 flex items-center gap-2">
+                <AnimatePresence mode="wait">
+                  {processing ? (
+                    <motion.span key="proc" initial={{ opacity: 0 }} animate={{ opacity: 1 }} exit={{ opacity: 0 }} className="flex items-center gap-2">
+                      <span className="w-4 h-4 border-2 border-white/30 border-t-white rounded-full animate-spin" />
+                      {statusText || "Processing..."}
+                    </motion.span>
+                  ) : done ? (
+                    <motion.span key="done" initial={{ opacity: 0, scale: 0.8 }} animate={{ opacity: 1, scale: 1 }} exit={{ opacity: 0 }} className="flex items-center gap-2">
+                      <CheckCircle2 className="w-4 h-4" />
+                      Ready!
+                    </motion.span>
+                  ) : (
+                    <motion.span key="idle" initial={{ opacity: 0 }} animate={{ opacity: 1 }} exit={{ opacity: 0 }} className="flex items-center gap-2">
+                      <Download className="w-4 h-4" />
+                      Download
+                    </motion.span>
+                  )}
+                </AnimatePresence>
+              </span>
             </motion.button>
           </div>
+
+          <AnimatePresence mode="wait">
+            {fetchingInfo && !mediaInfo && (
+              <motion.div
+                key="skeleton"
+                initial={{ opacity: 0 }}
+                animate={{ opacity: 1 }}
+                exit={{ opacity: 0 }}
+              >
+                <SkeletonPreview />
+              </motion.div>
+            )}
+          </AnimatePresence>
 
           <AnimatePresence mode="wait">
             {mediaInfo && !processing && !done && (
@@ -378,7 +463,7 @@ export function PlatformHero({ platform }: { platform: string }) {
                 exit={{ opacity: 0, y: -8 }}
                 transition={{ duration: 0.35 }}
               >
-                <div className="h-px bg-border my-4" />
+                <div className="h-px bg-border/60 my-4" />
                 <VideoPreview info={mediaInfo} />
               </motion.div>
             )}
@@ -405,7 +490,7 @@ export function PlatformHero({ platform }: { platform: string }) {
                 className="mt-4"
               >
                 <div className="flex items-center gap-2 mb-3">
-                  <Sparkles className="w-3.5 h-3.5 text-[#5baab8]" />
+                  <Sparkles className="w-3.5 h-3.5" style={{ color: config.brandColor }} />
                   <span className="text-xs font-semibold text-foreground font-sans">
                     Choose {activeType === "video" ? "video quality" : activeType === "audio" ? "audio quality" : "thumbnail format"}
                   </span>

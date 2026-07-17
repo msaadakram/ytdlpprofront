@@ -33,25 +33,36 @@ export function VideoPreview({ info }: VideoPreviewProps) {
       initial={{ opacity: 0, y: 20, scale: 0.98 }}
       animate={{ opacity: 1, y: 0, scale: 1 }}
       transition={{ duration: 0.45, ease: [0.21, 0.6, 0.35, 1] }}
-      className="bg-white rounded-2xl border border-border overflow-hidden shadow-sm"
+      className="bg-white rounded-2xl border border-border overflow-hidden shadow-sm group"
     >
       <div className="flex flex-col md:flex-row" itemScope itemType="https://schema.org/VideoObject">
-        <figure className="relative md:w-72 lg:w-80 shrink-0 bg-[#0d1f26]">
+        <figure className="relative md:w-72 lg:w-80 shrink-0 bg-[#0d1f26] overflow-hidden">
           {info.thumbnail ? (
             <>
-              <img
+              <motion.img
                 src={info.thumbnail}
                 alt={`Thumbnail for ${info.title}`}
                 className="w-full aspect-video md:aspect-[4/3] object-cover opacity-90"
                 loading="lazy"
                 itemProp="thumbnail"
+                whileHover={{ scale: 1.05 }}
+                transition={{ duration: 0.4, ease: "easeOut" }}
               />
               <figcaption className="sr-only">{info.title}</figcaption>
-              <div className="absolute inset-0 bg-gradient-to-tr from-black/40 to-transparent" />
-              <div className="absolute bottom-2 right-2 flex items-center gap-1 bg-black/70 text-white text-[10px] font-mono px-1.5 py-0.5 rounded" itemProp="duration">
-                <Play className="w-2.5 h-2.5 fill-white" />
+              <motion.div
+                className="absolute inset-0"
+                style={{ background: "linear-gradient(135deg, rgba(0,0,0,0.5) 0%, transparent 50%, rgba(0,0,0,0.2) 100%)" }}
+                animate={{ backgroundPosition: ["0% 0%", "100% 100%", "0% 0%"] }}
+                transition={{ duration: 8, repeat: Infinity, ease: "linear" }}
+              />
+              <motion.div
+                className="absolute bottom-2 right-2 flex items-center gap-1.5 bg-black/80 backdrop-blur-sm text-white text-[11px] font-mono px-2 py-1 rounded-lg shadow-lg"
+                itemProp="duration"
+                whileHover={{ scale: 1.05 }}
+              >
+                <Play className="w-3 h-3 fill-white" />
                 <span>{info.duration_str || ""}</span>
-              </div>
+              </motion.div>
             </>
           ) : (
             <div className="w-full aspect-video md:aspect-[4/3] flex items-center justify-center bg-[#eef6f8]">
@@ -60,7 +71,7 @@ export function VideoPreview({ info }: VideoPreviewProps) {
           )}
         </figure>
 
-        <div className="flex-1 p-4 md:p-5 space-y-2.5">
+        <div className="flex-1 p-4 md:p-5 space-y-3">
           <motion.h3
             initial={{ opacity: 0, y: 8 }}
             animate={{ opacity: 1, y: 0 }}
@@ -77,7 +88,9 @@ export function VideoPreview({ info }: VideoPreviewProps) {
             transition={{ delay: 0.2 }}
             className="flex items-center gap-2 text-xs text-muted-foreground"
           >
-            <User className="w-3 h-3" />
+            <div className="w-5 h-5 rounded-full bg-[#eef6f8] flex items-center justify-center">
+              <User className="w-3 h-3 text-[#5baab8]" />
+            </div>
             <span className="font-medium" itemProp="author">{info.uploader || info.channel || "Unknown"}</span>
           </motion.div>
 
@@ -85,25 +98,36 @@ export function VideoPreview({ info }: VideoPreviewProps) {
             initial={{ opacity: 0 }}
             animate={{ opacity: 1 }}
             transition={{ delay: 0.25 }}
-            className="flex flex-wrap items-center gap-x-3 gap-y-1 text-[11px] text-muted-foreground font-mono"
+            className="flex flex-wrap items-center gap-2"
           >
-            <span className="flex items-center gap-1" itemProp="interactionStatistic" itemScope itemType="https://schema.org/InteractionCounter">
-              <Eye className="w-3 h-3" />
+            <span className="inline-flex items-center gap-1 rounded-full bg-[#eef6f8] px-2.5 py-1 text-[11px] font-medium text-muted-foreground font-mono" itemProp="interactionStatistic" itemScope itemType="https://schema.org/InteractionCounter">
+              <Eye className="w-3 h-3 text-[#5baab8]" />
               <meta itemProp="interactionType" content="https://schema.org/WatchAction" />
-              <span itemProp="userInteractionCount">{formatCount(info.view_count)}</span> views
+              <motion.span
+                itemProp="userInteractionCount"
+                initial={{ scale: 1.5, opacity: 0 }}
+                animate={{ scale: 1, opacity: 1 }}
+                transition={{ type: "spring", stiffness: 300, damping: 20, delay: 0.35 }}
+              >
+                {formatCount(info.view_count)}
+              </motion.span>
+              <span className="text-muted-foreground/60">views</span>
             </span>
             {info.like_count > 0 && (
-              <span className="flex items-center gap-1">
-                <ThumbsUp className="w-3 h-3" /> {formatCount(info.like_count)}
+              <span className="inline-flex items-center gap-1 rounded-full bg-[#eef6f8] px-2.5 py-1 text-[11px] font-medium text-muted-foreground font-mono">
+                <ThumbsUp className="w-3 h-3 text-[#5baab8]" />
+                <span>{formatCount(info.like_count)}</span>
               </span>
             )}
             {info.duration_str && (
-              <span className="flex items-center gap-1">
-                <Clock className="w-3 h-3" /> {info.duration_str}
+              <span className="inline-flex items-center gap-1 rounded-full bg-[#eef6f8] px-2.5 py-1 text-[11px] font-medium text-muted-foreground font-mono">
+                <Clock className="w-3 h-3 text-[#5baab8]" />
+                <span>{info.duration_str}</span>
               </span>
             )}
-            <span className="flex items-center gap-1">
-              <Calendar className="w-3 h-3" /> {formatDate(info.upload_date)}
+            <span className="inline-flex items-center gap-1 rounded-full bg-[#eef6f8] px-2.5 py-1 text-[11px] font-medium text-muted-foreground font-mono">
+              <Calendar className="w-3 h-3 text-[#5baab8]" />
+              <span>{formatDate(info.upload_date)}</span>
             </span>
           </motion.div>
 
