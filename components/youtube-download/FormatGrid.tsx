@@ -9,6 +9,7 @@ type FormatGridProps = {
   selectedIndex: number;
   onSelect: (index: number) => void;
   type: DownloadType;
+  brandColor?: string;
 };
 
 function qualityBars(format: Format, type: DownloadType): number {
@@ -51,7 +52,7 @@ function resolutionLabel(format: Format, type: DownloadType): string {
   return format.quality ? format.quality.replace("maxresdefault", "1920×1080").replace("hqdefault", "480×360") : "";
 }
 
-export function FormatGrid({ formats, selectedIndex, onSelect, type }: FormatGridProps) {
+export function FormatGrid({ formats, selectedIndex, onSelect, type, brandColor = "#5baab8" }: FormatGridProps) {
   return (
     <div className="grid grid-cols-2 sm:grid-cols-3 gap-2.5">
       {formats.map((fmt, i) => {
@@ -64,14 +65,26 @@ export function FormatGrid({ formats, selectedIndex, onSelect, type }: FormatGri
             whileHover={{ scale: 1.03, y: -2 }}
             whileTap={{ scale: 0.97 }}
             layout
-            className={`relative flex flex-col items-start gap-1 rounded-xl border p-3 text-left transition-all duration-200 ${
-              selected
-                ? "bg-white/90 backdrop-blur-sm border-[#5baab8] ring-2 ring-[#5baab8]/20 shadow-md"
-                : "bg-white/70 backdrop-blur-sm border-border hover:border-[#5baab8]/40 hover:shadow-sm"
-            }`}
+            className="relative flex flex-col items-start gap-1 rounded-xl border p-3 text-left transition-all duration-200"
+            style={{
+              backgroundColor: selected ? "rgba(255,255,255,0.9)" : "rgba(255,255,255,0.7)",
+              borderColor: selected ? brandColor : undefined,
+              boxShadow: selected ? `0 0 0 2px ${brandColor}33` : undefined,
+            }}
+            onMouseEnter={(e) => {
+              if (!selected) {
+                e.currentTarget.style.borderColor = `${brandColor}66`;
+              }
+            }}
+            onMouseLeave={(e) => {
+              if (!selected) {
+                e.currentTarget.style.borderColor = "";
+              }
+            }}
           >
             <div className="flex items-center justify-between w-full">
-              <span className="text-[10px] font-bold uppercase tracking-widest px-1.5 py-0.5 rounded-md bg-[#eef6f8] text-[#5baab8] font-mono">
+              <span className="text-[10px] font-bold uppercase tracking-widest px-1.5 py-0.5 rounded-md bg-[#eef6f8] font-mono"
+                style={{ color: brandColor }}>
                 {fmt.ext}
               </span>
               {selected && (
@@ -80,7 +93,7 @@ export function FormatGrid({ formats, selectedIndex, onSelect, type }: FormatGri
                   animate={{ scale: 1, rotate: 0 }}
                   transition={{ type: "spring", stiffness: 300, damping: 14 }}
                 >
-                  <CheckCircle2 className="w-3.5 h-3.5 text-[#5baab8]" />
+                  <CheckCircle2 className="w-3.5 h-3.5" style={{ color: brandColor }} />
                 </motion.span>
               )}
             </div>
@@ -101,9 +114,8 @@ export function FormatGrid({ formats, selectedIndex, onSelect, type }: FormatGri
                     initial={{ width: 0 }}
                     animate={{ width: b === 0 ? "0.75rem" : b === 1 ? "1.25rem" : b === 2 ? "1.75rem" : "2.25rem" }}
                     transition={{ duration: 0.4, delay: i * 0.05 + b * 0.08, ease: "easeOut" }}
-                    className={`h-1 rounded-full ${
-                      selected ? "bg-[#5baab8]" : "bg-[#d4ecf0]"
-                    }`}
+                    className="h-1 rounded-full"
+                    style={{ backgroundColor: selected ? brandColor : "#d4ecf0" }}
                   />
                 ))}
               </div>
