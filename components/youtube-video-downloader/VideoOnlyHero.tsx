@@ -1,0 +1,426 @@
+"use client";
+
+import { useState, useRef, useCallback, useEffect } from "react";
+import { motion, AnimatePresence } from "motion/react";
+import { Youtube, Download, CheckCircle2, X, Sparkles } from "lucide-react";
+import { YoutubeLogo } from "@/components/shared/brand-logos";
+import { videoFormats } from "@/lib/constants";
+import type { Format } from "@/lib/constants";
+import {
+  universalGetInfo,
+  universalDownloadVideo,
+  getJobStatus,
+  getJobResult,
+  triggerDownload,
+} from "@/lib/api-client";
+import type { UniversalMediaInfo } from "@/lib/api-client";
+import { FormatGrid } from "@/components/youtube-download/FormatGrid";
+import { VideoPreview } from "@/components/youtube-download/VideoPreview";
+import { DownloadProgress } from "@/components/youtube-download/DownloadProgress";
+
+const CONTAINER_MAP: Record<string, string> = {
+  mp4: "mp4", mkv: "mkv", webm: "webm",
+};
+
+export function VideoOnlyHero() {
+  const [url, setUrl] = useState("");
+  const [selectedFormat, setSelectedFormat] = useState(0);
+  const inputRef = useRef<HTMLInputElement>(null);
+
+  const [processing, setProcessing] = useState(false);
+  const [done, setDone] = useState(false);
+  const [progress, setProgress] = useState(0);
+  const [statusText, setStatusText] = useState("");
+  const [downloadSpeed, setDownloadSpeed] = useState("");
+  const [downloadEta, setDownloadEta] = useState<string | number | null>(null);
+  const [downloadedBytes, setDownloadedBytes] = useState(0);
+  const [totalBytes, setTotalBytes] = useState(0);
+  const [error, setError] = useState("");
+  const cancelPoll = useRef<(() => void) | null>(null);
+
+  const [mediaInfo, setMediaInfo] = useState<UniversalMediaInfo | null>(null);
+  const [fetchingInfo, setFetchingInfo] = useState(false);
+  const debounceRef = useRef<ReturnType<typeof setTimeout> | null>(null);
+  const [infoError, setInfoError] = useState(false);
+
+  const handleUrlChange = useCallback((value: string) => {
+    setUrl(value);
+    setMediaInfo(null);
+    setInfoError(false);
+    setError("");
+    if (debounceRef.current) clearTimeout(debounceRef.current);
+    if (!value.trim()) return;
+    setFetchingInfo(true);
+    debounceRef.current = setTimeout(async () => {
+      try {
+        const res = await universalGetInfo(value);
+        if (res.success && res.data) {
+          setMediaInfo(res.data);
+          setInfoError(false);
+        } else {
+          setInfoError(true);
+        }
+      } catch {
+        setInfoError(true);
+      }
+      setFetchingInfo(false);
+    }, 600);
+  }, []);
+
+  useEffect(() => {
+    return () => {
+      if (debounceRef.current) clearTimeout(debounceRef.current);
+      cancelPoll.current?.();
+    };
+  }, []);
+
+  async function handleDownload() {
+    if (!url.trim()) {
+      inputRef.current?.focus();
+      return;
+    }
+    setError("");
+    setProcessing(true);
+    setProgress(0);
+    setStatusText("Starting...");
+    setDownloadSpeed("");
+    setDownloadEta(null);
+    setDownloadedBytes(0);
+    setTotalBytes(0);
+    setDone(false);
+
+    try {
+      const fmt = videoFormats[selectedFormat];
+      const quality = fmt.quality;
+      const container = CONTAINER_MAP[fmt.ext] || "mp4";
+      const res = await universalDownloadVideo(url, undefined, quality, container);
+      if (!res.success || !res.data) {
+        throw new Error(res.error?.message || "Download failed to start");
+      }
+      setStatusText("Processing...");
+      await pollUntilDone(res.data.job_id);
+    } catch (err) {
+      setError(err instanceof Error ? err.message : "Download failed");
+      setProcessing(false);
+      setTimeout(() => setError(""), 5000);
+    }
+  }
+
+  async function pollUntilDone(jobId: string): Promise<void> {
+    return new Promise((resolve, reject) => {
+      let retries = 0;
+      const maxRetries = 180;
+
+      const poll = async () => {
+        if (retries >= maxRetries) {
+          reject(new Error("Download timed out"));
+          return;
+        }
+        retries++;
+
+        try {
+          const res = await getJobStatus(jobId);
+          if (!res.success || !res.data) {
+            reject(new Error(res.error?.message || "Failed to check status"));
+            return;
+          }
+
+          const job = res.data;
+          setProgress(job.progress ?? 0);
+          setDownloadSpeed(job.speed ?? "");
+          setDownloadEta(job.eta ?? null);
+          setDownloadedBytes(job.downloaded ?? 0);
+          setTotalBytes(job.total ?? 0);
+
+          if (job.status === "downloading") {
+            setStatusText("Downloading...");
+          } else if (job.status === "processing") {
+            setStatusText("Processing...");
+          } else if (job.status === "queued") {
+            setStatusText("Queued...");
+          }
+
+          if (job.status === "completed") {
+            setProgress(100);
+            setStatusText("Complete!");
+
+            const finalRes = await getJobResult(jobId);
+            if (finalRes.success && finalRes.data?.downloadUrl) {
+              triggerDownload(finalRes.data.downloadUrl, finalRes.data.filename);
+            }
+            setProcessing(false);
+            setDone(true);
+            setTimeout(() => setDone(false), 3000);
+            resolve();
+            return;
+          }
+
+          if (job.status === "failed") {
+            reject(new Error(job.error || "Download failed"));
+            return;
+          }
+
+          setTimeout(poll, 1000);
+        } catch (err) {
+          reject(err);
+        }
+      };
+
+      poll();
+    });
+  }
+
+  return (
+    <section className="pt-32 pb-20 px-6 relative overflow-hidden">
+      <div
+        className="absolute inset-0 pointer-events-none"
+        style={{
+          backgroundImage: `radial-gradient(circle, rgba(0,0,0,0.04) 1px, transparent 1px)`,
+          backgroundSize: "28px 28px",
+        }}
+      />
+
+      <motion.div
+        className="absolute top-[-10%] right-[-5%] w-[500px] h-[500px] rounded-full opacity-20 pointer-events-none"
+        style={{ background: "radial-gradient(circle, #FF0000 0%, transparent 70%)" }}
+        animate={{ x: ["0%", "15%", "0%"], y: ["0%", "-10%", "0%"], scale: [1, 1.2, 1] }}
+        transition={{ duration: 10, repeat: Infinity, ease: "easeInOut" }}
+      />
+      <motion.div
+        className="absolute top-[20%] left-[-8%] w-[350px] h-[350px] rounded-full opacity-15 pointer-events-none"
+        style={{ background: "radial-gradient(circle, #5baab8 0%, transparent 70%)" }}
+        animate={{ x: ["0%", "-10%", "0%"], y: ["0%", "15%", "0%"], scale: [1, 1.15, 1] }}
+        transition={{ duration: 13, repeat: Infinity, ease: "easeInOut" }}
+      />
+      <motion.div
+        className="absolute bottom-[-5%] right-[10%] w-[300px] h-[300px] rounded-full opacity-10 pointer-events-none"
+        style={{ background: "radial-gradient(circle, #FF0000 0%, transparent 70%)" }}
+        animate={{ x: ["0%", "-20%", "0%"], y: ["0%", "10%", "0%"], scale: [1, 1.25, 1] }}
+        transition={{ duration: 15, repeat: Infinity, ease: "easeInOut" }}
+      />
+
+      <div className="max-w-4xl mx-auto relative">
+        <motion.div
+          className="hidden md:block absolute top-[-40px] right-[-60px] opacity-[0.04] pointer-events-none"
+          initial={{ opacity: 0, scale: 0.5, rotate: -10 }}
+          animate={{ opacity: 0.04, scale: 1, rotate: 0 }}
+          transition={{ delay: 0.3, duration: 1, ease: "easeOut" }}
+        >
+          <YoutubeLogo className="w-48 h-48" />
+        </motion.div>
+
+        <motion.div
+          className="flex justify-center mb-6"
+          initial={{ opacity: 0, y: 12 }}
+          animate={{ opacity: 1, y: 0 }}
+          transition={{ delay: 0.1 }}
+        >
+          <span className="inline-flex items-center gap-2 text-xs font-semibold tracking-widest uppercase px-4 py-2 rounded-full bg-white/80 backdrop-blur-sm border border-border text-muted-foreground shadow-sm font-mono">
+            <span className="w-1.5 h-1.5 rounded-full bg-[#FF0000] animate-pulse" style={{ boxShadow: "0 0 4px #FF0000" }} />
+            Video Downloader
+          </span>
+        </motion.div>
+
+        <motion.h1
+          className="text-center text-5xl md:text-7xl font-extrabold leading-[1.08] tracking-tight text-foreground mb-6 font-heading"
+          initial={{ opacity: 0, y: 24 }}
+          animate={{ opacity: 1, y: 0 }}
+          transition={{ delay: 0.15, duration: 0.6 }}
+        >
+          Download YouTube Videos
+          <br />
+          <span className="text-[#FF0000]">in 4K Quality</span>
+        </motion.h1>
+
+        <motion.p
+          className="text-center text-lg text-muted-foreground max-w-xl mx-auto mb-10 leading-relaxed font-sans"
+          initial={{ opacity: 0, y: 16 }}
+          animate={{ opacity: 1, y: 0 }}
+          transition={{ delay: 0.25, duration: 0.6 }}
+        >
+          Paste any YouTube link and download instantly in your preferred quality — from 4K Ultra HD to standard definition. No account required.
+        </motion.p>
+
+        <motion.div
+          className="bg-white/80 backdrop-blur-xl rounded-2xl shadow-2xl shadow-black/5 border border-border/60 p-4 md:p-5 relative"
+          initial={{ opacity: 0, y: 24, scale: 0.98 }}
+          animate={{ opacity: 1, y: 0, scale: 1 }}
+          transition={{ delay: 0.4, duration: 0.6 }}
+        >
+          <div
+            className="absolute inset-x-0 top-0 h-0.5 rounded-t-2xl"
+            style={{ background: "linear-gradient(90deg, #FF0000, #cc0000, #FF0000)" }}
+          />
+
+          <div className="flex flex-col md:flex-row gap-3">
+            <div
+              className="flex-1 flex items-center gap-3 bg-white/70 backdrop-blur-sm rounded-xl px-4 py-3 transition-all duration-300"
+              style={{ boxShadow: "inset 0 1px 2px rgba(0,0,0,0.04)" }}
+              onFocus={(e) => {
+                const parent = e.currentTarget;
+                parent.style.boxShadow = "inset 0 1px 2px rgba(0,0,0,0.04), 0 0 0 2px #FF000040";
+                parent.style.backgroundColor = "white";
+              }}
+              onBlur={(e) => {
+                const parent = e.currentTarget;
+                parent.style.boxShadow = "inset 0 1px 2px rgba(0,0,0,0.04)";
+                parent.style.backgroundColor = "rgba(255,255,255,0.7)";
+              }}
+            >
+              <span
+                className="flex-shrink-0 transition-transform duration-300 text-[#FF0000]"
+                onMouseEnter={(e) => e.currentTarget.style.transform = "scale(1.15)"}
+                onMouseLeave={(e) => e.currentTarget.style.transform = "scale(1)"}
+              >
+                <Youtube className="w-4 h-4" />
+              </span>
+              <div className="flex-1 min-w-0">
+                <input
+                  ref={inputRef}
+                  type="url"
+                  value={url}
+                  onChange={(e) => handleUrlChange(e.target.value)}
+                  onKeyDown={(e) => e.key === "Enter" && handleDownload()}
+                  placeholder="Paste your YouTube video URL here..."
+                  className="w-full bg-transparent text-sm text-foreground placeholder:text-muted-foreground outline-none font-sans"
+                />
+                {fetchingInfo && (
+                  <p className="text-[10px] text-muted-foreground flex items-center gap-1 mt-0.5 font-sans">
+                    <span className="w-2 h-2 border border-[#FF0000] border-t-transparent rounded-full animate-spin" />
+                    Fetching video info...
+                  </p>
+                )}
+              </div>
+              {url && (
+                <button onClick={() => { setUrl(""); setMediaInfo(null); setInfoError(false); }} className="text-muted-foreground hover:text-foreground transition-colors shrink-0">
+                  <X className="w-3.5 h-3.5" />
+                </button>
+              )}
+            </div>
+
+            <motion.button
+              onClick={handleDownload}
+              disabled={processing}
+              whileHover={{ scale: processing ? 1 : 1.03 }}
+              whileTap={{ scale: processing ? 1 : 0.97 }}
+              className="flex items-center justify-center gap-2 text-white font-semibold text-sm px-7 py-3 rounded-xl transition-all disabled:opacity-70 whitespace-nowrap min-w-[150px] font-sans shadow-lg shadow-red-500/20"
+              style={{ background: "linear-gradient(135deg, #FF0000, #cc0000)" }}
+              onMouseEnter={(e) => {
+                if (!processing) e.currentTarget.style.background = "linear-gradient(135deg, #ff1a1a, #e60000)";
+              }}
+              onMouseLeave={(e) => {
+                e.currentTarget.style.background = "linear-gradient(135deg, #FF0000, #cc0000)";
+              }}
+            >
+              <AnimatePresence mode="wait">
+                {processing ? (
+                  <motion.span key="proc" initial={{ opacity: 0 }} animate={{ opacity: 1 }} exit={{ opacity: 0 }} className="flex items-center gap-2">
+                    <span className="w-4 h-4 border-2 border-white/30 border-t-white rounded-full animate-spin" />
+                    {statusText || "Processing..."}
+                  </motion.span>
+                ) : done ? (
+                  <motion.span key="done" initial={{ opacity: 0, scale: 0.8 }} animate={{ opacity: 1, scale: 1 }} exit={{ opacity: 0 }} className="flex items-center gap-2">
+                    <CheckCircle2 className="w-4 h-4 text-[#FF0000]" />
+                    Ready!
+                  </motion.span>
+                ) : (
+                  <motion.span key="idle" initial={{ opacity: 0 }} animate={{ opacity: 1 }} exit={{ opacity: 0 }} className="flex items-center gap-2">
+                    <Download className="w-4 h-4" />
+                    Download
+                  </motion.span>
+                )}
+              </AnimatePresence>
+            </motion.button>
+          </div>
+
+          <AnimatePresence mode="wait">
+            {mediaInfo && !processing && !done && (
+              <motion.div
+                key="preview"
+                initial={{ opacity: 0, y: 12 }}
+                animate={{ opacity: 1, y: 0 }}
+                exit={{ opacity: 0, y: -8 }}
+                transition={{ duration: 0.35 }}
+              >
+                <div className="h-px bg-border my-4" />
+                <VideoPreview info={mediaInfo} />
+              </motion.div>
+            )}
+          </AnimatePresence>
+
+          {infoError && !mediaInfo && !fetchingInfo && url.trim() && (
+            <motion.p
+              initial={{ opacity: 0, y: -4 }}
+              animate={{ opacity: 1, y: 0 }}
+              className="text-xs text-destructive mt-3 font-sans"
+            >
+              Could not fetch video info. Check the URL and try again.
+            </motion.p>
+          )}
+
+          <AnimatePresence>
+            {!processing && !done && mediaInfo && (
+              <motion.div
+                key="formatGrid"
+                initial={{ opacity: 0, y: 12 }}
+                animate={{ opacity: 1, y: 0 }}
+                exit={{ opacity: 0, y: -8 }}
+                transition={{ duration: 0.3, delay: 0.1 }}
+                className="mt-4"
+              >
+                <div className="flex items-center gap-2 mb-3">
+                  <Sparkles className="w-3.5 h-3.5 text-[#FF0000]" />
+                  <span className="text-xs font-semibold text-foreground font-sans">
+                    Choose video quality
+                  </span>
+                </div>
+                <FormatGrid
+                  formats={videoFormats}
+                  selectedIndex={selectedFormat}
+                  onSelect={setSelectedFormat}
+                  type="video"
+                  brandColor="#FF0000"
+                />
+              </motion.div>
+            )}
+          </AnimatePresence>
+
+          <AnimatePresence>
+            {processing && (
+              <DownloadProgress
+                progress={progress}
+                statusText={statusText}
+                downloadSpeed={downloadSpeed}
+                downloadEta={downloadEta}
+                downloadedBytes={downloadedBytes}
+                totalBytes={totalBytes}
+              />
+            )}
+          </AnimatePresence>
+
+          <AnimatePresence>
+            {error && (
+              <motion.p
+                initial={{ opacity: 0, y: -4 }}
+                animate={{ opacity: 1, y: 0 }}
+                exit={{ opacity: 0 }}
+                className="text-xs text-destructive mt-2 font-sans"
+              >
+                {error}
+              </motion.p>
+            )}
+          </AnimatePresence>
+        </motion.div>
+
+        <motion.p
+          className="text-center text-xs text-muted-foreground mt-5 font-sans"
+          initial={{ opacity: 0 }}
+          animate={{ opacity: 1 }}
+          transition={{ delay: 0.6 }}
+        >
+          Free to use · No sign-up required · Files deleted instantly after download · Works with all YouTube URLs
+        </motion.p>
+      </div>
+    </section>
+  );
+}
