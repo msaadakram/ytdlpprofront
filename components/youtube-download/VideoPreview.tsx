@@ -35,18 +35,20 @@ export function VideoPreview({ info }: VideoPreviewProps) {
       transition={{ duration: 0.45, ease: [0.21, 0.6, 0.35, 1] }}
       className="bg-white rounded-2xl border border-border overflow-hidden shadow-sm"
     >
-      <div className="flex flex-col md:flex-row">
-        <div className="relative md:w-72 lg:w-80 shrink-0 bg-[#0d1f26]">
+      <div className="flex flex-col md:flex-row" itemScope itemType="https://schema.org/VideoObject">
+        <figure className="relative md:w-72 lg:w-80 shrink-0 bg-[#0d1f26]">
           {info.thumbnail ? (
             <>
               <img
                 src={info.thumbnail}
-                alt={info.title}
+                alt={`Thumbnail for ${info.title}`}
                 className="w-full aspect-video md:aspect-[4/3] object-cover opacity-90"
                 loading="lazy"
+                itemProp="thumbnail"
               />
+              <figcaption className="sr-only">{info.title}</figcaption>
               <div className="absolute inset-0 bg-gradient-to-tr from-black/40 to-transparent" />
-              <div className="absolute bottom-2 right-2 flex items-center gap-1 bg-black/70 text-white text-[10px] font-mono px-1.5 py-0.5 rounded">
+              <div className="absolute bottom-2 right-2 flex items-center gap-1 bg-black/70 text-white text-[10px] font-mono px-1.5 py-0.5 rounded" itemProp="duration">
                 <Play className="w-2.5 h-2.5 fill-white" />
                 <span>{info.duration_str || ""}</span>
               </div>
@@ -56,7 +58,7 @@ export function VideoPreview({ info }: VideoPreviewProps) {
               <Play className="w-10 h-10 text-[#5baab8]/40" />
             </div>
           )}
-        </div>
+        </figure>
 
         <div className="flex-1 p-4 md:p-5 space-y-2.5">
           <motion.h3
@@ -64,6 +66,7 @@ export function VideoPreview({ info }: VideoPreviewProps) {
             animate={{ opacity: 1, y: 0 }}
             transition={{ delay: 0.1, duration: 0.4 }}
             className="text-sm md:text-base font-bold text-foreground leading-snug line-clamp-2 font-heading"
+            itemProp="name"
           >
             {info.title}
           </motion.h3>
@@ -75,7 +78,7 @@ export function VideoPreview({ info }: VideoPreviewProps) {
             className="flex items-center gap-2 text-xs text-muted-foreground"
           >
             <User className="w-3 h-3" />
-            <span className="font-medium">{info.uploader || info.channel || "Unknown"}</span>
+            <span className="font-medium" itemProp="author">{info.uploader || info.channel || "Unknown"}</span>
           </motion.div>
 
           <motion.div
@@ -84,8 +87,10 @@ export function VideoPreview({ info }: VideoPreviewProps) {
             transition={{ delay: 0.25 }}
             className="flex flex-wrap items-center gap-x-3 gap-y-1 text-[11px] text-muted-foreground font-mono"
           >
-            <span className="flex items-center gap-1">
-              <Eye className="w-3 h-3" /> {formatCount(info.view_count)} views
+            <span className="flex items-center gap-1" itemProp="interactionStatistic" itemScope itemType="https://schema.org/InteractionCounter">
+              <Eye className="w-3 h-3" />
+              <meta itemProp="interactionType" content="https://schema.org/WatchAction" />
+              <span itemProp="userInteractionCount">{formatCount(info.view_count)}</span> views
             </span>
             {info.like_count > 0 && (
               <span className="flex items-center gap-1">

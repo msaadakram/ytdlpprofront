@@ -53,25 +53,25 @@ export function RelatedTips() {
           {tips.map((tip, i) => {
             const Icon = tip.icon;
             return (
-              <motion.div
-                key={i}
-                initial={{ opacity: 0, y: 20 }}
-                whileInView="visible"
-                viewport={{ once: true, margin: "-40px" }}
-                variants={{ visible: { opacity: 1, y: 0 } }}
-                transition={{ duration: 0.45, delay: i * 0.08 }}
-                className="bg-[#eef6f8] rounded-2xl p-5 border border-border hover:shadow-sm transition-shadow"
-              >
-                <div className="flex items-start gap-4">
-                  <div className="w-10 h-10 rounded-xl bg-[#5baab8]/10 flex items-center justify-center shrink-0">
-                    <Icon className="w-5 h-5 text-[#5baab8]" />
+                <motion.article
+                  key={i}
+                  initial={{ opacity: 0, y: 20 }}
+                  whileInView="visible"
+                  viewport={{ once: true, margin: "-40px" }}
+                  variants={{ visible: { opacity: 1, y: 0 } }}
+                  transition={{ duration: 0.45, delay: i * 0.08 }}
+                  className="bg-[#eef6f8] rounded-2xl p-5 border border-border hover:shadow-sm transition-shadow"
+                >
+                  <div className="flex items-start gap-4">
+                    <div className="w-10 h-10 rounded-xl bg-[#5baab8]/10 flex items-center justify-center shrink-0">
+                      <Icon className="w-5 h-5 text-[#5baab8]" />
+                    </div>
+                    <div>
+                      <h3 className="text-sm font-bold text-foreground mb-1.5 font-heading">{tip.title}</h3>
+                      <p className="text-xs text-muted-foreground leading-relaxed font-sans">{tip.desc}</p>
+                    </div>
                   </div>
-                  <div>
-                    <h3 className="text-sm font-bold text-foreground mb-1.5 font-heading">{tip.title}</h3>
-                    <p className="text-xs text-muted-foreground leading-relaxed font-sans">{tip.desc}</p>
-                  </div>
-                </div>
-              </motion.div>
+                </motion.article>
             );
           })}
         </div>

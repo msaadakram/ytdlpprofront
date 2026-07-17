@@ -56,7 +56,7 @@ export function FaqSection() {
           </p>
         </motion.div>
 
-        <div className="space-y-3">
+        <dl className="space-y-3">
           {faqs.map((faq, i) => {
             const isOpen = openIndex === i;
             return (
@@ -68,41 +68,50 @@ export function FaqSection() {
                 variants={{ visible: { opacity: 1, y: 0 } }}
                 transition={{ duration: 0.35, delay: i * 0.04 }}
                 className="bg-white rounded-2xl border border-border overflow-hidden"
+                itemScope
+                itemType="https://schema.org/Question"
               >
-                <button
-                  onClick={() => setOpenIndex(isOpen ? null : i)}
-                  className="w-full flex items-center justify-between px-5 py-4 text-left"
-                >
-                  <span className="text-sm font-semibold text-foreground pr-4 font-heading">
-                    {faq.q}
-                  </span>
-                  <motion.span
-                    animate={{ rotate: isOpen ? 180 : 0 }}
-                    transition={{ duration: 0.2 }}
-                    className="shrink-0"
+                <dt>
+                  <button
+                    onClick={() => setOpenIndex(isOpen ? null : i)}
+                    className="w-full flex items-center justify-between px-5 py-4 text-left"
+                    aria-expanded={isOpen}
+                    aria-controls={`faq-answer-${i}`}
                   >
-                    <ChevronDown className="w-4 h-4 text-muted-foreground" />
-                  </motion.span>
-                </button>
+                    <span className="text-sm font-semibold text-foreground pr-4 font-heading" itemProp="name">
+                      {faq.q}
+                    </span>
+                    <motion.span
+                      animate={{ rotate: isOpen ? 180 : 0 }}
+                      transition={{ duration: 0.2 }}
+                      className="shrink-0"
+                    >
+                      <ChevronDown className="w-4 h-4 text-muted-foreground" />
+                    </motion.span>
+                  </button>
+                </dt>
                 <AnimatePresence initial={false}>
                   {isOpen && (
-                    <motion.div
+                    <motion.dd
+                      id={`faq-answer-${i}`}
                       initial={{ height: 0, opacity: 0 }}
                       animate={{ height: "auto", opacity: 1 }}
                       exit={{ height: 0, opacity: 0 }}
                       transition={{ duration: 0.25, ease: "easeInOut" }}
                       className="overflow-hidden"
+                      itemScope
+                      itemType="https://schema.org/Answer"
                     >
-                      <p className="px-5 pb-4 text-sm text-muted-foreground leading-relaxed font-sans">
+                      <p className="px-5 pb-4 text-sm text-muted-foreground leading-relaxed font-sans" itemProp="text">
                         {faq.a}
                       </p>
-                    </motion.div>
+                    </motion.dd>
                   )}
                 </AnimatePresence>
               </motion.div>
             );
           })}
-        </div>
+        </dl>
       </div>
     </section>
   );
