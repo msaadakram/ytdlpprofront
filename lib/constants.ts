@@ -18,25 +18,26 @@ export type PricingPlan = {
 type BrandLogoProps = { className?: string; style?: React.CSSProperties };
 type BrandPlatform = {
   name: string; bg: string; fg: string;
+  href: string;
   Logo: ComponentType<BrandLogoProps>;
 };
 
 export const platforms: BrandPlatform[] = [
-  { name: "YouTube",     bg: "#FF0000", fg: "#ffffff", Logo: YoutubeLogo },
-  { name: "Facebook",    bg: "#1877F2", fg: "#ffffff", Logo: FacebookLogo },
-  { name: "Instagram",   bg: "#E1306C", fg: "#ffffff", Logo: InstagramLogo },
-  { name: "TikTok",      bg: "#010101", fg: "#ffffff", Logo: TikTokLogo },
-  { name: "Twitter / X", bg: "#14171A", fg: "#ffffff", Logo: XLogo },
-  { name: "Vimeo",       bg: "#1AB7EA", fg: "#ffffff", Logo: VimeoLogo },
-  { name: "Dailymotion", bg: "#0066DC", fg: "#ffffff", Logo: DailymotionLogo },
-  { name: "Twitch",      bg: "#9146FF", fg: "#ffffff", Logo: TwitchLogo },
-  { name: "Reddit",      bg: "#FF4500", fg: "#ffffff", Logo: RedditLogo },
-  { name: "Pinterest",   bg: "#E60023", fg: "#ffffff", Logo: PinterestLogo },
-  { name: "LinkedIn",    bg: "#0A66C2", fg: "#ffffff", Logo: LinkedInLogo },
-  { name: "Snapchat",    bg: "#FFFC00", fg: "#000000", Logo: SnapchatLogo },
-  { name: "SoundCloud",  bg: "#FF5500", fg: "#ffffff", Logo: SoundCloudLogo },
-  { name: "Kick",        bg: "#53FC18", fg: "#000000", Logo: KickLogo },
-  { name: "Niconico",    bg: "#FF69B3", fg: "#ffffff", Logo: NiconicoLogo },
+  { name: "YouTube",     bg: "#FF0000", fg: "#ffffff", href: "/youtube-download", Logo: YoutubeLogo },
+  { name: "Facebook",    bg: "#1877F2", fg: "#ffffff", href: "/download/facebook", Logo: FacebookLogo },
+  { name: "Instagram",   bg: "#E1306C", fg: "#ffffff", href: "/download/instagram", Logo: InstagramLogo },
+  { name: "TikTok",      bg: "#010101", fg: "#ffffff", href: "/download/tiktok", Logo: TikTokLogo },
+  { name: "Twitter / X", bg: "#14171A", fg: "#ffffff", href: "/download/twitter", Logo: XLogo },
+  { name: "Vimeo",       bg: "#1AB7EA", fg: "#ffffff", href: "/download/vimeo", Logo: VimeoLogo },
+  { name: "Dailymotion", bg: "#0066DC", fg: "#ffffff", href: "/download/dailymotion", Logo: DailymotionLogo },
+  { name: "Twitch",      bg: "#9146FF", fg: "#ffffff", href: "/download/twitch", Logo: TwitchLogo },
+  { name: "Reddit",      bg: "#FF4500", fg: "#ffffff", href: "/download/reddit", Logo: RedditLogo },
+  { name: "Pinterest",   bg: "#E60023", fg: "#ffffff", href: "/download/pinterest", Logo: PinterestLogo },
+  { name: "LinkedIn",    bg: "#0A66C2", fg: "#ffffff", href: "/download/linkedin", Logo: LinkedInLogo },
+  { name: "Snapchat",    bg: "#FFFC00", fg: "#000000", href: "/download/snapchat", Logo: SnapchatLogo },
+  { name: "SoundCloud",  bg: "#FF5500", fg: "#ffffff", href: "/download/soundcloud", Logo: SoundCloudLogo },
+  { name: "Kick",        bg: "#53FC18", fg: "#000000", href: "/download/kick", Logo: KickLogo },
+  { name: "Niconico",    bg: "#FF69B3", fg: "#ffffff", href: "/download/niconico", Logo: NiconicoLogo },
 ];
 
 export const videoFormats: Format[] = [

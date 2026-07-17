@@ -1,15 +1,13 @@
 "use client";
 
+import Link from "next/link";
 import { motion } from "motion/react";
 import { platforms } from "@/lib/constants";
-import type { ComponentType } from "react";
-
-type BrandLogoProps = { className?: string; style?: React.CSSProperties };
 
 function PlatformCard({ name }: { name: string }) {
   const p = platforms.find((pl) => pl.name === name);
   if (!p) return null;
-  const Logo = p.Logo as ComponentType<BrandLogoProps>;
+  const Logo = p.Logo;
 
   return (
     <motion.div
@@ -18,20 +16,23 @@ function PlatformCard({ name }: { name: string }) {
       viewport={{ once: true, margin: "-30px" }}
       variants={{ visible: { opacity: 1, y: 0 } }}
       transition={{ duration: 0.3 }}
-      whileHover={{ y: -4, scale: 1.02, transition: { duration: 0.15 } }}
-      className="flex items-center gap-4 bg-white/80 backdrop-blur-sm rounded-xl border border-border p-4 hover:shadow-lg hover:border-[#5baab8]/20 transition-all duration-200 group"
     >
-      <motion.div
-        className="w-10 h-10 rounded-xl flex items-center justify-center shrink-0"
-        style={{ background: p.bg }}
-        whileHover={{ scale: 1.12 }}
-        transition={{ type: "spring", stiffness: 400, damping: 15 }}
+      <Link
+        href={p.href}
+        className="flex items-center gap-4 bg-white/80 backdrop-blur-sm rounded-xl border border-border p-4 hover:shadow-lg hover:border-[#5baab8]/20 transition-all duration-200 group"
       >
-        <Logo className="w-5 h-5" style={{ color: p.fg }} />
-      </motion.div>
-      <span className="text-sm font-semibold text-foreground font-sans group-hover:text-[#5baab8] transition-colors">
-        {name}
-      </span>
+        <motion.div
+          className="w-10 h-10 rounded-xl flex items-center justify-center shrink-0"
+          style={{ background: p.bg }}
+          whileHover={{ scale: 1.12 }}
+          transition={{ type: "spring", stiffness: 400, damping: 15 }}
+        >
+          <Logo className="w-5 h-5" style={{ color: p.fg }} />
+        </motion.div>
+        <span className="text-sm font-semibold text-foreground font-sans group-hover:text-[#5baab8] transition-colors">
+          {name}
+        </span>
+      </Link>
     </motion.div>
   );
 }
