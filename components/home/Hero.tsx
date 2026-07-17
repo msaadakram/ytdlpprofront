@@ -1,40 +1,197 @@
 "use client";
 
-import { useState, useRef } from "react";
+import { useState, useRef, useCallback, useEffect } from "react";
 import { motion, AnimatePresence } from "motion/react";
 import {
   Download, Music, Image, Video, ChevronDown, CheckCircle2, Play, X,
 } from "lucide-react";
 import { videoFormats, audioFormats, thumbnailFormats } from "@/lib/constants";
-import type { DownloadType } from "@/lib/constants";
+import type { DownloadType, Format } from "@/lib/constants";
+import {
+  universalGetInfo,
+  universalDownloadVideo,
+  universalDownloadAudio,
+  getJobResult,
+  triggerDownload,
+} from "@/lib/api-client";
+import type { JobStatus } from "@/lib/api-client";
+
+/* Extract bitrate from format label like "MP3 • 320 kbps" -> "320" */
+function parseBitrate(fmt: Format): string {
+  const m = fmt.label.match(/(\d+)\s*kbps/i);
+  return m ? m[1] : "320";
+}
+
+/* Map UI format to container string for video */
+const CONTAINER_MAP: Record<string, string> = {
+  mp4: "mp4", mkv: "mkv", webm: "webm",
+};
 
 export function Hero() {
   const [url, setUrl] = useState("");
   const [activeType, setActiveType] = useState<DownloadType>("video");
   const [selectedFormat, setSelectedFormat] = useState(0);
   const [showFormats, setShowFormats] = useState(false);
-  const [processing, setProcessing] = useState(false);
-  const [done, setDone] = useState(false);
   const inputRef = useRef<HTMLInputElement>(null);
 
-  const formats = activeType === "video" ? videoFormats : activeType === "audio" ? audioFormats : thumbnailFormats;
+  /* API-driven state */
+  const [processing, setProcessing] = useState(false);
+  const [done, setDone] = useState(false);
+  const [progress, setProgress] = useState(0);
+  const [statusText, setStatusText] = useState("");
+  const [error, setError] = useState("");
+  const cancelPoll = useRef<(() => void) | null>(null);
+
+  /* Fetch info on URL change (debounced) */
+  const [mediaTitle, setMediaTitle] = useState<string | null>(null);
+  const debounceRef = useRef<ReturnType<typeof setTimeout> | null>(null);
+
+  const handleUrlChange = useCallback((value: string) => {
+    setUrl(value);
+    setMediaTitle(null);
+    setError("");
+    if (debounceRef.current) clearTimeout(debounceRef.current);
+    if (!value.trim()) return;
+    debounceRef.current = setTimeout(async () => {
+      const res = await universalGetInfo(value);
+      if (res.success && res.data) {
+        setMediaTitle(res.data.title);
+      }
+    }, 600);
+  }, []);
+
+  useEffect(() => {
+    return () => {
+      if (debounceRef.current) clearTimeout(debounceRef.current);
+      cancelPoll.current?.();
+    };
+  }, []);
+
+  const formats = activeType === "video" ? videoFormats
+    : activeType === "audio" ? audioFormats
+    : thumbnailFormats;
+
   const typeConfig = {
     video: { icon: Video, label: "Video" },
     audio: { icon: Music, label: "Audio" },
     thumbnail: { icon: Image, label: "Thumbnail" },
   };
 
-  function handleDownload() {
+  async function handleDownload() {
     if (!url.trim()) {
       inputRef.current?.focus();
       return;
     }
+    setError("");
     setProcessing(true);
-    setTimeout(() => {
+    setProgress(0);
+    setStatusText("Starting...");
+    setDone(false);
+
+    try {
+      if (activeType === "video") {
+        const fmt = formats[selectedFormat];
+        const quality = fmt.quality;
+        const container = CONTAINER_MAP[fmt.ext] || "mp4";
+        const res = await universalDownloadVideo(url, undefined, quality, container);
+        if (!res.success || !res.data) {
+          throw new Error(res.error?.message || "Download failed to start");
+        }
+        setStatusText("Processing...");
+        await pollUntilDone(res.data.job_id);
+      } else if (activeType === "audio") {
+        const fmt = formats[selectedFormat];
+        const bitrate = parseBitrate(fmt);
+        const ext = fmt.ext;
+        const res = await universalDownloadAudio(url, ext, parseInt(bitrate, 10));
+        if (!res.success || !res.data) {
+          throw new Error(res.error?.message || "Download failed to start");
+        }
+        setStatusText("Processing...");
+        await pollUntilDone(res.data.job_id);
+      } else {
+        /* Thumbnail: fetch info and download thumbnail URL directly */
+        const info = await universalGetInfo(url);
+        if (!info.success || !info.data) {
+          throw new Error(info.error?.message || "Could not fetch media info");
+        }
+        const thumbUrl = info.data.thumbnail;
+        if (thumbUrl) {
+          const a = document.createElement("a");
+          a.href = thumbUrl;
+          a.download = `${info.data.title || "thumbnail"}.jpg`;
+          a.target = "_blank";
+          document.body.appendChild(a);
+          a.click();
+          document.body.removeChild(a);
+        }
+        setProcessing(false);
+        setDone(true);
+        setTimeout(() => setDone(false), 3000);
+        return;
+      }
+    } catch (err) {
+      setError(err instanceof Error ? err.message : "Download failed");
       setProcessing(false);
-      setDone(true);
-      setTimeout(() => setDone(false), 3000);
-    }, 2200);
+      setTimeout(() => setError(""), 5000);
+    }
+  }
+
+  async function pollUntilDone(jobId: string): Promise<void> {
+    return new Promise((resolve, reject) => {
+      let retries = 0;
+      const maxRetries = 120;
+
+      const poll = async () => {
+        if (retries >= maxRetries) {
+          reject(new Error("Download timed out"));
+          return;
+        }
+        retries++;
+
+        try {
+          const res = await getJobResult(jobId);
+          if (!res.success || !res.data) {
+            reject(new Error(res.error?.message || "Failed to check status"));
+            return;
+          }
+
+          const job = res.data;
+          setProgress(job.progress ?? 0);
+          if (job.status === "downloading") {
+            setStatusText(
+              `${job.progress?.toFixed(1) ?? 0}% · ${job.speed || ""} · ETA ${typeof job.eta === "number" ? `${Math.round(job.eta)}s` : job.eta || ""}`
+            );
+          } else if (job.status === "processing") {
+            setStatusText("Processing...");
+          }
+
+          if (job.status === "completed") {
+            setProgress(100);
+            setStatusText("Complete!");
+            if (job.downloadUrl) {
+              triggerDownload(job.downloadUrl, job.filename);
+            }
+            setProcessing(false);
+            setDone(true);
+            setTimeout(() => setDone(false), 3000);
+            resolve();
+            return;
+          }
+
+          if (job.status === "failed") {
+            reject(new Error(job.error || "Download failed"));
+            return;
+          }
+
+          setTimeout(poll, 1500);
+        } catch (err) {
+          reject(err);
+        }
+      };
+
+      poll();
+    });
   }
 
   return (
@@ -89,7 +246,7 @@ export function Hero() {
               return (
                 <button
                   key={type}
-                  onClick={() => { setActiveType(type); setSelectedFormat(0); }}
+                  onClick={() => { setActiveType(type); setSelectedFormat(0); setError(""); }}
                   className={`relative flex items-center gap-2 px-5 py-2 rounded-full text-sm font-semibold transition-colors font-sans ${
                     active ? "text-white" : "text-muted-foreground hover:text-foreground"
                   }`}
@@ -114,59 +271,66 @@ export function Hero() {
           <div className="flex flex-col md:flex-row gap-3">
             <div className="flex-1 flex items-center gap-3 bg-[#eef6f8] rounded-xl px-4 py-3 focus-within:ring-2 focus-within:ring-[#5baab8]/40 transition-all">
               <Play className="w-4 h-4 text-muted-foreground flex-shrink-0" />
-              <input
-                ref={inputRef}
-                type="url"
-                value={url}
-                onChange={(e) => setUrl(e.target.value)}
-                onKeyDown={(e) => e.key === "Enter" && handleDownload()}
-                placeholder="Paste your video URL here..."
-                className="flex-1 bg-transparent text-sm text-foreground placeholder:text-muted-foreground outline-none font-sans"
-              />
+              <div className="flex-1">
+                <input
+                  ref={inputRef}
+                  type="url"
+                  value={url}
+                  onChange={(e) => handleUrlChange(e.target.value)}
+                  onKeyDown={(e) => e.key === "Enter" && handleDownload()}
+                  placeholder="Paste your video URL here..."
+                  className="w-full bg-transparent text-sm text-foreground placeholder:text-muted-foreground outline-none font-sans"
+                />
+                {mediaTitle && (
+                  <p className="text-[10px] text-muted-foreground truncate mt-0.5 font-sans">{mediaTitle}</p>
+                )}
+              </div>
               {url && (
-                <button onClick={() => setUrl("")} className="text-muted-foreground hover:text-foreground transition-colors">
+                <button onClick={() => { setUrl(""); setMediaTitle(null); }} className="text-muted-foreground hover:text-foreground transition-colors">
                   <X className="w-3.5 h-3.5" />
                 </button>
               )}
             </div>
 
-            <div className="relative">
-              <button
-                onClick={() => setShowFormats(!showFormats)}
-                className="flex items-center gap-2 bg-[#eef6f8] hover:bg-[#d4ecf0] rounded-xl px-4 py-3 text-sm font-medium text-foreground transition-colors whitespace-nowrap w-full md:w-auto font-sans"
-              >
-                <span className="text-xs font-bold uppercase tracking-widest text-[#5baab8] font-mono">
-                  {formats[selectedFormat].ext.toUpperCase()}
-                </span>
-                <span className="text-muted-foreground">{formats[selectedFormat].quality || formats[selectedFormat].label.split("•")[1]?.trim()}</span>
-                <ChevronDown className={`w-4 h-4 text-muted-foreground transition-transform ${showFormats ? "rotate-180" : ""}`} />
-              </button>
+            {activeType !== "thumbnail" && (
+              <div className="relative">
+                <button
+                  onClick={() => setShowFormats(!showFormats)}
+                  className="flex items-center gap-2 bg-[#eef6f8] hover:bg-[#d4ecf0] rounded-xl px-4 py-3 text-sm font-medium text-foreground transition-colors whitespace-nowrap w-full md:w-auto font-sans"
+                >
+                  <span className="text-xs font-bold uppercase tracking-widest text-[#5baab8] font-mono">
+                    {formats[selectedFormat].ext.toUpperCase()}
+                  </span>
+                  <span className="text-muted-foreground">{formats[selectedFormat].quality || formats[selectedFormat].label.split("•")[1]?.trim()}</span>
+                  <ChevronDown className={`w-4 h-4 text-muted-foreground transition-transform ${showFormats ? "rotate-180" : ""}`} />
+                </button>
 
-              <AnimatePresence>
-                {showFormats && (
-                  <motion.div
-                    initial={{ opacity: 0, y: -8, scale: 0.96 }}
-                    animate={{ opacity: 1, y: 0, scale: 1 }}
-                    exit={{ opacity: 0, y: -8, scale: 0.96 }}
-                    transition={{ duration: 0.18 }}
-                    className="absolute top-full left-0 right-0 md:left-auto md:right-0 mt-2 bg-white rounded-xl border border-border shadow-xl z-20 overflow-hidden min-w-[220px]"
-                  >
-                    {formats.map((fmt, i) => (
-                      <button
-                        key={i}
-                        onClick={() => { setSelectedFormat(i); setShowFormats(false); }}
-                        className={`w-full flex items-center justify-between px-4 py-3 text-sm hover:bg-muted transition-colors text-left font-sans ${
-                          i === selectedFormat ? "bg-[#eef6f8] font-semibold" : ""
-                        }`}
-                      >
-                        <span>{fmt.label}</span>
-                        {i === selectedFormat && <CheckCircle2 className="w-4 h-4 text-[#5baab8]" />}
-                      </button>
-                    ))}
-                  </motion.div>
-                )}
-              </AnimatePresence>
-            </div>
+                <AnimatePresence>
+                  {showFormats && (
+                    <motion.div
+                      initial={{ opacity: 0, y: -8, scale: 0.96 }}
+                      animate={{ opacity: 1, y: 0, scale: 1 }}
+                      exit={{ opacity: 0, y: -8, scale: 0.96 }}
+                      transition={{ duration: 0.18 }}
+                      className="absolute top-full left-0 right-0 md:left-auto md:right-0 mt-2 bg-white rounded-xl border border-border shadow-xl z-20 overflow-hidden min-w-[220px]"
+                    >
+                      {formats.map((fmt, i) => (
+                        <button
+                          key={i}
+                          onClick={() => { setSelectedFormat(i); setShowFormats(false); }}
+                          className={`w-full flex items-center justify-between px-4 py-3 text-sm hover:bg-muted transition-colors text-left font-sans ${
+                            i === selectedFormat ? "bg-[#eef6f8] font-semibold" : ""
+                          }`}
+                        >
+                          <span>{fmt.label}</span>
+                          {i === selectedFormat && <CheckCircle2 className="w-4 h-4 text-[#5baab8]" />}
+                        </button>
+                      ))}
+                    </motion.div>
+                  )}
+                </AnimatePresence>
+              </div>
+            )}
 
             <motion.button
               onClick={handleDownload}
@@ -179,7 +343,7 @@ export function Hero() {
                 {processing ? (
                   <motion.span key="proc" initial={{ opacity: 0 }} animate={{ opacity: 1 }} exit={{ opacity: 0 }} className="flex items-center gap-2">
                     <span className="w-4 h-4 border-2 border-white/30 border-t-white rounded-full animate-spin" />
-                    Processing...
+                    {statusText || "Processing..."}
                   </motion.span>
                 ) : done ? (
                   <motion.span key="done" initial={{ opacity: 0, scale: 0.8 }} animate={{ opacity: 1, scale: 1 }} exit={{ opacity: 0 }} className="flex items-center gap-2">
@@ -195,6 +359,38 @@ export function Hero() {
               </AnimatePresence>
             </motion.button>
           </div>
+
+          {/* Progress bar */}
+          {processing && (
+            <motion.div
+              initial={{ opacity: 0, height: 0 }}
+              animate={{ opacity: 1, height: "auto" }}
+              className="mt-3"
+            >
+              <div className="w-full bg-[#eef6f8] rounded-full h-1.5 overflow-hidden">
+                <motion.div
+                  className="h-full bg-[#5baab8] rounded-full"
+                  initial={{ width: 0 }}
+                  animate={{ width: `${Math.max(progress, 5)}%` }}
+                  transition={{ duration: 0.3 }}
+                />
+              </div>
+            </motion.div>
+          )}
+
+          {/* Error message */}
+          <AnimatePresence>
+            {error && (
+              <motion.p
+                initial={{ opacity: 0, y: -4 }}
+                animate={{ opacity: 1, y: 0 }}
+                exit={{ opacity: 0 }}
+                className="text-xs text-destructive mt-2 font-sans"
+              >
+                {error}
+              </motion.p>
+            )}
+          </AnimatePresence>
         </motion.div>
 
         <motion.p
