@@ -27,9 +27,12 @@ export type ContentSection = {
 
 export type PageContent = {
   type: DownloadType;
+  platform: string;
   introduction: ContentSection;
+  whatIsPlatform: ContentSection;
   stepByStepGuide: ContentSection;
   formatGuide: ContentSection;
+  whyDownForge: ContentSection;
   proTips: ContentSection;
   troubleshooting: ContentSection;
   conclusion: ContentSection;
@@ -37,6 +40,8 @@ export type PageContent = {
 
 export type PlatformContentSeed = {
   introParagraphs: string[];
+  platformSummary: string;
+  whyDownForgeParagraphs: string[];
   tips: ContentTip[];
   troubleshooting: Array<{ q: string; a: string }>;
   steps: Record<string, ContentStep[]>;

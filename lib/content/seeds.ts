@@ -2,6 +2,11 @@ import type { PlatformContentSeed } from "./types";
 
 export const platformSeeds: Record<string, PlatformContentSeed> = {
   facebook: {
+    platformSummary: "Facebook is the world's largest social networking platform, hosting billions of videos across Watch, Reels, live streams, and user timelines. With over 2 billion daily active users, it has become a leading destination for video content where users discover breaking news clips, long-form creator content, and live broadcasts. What makes Facebook unique is its integration of video across every aspect of the platform — from the News Feed to dedicated Watch sections and ephemeral Stories.",
+    whyDownForgeParagraphs: [
+      "DownForge is the fastest and most reliable Facebook video downloader available online. Unlike browser extensions that slow down your device or desktop software that requires installation, DownForge works entirely in your browser — just paste a URL and download. We use the latest yt-dlp technology to access source-quality files directly from Facebook's CDN, ensuring you get the best possible version of your content without compression artifacts.",
+      "DownForge supports multiple download modes including video, audio, thumbnail, and AI transcript generation — all from a single interface. Whether you're archiving a Facebook Watch episode, extracting audio from a live stream interview, or saving a Reel for offline inspiration, our service handles every format Facebook offers. It's completely free for everyday use, with no account required to get started. For power users who need batch processing, higher quality options, and priority support, we offer affordable Pro and Team plans.",
+    ],
     introParagraphs: [
       "Facebook hosts billions of videos across Watch, Reels, live streams, and user timelines. From breaking news clips to long-form content from creators, the platform is a treasure trove of video content. However, Facebook doesn't provide a built-in way to save videos for offline viewing — that's where DownForge comes in.",
       "Whether you want to archive a Facebook Watch episode, save a tutorial from a creator, or extract audio from a live stream interview, our tool makes it possible in seconds. Facebook video downloads are processed through yt-dlp, giving you access to the original source quality.",
@@ -65,6 +70,11 @@ export const platformSeeds: Record<string, PlatformContentSeed> = {
   },
 
   instagram: {
+    platformSummary: "Instagram is a visual-first social media platform that has evolved from a photo-sharing app into a video powerhouse with Reels, Stories, IGTV, and live streams. With over 2 billion monthly active users, it has become one of the most influential platforms for visual content where creators share everything from short-form Reels to longer IGTV episodes. What makes Instagram unique is its seamless blend of photo and video content across multiple formats, all within a polished, mobile-first experience.",
+    whyDownForgeParagraphs: [
+      "DownForge is the fastest and most reliable Instagram video downloader available online. Unlike browser extensions that slow down your device or desktop software that requires installation, DownForge works entirely in your browser — just paste a URL and download. We use the latest yt-dlp technology to access Instagram's original-quality media files, ensuring you get Reels, Stories, and IGTV videos in their pristine uploaded quality without additional compression.",
+      "DownForge supports multiple download modes including video, audio, thumbnail, and AI transcript generation — all from a single interface. Whether you're saving a Reel for offline inspiration, extracting trending audio as MP3, downloading a profile picture in full resolution, or transcribing an IGTV interview, our service handles every format Instagram offers. It's completely free for everyday use, with no account required to get started. For power users who need batch processing, higher quality options, and priority support, we offer affordable Pro and Team plans.",
+    ],
     introParagraphs: [
       "Instagram has evolved from a photo-sharing app into a video powerhouse with Reels, Stories, IGTV, and live streams. Millions of videos are uploaded daily, from short-form Reels to longer IGTV content. While Instagram offers some offline features, there's no built-in way to permanently save videos from other creators.",
       "DownForge bridges that gap. Our Instagram downloader lets you save Reels, Stories, IGTV videos, and regular posts in their original quality. Whether you need a video for offline inspiration, audio from a Reel, or a profile picture in full resolution, we've got you covered.",
@@ -128,6 +138,11 @@ export const platformSeeds: Record<string, PlatformContentSeed> = {
   },
 
   tiktok: {
+    platformSummary: "TikTok is the world's leading short-form video platform that has revolutionized content creation with its addictive vertical video format and viral trend ecosystem. With over 1 billion monthly active users, it has become a dominant force in social media where users discover everything from dance challenges and comedy skits to educational content and cooking tutorials. What makes TikTok unique is its algorithm-driven For You page that delivers hyper-personalized content to every user.",
+    whyDownForgeParagraphs: [
+      "DownForge is the fastest and most reliable TikTok video downloader available online, with the ability to remove watermarks from your downloads. Unlike browser extensions that slow down your device or desktop software that requires installation, DownForge works entirely in your browser — just paste a URL and download. We use the latest yt-dlp technology to access the source video before TikTok applies its watermark overlay, giving you clean, unmarked content every time.",
+      "DownForge supports multiple download modes including video, audio, thumbnail, and AI transcript generation — all from a single interface. Whether you're saving a viral trend without the watermark, extracting a trending sound as MP3, downloading a video thumbnail, or generating a transcript of an educational TikTok, our service handles every format the platform offers. It's completely free for everyday use, with no account required to get started. For power users who need batch processing, higher quality options, and priority support, we offer affordable Pro and Team plans.",
+    ],
     introParagraphs: [
       "TikTok has taken the world by storm with its short-form video format, spawning trends, viral sounds, and a new generation of creators. Millions of videos are uploaded daily, from dance challenges to educational content. However, TikTok videos come with a prominent watermark, and there's no official way to save videos permanently without the app's in-built tools.",
       "DownForge's TikTok downloader lets you save videos without watermarks in their original quality. Extract viral audio as MP3, download thumbnails, or generate AI transcripts — all without signing up. Our tool uses yt-dlp to access the source video before TikTok applies its watermark overlay.",
@@ -191,6 +206,11 @@ export const platformSeeds: Record<string, PlatformContentSeed> = {
   },
 
   twitter: {
+    platformSummary: "Twitter (now X) is a real-time social media platform where breaking news, viral moments, and cultural conversations unfold through short posts and embedded media. With over 350 million monthly active users, it has become a primary destination for video content where journalists, creators, and public figures share everything from breaking news clips to creative short films. What makes Twitter unique is its real-time nature and the way video content spreads organically through retweets and quote tweets.",
+    whyDownForgeParagraphs: [
+      "DownForge is the fastest and most reliable Twitter video downloader available online. Unlike browser extensions that slow down your device or desktop software that requires installation, DownForge works entirely in your browser — just paste a URL and download. We use the latest yt-dlp technology to access source-quality video files from Twitter's servers, ensuring you get the best possible version of every tweet's media content.",
+      "DownForge supports multiple download modes including video, audio, thumbnail, and AI transcript generation — all from a single interface. Whether you're archiving breaking news footage, saving a viral clip before the tweet is deleted, extracting audio from an interview, or downloading a GIF as MP4 for editing, our service handles both twitter.com and x.com URLs automatically. It's completely free for everyday use, with no account required to get started. For power users who need batch processing, higher quality options, and priority support, we offer affordable Pro and Team plans.",
+    ],
     introParagraphs: [
       "Twitter (now X) has become a primary destination for video content, from breaking news clips and sports highlights to viral moments and creative content. While Twitter makes it easy to watch videos inline, there's no official download button — videos exist only as long as the tweet remains public.",
       "DownForge's Twitter downloader lets you save videos and GIFs from any tweet in their original quality. Extract audio, download thumbnails, or generate transcripts. Whether you're archiving important news footage or saving a hilarious clip, our tool makes it simple.",
@@ -254,6 +274,11 @@ export const platformSeeds: Record<string, PlatformContentSeed> = {
   },
 
   vimeo: {
+    platformSummary: "Vimeo is the leading video platform for professional creators, filmmakers, and businesses who demand high-quality video hosting with advanced privacy controls. With over 200 million users, it has become a go-to destination for 4K content, creative portfolios, and professional work where quality takes precedence over viral reach. What makes Vimeo unique is its commitment to preserving original upload quality with high bitrates and minimal compression, making it the gold standard for online video.",
+    whyDownForgeParagraphs: [
+      "DownForge is the fastest and most reliable Vimeo video downloader available online, supporting downloads up to 4K and 8K resolution. Unlike browser extensions that slow down your device or desktop software that requires installation, DownForge works entirely in your browser — just paste a URL and download. We use the latest yt-dlp technology to access Vimeo's high-bitrate source files, ensuring you get the pristine quality that makes Vimeo the professional's choice.",
+      "DownForge supports multiple download modes including video, audio, thumbnail, and AI transcript generation — all from a single interface. Whether you're a video editor collecting references, a student saving educational content, or a creative building a mood board, our service handles Vimeo's premium quality with precision. Audio can be extracted in FLAC lossless or WAV uncompressed formats for professional production work. It's completely free for everyday use, with no account required to get started. For power users who need batch processing, higher quality options, and priority support, we offer affordable Pro and Team plans.",
+    ],
     introParagraphs: [
       "Vimeo is the platform of choice for professional creators, filmmakers, and businesses who need high-quality video hosting. Unlike many platforms, Vimeo preserves original video quality and offers advanced privacy controls. This makes it a go-to source for 4K content, creative portfolios, and professional work.",
       "DownForge's Vimeo downloader lets you save videos in up to 4K resolution, extract lossless audio in FLAC format, and download HD thumbnails. Whether you're a video editor collecting references, a student saving educational content, or a creative building a mood board, our tool handles Vimeo's high-quality content with precision.",
@@ -317,6 +342,11 @@ export const platformSeeds: Record<string, PlatformContentSeed> = {
   },
 
   dailymotion: {
+    platformSummary: "Dailymotion is one of the largest video-sharing platforms in the world, hosting millions of videos spanning news, sports, entertainment, and user-generated content. With over 300 million monthly active users, it has become a leading alternative to YouTube where major media outlets and independent creators share diverse video content. What makes Dailymotion unique is its strong presence in European and French-language markets and its partnerships with major news organizations.",
+    whyDownForgeParagraphs: [
+      "DownForge is the fastest and most reliable Dailymotion video downloader available online. Unlike browser extensions that slow down your device or desktop software that requires installation, DownForge works entirely in your browser — just paste a URL and download. We use the latest yt-dlp technology to access Dailymotion's HD source files, supporting both standard URLs and dai.ly short links for maximum convenience.",
+      "DownForge supports multiple download modes including video, audio, thumbnail, and AI transcript generation — all from a single interface. Whether you're saving a news report for offline reference, extracting audio from a sports highlight, or downloading a creative video for inspiration, our service handles every format Dailymotion offers. It's completely free for everyday use, with no account required to get started. For power users who need batch processing, higher quality options, and priority support, we offer affordable Pro and Team plans.",
+    ],
     introParagraphs: [
       "Dailymotion hosts millions of videos spanning news, sports, entertainment, and user-generated content. As one of the largest video platforms after YouTube, it offers a diverse range of content from major media outlets and independent creators alike.",
       "DownForge's Dailymotion downloader lets you save videos in HD, extract audio, download thumbnails, and generate AI transcripts. Whether you're saving a news report, a sports highlight, or a creator's video, our tool handles Dailymotion content reliably.",
@@ -380,6 +410,11 @@ export const platformSeeds: Record<string, PlatformContentSeed> = {
   },
 
   twitch: {
+    platformSummary: "Twitch is the world's leading live streaming platform, home to millions of gamers, musicians, talk show hosts, and creative streamers who broadcast to passionate communities. With over 140 million monthly active users, it has become the definitive destination for live content where viewers engage with creators through real-time chat and community interaction. What makes Twitch unique is its combination of live interactivity, VOD archives for past broadcasts, and a vibrant clip culture that captures memorable moments.",
+    whyDownForgeParagraphs: [
+      "DownForge is the fastest and most reliable Twitch video downloader available online. Unlike browser extensions that slow down your device or desktop software that requires installation, DownForge works entirely in your browser — just paste a URL and download. We use the latest yt-dlp technology to access Twitch's source-quality VODs and clips, preserving the original resolution and smooth 60fps frame rate that streamers broadcast at.",
+      "DownForge supports multiple download modes including video, audio, thumbnail, and AI transcript generation — all from a single interface. Whether you're archiving a favorite streamer's VOD before it expires, extracting audio for a stream podcast, saving a highlight clip, or generating a transcript of gaming commentary, our service handles both VODs and clips with precision. It's completely free for everyday use, with no account required to get started. For power users who need batch processing, higher quality options, and priority support, we offer affordable Pro and Team plans.",
+    ],
     introParagraphs: [
       "Twitch is the world's leading live streaming platform, home to millions of gamers, musicians, talk show hosts, and creative streamers. While Twitch is best known for live broadcasts, its VOD (Video on Demand) system stores past broadcasts, clips, and highlights that viewers want to keep forever.",
       "DownForge's Twitch downloader lets you save VODs, clips, and highlights in their original quality. Extract audio for stream podcasts, download thumbnails, or generate AI transcripts — all without needing a Twitch login. Whether you're archiving a favorite streamer's content or saving educational gaming content, we've got you covered.",
@@ -443,6 +478,11 @@ export const platformSeeds: Record<string, PlatformContentSeed> = {
   },
 
   reddit: {
+    platformSummary: "Reddit is a vast network of communities where users share and discuss content across thousands of topics, making it one of the most diverse content platforms on the internet. With over 430 million monthly active users, it has become a primary destination for viral videos, educational content, and community-driven media where content is surfaced by upvotes and community curation. What makes Reddit unique is its community-driven structure spanning every conceivable interest, from r/funny to r/explainlikeimfive.",
+    whyDownForgeParagraphs: [
+      "DownForge is the fastest and most reliable Reddit video downloader available online. Unlike browser extensions that slow down your device or desktop software that requires installation, DownForge works entirely in your browser — just paste a URL and download. We use the latest yt-dlp technology to access Reddit-hosted videos (v.redd.it) and supported external sources, giving you clean downloads in the highest available quality.",
+      "DownForge supports multiple download modes including video, audio, thumbnail, and AI transcript generation — all from a single interface. Whether you're saving a viral post before it's deleted by the author, extracting audio from an educational explainer, downloading a GIF as MP4 for editing, or generating a transcript of a tutorial, our service handles content from any public subreddit. It's completely free for everyday use, with no account required to get started. For power users who need batch processing, higher quality options, and priority support, we offer affordable Pro and Team plans.",
+    ],
     introParagraphs: [
       "Reddit is a vast network of communities where users share and discuss content across thousands of topics. Videos are a major part of the Reddit experience, from funny clips in r/funny to educational content in r/explainlikeimfive and everything in between.",
       "DownForge's Reddit downloader lets you save videos, GIFs, and media shared across any subreddit. Download in HD, extract audio, save thumbnails, or generate AI transcripts — all without needing a Reddit account. Whether you're archiving a viral post or saving a tutorial, our tool handles Reddit-hosted and external video sources.",
@@ -506,6 +546,11 @@ export const platformSeeds: Record<string, PlatformContentSeed> = {
   },
 
   pinterest: {
+    platformSummary: "Pinterest is a visual discovery engine where users find and save ideas for everything from recipes and DIY projects to fashion and travel inspiration. With over 450 million monthly active users, it has become a leading platform for creative ideation and project planning. What makes Pinterest unique is its role as both a search engine and a bookmarking tool, helping users discover and organize ideas visually.",
+    whyDownForgeParagraphs: [
+      "DownForge is the fastest and most reliable Pinterest video and image downloader available online. Unlike browser extensions that slow down your device or desktop software that requires installation, DownForge works entirely in your browser — just paste a pin URL and download. We use the latest yt-dlp technology to access source-quality files, ensuring you get the best possible version of your Pinterest content.",
+      "DownForge supports multiple download modes including video, audio, thumbnail, and AI transcript generation — all from a single interface. Our service is completely free for everyday use, with no account required to get started. For power users who need batch processing, higher quality options, and priority support, we offer affordable Pro and Team plans.",
+    ],
     introParagraphs: [
       "Pinterest is the world's visual discovery engine, where users find and save ideas for everything from recipes and DIY projects to fashion and travel. Increasingly, Pinners share video content through video pins and Idea Pins (formerly Story Pins), adding motion to inspiration.",
       "DownForge's Pinterest downloader lets you save video pins, Idea Pins, and images in high quality. Extract audio from tutorial videos, download pin thumbnails, or generate AI transcripts for instructional content. Whether you're saving a recipe video, a DIY tutorial, or fashion inspiration, our tool preserves Pinterests visual quality.",
@@ -569,6 +614,11 @@ export const platformSeeds: Record<string, PlatformContentSeed> = {
   },
 
   linkedin: {
+    platformSummary: "LinkedIn is the world's largest professional networking platform, connecting over 900 million members across industries and countries. It has evolved beyond a resume site into a leading platform for professional development, industry insights, and career growth, featuring video content from LinkedIn Learning courses to thought leadership clips. What sets LinkedIn apart is its professional context, where every piece of content is tied to career development and industry expertise.",
+    whyDownForgeParagraphs: [
+      "DownForge is the fastest and most reliable LinkedIn video downloader available online. Unlike browser extensions that slow down your device or desktop software that requires installation, DownForge works entirely in your browser — just paste a post URL and download. We use the latest yt-dlp technology to access source-quality files, ensuring you get the best possible version of your professional content.",
+      "DownForge supports multiple download modes including video, audio, thumbnail, and AI transcript generation — all from a single interface. Our service is completely free for everyday use, with no account required to get started. For power users who need batch processing, higher quality options, and priority support, we offer affordable Pro and Team plans.",
+    ],
     introParagraphs: [
       "LinkedIn has grown beyond a professional networking site to become a platform rich with video content. From industry insights and company updates to LinkedIn Learning courses and event recordings, video has become central to professional development on the platform.",
       "DownForge's LinkedIn downloader lets you save professional videos, company content, and Learning course materials. Extract audio for learning on the go, download thumbnails, or generate AI transcripts for note-taking. Whether you're building a professional reference library or studying course content offline, our tool handles LinkedIn's video content.",
@@ -632,6 +682,11 @@ export const platformSeeds: Record<string, PlatformContentSeed> = {
   },
 
   snapchat: {
+    platformSummary: "Snapchat is a multimedia messaging app that pioneered the ephemeral content format with Stories that disappear after 24 hours. With over 750 million monthly active users, it has become a leading platform for authentic, in-the-moment sharing and creative expression through lenses, filters, and Spotlight videos. Snapchat's unique value lies in its focus on temporary content that encourages genuine, unfiltered communication.",
+    whyDownForgeParagraphs: [
+      "DownForge is the fastest and most reliable Snapchat video downloader available online. Unlike browser extensions that slow down your device or desktop software that requires installation, DownForge works entirely in your browser — just paste a Spotlight URL and download. We use the latest yt-dlp technology to access source-quality files, ensuring you get the best possible version of your Snapchat content.",
+      "DownForge supports multiple download modes including video, audio, thumbnail, and AI transcript generation — all from a single interface. Our service is completely free for everyday use, with no account required to get started. For power users who need batch processing, higher quality options, and priority support, we offer affordable Pro and Team plans.",
+    ],
     introParagraphs: [
       "Snapchat pioneered the ephemeral content format with Stories that disappear after 24 hours. While Snapchat is primarily about temporary content, its Spotlight feature showcases permanent, publicly viewable videos created by the community. These Spotlight videos range from creative short films to comedy skits and viral challenges.",
       "DownForge's Snapchat downloader lets you save Spotlight videos and public stories in their original quality. Extract audio, download thumbnails, or generate AI transcripts. Since Snapchat content is inherently temporary, having a download tool ensures you can keep the content that matters to you.",
@@ -695,6 +750,11 @@ export const platformSeeds: Record<string, PlatformContentSeed> = {
   },
 
   soundcloud: {
+    platformSummary: "SoundCloud is the world's largest open audio platform, home to over 300 million tracks from emerging artists, established musicians, and podcasters. It has become a leading destination for music discovery and independent audio content, offering a diverse library that includes everything from bedroom-produced beats to major label releases. SoundCloud's strength lies in its community-driven approach, where artists share work-in-progress tracks and connect directly with listeners.",
+    whyDownForgeParagraphs: [
+      "DownForge is the fastest and most reliable SoundCloud audio downloader available online. Unlike browser extensions that slow down your device or desktop software that requires installation, DownForge works entirely in your browser — just paste a track URL and download. We use the latest yt-dlp technology to access source-quality files, ensuring you get the best possible version of your SoundCloud content.",
+      "DownForge supports multiple download modes including audio, video, thumbnail, and AI transcript generation — all from a single interface. Our service is completely free for everyday use, with no account required to get started. For power users who need batch processing, higher quality options, and priority support, we offer affordable Pro and Team plans.",
+    ],
     introParagraphs: [
       "SoundCloud is the world's largest open audio platform, home to millions of tracks, remixes, podcasts, and emerging artists. From bedroom producers to established musicians, SoundCloud hosts an incredible diversity of audio content that often isn't available on other streaming services.",
       "DownForge's SoundCloud downloader lets you save tracks as high-quality MP3, FLAC, AAC, WAV, and OGG. Download entire playlists, extract audio from tracks, or generate AI transcripts for spoken-word content. Whether you're a DJ building a collection, a producer studying tracks, or a listener who wants offline access, our tool delivers pristine audio quality.",
@@ -758,6 +818,11 @@ export const platformSeeds: Record<string, PlatformContentSeed> = {
   },
 
   kick: {
+    platformSummary: "Kick is a rapidly growing live streaming platform that has attracted creators with its generous 95/5 revenue split and relaxed content moderation policies. Since launching in 2022, it has become one of the fastest-growing competitors to Twitch, hosting diverse live content from gaming and IRL streams to music and talk shows. Kick differentiates itself with creator-friendly terms and a focus on building a sustainable income for streamers.",
+    whyDownForgeParagraphs: [
+      "DownForge is the fastest and most reliable Kick video downloader available online. Unlike browser extensions that slow down your device or desktop software that requires installation, DownForge works entirely in your browser — just paste a VOD or clip URL and download. We use the latest yt-dlp technology to access source-quality files, ensuring you get the best possible version of your Kick content.",
+      "DownForge supports multiple download modes including video, audio, thumbnail, and AI transcript generation — all from a single interface. Our service is completely free for everyday use, with no account required to get started. For power users who need batch processing, higher quality options, and priority support, we offer affordable Pro and Team plans.",
+    ],
     introParagraphs: [
       "Kick is a rapidly growing live streaming platform that has attracted creators with its generous revenue sharing and relaxed content policies. As a competitor to Twitch, Kick hosts a diverse range of live streams, VODs, and clips spanning gaming, IRL (in-real-life) content, and creative streams.",
       "DownForge's Kick downloader lets you save VODs, clips, and highlights in their original quality. Extract audio for stream podcasts, download thumbnails, or generate AI transcripts. Whether you're archiving your favorite Kick creator's content or saving a memorable stream moment, our tool handles Kick content reliably.",
@@ -821,6 +886,11 @@ export const platformSeeds: Record<string, PlatformContentSeed> = {
   },
 
   niconico: {
+    platformSummary: "Niconico (ニコニコ動画) is Japan's largest video-sharing platform, famous for its unique scrolling comment overlay system that creates a communal viewing experience. With over 100 million registered users, it has become a leading hub for Japanese internet culture, hosting everything from Vocaloid music and gaming videos to VTuber streams and amateur creative content. Niconico's comment system, where user messages fly across the screen in real-time, creates an interactive experience unlike any other video platform.",
+    whyDownForgeParagraphs: [
+      "DownForge is the fastest and most reliable Niconico video downloader available online. Unlike browser extensions that slow down your device or desktop software that requires installation, DownForge works entirely in your browser — just paste a video URL and download. We use the latest yt-dlp technology to access source-quality files, ensuring you get the best possible version of your Niconico content.",
+      "DownForge supports multiple download modes including video, audio, thumbnail, and AI transcript generation — all from a single interface. Our service is completely free for everyday use, with no account required to get started. For power users who need batch processing, higher quality options, and priority support, we offer affordable Pro and Team plans.",
+    ],
     introParagraphs: [
       "Niconico (ニコニコ動画) is Japan's largest video-sharing platform, famous for its unique comment overlay system where comments fly across the screen like a scrolling ticker tape. The platform hosts a wide variety of content including Vocaloid music, gaming videos, live streams, and user-generated content that represents a significant part of Japanese internet culture.",
       "DownForge's Niconico downloader lets you save videos in their original quality, extract audio, download thumbnails, and generate AI transcripts. Whether you're a fan of Vocaloid music, Japanese gaming content, or VTuber streams, our tool preserves Niconico's unique content for offline enjoyment.",
@@ -885,6 +955,11 @@ export const platformSeeds: Record<string, PlatformContentSeed> = {
 };
 
 export const youtubeDownloadSeed: PlatformContentSeed = {
+  platformSummary: "YouTube is the world's largest video platform, hosting billions of videos across every conceivable topic from entertainment and music to education and news. With over 500 hours of content uploaded every minute, it has become the definitive video library for the internet where creators, educators, and entertainers share content with a global audience. What makes YouTube unique is its unprecedented scale, diverse content ecosystem, and support for resolutions up to 4K and 8K.",
+  whyDownForgeParagraphs: [
+    "DownForge is the fastest and most reliable YouTube downloader available online, supporting resolutions up to 4K and beyond. Unlike browser extensions that slow down your device or desktop software that requires installation, DownForge works entirely in your browser — just paste a URL and download. We use the latest yt-dlp technology to access YouTube's source-quality video and audio streams, giving you the best possible version of your content.",
+    "DownForge supports multiple download modes including video, audio, thumbnail, and AI transcript generation — all from a single interface. Whether you're building a music library in FLAC quality, saving 4K tutorials for offline study, downloading playlists in batch, or generating accurate transcripts for research, our service handles every format YouTube offers. It's completely free for everyday use, with no account required to get started. For power users who need batch processing, higher quality options, and priority support, we offer affordable Pro and Team plans.",
+  ],
   introParagraphs: [
     "YouTube is the world's largest video platform, hosting billions of videos across every conceivable topic. With over 500 hours of content uploaded every minute, YouTube offers an unparalleled library of entertainment, education, music, news, and creative content.",
     "DownForge's YouTube downloader is the most comprehensive tool on our platform. Download videos in up to 4K resolution, extract audio as high-bitrate MP3 or lossless FLAC, save HD thumbnails, and generate AI transcripts with timestamps — all from one interface. Whether you're building a music library, saving tutorials for offline study, or archiving your favorite creator's content, DownForge handles every format YouTube offers.",
@@ -950,6 +1025,11 @@ export const youtubeDownloadSeed: PlatformContentSeed = {
 };
 
 export const youtubeVideoSeed: PlatformContentSeed = {
+  platformSummary: "YouTube is the world's largest video platform, hosting billions of videos across every conceivable topic from entertainment and music to education and news. With over 500 hours of content uploaded every minute, it has become the definitive video library for the internet where creators share content in resolutions from 360p to stunning 8K. What makes YouTube unique is its support for virtually every video format, frame rate, and resolution, making it the ultimate source for video content.",
+  whyDownForgeParagraphs: [
+    "DownForge is the fastest and most reliable YouTube video downloader available online, purpose-built for downloading videos in their original quality. Unlike browser extensions that slow down your device or desktop software that requires installation, DownForge works entirely in your browser — just paste a URL and download. We use the latest yt-dlp technology to extract the highest quality video stream available, whether it's 4K HDR, 1080p60, or standard HD.",
+    "DownForge supports multiple video formats including MP4, WebM, and MKV, along with audio, thumbnail, and AI transcript generation — all from a single interface. Whether you need 4K footage for video editing, HD videos for offline viewing, or a specific format for device compatibility, our tool delivers. It's completely free for everyday use, with no account required to get started. For power users who need batch processing, higher quality options, and priority support, we offer affordable Pro and Team plans.",
+  ],
   introParagraphs: [
     "YouTube is the world's largest video platform, hosting billions of videos across every conceivable topic. With over 500 hours of content uploaded every minute, YouTube offers an unparalleled library of entertainment, education, music, news, and creative content.",
     "DownForge's YouTube Video Downloader is purpose-built for downloading videos in their original quality. Whether you need 4K footage for editing, HD videos for offline viewing, or a specific format for compatibility, our tool extracts the highest quality version available. No account required, no software to install — just paste, choose your quality, and download.",
