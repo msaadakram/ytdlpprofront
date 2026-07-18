@@ -91,13 +91,11 @@ export function Nav() {
     >
       <div className="max-w-6xl mx-auto px-4 sm:px-6 h-16 flex items-center justify-between">
         <Link href="/" className="flex items-center gap-2.5 shrink-0 group" aria-label="DownForge home">
-          <motion.div
-            className="w-8 h-8 rounded-xl bg-[#0d1f26] flex items-center justify-center"
-            whileHover={{ scale: 1.08, rotate: -5 }}
-            transition={{ type: "spring", stiffness: 400, damping: 10 }}
-          >
-            <Download className="w-4 h-4 text-[#5baab8]" />
-          </motion.div>
+          <img
+            src="/logo.png"
+            alt="DownForge"
+            className="w-8 h-8 object-contain"
+          />
           <span className="font-bold text-lg tracking-tight text-foreground font-heading">
             DownForge
           </span>
@@ -284,9 +282,11 @@ export function Nav() {
             >
               <div className="flex items-center justify-between px-5 h-16 border-b border-border/50">
                 <Link href="/" onClick={closeAll} className="flex items-center gap-2" aria-label="DownForge home">
-                  <div className="w-7 h-7 rounded-lg bg-[#0d1f26] flex items-center justify-center">
-                    <Download className="w-3.5 h-3.5 text-[#5baab8]" />
-                  </div>
+                  <img
+                    src="/logo.png"
+                    alt="DownForge"
+                    className="w-7 h-7 object-contain"
+                  />
                   <span className="font-bold text-base tracking-tight text-foreground font-heading">DownForge</span>
                 </Link>
                 <button

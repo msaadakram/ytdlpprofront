@@ -1,5 +1,5 @@
 import Link from "next/link";
-import { Download } from "lucide-react";
+
 
 const platformLinks: [string, string][] = [
   ["YouTube Download", "/youtube-download"],
@@ -32,9 +32,11 @@ export function Footer() {
         <div className="grid grid-cols-2 md:grid-cols-5 gap-10">
           <div className="col-span-2 md:col-span-1">
             <Link href="/" className="flex items-center gap-2 mb-4">
-              <div className="w-8 h-8 rounded-lg bg-white/10 flex items-center justify-center">
-                <Download className="w-4 h-4 text-[#5baab8]" />
-              </div>
+              <img
+                src="/logo.png"
+                alt="DownForge"
+                className="w-8 h-8 object-contain"
+              />
               <span className="font-bold text-lg tracking-tight font-heading">DownForge</span>
             </Link>
             <p className="text-sm text-white/60 leading-relaxed max-w-xs font-sans">

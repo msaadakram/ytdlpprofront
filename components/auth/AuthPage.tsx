@@ -5,7 +5,7 @@ import Link from "next/link";
 import { useRouter } from "next/navigation";
 import { motion } from "motion/react";
 import {
-  Download, Mail, LockKeyhole, Eye, EyeOff, ArrowLeft, Check,
+  Mail, LockKeyhole, Eye, EyeOff, ArrowLeft, Check,
 } from "lucide-react";
 import { useAuth } from "@/lib/auth-context";
 
@@ -15,9 +15,11 @@ function AuthAside() {
   return (
     <div className="hidden lg:flex flex-col justify-between bg-[#0d1f26] rounded-3xl p-10 text-white max-w-sm">
       <div>
-        <div className="w-10 h-10 rounded-xl bg-white/10 flex items-center justify-center mb-6">
-          <Download className="w-5 h-5 text-[#5baab8]" />
-        </div>
+        <img
+          src="/logo.png"
+          alt="DownForge"
+          className="w-10 h-10 object-contain mb-6"
+        />
         <h3 className="text-2xl font-bold mb-3 font-heading">Join thousands of creators</h3>
         <p className="text-sm text-white/60 leading-relaxed font-sans">
           Download videos, audio, and thumbnails from 200+ platforms. Fast, secure, and reliable.
