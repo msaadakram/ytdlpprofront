@@ -26,8 +26,8 @@ export async function generateMetadata({ params }: Props): Promise<Metadata> {
     openGraph: {
       title: config.metaTitle,
       description: config.metaDescription,
-      url: `https://fetchwave.com/download/${config.slug}`,
-      siteName: "fetchwave",
+      url: `https://downforge.me/download/${config.slug}`,
+      siteName: "DownForge",
       locale: "en_US",
       type: "website",
     },
@@ -37,7 +37,7 @@ export async function generateMetadata({ params }: Props): Promise<Metadata> {
       description: config.metaDescription,
     },
     robots: { index: true, follow: true },
-    alternates: { canonical: `https://fetchwave.com/download/${config.slug}` },
+    alternates: { canonical: `https://downforge.me/download/${config.slug}` },
     keywords: config.keywords,
   };
 }
@@ -52,17 +52,17 @@ export default async function PlatformDownloadPage({ params }: Props) {
     "@graph": [
       {
         "@type": "BreadcrumbList",
-        "@id": `https://fetchwave.com/download/${config.slug}#breadcrumb`,
+        "@id": `https://downforge.me/download/${config.slug}#breadcrumb`,
         itemListElement: [
-          { "@type": "ListItem", position: 1, name: "Home", item: "https://fetchwave.com" },
-          { "@type": "ListItem", position: 2, name: `${config.name} Downloader`, item: `https://fetchwave.com/download/${config.slug}` },
+          { "@type": "ListItem", position: 1, name: "Home", item: "https://downforge.me" },
+          { "@type": "ListItem", position: 2, name: `${config.name} Downloader`, item: `https://downforge.me/download/${config.slug}` },
         ],
       },
       {
         "@type": "WebApplication",
-        "@id": `https://fetchwave.com/download/${config.slug}#webapp`,
-        name: `fetchwave ${config.name} Downloader`,
-        url: `https://fetchwave.com/download/${config.slug}`,
+        "@id": `https://downforge.me/download/${config.slug}#webapp`,
+        name: `DownForge ${config.name} Downloader`,
+        url: `https://downforge.me/download/${config.slug}`,
         description: config.metaDescription,
         applicationCategory: "Multimedia",
         operatingSystem: "All",
@@ -70,7 +70,7 @@ export default async function PlatformDownloadPage({ params }: Props) {
       },
       {
         "@type": "FAQPage",
-        "@id": `https://fetchwave.com/download/${config.slug}#faq`,
+        "@id": `https://downforge.me/download/${config.slug}#faq`,
         mainEntity: config.faqs.map((faq) => ({
           "@type": "Question",
           name: faq.q,

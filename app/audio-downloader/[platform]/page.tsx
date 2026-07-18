@@ -19,13 +19,13 @@ export async function generateMetadata({ params }: Props): Promise<Metadata> {
   if (!config) return {};
 
   return {
-    title: `${config.name} Audio Downloader — Extract Audio as MP3, FLAC, AAC | fetchwave`,
+    title: `${config.name} Audio Downloader — Extract Audio as MP3, FLAC, AAC | DownForge`,
     description: `Free ${config.name} audio downloader. Extract audio from ${config.name} videos as MP3 320kbps, FLAC, AAC, WAV, and OGG. No sign-up required.`,
     openGraph: {
-      title: `${config.name} Audio Downloader — Extract Audio as MP3, FLAC, AAC | fetchwave`,
+      title: `${config.name} Audio Downloader — Extract Audio as MP3, FLAC, AAC | DownForge`,
       description: `Free ${config.name} audio downloader. Extract audio as MP3 320kbps, FLAC, AAC, WAV, and OGG. No sign-up required.`,
-      url: `https://fetchwave.com/audio-downloader/${config.slug}`,
-      siteName: "fetchwave",
+      url: `https://downforge.me/audio-downloader/${config.slug}`,
+      siteName: "DownForge",
       locale: "en_US",
       type: "website",
     },
@@ -35,7 +35,7 @@ export async function generateMetadata({ params }: Props): Promise<Metadata> {
       description: `Free ${config.name} audio downloader. Extract audio as MP3 320kbps, FLAC, AAC, WAV, and OGG.`,
     },
     robots: { index: true, follow: true },
-    alternates: { canonical: `https://fetchwave.com/audio-downloader/${config.slug}` },
+    alternates: { canonical: `https://downforge.me/audio-downloader/${config.slug}` },
     keywords: [...config.keywords, "audio downloader", "mp3 downloader", "extract audio"],
   };
 }
@@ -50,17 +50,17 @@ export default async function AudioDownloaderPage({ params }: Props) {
     "@graph": [
       {
         "@type": "BreadcrumbList",
-        "@id": `https://fetchwave.com/audio-downloader/${config.slug}#breadcrumb`,
+        "@id": `https://downforge.me/audio-downloader/${config.slug}#breadcrumb`,
         "itemListElement": [
-          { "@type": "ListItem", position: 1, name: "Home", item: "https://fetchwave.com" },
-          { "@type": "ListItem", position: 2, name: `${config.name} Audio Downloader`, item: `https://fetchwave.com/audio-downloader/${config.slug}` },
+          { "@type": "ListItem", position: 1, name: "Home", item: "https://downforge.me" },
+          { "@type": "ListItem", position: 2, name: `${config.name} Audio Downloader`, item: `https://downforge.me/audio-downloader/${config.slug}` },
         ],
       },
       {
         "@type": "WebApplication",
-        "@id": `https://fetchwave.com/audio-downloader/${config.slug}#webapp`,
-        name: `fetchwave ${config.name} Audio Downloader`,
-        url: `https://fetchwave.com/audio-downloader/${config.slug}`,
+        "@id": `https://downforge.me/audio-downloader/${config.slug}#webapp`,
+        name: `DownForge ${config.name} Audio Downloader`,
+        url: `https://downforge.me/audio-downloader/${config.slug}`,
         description: `Free ${config.name} audio downloader. Extract audio as MP3 320kbps, FLAC, AAC, WAV, and OGG. No registration required.`,
         applicationCategory: "Multimedia",
         operatingSystem: "All",
@@ -69,7 +69,7 @@ export default async function AudioDownloaderPage({ params }: Props) {
       },
       {
         "@type": "FAQPage",
-        "@id": `https://fetchwave.com/audio-downloader/${config.slug}#faq`,
+        "@id": `https://downforge.me/audio-downloader/${config.slug}#faq`,
         mainEntity: config.faqs.map((faq) => ({
           "@type": "Question",
           name: faq.q,

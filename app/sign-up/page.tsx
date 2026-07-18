@@ -4,8 +4,8 @@ import { Footer } from "@/components/layout/Footer";
 import { AuthPage } from "@/components/auth/AuthPage";
 
 export const metadata: Metadata = {
-  title: "Sign Up — fetchwave",
-  description: "Create your free fetchwave account. Download videos, audio, and thumbnails from 200+ platforms.",
+  title: "Sign Up — DownForge",
+  description: "Create your free DownForge account. Download videos, audio, and thumbnails from 200+ platforms.",
 };
 
 export default function SignUpPage() {

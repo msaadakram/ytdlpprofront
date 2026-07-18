@@ -90,7 +90,7 @@ export function Nav() {
       className="fixed top-0 left-0 right-0 z-50 bg-white/80 backdrop-blur-xl border-b border-border/60"
     >
       <div className="max-w-6xl mx-auto px-4 sm:px-6 h-16 flex items-center justify-between">
-        <Link href="/" className="flex items-center gap-2.5 shrink-0 group" aria-label="fetchwave home">
+        <Link href="/" className="flex items-center gap-2.5 shrink-0 group" aria-label="DownForge home">
           <motion.div
             className="w-8 h-8 rounded-xl bg-[#0d1f26] flex items-center justify-center"
             whileHover={{ scale: 1.08, rotate: -5 }}
@@ -99,7 +99,7 @@ export function Nav() {
             <Download className="w-4 h-4 text-[#5baab8]" />
           </motion.div>
           <span className="font-bold text-lg tracking-tight text-foreground font-heading">
-            fetchwave
+            DownForge
           </span>
         </Link>
 
@@ -283,11 +283,11 @@ export function Nav() {
               className="fixed top-0 right-0 bottom-0 w-full max-w-sm bg-white border-l border-border/60 shadow-2xl z-50 lg:hidden overflow-y-auto"
             >
               <div className="flex items-center justify-between px-5 h-16 border-b border-border/50">
-                <Link href="/" onClick={closeAll} className="flex items-center gap-2" aria-label="fetchwave home">
+                <Link href="/" onClick={closeAll} className="flex items-center gap-2" aria-label="DownForge home">
                   <div className="w-7 h-7 rounded-lg bg-[#0d1f26] flex items-center justify-center">
                     <Download className="w-3.5 h-3.5 text-[#5baab8]" />
                   </div>
-                  <span className="font-bold text-base tracking-tight text-foreground font-heading">fetchwave</span>
+                  <span className="font-bold text-base tracking-tight text-foreground font-heading">DownForge</span>
                 </Link>
                 <button
                   onClick={() => setMenuOpen(false)}

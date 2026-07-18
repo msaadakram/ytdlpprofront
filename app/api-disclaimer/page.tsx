@@ -5,8 +5,8 @@ import Link from "next/link";
 import { ShieldCheck, ArrowLeft } from "lucide-react";
 
 export const metadata: Metadata = {
-  title: "API Disclaimer — fetchwave",
-  description: "Learn about fetchwave's API usage policies, fair use limits, and service terms.",
+  title: "API Disclaimer — DownForge",
+  description: "Learn about DownForge's API usage policies, fair use limits, and service terms.",
 };
 
 export default function ApiDisclaimerPage() {

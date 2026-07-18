@@ -19,13 +19,13 @@ export async function generateMetadata({ params }: Props): Promise<Metadata> {
   if (!config) return {};
 
   return {
-    title: `${config.name} Video Downloader — Download ${config.name} Videos in HD | fetchwave`,
+    title: `${config.name} Video Downloader — Download ${config.name} Videos in HD | DownForge`,
     description: config.metaDescription,
     openGraph: {
-      title: `${config.name} Video Downloader — Download ${config.name} Videos in HD | fetchwave`,
+      title: `${config.name} Video Downloader — Download ${config.name} Videos in HD | DownForge`,
       description: config.metaDescription,
-      url: `https://fetchwave.com/video-downloader/${config.slug}`,
-      siteName: "fetchwave",
+      url: `https://downforge.me/video-downloader/${config.slug}`,
+      siteName: "DownForge",
       locale: "en_US",
       type: "website",
     },
@@ -35,7 +35,7 @@ export async function generateMetadata({ params }: Props): Promise<Metadata> {
       description: config.metaDescription,
     },
     robots: { index: true, follow: true },
-    alternates: { canonical: `https://fetchwave.com/video-downloader/${config.slug}` },
+    alternates: { canonical: `https://downforge.me/video-downloader/${config.slug}` },
     keywords: config.keywords,
   };
 }
@@ -50,17 +50,17 @@ export default async function VideoDownloaderPage({ params }: Props) {
     "@graph": [
       {
         "@type": "BreadcrumbList",
-        "@id": `https://fetchwave.com/video-downloader/${config.slug}#breadcrumb`,
+        "@id": `https://downforge.me/video-downloader/${config.slug}#breadcrumb`,
         "itemListElement": [
-          { "@type": "ListItem", position: 1, name: "Home", item: "https://fetchwave.com" },
-          { "@type": "ListItem", position: 2, name: `${config.name} Video Downloader`, item: `https://fetchwave.com/video-downloader/${config.slug}` },
+          { "@type": "ListItem", position: 1, name: "Home", item: "https://downforge.me" },
+          { "@type": "ListItem", position: 2, name: `${config.name} Video Downloader`, item: `https://downforge.me/video-downloader/${config.slug}` },
         ],
       },
       {
         "@type": "WebApplication",
-        "@id": `https://fetchwave.com/video-downloader/${config.slug}#webapp`,
-        name: `fetchwave ${config.name} Video Downloader`,
-        url: `https://fetchwave.com/video-downloader/${config.slug}`,
+        "@id": `https://downforge.me/video-downloader/${config.slug}#webapp`,
+        name: `DownForge ${config.name} Video Downloader`,
+        url: `https://downforge.me/video-downloader/${config.slug}`,
         description: config.metaDescription,
         applicationCategory: "Multimedia",
         operatingSystem: "All",
@@ -69,7 +69,7 @@ export default async function VideoDownloaderPage({ params }: Props) {
       },
       {
         "@type": "FAQPage",
-        "@id": `https://fetchwave.com/video-downloader/${config.slug}#faq`,
+        "@id": `https://downforge.me/video-downloader/${config.slug}#faq`,
         mainEntity: config.faqs.map((faq) => ({
           "@type": "Question",
           name: faq.q,

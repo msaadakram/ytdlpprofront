@@ -6,8 +6,8 @@ import Link from "next/link";
 import { ArrowLeft } from "lucide-react";
 
 export const metadata: Metadata = {
-  title: "Pricing — fetchwave",
-  description: "Simple, transparent pricing for fetchwave. Start free, upgrade when you need more.",
+  title: "Pricing — DownForge",
+  description: "Simple, transparent pricing for DownForge. Start free, upgrade when you need more.",
 };
 
 export default function PricingPage() {

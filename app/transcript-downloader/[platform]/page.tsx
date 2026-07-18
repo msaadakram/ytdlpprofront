@@ -19,13 +19,13 @@ export async function generateMetadata({ params }: Props): Promise<Metadata> {
   if (!config) return {};
 
   return {
-    title: `${config.name} Transcript Downloader — AI Subtitles SRT, VTT, TXT, JSON | fetchwave`,
+    title: `${config.name} Transcript Downloader — AI Subtitles SRT, VTT, TXT, JSON | DownForge`,
     description: `Free ${config.name} transcript generator. Get AI-powered transcripts for any ${config.name} video as SRT, VTT, TXT, or JSON subtitles. No sign-up required.`,
     openGraph: {
-      title: `${config.name} Transcript Downloader — AI Subtitles SRT, VTT, TXT, JSON | fetchwave`,
+      title: `${config.name} Transcript Downloader — AI Subtitles SRT, VTT, TXT, JSON | DownForge`,
       description: `Free ${config.name} transcript generator. Get AI transcripts for any ${config.name} video as SRT, VTT, TXT, or JSON. No sign-up required.`,
-      url: `https://fetchwave.com/transcript-downloader/${config.slug}`,
-      siteName: "fetchwave",
+      url: `https://downforge.me/transcript-downloader/${config.slug}`,
+      siteName: "DownForge",
       locale: "en_US",
       type: "website",
     },
@@ -35,7 +35,7 @@ export async function generateMetadata({ params }: Props): Promise<Metadata> {
       description: `Free ${config.name} transcript generator. Get AI transcripts as SRT, VTT, TXT, or JSON subtitles.`,
     },
     robots: { index: true, follow: true },
-    alternates: { canonical: `https://fetchwave.com/transcript-downloader/${config.slug}` },
+    alternates: { canonical: `https://downforge.me/transcript-downloader/${config.slug}` },
     keywords: [...config.keywords, "transcript downloader", "ai transcript", "subtitle downloader", "srt download"],
   };
 }
@@ -50,17 +50,17 @@ export default async function TranscriptDownloaderPage({ params }: Props) {
     "@graph": [
       {
         "@type": "BreadcrumbList",
-        "@id": `https://fetchwave.com/transcript-downloader/${config.slug}#breadcrumb`,
+        "@id": `https://downforge.me/transcript-downloader/${config.slug}#breadcrumb`,
         "itemListElement": [
-          { "@type": "ListItem", position: 1, name: "Home", item: "https://fetchwave.com" },
-          { "@type": "ListItem", position: 2, name: `${config.name} Transcript Downloader`, item: `https://fetchwave.com/transcript-downloader/${config.slug}` },
+          { "@type": "ListItem", position: 1, name: "Home", item: "https://downforge.me" },
+          { "@type": "ListItem", position: 2, name: `${config.name} Transcript Downloader`, item: `https://downforge.me/transcript-downloader/${config.slug}` },
         ],
       },
       {
         "@type": "WebApplication",
-        "@id": `https://fetchwave.com/transcript-downloader/${config.slug}#webapp`,
-        name: `fetchwave ${config.name} Transcript Downloader`,
-        url: `https://fetchwave.com/transcript-downloader/${config.slug}`,
+        "@id": `https://downforge.me/transcript-downloader/${config.slug}#webapp`,
+        name: `DownForge ${config.name} Transcript Downloader`,
+        url: `https://downforge.me/transcript-downloader/${config.slug}`,
         description: `Free ${config.name} transcript generator. Get AI-powered transcripts for any ${config.name} video as SRT, VTT, TXT, or JSON subtitles. No registration required.`,
         applicationCategory: "Multimedia",
         operatingSystem: "All",
@@ -69,7 +69,7 @@ export default async function TranscriptDownloaderPage({ params }: Props) {
       },
       {
         "@type": "FAQPage",
-        "@id": `https://fetchwave.com/transcript-downloader/${config.slug}#faq`,
+        "@id": `https://downforge.me/transcript-downloader/${config.slug}#faq`,
         mainEntity: config.faqs.map((faq) => ({
           "@type": "Question",
           name: faq.q,

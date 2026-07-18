@@ -6,15 +6,15 @@ import { VideoFeatures } from "@/components/youtube-video-downloader/VideoFeatur
 import { VideoFaq } from "@/components/youtube-video-downloader/VideoFaq";
 
 export const metadata: Metadata = {
-  title: "YouTube Video Downloader — Download 4K, 1080p, 720p MP4 Videos | fetchwave",
+  title: "YouTube Video Downloader — Download 4K, 1080p, 720p MP4 Videos | DownForge",
   description:
     "Free YouTube video downloader. Download YouTube videos in 4K, 1080p, 720p MP4. Choose from 4K Ultra HD, Full HD, HD, WebM, or MKV formats. Fast, secure, no sign-up required.",
   openGraph: {
-    title: "YouTube Video Downloader — Download 4K, 1080p, 720p MP4 Videos | fetchwave",
+    title: "YouTube Video Downloader — Download 4K, 1080p, 720p MP4 Videos | DownForge",
     description:
       "Free YouTube video downloader. Download YouTube videos in 4K, 1080p, 720p MP4. Choose from 4K Ultra HD, Full HD, HD, WebM, or MKV formats. No sign-up required.",
-    url: "https://fetchwave.com/youtube-video-downloader",
-    siteName: "fetchwave",
+    url: "https://downforge.me/youtube-video-downloader",
+    siteName: "DownForge",
     locale: "en_US",
     type: "website",
   },
@@ -29,7 +29,7 @@ export const metadata: Metadata = {
     follow: true,
   },
   alternates: {
-    canonical: "https://fetchwave.com/youtube-video-downloader",
+    canonical: "https://downforge.me/youtube-video-downloader",
   },
   keywords: [
     "youtube video downloader",
@@ -55,17 +55,17 @@ const jsonLd = {
   "@graph": [
     {
       "@type": "BreadcrumbList",
-      "@id": "https://fetchwave.com/youtube-video-downloader#breadcrumb",
+      "@id": "https://downforge.me/youtube-video-downloader#breadcrumb",
       "itemListElement": [
-        { "@type": "ListItem", position: 1, name: "Home", item: "https://fetchwave.com" },
-        { "@type": "ListItem", position: 2, name: "YouTube Video Downloader", item: "https://fetchwave.com/youtube-video-downloader" },
+        { "@type": "ListItem", position: 1, name: "Home", item: "https://downforge.me" },
+        { "@type": "ListItem", position: 2, name: "YouTube Video Downloader", item: "https://downforge.me/youtube-video-downloader" },
       ],
     },
     {
       "@type": "WebApplication",
-      "@id": "https://fetchwave.com/youtube-video-downloader#webapp",
-      name: "fetchwave YouTube Video Downloader",
-      url: "https://fetchwave.com/youtube-video-downloader",
+      "@id": "https://downforge.me/youtube-video-downloader#webapp",
+      name: "DownForge YouTube Video Downloader",
+      url: "https://downforge.me/youtube-video-downloader",
       description:
         "Free online YouTube video downloader. Download videos in 4K, 1080p, 720p MP4, WebM, and MKV formats. No registration required.",
       applicationCategory: "Multimedia",
@@ -75,7 +75,7 @@ const jsonLd = {
     },
     {
       "@type": "FAQPage",
-      "@id": "https://fetchwave.com/youtube-video-downloader#faq",
+      "@id": "https://downforge.me/youtube-video-downloader#faq",
       mainEntity: [
         {
           "@type": "Question",

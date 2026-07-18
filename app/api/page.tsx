@@ -6,8 +6,8 @@ import { ArrowLeft, Copy, CheckCircle2, Terminal } from "lucide-react";
 import { CodeBlock } from "@/components/api/CodeBlock";
 
 export const metadata: Metadata = {
-  title: "API Documentation — fetchwave",
-  description: "fetchwave API documentation. Download videos, audio, and thumbnails programmatically.",
+  title: "API Documentation — DownForge",
+  description: "DownForge API documentation. Download videos, audio, and thumbnails programmatically.",
 };
 
 const endpoints = [
@@ -15,7 +15,7 @@ const endpoints = [
     method: "POST",
     path: "/api/:platform/info",
     desc: "Get available formats and metadata for a URL",
-    code: `curl -X POST https://api.fetchwave.app/api/youtube/info \\
+    code: `curl -X POST https://api.downforge.me/api/youtube/info \\
   -H "Content-Type: application/json" \\
   -d '{"url": "https://youtube.com/watch?v=dQw4w9WgXcQ"}'`,
     response: `{
@@ -34,7 +34,7 @@ const endpoints = [
     method: "POST",
     path: "/api/:platform/download",
     desc: "Download a video in the specified format",
-    code: `curl -X POST https://api.fetchwave.app/api/youtube/download \\
+    code: `curl -X POST https://api.downforge.me/api/youtube/download \\
   -H "Content-Type: application/json" \\
   -d '{"url": "https://youtube.com/watch?v=dQw4w9WgXcQ", "format_id": "137"}'`,
     response: `{
@@ -49,7 +49,7 @@ const endpoints = [
     method: "GET",
     path: "/api/job/:id",
     desc: "Poll for job status and progress",
-    code: `curl https://api.fetchwave.app/api/job/550e8400-e29b-41d4-a716-446655440000`,
+    code: `curl https://api.downforge.me/api/job/550e8400-e29b-41d4-a716-446655440000`,
     response: `{
   "success": true,
   "data": {
@@ -64,12 +64,12 @@ const endpoints = [
     method: "GET",
     path: "/api/job/:id/result",
     desc: "Get the download URL when complete",
-    code: `curl https://api.fetchwave.app/api/job/550e8400-e29b-41d4-a716-446655440000/result`,
+    code: `curl https://api.downforge.me/api/job/550e8400-e29b-41d4-a716-446655440000/result`,
     response: `{
   "success": true,
   "data": {
     "status": "completed",
-    "download_url": "https://api.fetchwave.app/download/video.mp4",
+    "download_url": "https://api.downforge.me/download/video.mp4",
     "filename": "Rick Astley - Never Gonna Give You Up.mp4",
     "size": 52428800
   }
@@ -103,7 +103,7 @@ export default function ApiPage() {
               <p className="text-sm text-muted-foreground mb-4 font-sans">
                 Include your API key in the request header:
               </p>
-              <CodeBlock code={`curl -X POST https://api.fetchwave.app/api/youtube/info \\
+              <CodeBlock code={`curl -X POST https://api.downforge.me/api/youtube/info \\
   -H "Authorization: Bearer YOUR_API_KEY" \\
   -H "Content-Type: application/json" \\
   -d '{"url": "https://youtube.com/watch?v=dQw4w9WgXcQ"}'`} />
@@ -111,7 +111,7 @@ export default function ApiPage() {
 
             <div className="bg-[#eef6f8] rounded-2xl p-6 border border-border">
               <h2 className="text-lg font-bold text-foreground mb-2 font-heading">Base URL</h2>
-              <CodeBlock code="https://api.fetchwave.app/api" />
+              <CodeBlock code="https://api.downforge.me/api" />
             </div>
           </div>
 

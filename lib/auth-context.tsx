@@ -18,7 +18,7 @@ export function AuthProvider({ children }: { children: ReactNode }) {
   const [isLoggedIn, setIsLoggedIn] = useState(false);
 
   useEffect(() => {
-    const stored = localStorage.getItem("fetchwave_auth");
+    const stored = localStorage.getItem("downforge_auth");
     if (stored) {
       try {
         const data = JSON.parse(stored);
@@ -30,12 +30,12 @@ export function AuthProvider({ children }: { children: ReactNode }) {
   }, []);
 
   const login = useCallback((email: string) => {
-    localStorage.setItem("fetchwave_auth", JSON.stringify({ loggedIn: true, email }));
+    localStorage.setItem("downforge_auth", JSON.stringify({ loggedIn: true, email }));
     setIsLoggedIn(true);
   }, []);
 
   const logout = useCallback(() => {
-    localStorage.removeItem("fetchwave_auth");
+    localStorage.removeItem("downforge_auth");
     setIsLoggedIn(false);
   }, []);
 

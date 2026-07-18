@@ -4,8 +4,8 @@ import { Footer } from "@/components/layout/Footer";
 import { AuthPage } from "@/components/auth/AuthPage";
 
 export const metadata: Metadata = {
-  title: "Sign In — fetchwave",
-  description: "Sign in to your fetchwave account to manage downloads, API keys, and billing.",
+  title: "Sign In — DownForge",
+  description: "Sign in to your DownForge account to manage downloads, API keys, and billing.",
 };
 
 export default function SignInPage() {

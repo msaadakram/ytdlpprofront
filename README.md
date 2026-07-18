@@ -1,4 +1,4 @@
-# fetchwave — yt-dlp Next.js Frontend
+# DownForge — yt-dlp Next.js Frontend
 
 Next.js 15 SSR app for downloading video/audio/thumbnails from 200+ platforms via yt-dlp. Deployable to Vercel.
 

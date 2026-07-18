@@ -5,8 +5,8 @@ import Link from "next/link";
 import { ShieldCheck, ArrowLeft } from "lucide-react";
 
 export const metadata: Metadata = {
-  title: "Privacy Policy — fetchwave",
-  description: "fetchwave privacy policy. Learn how we handle your data and what information we collect.",
+  title: "Privacy Policy — DownForge",
+  description: "DownForge privacy policy. Learn how we handle your data and what information we collect.",
 };
 
 export default function PrivacyPolicyPage() {
@@ -57,7 +57,7 @@ export default function PrivacyPolicyPage() {
             <section>
               <h2 className="text-xl font-bold text-foreground mb-3 font-heading">5. Your Rights</h2>
               <p className="text-sm text-muted-foreground leading-relaxed font-sans">
-                You have the right to access, correct, or delete your personal data at any time. Contact us at privacy@fetchwave.app to exercise these rights. We will respond to your request within 30 days.
+                You have the right to access, correct, or delete your personal data at any time. Contact us at privacy@downforge.me to exercise these rights. We will respond to your request within 30 days.
               </p>
             </section>
           </div>

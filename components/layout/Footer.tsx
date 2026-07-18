@@ -35,7 +35,7 @@ export function Footer() {
               <div className="w-8 h-8 rounded-lg bg-white/10 flex items-center justify-center">
                 <Download className="w-4 h-4 text-[#5baab8]" />
               </div>
-              <span className="font-bold text-lg tracking-tight font-heading">fetchwave</span>
+              <span className="font-bold text-lg tracking-tight font-heading">DownForge</span>
             </Link>
             <p className="text-sm text-white/60 leading-relaxed max-w-xs font-sans">
               Download any video, audio or thumbnail from 200+ platforms. Fast, free, and secure.
@@ -73,7 +73,7 @@ export function Footer() {
           ))}
         </div>
         <div className="mt-12 pt-8 border-t border-white/10 flex flex-col md:flex-row justify-between items-center gap-4">
-          <p className="text-xs text-white/40 font-sans">&copy; 2025 fetchwave. All rights reserved.</p>
+          <p className="text-xs text-white/40 font-sans">&copy; 2025 DownForge. All rights reserved.</p>
           <p className="text-xs text-white/30 font-sans">Powered by yt-dlp &amp; ffmpeg</p>
         </div>
       </div>

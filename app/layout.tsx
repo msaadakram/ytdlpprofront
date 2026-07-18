@@ -4,11 +4,11 @@ import { AuthProvider } from "@/lib/auth-context";
 import "@/styles/globals.css";
 
 export const metadata: Metadata = {
-  title: "fetchwave — Download any video, audio, thumbnail or transcript",
+  title: "DownForge — Download any video, audio, thumbnail or transcript",
   description:
     "Paste a link from YouTube, Facebook, TikTok, Instagram and 200+ more. Download video, audio, thumbnails, or AI transcripts — no account required.",
   openGraph: {
-    title: "fetchwave — Download any video, audio, thumbnail or transcript",
+    title: "DownForge — Download any video, audio, thumbnail or transcript",
     description:
       "Paste a link from YouTube, Facebook, TikTok, Instagram and 200+ more. Download video, audio, thumbnails, or AI transcripts — no account required.",
     type: "website",

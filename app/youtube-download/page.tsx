@@ -8,15 +8,15 @@ import { PlatformToolFeatures } from "@/components/platform-download/PlatformToo
 import { PlatformHowItWorks } from "@/components/platform-download/PlatformHowItWorks";
 
 export const metadata: Metadata = {
-  title: "YouTube Video Downloader — Download YouTube Videos in 4K, MP3, Transcripts & Thumbnails | fetchwave",
+  title: "YouTube Video Downloader — Download YouTube Videos in 4K, MP3, Transcripts & Thumbnails | DownForge",
   description:
     "Free YouTube video downloader. Download YouTube videos in 4K, 1080p, 720p. Extract audio as MP3 320kbps, FLAC, AAC. Get AI transcripts as SRT, VTT, TXT or JSON. Get HD thumbnails. No sign-up required.",
   openGraph: {
-    title: "YouTube Video Downloader — Download YouTube Videos in 4K, MP3, Transcripts & Thumbnails | fetchwave",
+    title: "YouTube Video Downloader — Download YouTube Videos in 4K, MP3, Transcripts & Thumbnails | DownForge",
     description:
       "Free YouTube video downloader. Download YouTube videos in 4K, 1080p, 720p. Extract audio as MP3 320kbps, FLAC, AAC. Get AI transcripts as SRT, VTT, TXT or JSON. No sign-up required.",
-    url: "https://fetchwave.com/youtube-download",
-    siteName: "fetchwave",
+    url: "https://downforge.me/youtube-download",
+    siteName: "DownForge",
     locale: "en_US",
     type: "website",
   },
@@ -31,7 +31,7 @@ export const metadata: Metadata = {
     follow: true,
   },
   alternates: {
-    canonical: "https://fetchwave.com/youtube-download",
+    canonical: "https://downforge.me/youtube-download",
   },
   keywords: [
     "youtube video downloader",
@@ -58,17 +58,17 @@ const jsonLd = {
   "@graph": [
     {
       "@type": "BreadcrumbList",
-      "@id": "https://fetchwave.com/youtube-download#breadcrumb",
+      "@id": "https://downforge.me/youtube-download#breadcrumb",
       "itemListElement": [
-        { "@type": "ListItem", position: 1, name: "Home", item: "https://fetchwave.com" },
-        { "@type": "ListItem", position: 2, name: "YouTube Video Downloader", item: "https://fetchwave.com/youtube-download" },
+        { "@type": "ListItem", position: 1, name: "Home", item: "https://downforge.me" },
+        { "@type": "ListItem", position: 2, name: "YouTube Video Downloader", item: "https://downforge.me/youtube-download" },
       ],
     },
     {
       "@type": "WebApplication",
-      "@id": "https://fetchwave.com/youtube-download#webapp",
-      name: "fetchwave YouTube Video Downloader",
-      url: "https://fetchwave.com/youtube-download",
+      "@id": "https://downforge.me/youtube-download#webapp",
+      name: "DownForge YouTube Video Downloader",
+      url: "https://downforge.me/youtube-download",
       description:
         "Free online YouTube video downloader. Download videos up to 4K, extract audio as MP3/FLAC/AAC, generate AI transcripts as SRT/VTT/TXT/JSON, save HD thumbnails. No registration required.",
       applicationCategory: "Multimedia",
@@ -78,7 +78,7 @@ const jsonLd = {
     },
     {
       "@type": "FAQPage",
-      "@id": "https://fetchwave.com/youtube-download#faq",
+      "@id": "https://downforge.me/youtube-download#faq",
       mainEntity: [
         {
           "@type": "Question",
