@@ -8,6 +8,8 @@ import { PlatformFaq } from "@/components/platform-download/PlatformFaq";
 import { PlatformToolFeatures } from "@/components/platform-download/PlatformToolFeatures";
 import { PlatformHowItWorks } from "@/components/platform-download/PlatformHowItWorks";
 import { platformConfigs, platformSlugs } from "@/lib/platform-config";
+import { getContent } from "@/lib/content/registry";
+import { BlogContent } from "@/components/content/BlogContent";
 
 type Props = { params: Promise<{ platform: string }> };
 
@@ -46,6 +48,8 @@ export default async function PlatformDownloadPage({ params }: Props) {
   const { platform } = await params;
   const config = platformConfigs[platform];
   if (!config) notFound();
+
+  const content = getContent(platform, "video");
 
   const jsonLd = {
     "@context": "https://schema.org",
@@ -93,6 +97,7 @@ export default async function PlatformDownloadPage({ params }: Props) {
         <PlatformHowItWorks platform={config.id} />
         <PlatformTips platform={config.id} />
         <PlatformFaq platform={config.id} />
+        {content && <BlogContent content={content} />}
       </main>
       <Footer />
     </>

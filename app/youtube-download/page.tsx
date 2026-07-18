@@ -6,6 +6,8 @@ import { RelatedTips } from "@/components/youtube-download/RelatedTips";
 import { FaqSection } from "@/components/youtube-download/FaqSection";
 import { PlatformToolFeatures } from "@/components/platform-download/PlatformToolFeatures";
 import { PlatformHowItWorks } from "@/components/platform-download/PlatformHowItWorks";
+import { getYouTubeDownloadContent } from "@/lib/content/registry";
+import { BlogContent } from "@/components/content/BlogContent";
 
 export const metadata: Metadata = {
   title: "YouTube Video Downloader — Download YouTube Videos in 4K, MP3, Transcripts & Thumbnails | DownForge",
@@ -134,6 +136,8 @@ const jsonLd = {
 };
 
 export default function YoutubeDownloadPage() {
+  const content = getYouTubeDownloadContent("video");
+
   return (
     <>
       <Nav />
@@ -147,6 +151,7 @@ export default function YoutubeDownloadPage() {
         <PlatformHowItWorks platform="youtube" />
         <RelatedTips />
         <FaqSection />
+        {content && <BlogContent content={content} />}
       </main>
       <Footer />
     </>

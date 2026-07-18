@@ -6,6 +6,8 @@ import { DownloadOnlyHero } from "@/components/download-only/DownloadOnlyHero";
 import { DownloadFeatures } from "@/components/download-only/DownloadFeatures";
 import { DownloadFaq } from "@/components/download-only/DownloadFaq";
 import { platformConfigs, platformSlugs } from "@/lib/platform-config";
+import { getContent } from "@/lib/content/registry";
+import { BlogContent } from "@/components/content/BlogContent";
 
 export function generateStaticParams() {
   return platformSlugs.map((slug) => ({ platform: slug }));
@@ -44,6 +46,8 @@ export default async function AudioDownloaderPage({ params }: Props) {
   const { platform } = await params;
   const config = platformConfigs[platform];
   if (!config) notFound();
+
+  const content = getContent(platform, "audio");
 
   const jsonLd = {
     "@context": "https://schema.org",
@@ -87,6 +91,7 @@ export default async function AudioDownloaderPage({ params }: Props) {
         <DownloadOnlyHero platform={platform} type="audio" />
         <DownloadFeatures platform={platform} type="audio" />
         <DownloadFaq platform={platform} type="audio" />
+        {content && <BlogContent content={content} />}
       </main>
       <Footer />
     </>

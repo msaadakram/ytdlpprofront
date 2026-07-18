@@ -4,6 +4,8 @@ import { Footer } from "@/components/layout/Footer";
 import { VideoOnlyHero } from "@/components/youtube-video-downloader/VideoOnlyHero";
 import { VideoFeatures } from "@/components/youtube-video-downloader/VideoFeatures";
 import { VideoFaq } from "@/components/youtube-video-downloader/VideoFaq";
+import { getYouTubeVideoContent } from "@/lib/content/registry";
+import { BlogContent } from "@/components/content/BlogContent";
 
 export const metadata: Metadata = {
   title: "YouTube Video Downloader — Download 4K, 1080p, 720p MP4 Videos | DownForge",
@@ -123,6 +125,8 @@ const jsonLd = {
 };
 
 export default function YoutubeVideoDownloaderPage() {
+  const content = getYouTubeVideoContent("video");
+
   return (
     <>
       <Nav />
@@ -134,6 +138,7 @@ export default function YoutubeVideoDownloaderPage() {
         <VideoOnlyHero />
         <VideoFeatures />
         <VideoFaq />
+        {content && <BlogContent content={content} />}
       </main>
       <Footer />
     </>

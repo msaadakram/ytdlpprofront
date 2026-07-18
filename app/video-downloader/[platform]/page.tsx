@@ -6,6 +6,8 @@ import { VideoOnlyHero } from "@/components/video-downloader/VideoOnlyHero";
 import { VideoFeatures } from "@/components/video-downloader/VideoFeatures";
 import { VideoFaq } from "@/components/video-downloader/VideoFaq";
 import { platformConfigs, platformSlugs } from "@/lib/platform-config";
+import { getContent } from "@/lib/content/registry";
+import { BlogContent } from "@/components/content/BlogContent";
 
 export function generateStaticParams() {
   return platformSlugs.map((slug) => ({ platform: slug }));
@@ -44,6 +46,8 @@ export default async function VideoDownloaderPage({ params }: Props) {
   const { platform } = await params;
   const config = platformConfigs[platform];
   if (!config) notFound();
+
+  const content = getContent(platform, "video");
 
   const jsonLd = {
     "@context": "https://schema.org",
@@ -90,6 +94,7 @@ export default async function VideoDownloaderPage({ params }: Props) {
         <VideoOnlyHero platform={platform} />
         <VideoFeatures platform={platform} />
         <VideoFaq platform={platform} />
+        {content && <BlogContent content={content} />}
       </main>
       <Footer />
     </>
