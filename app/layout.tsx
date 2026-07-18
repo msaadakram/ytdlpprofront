@@ -7,11 +7,16 @@ export const metadata: Metadata = {
   title: "DownForge — Download any video, audio, thumbnail or transcript",
   description:
     "Paste a link from YouTube, Facebook, TikTok, Instagram and 200+ more. Download video, audio, thumbnails, or AI transcripts — no account required.",
+  icons: {
+    icon: "/logo.png",
+    apple: "/logo.png",
+  },
   openGraph: {
     title: "DownForge — Download any video, audio, thumbnail or transcript",
     description:
       "Paste a link from YouTube, Facebook, TikTok, Instagram and 200+ more. Download video, audio, thumbnails, or AI transcripts — no account required.",
     type: "website",
+    images: ["/logo.png"],
   },
 };
 
@@ -22,9 +27,6 @@ export default function RootLayout({
 }) {
   return (
     <html lang="en" suppressHydrationWarning>
-      <head>
-        <link rel="icon" href="/logo.png" />
-      </head>
       <body className="antialiased">
         <ThemeProvider
           attribute="class"
