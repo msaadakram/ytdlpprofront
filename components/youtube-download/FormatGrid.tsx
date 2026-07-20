@@ -3,53 +3,79 @@
 import { motion } from "motion/react";
 import { CheckCircle2 } from "lucide-react";
 import type { DownloadType, Format } from "@/lib/constants";
+import type { ApiFormatInfo } from "@/lib/api-client";
+
+type GridFormat = ApiFormatInfo | Format;
 
 type FormatGridProps = {
-  formats: Format[];
+  formats: GridFormat[];
   selectedIndex: number;
   onSelect: (index: number) => void;
   type: DownloadType;
   brandColor?: string;
 };
 
-function qualityBars(format: Format, type: DownloadType): number {
+/** Normalise either static (Format) or backend (ApiFormatInfo) into display fields. */
+function normalize(fmt: GridFormat, type: DownloadType) {
+  const isApi = "format_id" in fmt;
+  const api = fmt as ApiFormatInfo;
+  const ext = fmt.ext;
+  const height = isApi ? api.height : undefined;
+  const fps = isApi ? api.fps : undefined;
+  const abr = isApi ? api.abr : undefined;
+  const tbr = isApi ? api.tbr : undefined;
+  const filesizeStr = isApi ? api.filesize_str : "";
+  const qualityLabel = isApi ? api.quality_label ?? null : (fmt as Format).quality ?? null;
+
+  let label: string;
   if (type === "video") {
-    const q = format.quality || "";
-    if (q.includes("2160") || q.includes("4K")) return 4;
-    if (q.includes("1080")) return 3;
-    if (q.includes("720")) return 2;
-    if (q.includes("480") || q.includes("360")) return 1;
-    return 2;
+    label = height ? `${height}p${fps && fps !== 30 ? ` ${fps}` : ""}` : qualityLabel || "Video";
+  } else if (type === "audio") {
+    label = `${ext.toUpperCase()} Audio`;
+  } else {
+    label = ext.toUpperCase();
   }
-  if (type === "audio") {
-    const l = format.label;
-    if (l.includes("Lossless") || l.includes("Uncompressed") || l.includes("320")) return 3;
-    if (l.includes("256")) return 2;
-    if (l.includes("192")) return 1;
-    return 2;
+
+  let sub: string;
+  if (type === "video") {
+    const parts: string[] = [];
+    if (fps && fps !== 30) parts.push(`${fps}fps`);
+    if (qualityLabel) parts.push(String(qualityLabel));
+    if (filesizeStr && filesizeStr !== "0 B") parts.push(`~${filesizeStr}`);
+    sub = parts.join(" · ");
+  } else if (type === "audio") {
+    const parts: string[] = [];
+    const rate = abr ?? tbr;
+    if (rate) parts.push(`${Math.round(rate)} kbps`);
+    if (filesizeStr && filesizeStr !== "0 B") parts.push(`~${filesizeStr}`);
+    sub = parts.join(" · ");
+  } else {
+    sub = filesizeStr && filesizeStr !== "0 B" ? `~${filesizeStr}` : "";
   }
-  if (type === "transcript") {
-    if (format.ext === "json") return 3;
-    if (format.ext === "vtt") return 2;
-    return 1;
-  }
-  return 2;
+
+  return { ext, label, sub, key: isApi ? api.format_id || ext : ext };
 }
 
-function resolutionLabel(format: Format, type: DownloadType): string {
-  if (type === "video") return format.quality || "";
-  if (type === "audio") {
-    const m = format.label.match(/•\s*(.+)/);
-    return m ? m[1].trim() : "";
-  }
-  if (type === "transcript") {
-    if (format.ext === "srt") return "SubRip subtitle";
-    if (format.ext === "vtt") return "WebVTT subtitle";
-    if (format.ext === "txt") return "Plain text";
-    if (format.ext === "json") return "Timestamps + text";
-    return "";
-  }
-  return format.quality ? format.quality.replace("maxresdefault", "1920×1080").replace("hqdefault", "480×360") : "";
+function videoQualityBars(height?: number): number {
+  if (!height) return 1;
+  if (height >= 2160) return 4;
+  if (height >= 1440) return 3;
+  if (height >= 720) return 2;
+  return 1;
+}
+
+function audioQualityBars(abr?: number, tbr?: number): number {
+  const rate = abr ?? tbr ?? 0;
+  if (rate >= 256) return 3;
+  if (rate >= 128) return 2;
+  return 1;
+}
+
+function qualityBars(fmt: GridFormat, type: DownloadType): number {
+  const isApi = "format_id" in fmt;
+  if (type === "video") return videoQualityBars(isApi ? (fmt as ApiFormatInfo).height : undefined);
+  if (type === "audio") return audioQualityBars(isApi ? (fmt as ApiFormatInfo).abr : undefined, isApi ? (fmt as ApiFormatInfo).tbr : undefined);
+  return 2;
 }
 
 export function FormatGrid({ formats, selectedIndex, onSelect, type, brandColor = "#5baab8" }: FormatGridProps) {
@@ -58,9 +84,10 @@ export function FormatGrid({ formats, selectedIndex, onSelect, type, brandColor 
       {formats.map((fmt, i) => {
         const selected = i === selectedIndex;
         const bars = qualityBars(fmt, type);
+        const { ext, label, sub, key } = normalize(fmt, type);
         return (
           <motion.button
-            key={i}
+            key={`${key}-${i}`}
             onClick={() => onSelect(i)}
             whileHover={{ scale: 1.03, y: -2 }}
             whileTap={{ scale: 0.97 }}
@@ -85,7 +112,7 @@ export function FormatGrid({ formats, selectedIndex, onSelect, type, brandColor 
             <div className="flex items-center justify-between w-full">
               <span className="text-[10px] font-bold uppercase tracking-widest px-1.5 py-0.5 rounded-md bg-[#eef6f8] font-mono"
                 style={{ color: brandColor }}>
-                {fmt.ext}
+                {ext}
               </span>
               {selected && (
                 <motion.span
@@ -99,11 +126,7 @@ export function FormatGrid({ formats, selectedIndex, onSelect, type, brandColor 
             </div>
 
             <span className="text-sm font-semibold text-foreground font-sans leading-tight mt-0.5">
-              {fmt.label.split("•")[0]?.trim()}
-              <span className="text-muted-foreground font-normal">
-                {" "}
-                {fmt.label.includes("•") ? `• ${fmt.label.split("•")[1]?.trim()}` : ""}
-              </span>
+              {label}
             </span>
 
             {type !== "thumbnail" && type !== "transcript" && (
@@ -127,7 +150,7 @@ export function FormatGrid({ formats, selectedIndex, onSelect, type, brandColor 
               animate={{ opacity: 1, y: 0 }}
               transition={{ duration: 0.3, delay: i * 0.05 + 0.15 }}
             >
-              {resolutionLabel(fmt, type)}
+              {sub}
             </motion.span>
           </motion.button>
         );
@@ -135,3 +158,4 @@ export function FormatGrid({ formats, selectedIndex, onSelect, type, brandColor 
     </div>
   );
 }
+

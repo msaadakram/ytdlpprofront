@@ -7,7 +7,8 @@ import {
 } from "lucide-react";
 import { YoutubeLogo } from "@/components/shared/brand-logos";
 import { videoFormats, audioFormats, thumbnailFormats, transcriptFormats } from "@/lib/constants";
-import type { DownloadType, Format } from "@/lib/constants";
+import type { DownloadType } from "@/lib/constants";
+import type { ApiFormatInfo } from "@/lib/api-client";
 import {
   universalGetInfo,
   universalDownloadVideo,
@@ -21,11 +22,6 @@ import type { UniversalMediaInfo } from "@/lib/api-client";
 import { FormatGrid } from "./FormatGrid";
 import { VideoPreview } from "./VideoPreview";
 import { DownloadProgress } from "./DownloadProgress";
-
-function parseBitrate(fmt: Format): string {
-  const m = fmt.label.match(/(\d+)\s*kbps/i);
-  return m ? m[1] : "320";
-}
 
 const CONTAINER_MAP: Record<string, string> = {
   mp4: "mp4", mkv: "mkv", webm: "webm",
@@ -84,10 +80,42 @@ export function YoutubeHero() {
     };
   }, []);
 
-  const formats = activeType === "video" ? videoFormats
-    : activeType === "audio" ? audioFormats
-    : activeType === "transcript" ? transcriptFormats
-    : thumbnailFormats;
+  // Prefer real formats returned by the backend; fall back to static list.
+  const backendVideo = mediaInfo?.video_formats?.length
+    ? mediaInfo.video_formats
+    : mediaInfo?.video_with_audio_formats?.length
+      ? mediaInfo.video_with_audio_formats
+      : null;
+  const backendAudio = mediaInfo?.audio_formats?.length
+    ? mediaInfo.audio_formats
+    : mediaInfo?.audio_only_formats?.length
+      ? mediaInfo.audio_only_formats
+      : null;
+
+  const staticVideoFallback: ApiFormatInfo[] = videoFormats.map((f) => ({
+    format_id: "", ext: f.ext, height: f.quality ? parseInt(f.quality) : undefined,
+    filesize_str: "", quality_label: f.quality || null,
+  }));
+  const staticAudioFallback: ApiFormatInfo[] = audioFormats.map((f) => ({
+    format_id: "", ext: f.ext, abr: f.label.includes("320") ? 320 : f.label.includes("256") ? 256 : f.label.includes("192") ? 192 : f.label.includes("128") ? 128 : undefined,
+    filesize_str: "",
+  }));
+
+  const staticTranscriptFallback: ApiFormatInfo[] = transcriptFormats.map((f) => ({
+    format_id: "", ext: f.ext, filesize_str: "",
+  }));
+  const staticThumbnailFallback: ApiFormatInfo[] = thumbnailFormats.map((f) => ({
+    format_id: "", ext: f.ext, quality_label: f.quality || null, filesize_str: "",
+  }));
+
+  const formats: ApiFormatInfo[] =
+    activeType === "video"
+      ? (backendVideo ?? staticVideoFallback)
+      : activeType === "audio"
+        ? (backendAudio ?? staticAudioFallback)
+        : activeType === "transcript"
+          ? staticTranscriptFallback
+          : staticThumbnailFallback;
 
   const typeConfig = {
     video: { icon: Youtube, label: "Video" },
@@ -113,20 +141,20 @@ export function YoutubeHero() {
 
     try {
       if (activeType === "video") {
-        const fmt = formats[selectedFormat];
-        const quality = fmt.quality;
-        const container = CONTAINER_MAP[fmt.ext] || "mp4";
-        const res = await universalDownloadVideo(url, undefined, quality, container);
+        const fmt = formats[selectedFormat] as unknown as { format_id?: string; ext?: string; quality?: string };
+        const formatId = fmt.format_id;
+        const container = CONTAINER_MAP[fmt.ext || "mp4"] || "mp4";
+        const res = await universalDownloadVideo(url, formatId, undefined, container);
         if (!res.success || !res.data) {
           throw new Error(res.error?.message || "Download failed to start");
         }
         setStatusText("Processing...");
         await pollUntilDone(res.data.job_id);
       } else if (activeType === "audio") {
-        const fmt = formats[selectedFormat];
-        const bitrate = parseBitrate(fmt);
-        const ext = fmt.ext;
-        const res = await universalDownloadAudio(url, ext, parseInt(bitrate, 10));
+        const fmt = formats[selectedFormat] as unknown as { format_id?: string; ext?: string; abr?: number; tbr?: number };
+        const ext = fmt.ext || "mp3";
+        const bitrate = fmt.abr ?? fmt.tbr ?? 320;
+        const res = await universalDownloadAudio(url, ext, Math.round(bitrate));
         if (!res.success || !res.data) {
           throw new Error(res.error?.message || "Download failed to start");
         }
