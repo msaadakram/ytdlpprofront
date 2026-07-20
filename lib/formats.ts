@@ -3,6 +3,51 @@ import type { ApiFormatInfo, UniversalMediaInfo } from "@/lib/api-client";
 import type { DownloadType } from "@/lib/constants";
 
 /**
+ * Standard video resolutions we expose in the UI, in ascending order.
+ * Each maps to a friendly label (e.g. 2160p → "4K").
+ */
+const STANDARD_QUALITIES: { height: number; label: string }[] = [
+  { height: 144, label: "144p" },
+  { height: 240, label: "240p" },
+  { height: 360, label: "360p" },
+  { height: 480, label: "480p" },
+  { height: 720, label: "720p HD" },
+  { height: 1080, label: "1080p Full HD" },
+  { height: 1440, label: "1440p 2K" },
+  { height: 2160, label: "4K Ultra HD" },
+];
+
+/**
+ * From the real backend formats, build a clean, de-duplicated list of the
+ * standard resolutions actually available for this media (only those whose
+ * height is supported). For each supported height we pick the best matching
+ * backend format (highest tbr / fps) so the download button uses a real id.
+ */
+function resolveVideoQualities(formats: ApiFormatInfo[]): ApiFormatInfo[] {
+  const heightToBest = new Map<number, ApiFormatInfo>();
+  for (const f of formats) {
+    if (!f.height) continue;
+    const existing = heightToBest.get(f.height);
+    const score = (f.tbr ?? f.abr ?? 0) + (f.fps ?? 0) / 1000;
+    const existingScore = existing
+      ? (existing.tbr ?? existing.abr ?? 0) + (existing.fps ?? 0) / 1000
+      : -1;
+    if (!existing || score > existingScore) heightToBest.set(f.height, f);
+  }
+
+  const result: ApiFormatInfo[] = [];
+  for (const { height, label } of STANDARD_QUALITIES) {
+    const match = heightToBest.get(height);
+    if (!match) continue;
+    result.push({
+      ...match,
+      quality_label: label,
+    });
+  }
+  return result;
+}
+
+/**
  * Resolve the list of formats to show for a given download type.
  * Prefers the real, backend-returned formats from `UniversalMediaInfo`
  * (only the qualities that actually exist for the media), and falls back
@@ -20,7 +65,10 @@ export function resolveFormats(
           : mediaInfo.video_formats?.length
             ? mediaInfo.video_formats
             : null;
-      if (backend) return backend;
+      if (backend) {
+        const qualities = resolveVideoQualities(backend);
+        if (qualities.length) return qualities;
+      }
     }
     if (type === "audio") {
       const backend =

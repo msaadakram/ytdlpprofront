@@ -29,7 +29,13 @@ function normalize(fmt: GridFormat, type: DownloadType) {
 
   let label: string;
   if (type === "video") {
-    label = height ? `${height}p${fps && fps !== 30 ? ` ${fps}` : ""}` : qualityLabel || "Video";
+    if (qualityLabel) {
+      label = qualityLabel;
+    } else if (height) {
+      label = `${height}p${fps && fps !== 30 ? ` ${fps}` : ""}`;
+    } else {
+      label = "Video";
+    }
   } else if (type === "audio") {
     label = `${ext.toUpperCase()} Audio`;
   } else {
@@ -40,7 +46,7 @@ function normalize(fmt: GridFormat, type: DownloadType) {
   if (type === "video") {
     const parts: string[] = [];
     if (fps && fps !== 30) parts.push(`${fps}fps`);
-    if (qualityLabel) parts.push(String(qualityLabel));
+    if (height) parts.push(`${height}p`);
     if (filesizeStr && filesizeStr !== "0 B") parts.push(`~${filesizeStr}`);
     sub = parts.join(" · ");
   } else if (type === "audio") {
