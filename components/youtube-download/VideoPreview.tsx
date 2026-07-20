@@ -1,8 +1,9 @@
 "use client";
 
 import { motion } from "motion/react";
-import { Play, Eye, ThumbsUp, Clock, Calendar, User } from "lucide-react";
+import { Play, Eye, ThumbsUp, Clock, Calendar, User, MonitorPlay } from "lucide-react";
 import type { UniversalMediaInfo } from "@/lib/api-client";
+import { resolveFormats } from "@/lib/formats";
 
 type VideoPreviewProps = {
   info: UniversalMediaInfo;
@@ -28,6 +29,10 @@ function formatDate(dateStr: string | null): string {
 }
 
 export function VideoPreview({ info }: VideoPreviewProps) {
+  const videoQualities = resolveFormats(info, "video").map(
+    (f) => f.quality_label || (f.height ? `${f.height}p` : null),
+  ).filter(Boolean) as string[];
+
   return (
     <motion.div
       initial={{ opacity: 0, y: 20, scale: 0.98 }}
@@ -140,6 +145,28 @@ export function VideoPreview({ info }: VideoPreviewProps) {
             >
               File size: {info.filesize_str}
             </motion.p>
+          )}
+
+          {videoQualities.length > 0 && (
+            <motion.div
+              initial={{ opacity: 0, y: 6 }}
+              animate={{ opacity: 1, y: 0 }}
+              transition={{ delay: 0.35 }}
+              className="flex items-start gap-2 pt-1"
+            >
+              <MonitorPlay className="w-3.5 h-3.5 text-[#5baab8] mt-0.5 shrink-0" />
+              <div className="flex flex-wrap gap-1.5">
+                {videoQualities.map((q) => (
+                  <span
+                    key={q}
+                    className="inline-flex items-center rounded-md bg-[#eef6f8] px-2 py-0.5 text-[10px] font-semibold font-mono"
+                    style={{ color: "#3d8a97" }}
+                  >
+                    {q}
+                  </span>
+                ))}
+              </div>
+            </motion.div>
           )}
         </div>
       </div>
