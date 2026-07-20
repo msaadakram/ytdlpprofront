@@ -5,8 +5,8 @@ import { motion, AnimatePresence } from "motion/react";
 import {
   Download, CheckCircle2, Play, X, Sparkles, Music, Image, Loader2, FileText,
 } from "lucide-react";
-import { videoFormats, audioFormats, thumbnailFormats, transcriptFormats } from "@/lib/constants";
-import type { DownloadType, Format } from "@/lib/constants";
+import { videoFormats } from "@/lib/constants";
+import type { DownloadType } from "@/lib/constants";
 import {
   universalGetInfo,
   universalDownloadVideo,
@@ -16,16 +16,12 @@ import {
   getJobResult,
   triggerDownload,
 } from "@/lib/api-client";
-import type { UniversalMediaInfo } from "@/lib/api-client";
+import type { ApiFormatInfo, UniversalMediaInfo } from "@/lib/api-client";
 import { FormatGrid } from "@/components/youtube-download/FormatGrid";
 import { VideoPreview } from "@/components/youtube-download/VideoPreview";
 import { DownloadProgress } from "@/components/youtube-download/DownloadProgress";
 import { platformConfigs } from "@/lib/platform-config";
-
-function parseBitrate(fmt: Format): string {
-  const m = fmt.label.match(/(\d+)\s*kbps/i);
-  return m ? m[1] : "320";
-}
+import { resolveFormats, audioBitrate } from "@/lib/formats";
 
 const CONTAINER_MAP: Record<string, string> = {
   mp4: "mp4", mkv: "mkv", webm: "webm",
@@ -102,10 +98,7 @@ export function PlatformHero({ platform }: { platform: string }) {
     };
   }, []);
 
-  const formats = activeType === "video" ? videoFormats
-    : activeType === "audio" ? audioFormats
-    : activeType === "transcript" ? transcriptFormats
-    : thumbnailFormats;
+  const formats: ApiFormatInfo[] = resolveFormats(mediaInfo, activeType);
 
   const typeConfig = {
     video: { icon: Play, label: "Video" },
@@ -131,20 +124,18 @@ export function PlatformHero({ platform }: { platform: string }) {
 
     try {
       if (activeType === "video") {
-        const fmt = formats[selectedFormat];
-        const quality = fmt.quality;
-        const container = CONTAINER_MAP[fmt.ext] || "mp4";
-        const res = await universalDownloadVideo(url, undefined, quality, container);
+        const fmt = formats[selectedFormat] as unknown as { format_id?: string; ext?: string };
+        const container = CONTAINER_MAP[fmt.ext || "mp4"] || "mp4";
+        const res = await universalDownloadVideo(url, fmt.format_id, undefined, container);
         if (!res.success || !res.data) {
           throw new Error(res.error?.message || "Download failed to start");
         }
         setStatusText("Processing...");
         await pollUntilDone(res.data.job_id);
       } else if (activeType === "audio") {
-        const fmt = formats[selectedFormat];
-        const bitrate = parseBitrate(fmt);
-        const ext = fmt.ext;
-        const res = await universalDownloadAudio(url, ext, parseInt(bitrate, 10));
+        const fmt = formats[selectedFormat] as unknown as { format_id?: string; ext?: string };
+        const ext = fmt.ext || "mp3";
+        const res = await universalDownloadAudio(url, ext, audioBitrate(formats[selectedFormat] as ApiFormatInfo));
         if (!res.success || !res.data) {
           throw new Error(res.error?.message || "Download failed to start");
         }

@@ -3,7 +3,6 @@
 import { useState, useRef, useCallback, useEffect } from "react";
 import { motion, AnimatePresence } from "motion/react";
 import { Download, CheckCircle2, X, Sparkles } from "lucide-react";
-import { videoFormats } from "@/lib/constants";
 import { platformConfigs } from "@/lib/platform-config";
 import {
   universalGetInfo,
@@ -12,10 +11,11 @@ import {
   getJobResult,
   triggerDownload,
 } from "@/lib/api-client";
-import type { UniversalMediaInfo } from "@/lib/api-client";
+import type { ApiFormatInfo, UniversalMediaInfo } from "@/lib/api-client";
 import { FormatGrid } from "@/components/youtube-download/FormatGrid";
 import { VideoPreview } from "@/components/youtube-download/VideoPreview";
 import { DownloadProgress } from "@/components/youtube-download/DownloadProgress";
+import { resolveFormats } from "@/lib/formats";
 
 const CONTAINER_MAP: Record<string, string> = {
   mp4: "mp4", mkv: "mkv", webm: "webm",
@@ -46,6 +46,8 @@ export function VideoOnlyHero({ platform }: { platform: string }) {
   const [fetchingInfo, setFetchingInfo] = useState(false);
   const debounceRef = useRef<ReturnType<typeof setTimeout> | null>(null);
   const [infoError, setInfoError] = useState(false);
+
+  const formats: ApiFormatInfo[] = resolveFormats(mediaInfo, "video");
 
   const handleUrlChange = useCallback((value: string) => {
     setUrl(value);
@@ -94,10 +96,9 @@ export function VideoOnlyHero({ platform }: { platform: string }) {
     setDone(false);
 
     try {
-      const fmt = videoFormats[selectedFormat];
-      const quality = fmt.quality;
-      const container = CONTAINER_MAP[fmt.ext] || "mp4";
-      const res = await universalDownloadVideo(url, undefined, quality, container);
+      const fmt = formats[selectedFormat] as unknown as { format_id?: string; ext?: string };
+      const container = CONTAINER_MAP[fmt.ext || "mp4"] || "mp4";
+      const res = await universalDownloadVideo(url, fmt.format_id, undefined, container);
       if (!res.success || !res.data) {
         throw new Error(res.error?.message || "Download failed to start");
       }
@@ -395,7 +396,7 @@ export function VideoOnlyHero({ platform }: { platform: string }) {
                   </span>
                 </div>
                 <FormatGrid
-                  formats={videoFormats}
+                  formats={formats}
                   selectedIndex={selectedFormat}
                   onSelect={setSelectedFormat}
                   type="video"

@@ -3,8 +3,6 @@
 import { useState, useRef, useCallback, useEffect } from "react";
 import { motion, AnimatePresence } from "motion/react";
 import { Download, CheckCircle2, X, Sparkles } from "lucide-react";
-import { audioFormats, thumbnailFormats, transcriptFormats } from "@/lib/constants";
-import type { Format } from "@/lib/constants";
 import { platformConfigs } from "@/lib/platform-config";
 import {
   universalGetInfo,
@@ -14,20 +12,15 @@ import {
   getJobResult,
   triggerDownload,
 } from "@/lib/api-client";
-import type { UniversalMediaInfo } from "@/lib/api-client";
+import type { ApiFormatInfo, UniversalMediaInfo } from "@/lib/api-client";
 import { FormatGrid } from "@/components/youtube-download/FormatGrid";
 import { VideoPreview } from "@/components/youtube-download/VideoPreview";
 import { DownloadProgress } from "@/components/youtube-download/DownloadProgress";
+import { resolveFormats, audioBitrate } from "@/lib/formats";
 
 type DownloadOnlyType = "audio" | "thumbnail" | "transcript";
 
-function parseBitrate(fmt: Format): string {
-  const m = fmt.label.match(/(\d+)\s*kbps/i);
-  return m ? m[1] : "320";
-}
-
 const typeConfig: Record<DownloadOnlyType, {
-  formats: Format[];
   badge: string;
   headingSuffix: string;
   subheading: string;
@@ -36,7 +29,6 @@ const typeConfig: Record<DownloadOnlyType, {
   showProgress: boolean;
 }> = {
   audio: {
-    formats: audioFormats,
     badge: "Audio Downloader",
     headingSuffix: "as MP3, FLAC & AAC",
     subheading: "Extract high-quality audio from any video. Download as MP3, FLAC, AAC, WAV, or OGG — perfect for music, podcasts, and voiceovers.",
@@ -45,7 +37,6 @@ const typeConfig: Record<DownloadOnlyType, {
     showProgress: true,
   },
   thumbnail: {
-    formats: thumbnailFormats,
     badge: "Thumbnail Downloader",
     headingSuffix: "in HD Quality",
     subheading: "Save video thumbnails in maximum resolution. Download as JPG, PNG, or WebP — ideal for covers, thumbnails, and references.",
@@ -54,7 +45,6 @@ const typeConfig: Record<DownloadOnlyType, {
     showProgress: false,
   },
   transcript: {
-    formats: transcriptFormats,
     badge: "Transcript Downloader",
     headingSuffix: "with AI",
     subheading: "Generate accurate AI transcripts with timestamps. Download as SRT, VTT, TXT, or JSON — perfect for subtitles, notes, and data.",
@@ -90,6 +80,8 @@ export function DownloadOnlyHero({ platform, type }: { platform: string; type: D
   const [fetchingInfo, setFetchingInfo] = useState(false);
   const debounceRef = useRef<ReturnType<typeof setTimeout> | null>(null);
   const [infoError, setInfoError] = useState(false);
+
+  const formats: ApiFormatInfo[] = resolveFormats(mediaInfo, type);
 
   const handleUrlChange = useCallback((value: string) => {
     setUrl(value);
@@ -142,7 +134,7 @@ export function DownloadOnlyHero({ platform, type }: { platform: string; type: D
         if (!mediaInfo?.thumbnail) {
           throw new Error("No thumbnail available for this video");
         }
-        const fmt = t.formats[selectedFormat];
+        const fmt = formats[selectedFormat];
         const a = document.createElement("a");
         a.href = mediaInfo.thumbnail;
         a.download = `${mediaInfo.title || "thumbnail"}.${fmt.ext}`;
@@ -156,10 +148,10 @@ export function DownloadOnlyHero({ platform, type }: { platform: string; type: D
         return;
       }
 
-      const fmt = t.formats[selectedFormat];
+      const fmt = formats[selectedFormat];
       let res;
       if (type === "audio") {
-        const bitrate = parseInt(parseBitrate(fmt), 10);
+        const bitrate = audioBitrate(fmt as ApiFormatInfo);
         res = await universalDownloadAudio(url, fmt.ext, bitrate);
       } else {
         res = await universalDownloadTranscript(url, fmt.ext);
@@ -484,7 +476,7 @@ export function DownloadOnlyHero({ platform, type }: { platform: string; type: D
                   </span>
                 </div>
                 <FormatGrid
-                  formats={t.formats}
+                  formats={formats}
                   selectedIndex={selectedFormat}
                   onSelect={setSelectedFormat}
                   type={type}
