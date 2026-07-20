@@ -326,7 +326,7 @@ export const platformConfigs: Record<string, PlatformConfig> = {
 
   snapchat: {
     id: "snapchat", name: "Snapchat", slug: "snapchat",
-    brandColor: "#FFFC00", fgColor: "#000000",
+    brandColor: "#FFB300", fgColor: "#1a1300",
     Logo: SnapchatLogo, defaultType: "video",
     badge: "Snapchat Downloader",
     heading: "Download Snapchat Videos",

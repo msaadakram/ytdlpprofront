@@ -22,7 +22,7 @@ const platforms: PlatformInfo[] = [
   { id: "reddit", name: "Reddit", brandColor: "#FF4500", fgColor: "#ffffff" },
   { id: "soundcloud", name: "SoundCloud", brandColor: "#FF5500", fgColor: "#ffffff" },
   { id: "kick", name: "Kick", brandColor: "#53FC18", fgColor: "#000000" },
-  { id: "snapchat", name: "Snapchat", brandColor: "#FFFC00", fgColor: "#000000" },
+   { id: "snapchat", name: "Snapchat", brandColor: "#FFB300", fgColor: "#1a1300" },
   { id: "linkedin", name: "LinkedIn", brandColor: "#0A66C2", fgColor: "#ffffff" },
   { id: "pinterest", name: "Pinterest", brandColor: "#E60023", fgColor: "#ffffff" },
   { id: "niconico", name: "Niconico", brandColor: "#FF69B3", fgColor: "#ffffff" },

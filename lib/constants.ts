@@ -34,7 +34,7 @@ export const platforms: BrandPlatform[] = [
   { name: "Reddit",      bg: "#FF4500", fg: "#ffffff", href: "/download/reddit", Logo: RedditLogo },
   { name: "Pinterest",   bg: "#E60023", fg: "#ffffff", href: "/download/pinterest", Logo: PinterestLogo },
   { name: "LinkedIn",    bg: "#0A66C2", fg: "#ffffff", href: "/download/linkedin", Logo: LinkedInLogo },
-  { name: "Snapchat",    bg: "#FFFC00", fg: "#000000", href: "/download/snapchat", Logo: SnapchatLogo },
+  { name: "Snapchat",    bg: "#FFB300", fg: "#1a1300", href: "/download/snapchat", Logo: SnapchatLogo },
   { name: "SoundCloud",  bg: "#FF5500", fg: "#ffffff", href: "/download/soundcloud", Logo: SoundCloudLogo },
   { name: "Kick",        bg: "#53FC18", fg: "#000000", href: "/download/kick", Logo: KickLogo },
   { name: "Niconico",    bg: "#FF69B3", fg: "#ffffff", href: "/download/niconico", Logo: NiconicoLogo },
