@@ -2,7 +2,7 @@
 
 import { useState, useRef, useCallback, useEffect } from "react";
 import { motion, AnimatePresence } from "motion/react";
-import { Download, CheckCircle2, X, Sparkles } from "lucide-react";
+import { Download, CheckCircle2, X, Sparkles, Loader2 } from "lucide-react";
 import { platformConfigs } from "@/lib/platform-config";
 import {
   universalGetInfo,
@@ -78,7 +78,7 @@ export function DownloadOnlyHero({ platform, type }: { platform: string; type: D
 
   const [mediaInfo, setMediaInfo] = useState<UniversalMediaInfo | null>(null);
   const [fetchingInfo, setFetchingInfo] = useState(false);
-  const debounceRef = useRef<ReturnType<typeof setTimeout> | null>(null);
+  const [infoReady, setInfoReady] = useState(false);
   const [infoError, setInfoError] = useState(false);
 
   const formats: ApiFormatInfo[] = resolveFormats(mediaInfo, type);
@@ -86,30 +86,13 @@ export function DownloadOnlyHero({ platform, type }: { platform: string; type: D
   const handleUrlChange = useCallback((value: string) => {
     setUrl(value);
     setMediaInfo(null);
+    setInfoReady(false);
     setInfoError(false);
     setError("");
-    if (debounceRef.current) clearTimeout(debounceRef.current);
-    if (!value.trim()) return;
-    setFetchingInfo(true);
-    debounceRef.current = setTimeout(async () => {
-      try {
-        const res = await universalGetInfo(value);
-        if (res.success && res.data) {
-          setMediaInfo(res.data);
-          setInfoError(false);
-        } else {
-          setInfoError(true);
-        }
-      } catch {
-        setInfoError(true);
-      }
-      setFetchingInfo(false);
-    }, 600);
   }, []);
 
   useEffect(() => {
     return () => {
-      if (debounceRef.current) clearTimeout(debounceRef.current);
       cancelPoll.current?.();
     };
   }, []);
@@ -119,6 +102,29 @@ export function DownloadOnlyHero({ platform, type }: { platform: string; type: D
       inputRef.current?.focus();
       return;
     }
+
+    // Step 1: first click fetches info and reveals the format choices.
+    if (!infoReady) {
+      setError("");
+      setFetchingInfo(true);
+      setInfoError(false);
+      try {
+        const res = await universalGetInfo(url);
+        if (res.success && res.data) {
+          setMediaInfo(res.data);
+          setInfoReady(true);
+          setInfoError(false);
+        } else {
+          setInfoError(true);
+        }
+      } catch {
+        setInfoError(true);
+      } finally {
+        setFetchingInfo(false);
+      }
+      return;
+    }
+
     setError("");
     setProcessing(true);
     setProgress(0);
@@ -357,13 +363,13 @@ export function DownloadOnlyHero({ platform, type }: { platform: string; type: D
                 />
                 {fetchingInfo && (
                   <p className="text-[10px] text-muted-foreground flex items-center gap-1 mt-0.5 font-sans">
-                    <span className="w-2 h-2 rounded-full animate-spin" style={{ border: `2px solid ${brandColor}`, borderTopColor: "transparent" }} />
+                    <Loader2 className="w-2.5 h-2.5 animate-spin" />
                     Fetching video info...
                   </p>
                 )}
               </div>
               {url && (
-                <button onClick={() => { setUrl(""); setMediaInfo(null); setInfoError(false); }} className="text-muted-foreground hover:text-foreground transition-colors shrink-0">
+                <button onClick={() => { setUrl(""); setMediaInfo(null); setInfoReady(false); setInfoError(false); }} className="text-muted-foreground hover:text-foreground transition-colors shrink-0">
                   <X className="w-3.5 h-3.5" />
                 </button>
               )}
@@ -371,23 +377,28 @@ export function DownloadOnlyHero({ platform, type }: { platform: string; type: D
 
             <motion.button
               onClick={handleDownload}
-              disabled={processing}
-              whileHover={{ scale: processing ? 1 : 1.03 }}
-              whileTap={{ scale: processing ? 1 : 0.97 }}
+              disabled={processing || fetchingInfo}
+              whileHover={{ scale: processing || fetchingInfo ? 1 : 1.03 }}
+              whileTap={{ scale: processing || fetchingInfo ? 1 : 0.97 }}
               className="flex items-center justify-center gap-2 text-white font-semibold text-sm px-7 py-3 rounded-xl transition-all disabled:opacity-70 whitespace-nowrap min-w-[150px] font-sans shadow-lg"
               style={{
                 background: `linear-gradient(135deg, ${brandColor}, ${darkerShade})`,
                 boxShadow: `0 10px 25px -5px ${brandColor}33`,
               }}
               onMouseEnter={(e) => {
-                if (!processing) e.currentTarget.style.filter = "brightness(1.1)";
+                if (!processing && !fetchingInfo) e.currentTarget.style.filter = "brightness(1.1)";
               }}
               onMouseLeave={(e) => {
                 e.currentTarget.style.filter = "none";
               }}
             >
               <AnimatePresence mode="wait">
-                {processing ? (
+                {fetchingInfo ? (
+                  <motion.span key="fetch" initial={{ opacity: 0 }} animate={{ opacity: 1 }} exit={{ opacity: 0 }} className="flex items-center gap-2">
+                    <Loader2 className="w-4 h-4 animate-spin" />
+                    Fetching...
+                  </motion.span>
+                ) : processing ? (
                   <motion.span key="proc" initial={{ opacity: 0 }} animate={{ opacity: 1 }} exit={{ opacity: 0 }} className="flex items-center gap-2">
                     <span className="w-4 h-4 border-2 border-white/30 border-t-white rounded-full animate-spin" />
                     {statusText || "Processing..."}
@@ -397,10 +408,15 @@ export function DownloadOnlyHero({ platform, type }: { platform: string; type: D
                     <CheckCircle2 className="w-4 h-4" style={{ color: brandColor }} />
                     Ready!
                   </motion.span>
+                ) : infoReady ? (
+                  <motion.span key="now" initial={{ opacity: 0 }} animate={{ opacity: 1 }} exit={{ opacity: 0 }} className="flex items-center gap-2">
+                    <Download className="w-4 h-4" />
+                    {type === "thumbnail" ? "Save Thumbnail" : "Download Now"}
+                  </motion.span>
                 ) : (
                   <motion.span key="idle" initial={{ opacity: 0 }} animate={{ opacity: 1 }} exit={{ opacity: 0 }} className="flex items-center gap-2">
                     <Download className="w-4 h-4" />
-                    {type === "thumbnail" ? "Save Thumbnail" : "Download"}
+                    {type === "thumbnail" ? "Get Thumbnail" : "Download"}
                   </motion.span>
                 )}
               </AnimatePresence>

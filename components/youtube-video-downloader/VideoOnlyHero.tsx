@@ -1,174 +1,22 @@
 "use client";
 
-import { useState, useRef, useCallback, useEffect } from "react";
 import { motion, AnimatePresence } from "motion/react";
-import { Youtube, Download, CheckCircle2, X, Sparkles } from "lucide-react";
+import { Youtube, Download, CheckCircle2, X, Sparkles, Loader2 } from "lucide-react";
 import { YoutubeLogo } from "@/components/shared/brand-logos";
-import {
-  universalGetInfo,
-  universalDownloadVideo,
-  getJobStatus,
-  getJobResult,
-  triggerDownload,
-} from "@/lib/api-client";
-import type { ApiFormatInfo, UniversalMediaInfo } from "@/lib/api-client";
 import { FormatGrid } from "@/components/youtube-download/FormatGrid";
 import { VideoPreview } from "@/components/youtube-download/VideoPreview";
 import { DownloadProgress } from "@/components/youtube-download/DownloadProgress";
-import { resolveFormats } from "@/lib/formats";
+import { useDownloader } from "@/lib/useDownloader";
 
-const CONTAINER_MAP: Record<string, string> = {
-  mp4: "mp4", mkv: "mkv", webm: "webm",
-};
+const BRAND = "#FF0000";
 
 export function VideoOnlyHero() {
-  const [url, setUrl] = useState("");
-  const [selectedFormat, setSelectedFormat] = useState(0);
-  const inputRef = useRef<HTMLInputElement>(null);
-
-  const [processing, setProcessing] = useState(false);
-  const [done, setDone] = useState(false);
-  const [progress, setProgress] = useState(0);
-  const [statusText, setStatusText] = useState("");
-  const [downloadSpeed, setDownloadSpeed] = useState("");
-  const [downloadEta, setDownloadEta] = useState<string | number | null>(null);
-  const [downloadedBytes, setDownloadedBytes] = useState(0);
-  const [totalBytes, setTotalBytes] = useState(0);
-  const [error, setError] = useState("");
-  const cancelPoll = useRef<(() => void) | null>(null);
-
-  const [mediaInfo, setMediaInfo] = useState<UniversalMediaInfo | null>(null);
-  const [fetchingInfo, setFetchingInfo] = useState(false);
-  const debounceRef = useRef<ReturnType<typeof setTimeout> | null>(null);
-  const [infoError, setInfoError] = useState(false);
-
-  const formats: ApiFormatInfo[] = resolveFormats(mediaInfo, "video");
-
-  const handleUrlChange = useCallback((value: string) => {
-    setUrl(value);
-    setMediaInfo(null);
-    setInfoError(false);
-    setError("");
-    if (debounceRef.current) clearTimeout(debounceRef.current);
-    if (!value.trim()) return;
-    setFetchingInfo(true);
-    debounceRef.current = setTimeout(async () => {
-      try {
-        const res = await universalGetInfo(value);
-        if (res.success && res.data) {
-          setMediaInfo(res.data);
-          setInfoError(false);
-        } else {
-          setInfoError(true);
-        }
-      } catch {
-        setInfoError(true);
-      }
-      setFetchingInfo(false);
-    }, 600);
-  }, []);
-
-  useEffect(() => {
-    return () => {
-      if (debounceRef.current) clearTimeout(debounceRef.current);
-      cancelPoll.current?.();
-    };
-  }, []);
-
-  async function handleDownload() {
-    if (!url.trim()) {
-      inputRef.current?.focus();
-      return;
-    }
-    setError("");
-    setProcessing(true);
-    setProgress(0);
-    setStatusText("Starting...");
-    setDownloadSpeed("");
-    setDownloadEta(null);
-    setDownloadedBytes(0);
-    setTotalBytes(0);
-    setDone(false);
-
-    try {
-      const fmt = formats[selectedFormat] as unknown as { format_id?: string; ext?: string };
-      const container = CONTAINER_MAP[fmt.ext || "mp4"] || "mp4";
-      const res = await universalDownloadVideo(url, fmt.format_id, undefined, container);
-      if (!res.success || !res.data) {
-        throw new Error(res.error?.message || "Download failed to start");
-      }
-      setStatusText("Processing...");
-      await pollUntilDone(res.data.job_id);
-    } catch (err) {
-      setError(err instanceof Error ? err.message : "Download failed");
-      setProcessing(false);
-      setTimeout(() => setError(""), 5000);
-    }
-  }
-
-  async function pollUntilDone(jobId: string): Promise<void> {
-    return new Promise((resolve, reject) => {
-      let retries = 0;
-      const maxRetries = 180;
-
-      const poll = async () => {
-        if (retries >= maxRetries) {
-          reject(new Error("Download timed out"));
-          return;
-        }
-        retries++;
-
-        try {
-          const res = await getJobStatus(jobId);
-          if (!res.success || !res.data) {
-            reject(new Error(res.error?.message || "Failed to check status"));
-            return;
-          }
-
-          const job = res.data;
-          setProgress(job.progress ?? 0);
-          setDownloadSpeed(job.speed ?? "");
-          setDownloadEta(job.eta ?? null);
-          setDownloadedBytes(job.downloaded ?? 0);
-          setTotalBytes(job.total ?? 0);
-
-          if (job.status === "downloading") {
-            setStatusText("Downloading...");
-          } else if (job.status === "processing") {
-            setStatusText("Processing...");
-          } else if (job.status === "queued") {
-            setStatusText("Queued...");
-          }
-
-          if (job.status === "completed") {
-            setProgress(100);
-            setStatusText("Complete!");
-
-            const finalRes = await getJobResult(jobId);
-            if (finalRes.success && finalRes.data?.downloadUrl) {
-              triggerDownload(finalRes.data.downloadUrl, finalRes.data.filename);
-            }
-            setProcessing(false);
-            setDone(true);
-            setTimeout(() => setDone(false), 3000);
-            resolve();
-            return;
-          }
-
-          if (job.status === "failed") {
-            reject(new Error(job.error || "Download failed"));
-            return;
-          }
-
-          setTimeout(poll, 1000);
-        } catch (err) {
-          reject(err);
-        }
-      };
-
-      poll();
-    });
-  }
+  const {
+    url, selectedFormat, setSelectedFormat,
+    mediaInfo, fetchingInfo, infoReady, infoError, processing, done,
+    progress, statusText, downloadSpeed, downloadEta, downloadedBytes, totalBytes,
+    error, formats, inputRef, handleUrlChange, handleDownloadClick,
+  } = useDownloader();
 
   return (
     <section className="pt-32 pb-20 px-6 relative overflow-hidden">
@@ -182,19 +30,19 @@ export function VideoOnlyHero() {
 
       <motion.div
         className="absolute top-[-10%] right-[-5%] w-[500px] h-[500px] rounded-full opacity-20 pointer-events-none"
-        style={{ background: "radial-gradient(circle, #FF0000 0%, transparent 70%)" }}
+        style={{ background: `radial-gradient(circle, ${BRAND} 0%, transparent 70%)` }}
         animate={{ x: ["0%", "15%", "0%"], y: ["0%", "-10%", "0%"], scale: [1, 1.2, 1] }}
         transition={{ duration: 10, repeat: Infinity, ease: "easeInOut" }}
       />
       <motion.div
         className="absolute top-[20%] left-[-8%] w-[350px] h-[350px] rounded-full opacity-15 pointer-events-none"
-        style={{ background: "radial-gradient(circle, #5baab8 0%, transparent 70%)" }}
+        style={{ background: `radial-gradient(circle, #5baab8 0%, transparent 70%)` }}
         animate={{ x: ["0%", "-10%", "0%"], y: ["0%", "15%", "0%"], scale: [1, 1.15, 1] }}
         transition={{ duration: 13, repeat: Infinity, ease: "easeInOut" }}
       />
       <motion.div
         className="absolute bottom-[-5%] right-[10%] w-[300px] h-[300px] rounded-full opacity-10 pointer-events-none"
-        style={{ background: "radial-gradient(circle, #FF0000 0%, transparent 70%)" }}
+        style={{ background: `radial-gradient(circle, ${BRAND} 0%, transparent 70%)` }}
         animate={{ x: ["0%", "-20%", "0%"], y: ["0%", "10%", "0%"], scale: [1, 1.25, 1] }}
         transition={{ duration: 15, repeat: Infinity, ease: "easeInOut" }}
       />
@@ -249,7 +97,7 @@ export function VideoOnlyHero() {
         >
           <div
             className="absolute inset-x-0 top-0 h-0.5 rounded-t-2xl"
-            style={{ background: "linear-gradient(90deg, #FF0000, #cc0000, #FF0000)" }}
+            style={{ background: `linear-gradient(90deg, ${BRAND}, #cc0000, ${BRAND})` }}
           />
 
           <div className="flex flex-col md:flex-row gap-3">
@@ -258,7 +106,7 @@ export function VideoOnlyHero() {
               style={{ boxShadow: "inset 0 1px 2px rgba(0,0,0,0.04)" }}
               onFocus={(e) => {
                 const parent = e.currentTarget;
-                parent.style.boxShadow = "inset 0 1px 2px rgba(0,0,0,0.04), 0 0 0 2px #FF000040";
+                parent.style.boxShadow = `inset 0 1px 2px rgba(0,0,0,0.04), 0 0 0 2px ${BRAND}40`;
                 parent.style.backgroundColor = "white";
               }}
               onBlur={(e) => {
@@ -280,40 +128,39 @@ export function VideoOnlyHero() {
                   type="url"
                   value={url}
                   onChange={(e) => handleUrlChange(e.target.value)}
-                  onKeyDown={(e) => e.key === "Enter" && handleDownload()}
+                  onKeyDown={(e) => e.key === "Enter" && handleDownloadClick()}
                   placeholder="Paste your YouTube video URL here..."
                   className="w-full bg-transparent text-sm text-foreground placeholder:text-muted-foreground outline-none font-sans"
                 />
-                {fetchingInfo && (
-                  <p className="text-[10px] text-muted-foreground flex items-center gap-1 mt-0.5 font-sans">
-                    <span className="w-2 h-2 border border-[#FF0000] border-t-transparent rounded-full animate-spin" />
-                    Fetching video info...
-                  </p>
-                )}
               </div>
               {url && (
-                <button onClick={() => { setUrl(""); setMediaInfo(null); setInfoError(false); }} className="text-muted-foreground hover:text-foreground transition-colors shrink-0">
+                <button onClick={() => handleUrlChange("")} className="text-muted-foreground hover:text-foreground transition-colors shrink-0">
                   <X className="w-3.5 h-3.5" />
                 </button>
               )}
             </div>
 
             <motion.button
-              onClick={handleDownload}
-              disabled={processing}
-              whileHover={{ scale: processing ? 1 : 1.03 }}
-              whileTap={{ scale: processing ? 1 : 0.97 }}
+              onClick={handleDownloadClick}
+              disabled={processing || fetchingInfo}
+              whileHover={{ scale: processing || fetchingInfo ? 1 : 1.03 }}
+              whileTap={{ scale: processing || fetchingInfo ? 1 : 0.97 }}
               className="flex items-center justify-center gap-2 text-white font-semibold text-sm px-7 py-3 rounded-xl transition-all disabled:opacity-70 whitespace-nowrap min-w-[150px] font-sans shadow-lg shadow-red-500/20"
               style={{ background: "linear-gradient(135deg, #FF0000, #cc0000)" }}
               onMouseEnter={(e) => {
-                if (!processing) e.currentTarget.style.background = "linear-gradient(135deg, #ff1a1a, #e60000)";
+                if (!processing && !fetchingInfo) e.currentTarget.style.background = "linear-gradient(135deg, #ff1a1a, #e60000)";
               }}
               onMouseLeave={(e) => {
                 e.currentTarget.style.background = "linear-gradient(135deg, #FF0000, #cc0000)";
               }}
             >
               <AnimatePresence mode="wait">
-                {processing ? (
+                {fetchingInfo ? (
+                  <motion.span key="fetch" initial={{ opacity: 0 }} animate={{ opacity: 1 }} exit={{ opacity: 0 }} className="flex items-center gap-2">
+                    <Loader2 className="w-4 h-4 animate-spin" />
+                    Fetching...
+                  </motion.span>
+                ) : processing ? (
                   <motion.span key="proc" initial={{ opacity: 0 }} animate={{ opacity: 1 }} exit={{ opacity: 0 }} className="flex items-center gap-2">
                     <span className="w-4 h-4 border-2 border-white/30 border-t-white rounded-full animate-spin" />
                     {statusText || "Processing..."}
@@ -322,6 +169,11 @@ export function VideoOnlyHero() {
                   <motion.span key="done" initial={{ opacity: 0, scale: 0.8 }} animate={{ opacity: 1, scale: 1 }} exit={{ opacity: 0 }} className="flex items-center gap-2">
                     <CheckCircle2 className="w-4 h-4 text-[#FF0000]" />
                     Ready!
+                  </motion.span>
+                ) : infoReady ? (
+                  <motion.span key="now" initial={{ opacity: 0 }} animate={{ opacity: 1 }} exit={{ opacity: 0 }} className="flex items-center gap-2">
+                    <Download className="w-4 h-4" />
+                    Download Now
                   </motion.span>
                 ) : (
                   <motion.span key="idle" initial={{ opacity: 0 }} animate={{ opacity: 1 }} exit={{ opacity: 0 }} className="flex items-center gap-2">

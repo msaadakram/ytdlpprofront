@@ -1,33 +1,12 @@
 "use client";
 
-import { useState, useRef, useCallback, useEffect } from "react";
+import { useState } from "react";
 import { motion, AnimatePresence } from "motion/react";
 import {
-  Download, Music, Image, Video, ChevronDown, CheckCircle2, Play, X, FileText,
+  Download, Music, Image, Video, ChevronDown, CheckCircle2, Play, X, FileText, Loader2,
 } from "lucide-react";
-import { videoFormats, audioFormats, thumbnailFormats, transcriptFormats } from "@/lib/constants";
-import type { DownloadType, Format } from "@/lib/constants";
-import {
-  universalGetInfo,
-  universalDownloadVideo,
-  universalDownloadAudio,
-  universalDownloadTranscript,
-  getJobStatus,
-  getJobResult,
-  triggerDownload,
-} from "@/lib/api-client";
-import type { JobStatus } from "@/lib/api-client";
-
-/* Extract bitrate from format label like "MP3 • 320 kbps" -> "320" */
-function parseBitrate(fmt: Format): string {
-  const m = fmt.label.match(/(\d+)\s*kbps/i);
-  return m ? m[1] : "320";
-}
-
-/* Map UI format to container string for video */
-const CONTAINER_MAP: Record<string, string> = {
-  mp4: "mp4", mkv: "mkv", webm: "webm",
-};
+import type { DownloadType } from "@/lib/constants";
+import { useDownloader } from "@/lib/useDownloader";
 
 function formatBytes(bytes: number): string {
   if (!bytes || bytes <= 0) return "";
@@ -38,53 +17,14 @@ function formatBytes(bytes: number): string {
 }
 
 export function Hero() {
-  const [url, setUrl] = useState("");
-  const [activeType, setActiveType] = useState<DownloadType>("video");
-  const [selectedFormat, setSelectedFormat] = useState(0);
+  const {
+    url, activeType, selectedFormat, setSelectedFormat, setActiveType,
+    mediaInfo, fetchingInfo, infoReady, infoError, processing, done,
+    progress, statusText, downloadSpeed, downloadEta, downloadedBytes, totalBytes,
+    error, formats, inputRef, handleUrlChange, handleDownloadClick,
+  } = useDownloader();
+
   const [showFormats, setShowFormats] = useState(false);
-  const inputRef = useRef<HTMLInputElement>(null);
-
-  /* API-driven state */
-  const [processing, setProcessing] = useState(false);
-  const [done, setDone] = useState(false);
-  const [progress, setProgress] = useState(0);
-  const [statusText, setStatusText] = useState("");
-  const [downloadSpeed, setDownloadSpeed] = useState("");
-  const [downloadEta, setDownloadEta] = useState<string | number | null>(null);
-  const [downloadedBytes, setDownloadedBytes] = useState(0);
-  const [totalBytes, setTotalBytes] = useState(0);
-  const [error, setError] = useState("");
-  const cancelPoll = useRef<(() => void) | null>(null);
-
-  /* Fetch info on URL change (debounced) */
-  const [mediaTitle, setMediaTitle] = useState<string | null>(null);
-  const debounceRef = useRef<ReturnType<typeof setTimeout> | null>(null);
-
-  const handleUrlChange = useCallback((value: string) => {
-    setUrl(value);
-    setMediaTitle(null);
-    setError("");
-    if (debounceRef.current) clearTimeout(debounceRef.current);
-    if (!value.trim()) return;
-    debounceRef.current = setTimeout(async () => {
-      const res = await universalGetInfo(value);
-      if (res.success && res.data) {
-        setMediaTitle(res.data.title);
-      }
-    }, 600);
-  }, []);
-
-  useEffect(() => {
-    return () => {
-      if (debounceRef.current) clearTimeout(debounceRef.current);
-      cancelPoll.current?.();
-    };
-  }, []);
-
-  const formats = activeType === "video" ? videoFormats
-    : activeType === "audio" ? audioFormats
-    : activeType === "transcript" ? transcriptFormats
-    : thumbnailFormats;
 
   const typeConfig = {
     video: { icon: Video, label: "Video" },
@@ -93,141 +33,7 @@ export function Hero() {
     transcript: { icon: FileText, label: "Transcript" },
   };
 
-  async function handleDownload() {
-    if (!url.trim()) {
-      inputRef.current?.focus();
-      return;
-    }
-    setError("");
-    setProcessing(true);
-    setProgress(0);
-    setStatusText("Starting...");
-    setDownloadSpeed("");
-    setDownloadEta(null);
-    setDownloadedBytes(0);
-    setTotalBytes(0);
-    setDone(false);
-
-    try {
-      if (activeType === "video") {
-        const fmt = formats[selectedFormat];
-        const quality = fmt.quality;
-        const container = CONTAINER_MAP[fmt.ext] || "mp4";
-        const res = await universalDownloadVideo(url, undefined, quality, container);
-        if (!res.success || !res.data) {
-          throw new Error(res.error?.message || "Download failed to start");
-        }
-        setStatusText("Processing...");
-        await pollUntilDone(res.data.job_id);
-      } else if (activeType === "audio") {
-        const fmt = formats[selectedFormat];
-        const bitrate = parseBitrate(fmt);
-        const ext = fmt.ext;
-        const res = await universalDownloadAudio(url, ext, parseInt(bitrate, 10));
-        if (!res.success || !res.data) {
-          throw new Error(res.error?.message || "Download failed to start");
-        }
-        setStatusText("Processing...");
-        await pollUntilDone(res.data.job_id);
-      } else if (activeType === "transcript") {
-        const fmt = formats[selectedFormat];
-        const res = await universalDownloadTranscript(url, fmt.ext);
-        if (!res.success || !res.data) {
-          throw new Error(res.error?.message || "Transcription failed to start");
-        }
-        setStatusText("Transcribing...");
-        await pollUntilDone(res.data.job_id);
-      } else {
-        /* Thumbnail: fetch info and download thumbnail URL directly */
-        const info = await universalGetInfo(url);
-        if (!info.success || !info.data) {
-          throw new Error(info.error?.message || "Could not fetch media info");
-        }
-        const thumbUrl = info.data.thumbnail;
-        if (thumbUrl) {
-          const a = document.createElement("a");
-          a.href = thumbUrl;
-          a.download = `${info.data.title || "thumbnail"}.jpg`;
-          a.target = "_blank";
-          document.body.appendChild(a);
-          a.click();
-          document.body.removeChild(a);
-        }
-        setProcessing(false);
-        setDone(true);
-        setTimeout(() => setDone(false), 3000);
-        return;
-      }
-    } catch (err) {
-      setError(err instanceof Error ? err.message : "Download failed");
-      setProcessing(false);
-      setTimeout(() => setError(""), 5000);
-    }
-  }
-
-  async function pollUntilDone(jobId: string): Promise<void> {
-    return new Promise((resolve, reject) => {
-      let retries = 0;
-      const maxRetries = 180;
-
-      const poll = async () => {
-        if (retries >= maxRetries) {
-          reject(new Error("Download timed out"));
-          return;
-        }
-        retries++;
-
-        try {
-          const res = await getJobStatus(jobId);
-          if (!res.success || !res.data) {
-            reject(new Error(res.error?.message || "Failed to check status"));
-            return;
-          }
-
-          const job = res.data;
-          setProgress(job.progress ?? 0);
-          setDownloadSpeed(job.speed ?? "");
-          setDownloadEta(job.eta ?? null);
-          setDownloadedBytes(job.downloaded ?? 0);
-          setTotalBytes(job.total ?? 0);
-
-          if (job.status === "downloading") {
-            setStatusText("Downloading...");
-          } else if (job.status === "processing") {
-            setStatusText("Processing...");
-          } else if (job.status === "queued") {
-            setStatusText("Queued...");
-          }
-
-          if (job.status === "completed") {
-            setProgress(100);
-            setStatusText("Complete!");
-
-            const finalRes = await getJobResult(jobId);
-            if (finalRes.success && finalRes.data?.downloadUrl) {
-              triggerDownload(finalRes.data.downloadUrl, finalRes.data.filename);
-            }
-            setProcessing(false);
-            setDone(true);
-            setTimeout(() => setDone(false), 3000);
-            resolve();
-            return;
-          }
-
-          if (job.status === "failed") {
-            reject(new Error(job.error || "Download failed"));
-            return;
-          }
-
-          setTimeout(poll, 1000);
-        } catch (err) {
-          reject(err);
-        }
-      };
-
-      poll();
-    });
-  }
+  const selectedFmt = formats[selectedFormat];
 
   return (
     <section className="pt-32 pb-20 px-6 relative overflow-hidden">
@@ -281,7 +87,7 @@ export function Hero() {
               return (
                 <button
                   key={type}
-                  onClick={() => { setActiveType(type); setSelectedFormat(0); setError(""); }}
+                  onClick={() => { setActiveType(type); setSelectedFormat(0); setShowFormats(false); }}
                   className={`relative flex items-center gap-2 px-5 py-2 rounded-full text-sm font-semibold transition-colors font-sans ${
                     active ? "text-white" : "text-muted-foreground hover:text-foreground"
                   }`}
@@ -312,31 +118,36 @@ export function Hero() {
                   type="url"
                   value={url}
                   onChange={(e) => handleUrlChange(e.target.value)}
-                  onKeyDown={(e) => e.key === "Enter" && handleDownload()}
+                  onKeyDown={(e) => e.key === "Enter" && handleDownloadClick()}
                   placeholder="Paste your video URL here..."
                   className="w-full bg-transparent text-sm text-foreground placeholder:text-muted-foreground outline-none font-sans"
                 />
-                {mediaTitle && (
-                  <p className="text-[10px] text-muted-foreground truncate mt-0.5 font-sans">{mediaTitle}</p>
+                {fetchingInfo && (
+                  <p className="text-[10px] text-muted-foreground flex items-center gap-1 mt-0.5 font-sans">
+                    <Loader2 className="w-2.5 h-2.5 animate-spin" /> Fetching video info...
+                  </p>
+                )}
+                {mediaInfo?.title && !fetchingInfo && (
+                  <p className="text-[10px] text-muted-foreground truncate mt-0.5 font-sans">{mediaInfo.title}</p>
                 )}
               </div>
               {url && (
-                <button onClick={() => { setUrl(""); setMediaTitle(null); }} className="text-muted-foreground hover:text-foreground transition-colors">
+                <button onClick={() => handleUrlChange("")} className="text-muted-foreground hover:text-foreground transition-colors">
                   <X className="w-3.5 h-3.5" />
                 </button>
               )}
             </div>
 
-            {activeType !== "thumbnail" && (
+            {activeType !== "thumbnail" && infoReady && (
               <div className="relative">
                 <button
                   onClick={() => setShowFormats(!showFormats)}
                   className="flex items-center gap-2 bg-[#eef6f8] hover:bg-[#d4ecf0] rounded-xl px-4 py-3 text-sm font-medium text-foreground transition-colors whitespace-nowrap w-full md:w-auto font-sans"
                 >
                   <span className="text-xs font-bold uppercase tracking-widest text-[#5baab8] font-mono">
-                    {formats[selectedFormat].ext.toUpperCase()}
+                    {selectedFmt?.ext?.toUpperCase()}
                   </span>
-                  <span className="text-muted-foreground">{formats[selectedFormat].quality || formats[selectedFormat].label.split("•")[1]?.trim()}</span>
+                  <span className="text-muted-foreground">{selectedFmt?.quality_label || selectedFmt?.ext?.toUpperCase() || ""}</span>
                   <ChevronDown className={`w-4 h-4 text-muted-foreground transition-transform ${showFormats ? "rotate-180" : ""}`} />
                 </button>
 
@@ -357,7 +168,7 @@ export function Hero() {
                             i === selectedFormat ? "bg-[#eef6f8] font-semibold" : ""
                           }`}
                         >
-                          <span>{fmt.label}</span>
+                          <span>{fmt.quality_label || fmt.ext?.toUpperCase()}</span>
                           {i === selectedFormat && <CheckCircle2 className="w-4 h-4 text-[#5baab8]" />}
                         </button>
                       ))}
@@ -368,14 +179,19 @@ export function Hero() {
             )}
 
             <motion.button
-              onClick={handleDownload}
-              disabled={processing}
-              whileHover={{ scale: processing ? 1 : 1.03 }}
-              whileTap={{ scale: processing ? 1 : 0.97 }}
+              onClick={handleDownloadClick}
+              disabled={processing || fetchingInfo}
+              whileHover={{ scale: processing || fetchingInfo ? 1 : 1.03 }}
+              whileTap={{ scale: processing || fetchingInfo ? 1 : 0.97 }}
               className="flex items-center justify-center gap-2 bg-[#0d1f26] hover:bg-[#1a3545] text-white font-semibold text-sm px-7 py-3 rounded-xl transition-colors disabled:opacity-70 whitespace-nowrap min-w-[150px] font-sans"
             >
               <AnimatePresence mode="wait">
-                {processing ? (
+                {fetchingInfo ? (
+                  <motion.span key="fetch" initial={{ opacity: 0 }} animate={{ opacity: 1 }} exit={{ opacity: 0 }} className="flex items-center gap-2">
+                    <Loader2 className="w-4 h-4 animate-spin" />
+                    Fetching...
+                  </motion.span>
+                ) : processing ? (
                   <motion.span key="proc" initial={{ opacity: 0 }} animate={{ opacity: 1 }} exit={{ opacity: 0 }} className="flex items-center gap-2">
                     <span className="w-4 h-4 border-2 border-white/30 border-t-white rounded-full animate-spin" />
                     {statusText || "Processing..."}
@@ -384,6 +200,11 @@ export function Hero() {
                   <motion.span key="done" initial={{ opacity: 0, scale: 0.8 }} animate={{ opacity: 1, scale: 1 }} exit={{ opacity: 0 }} className="flex items-center gap-2">
                     <CheckCircle2 className="w-4 h-4 text-[#5baab8]" />
                     Ready!
+                  </motion.span>
+                ) : infoReady ? (
+                  <motion.span key="now" initial={{ opacity: 0 }} animate={{ opacity: 1 }} exit={{ opacity: 0 }} className="flex items-center gap-2">
+                    <Download className="w-4 h-4" />
+                    Download Now
                   </motion.span>
                 ) : (
                   <motion.span key="idle" initial={{ opacity: 0 }} animate={{ opacity: 1 }} exit={{ opacity: 0 }} className="flex items-center gap-2">
@@ -394,6 +215,16 @@ export function Hero() {
               </AnimatePresence>
             </motion.button>
           </div>
+
+          {infoError && !mediaInfo && !fetchingInfo && url.trim() && (
+            <motion.p
+              initial={{ opacity: 0, y: -4 }}
+              animate={{ opacity: 1, y: 0 }}
+              className="text-xs text-destructive mt-3 font-sans"
+            >
+              Could not fetch media info. Check the URL and try again.
+            </motion.p>
+          )}
 
           {/* Progress bar */}
           {processing && (
