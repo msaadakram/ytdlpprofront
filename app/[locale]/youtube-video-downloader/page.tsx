@@ -1,7 +1,7 @@
 import type { Metadata } from "next";
 import { Nav } from "@/components/layout/Nav";
 import { Footer } from "@/components/layout/Footer";
-import { YoutubeVideoHero } from "@/components/youtube-video-downloader/YoutubeVideoHero";
+import { VideoOnlyHero } from "@/components/youtube-video-downloader/VideoOnlyHero";
 
 type Props = { params: Promise<{ locale: string }> };
 
@@ -22,7 +22,7 @@ export default async function YoutubeVideoDownloaderPage({ params }: Props) {
     <>
       <Nav />
       <main>
-        <YoutubeVideoHero />
+        <VideoOnlyHero />
       </main>
       <Footer />
     </>
