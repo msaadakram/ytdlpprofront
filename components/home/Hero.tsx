@@ -82,8 +82,8 @@ export function Hero() {
         </motion.p>
 
         <motion.div className="flex justify-center mb-5" initial={{ opacity: 0, y: 16 }} animate={{ opacity: 1, y: 0 }} transition={{ delay: 0.35 }}>
-          <div className="max-w-full overflow-x-auto px-2 sm:px-0 [scrollbar-width:none] [&::-webkit-scrollbar]:hidden">
-            <div className="inline-flex bg-white border border-border rounded-full p-1 shadow-sm gap-1 relative">
+          <div className="max-w-full overflow-x-auto px-3 sm:px-0 [scrollbar-width:none] [&::-webkit-scrollbar]:hidden">
+            <div className="inline-flex bg-white border border-border rounded-full p-1 shadow-sm gap-0.5 sm:gap-1 relative">
               {(["video", "audio", "thumbnail", "transcript"] as DownloadType[]).map((type) => {
               const cfg = typeConfig[type];
               const Icon = cfg.icon;
@@ -92,7 +92,7 @@ export function Hero() {
                 <button
                   key={type}
                   onClick={() => { setActiveType(type); setSelectedFormat(0); setShowFormats(false); }}
-                  className={`relative flex items-center gap-1.5 md:gap-2 px-3 md:px-5 py-1.5 md:py-2 rounded-full text-xs md:text-sm font-semibold transition-colors font-sans whitespace-nowrap ${
+                  className={`relative flex items-center gap-1 sm:gap-2 px-2.5 sm:px-4 md:px-5 py-1.5 md:py-2 rounded-full text-xs md:text-sm font-semibold transition-colors font-sans whitespace-nowrap ${
                     active ? "text-white" : "text-muted-foreground hover:text-foreground"
                   }`}
                 >
