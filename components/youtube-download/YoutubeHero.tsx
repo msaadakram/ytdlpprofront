@@ -122,8 +122,9 @@ export function YoutubeHero() {
           animate={{ opacity: 1, y: 0 }}
           transition={{ delay: 0.35 }}
         >
-          <div className="inline-flex bg-white/80 backdrop-blur-sm border border-border rounded-full p-1 shadow-sm gap-1 relative">
-            {(["video", "audio", "thumbnail", "transcript"] as DownloadType[]).map((type) => {
+          <div className="max-w-full overflow-x-auto px-2 sm:px-0 [scrollbar-width:none] [&::-webkit-scrollbar]:hidden">
+            <div className="inline-flex bg-white/80 backdrop-blur-sm border border-border rounded-full p-1 shadow-sm gap-1 relative">
+              {(["video", "audio", "thumbnail", "transcript"] as DownloadType[]).map((type) => {
               const cfg = typeConfig[type];
               const Icon = cfg.icon;
               const active = activeType === type;
@@ -131,7 +132,7 @@ export function YoutubeHero() {
                 <button
                   key={type}
                   onClick={() => { setActiveType(type); setSelectedFormat(0); }}
-                  className={`relative flex items-center gap-2 px-4 md:px-5 py-2 rounded-full text-sm font-semibold transition-colors font-sans ${
+                  className={`relative flex items-center gap-1.5 md:gap-2 px-3 md:px-5 py-1.5 md:py-2 rounded-full text-xs md:text-sm font-semibold transition-colors font-sans whitespace-nowrap ${
                     active ? "text-white" : "text-muted-foreground hover:text-foreground"
                   }`}
                 >
@@ -148,6 +149,7 @@ export function YoutubeHero() {
                 </button>
               );
             })}
+            </div>
           </div>
         </motion.div>
 
