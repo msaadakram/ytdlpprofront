@@ -125,7 +125,7 @@ export const testimonials = [
   },
   {
     name: "Sarah Miller", role: "Social Media Manager",
-    text: "I manage 12 brand accounts and Fetchwave handles all my video needs. The FLAC audio quality is incredible.",
+    text: "I manage 12 brand accounts and DownForge handles all my video needs. The FLAC audio quality is incredible.",
     rating: 5,
   },
   {

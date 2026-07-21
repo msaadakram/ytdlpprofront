@@ -63,28 +63,28 @@ export function DownloadsTab() {
           </div>
         </div>
 
-        <div className="overflow-x-auto">
-          <table className="w-full text-sm">
+        <div className="overflow-x-auto -mx-4 sm:mx-0 px-4 sm:px-0">
+          <table className="w-full min-w-[760px] text-sm">
             <thead>
               <tr className="border-b border-border">
-                <th className="text-left pb-3 text-xs font-semibold text-muted-foreground font-mono">File</th>
-                <th className="text-left pb-3 text-xs font-semibold text-muted-foreground font-mono">Platform</th>
-                <th className="text-left pb-3 text-xs font-semibold text-muted-foreground font-mono">Type</th>
-                <th className="text-left pb-3 text-xs font-semibold text-muted-foreground font-mono">Format</th>
-                <th className="text-left pb-3 text-xs font-semibold text-muted-foreground font-mono">Size</th>
-                <th className="text-left pb-3 text-xs font-semibold text-muted-foreground font-mono">Date</th>
-                <th className="text-left pb-3 text-xs font-semibold text-muted-foreground font-mono">Status</th>
+                <th className="text-left pb-3 text-xs font-semibold text-muted-foreground font-mono whitespace-nowrap">File</th>
+                <th className="text-left pb-3 text-xs font-semibold text-muted-foreground font-mono whitespace-nowrap">Platform</th>
+                <th className="text-left pb-3 text-xs font-semibold text-muted-foreground font-mono whitespace-nowrap">Type</th>
+                <th className="text-left pb-3 text-xs font-semibold text-muted-foreground font-mono whitespace-nowrap">Format</th>
+                <th className="text-left pb-3 text-xs font-semibold text-muted-foreground font-mono whitespace-nowrap">Size</th>
+                <th className="text-left pb-3 text-xs font-semibold text-muted-foreground font-mono whitespace-nowrap">Date</th>
+                <th className="text-left pb-3 text-xs font-semibold text-muted-foreground font-mono whitespace-nowrap">Status</th>
               </tr>
             </thead>
             <tbody>
               {filtered.map((dl, i) => (
                 <tr key={i} className="border-b border-border/50 last:border-0">
-                  <td className="py-3 text-sm text-foreground font-sans">{dl.file}</td>
-                  <td className="py-3 text-sm text-muted-foreground font-sans">{dl.platform}</td>
-                  <td className="py-3 text-sm text-muted-foreground font-sans">{dl.type}</td>
-                  <td className="py-3 text-sm text-muted-foreground font-sans">{dl.format}</td>
-                  <td className="py-3 text-sm text-muted-foreground font-sans">{dl.size}</td>
-                  <td className="py-3 text-sm text-muted-foreground font-sans">{dl.date}</td>
+                  <td className="py-3 pr-4 text-sm text-foreground font-sans whitespace-nowrap">{dl.file}</td>
+                  <td className="py-3 pr-4 text-sm text-muted-foreground font-sans whitespace-nowrap">{dl.platform}</td>
+                  <td className="py-3 pr-4 text-sm text-muted-foreground font-sans whitespace-nowrap">{dl.type}</td>
+                  <td className="py-3 pr-4 text-sm text-muted-foreground font-sans whitespace-nowrap">{dl.format}</td>
+                  <td className="py-3 pr-4 text-sm text-muted-foreground font-sans whitespace-nowrap">{dl.size}</td>
+                  <td className="py-3 pr-4 text-sm text-muted-foreground font-sans whitespace-nowrap">{dl.date}</td>
                   <td className="py-3">
                     <span className={`text-xs font-medium px-2 py-0.5 rounded-full font-sans ${
                       dl.status === "Completed" ? "bg-green-100 text-green-700" :

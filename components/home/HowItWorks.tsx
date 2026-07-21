@@ -5,7 +5,7 @@ import { steps } from "@/lib/constants";
 
 export function HowItWorks() {
   return (
-    <section className="py-20 px-6 relative overflow-hidden">
+    <section className="py-14 md:py-20 px-6 relative overflow-hidden">
       <div className="absolute inset-0 pointer-events-none opacity-[0.02]"
         style={{
           backgroundImage: `radial-gradient(circle at 20% 50%, #5baab8 0%, transparent 50%), radial-gradient(circle at 80% 50%, #5baab8 0%, transparent 50%)`,
@@ -23,7 +23,7 @@ export function HowItWorks() {
           <span className="inline-block text-xs font-semibold tracking-widest uppercase text-[#5baab8] mb-3 font-mono">
             How it works
           </span>
-          <h2 className="text-4xl font-extrabold tracking-tight text-foreground mb-4 font-heading">
+          <h2 className="text-2xl sm:text-3xl md:text-4xl font-extrabold tracking-tight text-foreground mb-4 font-heading">
             Three simple steps
           </h2>
           <p className="text-muted-foreground max-w-lg mx-auto font-sans">

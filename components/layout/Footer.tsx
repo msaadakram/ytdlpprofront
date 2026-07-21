@@ -28,8 +28,8 @@ const footerLinks = [
 export function Footer() {
   return (
     <footer className="bg-[#0d1f26] text-white">
-      <div className="max-w-6xl mx-auto px-6 py-16">
-        <div className="grid grid-cols-2 md:grid-cols-5 gap-10">
+      <div className="max-w-6xl mx-auto px-4 sm:px-6 py-12 md:py-16">
+        <div className="grid grid-cols-2 md:grid-cols-5 gap-8 md:gap-10">
           <div className="col-span-2 md:col-span-1">
             <Link href="/" className="flex items-center gap-2 mb-4">
               <img

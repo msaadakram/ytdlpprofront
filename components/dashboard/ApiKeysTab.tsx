@@ -78,7 +78,7 @@ export function ApiKeysTab() {
                 </button>
               </div>
             </div>
-            <code className="block bg-[#eef6f8] rounded-lg px-4 py-2.5 text-xs font-mono text-foreground">
+            <code className="block bg-[#eef6f8] rounded-lg px-4 py-2.5 text-xs font-mono text-foreground break-all">
               {showKeys.has(k.id) ? k.key : `${k.key.slice(0, 12)}${"•".repeat(20)}`}
             </code>
             <div className="flex items-center gap-4 mt-3 text-xs text-muted-foreground font-sans">

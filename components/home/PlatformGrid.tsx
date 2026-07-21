@@ -45,7 +45,7 @@ const featuredPlatforms = [
 
 export function PlatformGrid() {
   return (
-    <section id="platforms" className="py-20 px-6 relative overflow-hidden">
+    <section id="platforms" className="py-14 md:py-20 px-6 relative overflow-hidden">
       <div className="absolute inset-0 pointer-events-none" style={{ background: "linear-gradient(180deg, #eef6f8 0%, white 100%)" }} />
       <div className="max-w-6xl mx-auto relative">
         <motion.div
@@ -59,7 +59,7 @@ export function PlatformGrid() {
           <span className="inline-block text-xs font-semibold tracking-widest uppercase text-[#5baab8] mb-3 font-mono">
             Supported platforms
           </span>
-          <h2 className="text-4xl font-extrabold tracking-tight text-foreground mb-4 font-heading">
+          <h2 className="text-2xl sm:text-3xl md:text-4xl font-extrabold tracking-tight text-foreground mb-4 font-heading">
             200+ Platforms & Growing
           </h2>
           <p className="text-muted-foreground max-w-lg mx-auto font-sans">

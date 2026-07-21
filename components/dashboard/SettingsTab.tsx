@@ -14,7 +14,7 @@ export function SettingsTab() {
           <User className="w-4 h-4 text-[#5baab8]" /> Profile
         </h3>
         <div className="space-y-4">
-          <div className="grid grid-cols-2 gap-4">
+          <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
             <div>
               <label className="block text-xs font-medium text-foreground mb-1.5 font-sans">First Name</label>
               <input

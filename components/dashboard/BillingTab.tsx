@@ -28,7 +28,7 @@ export function BillingTab() {
           </div>
           <button className="text-sm font-medium text-[#5baab8] hover:underline font-sans">Change Plan</button>
         </div>
-        <div className="grid grid-cols-2 md:grid-cols-4 gap-3">
+        <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-4 gap-3">
           {planFeatures.map((f) => (
             <div key={f} className="flex items-center gap-2 text-sm text-foreground font-sans">
               <Check className="w-4 h-4 text-[#5baab8]" />

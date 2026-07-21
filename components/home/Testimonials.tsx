@@ -6,7 +6,7 @@ import { Star } from "lucide-react";
 
 export function Testimonials() {
   return (
-    <section className="py-20 px-6 bg-white relative overflow-hidden">
+    <section className="py-14 md:py-20 px-6 bg-white relative overflow-hidden">
       <div className="absolute top-0 left-1/2 -translate-x-1/2 w-[800px] h-[800px] pointer-events-none opacity-[0.03]"
         style={{ background: "radial-gradient(circle, #5baab8 0%, transparent 70%)" }}
       />
@@ -22,11 +22,11 @@ export function Testimonials() {
           <span className="inline-block text-xs font-semibold tracking-widest uppercase text-[#5baab8] mb-3 font-mono">
             Testimonials
           </span>
-          <h2 className="text-4xl font-extrabold tracking-tight text-foreground mb-4 font-heading">
+          <h2 className="text-2xl sm:text-3xl md:text-4xl font-extrabold tracking-tight text-foreground mb-4 font-heading">
             Loved by creators
           </h2>
           <p className="text-muted-foreground max-w-lg mx-auto font-sans">
-            Join thousands of satisfied users who download with Fetchwave daily.
+            Join thousands of satisfied users who download with DownForge daily.
           </p>
         </motion.div>
 

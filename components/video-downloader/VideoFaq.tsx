@@ -14,7 +14,7 @@ export function VideoFaq({ platform }: { platform: string }) {
   if (faqs.length === 0) return null;
 
   return (
-    <section className="py-20 px-6">
+    <section className="py-14 md:py-20 px-6">
       <div className="max-w-3xl mx-auto">
         <motion.div
           initial={{ opacity: 0, y: 16 }}
@@ -27,7 +27,7 @@ export function VideoFaq({ platform }: { platform: string }) {
           <span className="text-xs font-bold tracking-widest uppercase font-mono" style={{ color: brandColor }}>
             FAQ
           </span>
-          <h2 className="text-3xl md:text-4xl font-extrabold text-foreground mt-3 mb-4 font-heading">
+          <h2 className="text-2xl sm:text-3xl md:text-4xl font-extrabold text-foreground mt-3 mb-4 font-heading">
             {config?.name || ""} Video Download Questions
           </h2>
           <p className="text-muted-foreground text-sm font-sans">

@@ -18,7 +18,7 @@ export function VideoFeatures({ platform }: { platform: string }) {
   const brandColor = config?.brandColor || "#5baab8";
 
   return (
-    <section className="py-20 px-6 relative overflow-hidden">
+    <section className="py-14 md:py-20 px-6 relative overflow-hidden">
       <div
         className="absolute inset-0 pointer-events-none"
         style={{
@@ -38,9 +38,9 @@ export function VideoFeatures({ platform }: { platform: string }) {
             className="text-xs font-bold tracking-widest uppercase font-mono"
             style={{ color: brandColor }}
           >
-            Why Fetchwave
+            Why DownForge
           </span>
-          <h2 className="text-3xl md:text-4xl font-extrabold text-foreground mt-3 mb-4 font-heading">
+          <h2 className="text-2xl sm:text-3xl md:text-4xl font-extrabold text-foreground mt-3 mb-4 font-heading">
             The Best {config?.name || ""} Video Download Tool
           </h2>
           <p className="text-muted-foreground text-sm max-w-xl mx-auto font-sans">

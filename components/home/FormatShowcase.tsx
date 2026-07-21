@@ -17,7 +17,7 @@ export function FormatShowcase() {
   const current = tabs.find((t) => t.key === activeTab)!;
 
   return (
-    <section className="py-20 px-6 bg-white">
+    <section className="py-14 md:py-20 px-6 bg-white">
       <div className="max-w-5xl mx-auto">
         <motion.div
           initial={{ opacity: 0, y: 16 }}
@@ -30,7 +30,7 @@ export function FormatShowcase() {
           <span className="inline-block text-xs font-semibold tracking-widest uppercase text-[#5baab8] mb-3 font-mono">
             Formats
           </span>
-          <h2 className="text-4xl font-extrabold tracking-tight text-foreground mb-4 font-heading">
+          <h2 className="text-2xl sm:text-3xl md:text-4xl font-extrabold tracking-tight text-foreground mb-4 font-heading">
             Any format, any quality
           </h2>
           <p className="text-muted-foreground max-w-lg mx-auto font-sans">
@@ -39,7 +39,8 @@ export function FormatShowcase() {
         </motion.div>
 
         <div className="flex justify-center mb-8">
-          <div className="inline-flex bg-[#eef6f8] rounded-xl p-1 gap-1">
+          <div className="max-w-full overflow-x-auto px-2 sm:px-0 [scrollbar-width:none] [&::-webkit-scrollbar]:hidden">
+            <div className="inline-flex bg-[#eef6f8] rounded-xl p-1 gap-1">
             {tabs.map((tab) => {
               const active = activeTab === tab.key;
               const Icon = tab.icon;
@@ -49,7 +50,7 @@ export function FormatShowcase() {
                   onClick={() => setActiveTab(tab.key)}
                   whileHover={{ scale: active ? 1 : 1.03 }}
                   whileTap={{ scale: 0.97 }}
-                  className={`relative flex items-center gap-2 px-5 py-2.5 rounded-lg text-sm font-semibold transition-colors font-sans ${
+                  className={`relative flex items-center gap-2 px-4 sm:px-5 py-2 sm:py-2.5 rounded-lg text-sm font-semibold transition-colors font-sans whitespace-nowrap ${
                     active ? "text-white" : "text-muted-foreground hover:text-foreground"
                   }`}
                 >
@@ -65,6 +66,7 @@ export function FormatShowcase() {
                 </motion.button>
               );
             })}
+            </div>
           </div>
         </div>
 

@@ -17,7 +17,7 @@ export function PlatformToolFeatures({ platform }: { platform: string }) {
   const config = platformConfigs[platform];
 
   return (
-    <section className="py-20 px-6 relative overflow-hidden">
+    <section className="py-14 md:py-20 px-6 relative overflow-hidden">
       <div
         className="absolute inset-0 pointer-events-none"
         style={{
@@ -37,9 +37,9 @@ export function PlatformToolFeatures({ platform }: { platform: string }) {
             className="text-xs font-bold tracking-widest uppercase font-mono"
             style={{ color: config.brandColor }}
           >
-            Why Fetchwave
+            Why DownForge
           </span>
-          <h2 className="text-3xl md:text-4xl font-extrabold text-foreground mt-3 mb-4 font-heading">
+          <h2 className="text-2xl sm:text-3xl md:text-4xl font-extrabold text-foreground mt-3 mb-4 font-heading">
             The Best {config.name} Download Tool
           </h2>
           <p className="text-muted-foreground text-sm max-w-xl mx-auto font-sans">

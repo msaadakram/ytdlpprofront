@@ -6,7 +6,7 @@ import { ArrowRight } from "lucide-react";
 
 export function CTA() {
   return (
-    <section className="py-20 px-6">
+    <section className="py-14 md:py-20 px-6">
       <div className="max-w-4xl mx-auto">
         <motion.div
           initial={{ opacity: 0, y: 28, scale: 0.98 }}
@@ -38,11 +38,11 @@ export function CTA() {
           />
 
           <div className="relative">
-            <h2 className="text-3xl md:text-4xl font-extrabold text-white mb-4 font-heading">
+            <h2 className="text-2xl sm:text-3xl md:text-4xl font-extrabold text-white mb-4 font-heading">
               Ready to start downloading?
             </h2>
             <p className="text-white/60 max-w-md mx-auto mb-8 font-sans">
-              Join thousands of users who trust Fetchwave for their video downloads. No credit card required.
+              Join thousands of users who trust DownForge for their video downloads. No credit card required.
             </p>
             <div className="flex items-center justify-center gap-4">
               <motion.div whileHover={{ scale: 1.04 }} whileTap={{ scale: 0.96 }}>

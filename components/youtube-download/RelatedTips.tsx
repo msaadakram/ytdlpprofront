@@ -33,7 +33,7 @@ const tips = [
 
 export function RelatedTips() {
   return (
-    <section className="py-20 px-6 bg-white">
+    <section className="py-14 md:py-20 px-6 bg-white">
       <div className="max-w-5xl mx-auto">
         <motion.div
           initial={{ opacity: 0, y: 16 }}
@@ -46,7 +46,7 @@ export function RelatedTips() {
           <span className="text-xs font-bold tracking-widest uppercase text-[#5baab8] font-mono">
             Tips & Tricks
           </span>
-          <h2 className="text-3xl md:text-4xl font-extrabold text-foreground mt-3 mb-4 font-heading">
+          <h2 className="text-2xl sm:text-3xl md:text-4xl font-extrabold text-foreground mt-3 mb-4 font-heading">
             Get the Most from YouTube Downloads
           </h2>
           <p className="text-muted-foreground text-sm max-w-xl mx-auto font-sans">

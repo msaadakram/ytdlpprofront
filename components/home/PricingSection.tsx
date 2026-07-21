@@ -10,7 +10,7 @@ export function PricingSection() {
   const [annual, setAnnual] = useState(false);
 
   return (
-    <section id="pricing" className="py-20 px-6 relative overflow-hidden">
+    <section id="pricing" className="py-14 md:py-20 px-6 relative overflow-hidden">
       <div className="absolute inset-0 pointer-events-none" style={{ background: "linear-gradient(180deg, white 0%, #eef6f8 100%)" }} />
       <div className="max-w-6xl mx-auto relative">
         <motion.div
@@ -24,7 +24,7 @@ export function PricingSection() {
           <span className="inline-block text-xs font-semibold tracking-widest uppercase text-[#5baab8] mb-3 font-mono">
             Pricing
           </span>
-          <h2 className="text-4xl font-extrabold tracking-tight text-foreground mb-4 font-heading">
+          <h2 className="text-2xl sm:text-3xl md:text-4xl font-extrabold tracking-tight text-foreground mb-4 font-heading">
             Simple, transparent pricing
           </h2>
           <p className="text-muted-foreground max-w-lg mx-auto mb-8 font-sans">

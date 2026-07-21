@@ -1,9 +1,8 @@
 "use client";
 
-import { useState } from "react";
 import { motion, AnimatePresence } from "motion/react";
 import {
-  Download, BarChart2, Key, CreditCard, Settings, LogOut, ChevronLeft,
+  Download, BarChart2, Key, CreditCard, Settings, LogOut, ChevronLeft, X,
 } from "lucide-react";
 
 export type DashboardTab = "overview" | "api-keys" | "downloads" | "billing" | "settings";
@@ -21,30 +20,23 @@ export function Sidebar({
   onTabChange,
   collapsed,
   onToggle,
+  mobileOpen,
+  onClose,
 }: {
   activeTab: DashboardTab;
   onTabChange: (tab: DashboardTab) => void;
   collapsed: boolean;
   onToggle: () => void;
+  mobileOpen: boolean;
+  onClose: () => void;
 }) {
-  return (
-    <aside
-      className={`fixed left-0 top-16 h-[calc(100vh-4rem)] bg-white border-r border-border flex flex-col transition-all duration-300 z-30 ${
-        collapsed ? "w-16" : "w-64"
-      }`}
-    >
-      <div className="flex items-center justify-between p-4 border-b border-border">
-        {!collapsed && (
-          <span className="text-xs font-bold uppercase tracking-widest text-muted-foreground font-mono">Menu</span>
-        )}
-        <button
-          onClick={onToggle}
-          className="p-1.5 rounded-lg hover:bg-muted transition-colors text-muted-foreground"
-        >
-          <ChevronLeft className={`w-4 h-4 transition-transform ${collapsed ? "rotate-180" : ""}`} />
-        </button>
-      </div>
+  function handleTabClick(tab: DashboardTab) {
+    onTabChange(tab);
+    onClose();
+  }
 
+  const navContent = (
+    <>
       <nav className="flex-1 p-3 space-y-1">
         {tabs.map((tab) => {
           const Icon = tab.icon;
@@ -52,7 +44,7 @@ export function Sidebar({
           return (
             <button
               key={tab.id}
-              onClick={() => onTabChange(tab.id)}
+              onClick={() => handleTabClick(tab.id)}
               className={`w-full flex items-center gap-3 px-3 py-2.5 rounded-xl text-sm font-medium transition-all font-sans ${
                 active
                   ? "bg-[#eef6f8] text-[#0d1f26]"
@@ -72,6 +64,66 @@ export function Sidebar({
           {!collapsed && <span>Log Out</span>}
         </button>
       </div>
-    </aside>
+    </>
+  );
+
+  return (
+    <>
+      {/* Desktop: persistent collapsible sidebar */}
+      <aside
+        className={`hidden lg:flex fixed left-0 top-16 h-[calc(100vh-4rem)] bg-white border-r border-border flex-col transition-all duration-300 z-30 ${
+          collapsed ? "w-16" : "w-64"
+        }`}
+      >
+        <div className="flex items-center justify-between p-4 border-b border-border">
+          {!collapsed && (
+            <span className="text-xs font-bold uppercase tracking-widest text-muted-foreground font-mono">Menu</span>
+          )}
+          <button
+            onClick={onToggle}
+            className="p-1.5 rounded-lg hover:bg-muted transition-colors text-muted-foreground"
+            aria-label={collapsed ? "Expand sidebar" : "Collapse sidebar"}
+          >
+            <ChevronLeft className={`w-4 h-4 transition-transform ${collapsed ? "rotate-180" : ""}`} />
+          </button>
+        </div>
+        {navContent}
+      </aside>
+
+      {/* Mobile: off-canvas drawer */}
+      <AnimatePresence>
+        {mobileOpen && (
+          <>
+            <motion.div
+              initial={{ opacity: 0 }}
+              animate={{ opacity: 1 }}
+              exit={{ opacity: 0 }}
+              transition={{ duration: 0.2 }}
+              className="fixed inset-0 bg-black/30 backdrop-blur-sm z-40 lg:hidden"
+              onClick={onClose}
+            />
+            <motion.aside
+              initial={{ x: "-100%" }}
+              animate={{ x: 0 }}
+              exit={{ x: "-100%" }}
+              transition={{ type: "spring", stiffness: 350, damping: 32 }}
+              className="fixed left-0 top-0 bottom-0 w-72 max-w-[85vw] bg-white border-r border-border flex flex-col z-50 lg:hidden"
+            >
+              <div className="flex items-center justify-between p-4 border-b border-border h-16">
+                <span className="text-xs font-bold uppercase tracking-widest text-muted-foreground font-mono">Menu</span>
+                <button
+                  onClick={onClose}
+                  className="w-8 h-8 rounded-lg flex items-center justify-center hover:bg-muted transition-colors text-muted-foreground"
+                  aria-label="Close menu"
+                >
+                  <X className="w-4 h-4" />
+                </button>
+              </div>
+              {navContent}
+            </motion.aside>
+          </>
+        )}
+      </AnimatePresence>
+    </>
   );
 }

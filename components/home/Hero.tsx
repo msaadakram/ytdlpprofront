@@ -36,7 +36,7 @@ export function Hero() {
   const selectedFmt = formats[selectedFormat];
 
   return (
-    <section className="pt-32 pb-20 px-6 relative overflow-hidden">
+    <section className="pt-24 pb-16 md:pt-32 md:pb-20 px-6 relative overflow-hidden">
       <motion.div
         className="absolute top-0 right-0 w-[600px] h-[600px] rounded-full opacity-30 pointer-events-none"
         style={{ background: "radial-gradient(circle, #5baab8 0%, transparent 70%)" }}
@@ -59,7 +59,7 @@ export function Hero() {
         </motion.div>
 
         <motion.h1
-          className="text-center text-5xl md:text-7xl font-extrabold leading-[1.08] tracking-tight text-foreground mb-6 font-heading"
+          className="text-center text-[2rem] leading-tight sm:text-5xl md:text-7xl font-extrabold tracking-tight text-foreground mb-6 font-heading"
           initial={{ opacity: 0, y: 24 }}
           animate={{ opacity: 1, y: 0 }}
           transition={{ delay: 0.15, duration: 0.6 }}

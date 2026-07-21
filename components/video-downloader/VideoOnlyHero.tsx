@@ -25,7 +25,7 @@ export function VideoOnlyHero({ platform }: { platform: string }) {
   } = useDownloader();
 
   return (
-    <section className="pt-32 pb-20 px-6 relative overflow-hidden">
+    <section className="pt-24 pb-16 md:pt-32 md:pb-20 px-6 relative overflow-hidden">
       <div
         className="absolute inset-0 pointer-events-none"
         style={{
@@ -78,7 +78,7 @@ export function VideoOnlyHero({ platform }: { platform: string }) {
         </motion.div>
 
         <motion.h1
-          className="text-center text-5xl md:text-7xl font-extrabold leading-[1.08] tracking-tight text-foreground mb-6 font-heading"
+          className="text-center text-[2rem] leading-tight sm:text-5xl md:text-7xl font-extrabold tracking-tight text-foreground mb-6 font-heading"
           initial={{ opacity: 0, y: 24 }}
           animate={{ opacity: 1, y: 0 }}
           transition={{ delay: 0.15, duration: 0.6 }}

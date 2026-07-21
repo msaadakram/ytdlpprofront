@@ -48,7 +48,7 @@ export function PlatformHero({ platform }: { platform: string }) {
   const Logo = config.Logo;
 
   return (
-    <section className="pt-32 pb-20 px-6 relative overflow-hidden">
+    <section className="pt-24 pb-16 md:pt-32 md:pb-20 px-6 relative overflow-hidden">
       <div
         className="absolute inset-0 pointer-events-none"
         style={{
@@ -102,7 +102,7 @@ export function PlatformHero({ platform }: { platform: string }) {
         </motion.div>
 
         <motion.h1
-          className="text-center text-5xl md:text-7xl font-extrabold leading-[1.08] tracking-tight text-foreground mb-6 font-heading"
+          className="text-center text-[2rem] leading-tight sm:text-5xl md:text-7xl font-extrabold tracking-tight text-foreground mb-6 font-heading"
           initial={{ opacity: 0, y: 24 }}
           animate={{ opacity: 1, y: 0 }}
           transition={{ delay: 0.15, duration: 0.6 }}
@@ -127,32 +127,34 @@ export function PlatformHero({ platform }: { platform: string }) {
           animate={{ opacity: 1, y: 0 }}
           transition={{ delay: 0.35 }}
         >
-          <div className="inline-flex bg-white/80 backdrop-blur-sm border border-border rounded-full p-1 shadow-sm gap-1 relative">
-            {(["video", "audio", "thumbnail", "transcript"] as DownloadType[]).map((type) => {
-              const cfg = typeConfig[type];
-              const Icon = cfg.icon;
-              const active = activeType === type;
-              return (
-                <button
-                  key={type}
-                  onClick={() => { setActiveType(type); setSelectedFormat(0); }}
-                  className={`relative flex items-center gap-2 px-4 md:px-5 py-2 rounded-full text-sm font-semibold transition-colors font-sans ${
-                    active ? "text-white" : "text-muted-foreground hover:text-foreground"
-                  }`}
-                >
-                  {active && (
-                    <motion.span
-                      layoutId="platTypePill"
-                      className="absolute inset-0 rounded-full shadow-md"
-                      style={{ backgroundColor: config.brandColor }}
-                      transition={{ type: "spring", stiffness: 400, damping: 32 }}
-                    />
-                  )}
-                  <Icon className="w-3.5 h-3.5 relative z-10" />
-                  <span className="relative z-10">{cfg.label}</span>
-                </button>
-              );
-            })}
+          <div className="max-w-full overflow-x-auto px-2 sm:px-0 [scrollbar-width:none] [&::-webkit-scrollbar]:hidden">
+            <div className="inline-flex bg-white/80 backdrop-blur-sm border border-border rounded-full p-1 shadow-sm gap-1 relative">
+              {(["video", "audio", "thumbnail", "transcript"] as DownloadType[]).map((type) => {
+                const cfg = typeConfig[type];
+                const Icon = cfg.icon;
+                const active = activeType === type;
+                return (
+                  <button
+                    key={type}
+                    onClick={() => { setActiveType(type); setSelectedFormat(0); }}
+                    className={`relative flex items-center gap-1.5 md:gap-2 px-3 md:px-5 py-1.5 md:py-2 rounded-full text-xs md:text-sm font-semibold transition-colors font-sans whitespace-nowrap ${
+                      active ? "text-white" : "text-muted-foreground hover:text-foreground"
+                    }`}
+                  >
+                    {active && (
+                      <motion.span
+                        layoutId="platTypePill"
+                        className="absolute inset-0 rounded-full shadow-md"
+                        style={{ backgroundColor: config.brandColor }}
+                        transition={{ type: "spring", stiffness: 400, damping: 32 }}
+                      />
+                    )}
+                    <Icon className="w-3.5 h-3.5 relative z-10" />
+                    <span className="relative z-10">{cfg.label}</span>
+                  </button>
+                );
+              })}
+            </div>
           </div>
         </motion.div>
 

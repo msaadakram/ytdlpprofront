@@ -26,7 +26,7 @@ export function PlatformHowItWorks({ platform }: { platform: string }) {
   const config = platformConfigs[platform];
 
   return (
-    <section className="py-20 px-6 bg-white relative overflow-hidden">
+    <section className="py-14 md:py-20 px-6 bg-white relative overflow-hidden">
       <div className="absolute inset-0 pointer-events-none opacity-[0.03]"
         style={{
           backgroundImage: `radial-gradient(circle at 25% 25%, ${config.brandColor} 0%, transparent 50%), radial-gradient(circle at 75% 75%, ${config.brandColor} 0%, transparent 50%)`,
@@ -47,7 +47,7 @@ export function PlatformHowItWorks({ platform }: { platform: string }) {
           >
             How It Works
           </span>
-          <h2 className="text-3xl md:text-4xl font-extrabold text-foreground mt-3 mb-4 font-heading">
+          <h2 className="text-2xl sm:text-3xl md:text-4xl font-extrabold text-foreground mt-3 mb-4 font-heading">
             Download {config.name} in 3 Steps
           </h2>
           <p className="text-muted-foreground text-sm max-w-xl mx-auto font-sans">
@@ -81,7 +81,7 @@ export function PlatformHowItWorks({ platform }: { platform: string }) {
                 )}
                 <motion.div
                   whileHover={{ y: -6, transition: { duration: 0.2 } }}
-                  className="bg-[#eef6f8] rounded-2xl p-8 h-full relative overflow-hidden group"
+                  className="bg-[#eef6f8] rounded-2xl p-6 md:p-8 h-full relative overflow-hidden group"
                 >
                   <span className="text-7xl font-black font-heading absolute -top-2 -right-2"
                     style={{ color: `${config.brandColor}0D` }}
