@@ -4,17 +4,20 @@ import { useState } from "react";
 import { motion, AnimatePresence } from "motion/react";
 import { Monitor, Headphones, Image, FileText } from "lucide-react";
 import { videoFormats, audioFormats, thumbnailFormats, transcriptFormats } from "@/lib/constants";
+import { useTranslations } from "next-intl";
 
 const tabs = [
-  { key: "video" as const, label: "Video", icon: Monitor, formats: videoFormats },
-  { key: "audio" as const, label: "Audio", icon: Headphones, formats: audioFormats },
-  { key: "thumbnail" as const, label: "Thumbnail", icon: Image, formats: thumbnailFormats },
-  { key: "transcript" as const, label: "Transcript", icon: FileText, formats: transcriptFormats },
+  { key: "video" as const, icon: Monitor, formats: videoFormats },
+  { key: "audio" as const, icon: Headphones, formats: audioFormats },
+  { key: "thumbnail" as const, icon: Image, formats: thumbnailFormats },
+  { key: "transcript" as const, icon: FileText, formats: transcriptFormats },
 ];
 
 export function FormatShowcase() {
   const [activeTab, setActiveTab] = useState<"video" | "audio" | "thumbnail" | "transcript">("video");
   const current = tabs.find((t) => t.key === activeTab)!;
+  const t = useTranslations("HomePage");
+  const tabLabel = t(`formatShowcaseTabs.${activeTab}`);
 
   return (
     <section className="py-14 md:py-20 px-6 bg-white">
@@ -28,13 +31,13 @@ export function FormatShowcase() {
           className="text-center mb-10"
         >
           <span className="inline-block text-xs font-semibold tracking-widest uppercase text-[#5baab8] mb-3 font-mono">
-            Formats
+            {t("formatShowcaseBadge")}
           </span>
           <h2 className="text-2xl sm:text-3xl md:text-4xl font-extrabold tracking-tight text-foreground mb-4 font-heading">
-            Any format, any quality
+            {t("formatShowcaseTitle")}
           </h2>
           <p className="text-muted-foreground max-w-lg mx-auto font-sans">
-            From 4K video to AI transcripts — choose exactly what you need.
+            {t("formatShowcaseSubtitle")}
           </p>
         </motion.div>
 
@@ -62,7 +65,7 @@ export function FormatShowcase() {
                     />
                   )}
                   <Icon className="w-3.5 h-3.5 relative z-10" />
-                  <span className="relative z-10">{tab.label}</span>
+                  <span className="relative z-10">{t(`formatShowcaseTabs.${tab.key}`)}</span>
                 </motion.button>
               );
             })}
@@ -89,7 +92,9 @@ export function FormatShowcase() {
               >
                 <current.icon className="w-4 h-4 text-white" />
               </motion.div>
-              <h3 className="text-lg font-bold text-foreground font-heading">{current.label} Formats</h3>
+              <h3 className="text-lg font-bold text-foreground font-heading">
+                {tabLabel} {t("formatShowcaseFormats")}
+              </h3>
             </div>
             <ul className="space-y-2">
               {current.formats.map((f, i) => (

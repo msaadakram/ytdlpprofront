@@ -1,10 +1,12 @@
 "use client";
 
 import { motion } from "motion/react";
-import { platformConfigs } from "@/lib/platform-config";
+import { usePlatformTranslations } from "@/lib/usePlatformTranslations";
+import { useTranslations } from "next-intl";
 
 export function PlatformTips({ platform }: { platform: string }) {
-  const config = platformConfigs[platform];
+  const config = usePlatformTranslations(platform);
+  const t = useTranslations("PlatformPage");
 
   return (
     <section className="py-14 md:py-20 px-6 relative overflow-hidden">
@@ -27,13 +29,13 @@ export function PlatformTips({ platform }: { platform: string }) {
             className="text-xs font-bold tracking-widest uppercase font-mono"
             style={{ color: config.brandColor }}
           >
-            Tips & Tricks
+            {t("tipsBadge")}
           </span>
           <h2 className="text-2xl sm:text-3xl md:text-4xl font-extrabold text-foreground mt-3 mb-4 font-heading">
-            Get the Most from {config.name} Downloads
+            {t("tipsHeading", { name: config.name })}
           </h2>
           <p className="text-muted-foreground text-sm max-w-xl mx-auto font-sans">
-            Whether you need video for editing, audio for podcasts, thumbnails for projects, or AI transcripts for accessibility — we have you covered.
+            {t("tipsSubheading")}
           </p>
         </motion.div>
 

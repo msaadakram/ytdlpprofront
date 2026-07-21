@@ -3,7 +3,7 @@
 import { useState, useRef, useCallback, useEffect } from "react";
 import { motion, AnimatePresence } from "motion/react";
 import { Download, CheckCircle2, X, Sparkles, Loader2 } from "lucide-react";
-import { platformConfigs } from "@/lib/platform-config";
+import { usePlatformTranslations } from "@/lib/usePlatformTranslations";
 import {
   universalGetInfo,
   universalDownloadAudio,
@@ -17,49 +17,22 @@ import { FormatGrid } from "@/components/youtube-download/FormatGrid";
 import { VideoPreview } from "@/components/youtube-download/VideoPreview";
 import { DownloadProgress } from "@/components/youtube-download/DownloadProgress";
 import { resolveFormats, audioBitrate } from "@/lib/formats";
+import { useTranslations } from "next-intl";
 
 type DownloadOnlyType = "audio" | "thumbnail" | "transcript";
 
-const typeConfig: Record<DownloadOnlyType, {
-  badge: string;
-  headingSuffix: string;
-  subheading: string;
-  chooseLabel: string;
-  showPreview: boolean;
-  showProgress: boolean;
-}> = {
-  audio: {
-    badge: "Audio Downloader",
-    headingSuffix: "as MP3, FLAC & AAC",
-    subheading: "Extract high-quality audio from any video. Download as MP3, FLAC, AAC, WAV, or OGG — perfect for music, podcasts, and voiceovers.",
-    chooseLabel: "Choose audio quality",
-    showPreview: true,
-    showProgress: true,
-  },
-  thumbnail: {
-    badge: "Thumbnail Downloader",
-    headingSuffix: "in HD Quality",
-    subheading: "Save video thumbnails in maximum resolution. Download as JPG, PNG, or WebP — ideal for covers, thumbnails, and references.",
-    chooseLabel: "Choose thumbnail format",
-    showPreview: false,
-    showProgress: false,
-  },
-  transcript: {
-    badge: "Transcript Downloader",
-    headingSuffix: "with AI",
-    subheading: "Generate accurate AI transcripts with timestamps. Download as SRT, VTT, TXT, or JSON — perfect for subtitles, notes, and data.",
-    chooseLabel: "Choose transcript format",
-    showPreview: true,
-    showProgress: true,
-  },
-};
-
 export function DownloadOnlyHero({ platform, type }: { platform: string; type: DownloadOnlyType }) {
-  const config = platformConfigs[platform];
-  const brandColor = config?.brandColor || "#5baab8";
-  const Logo = config?.Logo;
-  const InputIcon = config?.inputIcon;
-  const t = typeConfig[type];
+  const config = usePlatformTranslations(platform);
+  const brandColor = config.brandColor;
+  const Logo = config.Logo;
+  const InputIcon = config.inputIcon;
+  const t = useTranslations("DownloadOnly");
+  const st = useTranslations("PlatformShared");
+
+  const typeBadgeKey = `${type}Badge` as const;
+  const typeHeadingKey = `${type}HeadingSuffix` as const;
+  const typeSubheadingKey = `${type}Subheading` as const;
+  const chooseKey = type === "audio" ? "chooseAudioQuality" : type === "thumbnail" ? "chooseThumbnailFormat" : "chooseTranscriptFormat";
 
   const [url, setUrl] = useState("");
   const [selectedFormat, setSelectedFormat] = useState(0);
@@ -83,6 +56,9 @@ export function DownloadOnlyHero({ platform, type }: { platform: string; type: D
 
   const formats: ApiFormatInfo[] = resolveFormats(mediaInfo, type);
 
+  const showPreview = type !== "thumbnail";
+  const showProgress = type !== "thumbnail";
+
   const handleUrlChange = useCallback((value: string) => {
     setUrl(value);
     setMediaInfo(null);
@@ -103,7 +79,6 @@ export function DownloadOnlyHero({ platform, type }: { platform: string; type: D
       return;
     }
 
-    // Step 1: first click fetches info and reveals the format choices.
     if (!infoReady) {
       setError("");
       setFetchingInfo(true);
@@ -128,7 +103,7 @@ export function DownloadOnlyHero({ platform, type }: { platform: string; type: D
     setError("");
     setProcessing(true);
     setProgress(0);
-    setStatusText("Starting...");
+    setStatusText(st("processing"));
     setDownloadSpeed("");
     setDownloadEta(null);
     setDownloadedBytes(0);
@@ -138,7 +113,7 @@ export function DownloadOnlyHero({ platform, type }: { platform: string; type: D
     try {
       if (type === "thumbnail") {
         if (!mediaInfo?.thumbnail) {
-          throw new Error("No thumbnail available for this video");
+          throw new Error(st("errorDownloadFailed"));
         }
         const fmt = formats[selectedFormat];
         const a = document.createElement("a");
@@ -163,12 +138,12 @@ export function DownloadOnlyHero({ platform, type }: { platform: string; type: D
         res = await universalDownloadTranscript(url, fmt.ext);
       }
       if (!res.success || !res.data) {
-        throw new Error(res.error?.message || "Download failed to start");
+        throw new Error(res.error?.message || st("errorDownloadFailed"));
       }
-      setStatusText("Processing...");
+      setStatusText(st("processing"));
       await pollUntilDone(res.data.job_id);
     } catch (err) {
-      setError(err instanceof Error ? err.message : "Download failed");
+      setError(err instanceof Error ? err.message : st("errorDownloadFailed"));
       setProcessing(false);
       setTimeout(() => setError(""), 5000);
     }
@@ -181,7 +156,7 @@ export function DownloadOnlyHero({ platform, type }: { platform: string; type: D
 
       const poll = async () => {
         if (retries >= maxRetries) {
-          reject(new Error("Download timed out"));
+          reject(new Error(st("errorDownloadFailed")));
           return;
         }
         retries++;
@@ -189,7 +164,7 @@ export function DownloadOnlyHero({ platform, type }: { platform: string; type: D
         try {
           const res = await getJobStatus(jobId);
           if (!res.success || !res.data) {
-            reject(new Error(res.error?.message || "Failed to check status"));
+            reject(new Error(res.error?.message || st("errorDownloadFailed")));
             return;
           }
 
@@ -201,16 +176,16 @@ export function DownloadOnlyHero({ platform, type }: { platform: string; type: D
           setTotalBytes(job.total ?? 0);
 
           if (job.status === "downloading") {
-            setStatusText("Downloading...");
+            setStatusText(st("downloading"));
           } else if (job.status === "processing") {
-            setStatusText("Processing...");
+            setStatusText(st("processing"));
           } else if (job.status === "queued") {
-            setStatusText("Queued...");
+            setStatusText(st("queued"));
           }
 
           if (job.status === "completed") {
             setProgress(100);
-            setStatusText("Complete!");
+            setStatusText(st("complete"));
 
             const finalRes = await getJobResult(jobId);
             if (finalRes.success && finalRes.data?.downloadUrl) {
@@ -224,7 +199,7 @@ export function DownloadOnlyHero({ platform, type }: { platform: string; type: D
           }
 
           if (job.status === "failed") {
-            reject(new Error(job.error || "Download failed"));
+            reject(new Error(job.error || st("errorDownloadFailed")));
             return;
           }
 
@@ -291,7 +266,7 @@ export function DownloadOnlyHero({ platform, type }: { platform: string; type: D
         >
           <span className="inline-flex items-center gap-2 text-xs font-semibold tracking-widest uppercase px-4 py-2 rounded-full bg-white/80 backdrop-blur-sm border border-border text-muted-foreground shadow-sm font-mono">
             <span className="w-1.5 h-1.5 rounded-full animate-pulse" style={{ backgroundColor: brandColor, boxShadow: `0 0 4px ${brandColor}` }} />
-            {config?.name || ""} {t.badge}
+            {config.name} {t(typeBadgeKey)}
           </span>
         </motion.div>
 
@@ -301,11 +276,13 @@ export function DownloadOnlyHero({ platform, type }: { platform: string; type: D
           animate={{ opacity: 1, y: 0 }}
           transition={{ delay: 0.15, duration: 0.6 }}
         >
-          {type === "audio" ? `Extract Audio from ${config?.name || ""} Videos` :
-           type === "thumbnail" ? `Download ${config?.name || ""} Thumbnails` :
-           `Generate ${config?.name || ""} Transcripts`}
+          {type === "audio"
+            ? `Extract Audio from ${config.name} Videos`
+            : type === "thumbnail"
+            ? `Download ${config.name} Thumbnails`
+            : `Generate ${config.name} Transcripts`}
           <br />
-          <span style={{ color: brandColor }}>{t.headingSuffix}</span>
+          <span style={{ color: brandColor }}>{t(typeHeadingKey)}</span>
         </motion.h1>
 
         <motion.p
@@ -314,7 +291,7 @@ export function DownloadOnlyHero({ platform, type }: { platform: string; type: D
           animate={{ opacity: 1, y: 0 }}
           transition={{ delay: 0.25, duration: 0.6 }}
         >
-          {t.subheading}
+          {t(typeSubheadingKey)}
         </motion.p>
 
         <motion.div
@@ -358,13 +335,13 @@ export function DownloadOnlyHero({ platform, type }: { platform: string; type: D
                   value={url}
                   onChange={(e) => handleUrlChange(e.target.value)}
                   onKeyDown={(e) => e.key === "Enter" && handleDownload()}
-                  placeholder={config?.placeholder || "Paste your video URL here..."}
+                  placeholder={config.placeholder}
                   className="w-full bg-transparent text-sm text-foreground placeholder:text-muted-foreground outline-none font-sans"
                 />
                 {fetchingInfo && (
                   <p className="text-[10px] text-muted-foreground flex items-center gap-1 mt-0.5 font-sans">
                     <Loader2 className="w-2.5 h-2.5 animate-spin" />
-                    Fetching video info...
+                    {st("fetchingInfo")}
                   </p>
                 )}
               </div>
@@ -396,27 +373,27 @@ export function DownloadOnlyHero({ platform, type }: { platform: string; type: D
                 {fetchingInfo ? (
                   <motion.span key="fetch" initial={{ opacity: 0 }} animate={{ opacity: 1 }} exit={{ opacity: 0 }} className="flex items-center gap-2">
                     <Loader2 className="w-4 h-4 animate-spin" />
-                    Fetching...
+                    {st("fetching")}
                   </motion.span>
                 ) : processing ? (
                   <motion.span key="proc" initial={{ opacity: 0 }} animate={{ opacity: 1 }} exit={{ opacity: 0 }} className="flex items-center gap-2">
                     <span className="w-4 h-4 border-2 border-white/30 border-t-white rounded-full animate-spin" />
-                    {statusText || "Processing..."}
+                    {statusText || st("processing")}
                   </motion.span>
                 ) : done ? (
                   <motion.span key="done" initial={{ opacity: 0, scale: 0.8 }} animate={{ opacity: 1, scale: 1 }} exit={{ opacity: 0 }} className="flex items-center gap-2">
                     <CheckCircle2 className="w-4 h-4" style={{ color: brandColor }} />
-                    Ready!
+                    {st("ready")}
                   </motion.span>
                 ) : infoReady ? (
                   <motion.span key="now" initial={{ opacity: 0 }} animate={{ opacity: 1 }} exit={{ opacity: 0 }} className="flex items-center gap-2">
                     <Download className="w-4 h-4" />
-                    {type === "thumbnail" ? "Save Thumbnail" : "Download Now"}
+                    {type === "thumbnail" ? st("saveThumbnail") : st("downloadNow")}
                   </motion.span>
                 ) : (
                   <motion.span key="idle" initial={{ opacity: 0 }} animate={{ opacity: 1 }} exit={{ opacity: 0 }} className="flex items-center gap-2">
                     <Download className="w-4 h-4" />
-                    {type === "thumbnail" ? "Get Thumbnail" : "Download"}
+                    {type === "thumbnail" ? st("getThumbnail") : st("download")}
                   </motion.span>
                 )}
               </AnimatePresence>
@@ -424,7 +401,7 @@ export function DownloadOnlyHero({ platform, type }: { platform: string; type: D
           </div>
 
           <AnimatePresence mode="wait">
-            {mediaInfo && !processing && !done && t.showPreview && (
+            {mediaInfo && !processing && !done && showPreview && (
               <motion.div
                 key="preview"
                 initial={{ opacity: 0, y: 12 }}
@@ -438,7 +415,7 @@ export function DownloadOnlyHero({ platform, type }: { platform: string; type: D
             )}
           </AnimatePresence>
 
-          {mediaInfo && !processing && !done && !t.showPreview && type === "thumbnail" && (
+          {mediaInfo && !processing && !done && !showPreview && type === "thumbnail" && (
             <motion.div
               initial={{ opacity: 0, y: 12 }}
               animate={{ opacity: 1, y: 0 }}
@@ -457,7 +434,7 @@ export function DownloadOnlyHero({ platform, type }: { platform: string; type: D
                     />
                   ) : (
                     <div className="w-full aspect-video flex items-center justify-center bg-[#eef6f8]">
-                      <span className="text-sm text-muted-foreground font-sans">No thumbnail available</span>
+                      <span className="text-sm text-muted-foreground font-sans">{st("noThumbnail")}</span>
                     </div>
                   )}
                 </figure>
@@ -471,7 +448,7 @@ export function DownloadOnlyHero({ platform, type }: { platform: string; type: D
               animate={{ opacity: 1, y: 0 }}
               className="text-xs text-destructive mt-3 font-sans"
             >
-              Could not fetch video info. Check the URL and try again.
+              {st("errorFetchInfo")}
             </motion.p>
           )}
 
@@ -488,7 +465,7 @@ export function DownloadOnlyHero({ platform, type }: { platform: string; type: D
                 <div className="flex items-center gap-2 mb-3">
                   <Sparkles className="w-3.5 h-3.5" style={{ color: brandColor }} />
                   <span className="text-xs font-semibold text-foreground font-sans">
-                    {t.chooseLabel}
+                    {t(chooseKey)}
                   </span>
                 </div>
                 <FormatGrid
@@ -503,7 +480,7 @@ export function DownloadOnlyHero({ platform, type }: { platform: string; type: D
           </AnimatePresence>
 
           <AnimatePresence>
-            {processing && t.showProgress && (
+            {processing && showProgress && (
               <DownloadProgress
                 progress={progress}
                 statusText={statusText}
@@ -535,7 +512,7 @@ export function DownloadOnlyHero({ platform, type }: { platform: string; type: D
           animate={{ opacity: 1 }}
           transition={{ delay: 0.6 }}
         >
-          Free to use · No sign-up required · Files deleted instantly · Works with all {config?.name || ""} URLs
+          {t("disclaimer", { platform: config.name })}
         </motion.p>
       </div>
     </section>

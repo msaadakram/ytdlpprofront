@@ -1,5 +1,6 @@
 import type { Metadata } from "next";
 import { notFound } from "next/navigation";
+import { getTranslations } from "next-intl/server";
 import { Nav } from "@/components/layout/Nav";
 import { Footer } from "@/components/layout/Footer";
 import { DownloadOnlyHero } from "@/components/download-only/DownloadOnlyHero";
@@ -23,12 +24,14 @@ export async function generateMetadata({ params }: Props): Promise<Metadata> {
   const config = platformConfigs[platform];
   if (!config) return {};
 
+  const t = await getTranslations({ locale, namespace: `Platform.${platform}` });
+
   return {
-    title: `${config.name} Audio Downloader — Extract Audio as MP3, FLAC, AAC | DownForge`,
-    description: `Free ${config.name} audio downloader. Extract audio from ${config.name} videos as MP3 320kbps, FLAC, AAC, WAV, and OGG. No sign-up required.`,
+    title: t("metaTitle"),
+    description: t("metaDescription"),
     openGraph: {
-      title: `${config.name} Audio Downloader — Extract Audio as MP3, FLAC, AAC | DownForge`,
-      description: `Free ${config.name} audio downloader. Extract audio as MP3 320kbps, FLAC, AAC, WAV, and OGG. No sign-up required.`,
+      title: t("metaTitle"),
+      description: t("metaDescription"),
       url: `https://downforge.me/${locale}/audio-downloader/${config.slug}`,
       siteName: "DownForge",
       locale,
@@ -36,8 +39,8 @@ export async function generateMetadata({ params }: Props): Promise<Metadata> {
     },
     twitter: {
       card: "summary_large_image",
-      title: `${config.name} Audio Downloader — Extract Audio as MP3, FLAC, AAC`,
-      description: `Free ${config.name} audio downloader. Extract audio as MP3 320kbps, FLAC, AAC, WAV, and OGG.`,
+      title: t("metaTitle"),
+      description: t("metaDescription"),
     },
     robots: { index: true, follow: true },
     alternates: {
@@ -54,7 +57,7 @@ export async function generateMetadata({ params }: Props): Promise<Metadata> {
         zh: `https://downforge.me/zh/audio-downloader/${config.slug}`,
       },
     },
-    keywords: [...config.keywords, "audio downloader", "mp3 downloader", "extract audio"],
+    keywords: t.raw("keywords") as string[],
   };
 }
 
@@ -64,6 +67,9 @@ export default async function AudioDownloaderPage({ params }: Props) {
   if (!config) notFound();
 
   const content = getContent(platform, "audio");
+
+  const t = await getTranslations({ locale, namespace: `Platform.${platform}` });
+  const faqs = t.raw("faqs") as { q: string; a: string }[];
 
   const jsonLd = {
     "@context": "https://schema.org",
@@ -81,7 +87,7 @@ export default async function AudioDownloaderPage({ params }: Props) {
         "@id": `https://downforge.me/${locale}/audio-downloader/${config.slug}#webapp`,
         name: `DownForge ${config.name} Audio Downloader`,
         url: `https://downforge.me/${locale}/audio-downloader/${config.slug}`,
-        description: `Free ${config.name} audio downloader. Extract audio as MP3 320kbps, FLAC, AAC, WAV, and OGG. No registration required.`,
+        description: t("metaDescription"),
         applicationCategory: "Multimedia",
         operatingSystem: "All",
         browserRequirements: "Requires JavaScript",
@@ -90,7 +96,7 @@ export default async function AudioDownloaderPage({ params }: Props) {
       {
         "@type": "FAQPage",
         "@id": `https://downforge.me/${locale}/audio-downloader/${config.slug}#faq`,
-        mainEntity: config.faqs.map((faq: any) => ({
+        mainEntity: faqs.map((faq) => ({
           "@type": "Question",
           name: faq.q,
           acceptedAnswer: { "@type": "Answer", text: faq.a },

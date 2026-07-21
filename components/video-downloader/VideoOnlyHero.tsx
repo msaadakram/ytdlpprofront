@@ -2,17 +2,21 @@
 
 import { motion, AnimatePresence } from "motion/react";
 import { Download, CheckCircle2, X, Sparkles, Loader2 } from "lucide-react";
-import { platformConfigs } from "@/lib/platform-config";
+import { usePlatformTranslations } from "@/lib/usePlatformTranslations";
 import { FormatGrid } from "@/components/youtube-download/FormatGrid";
 import { VideoPreview } from "@/components/youtube-download/VideoPreview";
 import { DownloadProgress } from "@/components/youtube-download/DownloadProgress";
 import { useDownloader } from "@/lib/useDownloader";
+import { useTranslations } from "next-intl";
 
 export function VideoOnlyHero({ platform }: { platform: string }) {
-  const config = platformConfigs[platform];
-  const brandColor = config?.brandColor || "#5baab8";
-  const Logo = config?.Logo;
-  const InputIcon = config?.inputIcon;
+  const config = usePlatformTranslations(platform);
+  const brandColor = config.brandColor;
+  const Logo = config.Logo;
+  const InputIcon = config.inputIcon;
+  const t = useTranslations("VideoOnly");
+  const st = useTranslations("PlatformShared");
+
   const darkerShade = brandColor === "#010101" || brandColor === "#14171A" || brandColor === "#000000"
     ? "#333333"
     : brandColor;
@@ -42,7 +46,7 @@ export function VideoOnlyHero({ platform }: { platform: string }) {
       />
       <motion.div
         className="absolute top-[20%] left-[-8%] w-[350px] h-[350px] rounded-full opacity-15 pointer-events-none"
-        style={{ background: `radial-gradient(circle, #5baab8 0%, transparent 70%)` }}
+        style={{ background: "radial-gradient(circle, #5baab8 0%, transparent 70%)" }}
         animate={{ x: ["0%", "-10%", "0%"], y: ["0%", "15%", "0%"], scale: [1, 1.15, 1] }}
         transition={{ duration: 13, repeat: Infinity, ease: "easeInOut" }}
       />
@@ -73,7 +77,7 @@ export function VideoOnlyHero({ platform }: { platform: string }) {
         >
           <span className="inline-flex items-center gap-2 text-xs font-semibold tracking-widest uppercase px-4 py-2 rounded-full bg-white/80 backdrop-blur-sm border border-border text-muted-foreground shadow-sm font-mono">
             <span className="w-1.5 h-1.5 rounded-full animate-pulse" style={{ backgroundColor: brandColor, boxShadow: `0 0 4px ${brandColor}` }} />
-            {config?.name || ""} Video Downloader
+            {config.name} {t("badge")}
           </span>
         </motion.div>
 
@@ -83,9 +87,9 @@ export function VideoOnlyHero({ platform }: { platform: string }) {
           animate={{ opacity: 1, y: 0 }}
           transition={{ delay: 0.15, duration: 0.6 }}
         >
-          {config?.heading || "Download Videos"}
+          {config.heading}
           <br />
-          <span style={{ color: brandColor }}>{config?.headingAccent || "in HD"}</span>
+          <span style={{ color: brandColor }}>{config.headingAccent}</span>
         </motion.h1>
 
         <motion.p
@@ -94,7 +98,7 @@ export function VideoOnlyHero({ platform }: { platform: string }) {
           animate={{ opacity: 1, y: 0 }}
           transition={{ delay: 0.25, duration: 0.6 }}
         >
-          {config?.subheading || "Paste any video link and download instantly in your preferred quality."}
+          {config.subheading}
         </motion.p>
 
         <motion.div
@@ -138,7 +142,7 @@ export function VideoOnlyHero({ platform }: { platform: string }) {
                   value={url}
                   onChange={(e) => handleUrlChange(e.target.value)}
                   onKeyDown={(e) => e.key === "Enter" && handleDownloadClick()}
-                  placeholder={config?.placeholder || "Paste your video URL here..."}
+                  placeholder={config.placeholder}
                   className="w-full bg-transparent text-sm text-foreground placeholder:text-muted-foreground outline-none font-sans"
                 />
               </div>
@@ -170,27 +174,27 @@ export function VideoOnlyHero({ platform }: { platform: string }) {
                 {fetchingInfo ? (
                   <motion.span key="fetch" initial={{ opacity: 0 }} animate={{ opacity: 1 }} exit={{ opacity: 0 }} className="flex items-center gap-2">
                     <Loader2 className="w-4 h-4 animate-spin" />
-                    Fetching...
+                    {st("fetching")}
                   </motion.span>
                 ) : processing ? (
                   <motion.span key="proc" initial={{ opacity: 0 }} animate={{ opacity: 1 }} exit={{ opacity: 0 }} className="flex items-center gap-2">
                     <span className="w-4 h-4 border-2 border-white/30 border-t-white rounded-full animate-spin" />
-                    {statusText || "Processing..."}
+                    {statusText || st("processing")}
                   </motion.span>
                 ) : done ? (
                   <motion.span key="done" initial={{ opacity: 0, scale: 0.8 }} animate={{ opacity: 1, scale: 1 }} exit={{ opacity: 0 }} className="flex items-center gap-2">
                     <CheckCircle2 className="w-4 h-4" style={{ color: brandColor }} />
-                    Ready!
+                    {st("ready")}
                   </motion.span>
                 ) : infoReady ? (
                   <motion.span key="now" initial={{ opacity: 0 }} animate={{ opacity: 1 }} exit={{ opacity: 0 }} className="flex items-center gap-2">
                     <Download className="w-4 h-4" />
-                    Download Now
+                    {st("downloadNow")}
                   </motion.span>
                 ) : (
                   <motion.span key="idle" initial={{ opacity: 0 }} animate={{ opacity: 1 }} exit={{ opacity: 0 }} className="flex items-center gap-2">
                     <Download className="w-4 h-4" />
-                    Download
+                    {st("download")}
                   </motion.span>
                 )}
               </AnimatePresence>
@@ -218,7 +222,7 @@ export function VideoOnlyHero({ platform }: { platform: string }) {
               animate={{ opacity: 1, y: 0 }}
               className="text-xs text-destructive mt-3 font-sans"
             >
-              Could not fetch video info. Check the URL and try again.
+              {st("errorFetchInfo")}
             </motion.p>
           )}
 
@@ -235,7 +239,7 @@ export function VideoOnlyHero({ platform }: { platform: string }) {
                 <div className="flex items-center gap-2 mb-3">
                   <Sparkles className="w-3.5 h-3.5" style={{ color: brandColor }} />
                   <span className="text-xs font-semibold text-foreground font-sans">
-                    Choose video quality
+                    {st("chooseVideoQuality")}
                   </span>
                 </div>
                 <FormatGrid
@@ -282,7 +286,7 @@ export function VideoOnlyHero({ platform }: { platform: string }) {
           animate={{ opacity: 1 }}
           transition={{ delay: 0.6 }}
         >
-          Free to use · No sign-up required · Files deleted instantly after download · Works with all {config?.name || ""} URLs
+          {t("disclaimer", { platform: config.name })}
         </motion.p>
       </div>
     </section>

@@ -3,12 +3,12 @@
 import { useState } from "react";
 import { motion, AnimatePresence } from "motion/react";
 import { ChevronDown } from "lucide-react";
-import { platformConfigs } from "@/lib/platform-config";
+import { usePlatformTranslations } from "@/lib/usePlatformTranslations";
 
 export function VideoFaq({ platform }: { platform: string }) {
-  const config = platformConfigs[platform];
-  const faqs = config?.faqs || [];
-  const brandColor = config?.brandColor || "#5baab8";
+  const config = usePlatformTranslations(platform);
+  const faqs = config.faqs;
+  const brandColor = config.brandColor;
   const [openIndex, setOpenIndex] = useState<number | null>(null);
 
   if (faqs.length === 0) return null;
@@ -28,10 +28,10 @@ export function VideoFaq({ platform }: { platform: string }) {
             FAQ
           </span>
           <h2 className="text-2xl sm:text-3xl md:text-4xl font-extrabold text-foreground mt-3 mb-4 font-heading">
-            {config?.name || ""} Video Download Questions
+            {config.name} Video Download Questions
           </h2>
           <p className="text-muted-foreground text-sm font-sans">
-            Everything you need to know about downloading {config?.name || ""} videos.
+            Everything you need to know about downloading {config.name} videos.
           </p>
         </motion.div>
 

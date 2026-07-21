@@ -3,20 +3,20 @@
 import { useState } from "react";
 import { motion, AnimatePresence } from "motion/react";
 import { ChevronDown } from "lucide-react";
-import { platformConfigs } from "@/lib/platform-config";
-
-type DownloadType = "audio" | "thumbnail" | "transcript";
+import { usePlatformTranslations } from "@/lib/usePlatformTranslations";
+import type { DownloadType } from "@/lib/constants";
 
 const titles: Record<DownloadType, string> = {
+  video: "Video Download Questions",
   audio: "Audio Download Questions",
   thumbnail: "Thumbnail Download Questions",
   transcript: "Transcript Download Questions",
 };
 
 export function DownloadFaq({ platform, type }: { platform: string; type: DownloadType }) {
-  const config = platformConfigs[platform];
-  const faqs = config?.faqs || [];
-  const brandColor = config?.brandColor || "#5baab8";
+  const config = usePlatformTranslations(platform);
+  const faqs = config.faqs;
+  const brandColor = config.brandColor;
   const [openIndex, setOpenIndex] = useState<number | null>(null);
 
   if (faqs.length === 0) return null;
@@ -39,7 +39,7 @@ export function DownloadFaq({ platform, type }: { platform: string; type: Downlo
             {titles[type]}
           </h2>
           <p className="text-muted-foreground text-sm font-sans">
-            Everything you need to know about downloading from {config?.name || ""}.
+            Everything you need to know about downloading from {config.name}.
           </p>
         </motion.div>
 

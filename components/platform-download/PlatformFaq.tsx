@@ -3,11 +3,13 @@
 import { useState } from "react";
 import { motion, AnimatePresence } from "motion/react";
 import { Plus, Minus } from "lucide-react";
-import { platformConfigs } from "@/lib/platform-config";
+import { usePlatformTranslations } from "@/lib/usePlatformTranslations";
+import { useTranslations } from "next-intl";
 
 export function PlatformFaq({ platform }: { platform: string }) {
-  const config = platformConfigs[platform];
+  const config = usePlatformTranslations(platform);
   const [openIndex, setOpenIndex] = useState<number | null>(null);
+  const t = useTranslations("PlatformPage");
 
   return (
     <section className="py-14 md:py-20 px-6">
@@ -24,13 +26,13 @@ export function PlatformFaq({ platform }: { platform: string }) {
             className="text-xs font-bold tracking-widest uppercase font-mono"
             style={{ color: config.brandColor }}
           >
-            FAQ
+            {t("faqBadge")}
           </span>
           <h2 className="text-2xl sm:text-3xl md:text-4xl font-extrabold text-foreground mt-3 mb-4 font-heading">
-            {config.name} Download Questions
+            {t("faqHeading", { name: config.name })}
           </h2>
           <p className="text-muted-foreground text-sm font-sans">
-            Everything you need to know about downloading from {config.name}.
+            {t("faqSubheading", { name: config.name })}
           </p>
         </motion.div>
 

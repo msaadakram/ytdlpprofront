@@ -7,6 +7,7 @@ import { FormatGrid } from "@/components/youtube-download/FormatGrid";
 import { VideoPreview } from "@/components/youtube-download/VideoPreview";
 import { DownloadProgress } from "@/components/youtube-download/DownloadProgress";
 import { useDownloader } from "@/lib/useDownloader";
+import { useTranslations } from "next-intl";
 
 const BRAND = "#FF0000";
 
@@ -17,6 +18,8 @@ export function VideoOnlyHero() {
     progress, statusText, downloadSpeed, downloadEta, downloadedBytes, totalBytes,
     error, formats, inputRef, handleUrlChange, handleDownloadClick,
   } = useDownloader();
+  const t = useTranslations("YoutubeHero");
+  const st = useTranslations("PlatformShared");
 
   return (
     <section className="pt-24 pb-16 md:pt-32 md:pb-20 px-6 relative overflow-hidden">
@@ -36,7 +39,7 @@ export function VideoOnlyHero() {
       />
       <motion.div
         className="absolute top-[20%] left-[-8%] w-[350px] h-[350px] rounded-full opacity-15 pointer-events-none"
-        style={{ background: `radial-gradient(circle, #5baab8 0%, transparent 70%)` }}
+        style={{ background: "radial-gradient(circle, #5baab8 0%, transparent 70%)" }}
         animate={{ x: ["0%", "-10%", "0%"], y: ["0%", "15%", "0%"], scale: [1, 1.15, 1] }}
         transition={{ duration: 13, repeat: Infinity, ease: "easeInOut" }}
       />
@@ -65,7 +68,7 @@ export function VideoOnlyHero() {
         >
           <span className="inline-flex items-center gap-2 text-xs font-semibold tracking-widest uppercase px-4 py-2 rounded-full bg-white/80 backdrop-blur-sm border border-border text-muted-foreground shadow-sm font-mono">
             <span className="w-1.5 h-1.5 rounded-full bg-[#FF0000] animate-pulse" style={{ boxShadow: "0 0 4px #FF0000" }} />
-            Video Downloader
+            {t("badge")}
           </span>
         </motion.div>
 
@@ -75,9 +78,9 @@ export function VideoOnlyHero() {
           animate={{ opacity: 1, y: 0 }}
           transition={{ delay: 0.15, duration: 0.6 }}
         >
-          Download YouTube Videos
+          {t("heading")}
           <br />
-          <span className="text-[#FF0000]">in 4K Quality</span>
+          <span className="text-[#FF0000]">{t("headingAccent")}</span>
         </motion.h1>
 
         <motion.p
@@ -86,7 +89,7 @@ export function VideoOnlyHero() {
           animate={{ opacity: 1, y: 0 }}
           transition={{ delay: 0.25, duration: 0.6 }}
         >
-          Paste any YouTube link and download instantly in your preferred quality — from 4K Ultra HD to standard definition. No account required.
+          {t("description")}
         </motion.p>
 
         <motion.div
@@ -129,7 +132,7 @@ export function VideoOnlyHero() {
                   value={url}
                   onChange={(e) => handleUrlChange(e.target.value)}
                   onKeyDown={(e) => e.key === "Enter" && handleDownloadClick()}
-                  placeholder="Paste your YouTube video URL here..."
+                  placeholder={t("placeholder")}
                   className="w-full bg-transparent text-sm text-foreground placeholder:text-muted-foreground outline-none font-sans"
                 />
               </div>
@@ -158,27 +161,27 @@ export function VideoOnlyHero() {
                 {fetchingInfo ? (
                   <motion.span key="fetch" initial={{ opacity: 0 }} animate={{ opacity: 1 }} exit={{ opacity: 0 }} className="flex items-center gap-2">
                     <Loader2 className="w-4 h-4 animate-spin" />
-                    Fetching...
+                    {st("fetching")}
                   </motion.span>
                 ) : processing ? (
                   <motion.span key="proc" initial={{ opacity: 0 }} animate={{ opacity: 1 }} exit={{ opacity: 0 }} className="flex items-center gap-2">
                     <span className="w-4 h-4 border-2 border-white/30 border-t-white rounded-full animate-spin" />
-                    {statusText || "Processing..."}
+                    {statusText || st("processing")}
                   </motion.span>
                 ) : done ? (
                   <motion.span key="done" initial={{ opacity: 0, scale: 0.8 }} animate={{ opacity: 1, scale: 1 }} exit={{ opacity: 0 }} className="flex items-center gap-2">
                     <CheckCircle2 className="w-4 h-4 text-[#FF0000]" />
-                    Ready!
+                    {st("ready")}
                   </motion.span>
                 ) : infoReady ? (
                   <motion.span key="now" initial={{ opacity: 0 }} animate={{ opacity: 1 }} exit={{ opacity: 0 }} className="flex items-center gap-2">
                     <Download className="w-4 h-4" />
-                    Download Now
+                    {st("downloadNow")}
                   </motion.span>
                 ) : (
                   <motion.span key="idle" initial={{ opacity: 0 }} animate={{ opacity: 1 }} exit={{ opacity: 0 }} className="flex items-center gap-2">
                     <Download className="w-4 h-4" />
-                    Download
+                    {st("download")}
                   </motion.span>
                 )}
               </AnimatePresence>
@@ -206,7 +209,7 @@ export function VideoOnlyHero() {
               animate={{ opacity: 1, y: 0 }}
               className="text-xs text-destructive mt-3 font-sans"
             >
-              Could not fetch video info. Check the URL and try again.
+              {st("errorFetchInfo")}
             </motion.p>
           )}
 
@@ -223,7 +226,7 @@ export function VideoOnlyHero() {
                 <div className="flex items-center gap-2 mb-3">
                   <Sparkles className="w-3.5 h-3.5 text-[#FF0000]" />
                   <span className="text-xs font-semibold text-foreground font-sans">
-                    Choose video quality
+                    {st("chooseVideoQuality")}
                   </span>
                 </div>
                 <FormatGrid
@@ -270,7 +273,7 @@ export function VideoOnlyHero() {
           animate={{ opacity: 1 }}
           transition={{ delay: 0.6 }}
         >
-          Free to use · No sign-up required · Files deleted instantly after download · Works with all YouTube URLs
+          {t("disclaimer")}
         </motion.p>
       </div>
     </section>

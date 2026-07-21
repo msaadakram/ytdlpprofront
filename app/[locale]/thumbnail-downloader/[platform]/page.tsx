@@ -1,5 +1,6 @@
 import type { Metadata } from "next";
 import { notFound } from "next/navigation";
+import { getTranslations } from "next-intl/server";
 import { Nav } from "@/components/layout/Nav";
 import { Footer } from "@/components/layout/Footer";
 import { DownloadOnlyHero } from "@/components/download-only/DownloadOnlyHero";
@@ -23,15 +24,14 @@ export async function generateMetadata({ params }: Props): Promise<Metadata> {
   const config = platformConfigs[platform];
   if (!config) return {};
 
-  const title = `${config.name} Thumbnail Downloader — Download ${config.name} Thumbnails in HD | DownForge`;
-  const description = `Free ${config.name} thumbnail downloader. Save ${config.name} video thumbnails in maximum resolution as JPG, PNG, and WebP. No sign-up required.`;
+  const t = await getTranslations({ locale, namespace: `Platform.${platform}` });
 
   return {
-    title,
-    description,
+    title: t("metaTitle"),
+    description: t("metaDescription"),
     openGraph: {
-      title,
-      description,
+      title: t("metaTitle"),
+      description: t("metaDescription"),
       url: `https://downforge.me/${locale}/thumbnail-downloader/${config.slug}`,
       siteName: "DownForge",
       locale,
@@ -39,8 +39,8 @@ export async function generateMetadata({ params }: Props): Promise<Metadata> {
     },
     twitter: {
       card: "summary_large_image",
-      title,
-      description,
+      title: t("metaTitle"),
+      description: t("metaDescription"),
     },
     robots: { index: true, follow: true },
     alternates: {
@@ -57,7 +57,7 @@ export async function generateMetadata({ params }: Props): Promise<Metadata> {
         zh: `https://downforge.me/zh/thumbnail-downloader/${config.slug}`,
       },
     },
-    keywords: [...config.keywords, "thumbnail downloader", "video thumbnail"],
+    keywords: t.raw("keywords") as string[],
   };
 }
 
@@ -67,6 +67,9 @@ export default async function ThumbnailDownloaderPage({ params }: Props) {
   if (!config) notFound();
 
   const content = getContent(platform, "thumbnail");
+
+  const t = await getTranslations({ locale, namespace: `Platform.${platform}` });
+  const faqs = t.raw("faqs") as { q: string; a: string }[];
 
   const jsonLd = {
     "@context": "https://schema.org",

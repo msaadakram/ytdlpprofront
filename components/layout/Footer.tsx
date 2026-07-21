@@ -53,6 +53,7 @@ const footerGroups = [
 
 export function Footer() {
   const t = useTranslations("Nav");
+  const f = useTranslations("Footer");
 
   return (
     <footer className="bg-[#0d1f26] text-white">
@@ -68,7 +69,7 @@ export function Footer() {
               <span className="font-bold text-lg tracking-tight font-heading">DownForge</span>
             </Link>
             <p className="text-sm text-white/60 leading-relaxed max-w-xs font-sans">
-              Download any video, audio or thumbnail from 200+ platforms. Fast, free, and secure.
+              {f("tagline")}
             </p>
           </div>
 
@@ -101,8 +102,8 @@ export function Footer() {
           ))}
         </div>
         <div className="mt-12 pt-8 border-t border-white/10 flex flex-col md:flex-row justify-between items-center gap-4">
-          <p className="text-xs text-white/40 font-sans">&copy; 2025 DownForge. All rights reserved.</p>
-          <p className="text-xs text-white/30 font-sans">Powered by yt-dlp &amp; ffmpeg</p>
+          <p className="text-xs text-white/40 font-sans">{f("copyright")}</p>
+          <p className="text-xs text-white/30 font-sans">{f("poweredBy")}</p>
         </div>
       </div>
     </footer>

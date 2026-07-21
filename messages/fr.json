@@ -159,7 +159,11 @@
       "title": "Prêt à télécharger ?",
       "subtitle": "Aucune inscription requise. Collez une URL et téléchargez instantanément.",
       "button": "Essayer maintenant — c'est gratuit"
-    }
+    },
+    "platformGridDesc": "From the biggest names to the niche platforms — if there's a video, we can fetch it.",
+    "formatShowcaseBadge": "Formats",
+    "formatShowcaseSubtitle": "From 4K video to AI transcripts — choose exactly what you need.",
+    "formatShowcaseFormats": "Formats"
   },
   "PlatformShared": {
     "chooseVideoQuality": "Choisissez la qualité vidéo",
@@ -226,7 +230,57 @@
       "step2Desc": "Collez l'URL dans le champ ci-dessus et cliquez sur Télécharger. Nous récupérons les détails de la vidéo et les formats disponibles.",
       "step3Title": "Sélectionnez le format et téléchargez",
       "step3Desc": "Choisissez votre qualité et votre format préférés, puis cliquez sur Télécharger pour lancer la conversion. Votre fichier sera prêt en quelques secondes."
-    }
+    },
+    "toolFeaturesBadge": "Why DownForge",
+    "toolFeaturesHeading": "The Best {name} Download Tool",
+    "toolFeaturesSubheading": "Built for speed, privacy, and quality. Download {name} content the way it was meant to be saved.",
+    "toolFeaturesStats": [
+      {
+        "title": "Blazing Fast",
+        "value": "< 3 seconds",
+        "desc": "Server-side processing with instant CDN delivery"
+      },
+      {
+        "title": "Private & Secure",
+        "value": "Zero Storage",
+        "desc": "Files processed ephemerally and deleted immediately"
+      },
+      {
+        "title": "Formats & Qualities",
+        "value": "4K · FLAC · SRT",
+        "desc": "Video, audio, thumbnails & AI transcripts in any format"
+      },
+      {
+        "title": "Platform Support",
+        "value": "200+ Sites",
+        "desc": "From major platforms to the most obscure"
+      },
+      {
+        "title": "No Account Required",
+        "value": "Free Forever",
+        "desc": "Start downloading instantly — no sign-up needed"
+      },
+      {
+        "title": "Batch Processing",
+        "value": "Playlists",
+        "desc": "Download entire channels in one click (Pro)"
+      }
+    ],
+    "tipsBadge": "Tips & Tricks",
+    "tipsHeading": "Get the Most from {name} Downloads",
+    "tipsSubheading": "Whether you need video for editing, audio for podcasts, thumbnails for projects, or AI transcripts for accessibility — we have you covered.",
+    "faqBadge": "FAQ",
+    "faqHeading": "{name} Download Questions",
+    "faqSubheading": "Everything you need to know about downloading from {name}.",
+    "howItWorksBadge": "How It Works",
+    "howItWorksHeading": "Download {name} in 3 Steps",
+    "howItWorksSubheading": "No software, no sign-up, no hassle. Just paste, pick, and download.",
+    "howItWorksStep1Title": "Paste the Link",
+    "howItWorksStep1Desc": "Copy any {name} video URL and paste it into the input above. We support all public video types including shorts, streams, and highlights.",
+    "howItWorksStep2Title": "Pick Your Format",
+    "howItWorksStep2Desc": "Choose from 4K video, 1080p HD, MP3 audio up to 320kbps, FLAC lossless, HD thumbnails, or AI transcripts in SRT, VTT, TXT & JSON. Whatever you need.",
+    "howItWorksStep3Title": "Download Instantly",
+    "howItWorksStep3Desc": "Hit download and your file is ready in seconds. No queues, no waiting, no account required. Just a fast, clean download."
   },
   "DownloadOnly": {
     "audioBadge": "Téléchargeur audio",
@@ -313,7 +367,16 @@
     "noAccount": "Vous n'avez pas de compte ?",
     "hasAccount": "Vous avez déjà un compte ?",
     "signUpLink": "S'inscrire",
-    "signInLink": "Se connecter"
+    "signInLink": "Se connecter",
+    "firstNameLabel": "Prénom",
+    "lastNameLabel": "Nom",
+    "submitting": "Veuillez patienter…",
+    "errorRequired": "E-mail et mot de passe requis.",
+    "errorNameRequired": "Prénom et nom requis.",
+    "errorPasswordShort": "Le mot de passe doit contenir au moins 6 caractères.",
+    "errorSignIn": "Échec de la connexion.",
+    "errorSignUp": "Échec de l'inscription.",
+    "demoHint": "Compte de démonstration :"
   },
   "Dashboard": {
     "title": "Tableau de bord",
@@ -386,5 +449,35 @@
     "homeTitle": "DownForge — Téléchargez n'importe quelle vidéo, audio, vignette ou transcription",
     "homeDescription": "Collez un lien depuis YouTube, Facebook, TikTok, Instagram et plus de 200 autres. Téléchargez vidéo, audio, vignettes ou transcriptions IA — sans compte requis.",
     "siteName": "DownForge"
+  },
+  "YoutubeFAQ": {
+    "title": "Frequently Asked Questions",
+    "q1": "Is downloading YouTube videos legal?",
+    "a1": "Downloading videos for personal offline use is generally permitted. However, redistributing copyrighted content without permission may violate YouTube's Terms of Service. Always respect copyright and use downloaded content responsibly.",
+    "q2": "What video qualities are available?",
+    "a2": "YouTube videos can be downloaded in multiple qualities including 4K (2160p), 1440p, 1080p (Full HD), 720p (HD), 480p, and 360p. The available qualities depend on what the original uploader provided. Higher resolutions like 4K require a Pro subscription.",
+    "q3": "Can I download age-restricted videos?",
+    "a3": "Age-restricted videos require you to be signed into a Google account that meets the age requirement. These videos cannot be downloaded through our service due to YouTube's restrictions. Please use YouTube's official app for offline viewing of age-restricted content.",
+    "q4": "What audio formats do you support?",
+    "a4": "We support MP3 (up to 320 kbps), AAC (256 kbps), FLAC (lossless), WAV (uncompressed), and OGG (192 kbps). For music production and archiving, FLAC is recommended. For general listening, MP3 at 320 kbps offers excellent quality with small file sizes.",
+    "q5": "Why is there no sound in my 4K download?",
+    "a5": "YouTube separates video and audio streams for resolutions above 1080p. Our system automatically merges the best available video stream with the best audio stream. If you encounter audio issues, try downloading in 1080p or use the MKV container format.",
+    "q6": "How long are downloaded files stored?",
+    "a6": "Files are stored temporarily and deleted automatically after the download is complete. We do not keep copies of your downloaded content. For Pro users, files remain available for 24 hours in case you need to download again.",
+    "q7": "Can I download transcripts and subtitles?",
+    "a7": "Yes! Select the Transcript mode and choose from SRT, VTT, TXT, or JSON formats. Our AI generates accurate transcripts with timestamps from any video with audio. SRT and VTT are perfect for subtitle files, TXT for plain text, and JSON for structured data with timestamps."
+  },
+  "YoutubeTips": {
+    "title": "Tips & Tricks",
+    "tip1Title": "Download in 4K Ultra HD",
+    "tip1Desc": "Get YouTube videos in up to 4K resolution. Perfect for offline viewing, editing, or archiving your favorite content in the highest quality available.",
+    "tip2Title": "Extract Audio as MP3 or FLAC",
+    "tip2Desc": "Convert YouTube videos to high-quality audio files. Choose from MP3 up to 320 kbps or lossless FLAC for music production and offline listening.",
+    "tip3Title": "AI Transcripts in Any Format",
+    "tip3Desc": "Generate accurate AI transcripts from any video. Download as SRT subtitles, VTT web captions, plain TXT, or structured JSON with timestamps.",
+    "tip4Title": "Save Thumbnails in Full HD",
+    "tip4Desc": "Download video thumbnails in maximum resolution. Great for thumbnails, covers, or reference images — available in JPG, PNG, and WebP formats.",
+    "tip5Title": "Batch & Playlist Downloads",
+    "tip5Desc": "With a Pro plan, download entire playlists or channels in one click. No need to process each video individually — just paste and go."
   }
 }

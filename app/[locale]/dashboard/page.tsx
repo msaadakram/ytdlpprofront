@@ -1,7 +1,6 @@
 import type { Metadata } from "next";
 import { getTranslations } from "next-intl/server";
-import { Nav } from "@/components/layout/Nav";
-import { Footer } from "@/components/layout/Footer";
+import { DashboardClient } from "@/components/dashboard/DashboardClient";
 
 type Props = { params: Promise<{ locale: string }> };
 
@@ -16,15 +15,7 @@ export async function generateMetadata({ params }: Props): Promise<Metadata> {
 }
 
 export default async function DashboardPage({ params }: Props) {
-  return (
-    <>
-      <Nav />
-      <main className="pt-28 pb-20 px-6">
-        <div className="max-w-6xl mx-auto">
-          <h1 className="text-3xl font-extrabold text-foreground font-heading">Dashboard</h1>
-        </div>
-      </main>
-      <Footer />
-    </>
-  );
+  // Locale is validated by middleware; we just need to await it.
+  await params;
+  return <DashboardClient />;
 }

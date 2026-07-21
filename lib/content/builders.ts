@@ -1,5 +1,6 @@
 import type { PageContent, PlatformContentSeed, DownloadType, ContentSection, ContentStep, ContentTip, ContentTable } from "./types";
 import type { PlatformConfig } from "@/lib/platform-config";
+import enMessages from "@/messages/en.json" assert { type: "json" };
 
 const formatTables: Record<string, (name: string) => ContentTable> = {
   video: (name) => ({
@@ -94,6 +95,12 @@ export function buildContent(config: PlatformConfig, seed: PlatformContentSeed, 
   };
 }
 
+function getFeatureTitles(platformId: string): string[] {
+  const platformTranslations = (enMessages as any).Platform?.[platformId];
+  if (!platformTranslations?.features) return [];
+  return (platformTranslations.features as { title: string }[]).map((f) => f.title.toLowerCase());
+}
+
 function buildIntroduction(config: PlatformConfig, seed: PlatformContentSeed, type: DownloadType, tName: string, noun: string): ContentSection {
   return {
     heading: `Complete Guide to ${type === "audio" ? "Extracting Audio from" : `Downloading ${tName} from`} ${config.name}`,
@@ -112,7 +119,7 @@ function buildWhatIsPlatform(config: PlatformConfig, summary: string, tName: str
     heading: `What Is ${config.name}?`,
     paragraphs: [
       summary,
-      `${config.name} has become one of the most popular platforms for ${config.features.map(f => f.title.toLowerCase()).join(", ").replace(/, ([^,]*)$/, ", and $1")}. With millions of active users and ${config.name === "YouTube" ? "over 500 hours of content uploaded every minute" : "countless hours of content uploaded daily"}, the platform offers an incredible variety of ${tName.toLowerCase()} content across every category imaginable.`,
+      `${config.name} has become one of the most popular platforms for ${getFeatureTitles(config.id).join(", ").replace(/, ([^,]*)$/, ", and $1")}. With millions of active users and ${config.name === "YouTube" ? "over 500 hours of content uploaded every minute" : "countless hours of content uploaded daily"}, the platform offers an incredible variety of ${tName.toLowerCase()} content across every category imaginable.`,
       `However, ${config.name} does not provide a built-in way to permanently ${tName.toLowerCase() === "audio" ? "extract audio from videos" : `download ${tName.toLowerCase()} files`} for offline use. This is where DownForge comes in — bridging the gap between streaming and ownership by giving you a simple, fast way to save ${config.name} content to your device.`,
     ],
   };

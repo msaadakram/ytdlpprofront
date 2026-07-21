@@ -22,6 +22,7 @@ export function Sidebar({
   onToggle,
   mobileOpen,
   onClose,
+  onLogout,
 }: {
   activeTab: DashboardTab;
   onTabChange: (tab: DashboardTab) => void;
@@ -29,6 +30,7 @@ export function Sidebar({
   onToggle: () => void;
   mobileOpen: boolean;
   onClose: () => void;
+  onLogout: () => void;
 }) {
   function handleTabClick(tab: DashboardTab) {
     onTabChange(tab);
@@ -59,7 +61,10 @@ export function Sidebar({
       </nav>
 
       <div className="p-3 border-t border-border">
-        <button className="w-full flex items-center gap-3 px-3 py-2.5 rounded-xl text-sm font-medium text-muted-foreground hover:text-foreground hover:bg-muted transition-all font-sans">
+        <button
+          onClick={onLogout}
+          className="w-full flex items-center gap-3 px-3 py-2.5 rounded-xl text-sm font-medium text-muted-foreground hover:text-foreground hover:bg-muted transition-all font-sans"
+        >
           <LogOut className="w-4 h-4 shrink-0" />
           {!collapsed && <span>Log Out</span>}
         </button>

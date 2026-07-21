@@ -26,12 +26,14 @@ export async function generateMetadata({ params }: Props): Promise<Metadata> {
   const config = platformConfigs[platform];
   if (!config) return { title: "Platform Not Found" };
 
+  const t = await getTranslations({ locale, namespace: `Platform.${platform}` });
+
   return {
-    title: config.metaTitle,
-    description: config.metaDescription,
+    title: t("metaTitle"),
+    description: t("metaDescription"),
     openGraph: {
-      title: config.metaTitle,
-      description: config.metaDescription,
+      title: t("metaTitle"),
+      description: t("metaDescription"),
       url: `https://downforge.me/${locale}/download/${config.slug}`,
       siteName: "DownForge",
       locale,
@@ -39,8 +41,8 @@ export async function generateMetadata({ params }: Props): Promise<Metadata> {
     },
     twitter: {
       card: "summary_large_image",
-      title: config.metaTitle,
-      description: config.metaDescription,
+      title: t("metaTitle"),
+      description: t("metaDescription"),
     },
     robots: { index: true, follow: true },
     alternates: {
@@ -57,7 +59,7 @@ export async function generateMetadata({ params }: Props): Promise<Metadata> {
         zh: `https://downforge.me/zh/download/${config.slug}`,
       },
     },
-    keywords: config.keywords,
+    keywords: t.raw("keywords") as string[],
   };
 }
 
@@ -69,6 +71,8 @@ export default async function PlatformDownloadPage({ params }: Props) {
   const content = getContent(platform, "video");
 
   const t = await getTranslations({ locale, namespace: "PlatformPage" });
+  const pt = await getTranslations({ locale, namespace: `Platform.${platform}` });
+  const faqs = pt.raw("faqs") as { q: string; a: string }[];
 
   const jsonLd = {
     "@context": "https://schema.org",
@@ -86,7 +90,7 @@ export default async function PlatformDownloadPage({ params }: Props) {
         "@id": `https://downforge.me/${locale}/download/${config.slug}#webapp`,
         name: `DownForge ${config.name} Downloader`,
         url: `https://downforge.me/${locale}/download/${config.slug}`,
-        description: config.metaDescription,
+        description: pt("metaDescription"),
         applicationCategory: "Multimedia",
         operatingSystem: "All",
         offers: { "@type": "Offer", price: "0", priceCurrency: "USD" },
@@ -94,7 +98,7 @@ export default async function PlatformDownloadPage({ params }: Props) {
       {
         "@type": "FAQPage",
         "@id": `https://downforge.me/${locale}/download/${config.slug}#faq`,
-        mainEntity: config.faqs.map((faq: any) => ({
+        mainEntity: faqs.map((faq) => ({
           "@type": "Question",
           name: faq.q,
           acceptedAnswer: { "@type": "Answer", text: faq.a },

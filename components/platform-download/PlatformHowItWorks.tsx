@@ -3,27 +3,13 @@
 import { motion } from "motion/react";
 import { Link2, ListChecks, Download } from "lucide-react";
 import { platformConfigs } from "@/lib/platform-config";
+import { useTranslations } from "next-intl";
 
-const steps = [
-  {
-    icon: Link2,
-    title: "Paste the Link",
-    desc: "Copy any {name} video URL and paste it into the input above. We support all public video types including shorts, streams, and highlights.",
-  },
-  {
-    icon: ListChecks,
-    title: "Pick Your Format",
-    desc: "Choose from 4K video, 1080p HD, MP3 audio up to 320kbps, FLAC lossless, HD thumbnails, or AI transcripts in SRT, VTT, TXT & JSON. Whatever you need.",
-  },
-  {
-    icon: Download,
-    title: "Download Instantly",
-    desc: "Hit download and your file is ready in seconds. No queues, no waiting, no account required. Just a fast, clean download.",
-  },
-];
+const stepIcons = [Link2, ListChecks, Download];
 
 export function PlatformHowItWorks({ platform }: { platform: string }) {
   const config = platformConfigs[platform];
+  const t = useTranslations("PlatformPage");
 
   return (
     <section className="py-14 md:py-20 px-6 bg-white relative overflow-hidden">
@@ -45,19 +31,21 @@ export function PlatformHowItWorks({ platform }: { platform: string }) {
             className="text-xs font-bold tracking-widest uppercase font-mono"
             style={{ color: config.brandColor }}
           >
-            How It Works
+            {t("howItWorksBadge")}
           </span>
           <h2 className="text-2xl sm:text-3xl md:text-4xl font-extrabold text-foreground mt-3 mb-4 font-heading">
-            Download {config.name} in 3 Steps
+            {t("howItWorksHeading", { name: config.name })}
           </h2>
           <p className="text-muted-foreground text-sm max-w-xl mx-auto font-sans">
-            No software, no sign-up, no hassle. Just paste, pick, and download.
+            {t("howItWorksSubheading")}
           </p>
         </motion.div>
 
         <div className="grid md:grid-cols-3 gap-6">
-          {steps.map((step, i) => {
-            const Icon = step.icon;
+          {[1, 2, 3].map((num, i) => {
+            const Icon = stepIcons[i];
+            const title = t(`howItWorksStep${num}Title`);
+            const desc = t(`howItWorksStep${num}Desc`, { name: config.name });
             return (
               <motion.div
                 key={i}
@@ -97,10 +85,10 @@ export function PlatformHowItWorks({ platform }: { platform: string }) {
                     <Icon className="w-5 h-5" style={{ color: config.brandColor }} />
                   </motion.div>
                   <h3 className="text-lg font-bold text-foreground mb-3 font-heading relative">
-                    {step.title}
+                    {title}
                   </h3>
                   <p className="text-sm text-muted-foreground leading-relaxed font-sans relative">
-                    {step.desc.replace("{name}", config.name)}
+                    {desc}
                   </p>
                 </motion.div>
               </motion.div>

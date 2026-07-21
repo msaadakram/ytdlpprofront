@@ -1,9 +1,20 @@
 "use client";
 
-import { Bell, Sparkles } from "lucide-react";
-import Link from "next/link";
+import { Bell } from "lucide-react";
+import { useAuth } from "@/lib/auth-context";
+
+function getInitials(user: { name?: string; email?: string } | null) {
+  if (!user) return "?";
+  const parts = (user.name || user.email || "?").split(/\s+/);
+  return parts.length >= 2
+    ? (parts[0][0] + parts[parts.length - 1][0]).toUpperCase()
+    : parts[0][0].toUpperCase();
+}
 
 export function Topbar() {
+  const { user } = useAuth();
+  const initials = getInitials(user);
+
   return (
     <header className="h-16 bg-white border-b border-border flex items-center justify-between px-4 sm:px-6 gap-4">
       <div className="min-w-0">
@@ -17,7 +28,7 @@ export function Topbar() {
         </button>
         <div className="flex items-center gap-2 text-sm font-sans">
           <div className="w-8 h-8 rounded-full bg-[#5baab8] flex items-center justify-center text-white text-xs font-bold">
-            JD
+            {initials}
           </div>
         </div>
       </div>

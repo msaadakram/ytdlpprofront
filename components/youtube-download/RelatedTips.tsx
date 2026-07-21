@@ -2,36 +2,21 @@
 
 import { motion } from "motion/react";
 import { Music, Video, Image, Layers, FileText } from "lucide-react";
+import { useTranslations } from "next-intl";
 
-const tips = [
-  {
-    icon: Video,
-    title: "Download in 4K Ultra HD",
-    desc: "Get YouTube videos in up to 4K resolution. Perfect for offline viewing, editing, or archiving your favorite content in the highest quality available.",
-  },
-  {
-    icon: Music,
-    title: "Extract Audio as MP3 or FLAC",
-    desc: "Convert YouTube videos to high-quality audio files. Choose from MP3 up to 320 kbps or lossless FLAC for music production and offline listening.",
-  },
-  {
-    icon: FileText,
-    title: "AI Transcripts in Any Format",
-    desc: "Generate accurate AI transcripts from any video. Download as SRT subtitles, VTT web captions, plain TXT, or structured JSON with timestamps.",
-  },
-  {
-    icon: Image,
-    title: "Save Thumbnails in Full HD",
-    desc: "Download video thumbnails in maximum resolution. Great for thumbnails, covers, or reference images — available in JPG, PNG, and WebP formats.",
-  },
-  {
-    icon: Layers,
-    title: "Batch & Playlist Downloads",
-    desc: "With a Pro plan, download entire playlists or channels in one click. No need to process each video individually — just paste and go.",
-  },
-];
+const tipIcons = [Video, Music, FileText, Image, Layers];
 
 export function RelatedTips() {
+  const t = useTranslations("YoutubeTips");
+
+  const tips = [
+    { icon: tipIcons[0], title: t("tip1Title"), desc: t("tip1Desc") },
+    { icon: tipIcons[1], title: t("tip2Title"), desc: t("tip2Desc") },
+    { icon: tipIcons[2], title: t("tip3Title"), desc: t("tip3Desc") },
+    { icon: tipIcons[3], title: t("tip4Title"), desc: t("tip4Desc") },
+    { icon: tipIcons[4], title: t("tip5Title"), desc: t("tip5Desc") },
+  ];
+
   return (
     <section className="py-14 md:py-20 px-6 bg-white">
       <div className="max-w-5xl mx-auto">
@@ -44,7 +29,7 @@ export function RelatedTips() {
           className="text-center mb-14"
         >
           <span className="text-xs font-bold tracking-widest uppercase text-[#5baab8] font-mono">
-            Tips & Tricks
+            {t("title")}
           </span>
           <h2 className="text-2xl sm:text-3xl md:text-4xl font-extrabold text-foreground mt-3 mb-4 font-heading">
             Get the Most from YouTube Downloads

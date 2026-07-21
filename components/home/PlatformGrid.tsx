@@ -3,6 +3,7 @@
 import Link from "next/link";
 import { motion } from "motion/react";
 import { platforms } from "@/lib/constants";
+import { useTranslations } from "next-intl";
 
 function PlatformCard({ name }: { name: string }) {
   const p = platforms.find((pl) => pl.name === name);
@@ -44,6 +45,8 @@ const featuredPlatforms = [
 ];
 
 export function PlatformGrid() {
+  const t = useTranslations("HomePage");
+
   return (
     <section id="platforms" className="py-14 md:py-20 px-6 relative overflow-hidden">
       <div className="absolute inset-0 pointer-events-none" style={{ background: "linear-gradient(180deg, #eef6f8 0%, white 100%)" }} />
@@ -57,13 +60,13 @@ export function PlatformGrid() {
           className="text-center mb-12"
         >
           <span className="inline-block text-xs font-semibold tracking-widest uppercase text-[#5baab8] mb-3 font-mono">
-            Supported platforms
+            {t("platformGridTitle")}
           </span>
           <h2 className="text-2xl sm:text-3xl md:text-4xl font-extrabold tracking-tight text-foreground mb-4 font-heading">
-            200+ Platforms & Growing
+            {t("platformGridBadge")}
           </h2>
           <p className="text-muted-foreground max-w-lg mx-auto font-sans">
-            From the biggest names to the niche platforms — if there&apos;s a video, we can fetch it.
+            {t("platformGridDesc")}
           </p>
         </motion.div>
 
