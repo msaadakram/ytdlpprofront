@@ -354,12 +354,33 @@
     }
   },
   "Privacy": {
+    "backToHome": "Back to home",
     "title": "Политика конфиденциальности",
-    "lastUpdated": "Последнее обновление: январь 2025 г."
+    "lastUpdated": "Последнее обновление: январь 2025 г.",
+    "section1Title": "1. Information We Collect",
+    "section1Body": "We collect only the information necessary to provide our service: the URLs you submit for download, your IP address for rate limiting, and account information (email, name) if you create an account. We do not collect or store the actual content of your downloads beyond the processing period.",
+    "section2Title": "2. How We Use Your Data",
+    "section2Body": "URLs are used solely to process your download request and are deleted from our servers immediately after processing. Account information is used for authentication, billing, and communication about your account. We do not sell, trade, or share your personal data with third parties.",
+    "section3Title": "3. Data Security",
+    "section3Body": "We implement industry-standard security measures including encryption in transit (TLS), secure API authentication, and regular security audits. Downloaded files are stored temporarily in isolated storage and automatically purged.",
+    "section4Title": "4. Cookies",
+    "section4Body": "We use essential cookies for authentication and session management. Analytics cookies are used only with your consent. You can control cookie preferences through your browser settings.",
+    "section5Title": "5. Your Rights",
+    "section5Body": "You have the right to access, correct, or delete your personal data at any time. Contact us at privacy@downforge.me to exercise these rights. We will respond to your request within 30 days."
   },
   "Pricing": {
     "title": "Тарифные планы",
-    "subtitle": "Выберите тариф, который подходит вам. Начните бесплатно, улучшите, когда понадобится больше."
+    "subtitle": "Выберите тариф, который подходит вам. Начните бесплатно, улучшите, когда понадобится больше.",
+    "backToHome": "Back to home",
+    "faqTitle": "Frequently Asked Questions",
+    "faq1Q": "Can I switch plans at any time?",
+    "faq1A": "Yes, you can upgrade or downgrade at any time. Changes take effect immediately.",
+    "faq2Q": "What payment methods do you accept?",
+    "faq2A": "We accept all major credit cards, PayPal, and cryptocurrency.",
+    "faq3Q": "Is there a free trial for Pro?",
+    "faq3A": "Yes, we offer a 7-day free trial of our Pro plan with no commitment required.",
+    "faq4Q": "Can I cancel anytime?",
+    "faq4A": "Absolutely. No contracts, no cancellation fees. Your access continues until the end of the billing period."
   },
   "SEO": {
     "homeTitle": "DownForge — Скачивайте любые видео, аудио, миниатюры и транскрипции",
