@@ -5,6 +5,7 @@ import { Copy, Plus, Trash2, CheckCircle2, Loader2 } from "lucide-react";
 import { listApiKeys, createApiKey, deleteApiKey } from "@/lib/api-client";
 import type { ApiKey } from "@/lib/api-client";
 import { CreateApiKeyDialog } from "./CreateApiKeyDialog";
+import { ApiKeyGuide } from "./ApiKeyGuide";
 
 export function ApiKeysTab() {
   const [keys, setKeys] = useState<ApiKey[]>([]);
@@ -164,6 +165,9 @@ export function ApiKeysTab() {
           ))}
         </div>
       )}
+
+      {/* How-to-use guide — always shown so users can learn the flow */}
+      <ApiKeyGuide />
     </div>
   );
 }

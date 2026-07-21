@@ -451,1033 +451,1033 @@
     "siteName": "DownForge"
   },
   "YoutubeFAQ": {
-    "title": "Frequently Asked Questions",
-    "q1": "Is downloading YouTube videos legal?",
-    "a1": "Downloading videos for personal offline use is generally permitted. However, redistributing copyrighted content without permission may violate YouTube's Terms of Service. Always respect copyright and use downloaded content responsibly.",
-    "q2": "What video qualities are available?",
-    "a2": "YouTube videos can be downloaded in multiple qualities including 4K (2160p), 1440p, 1080p (Full HD), 720p (HD), 480p, and 360p. The available qualities depend on what the original uploader provided. Higher resolutions like 4K require a Pro subscription.",
-    "q3": "Can I download age-restricted videos?",
-    "a3": "Age-restricted videos require you to be signed into a Google account that meets the age requirement. These videos cannot be downloaded through our service due to YouTube's restrictions. Please use YouTube's official app for offline viewing of age-restricted content.",
-    "q4": "What audio formats do you support?",
-    "a4": "We support MP3 (up to 320 kbps), AAC (256 kbps), FLAC (lossless), WAV (uncompressed), and OGG (192 kbps). For music production and archiving, FLAC is recommended. For general listening, MP3 at 320 kbps offers excellent quality with small file sizes.",
-    "q5": "Why is there no sound in my 4K download?",
-    "a5": "YouTube separates video and audio streams for resolutions above 1080p. Our system automatically merges the best available video stream with the best audio stream. If you encounter audio issues, try downloading in 1080p or use the MKV container format.",
-    "q6": "How long are downloaded files stored?",
-    "a6": "Files are stored temporarily and deleted automatically after the download is complete. We do not keep copies of your downloaded content. For Pro users, files remain available for 24 hours in case you need to download again.",
-    "q7": "Can I download transcripts and subtitles?",
-    "a7": "Yes! Select the Transcript mode and choose from SRT, VTT, TXT, or JSON formats. Our AI generates accurate transcripts with timestamps from any video with audio. SRT and VTT are perfect for subtitle files, TXT for plain text, and JSON for structured data with timestamps."
+    "title": "Perguntas Frequentes",
+    "q1": "É legal baixar vídeos do YouTube?",
+    "a1": "Baixar vídeos para uso pessoal offline é geralmente permitido. No entanto, redistribuir conteúdo protegido por direitos autorais sem permissão pode violar os Termos de Serviço do YouTube. Sempre respeite os direitos autorais e use o conteúdo baixado de forma responsável.",
+    "q2": "Quais qualidades de vídeo estão disponíveis?",
+    "a2": "Os vídeos do YouTube podem ser baixados em várias qualidades, incluindo 4K (2160p), 1440p, 1080p (Full HD), 720p (HD), 480p e 360p. As qualidades disponíveis dependem do que o uploader original forneceu. Resoluções mais altas como 4K exigem uma assinatura Pro.",
+    "q3": "Posso baixar vídeos com restrição de idade?",
+    "a3": "Vídeos com restrição de idade exigem que você esteja conectado a uma conta do Google que atenda ao requisito de idade. Esses vídeos não podem ser baixados através do nosso serviço devido às restrições do YouTube. Use o aplicativo oficial do YouTube para visualização offline de conteúdo com restrição de idade.",
+    "q4": "Quais formatos de áudio vocês suportam?",
+    "a4": "Suportamos MP3 (até 320 kbps), AAC (256 kbps), FLAC (lossless), WAV (não compactado) e OGG (192 kbps). Para produção musical e arquivamento, o FLAC é recomendado. Para audição geral, o MP3 a 320 kbps oferece excelente qualidade com tamanhos de arquivo pequenos.",
+    "q5": "Por que não há som no meu download em 4K?",
+    "a5": "O YouTube separa os fluxos de vídeo e áudio para resoluções acima de 1080p. Nosso sistema mescla automaticamente o melhor fluxo de vídeo disponível com o melhor fluxo de áudio. Se você encontrar problemas de áudio, tente baixar em 1080p ou use o formato de contêiner MKV.",
+    "q6": "Por quanto tempo os arquivos baixados são armazenados?",
+    "a6": "Os arquivos são armazenados temporariamente e excluídos automaticamente após a conclusão do download. Não mantemos cópias do seu conteúdo baixado. Para usuários Pro, os arquivos permanecem disponíveis por 24 horas caso você precise baixar novamente.",
+    "q7": "Posso baixar transcrições e legendas?",
+    "a7": "Sim! Selecione o modo Transcrição e escolha entre os formatos SRT, VTT, TXT ou JSON. Nossa IA gera transcrições precisas com timestamps de qualquer vídeo com áudio. SRT e VTT são perfeitos para arquivos de legenda, TXT para texto simples e JSON para dados estruturados com timestamps."
   },
   "YoutubeTips": {
-    "title": "Tips & Tricks",
-    "tip1Title": "Download in 4K Ultra HD",
-    "tip1Desc": "Get YouTube videos in up to 4K resolution. Perfect for offline viewing, editing, or archiving your favorite content in the highest quality available.",
-    "tip2Title": "Extract Audio as MP3 or FLAC",
-    "tip2Desc": "Convert YouTube videos to high-quality audio files. Choose from MP3 up to 320 kbps or lossless FLAC for music production and offline listening.",
-    "tip3Title": "AI Transcripts in Any Format",
-    "tip3Desc": "Generate accurate AI transcripts from any video. Download as SRT subtitles, VTT web captions, plain TXT, or structured JSON with timestamps.",
-    "tip4Title": "Save Thumbnails in Full HD",
-    "tip4Desc": "Download video thumbnails in maximum resolution. Great for thumbnails, covers, or reference images — available in JPG, PNG, and WebP formats.",
-    "tip5Title": "Batch & Playlist Downloads",
-    "tip5Desc": "With a Pro plan, download entire playlists or channels in one click. No need to process each video individually — just paste and go."
+    "title": "Dicas & Truques",
+    "tip1Title": "Baixe em 4K Ultra HD",
+    "tip1Desc": "Obtenha vídeos do YouTube em resolução de até 4K. Perfeito para visualização offline, edição ou arquivamento do seu conteúdo favorito na mais alta qualidade disponível.",
+    "tip2Title": "Extraia Áudio como MP3 ou FLAC",
+    "tip2Desc": "Converta vídeos do YouTube em arquivos de áudio de alta qualidade. Escolha entre MP3 de até 320 kbps ou FLAC lossless para produção musical e audição offline.",
+    "tip3Title": "Transcrições de IA em Qualquer Formato",
+    "tip3Desc": "Gere transcrições de IA precisas de qualquer vídeo. Baixe como legendas SRT, legendas web VTT, TXT simples ou JSON estruturado com timestamps.",
+    "tip4Title": "Salve Miniaturas em Full HD",
+    "tip4Desc": "Baixe miniaturas de vídeo na resolução máxima. Ótimo para thumbnails, capas ou imagens de referência — disponível nos formatos JPG, PNG e WebP.",
+    "tip5Title": "Downloads em Lote & Listas de Reprodução",
+    "tip5Desc": "Com um plano Pro, baixe listas de reprodução ou canais inteiros com um clique. Não precisa processar cada vídeo individualmente — basta colar e pronto."
   },
   "Platform": {
     "facebook": {
-      "badge": "Facebook Downloader",
-      "heading": "Download Facebook Videos",
-      "headingAccent": "in HD",
-      "subheading": "Paste any Facebook video link and download in seconds. Save Facebook Watch videos, live streams, and Reels. Get AI transcripts too — no account required.",
-      "placeholder": "Paste your Facebook video URL here...",
+      "badge": "Downloader do Facebook",
+      "heading": "Baixe Vídeos do Facebook",
+      "headingAccent": "em HD",
+      "subheading": "Cole qualquer link de vídeo do Facebook e baixe em segundos. Salve vídeos do Facebook Watch, transmissões ao vivo e Reels. Obtenha transcrições de IA também — sem necessidade de conta.",
+      "placeholder": "Cole o URL do seu vídeo do Facebook aqui...",
       "features": [
         {
-          "title": "Download HD Videos",
-          "desc": "Save Facebook videos in up to 1080p HD quality. Perfect for offline viewing of Watch shows, live streams, and shared content."
+          "title": "Baixe Vídeos em HD",
+          "desc": "Salve vídeos do Facebook em qualidade de até 1080p HD. Perfeito para visualização offline de programas do Watch, transmissões ao vivo e conteúdo compartilhado."
         },
         {
-          "title": "Extract Audio",
-          "desc": "Convert Facebook videos to MP3 or FLAC audio. Great for saving audio from interviews, live sessions, and video podcasts."
+          "title": "Extraia Áudio",
+          "desc": "Converta vídeos do Facebook para MP3 ou FLAC. Ótimo para salvar áudio de entrevistas, sessões ao vivo e videocasts."
         },
         {
-          "title": "Save Thumbnails",
-          "desc": "Download Facebook video thumbnails in high resolution. Available in JPG, PNG, and WebP formats."
+          "title": "Salve Miniaturas",
+          "desc": "Baixe miniaturas de vídeos do Facebook em alta resolução. Disponíveis nos formatos JPG, PNG e WebP."
         },
         {
-          "title": "Works with All Facebook URLs",
-          "desc": "Supports public videos, Watch shows, page posts, group videos, and embedded clips across Facebook."
+          "title": "Funciona com Todos os URLs do Facebook",
+          "desc": "Suporta vídeos públicos, programas do Watch, posts de páginas, vídeos de grupos e clipes incorporados no Facebook."
         },
         {
-          "title": "AI Transcripts",
-          "desc": "Generate accurate transcripts with timestamps from any Facebook video. Download as SRT, VTT, TXT, or JSON subtitles."
+          "title": "Transcrições de IA",
+          "desc": "Gere transcrições precisas com timestamps de qualquer vídeo do Facebook. Baixe como legendas SRT, VTT, TXT ou JSON."
         }
       ],
       "faqs": [
         {
-          "q": "Can I download private Facebook videos?",
-          "a": "Our service can only download publicly accessible Facebook videos. Private or friends-only videos cannot be accessed due to Facebook's privacy restrictions."
+          "q": "Posso baixar vídeos privados do Facebook?",
+          "a": "Nosso serviço só pode baixar vídeos do Facebook que sejam publicamente acessíveis. Vídeos privados ou apenas para amigos não podem ser acessados devido às restrições de privacidade do Facebook."
         },
         {
-          "q": "What video qualities are available?",
-          "a": "Facebook videos can be downloaded in various qualities including HD (720p/1080p) and standard definition (480p/360p), depending on what the uploader originally provided."
+          "q": "Quais qualidades de vídeo estão disponíveis?",
+          "a": "Os vídeos do Facebook podem ser baixados em várias qualidades, incluindo HD (720p/1080p) e definição padrão (480p/360p), dependendo do que o uploader forneceu originalmente."
         },
         {
-          "q": "Can I download Facebook Reels?",
-          "a": "Yes, Facebook Reels can be downloaded just like regular videos. Paste the Reel URL and choose your preferred format and quality."
+          "q": "Posso baixar Facebook Reels?",
+          "a": "Sim, os Facebook Reels podem ser baixados como vídeos normais. Cole o URL do Reel e escolha seu formato e qualidade preferidos."
         },
         {
-          "q": "Does it work with Facebook Watch?",
-          "a": "Yes, Facebook Watch shows and episodes are supported. Simply copy the video URL from Watch and paste it into the downloader."
+          "q": "Funciona com o Facebook Watch?",
+          "a": "Sim, programas e episódios do Facebook Watch são suportados. Basta copiar o URL do vídeo do Watch e colá-lo no downloader."
         },
         {
-          "q": "Is there a limit on video length?",
-          "a": "Free accounts can download videos up to 30 minutes. Pro accounts support longer videos and batch processing for entire playlists."
+          "q": "Há um limite de duração de vídeo?",
+          "a": "Contas gratuitas podem baixar vídeos de até 30 minutos. Contas Pro suportam vídeos mais longos e processamento em lote para listas de reprodução inteiras."
         }
       ],
-      "metaTitle": "Facebook Video Downloader — Download Facebook Videos in HD | DownForge",
-      "metaDescription": "Free Facebook video downloader. Download Facebook videos, Watch shows, Reels, and live streams in HD. Extract audio as MP3. No sign-up required.",
+      "metaTitle": "Downloader de Vídeos do Facebook — Baixe Vídeos do Facebook em HD | DownForge",
+      "metaDescription": "Downloader gratuito de vídeos do Facebook. Baixe vídeos do Facebook, programas do Watch, Reels e transmissões ao vivo em HD. Extraia áudio como MP3. Sem cadastro.",
       "keywords": [
-        "facebook video downloader",
-        "download facebook videos",
-        "fb video downloader",
-        "facebook video saver",
-        "facebook to mp4",
-        "download facebook watch",
-        "facebook reels downloader",
-        "facebook hd downloader",
-        "save facebook video",
-        "facebook video download free"
+        "downloader de vídeos do facebook",
+        "baixar vídeos do facebook",
+        "downloader de vídeo fb",
+        "salvador de vídeos do facebook",
+        "facebook para mp4",
+        "baixar facebook watch",
+        "downloader de facebook reels",
+        "downloader hd facebook",
+        "salvar vídeo do facebook",
+        "download gratuito de vídeo do facebook"
       ]
     },
     "instagram": {
-      "badge": "Instagram Downloader",
-      "heading": "Download Instagram Videos",
+      "badge": "Downloader do Instagram",
+      "heading": "Baixe Vídeos do Instagram",
       "headingAccent": "Reels & Stories",
-      "subheading": "Save Instagram Reels, Stories, IGTV, and posts in seconds. Download video, audio, thumbnails, or AI transcripts — instantly, no account needed.",
-      "placeholder": "Paste your Instagram URL here...",
+      "subheading": "Salve Reels, Stories, IGTV e posts do Instagram em segundos. Baixe vídeo, áudio, miniaturas ou transcrições de IA — instantaneamente, sem necessidade de conta.",
+      "placeholder": "Cole seu URL do Instagram aqui...",
       "features": [
         {
-          "title": "Save Reels & Stories",
-          "desc": "Download Instagram Reels and Stories in original quality. Perfect for saving content before it disappears after 24 hours."
+          "title": "Salve Reels & Stories",
+          "desc": "Baixe Reels e Stories do Instagram na qualidade original. Perfeito para salvar conteúdo antes que desapareça após 24 horas."
         },
         {
-          "title": "Extract Reels Audio",
-          "desc": "Convert Instagram Reels to high-quality MP3 or FLAC audio. Great for saving viral audio tracks and sound bites."
+          "title": "Extraia Áudio de Reels",
+          "desc": "Converta Reels do Instagram para MP3 ou FLAC de alta qualidade. Ótimo para salvar faixas de áudio virais e trechos sonoros."
         },
         {
-          "title": "Download Profile Pictures",
-          "desc": "Save Instagram profile pictures and post thumbnails in full resolution. Available in JPG and PNG formats."
+          "title": "Baixe Fotos de Perfil",
+          "desc": "Salve fotos de perfil e miniaturas de posts do Instagram em resolução total. Disponíveis nos formatos JPG e PNG."
         },
         {
-          "title": "Batch Instagram Downloads",
-          "desc": "With a Pro plan, download multiple Instagram posts or Reels at once. No need to process each URL individually."
+          "title": "Downloads em Lote no Instagram",
+          "desc": "Com um plano Pro, baixe vários posts ou Reels do Instagram de uma vez. Não precisa processar cada URL individualmente."
         },
         {
-          "title": "AI Transcripts",
-          "desc": "Generate accurate transcripts with timestamps from any Instagram video or Reel. Download as SRT, VTT, TXT, or JSON subtitles."
+          "title": "Transcrições de IA",
+          "desc": "Gere transcrições precisas com timestamps de qualquer vídeo ou Reel do Instagram. Baixe como legendas SRT, VTT, TXT ou JSON."
         }
       ],
       "faqs": [
         {
-          "q": "Can I download Instagram Stories?",
-          "a": "Yes, you can download Instagram Stories by pasting the story URL. This works for both regular stories and highlighted stories."
+          "q": "Posso baixar Stories do Instagram?",
+          "a": "Sim, você pode baixar Stories do Instagram colando o URL da história. Isso funciona tanto para stories normais quanto para stories em destaque."
         },
         {
-          "q": "Do Reels download with sound?",
-          "a": "Yes, Instagram Reels are downloaded with both video and audio intact. If you want only the audio, use the Audio extraction mode."
+          "q": "Os Reels são baixados com som?",
+          "a": "Sim, os Reels do Instagram são baixados com vídeo e áudio intactos. Se você quiser apenas o áudio, use o modo de extração de Áudio."
         },
         {
-          "q": "What about private Instagram accounts?",
-          "a": "Only publicly accessible content can be downloaded. Content from private accounts cannot be accessed through our service."
+          "q": "E sobre contas privadas do Instagram?",
+          "a": "Apenas conteúdo publicamente acessível pode ser baixado. Conteúdo de contas privadas não pode ser acessado através do nosso serviço."
         },
         {
-          "q": "What formats are available?",
-          "a": "Videos can be downloaded in MP4, WebM, and MKV formats. Audio supports MP3, AAC, FLAC, WAV, and OGG. Thumbnails in JPG, PNG, and WebP."
+          "q": "Quais formatos estão disponíveis?",
+          "a": "Os vídeos podem ser baixados nos formatos MP4, WebM e MKV. O áudio suporta MP3, AAC, FLAC, WAV e OGG. Miniaturas em JPG, PNG e WebP."
         },
         {
-          "q": "Can I download IGTV videos?",
-          "a": "Yes, IGTV videos are fully supported. Paste any IGTV URL and choose your preferred quality and format for download."
+          "q": "Posso baixar vídeos do IGTV?",
+          "a": "Sim, os vídeos do IGTV são totalmente suportados. Cole qualquer URL do IGTV e escolha sua qualidade e formato preferidos para download."
         }
       ],
-      "metaTitle": "Instagram Video Downloader — Download Reels, Stories & Posts | DownForge",
-      "metaDescription": "Free Instagram downloader. Download Reels, Stories, IGTV, and posts in HD. Extract audio as MP3. Save profile pictures. No sign-up required.",
+      "metaTitle": "Downloader de Vídeos do Instagram — Baixe Reels, Stories & Posts | DownForge",
+      "metaDescription": "Downloader gratuito do Instagram. Baixe Reels, Stories, IGTV e posts em HD. Extraia áudio como MP3. Salve fotos de perfil. Sem cadastro.",
       "keywords": [
-        "instagram video downloader",
-        "download instagram reels",
-        "instagram reels downloader",
-        "ig downloader",
-        "instagram story saver",
-        "instagram video saver",
-        "download ig videos",
-        "reels to mp4",
+        "downloader de vídeos do instagram",
+        "baixar reels do instagram",
+        "downloader de reels do instagram",
+        "downloader ig",
+        "salvador de stories do instagram",
+        "salvador de vídeos do instagram",
+        "baixar vídeos ig",
+        "reels para mp4",
         "instagram mp3",
-        "instagram profile picture downloader"
+        "downloader de foto de perfil do instagram"
       ]
     },
     "tiktok": {
-      "badge": "TikTok Downloader",
-      "heading": "Download TikTok Videos",
-      "headingAccent": "No Watermark",
-      "subheading": "Save TikTok videos without watermarks. Download in HD, extract audio as MP3, save thumbnails, or get AI transcripts. Quick, free, no sign-up needed.",
-      "placeholder": "Paste your TikTok video URL here...",
+      "badge": "Downloader do TikTok",
+      "heading": "Baixe Vídeos do TikTok",
+      "headingAccent": "Sem Marca d'Água",
+      "subheading": "Salve vídeos do TikTok sem marcas d'água. Baixe em HD, extraia áudio como MP3, salve miniaturas ou obtenha transcrições de IA. Rápido, gratuito, sem necessidade de cadastro.",
+      "placeholder": "Cole o URL do seu vídeo do TikTok aqui...",
       "features": [
         {
-          "title": "Download Without Watermark",
-          "desc": "Save TikTok videos clean without the TikTok watermark. Get the original video in its full quality for offline viewing."
+          "title": "Baixe Sem Marca d'Água",
+          "desc": "Salve vídeos do TikTok limpos, sem a marca d'água do TikTok. Obtenha o vídeo original em sua qualidade total para visualização offline."
         },
         {
-          "title": "Extract Viral Audio",
-          "desc": "Convert TikTok videos to MP3 or FLAC audio. Perfect for saving trending sounds, music tracks, and voiceovers."
+          "title": "Extraia Áudio Viral",
+          "desc": "Converta vídeos do TikTok para MP3 ou FLAC. Perfeito para salvar sons trending, faixas musicais e narrações."
         },
         {
-          "title": "Save Video Thumbnails",
-          "desc": "Download TikTok video thumbnails in maximum resolution. Great for cover images and reference."
+          "title": "Salve Miniaturas de Vídeo",
+          "desc": "Baixe miniaturas de vídeos do TikTok na resolução máxima. Ótimo para imagens de capa e referência."
         },
         {
-          "title": "Supports All TikTok Content",
-          "desc": "Works with regular posts, slideshows, and photo mode videos. Paste any public TikTok URL and download instantly."
+          "title": "Suporta Todo Conteúdo do TikTok",
+          "desc": "Funciona com posts normais, apresentações de slides e vídeos em modo foto. Cole qualquer URL público do TikTok e baixe instantaneamente."
         },
         {
-          "title": "AI Transcripts",
-          "desc": "Generate accurate transcripts with timestamps from any TikTok video. Download as SRT, VTT, TXT, or JSON subtitles."
+          "title": "Transcrições de IA",
+          "desc": "Gere transcrições precisas com timestamps de qualquer vídeo do TikTok. Baixe como legendas SRT, VTT, TXT ou JSON."
         }
       ],
       "faqs": [
         {
-          "q": "Do downloaded TikTok videos have watermarks?",
-          "a": "Videos downloaded through our platform are watermark-free. We use the original video source without the TikTok overlay."
+          "q": "Os vídeos baixados do TikTok têm marcas d'água?",
+          "a": "Os vídeos baixados através da nossa plataforma são livres de marcas d'água. Usamos a fonte de vídeo original sem a sobreposição do TikTok."
         },
         {
-          "q": "Can I download TikTok audio separately?",
-          "a": "Yes, choose the Audio mode to extract only the audio track from any TikTok video. Available in MP3, AAC, FLAC, and more formats."
+          "q": "Posso baixar o áudio do TikTok separadamente?",
+          "a": "Sim, escolha o modo Áudio para extrair apenas a faixa de áudio de qualquer vídeo do TikTok. Disponível em MP3, AAC, FLAC e mais formatos."
         },
         {
-          "q": "What video quality is available?",
-          "a": "TikTok videos can be downloaded in their original quality, typically 720p or 1080p depending on how the video was uploaded."
+          "q": "Qual qualidade de vídeo está disponível?",
+          "a": "Os vídeos do TikTok podem ser baixados em sua qualidade original, tipicamente 720p ou 1080p dependendo de como o vídeo foi enviado."
         },
         {
-          "q": "Does it work with TikTok slideshows?",
-          "a": "Yes, TikTok photo slideshows and multi-image posts are fully supported. You can download them as video compilations."
+          "q": "Funciona com apresentações de slides do TikTok?",
+          "a": "Sim, apresentações de slides de fotos e posts com múltiplas imagens do TikTok são totalmente suportados. Você pode baixá-los como compilações de vídeo."
         },
         {
-          "q": "Is downloading without watermark legal?",
-          "a": "Downloading for personal offline use is generally acceptable. Redistributing content without the creator's permission may violate TikTok's terms."
+          "q": "Baixar sem marca d'água é legal?",
+          "a": "Baixar para uso pessoal offline é geralmente aceitável. Redistribuir conteúdo sem a permissão do criador pode violar os termos do TikTok."
         }
       ],
-      "metaTitle": "TikTok Video Downloader — Download Without Watermark | DownForge",
-      "metaDescription": "Free TikTok downloader. Download TikTok videos without watermark in HD. Extract audio as MP3, FLAC. Save thumbnails. No sign-up required.",
+      "metaTitle": "Downloader de Vídeos do TikTok — Baixe Sem Marca d'Água | DownForge",
+      "metaDescription": "Downloader gratuito do TikTok. Baixe vídeos do TikTok sem marca d'água em HD. Extraia áudio como MP3, FLAC. Salve miniaturas. Sem cadastro.",
       "keywords": [
-        "tiktok video downloader",
-        "download tiktok without watermark",
-        "tiktok no watermark",
-        "tiktok video saver",
+        "downloader de vídeos do tiktok",
+        "baixar tiktok sem marca d'água",
+        "tiktok sem marca d'água",
+        "salvador de vídeos do tiktok",
         "tiktok mp3",
-        "tiktok downloader hd",
-        "tik tok download",
-        "save tiktok video",
-        "tiktok audio extractor",
-        "tiktok watermark remover"
+        "downloader hd tiktok",
+        "download tik tok",
+        "salvar vídeo do tiktok",
+        "extrator de áudio do tiktok",
+        "removedor de marca d'água do tiktok"
       ]
     },
     "twitter": {
-      "badge": "Twitter Downloader",
-      "heading": "Download Twitter Videos",
+      "badge": "Downloader do Twitter",
+      "heading": "Baixe Vídeos do Twitter",
       "headingAccent": "& GIFs",
-      "subheading": "Save Twitter videos, GIFs, and media from any tweet. Download in HD, extract audio, grab thumbnails, or get AI transcripts — fast and free.",
-      "placeholder": "Paste your tweet URL here...",
+      "subheading": "Salve vídeos, GIFs e mídia de qualquer tweet. Baixe em HD, extraia áudio, capture miniaturas ou obtenha transcrições de IA — rápido e grátis.",
+      "placeholder": "Cole o URL do tweet aqui...",
       "features": [
         {
-          "title": "Save Videos from Tweets",
-          "desc": "Download videos embedded in tweets at original quality. Perfect for saving news clips, sports highlights, and viral content."
+          "title": "Salve Vídeos de Tweets",
+          "desc": "Baixe vídeos incorporados em tweets na qualidade original. Perfeito para salvar clipes de notícias, melhores momentos esportivos e conteúdo viral."
         },
         {
-          "title": "Download GIFs as Video",
-          "desc": "Twitter GIFs can be saved as video files. Download animated GIFs in MP4 format for easy sharing and editing."
+          "title": "Baixe GIFs como Vídeo",
+          "desc": "GIFs do Twitter podem ser salvos como arquivos de vídeo. Baixe GIFs animados no formato MP4 para fácil compartilhamento e edição."
         },
         {
-          "title": "Extract Audio from Tweets",
-          "desc": "Convert Twitter video content to MP3 or FLAC audio. Great for saving audio from interviews and live broadcasts."
+          "title": "Extraia Áudio de Tweets",
+          "desc": "Converta conteúdo de vídeo do Twitter para MP3 ou FLAC. Ótimo para salvar áudio de entrevistas e transmissões ao vivo."
         },
         {
-          "title": "Save Tweet Thumbnails",
-          "desc": "Download video thumbnails from Twitter posts in high resolution. Available in JPG, PNG, and WebP formats."
+          "title": "Salve Miniaturas de Tweets",
+          "desc": "Baixe miniaturas de vídeos de posts do Twitter em alta resolução. Disponíveis nos formatos JPG, PNG e WebP."
         },
         {
-          "title": "AI Transcripts",
-          "desc": "Generate accurate transcripts with timestamps from any Twitter/X video. Download as SRT, VTT, TXT, or JSON subtitles."
+          "title": "Transcrições de IA",
+          "desc": "Gere transcrições precisas com timestamps de qualquer vídeo do Twitter/X. Baixe como legendas SRT, VTT, TXT ou JSON."
         }
       ],
       "faqs": [
         {
-          "q": "Can I download videos from any tweet?",
-          "a": "Yes, any publicly accessible tweet containing a video can be downloaded. Just paste the tweet URL into the input above."
+          "q": "Posso baixar vídeos de qualquer tweet?",
+          "a": "Sim, qualquer tweet publicamente acessível contendo um vídeo pode ser baixado. Basta colar o URL do tweet no campo acima."
         },
         {
-          "q": "What about age-restricted tweets?",
-          "a": "Age-restricted or sensitive content may require you to be logged in to Twitter. Our service can only access publicly visible media."
+          "q": "E sobre tweets com restrição de idade?",
+          "a": "Conteúdo com restrição de idade ou sensível pode exigir que você esteja logado no Twitter. Nosso serviço só pode acessar mídia publicamente visível."
         },
         {
-          "q": "Are Twitter Spaces recordings supported?",
-          "a": "Twitter Spaces recordings that are publicly available as videos can be downloaded. Paste the Space recording URL to get started."
+          "q": "Gravações do Twitter Spaces são suportadas?",
+          "a": "Gravações do Twitter Spaces que estão publicamente disponíveis como vídeos podem ser baixadas. Cole o URL da gravação do Space para começar."
         },
         {
-          "q": "What video quality is available?",
-          "a": "Twitter videos can be downloaded in their original uploaded quality, typically up to 1080p HD depending on the source."
+          "q": "Qual qualidade de vídeo está disponível?",
+          "a": "Os vídeos do Twitter podem ser baixados em sua qualidade original de upload, tipicamente até 1080p HD dependendo da fonte."
         },
         {
-          "q": "Can I download multiple videos from a thread?",
-          "a": "Yes, with a Pro subscription you can batch download videos from tweet threads and entire timelines efficiently."
+          "q": "Posso baixar vários vídeos de uma thread?",
+          "a": "Sim, com uma assinatura Pro você pode baixar em lote vídeos de threads de tweets e linhas do tempo inteiras de forma eficiente."
         }
       ],
-      "metaTitle": "Twitter Video Downloader — Download X Videos & GIFs | DownForge",
-      "metaDescription": "Free Twitter/X video downloader. Download videos, GIFs, and media from any tweet in HD. Extract audio as MP3. No sign-up required.",
+      "metaTitle": "Downloader de Vídeos do Twitter — Baixe Vídeos & GIFs do X | DownForge",
+      "metaDescription": "Downloader gratuito de vídeos do Twitter/X. Baixe vídeos, GIFs e mídia de qualquer tweet em HD. Extraia áudio como MP3. Sem cadastro.",
       "keywords": [
-        "twitter video downloader",
-        "x video downloader",
-        "download twitter videos",
-        "twitter video saver",
-        "twitter gif download",
-        "x video saver",
-        "download from tweet",
+        "downloader de vídeos do twitter",
+        "downloader de vídeos do x",
+        "baixar vídeos do twitter",
+        "salvador de vídeos do twitter",
+        "download de gif do twitter",
+        "salvador de vídeos do x",
+        "baixar de tweet",
         "twitter mp3",
-        "tweet media downloader",
-        "twitter hd video"
+        "downloader de mídia de tweet",
+        "twitter vídeo hd"
       ]
     },
     "vimeo": {
-      "badge": "Vimeo Downloader",
-      "heading": "Download Vimeo Videos",
-      "headingAccent": "in 4K",
-      "subheading": "Download Vimeo videos in up to 4K Ultra HD. Save professional content, extract audio as FLAC, grab HD thumbnails, or get AI transcripts.",
-      "placeholder": "Paste your Vimeo video URL here...",
+      "badge": "Downloader do Vimeo",
+      "heading": "Baixe Vídeos do Vimeo",
+      "headingAccent": "em 4K",
+      "subheading": "Baixe vídeos do Vimeo em até 4K Ultra HD. Salve conteúdo profissional, extraia áudio como FLAC, capture miniaturas HD ou obtenha transcrições de IA.",
+      "placeholder": "Cole o URL do seu vídeo do Vimeo aqui...",
       "features": [
         {
-          "title": "Download in 4K Ultra HD",
-          "desc": "Vimeo is known for high-quality video. Download in up to 4K resolution for professional editing and archival purposes."
+          "title": "Baixe em 4K Ultra HD",
+          "desc": "O Vimeo é conhecido por vídeos de alta qualidade. Baixe em resolução de até 4K para edição profissional e fins de arquivamento."
         },
         {
-          "title": "Lossless Audio Extraction",
-          "desc": "Extract pristine audio from Vimeo videos. Get FLAC lossless or WAV uncompressed for professional audio production."
+          "title": "Extração de Áudio Lossless",
+          "desc": "Extraia áudio impecável de vídeos do Vimeo. Obtenha FLAC lossless ou WAV não compactado para produção de áudio profissional."
         },
         {
-          "title": "HD Thumbnail Downloads",
-          "desc": "Save Vimeo video thumbnails in full resolution. Perfect for portfolio references and project covers."
+          "title": "Downloads de Miniaturas HD",
+          "desc": "Salve miniaturas de vídeos do Vimeo em resolução total. Perfeito para referências de portfólio e capas de projetos."
         },
         {
-          "title": "Supports All Vimeo Content",
-          "desc": "Works with public Vimeo videos, Staff Picks, and embedded content. Paste any Vimeo URL and download instantly."
+          "title": "Suporta Todo Conteúdo do Vimeo",
+          "desc": "Funciona com vídeos públicos do Vimeo, Staff Picks e conteúdo incorporado. Cole qualquer URL do Vimeo e baixe instantaneamente."
         },
         {
-          "title": "AI Transcripts",
-          "desc": "Generate accurate transcripts with timestamps from any Vimeo video. Download as SRT, VTT, TXT, or JSON subtitles."
+          "title": "Transcrições de IA",
+          "desc": "Gere transcrições precisas com timestamps de qualquer vídeo do Vimeo. Baixe como legendas SRT, VTT, TXT ou JSON."
         }
       ],
       "faqs": [
         {
-          "q": "Can I download Vimeo staff picks?",
-          "a": "Yes, Vimeo Staff Picks and other publicly available videos can be downloaded if they are not password-protected by the uploader."
+          "q": "Posso baixar os Staff Picks do Vimeo?",
+          "a": "Sim, os Staff Picks do Vimeo e outros vídeos publicamente disponíveis podem ser baixados se não estiverem protegidos por senha pelo uploader."
         },
         {
-          "q": "What video qualities are available?",
-          "a": "Vimeo supports up to 8K resolution, but most content is available in 4K, 1080p, and 720p. The available qualities depend on the uploader's settings."
+          "q": "Quais qualidades de vídeo estão disponíveis?",
+          "a": "O Vimeo suporta resolução de até 8K, mas a maioria do conteúdo está disponível em 4K, 1080p e 720p. As qualidades disponíveis dependem das configurações do uploader."
         },
         {
-          "q": "Does it work with password-protected Vimeo videos?",
-          "a": "No, password-protected and private Vimeo videos cannot be accessed through our service due to Vimeo's security restrictions."
+          "q": "Funciona com vídeos do Vimeo protegidos por senha?",
+          "a": "Não, vídeos do Vimeo protegidos por senha e privados não podem ser acessados através do nosso serviço devido às restrições de segurança do Vimeo."
         },
         {
-          "q": "What audio formats can I extract?",
-          "a": "Vimeo audio can be extracted as MP3 up to 320kbps, AAC, FLAC lossless, WAV uncompressed, and OGG formats."
+          "q": "Quais formatos de áudio posso extrair?",
+          "a": "O áudio do Vimeo pode ser extraído como MP3 até 320kbps, AAC, FLAC lossless, WAV não compactado e formatos OGG."
         },
         {
-          "q": "Is Vimeo downloading legal for professional use?",
-          "a": "Always respect the creator's license and copyright. Many Vimeo creators allow downloading for personal or portfolio use."
+          "q": "Baixar do Vimeo é legal para uso profissional?",
+          "a": "Sempre respeite a licença e os direitos autorais do criador. Muitos criadores do Vimeo permitem o download para uso pessoal ou de portfólio."
         }
       ],
-      "metaTitle": "Vimeo Video Downloader — Download Vimeo Videos in 4K | DownForge",
-      "metaDescription": "Free Vimeo video downloader. Download Vimeo videos in 4K, 1080p, 720p. Extract audio as FLAC, MP3, AAC. Get HD thumbnails. No sign-up required.",
+      "metaTitle": "Downloader de Vídeos do Vimeo — Baixe Vídeos do Vimeo em 4K | DownForge",
+      "metaDescription": "Downloader gratuito de vídeos do Vimeo. Baixe vídeos do Vimeo em 4K, 1080p, 720p. Extraia áudio como FLAC, MP3, AAC. Obtenha miniaturas HD. Sem cadastro.",
       "keywords": [
-        "vimeo video downloader",
-        "download vimeo videos",
-        "vimeo to mp4",
-        "vimeo 4k download",
-        "vimeo video saver",
-        "vimeo to mp3",
-        "vimeo hd downloader",
-        "save vimeo video",
-        "vimeo download free",
-        "vimeo video extractor"
+        "downloader de vídeos do vimeo",
+        "baixar vídeos do vimeo",
+        "vimeo para mp4",
+        "download 4k vimeo",
+        "salvador de vídeos do vimeo",
+        "vimeo para mp3",
+        "downloader hd vimeo",
+        "salvar vídeo do vimeo",
+        "download vimeo grátis",
+        "extrator de vídeo do vimeo"
       ]
     },
     "dailymotion": {
-      "badge": "Dailymotion Downloader",
-      "heading": "Download Dailymotion Videos",
-      "headingAccent": "in HD",
-      "subheading": "Save Dailymotion videos, news clips, and user content. Download in HD, extract audio, grab thumbnails, or get AI transcripts — quick and free.",
-      "placeholder": "Paste your Dailymotion URL here...",
+      "badge": "Downloader do Dailymotion",
+      "heading": "Baixe Vídeos do Dailymotion",
+      "headingAccent": "em HD",
+      "subheading": "Salve vídeos do Dailymotion, clipes de notícias e conteúdo de usuários. Baixe em HD, extraia áudio, capture miniaturas ou obtenha transcrições de IA — rápido e grátis.",
+      "placeholder": "Cole seu URL do Dailymotion aqui...",
       "features": [
         {
-          "title": "HD Video Downloads",
-          "desc": "Download Dailymotion videos in up to 1080p Full HD. Perfect for offline viewing of news, sports, and entertainment content."
+          "title": "Downloads de Vídeo HD",
+          "desc": "Baixe vídeos do Dailymotion em até 1080p Full HD. Perfeito para visualização offline de notícias, esportes e conteúdo de entretenimento."
         },
         {
-          "title": "Audio Extraction",
-          "desc": "Convert Dailymotion videos to MP3 or AAC audio. Great for saving music videos, interviews, and podcast-style content."
+          "title": "Extração de Áudio",
+          "desc": "Converta vídeos do Dailymotion para MP3 ou AAC. Ótimo para salvar videoclipes, entrevistas e conteúdo estilo podcast."
         },
         {
-          "title": "Save Video Thumbnails",
-          "desc": "Download Dailymotion thumbnails in high quality. Available in multiple resolutions and formats including JPG and PNG."
+          "title": "Salve Miniaturas de Vídeo",
+          "desc": "Baixe miniaturas do Dailymotion em alta qualidade. Disponíveis em múltiplas resoluções e formatos, incluindo JPG e PNG."
         },
         {
-          "title": "Works Worldwide",
-          "desc": "Access Dailymotion content from any region. Supports both regular Dailymotion and short url (dai.ly) links."
+          "title": "Funciona Mundialmente",
+          "desc": "Acesse conteúdo do Dailymotion de qualquer região. Suporta links regulares do Dailymotion e links curtos (dai.ly)."
         },
         {
-          "title": "AI Transcripts",
-          "desc": "Generate accurate transcripts with timestamps from any Dailymotion video. Download as SRT, VTT, TXT, or JSON subtitles."
+          "title": "Transcrições de IA",
+          "desc": "Gere transcrições precisas com timestamps de qualquer vídeo do Dailymotion. Baixe como legendas SRT, VTT, TXT ou JSON."
         }
       ],
       "faqs": [
         {
-          "q": "Can I download Dailymotion news videos?",
-          "a": "Yes, Dailymotion news and user-uploaded content can be downloaded as long as they are publicly accessible on the platform."
+          "q": "Posso baixar vídeos de notícias do Dailymotion?",
+          "a": "Sim, notícias do Dailymotion e conteúdo enviado por usuários podem ser baixados desde que sejam publicamente acessíveis na plataforma."
         },
         {
-          "q": "What video quality is available?",
-          "a": "Dailymotion videos are available in various qualities including 1080p, 720p, 480p, and 360p depending on the original upload."
+          "q": "Qual qualidade de vídeo está disponível?",
+          "a": "Os vídeos do Dailymotion estão disponíveis em várias qualidades, incluindo 1080p, 720p, 480p e 360p, dependendo do upload original."
         },
         {
-          "q": "Does it support Dailymotion live streams?",
-          "a": "Currently, we support downloading on-demand Dailymotion videos. Live streams need to be completed and available as recordings."
+          "q": "Suporta transmissões ao vivo do Dailymotion?",
+          "a": "Atualmente, suportamos o download de vídeos sob demanda do Dailymotion. As transmissões ao vivo precisam ser concluídas e estar disponíveis como gravações."
         },
         {
-          "q": "Can I download multiple videos at once?",
-          "a": "Pro and Team subscribers can batch download multiple Dailymotion videos simultaneously with priority processing."
+          "q": "Posso baixar vários vídeos de uma vez?",
+          "a": "Assinantes Pro e Team podem baixar em lote vários vídeos do Dailymotion simultaneamente com processamento prioritário."
         },
         {
-          "q": "What's the maximum video length?",
-          "a": "Free accounts can download videos up to 30 minutes. Pro accounts have no length limit for individual videos."
+          "q": "Qual é a duração máxima do vídeo?",
+          "a": "Contas gratuitas podem baixar vídeos de até 30 minutos. Contas Pro não têm limite de duração para vídeos individuais."
         }
       ],
-      "metaTitle": "Dailymotion Video Downloader — Download Dailymotion Videos | DownForge",
-      "metaDescription": "Free Dailymotion video downloader. Download Dailymotion videos in HD. Extract audio as MP3, AAC. Save thumbnails. No sign-up required.",
+      "metaTitle": "Downloader de Vídeos do Dailymotion — Baixe Vídeos do Dailymotion | DownForge",
+      "metaDescription": "Downloader gratuito de vídeos do Dailymotion. Baixe vídeos do Dailymotion em HD. Extraia áudio como MP3, AAC. Salve miniaturas. Sem cadastro.",
       "keywords": [
-        "dailymotion video downloader",
-        "download dailymotion videos",
-        "dailymotion to mp4",
-        "dailymotion video saver",
-        "dm downloader",
-        "dailymotion to mp3",
-        "save dailymotion video",
-        "dailymotion hd downloader",
-        "dailymotion download free"
+        "downloader de vídeos do dailymotion",
+        "baixar vídeos do dailymotion",
+        "dailymotion para mp4",
+        "salvador de vídeos do dailymotion",
+        "downloader dm",
+        "dailymotion para mp3",
+        "salvar vídeo do dailymotion",
+        "downloader hd dailymotion",
+        "dailymotion download grátis"
       ]
     },
     "twitch": {
-      "badge": "Twitch Downloader",
-      "heading": "Download Twitch Clips",
+      "badge": "Downloader do Twitch",
+      "heading": "Baixe Clipes do Twitch",
       "headingAccent": "& VODs",
-      "subheading": "Save Twitch clips, VODs, and highlights. Download in HD, extract audio for podcasts, grab thumbnails, or get AI transcripts — no login required.",
-      "placeholder": "Paste your Twitch URL here...",
+      "subheading": "Salve clipes, VODs e melhores momentos do Twitch. Baixe em HD, extraia áudio para podcasts, capture miniaturas ou obtenha transcrições de IA — sem necessidade de login.",
+      "placeholder": "Cole seu URL do Twitch aqui...",
       "features": [
         {
-          "title": "Save Clips & VODs",
-          "desc": "Download Twitch clips and past broadcasts (VODs) in original quality. Archive your favorite streams and highlights."
+          "title": "Salve Clipes & VODs",
+          "desc": "Baixe clipes do Twitch e transmissões passadas (VODs) na qualidade original. Arquive seus streams e melhores momentos favoritos."
         },
         {
-          "title": "Extract Stream Audio",
-          "desc": "Convert Twitch VODs to MP3 or AAC audio. Perfect for listening to streams as podcasts during commutes."
+          "title": "Extraia Áudio de Streams",
+          "desc": "Converta VODs do Twitch para MP3 ou AAC. Perfeito para ouvir streams como podcasts durante deslocamentos."
         },
         {
-          "title": "Download Thumbnails",
-          "desc": "Save Twitch clip and stream thumbnails in high resolution. Great for social media sharing and stream archiving."
+          "title": "Baixe Miniaturas",
+          "desc": "Salve miniaturas de clipes e streams do Twitch em alta resolução. Ótimo para compartilhamento em redes sociais e arquivamento de streams."
         },
         {
-          "title": "Supports All Twitch Content",
-          "desc": "Works with Twitch clips, VODs, highlights, and uploaded content. Paste any public Twitch URL and download instantly."
+          "title": "Suporta Todo Conteúdo do Twitch",
+          "desc": "Funciona com clipes, VODs, melhores momentos e conteúdo enviado do Twitch. Cole qualquer URL público do Twitch e baixe instantaneamente."
         },
         {
-          "title": "AI Transcripts",
-          "desc": "Generate accurate transcripts with timestamps from any Twitch VOD or clip. Download as SRT, VTT, TXT, or JSON subtitles."
+          "title": "Transcrições de IA",
+          "desc": "Gere transcrições precisas com timestamps de qualquer VOD ou clipe do Twitch. Baixe como legendas SRT, VTT, TXT ou JSON."
         }
       ],
       "faqs": [
         {
-          "q": "Can I download live Twitch streams?",
-          "a": "Currently, we support downloading completed VODs and clips. Live streams must finish before they can be processed for download."
+          "q": "Posso baixar streams ao vivo do Twitch?",
+          "a": "Atualmente, suportamos o download de VODs e clipes concluídos. As transmissões ao vivo precisam terminar antes de serem processadas para download."
         },
         {
-          "q": "How long do Twitch VODs stay available?",
-          "a": "Twitch stores VODs for 7-60 days depending on your subscription tier. Download them before they expire to keep them permanently."
+          "q": "Por quanto tempo os VODs do Twitch ficam disponíveis?",
+          "a": "O Twitch armazena VODs por 7 a 60 dias, dependendo do seu nível de assinatura. Baixe-os antes que expirem para mantê-los permanentemente."
         },
         {
-          "q": "What quality are Twitch downloads?",
-          "a": "Twitch clips and VODs can be downloaded in their source quality, typically up to 1080p60 (Full HD at 60fps)."
+          "q": "Qual é a qualidade dos downloads do Twitch?",
+          "a": "Clipes e VODs do Twitch podem ser baixados em sua qualidade de origem, tipicamente até 1080p60 (Full HD a 60fps)."
         },
         {
-          "q": "Does it work with subscriber-only VODs?",
-          "a": "Subscriber-only VODs require Twitch authentication and cannot be accessed through our service due to access restrictions."
+          "q": "Funciona com VODs exclusivos para assinantes?",
+          "a": "VODs exclusivos para assinantes exigem autenticação do Twitch e não podem ser acessados através do nosso serviço devido a restrições de acesso."
         },
         {
-          "q": "Can I extract just the audio from streams?",
-          "a": "Yes, use the Audio extraction mode to convert Twitch VODs to MP3 or AAC. Perfect for creating stream podcasts or saving music sets."
+          "q": "Posso extrair apenas o áudio dos streams?",
+          "a": "Sim, use o modo de extração de Áudio para converter VODs do Twitch para MP3 ou AAC. Perfeito para criar podcasts de streams ou salvar sets musicais."
         }
       ],
-      "metaTitle": "Twitch Video Downloader — Download Twitch Clips & VODs | DownForge",
-      "metaDescription": "Free Twitch downloader. Download Twitch clips, VODs, and highlights in HD. Extract audio as MP3. Save thumbnails. No sign-up required.",
+      "metaTitle": "Downloader de Vídeos do Twitch — Baixe Clipes & VODs do Twitch | DownForge",
+      "metaDescription": "Downloader gratuito do Twitch. Baixe clipes, VODs e melhores momentos do Twitch em HD. Extraia áudio como MP3. Salve miniaturas. Sem cadastro.",
       "keywords": [
-        "twitch video downloader",
-        "download twitch clips",
-        "twitch vod downloader",
-        "twitch clip saver",
-        "twitch to mp4",
-        "download twitch streams",
-        "twitch vod to mp3",
-        "save twitch clips",
-        "twitch downloader free",
-        "twitch highlight downloader"
+        "downloader de vídeos do twitch",
+        "baixar clipes do twitch",
+        "downloader de vod do twitch",
+        "salvador de clipes do twitch",
+        "twitch para mp4",
+        "baixar streams do twitch",
+        "vod do twitch para mp3",
+        "salvar clipes do twitch",
+        "downloader twitch grátis",
+        "downloader de melhores momentos do twitch"
       ]
     },
     "reddit": {
-      "badge": "Reddit Downloader",
-      "heading": "Download Reddit Videos",
+      "badge": "Downloader do Reddit",
+      "heading": "Baixe Vídeos do Reddit",
       "headingAccent": "& GIFs",
-      "subheading": "Save videos, GIFs, and media from any Reddit post. Download in HD quality, extract audio, grab thumbnails, or get AI transcripts — quick and free.",
-      "placeholder": "Paste your Reddit post URL here...",
+      "subheading": "Salve vídeos, GIFs e mídia de qualquer post do Reddit. Baixe em qualidade HD, extraia áudio, capture miniaturas ou obtenha transcrições de IA — rápido e grátis.",
+      "placeholder": "Cole o URL do seu post do Reddit aqui...",
       "features": [
         {
-          "title": "Save Reddit Videos",
-          "desc": "Download videos shared on Reddit from any subreddit. Perfect for saving funny clips, tutorials, and community highlights."
+          "title": "Salve Vídeos do Reddit",
+          "desc": "Baixe vídeos compartilhados no Reddit de qualquer subreddit. Perfeito para salvar clipes engraçados, tutoriais e destaques da comunidade."
         },
         {
-          "title": "Download Reddit GIFs",
-          "desc": "Reddit GIFs can be saved as MP4 video files. Download animated content for sharing and editing outside of Reddit."
+          "title": "Baixe GIFs do Reddit",
+          "desc": "GIFs do Reddit podem ser salvos como arquivos de vídeo MP4. Baixe conteúdo animado para compartilhar e editar fora do Reddit."
         },
         {
-          "title": "Extract Audio from Posts",
-          "desc": "Convert Reddit video posts to MP3 or FLAC audio. Great for saving audio from music shares, podcasts, and interviews."
+          "title": "Extraia Áudio de Posts",
+          "desc": "Converta posts de vídeo do Reddit para MP3 ou FLAC. Ótimo para salvar áudio de compartilhamentos musicais, podcasts e entrevistas."
         },
         {
-          "title": "Save Post Thumbnails",
-          "desc": "Download Reddit post thumbnails in high resolution. Available in JPG, PNG, and WebP formats."
+          "title": "Salve Miniaturas de Posts",
+          "desc": "Baixe miniaturas de posts do Reddit em alta resolução. Disponíveis nos formatos JPG, PNG e WebP."
         },
         {
-          "title": "AI Transcripts",
-          "desc": "Generate accurate transcripts with timestamps from any Reddit video. Download as SRT, VTT, TXT, or JSON subtitles."
+          "title": "Transcrições de IA",
+          "desc": "Gere transcrições precisas com timestamps de qualquer vídeo do Reddit. Baixe como legendas SRT, VTT, TXT ou JSON."
         }
       ],
       "faqs": [
         {
-          "q": "Can I download videos from any subreddit?",
-          "a": "Yes, videos from any public subreddit can be downloaded as long as they are publicly accessible Reddit-hosted videos."
+          "q": "Posso baixar vídeos de qualquer subreddit?",
+          "a": "Sim, vídeos de qualquer subreddit público podem ser baixados desde que sejam vídeos hospedados no Reddit e publicamente acessíveis."
         },
         {
-          "q": "Does it work with Reddit-hosted or external videos?",
-          "a": "We support both Reddit-hosted (v.redd.it) videos and many external sources shared on Reddit, including Gfycat, Imgur, and Streamable."
+          "q": "Funciona com vídeos hospedados no Reddit ou externos?",
+          "a": "Suportamos tanto vídeos hospedados no Reddit (v.redd.it) quanto muitas fontes externas compartilhadas no Reddit, incluindo Gfycat, Imgur e Streamable."
         },
         {
-          "q": "Can I download from NSFW subreddits?",
-          "a": "NSFW content is treated according to the same access rules. If the video is publicly viewable, it can be downloaded."
+          "q": "Posso baixar de subreddits NSFW?",
+          "a": "Conteúdo NSFW é tratado de acordo com as mesmas regras de acesso. Se o vídeo for publicamente visível, ele pode ser baixado."
         },
         {
-          "q": "What about Reddit live streams (RPAN)?",
-          "a": "RPAN broadcasts that have ended and are available as recordings can be downloaded through our service."
+          "q": "E sobre transmissões ao vivo do Reddit (RPAN)?",
+          "a": "Transmissões RPAN que terminaram e estão disponíveis como gravações podem ser baixadas através do nosso serviço."
         },
         {
-          "q": "What video format is used?",
-          "a": "Reddit videos are typically available in MP4 format. You can choose from multiple quality levels up to 1080p."
+          "q": "Qual formato de vídeo é usado?",
+          "a": "Os vídeos do Reddit estão tipicamente disponíveis no formato MP4. Você pode escolher entre vários níveis de qualidade até 1080p."
         }
       ],
-      "metaTitle": "Reddit Video Downloader — Download Reddit Videos & GIFs | DownForge",
-      "metaDescription": "Free Reddit video downloader. Download videos, GIFs, and media from any Reddit post in HD. Extract audio as MP3. No sign-up required.",
+      "metaTitle": "Downloader de Vídeos do Reddit — Baixe Vídeos & GIFs do Reddit | DownForge",
+      "metaDescription": "Downloader gratuito de vídeos do Reddit. Baixe vídeos, GIFs e mídia de qualquer post do Reddit em HD. Extraia áudio como MP3. Sem cadastro.",
       "keywords": [
-        "reddit video downloader",
-        "download reddit videos",
-        "reddit video saver",
-        "reddit to mp4",
-        "reddit gif downloader",
-        "reddit downloader",
-        "save reddit video",
-        "v.redd.it downloader",
+        "downloader de vídeos do reddit",
+        "baixar vídeos do reddit",
+        "salvador de vídeos do reddit",
+        "reddit para mp4",
+        "downloader de gifs do reddit",
+        "downloader reddit",
+        "salvar vídeo do reddit",
+        "downloader v.redd.it",
         "reddit mp3",
-        "reddit media downloader"
+        "downloader de mídia do reddit"
       ]
     },
     "pinterest": {
-      "badge": "Pinterest Downloader",
-      "heading": "Download Pinterest Videos",
+      "badge": "Downloader do Pinterest",
+      "heading": "Baixe Vídeos do Pinterest",
       "headingAccent": "& Pins",
-      "subheading": "Save Pinterest videos, Idea Pins, and video pins. Download in HD, extract audio, save thumbnails, or get AI transcripts — instantly, no account required.",
-      "placeholder": "Paste your Pinterest URL here...",
+      "subheading": "Salve vídeos do Pinterest, Idea Pins e pins de vídeo. Baixe em HD, extraia áudio, salve miniaturas ou obtenha transcrições de IA — instantaneamente, sem necessidade de conta.",
+      "placeholder": "Cole seu URL do Pinterest aqui...",
       "features": [
         {
-          "title": "Save Video Pins",
-          "desc": "Download Pinterest video pins in their original quality. Perfect for saving DIY tutorials, recipe videos, and inspiration content."
+          "title": "Salve Video Pins",
+          "desc": "Baixe video pins do Pinterest em sua qualidade original. Perfeito para salvar tutoriais de DIY, vídeos de receitas e conteúdo de inspiração."
         },
         {
-          "title": "Extract Pin Audio",
-          "desc": "Convert Pinterest video pins to MP3 or AAC audio. Great for saving audio from music pins and instructional content."
+          "title": "Extraia Áudio de Pins",
+          "desc": "Converta video pins do Pinterest para MP3 ou AAC. Ótimo para salvar áudio de pins musicais e conteúdo instrutivo."
         },
         {
-          "title": "Download Pin Images",
-          "desc": "Save high-resolution images from Pinterest pins. Get the full quality version without compression or cropping."
+          "title": "Baixe Imagens de Pins",
+          "desc": "Salve imagens em alta resolução de pins do Pinterest. Obtenha a versão de qualidade total sem compressão ou corte."
         },
         {
-          "title": "Supports All Pin Types",
-          "desc": "Works with video pins, Idea Pins, and standard image pins. Paste any public Pinterest URL and download instantly."
+          "title": "Suporta Todos os Tipos de Pin",
+          "desc": "Funciona com video pins, Idea Pins e pins de imagem padrão. Cole qualquer URL público do Pinterest e baixe instantaneamente."
         },
         {
-          "title": "AI Transcripts",
-          "desc": "Generate accurate transcripts with timestamps from any Pinterest video pin. Download as SRT, VTT, TXT, or JSON subtitles."
+          "title": "Transcrições de IA",
+          "desc": "Gere transcrições precisas com timestamps de qualquer video pin do Pinterest. Baixe como legendas SRT, VTT, TXT ou JSON."
         }
       ],
       "faqs": [
         {
-          "q": "Can I download Idea Pins?",
-          "a": "Yes, Pinterest Idea Pins (formerly Story Pins) are fully supported. Download the video or extract audio from multi-page Idea Pins."
+          "q": "Posso baixar Idea Pins?",
+          "a": "Sim, os Idea Pins do Pinterest (antigos Story Pins) são totalmente suportados. Baixe o vídeo ou extraia áudio de Idea Pins com múltiplas páginas."
         },
         {
-          "q": "What video quality is available?",
-          "a": "Pinterest video pins can be downloaded in their original quality, typically HD (720p or 1080p) depending on the upload."
+          "q": "Qual qualidade de vídeo está disponível?",
+          "a": "Os video pins do Pinterest podem ser baixados em sua qualidade original, tipicamente HD (720p ou 1080p) dependendo do upload."
         },
         {
-          "q": "Does it work with secret boards?",
-          "a": "Only publicly accessible Pinterest content can be downloaded. Secret board content is not accessible through our service."
+          "q": "Funciona com quadros secretos?",
+          "a": "Apenas conteúdo do Pinterest publicamente acessível pode ser baixado. Conteúdo de quadros secretos não é acessível através do nosso serviço."
         },
         {
-          "q": "Can I download just the image from a pin?",
-          "a": "Yes, for image pins you can save the full-resolution image directly. For video pins, use the Thumbnail mode to get the cover image."
+          "q": "Posso baixar apenas a imagem de um pin?",
+          "a": "Sim, para pins de imagem você pode salvar a imagem em resolução total diretamente. Para video pins, use o modo Miniatura para obter a imagem de capa."
         },
         {
-          "q": "Is there a limit on pin downloads?",
-          "a": "Free accounts get 10 downloads per day. Pro and Team plans offer unlimited downloads with batch processing."
+          "q": "Há um limite de downloads de pins?",
+          "a": "Contas gratuitas recebem 10 downloads por dia. Planos Pro e Team oferecem downloads ilimitados com processamento em lote."
         }
       ],
-      "metaTitle": "Pinterest Video Downloader — Download Pinterest Videos & Pins | DownForge",
-      "metaDescription": "Free Pinterest video downloader. Download Pinterest videos, Idea Pins, and images in HD. Extract audio as MP3. Save thumbnails. No sign-up required.",
+      "metaTitle": "Downloader de Vídeos do Pinterest — Baixe Vídeos & Pins do Pinterest | DownForge",
+      "metaDescription": "Downloader gratuito de vídeos do Pinterest. Baixe vídeos do Pinterest, Idea Pins e imagens em HD. Extraia áudio como MP3. Salve miniaturas. Sem cadastro.",
       "keywords": [
-        "pinterest video downloader",
-        "download pinterest videos",
-        "pinterest pin downloader",
-        "pinterest video saver",
-        "pinterest to mp4",
-        "idea pin downloader",
-        "save pinterest video",
-        "pinterest image downloader",
-        "pinterest hd downloader",
+        "downloader de vídeos do pinterest",
+        "baixar vídeos do pinterest",
+        "downloader de pins do pinterest",
+        "salvador de vídeos do pinterest",
+        "pinterest para mp4",
+        "downloader de idea pins",
+        "salvar vídeo do pinterest",
+        "downloader de imagens do pinterest",
+        "downloader hd pinterest",
         "pinterest mp3"
       ]
     },
     "linkedin": {
-      "badge": "LinkedIn Downloader",
-      "heading": "Download LinkedIn Videos",
+      "badge": "Downloader do LinkedIn",
+      "heading": "Baixe Vídeos do LinkedIn",
       "headingAccent": "& Learning",
-      "subheading": "Save LinkedIn videos, company content, and Learning courses. Download in HD, extract audio, grab thumbnails, or get AI transcripts — fast and free.",
-      "placeholder": "Paste your LinkedIn URL here...",
+      "subheading": "Salve vídeos do LinkedIn, conteúdo de empresas e cursos do Learning. Baixe em HD, extraia áudio, capture miniaturas ou obtenha transcrições de IA — rápido e grátis.",
+      "placeholder": "Cole seu URL do LinkedIn aqui...",
       "features": [
         {
-          "title": "Save Professional Videos",
-          "desc": "Download videos from LinkedIn feeds, company pages, and event streams. Perfect for offline reference and content analysis."
+          "title": "Salve Vídeos Profissionais",
+          "desc": "Baixe vídeos de feeds do LinkedIn, páginas de empresas e streams de eventos. Perfeito para referência offline e análise de conteúdo."
         },
         {
-          "title": "Extract Course Audio",
-          "desc": "Convert LinkedIn Learning videos to MP3 or AAC audio. Great for learning on the go by listening to course content."
+          "title": "Extraia Áudio de Cursos",
+          "desc": "Converta vídeos do LinkedIn Learning para MP3 ou AAC. Ótimo para aprender em qualquer lugar ouvindo o conteúdo dos cursos."
         },
         {
-          "title": "Save Post Thumbnails",
-          "desc": "Download LinkedIn video thumbnails in high resolution. Useful for archiving and portfolio documentation."
+          "title": "Salve Miniaturas de Posts",
+          "desc": "Baixe miniaturas de vídeos do LinkedIn em alta resolução. Útil para arquivamento e documentação de portfólio."
         },
         {
-          "title": "Public Content Access",
-          "desc": "Works with publicly shared LinkedIn videos and content visible without login. Privacy-restricted content requires authentication."
+          "title": "Acesso a Conteúdo Público",
+          "desc": "Funciona com vídeos do LinkedIn compartilhados publicamente e conteúdo visível sem login. Conteúdo com restrição de privacidade requer autenticação."
         },
         {
-          "title": "AI Transcripts",
-          "desc": "Generate accurate transcripts with timestamps from any LinkedIn video. Download as SRT, VTT, TXT, or JSON subtitles."
+          "title": "Transcrições de IA",
+          "desc": "Gere transcrições precisas com timestamps de qualquer vídeo do LinkedIn. Baixe como legendas SRT, VTT, TXT ou JSON."
         }
       ],
       "faqs": [
         {
-          "q": "Can I download LinkedIn Learning courses?",
-          "a": "LinkedIn Learning videos can be downloaded for personal offline study as long as they are publicly accessible through the platform."
+          "q": "Posso baixar cursos do LinkedIn Learning?",
+          "a": "Os vídeos do LinkedIn Learning podem ser baixados para estudo offline pessoal desde que sejam publicamente acessíveis através da plataforma."
         },
         {
-          "q": "What about private or connections-only posts?",
-          "a": "Content restricted to connections or specific audiences cannot be accessed through our downloader due to LinkedIn's privacy settings."
+          "q": "E sobre posts privados ou apenas para conexões?",
+          "a": "Conteúdo restrito a conexões ou públicos específicos não pode ser acessado através do nosso downloader devido às configurações de privacidade do LinkedIn."
         },
         {
-          "q": "What video quality is available?",
-          "a": "LinkedIn videos are typically available in standard HD quality (720p) depending on the uploader's original file."
+          "q": "Qual qualidade de vídeo está disponível?",
+          "a": "Os vídeos do LinkedIn estão tipicamente disponíveis em qualidade HD padrão (720p) dependendo do arquivo original do uploader."
         },
         {
-          "q": "Can I download videos from company pages?",
-          "a": "Yes, publicly shared videos on LinkedIn company pages can be downloaded. Paste the company post URL to get started."
+          "q": "Posso baixar vídeos de páginas de empresas?",
+          "a": "Sim, vídeos compartilhados publicamente em páginas de empresas do LinkedIn podem ser baixados. Cole o URL do post da empresa para começar."
         },
         {
-          "q": "Does it work with LinkedIn Events and Live?",
-          "a": "LinkedIn Events recordings that are publicly available can be downloaded. Completed live streams are supported when accessible."
+          "q": "Funciona com Eventos e Lives do LinkedIn?",
+          "a": "Gravações de Eventos do LinkedIn que estão publicamente disponíveis podem ser baixadas. Transmissões ao vivo concluídas são suportadas quando acessíveis."
         }
       ],
-      "metaTitle": "LinkedIn Video Downloader — Download LinkedIn Videos | DownForge",
-      "metaDescription": "Free LinkedIn video downloader. Download LinkedIn videos, company content, and Learning videos in HD. Extract audio as MP3. No sign-up required.",
+      "metaTitle": "Downloader de Vídeos do LinkedIn — Baixe Vídeos do LinkedIn | DownForge",
+      "metaDescription": "Downloader gratuito de vídeos do LinkedIn. Baixe vídeos do LinkedIn, conteúdo de empresas e vídeos do Learning em HD. Extraia áudio como MP3. Sem cadastro.",
       "keywords": [
-        "linkedin video downloader",
-        "download linkedin videos",
-        "linkedin video saver",
-        "linkedin to mp4",
-        "linkedin learning downloader",
-        "linkedin post video download",
-        "save linkedin video",
+        "downloader de vídeos do linkedin",
+        "baixar vídeos do linkedin",
+        "salvador de vídeos do linkedin",
+        "linkedin para mp4",
+        "downloader do linkedin learning",
+        "download de vídeo de post do linkedin",
+        "salvar vídeo do linkedin",
         "linkedin mp3",
-        "linkedin hd video downloader"
+        "downloader de vídeo hd do linkedin"
       ]
     },
     "snapchat": {
-      "badge": "Snapchat Downloader",
-      "heading": "Download Snapchat Videos",
+      "badge": "Downloader do Snapchat",
+      "heading": "Baixe Vídeos do Snapchat",
       "headingAccent": "& Spotlight",
-      "subheading": "Save Snapchat Spotlight videos and public stories. Download in original quality, extract audio, grab thumbnails, or get AI transcripts — fast and free.",
-      "placeholder": "Paste your Snapchat URL here...",
+      "subheading": "Salve vídeos do Snapchat Spotlight e stories públicos. Baixe na qualidade original, extraia áudio, capture miniaturas ou obtenha transcrições de IA — rápido e grátis.",
+      "placeholder": "Cole seu URL do Snapchat aqui...",
       "features": [
         {
-          "title": "Save Spotlight Videos",
-          "desc": "Download Snapchat Spotlight videos in original quality. Perfect for archiving viral content and creative highlights."
+          "title": "Salve Vídeos do Spotlight",
+          "desc": "Baixe vídeos do Snapchat Spotlight na qualidade original. Perfeito para arquivar conteúdo viral e destaques criativos."
         },
         {
-          "title": "Extract Spotlight Audio",
-          "desc": "Convert Snapchat videos to MP3 or AAC audio. Great for saving soundtracks and audio from popular Spotlight posts."
+          "title": "Extraia Áudio do Spotlight",
+          "desc": "Converta vídeos do Snapchat para MP3 ou AAC. Ótimo para salvar trilhas sonoras e áudio de posts populares do Spotlight."
         },
         {
-          "title": "Save Video Thumbnails",
-          "desc": "Download Snapchat video thumbnails in high resolution. Available in JPG and PNG formats."
+          "title": "Salve Miniaturas de Vídeo",
+          "desc": "Baixe miniaturas de vídeos do Snapchat em alta resolução. Disponíveis nos formatos JPG e PNG."
         },
         {
-          "title": "Supports Public Content",
-          "desc": "Works with publicly shared Snapchat Spotlight videos and public story content that is accessible to all users."
+          "title": "Suporta Conteúdo Público",
+          "desc": "Funciona com vídeos do Snapchat Spotlight compartilhados publicamente e conteúdo de stories públicos que é acessível a todos os usuários."
         },
         {
-          "title": "AI Transcripts",
-          "desc": "Generate accurate transcripts with timestamps from any Snapchat Spotlight video. Download as SRT, VTT, TXT, or JSON subtitles."
+          "title": "Transcrições de IA",
+          "desc": "Gere transcrições precisas com timestamps de qualquer vídeo do Snapchat Spotlight. Baixe como legendas SRT, VTT, TXT ou JSON."
         }
       ],
       "faqs": [
         {
-          "q": "Can I download private Snapchat stories?",
-          "a": "Only publicly shared content like Spotlight videos and public stories can be downloaded. Private stories are not accessible."
+          "q": "Posso baixar stories privados do Snapchat?",
+          "a": "Apenas conteúdo compartilhado publicamente, como vídeos do Spotlight e stories públicos, pode ser baixado. Stories privados não são acessíveis."
         },
         {
-          "q": "What video quality is available?",
-          "a": "Snapchat videos can be downloaded in their original uploaded quality. The vertical format is preserved as uploaded."
+          "q": "Qual qualidade de vídeo está disponível?",
+          "a": "Os vídeos do Snapchat podem ser baixados em sua qualidade original de upload. O formato vertical é preservado conforme enviado."
         },
         {
-          "q": "Does it work with Snapchat Spotlight?",
-          "a": "Yes, Snapchat Spotlight videos are fully supported. Paste the Spotlight URL to download the video without the Snapchat interface."
+          "q": "Funciona com o Snapchat Spotlight?",
+          "a": "Sim, os vídeos do Snapchat Spotlight são totalmente suportados. Cole o URL do Spotlight para baixar o vídeo sem a interface do Snapchat."
         },
         {
-          "q": "What formats can I download in?",
-          "a": "Videos are available in MP4 format. Audio can be extracted as MP3, AAC, FLAC, WAV, or OGG. Thumbnails in JPG, PNG, and WebP."
+          "q": "Quais formatos posso baixar?",
+          "a": "Os vídeos estão disponíveis no formato MP4. O áudio pode ser extraído como MP3, AAC, FLAC, WAV ou OGG. Miniaturas em JPG, PNG e WebP."
         },
         {
-          "q": "Is there a download limit?",
-          "a": "Free accounts can download up to 10 videos per day. Pro accounts offer unlimited downloads with higher processing priority."
+          "q": "Há um limite de downloads?",
+          "a": "Contas gratuitas podem baixar até 10 vídeos por dia. Contas Pro oferecem downloads ilimitados com prioridade de processamento mais alta."
         }
       ],
-      "metaTitle": "Snapchat Video Downloader — Download Snapchat Spotlight Videos | DownForge",
-      "metaDescription": "Free Snapchat video downloader. Download Snapchat Spotlight videos and public stories. Extract audio as MP3. No sign-up required.",
+      "metaTitle": "Downloader de Vídeos do Snapchat — Baixe Vídeos do Snapchat Spotlight | DownForge",
+      "metaDescription": "Downloader gratuito de vídeos do Snapchat. Baixe vídeos do Snapchat Spotlight e stories públicos. Extraia áudio como MP3. Sem cadastro.",
       "keywords": [
-        "snapchat video downloader",
-        "download snapchat videos",
-        "snapchat spotlight downloader",
-        "snapchat video saver",
-        "snapchat to mp4",
-        "snap story downloader",
-        "save snapchat video",
+        "downloader de vídeos do snapchat",
+        "baixar vídeos do snapchat",
+        "downloader do snapchat spotlight",
+        "salvador de vídeos do snapchat",
+        "snapchat para mp4",
+        "downloader de stories snap",
+        "salvar vídeo do snapchat",
         "snapchat mp3",
-        "spotlight video downloader"
+        "downloader de vídeos do spotlight"
       ]
     },
     "soundcloud": {
-      "badge": "SoundCloud Downloader",
-      "heading": "Download SoundCloud Tracks",
-      "headingAccent": "as MP3 & FLAC",
-      "subheading": "Save SoundCloud tracks, playlists, and remixes. Download as high-quality MP3, FLAC, AAC, WAV, or get AI transcripts — no account required.",
-      "placeholder": "Paste your SoundCloud track URL here...",
+      "badge": "Downloader do SoundCloud",
+      "heading": "Baixe Faixas do SoundCloud",
+      "headingAccent": "como MP3 & FLAC",
+      "subheading": "Salve faixas, playlists e remixes do SoundCloud. Baixe como MP3 de alta qualidade, FLAC, AAC, WAV ou obtenha transcrições de IA — sem necessidade de conta.",
+      "placeholder": "Cole o URL da faixa do SoundCloud aqui...",
       "features": [
         {
-          "title": "High-Quality MP3 Downloads",
-          "desc": "Download SoundCloud tracks as MP3 up to 320 kbps. Perfect for offline listening with no quality loss."
+          "title": "Downloads de MP3 de Alta Qualidade",
+          "desc": "Baixe faixas do SoundCloud como MP3 de até 320 kbps. Perfeito para audição offline sem perda de qualidade."
         },
         {
-          "title": "Lossless FLAC & WAV",
-          "desc": "Extract SoundCloud audio as lossless FLAC or uncompressed WAV. Ideal for DJs, producers, and audiophiles."
+          "title": "FLAC & WAV Lossless",
+          "desc": "Extraia áudio do SoundCloud como FLAC lossless ou WAV não compactado. Ideal para DJs, produtores e audiófilos."
         },
         {
-          "title": "Download Full Playlists",
-          "desc": "Save entire SoundCloud playlists and albums in one go with a Pro subscription. No need to process tracks individually."
+          "title": "Baixe Playlists Completas",
+          "desc": "Salve playlists e álbuns inteiros do SoundCloud de uma só vez com uma assinatura Pro. Não precisa processar faixas individualmente."
         },
         {
-          "title": "Supports All SoundCloud Content",
-          "desc": "Works with tracks, playlists, albums, and reposts. Paste any public SoundCloud URL and download instantly."
+          "title": "Suporta Todo Conteúdo do SoundCloud",
+          "desc": "Funciona com faixas, playlists, álbuns e reposts. Cole qualquer URL público do SoundCloud e baixe instantaneamente."
         },
         {
-          "title": "AI Transcripts",
-          "desc": "Generate accurate transcripts with timestamps from any SoundCloud track or podcast. Download as SRT, VTT, TXT, or JSON subtitles."
+          "title": "Transcrições de IA",
+          "desc": "Gere transcrições precisas com timestamps de qualquer faixa ou podcast do SoundCloud. Baixe como legendas SRT, VTT, TXT ou JSON."
         }
       ],
       "faqs": [
         {
-          "q": "What audio quality does SoundCloud use?",
-          "a": "SoundCloud streams at 128 kbps MP3 for free users. Premium tracks may be available at higher bitrates. Our downloads match the source quality."
+          "q": "Qual qualidade de áudio o SoundCloud usa?",
+          "a": "O SoundCloud transmite a 128 kbps MP3 para usuários gratuitos. Faixas premium podem estar disponíveis em taxas de bits mais altas. Nossos downloads correspondem à qualidade da fonte."
         },
         {
-          "q": "Can I download SoundCloud playlists?",
-          "a": "Yes, you can download individual tracks from playlists. Pro users can batch download entire playlists and albums at once."
+          "q": "Posso baixar playlists do SoundCloud?",
+          "a": "Sim, você pode baixar faixas individuais de playlists. Usuários Pro podem baixar playlists e álbuns inteiros de uma vez."
         },
         {
-          "q": "Does it work with SoundCloud Go+?",
-          "a": "SoundCloud Go+ premium content may have additional protections. We support publicly available tracks and those accessible without a premium subscription."
+          "q": "Funciona com SoundCloud Go+?",
+          "a": "Conteúdo premium do SoundCloud Go+ pode ter proteções adicionais. Suportamos faixas publicamente disponíveis e aquelas acessíveis sem assinatura premium."
         },
         {
-          "q": "What audio formats are available?",
-          "a": "Choose from MP3 (128/192/320 kbps), AAC (256 kbps), FLAC (lossless), WAV (uncompressed), and OGG (192 kbps) formats."
+          "q": "Quais formatos de áudio estão disponíveis?",
+          "a": "Escolha entre os formatos MP3 (128/192/320 kbps), AAC (256 kbps), FLAC (lossless), WAV (não compactado) e OGG (192 kbps)."
         },
         {
-          "q": "Can I download tracks from private SoundCloud?",
-          "a": "Only publicly shared SoundCloud tracks can be downloaded. Private or secret link tracks require SoundCloud authentication to access."
+          "q": "Posso baixar faixas do SoundCloud privado?",
+          "a": "Apenas faixas do SoundCloud compartilhadas publicamente podem ser baixadas. Faixas privadas ou com link secreto exigem autenticação do SoundCloud para acessar."
         }
       ],
-      "metaTitle": "SoundCloud Downloader — Download SoundCloud Tracks as MP3, FLAC | DownForge",
-      "metaDescription": "Free SoundCloud downloader. Download SoundCloud tracks as high-quality MP3, FLAC, AAC, WAV. Save playlists. No sign-up required.",
+      "metaTitle": "Downloader do SoundCloud — Baixe Faixas do SoundCloud como MP3, FLAC | DownForge",
+      "metaDescription": "Downloader gratuito do SoundCloud. Baixe faixas do SoundCloud como MP3, FLAC, AAC, WAV de alta qualidade. Salve playlists. Sem cadastro.",
       "keywords": [
-        "soundcloud downloader",
-        "download soundcloud tracks",
-        "soundcloud to mp3",
-        "soundcloud mp3 downloader",
-        "soundcloud to flac",
-        "soundcloud music downloader",
-        "save soundcloud tracks",
-        "soundcloud audio downloader",
-        "soundcloud playlist downloader",
+        "downloader do soundcloud",
+        "baixar faixas do soundcloud",
+        "soundcloud para mp3",
+        "downloader mp3 soundcloud",
+        "soundcloud para flac",
+        "downloader de música do soundcloud",
+        "salvar faixas do soundcloud",
+        "downloader de áudio do soundcloud",
+        "downloader de playlist do soundcloud",
         "soundcloud wav"
       ]
     },
     "kick": {
-      "badge": "Kick Downloader",
-      "heading": "Download Kick Videos",
+      "badge": "Downloader do Kick",
+      "heading": "Baixe Vídeos do Kick",
       "headingAccent": "& Streams",
-      "subheading": "Download Kick VODs, clips, and highlights. Save in HD, extract audio, grab thumbnails, or get AI transcripts — fast, free, no sign-up needed.",
-      "placeholder": "Paste your Kick URL here...",
+      "subheading": "Baixe VODs, clipes e melhores momentos do Kick. Salve em HD, extraia áudio, capture miniaturas ou obtenha transcrições de IA — rápido, grátis, sem necessidade de cadastro.",
+      "placeholder": "Cole seu URL do Kick aqui...",
       "features": [
         {
-          "title": "Download Kick VODs",
-          "desc": "Save Kick past broadcasts and video-on-demand content in original quality. Archive your favorite streams permanently."
+          "title": "Baixe VODs do Kick",
+          "desc": "Salve transmissões passadas e conteúdo de vídeo sob demanda do Kick na qualidade original. Arquive seus streams favoritos permanentemente."
         },
         {
-          "title": "Extract Stream Audio",
-          "desc": "Convert Kick VODs to MP3 or AAC audio. Great for creating stream podcasts or saving audio highlights."
+          "title": "Extraia Áudio de Streams",
+          "desc": "Converta VODs do Kick para MP3 ou AAC. Ótimo para criar podcasts de streams ou salvar destaques de áudio."
         },
         {
-          "title": "Save Video Thumbnails",
-          "desc": "Download Kick stream thumbnails in high resolution. Available in JPG, PNG, and WebP formats."
+          "title": "Salve Miniaturas de Vídeo",
+          "desc": "Baixe miniaturas de streams do Kick em alta resolução. Disponíveis nos formatos JPG, PNG e WebP."
         },
         {
-          "title": "Supports All Kick Content",
-          "desc": "Works with Kick VODs, clips, and highlighted moments from any public channel on the platform."
+          "title": "Suporta Todo Conteúdo do Kick",
+          "desc": "Funciona com VODs, clipes e momentos destacados do Kick de qualquer canal público na plataforma."
         },
         {
-          "title": "AI Transcripts",
-          "desc": "Generate accurate transcripts with timestamps from any Kick VOD or clip. Download as SRT, VTT, TXT, or JSON subtitles."
+          "title": "Transcrições de IA",
+          "desc": "Gere transcrições precisas com timestamps de qualquer VOD ou clipe do Kick. Baixe como legendas SRT, VTT, TXT ou JSON."
         }
       ],
       "faqs": [
         {
-          "q": "Can I download live Kick streams?",
-          "a": "Currently, we support downloading completed VODs and clips. Live streams need to finish before they can be processed."
+          "q": "Posso baixar streams ao vivo do Kick?",
+          "a": "Atualmente, suportamos o download de VODs e clipes concluídos. As transmissões ao vivo precisam terminar antes de serem processadas."
         },
         {
-          "q": "What video quality is available?",
-          "a": "Kick streams are available in up to 1080p at 60fps depending on the streamer's broadcast settings."
+          "q": "Qual qualidade de vídeo está disponível?",
+          "a": "Os streams do Kick estão disponíveis em até 1080p a 60fps, dependendo das configurações de transmissão do streamer."
         },
         {
-          "q": "Does it work with subscriber-only content?",
-          "a": "Subscriber-only or follower-only content on Kick cannot be accessed through our downloader due to channel restrictions."
+          "q": "Funciona com conteúdo exclusivo para assinantes?",
+          "a": "Conteúdo exclusivo para assinantes ou seguidores no Kick não pode ser acessado através do nosso downloader devido a restrições do canal."
         },
         {
-          "q": "How long are Kick VODs available?",
-          "a": "Kick stores VODs for a limited time depending on the streamer's settings. Download them promptly to keep them permanently."
+          "q": "Por quanto tempo os VODs do Kick ficam disponíveis?",
+          "a": "O Kick armazena VODs por um tempo limitado, dependendo das configurações do streamer. Baixe-os prontamente para mantê-los permanentemente."
         },
         {
-          "q": "Can I download just the audio?",
-          "a": "Yes, use the Audio extraction mode to convert Kick VODs to MP3 or AAC. Perfect for background listening on mobile."
+          "q": "Posso baixar apenas o áudio?",
+          "a": "Sim, use o modo de extração de Áudio para converter VODs do Kick para MP3 ou AAC. Perfeito para audição em segundo plano no celular."
         }
       ],
-      "metaTitle": "Kick Video Downloader — Download Kick VODs & Clips | DownForge",
-      "metaDescription": "Free Kick downloader. Download Kick VODs, clips, and stream highlights in HD. Extract audio as MP3, AAC. Save thumbnails. No sign-up required.",
+      "metaTitle": "Downloader de Vídeos do Kick — Baixe VODs & Clipes do Kick | DownForge",
+      "metaDescription": "Downloader gratuito do Kick. Baixe VODs, clipes e melhores momentos de streams do Kick em HD. Extraia áudio como MP3, AAC. Salve miniaturas. Sem cadastro.",
       "keywords": [
-        "kick video downloader",
-        "download kick streams",
-        "kick vod downloader",
-        "kick clip downloader",
-        "kick to mp4",
-        "download kick videos",
-        "kick stream saver",
-        "kick vod to mp3",
-        "kick downloader free",
-        "kick highlight downloader"
+        "downloader de vídeos do kick",
+        "baixar streams do kick",
+        "downloader de vod do kick",
+        "downloader de clipes do kick",
+        "kick para mp4",
+        "baixar vídeos do kick",
+        "salvador de streams do kick",
+        "vod do kick para mp3",
+        "downloader kick grátis",
+        "downloader de melhores momentos do kick"
       ]
     },
     "youtube": {
-      "badge": "YouTube Downloader",
-      "heading": "Download YouTube Videos",
-      "headingAccent": "in 4K",
-      "subheading": "Paste any YouTube video link and download in seconds. Save videos in 4K, extract audio as MP3 320kbps, get AI transcripts, or save HD thumbnails — no account required.",
-      "placeholder": "Paste your YouTube video URL here...",
+      "badge": "Downloader do YouTube",
+      "heading": "Baixe Vídeos do YouTube",
+      "headingAccent": "em 4K",
+      "subheading": "Cole qualquer link de vídeo do YouTube e baixe em segundos. Salve vídeos em 4K, extraia áudio como MP3 320kbps, obtenha transcrições de IA ou salve miniaturas HD — sem necessidade de conta.",
+      "placeholder": "Cole o URL do seu vídeo do YouTube aqui...",
       "features": [
         {
-          "title": "4K Ultra HD Downloads",
-          "desc": "Download YouTube videos in up to 4K (2160p) resolution. Also supports 1440p, 1080p Full HD, 720p HD, and standard definition."
+          "title": "Downloads em 4K Ultra HD",
+          "desc": "Baixe vídeos do YouTube em resolução de até 4K (2160p). Também suporta 1440p, 1080p Full HD, 720p HD e definição padrão."
         },
         {
-          "title": "High-Quality Audio",
-          "desc": "Convert YouTube videos to MP3 up to 320 kbps, AAC 256 kbps, FLAC lossless, WAV uncompressed, and OGG. Perfect for music and podcasts."
+          "title": "Áudio de Alta Qualidade",
+          "desc": "Converta vídeos do YouTube para MP3 de até 320 kbps, AAC 256 kbps, FLAC lossless, WAV não compactado e OGG. Perfeito para música e podcasts."
         },
         {
-          "title": "HD Thumbnail Downloads",
-          "desc": "Save YouTube video thumbnails in maximum resolution up to 1920×1080. Available in JPG, PNG, and WebP formats."
+          "title": "Downloads de Miniaturas HD",
+          "desc": "Salve miniaturas de vídeos do YouTube na resolução máxima de até 1920×1080. Disponíveis nos formatos JPG, PNG e WebP."
         },
         {
-          "title": "Works with All YouTube URLs",
-          "desc": "Supports regular videos, Shorts, live streams, community posts, and embedded clips. Paste any YouTube link."
+          "title": "Funciona com Todos os URLs do YouTube",
+          "desc": "Suporta vídeos normais, Shorts, transmissões ao vivo, posts da comunidade e clipes incorporados. Cole qualquer link do YouTube."
         },
         {
-          "title": "AI Transcripts",
-          "desc": "Generate accurate transcripts with timestamps from any YouTube video. Download as SRT, VTT, TXT, or JSON subtitles."
+          "title": "Transcrições de IA",
+          "desc": "Gere transcrições precisas com timestamps de qualquer vídeo do YouTube. Baixe como legendas SRT, VTT, TXT ou JSON."
         }
       ],
       "faqs": [
         {
-          "q": "What video qualities are available?",
-          "a": "YouTube videos can be downloaded in multiple qualities including 4K (2160p), 1440p, 1080p (Full HD), 720p (HD), 480p, and 360p. The available qualities depend on what the original uploader provided."
+          "q": "Quais qualidades de vídeo estão disponíveis?",
+          "a": "Os vídeos do YouTube podem ser baixados em várias qualidades, incluindo 4K (2160p), 1440p, 1080p (Full HD), 720p (HD), 480p e 360p. As qualidades disponíveis dependem do que o uploader original forneceu."
         },
         {
-          "q": "What audio formats do you support?",
-          "a": "We support MP3 (up to 320 kbps), AAC (256 kbps), FLAC (lossless), WAV (uncompressed), and OGG (192 kbps). For music production and archiving, FLAC is recommended."
+          "q": "Quais formatos de áudio vocês suportam?",
+          "a": "Suportamos MP3 (até 320 kbps), AAC (256 kbps), FLAC (lossless), WAV (não compactado) e OGG (192 kbps). Para produção musical e arquivamento, o FLAC é recomendado."
         },
         {
-          "q": "Can I download YouTube Shorts?",
-          "a": "Yes, YouTube Shorts are fully supported. Paste any Shorts URL and choose your preferred format — video, audio, or thumbnail."
+          "q": "Posso baixar YouTube Shorts?",
+          "a": "Sim, os YouTube Shorts são totalmente suportados. Cole qualquer URL de Shorts e escolha seu formato preferido — vídeo, áudio ou miniatura."
         },
         {
-          "q": "Is downloading YouTube videos legal?",
-          "a": "Downloading for personal offline use is generally permitted. Always respect copyright and use downloaded content responsibly."
+          "q": "É legal baixar vídeos do YouTube?",
+          "a": "Baixar para uso pessoal offline é geralmente permitido. Sempre respeite os direitos autorais e use o conteúdo baixado de forma responsável."
         },
         {
-          "q": "How long are downloaded files stored?",
-          "a": "Files are stored temporarily and deleted automatically after the download is complete. We do not keep copies of your downloaded content."
+          "q": "Por quanto tempo os arquivos baixados são armazenados?",
+          "a": "Os arquivos são armazenados temporariamente e excluídos automaticamente após a conclusão do download. Não mantemos cópias do seu conteúdo baixado."
         }
       ],
-      "metaTitle": "YouTube Video Downloader — Download YouTube Videos in 4K, MP3 & Thumbnails | DownForge",
-      "metaDescription": "Free YouTube video downloader. Download YouTube videos in 4K, 1080p, 720p. Extract audio as MP3 320kbps, FLAC, AAC. Get HD thumbnails. No sign-up required.",
+      "metaTitle": "Downloader de Vídeos do YouTube — Baixe Vídeos do YouTube em 4K, MP3 & Miniaturas | DownForge",
+      "metaDescription": "Downloader gratuito de vídeos do YouTube. Baixe vídeos do YouTube em 4K, 1080p, 720p. Extraia áudio como MP3 320kbps, FLAC, AAC. Obtenha miniaturas HD. Sem cadastro.",
       "keywords": [
-        "youtube video downloader",
-        "download youtube videos",
-        "youtube to mp4",
-        "youtube to mp3",
-        "youtube 4k downloader",
-        "free youtube downloader",
-        "youtube video saver",
-        "youtube thumbnail downloader",
-        "youtube audio extractor",
-        "youtube mp3 converter"
+        "downloader de vídeos do youtube",
+        "baixar vídeos do youtube",
+        "youtube para mp4",
+        "youtube para mp3",
+        "downloader 4k youtube",
+        "downloader de youtube grátis",
+        "salvador de vídeos do youtube",
+        "downloader de miniaturas do youtube",
+        "extrator de áudio do youtube",
+        "conversor mp3 youtube"
       ]
     },
     "niconico": {
-      "badge": "Niconico Downloader",
-      "heading": "Download Niconico Videos",
-      "headingAccent": "in HD",
-      "subheading": "Save Niconico Douga videos, live recordings, and user content. Download in HD, extract audio, grab thumbnails, or get AI transcripts — quick and free.",
-      "placeholder": "Paste your Niconico URL here...",
+      "badge": "Downloader do Niconico",
+      "heading": "Baixe Vídeos do Niconico",
+      "headingAccent": "em HD",
+      "subheading": "Salve vídeos do Niconico Douga, gravações ao vivo e conteúdo de usuários. Baixe em HD, extraia áudio, capture miniaturas ou obtenha transcrições de IA — rápido e grátis.",
+      "placeholder": "Cole seu URL do Niconico aqui...",
       "features": [
         {
-          "title": "Download Niconico Videos",
-          "desc": "Save videos from Niconico Douga in original quality. Preserve Japanese content, VocaDB covers, and user-generated videos."
+          "title": "Baixe Vídeos do Niconico",
+          "desc": "Salve vídeos do Niconico Douga na qualidade original. Preserve conteúdo japonês, covers do VocaDB e vídeos gerados por usuários."
         },
         {
-          "title": "Extract Video Audio",
-          "desc": "Convert Niconico videos to MP3 or AAC audio. Great for listening to music covers, vocaloid tracks, and spoken content."
+          "title": "Extraia Áudio de Vídeos",
+          "desc": "Converta vídeos do Niconico para MP3 ou AAC. Ótimo para ouvir covers musicais, faixas vocaloid e conteúdo falado."
         },
         {
-          "title": "Save Video Thumbnails",
-          "desc": "Download Niconico video thumbnails in high resolution. Available in JPG and PNG formats."
+          "title": "Salve Miniaturas de Vídeo",
+          "desc": "Baixe miniaturas de vídeos do Niconico em alta resolução. Disponíveis nos formatos JPG e PNG."
         },
         {
-          "title": "Supports Niconico Content",
-          "desc": "Works with publicly accessible Niconico Douga videos from both nicovideo.jp and niconico.jp domains."
+          "title": "Suporta Conteúdo do Niconico",
+          "desc": "Funciona com vídeos do Niconico Douga publicamente acessíveis dos domínios nicovideo.jp e niconico.jp."
         },
         {
-          "title": "AI Transcripts",
-          "desc": "Generate accurate transcripts with timestamps from any Niconico video. Download as SRT, VTT, TXT, or JSON subtitles."
+          "title": "Transcrições de IA",
+          "desc": "Gere transcrições precisas com timestamps de qualquer vídeo do Niconico. Baixe como legendas SRT, VTT, TXT ou JSON."
         }
       ],
       "faqs": [
         {
-          "q": "Can I download Niconico videos with comments?",
-          "a": "Our service downloads the raw video file without the Niconico comment overlay. The video content itself is preserved in full quality."
+          "q": "Posso baixar vídeos do Niconico com comentários?",
+          "a": "Nosso serviço baixa o arquivo de vídeo bruto sem a sobreposição de comentários do Niconico. O conteúdo do vídeo em si é preservado em qualidade total."
         },
         {
-          "q": "What video quality is available?",
-          "a": "Niconico videos are available in various qualities depending on the upload. Standard definition is common, with HD available for premium content."
+          "q": "Qual qualidade de vídeo está disponível?",
+          "a": "Os vídeos do Niconico estão disponíveis em várias qualidades dependendo do upload. A definição padrão é comum, com HD disponível para conteúdo premium."
         },
         {
-          "q": "Does it work with Niconico Live?",
-          "a": "Niconico Live broadcasts that have ended and are available as recordings can be downloaded through our service."
+          "q": "Funciona com o Niconico Live?",
+          "a": "Transmissões ao vivo do Niconico que terminaram e estão disponíveis como gravações podem ser baixadas através do nosso serviço."
         },
         {
-          "q": "What about premium member-only videos?",
-          "a": "Member-only or premium restricted content on Niconico cannot be accessed through our downloader due to platform restrictions."
+          "q": "E sobre vídeos exclusivos para membros premium?",
+          "a": "Conteúdo exclusivo para membros ou com restrição premium no Niconico não pode ser acessado através do nosso downloader devido a restrições da plataforma."
         },
         {
-          "q": "What formats can I download?",
-          "a": "Videos are available in MP4 format. Audio can be extracted as MP3, AAC, FLAC, WAV, or OGG. Thumbnails in JPG, PNG, and WebP."
+          "q": "Quais formatos posso baixar?",
+          "a": "Os vídeos estão disponíveis no formato MP4. O áudio pode ser extraído como MP3, AAC, FLAC, WAV ou OGG. Miniaturas em JPG, PNG e WebP."
         }
       ],
-      "metaTitle": "Niconico Video Downloader — Download Niconico Douga Videos | DownForge",
-      "metaDescription": "Free Niconico video downloader. Download Niconico Douga videos in HD. Extract audio as MP3, AAC. Save thumbnails. No sign-up required.",
+      "metaTitle": "Downloader de Vídeos do Niconico — Baixe Vídeos do Niconico Douga | DownForge",
+      "metaDescription": "Downloader gratuito de vídeos do Niconico. Baixe vídeos do Niconico Douga em HD. Extraia áudio como MP3, AAC. Salve miniaturas. Sem cadastro.",
       "keywords": [
-        "niconico video downloader",
-        "download niconico videos",
-        "nicovideo downloader",
-        "niconico to mp4",
-        "niconico douga downloader",
-        "nico video saver",
-        "download nicovideo",
+        "downloader de vídeos do niconico",
+        "baixar vídeos do niconico",
+        "downloader nicovideo",
+        "niconico para mp4",
+        "downloader niconico douga",
+        "salvador de vídeos nico",
+        "baixar nicovideo",
         "niconico mp3",
-        "niconico video saver",
-        "niconico download free"
+        "salvador de vídeos do niconico",
+        "niconico download grátis"
       ]
     }
   },
   "YoutubeHero": {
-    "badge": "YouTube Downloader",
-    "heading": "Download YouTube Videos",
-    "headingAccent": "in 4K & HD",
-    "placeholder": "Paste your YouTube video URL here...",
-    "chooseFormat": "Choose format",
-    "disclaimer": "Free to use · No sign-up required · Files deleted instantly after download"
+    "badge": "Downloader do YouTube",
+    "heading": "Baixe Vídeos do YouTube",
+    "headingAccent": "em 4K & HD",
+    "placeholder": "Cole o URL do seu vídeo do YouTube aqui...",
+    "chooseFormat": "Escolha o formato",
+    "disclaimer": "Grátis para usar · Sem cadastro necessário · Arquivos excluídos instantaneamente após o download"
   },
   "ApiPage": {
-    "title": "API Documentation",
-    "subtitle": "Integrate video downloading into your own applications. Our REST API supports 200+ platforms.",
-    "backToHome": "Back to home",
-    "authTitle": "Authentication",
-    "authDesc": "Include your API key in the request header:",
-    "baseUrlTitle": "Base URL",
+    "title": "Documentação da API",
+    "subtitle": "Integre o download de vídeos em suas próprias aplicações. Nossa API REST suporta mais de 200 plataformas.",
+    "backToHome": "Voltar ao início",
+    "authTitle": "Autenticação",
+    "authDesc": "Inclua sua chave de API no cabeçalho da requisição:",
+    "baseUrlTitle": "URL Base",
     "endpointsTitle": "Endpoints",
-    "exampleRequest": "Example Request",
-    "exampleResponse": "Example Response",
+    "exampleRequest": "Exemplo de Requisição",
+    "exampleResponse": "Exemplo de Resposta",
     "rateLimits": {
-      "title": "Rate Limits",
-      "global": "Global: {limit} requests / minute",
-      "info": "Info endpoints: {limit} requests / minute",
-      "download": "Download endpoints: {limit} requests / minute",
-      "retryAfter": "HTTP 429 responses include a Retry-After header."
+      "title": "Limites de Taxa",
+      "global": "Global: {limit} requisições / minuto",
+      "info": "Endpoints de informação: {limit} requisições / minuto",
+      "download": "Endpoints de download: {limit} requisições / minuto",
+      "retryAfter": "Respostas HTTP 429 incluem um cabeçalho Retry-After."
     }
   }
 }

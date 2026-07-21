@@ -451,88 +451,88 @@
     "siteName": "DownForge"
   },
   "YoutubeFAQ": {
-    "title": "Frequently Asked Questions",
-    "q1": "Is downloading YouTube videos legal?",
-    "a1": "Downloading videos for personal offline use is generally permitted. However, redistributing copyrighted content without permission may violate YouTube's Terms of Service. Always respect copyright and use downloaded content responsibly.",
-    "q2": "What video qualities are available?",
-    "a2": "YouTube videos can be downloaded in multiple qualities including 4K (2160p), 1440p, 1080p (Full HD), 720p (HD), 480p, and 360p. The available qualities depend on what the original uploader provided. Higher resolutions like 4K require a Pro subscription.",
-    "q3": "Can I download age-restricted videos?",
-    "a3": "Age-restricted videos require you to be signed into a Google account that meets the age requirement. These videos cannot be downloaded through our service due to YouTube's restrictions. Please use YouTube's official app for offline viewing of age-restricted content.",
-    "q4": "What audio formats do you support?",
-    "a4": "We support MP3 (up to 320 kbps), AAC (256 kbps), FLAC (lossless), WAV (uncompressed), and OGG (192 kbps). For music production and archiving, FLAC is recommended. For general listening, MP3 at 320 kbps offers excellent quality with small file sizes.",
-    "q5": "Why is there no sound in my 4K download?",
-    "a5": "YouTube separates video and audio streams for resolutions above 1080p. Our system automatically merges the best available video stream with the best audio stream. If you encounter audio issues, try downloading in 1080p or use the MKV container format.",
-    "q6": "How long are downloaded files stored?",
-    "a6": "Files are stored temporarily and deleted automatically after the download is complete. We do not keep copies of your downloaded content. For Pro users, files remain available for 24 hours in case you need to download again.",
-    "q7": "Can I download transcripts and subtitles?",
-    "a7": "Yes! Select the Transcript mode and choose from SRT, VTT, TXT, or JSON formats. Our AI generates accurate transcripts with timestamps from any video with audio. SRT and VTT are perfect for subtitle files, TXT for plain text, and JSON for structured data with timestamps."
+    "title": "よくある質問",
+    "q1": "YouTube動画のダウンロードは合法ですか？",
+    "a1": "個人のオフライン視聴のためのダウンロードは一般的に許可されています。ただし、著作権のあるコンテンツを許可なく再配布することは、YouTubeの利用規約に違反する可能性があります。常に著作権を尊重し、ダウンロードしたコンテンツを責任を持って使用してください。",
+    "q2": "どのような動画品質が利用可能ですか？",
+    "a2": "YouTube動画は4K（2160p）、1440p、1080p（Full HD）、720p（HD）、480p、360pを含む複数の品質でダウンロードできます。利用可能な品質は、元のアップロード者が提供したものに依存します。4Kなどの高解像度にはProサブスクリプションが必要です。",
+    "q3": "年齢制限のある動画をダウンロードできますか？",
+    "a3": "年齢制限のある動画をダウンロードするには、年齢要件を満たしたGoogleアカウントにサインインしている必要があります。これらの動画はYouTubeの制限により、当サービスを通じてダウンロードすることはできません。年齢制限のあるコンテンツのオフライン視聴にはYouTubeの公式アプリをご利用ください。",
+    "q4": "どのようなオーディオ形式に対応していますか？",
+    "a4": "MP3（最大320 kbps）、AAC（256 kbps）、FLAC（ロスレス）、WAV（非圧縮）、OGG（192 kbps）に対応しています。音楽制作やアーカイブにはFLACが推奨されます。一般的な視聴には、320 kbpsのMP3が小さなファイルサイズで優れた品質を提供します。",
+    "q5": "4Kダウンロードで音声が出ないのはなぜですか？",
+    "a5": "YouTubeは1080pを超える解像度では動画と音声ストリームを分離しています。当システムは自動的に最適な動画ストリームと最適な音声ストリームを結合します。音声に問題がある場合は、1080pでダウンロードするか、MKVコンテナ形式をお試しください。",
+    "q6": "ダウンロードしたファイルはどのくらい保存されますか？",
+    "a6": "ファイルは一時的に保存され、ダウンロード完了後に自動的に削除されます。ダウンロードしたコンテンツのコピーを保持することはありません。Proユーザーの場合、再ダウンロードが必要な場合に備えてファイルは24時間利用可能です。",
+    "q7": "文字起こしや字幕をダウンロードできますか？",
+    "a7": "はい！文字起こしモードを選択し、SRT、VTT、TXT、JSON形式からお選びください。当社のAIが音声のある動画からタイムスタンプ付きの正確な文字起こしを生成します。SRTとVTTは字幕ファイルに最適で、TXTはプレーンテキスト、JSONはタイムスタンプ付きの構造化データに適しています。"
   },
   "YoutubeTips": {
-    "title": "Tips & Tricks",
-    "tip1Title": "Download in 4K Ultra HD",
-    "tip1Desc": "Get YouTube videos in up to 4K resolution. Perfect for offline viewing, editing, or archiving your favorite content in the highest quality available.",
-    "tip2Title": "Extract Audio as MP3 or FLAC",
-    "tip2Desc": "Convert YouTube videos to high-quality audio files. Choose from MP3 up to 320 kbps or lossless FLAC for music production and offline listening.",
-    "tip3Title": "AI Transcripts in Any Format",
-    "tip3Desc": "Generate accurate AI transcripts from any video. Download as SRT subtitles, VTT web captions, plain TXT, or structured JSON with timestamps.",
-    "tip4Title": "Save Thumbnails in Full HD",
-    "tip4Desc": "Download video thumbnails in maximum resolution. Great for thumbnails, covers, or reference images — available in JPG, PNG, and WebP formats.",
-    "tip5Title": "Batch & Playlist Downloads",
-    "tip5Desc": "With a Pro plan, download entire playlists or channels in one click. No need to process each video individually — just paste and go."
+    "title": "ヒントとコツ",
+    "tip1Title": "4K Ultra HDでダウンロード",
+    "tip1Desc": "YouTube動画を最大4K解像度で取得。お気に入りのコンテンツを最高品質でオフライン視聴、編集、アーカイブするのに最適です。",
+    "tip2Title": "MP3またはFLACで音声を抽出",
+    "tip2Desc": "YouTube動画を高品質な音声ファイルに変換。最大320 kbpsのMP3またはロスレスのFLACから選択でき、音楽制作やオフラインリスニングに最適です。",
+    "tip3Title": "あらゆる形式に対応したAI文字起こし",
+    "tip3Desc": "あらゆる動画から正確なAI文字起こしを生成。SRT字幕、VTT Webキャプション、プレーンTXT、またはタイムスタンプ付きの構造化JSONとしてダウンロード。",
+    "tip4Title": "Full HDでサムネイルを保存",
+    "tip4Desc": "最大解像度で動画サムネイルをダウンロード。サムネイル、カバー、参考画像に最適 — JPG、PNG、WebP形式で利用可能。",
+    "tip5Title": "一括＆プレイリストダウンロード",
+    "tip5Desc": "Proプランなら、プレイリストやチャンネル全体をワンクリックでダウンロード。個別に処理する必要はありません — 貼り付けるだけです。"
   },
   "Platform": {
     "facebook": {
       "badge": "Facebook Downloader",
-      "heading": "Download Facebook Videos",
-      "headingAccent": "in HD",
-      "subheading": "Paste any Facebook video link and download in seconds. Save Facebook Watch videos, live streams, and Reels. Get AI transcripts too — no account required.",
-      "placeholder": "Paste your Facebook video URL here...",
+      "heading": "Facebook動画をダウンロード",
+      "headingAccent": "HDで",
+      "subheading": "Facebookの動画リンクを貼り付けて数秒でダウンロード。Facebook Watch動画、ライブ配信、Reelsを保存。AI文字起こしも取得 — アカウント不要。",
+      "placeholder": "Facebookの動画URLをここに貼り付け...",
       "features": [
         {
-          "title": "Download HD Videos",
-          "desc": "Save Facebook videos in up to 1080p HD quality. Perfect for offline viewing of Watch shows, live streams, and shared content."
+          "title": "HD動画をダウンロード",
+          "desc": "Facebook動画を最大1080p HD品質で保存。Watch番組、ライブ配信、共有コンテンツのオフライン視聴に最適。"
         },
         {
-          "title": "Extract Audio",
-          "desc": "Convert Facebook videos to MP3 or FLAC audio. Great for saving audio from interviews, live sessions, and video podcasts."
+          "title": "音声を抽出",
+          "desc": "Facebook動画をMP3またはFLAC音声に変換。インタビュー、ライブセッション、ビデオポッドキャストの音声保存に最適。"
         },
         {
-          "title": "Save Thumbnails",
-          "desc": "Download Facebook video thumbnails in high resolution. Available in JPG, PNG, and WebP formats."
+          "title": "サムネイルを保存",
+          "desc": "Facebook動画のサムネイルを高解像度でダウンロード。JPG、PNG、WebP形式で利用可能。"
         },
         {
-          "title": "Works with All Facebook URLs",
-          "desc": "Supports public videos, Watch shows, page posts, group videos, and embedded clips across Facebook."
+          "title": "すべてのFacebook URLに対応",
+          "desc": "公開動画、Watch番組、ページ投稿、グループ動画、埋め込みクリップに対応。"
         },
         {
-          "title": "AI Transcripts",
-          "desc": "Generate accurate transcripts with timestamps from any Facebook video. Download as SRT, VTT, TXT, or JSON subtitles."
+          "title": "AI文字起こし",
+          "desc": "あらゆるFacebook動画からタイムスタンプ付きの正確な文字起こしを生成。SRT、VTT、TXT、JSON字幕としてダウンロード。"
         }
       ],
       "faqs": [
         {
-          "q": "Can I download private Facebook videos?",
-          "a": "Our service can only download publicly accessible Facebook videos. Private or friends-only videos cannot be accessed due to Facebook's privacy restrictions."
+          "q": "非公開のFacebook動画はダウンロードできますか？",
+          "a": "当サービスは公開されているFacebook動画のみダウンロードできます。非公開や友達限定の動画は、Facebookのプライバシー制限によりアクセスできません。"
         },
         {
-          "q": "What video qualities are available?",
-          "a": "Facebook videos can be downloaded in various qualities including HD (720p/1080p) and standard definition (480p/360p), depending on what the uploader originally provided."
+          "q": "どのような動画品質が利用可能ですか？",
+          "a": "Facebook動画は、アップロード者が提供した内容に応じて、HD（720p/1080p）および標準画質（480p/360p）を含むさまざまな品質でダウンロードできます。"
         },
         {
-          "q": "Can I download Facebook Reels?",
-          "a": "Yes, Facebook Reels can be downloaded just like regular videos. Paste the Reel URL and choose your preferred format and quality."
+          "q": "Facebook Reelsはダウンロードできますか？",
+          "a": "はい、Facebook Reelsは通常の動画と同様にダウンロードできます。ReelのURLを貼り付けて、希望の形式と品質を選択してください。"
         },
         {
-          "q": "Does it work with Facebook Watch?",
-          "a": "Yes, Facebook Watch shows and episodes are supported. Simply copy the video URL from Watch and paste it into the downloader."
+          "q": "Facebook Watchでも使えますか？",
+          "a": "はい、Facebook Watchの番組やエピソードに対応しています。Watchから動画URLをコピーしてダウンローダーに貼り付けるだけです。"
         },
         {
-          "q": "Is there a limit on video length?",
-          "a": "Free accounts can download videos up to 30 minutes. Pro accounts support longer videos and batch processing for entire playlists."
+          "q": "動画の長さに制限はありますか？",
+          "a": "無料アカウントは最大30分までの動画をダウンロードできます。Proアカウントはより長い動画とプレイリスト全体の一括処理に対応しています。"
         }
       ],
-      "metaTitle": "Facebook Video Downloader — Download Facebook Videos in HD | DownForge",
-      "metaDescription": "Free Facebook video downloader. Download Facebook videos, Watch shows, Reels, and live streams in HD. Extract audio as MP3. No sign-up required.",
+      "metaTitle": "Facebook Video Downloader — Facebook動画をHDでダウンロード | DownForge",
+      "metaDescription": "無料のFacebook動画ダウンローダー。Facebook動画、Watch番組、Reels、ライブ配信をHDでダウンロード。MP3で音声抽出。サインアップ不要。",
       "keywords": [
         "facebook video downloader",
         "download facebook videos",
@@ -548,56 +548,56 @@
     },
     "instagram": {
       "badge": "Instagram Downloader",
-      "heading": "Download Instagram Videos",
-      "headingAccent": "Reels & Stories",
-      "subheading": "Save Instagram Reels, Stories, IGTV, and posts in seconds. Download video, audio, thumbnails, or AI transcripts — instantly, no account needed.",
-      "placeholder": "Paste your Instagram URL here...",
+      "heading": "Instagram動画をダウンロード",
+      "headingAccent": "Reels＆ストーリー",
+      "subheading": "InstagramのReels、ストーリー、IGTV、投稿を数秒で保存。動画、音声、サムネイル、AI文字起こしを即座にダウンロード — アカウント不要。",
+      "placeholder": "InstagramのURLをここに貼り付け...",
       "features": [
         {
-          "title": "Save Reels & Stories",
-          "desc": "Download Instagram Reels and Stories in original quality. Perfect for saving content before it disappears after 24 hours."
+          "title": "Reels＆ストーリーを保存",
+          "desc": "InstagramのReelsとストーリーを元の品質でダウンロード。24時間後に消える前にコンテンツを保存するのに最適。"
         },
         {
-          "title": "Extract Reels Audio",
-          "desc": "Convert Instagram Reels to high-quality MP3 or FLAC audio. Great for saving viral audio tracks and sound bites."
+          "title": "Reelsの音声を抽出",
+          "desc": "Instagram Reelsを高品質のMP3またはFLAC音声に変換。バイラル音声トラックやサウンドバイトの保存に最適。"
         },
         {
-          "title": "Download Profile Pictures",
-          "desc": "Save Instagram profile pictures and post thumbnails in full resolution. Available in JPG and PNG formats."
+          "title": "プロフィール画像をダウンロード",
+          "desc": "Instagramのプロフィール画像や投稿サムネイルをフル解像度で保存。JPGおよびPNG形式で利用可能。"
         },
         {
-          "title": "Batch Instagram Downloads",
-          "desc": "With a Pro plan, download multiple Instagram posts or Reels at once. No need to process each URL individually."
+          "title": "Instagram一括ダウンロード",
+          "desc": "Proプランなら、複数のInstagram投稿やReelsを一度にダウンロード。各URLを個別に処理する必要はありません。"
         },
         {
-          "title": "AI Transcripts",
-          "desc": "Generate accurate transcripts with timestamps from any Instagram video or Reel. Download as SRT, VTT, TXT, or JSON subtitles."
+          "title": "AI文字起こし",
+          "desc": "あらゆるInstagram動画やReelからタイムスタンプ付きの正確な文字起こしを生成。SRT、VTT、TXT、JSON字幕としてダウンロード。"
         }
       ],
       "faqs": [
         {
-          "q": "Can I download Instagram Stories?",
-          "a": "Yes, you can download Instagram Stories by pasting the story URL. This works for both regular stories and highlighted stories."
+          "q": "Instagramストーリーはダウンロードできますか？",
+          "a": "はい、ストーリーのURLを貼り付けることでInstagramストーリーをダウンロードできます。通常のストーリーとハイライトされたストーリーの両方に対応しています。"
         },
         {
-          "q": "Do Reels download with sound?",
-          "a": "Yes, Instagram Reels are downloaded with both video and audio intact. If you want only the audio, use the Audio extraction mode."
+          "q": "Reelsは音声付きでダウンロードできますか？",
+          "a": "はい、Instagram Reelsは動画と音声の両方がそのままダウンロードされます。音声のみが必要な場合は、音声抽出モードをご利用ください。"
         },
         {
-          "q": "What about private Instagram accounts?",
-          "a": "Only publicly accessible content can be downloaded. Content from private accounts cannot be accessed through our service."
+          "q": "非公開のInstagramアカウントについては？",
+          "a": "公開されているコンテンツのみダウンロードできます。非公開アカウントのコンテンツは当サービスを通じてアクセスできません。"
         },
         {
-          "q": "What formats are available?",
-          "a": "Videos can be downloaded in MP4, WebM, and MKV formats. Audio supports MP3, AAC, FLAC, WAV, and OGG. Thumbnails in JPG, PNG, and WebP."
+          "q": "どのような形式が利用可能ですか？",
+          "a": "動画はMP4、WebM、MKV形式でダウンロード可能。音声はMP3、AAC、FLAC、WAV、OGGに対応。サムネイルはJPG、PNG、WebP。"
         },
         {
-          "q": "Can I download IGTV videos?",
-          "a": "Yes, IGTV videos are fully supported. Paste any IGTV URL and choose your preferred quality and format for download."
+          "q": "IGTV動画はダウンロードできますか？",
+          "a": "はい、IGTV動画は完全に対応しています。IGTVのURLを貼り付けて、希望の品質と形式を選択してダウンロードしてください。"
         }
       ],
-      "metaTitle": "Instagram Video Downloader — Download Reels, Stories & Posts | DownForge",
-      "metaDescription": "Free Instagram downloader. Download Reels, Stories, IGTV, and posts in HD. Extract audio as MP3. Save profile pictures. No sign-up required.",
+      "metaTitle": "Instagram Video Downloader — Reels、ストーリー、投稿をダウンロード | DownForge",
+      "metaDescription": "無料のInstagramダウンローダー。Reels、ストーリー、IGTV、投稿をHDでダウンロード。MP3で音声抽出。プロフィール画像を保存。サインアップ不要。",
       "keywords": [
         "instagram video downloader",
         "download instagram reels",
@@ -613,56 +613,56 @@
     },
     "tiktok": {
       "badge": "TikTok Downloader",
-      "heading": "Download TikTok Videos",
-      "headingAccent": "No Watermark",
-      "subheading": "Save TikTok videos without watermarks. Download in HD, extract audio as MP3, save thumbnails, or get AI transcripts. Quick, free, no sign-up needed.",
-      "placeholder": "Paste your TikTok video URL here...",
+      "heading": "TikTok動画をダウンロード",
+      "headingAccent": "透かしなし",
+      "subheading": "TikTok動画を透かしなしで保存。HDでダウンロード、MP3で音声抽出、サムネイル保存、AI文字起こしも取得。高速、無料、サインアップ不要。",
+      "placeholder": "TikTokの動画URLをここに貼り付け...",
       "features": [
         {
-          "title": "Download Without Watermark",
-          "desc": "Save TikTok videos clean without the TikTok watermark. Get the original video in its full quality for offline viewing."
+          "title": "透かしなしでダウンロード",
+          "desc": "TikTokの透かしがないクリーンな動画を保存。元のフル品質の動画をオフライン視聴用に取得。"
         },
         {
-          "title": "Extract Viral Audio",
-          "desc": "Convert TikTok videos to MP3 or FLAC audio. Perfect for saving trending sounds, music tracks, and voiceovers."
+          "title": "バイラル音声を抽出",
+          "desc": "TikTok動画をMP3またはFLAC音声に変換。話題のサウンド、音楽トラック、ナレーションの保存に最適。"
         },
         {
-          "title": "Save Video Thumbnails",
-          "desc": "Download TikTok video thumbnails in maximum resolution. Great for cover images and reference."
+          "title": "動画サムネイルを保存",
+          "desc": "TikTok動画のサムネイルを最大解像度でダウンロード。カバー画像や参考に最適。"
         },
         {
-          "title": "Supports All TikTok Content",
-          "desc": "Works with regular posts, slideshows, and photo mode videos. Paste any public TikTok URL and download instantly."
+          "title": "すべてのTikTokコンテンツに対応",
+          "desc": "通常の投稿、スライドショー、フォトモード動画に対応。公開TikTok URLを貼り付けて即座にダウンロード。"
         },
         {
-          "title": "AI Transcripts",
-          "desc": "Generate accurate transcripts with timestamps from any TikTok video. Download as SRT, VTT, TXT, or JSON subtitles."
+          "title": "AI文字起こし",
+          "desc": "あらゆるTikTok動画からタイムスタンプ付きの正確な文字起こしを生成。SRT、VTT、TXT、JSON字幕としてダウンロード。"
         }
       ],
       "faqs": [
         {
-          "q": "Do downloaded TikTok videos have watermarks?",
-          "a": "Videos downloaded through our platform are watermark-free. We use the original video source without the TikTok overlay."
+          "q": "ダウンロードしたTikTok動画に透かしはありますか？",
+          "a": "当プラットフォームを通じてダウンロードされた動画は透かしなしです。TikTokのオーバーレイなしで元の動画ソースを使用しています。"
         },
         {
-          "q": "Can I download TikTok audio separately?",
-          "a": "Yes, choose the Audio mode to extract only the audio track from any TikTok video. Available in MP3, AAC, FLAC, and more formats."
+          "q": "TikTokの音声だけを個別にダウンロードできますか？",
+          "a": "はい、音声モードを選択すると、TikTok動画から音声トラックのみを抽出できます。MP3、AAC、FLACなどの形式で利用可能。"
         },
         {
-          "q": "What video quality is available?",
-          "a": "TikTok videos can be downloaded in their original quality, typically 720p or 1080p depending on how the video was uploaded."
+          "q": "どのような動画品質が利用可能ですか？",
+          "a": "TikTok動画は元の品質でダウンロード可能で、通常はアップロード方法に応じて720pまたは1080pです。"
         },
         {
-          "q": "Does it work with TikTok slideshows?",
-          "a": "Yes, TikTok photo slideshows and multi-image posts are fully supported. You can download them as video compilations."
+          "q": "TikTokのスライドショーでも使えますか？",
+          "a": "はい、TikTokの写真スライドショーやマルチ画像投稿も完全に対応しています。動画コンピレーションとしてダウンロードできます。"
         },
         {
-          "q": "Is downloading without watermark legal?",
-          "a": "Downloading for personal offline use is generally acceptable. Redistributing content without the creator's permission may violate TikTok's terms."
+          "q": "透かしなしでのダウンロードは合法ですか？",
+          "a": "個人のオフライン使用のためのダウンロードは一般的に許容されます。作成者の許可なくコンテンツを再配布することはTikTokの利用規約に違反する可能性があります。"
         }
       ],
-      "metaTitle": "TikTok Video Downloader — Download Without Watermark | DownForge",
-      "metaDescription": "Free TikTok downloader. Download TikTok videos without watermark in HD. Extract audio as MP3, FLAC. Save thumbnails. No sign-up required.",
+      "metaTitle": "TikTok Video Downloader — 透かしなしでダウンロード | DownForge",
+      "metaDescription": "無料のTikTokダウンローダー。TikTok動画を透かしなしでHDダウンロード。MP3、FLACで音声抽出。サムネイル保存。サインアップ不要。",
       "keywords": [
         "tiktok video downloader",
         "download tiktok without watermark",
@@ -678,56 +678,56 @@
     },
     "twitter": {
       "badge": "Twitter Downloader",
-      "heading": "Download Twitter Videos",
-      "headingAccent": "& GIFs",
-      "subheading": "Save Twitter videos, GIFs, and media from any tweet. Download in HD, extract audio, grab thumbnails, or get AI transcripts — fast and free.",
-      "placeholder": "Paste your tweet URL here...",
+      "heading": "Twitter動画をダウンロード",
+      "headingAccent": "＆GIF",
+      "subheading": "ツイートからTwitter動画、GIF、メディアを保存。HDでダウンロード、音声抽出、サムネイル取得、AI文字起こしも — 高速かつ無料。",
+      "placeholder": "ツイートのURLをここに貼り付け...",
       "features": [
         {
-          "title": "Save Videos from Tweets",
-          "desc": "Download videos embedded in tweets at original quality. Perfect for saving news clips, sports highlights, and viral content."
+          "title": "ツイートから動画を保存",
+          "desc": "ツイートに埋め込まれた動画を元の品質でダウンロード。ニュースクリップ、スポーツハイライト、バイラルコンテンツの保存に最適。"
         },
         {
-          "title": "Download GIFs as Video",
-          "desc": "Twitter GIFs can be saved as video files. Download animated GIFs in MP4 format for easy sharing and editing."
+          "title": "GIFを動画としてダウンロード",
+          "desc": "TwitterのGIFを動画ファイルとして保存。アニメーションGIFをMP4形式でダウンロードして簡単に共有・編集。"
         },
         {
-          "title": "Extract Audio from Tweets",
-          "desc": "Convert Twitter video content to MP3 or FLAC audio. Great for saving audio from interviews and live broadcasts."
+          "title": "ツイートから音声を抽出",
+          "desc": "Twitterの動画コンテンツをMP3またはFLAC音声に変換。インタビューやライブ放送の音声保存に最適。"
         },
         {
-          "title": "Save Tweet Thumbnails",
-          "desc": "Download video thumbnails from Twitter posts in high resolution. Available in JPG, PNG, and WebP formats."
+          "title": "ツイートのサムネイルを保存",
+          "desc": "Twitter投稿の動画サムネイルを高解像度でダウンロード。JPG、PNG、WebP形式で利用可能。"
         },
         {
-          "title": "AI Transcripts",
-          "desc": "Generate accurate transcripts with timestamps from any Twitter/X video. Download as SRT, VTT, TXT, or JSON subtitles."
+          "title": "AI文字起こし",
+          "desc": "あらゆるTwitter/X動画からタイムスタンプ付きの正確な文字起こしを生成。SRT、VTT、TXT、JSON字幕としてダウンロード。"
         }
       ],
       "faqs": [
         {
-          "q": "Can I download videos from any tweet?",
-          "a": "Yes, any publicly accessible tweet containing a video can be downloaded. Just paste the tweet URL into the input above."
+          "q": "任意のツイートから動画をダウンロードできますか？",
+          "a": "はい、動画を含む公開ツイートはすべてダウンロード可能です。ツイートのURLを上の入力欄に貼り付けてください。"
         },
         {
-          "q": "What about age-restricted tweets?",
-          "a": "Age-restricted or sensitive content may require you to be logged in to Twitter. Our service can only access publicly visible media."
+          "q": "年齢制限のあるツイートについては？",
+          "a": "年齢制限やセンシティブなコンテンツは、Twitterにログインしている必要がある場合があります。当サービスは公開されているメディアにのみアクセスできます。"
         },
         {
-          "q": "Are Twitter Spaces recordings supported?",
-          "a": "Twitter Spaces recordings that are publicly available as videos can be downloaded. Paste the Space recording URL to get started."
+          "q": "Twitter Spacesの録音は対応していますか？",
+          "a": "公開されているTwitter Spacesの録音は動画としてダウンロードできます。Spaceの録音URLを貼り付けて開始してください。"
         },
         {
-          "q": "What video quality is available?",
-          "a": "Twitter videos can be downloaded in their original uploaded quality, typically up to 1080p HD depending on the source."
+          "q": "どのような動画品質が利用可能ですか？",
+          "a": "Twitter動画は元のアップロード品質でダウンロード可能で、通常はソースに応じて最大1080p HDです。"
         },
         {
-          "q": "Can I download multiple videos from a thread?",
-          "a": "Yes, with a Pro subscription you can batch download videos from tweet threads and entire timelines efficiently."
+          "q": "スレッドから複数の動画をダウンロードできますか？",
+          "a": "はい、Proサブスクリプションでツイートスレッドやタイムライン全体から動画を効率的に一括ダウンロードできます。"
         }
       ],
-      "metaTitle": "Twitter Video Downloader — Download X Videos & GIFs | DownForge",
-      "metaDescription": "Free Twitter/X video downloader. Download videos, GIFs, and media from any tweet in HD. Extract audio as MP3. No sign-up required.",
+      "metaTitle": "Twitter Video Downloader — X動画＆GIFをダウンロード | DownForge",
+      "metaDescription": "無料のTwitter/X動画ダウンローダー。任意のツイートから動画、GIF、メディアをHDでダウンロード。MP3で音声抽出。サインアップ不要。",
       "keywords": [
         "twitter video downloader",
         "x video downloader",
@@ -743,56 +743,56 @@
     },
     "vimeo": {
       "badge": "Vimeo Downloader",
-      "heading": "Download Vimeo Videos",
-      "headingAccent": "in 4K",
-      "subheading": "Download Vimeo videos in up to 4K Ultra HD. Save professional content, extract audio as FLAC, grab HD thumbnails, or get AI transcripts.",
-      "placeholder": "Paste your Vimeo video URL here...",
+      "heading": "Vimeo動画をダウンロード",
+      "headingAccent": "4Kで",
+      "subheading": "Vimeo動画を最大4K Ultra HDでダウンロード。プロフェッショナルコンテンツを保存、FLACで音声抽出、HDサムネイル取得、AI文字起こしも。",
+      "placeholder": "Vimeoの動画URLをここに貼り付け...",
       "features": [
         {
-          "title": "Download in 4K Ultra HD",
-          "desc": "Vimeo is known for high-quality video. Download in up to 4K resolution for professional editing and archival purposes."
+          "title": "4K Ultra HDでダウンロード",
+          "desc": "Vimeoは高品質動画で知られています。プロフェッショナルな編集やアーカイブ目的で最大4K解像度でダウンロード。"
         },
         {
-          "title": "Lossless Audio Extraction",
-          "desc": "Extract pristine audio from Vimeo videos. Get FLAC lossless or WAV uncompressed for professional audio production."
+          "title": "ロスレス音声抽出",
+          "desc": "Vimeo動画から高純度の音声を抽出。プロの音声制作にはFLACロスレスまたはWAV非圧縮を取得。"
         },
         {
-          "title": "HD Thumbnail Downloads",
-          "desc": "Save Vimeo video thumbnails in full resolution. Perfect for portfolio references and project covers."
+          "title": "HDサムネイルのダウンロード",
+          "desc": "Vimeo動画のサムネイルをフル解像度で保存。ポートフォリオの参考やプロジェクトカバーに最適。"
         },
         {
-          "title": "Supports All Vimeo Content",
-          "desc": "Works with public Vimeo videos, Staff Picks, and embedded content. Paste any Vimeo URL and download instantly."
+          "title": "すべてのVimeoコンテンツに対応",
+          "desc": "公開Vimeo動画、Staff Picks、埋め込みコンテンツに対応。Vimeo URLを貼り付けて即座にダウンロード。"
         },
         {
-          "title": "AI Transcripts",
-          "desc": "Generate accurate transcripts with timestamps from any Vimeo video. Download as SRT, VTT, TXT, or JSON subtitles."
+          "title": "AI文字起こし",
+          "desc": "あらゆるVimeo動画からタイムスタンプ付きの正確な文字起こしを生成。SRT、VTT、TXT、JSON字幕としてダウンロード。"
         }
       ],
       "faqs": [
         {
-          "q": "Can I download Vimeo staff picks?",
-          "a": "Yes, Vimeo Staff Picks and other publicly available videos can be downloaded if they are not password-protected by the uploader."
+          "q": "VimeoのStaff Picksはダウンロードできますか？",
+          "a": "はい、Vimeo Staff Picksやその他の公開動画は、アップロード者がパスワード保護していなければダウンロードできます。"
         },
         {
-          "q": "What video qualities are available?",
-          "a": "Vimeo supports up to 8K resolution, but most content is available in 4K, 1080p, and 720p. The available qualities depend on the uploader's settings."
+          "q": "どのような動画品質が利用可能ですか？",
+          "a": "Vimeoは最大8K解像度に対応していますが、ほとんどのコンテンツは4K、1080p、720pで利用可能です。利用可能な品質はアップロード者の設定に依存します。"
         },
         {
-          "q": "Does it work with password-protected Vimeo videos?",
-          "a": "No, password-protected and private Vimeo videos cannot be accessed through our service due to Vimeo's security restrictions."
+          "q": "パスワード保護されたVimeo動画でも使えますか？",
+          "a": "いいえ、パスワード保護されたVimeo動画や非公開動画は、Vimeoのセキュリティ制限により当サービスを通じてアクセスできません。"
         },
         {
-          "q": "What audio formats can I extract?",
-          "a": "Vimeo audio can be extracted as MP3 up to 320kbps, AAC, FLAC lossless, WAV uncompressed, and OGG formats."
+          "q": "どのような音声形式を抽出できますか？",
+          "a": "Vimeoの音声は最大320kbpsのMP3、AAC、FLACロスレス、WAV非圧縮、OGG形式で抽出できます。"
         },
         {
-          "q": "Is Vimeo downloading legal for professional use?",
-          "a": "Always respect the creator's license and copyright. Many Vimeo creators allow downloading for personal or portfolio use."
+          "q": "プロフェッショナル用途でのVimeoダウンロードは合法ですか？",
+          "a": "常に作成者のライセンスと著作権を尊重してください。多くのVimeo作成者は個人使用やポートフォリオ使用のためのダウンロードを許可しています。"
         }
       ],
-      "metaTitle": "Vimeo Video Downloader — Download Vimeo Videos in 4K | DownForge",
-      "metaDescription": "Free Vimeo video downloader. Download Vimeo videos in 4K, 1080p, 720p. Extract audio as FLAC, MP3, AAC. Get HD thumbnails. No sign-up required.",
+      "metaTitle": "Vimeo Video Downloader — Vimeo動画を4Kでダウンロード | DownForge",
+      "metaDescription": "無料のVimeo動画ダウンローダー。Vimeo動画を4K、1080p、720pでダウンロード。FLAC、MP3、AACで音声抽出。HDサムネイル取得。サインアップ不要。",
       "keywords": [
         "vimeo video downloader",
         "download vimeo videos",
@@ -808,56 +808,56 @@
     },
     "dailymotion": {
       "badge": "Dailymotion Downloader",
-      "heading": "Download Dailymotion Videos",
-      "headingAccent": "in HD",
-      "subheading": "Save Dailymotion videos, news clips, and user content. Download in HD, extract audio, grab thumbnails, or get AI transcripts — quick and free.",
-      "placeholder": "Paste your Dailymotion URL here...",
+      "heading": "Dailymotion動画をダウンロード",
+      "headingAccent": "HDで",
+      "subheading": "Dailymotion動画、ニュースクリップ、ユーザーコンテンツを保存。HDでダウンロード、音声抽出、サムネイル取得、AI文字起こしも — 手軽で無料。",
+      "placeholder": "DailymotionのURLをここに貼り付け...",
       "features": [
         {
-          "title": "HD Video Downloads",
-          "desc": "Download Dailymotion videos in up to 1080p Full HD. Perfect for offline viewing of news, sports, and entertainment content."
+          "title": "HD動画ダウンロード",
+          "desc": "Dailymotion動画を最大1080p Full HDでダウンロード。ニュース、スポーツ、エンターテイメントコンテンツのオフライン視聴に最適。"
         },
         {
-          "title": "Audio Extraction",
-          "desc": "Convert Dailymotion videos to MP3 or AAC audio. Great for saving music videos, interviews, and podcast-style content."
+          "title": "音声抽出",
+          "desc": "Dailymotion動画をMP3またはAAC音声に変換。ミュージックビデオ、インタビュー、ポッドキャスト形式のコンテンツの保存に最適。"
         },
         {
-          "title": "Save Video Thumbnails",
-          "desc": "Download Dailymotion thumbnails in high quality. Available in multiple resolutions and formats including JPG and PNG."
+          "title": "動画サムネイルを保存",
+          "desc": "Dailymotionのサムネイルを高品質でダウンロード。JPGやPNGを含む複数の解像度と形式で利用可能。"
         },
         {
-          "title": "Works Worldwide",
-          "desc": "Access Dailymotion content from any region. Supports both regular Dailymotion and short url (dai.ly) links."
+          "title": "世界中で利用可能",
+          "desc": "どの地域からでもDailymotionコンテンツにアクセス。通常のDailymotionリンクと短縮URL（dai.ly）の両方に対応。"
         },
         {
-          "title": "AI Transcripts",
-          "desc": "Generate accurate transcripts with timestamps from any Dailymotion video. Download as SRT, VTT, TXT, or JSON subtitles."
+          "title": "AI文字起こし",
+          "desc": "あらゆるDailymotion動画からタイムスタンプ付きの正確な文字起こしを生成。SRT、VTT、TXT、JSON字幕としてダウンロード。"
         }
       ],
       "faqs": [
         {
-          "q": "Can I download Dailymotion news videos?",
-          "a": "Yes, Dailymotion news and user-uploaded content can be downloaded as long as they are publicly accessible on the platform."
+          "q": "Dailymotionのニュース動画はダウンロードできますか？",
+          "a": "はい、Dailymotionのニュースやユーザー投稿コンテンツは、プラットフォーム上で公開されていればダウンロードできます。"
         },
         {
-          "q": "What video quality is available?",
-          "a": "Dailymotion videos are available in various qualities including 1080p, 720p, 480p, and 360p depending on the original upload."
+          "q": "どのような動画品質が利用可能ですか？",
+          "a": "Dailymotion動画は元のアップロードに応じて1080p、720p、480p、360pなどのさまざまな品質で利用可能です。"
         },
         {
-          "q": "Does it support Dailymotion live streams?",
-          "a": "Currently, we support downloading on-demand Dailymotion videos. Live streams need to be completed and available as recordings."
+          "q": "Dailymotionのライブ配信に対応していますか？",
+          "a": "現在、オンデマンドのDailymotion動画のダウンロードに対応しています。ライブ配信は完了し、録画として利用可能である必要があります。"
         },
         {
-          "q": "Can I download multiple videos at once?",
-          "a": "Pro and Team subscribers can batch download multiple Dailymotion videos simultaneously with priority processing."
+          "q": "複数の動画を一度にダウンロードできますか？",
+          "a": "ProおよびTeamプランでは、優先処理で複数のDailymotion動画を同時に一括ダウンロードできます。"
         },
         {
-          "q": "What's the maximum video length?",
-          "a": "Free accounts can download videos up to 30 minutes. Pro accounts have no length limit for individual videos."
+          "q": "動画の最大長は？",
+          "a": "無料アカウントは最大30分までの動画をダウンロードできます。Proアカウントは個別の動画に長さ制限はありません。"
         }
       ],
-      "metaTitle": "Dailymotion Video Downloader — Download Dailymotion Videos | DownForge",
-      "metaDescription": "Free Dailymotion video downloader. Download Dailymotion videos in HD. Extract audio as MP3, AAC. Save thumbnails. No sign-up required.",
+      "metaTitle": "Dailymotion Video Downloader — Dailymotion動画をダウンロード | DownForge",
+      "metaDescription": "無料のDailymotion動画ダウンローダー。Dailymotion動画をHDでダウンロード。MP3、AACで音声抽出。サムネイル保存。サインアップ不要。",
       "keywords": [
         "dailymotion video downloader",
         "download dailymotion videos",
@@ -872,56 +872,56 @@
     },
     "twitch": {
       "badge": "Twitch Downloader",
-      "heading": "Download Twitch Clips",
-      "headingAccent": "& VODs",
-      "subheading": "Save Twitch clips, VODs, and highlights. Download in HD, extract audio for podcasts, grab thumbnails, or get AI transcripts — no login required.",
-      "placeholder": "Paste your Twitch URL here...",
+      "heading": "Twitchクリップをダウンロード",
+      "headingAccent": "＆VOD",
+      "subheading": "Twitchクリップ、VOD、ハイライトを保存。HDでダウンロード、ポッドキャスト用に音声抽出、サムネイル取得、AI文字起こしも — ログイン不要。",
+      "placeholder": "TwitchのURLをここに貼り付け...",
       "features": [
         {
-          "title": "Save Clips & VODs",
-          "desc": "Download Twitch clips and past broadcasts (VODs) in original quality. Archive your favorite streams and highlights."
+          "title": "クリップ＆VODを保存",
+          "desc": "Twitchクリップと過去の放送（VOD）を元の品質でダウンロード。お気に入りの配信やハイライトをアーカイブ。"
         },
         {
-          "title": "Extract Stream Audio",
-          "desc": "Convert Twitch VODs to MP3 or AAC audio. Perfect for listening to streams as podcasts during commutes."
+          "title": "配信音声を抽出",
+          "desc": "Twitch VODをMP3またはAAC音声に変換。通勤中に配信をポッドキャストとして聴くのに最適。"
         },
         {
-          "title": "Download Thumbnails",
-          "desc": "Save Twitch clip and stream thumbnails in high resolution. Great for social media sharing and stream archiving."
+          "title": "サムネイルをダウンロード",
+          "desc": "Twitchクリップと配信のサムネイルを高解像度で保存。ソーシャルメディア共有や配信アーカイブに最適。"
         },
         {
-          "title": "Supports All Twitch Content",
-          "desc": "Works with Twitch clips, VODs, highlights, and uploaded content. Paste any public Twitch URL and download instantly."
+          "title": "すべてのTwitchコンテンツに対応",
+          "desc": "Twitchクリップ、VOD、ハイライト、アップロードコンテンツに対応。公開Twitch URLを貼り付けて即座にダウンロード。"
         },
         {
-          "title": "AI Transcripts",
-          "desc": "Generate accurate transcripts with timestamps from any Twitch VOD or clip. Download as SRT, VTT, TXT, or JSON subtitles."
+          "title": "AI文字起こし",
+          "desc": "あらゆるTwitch VODやクリップからタイムスタンプ付きの正確な文字起こしを生成。SRT、VTT、TXT、JSON字幕としてダウンロード。"
         }
       ],
       "faqs": [
         {
-          "q": "Can I download live Twitch streams?",
-          "a": "Currently, we support downloading completed VODs and clips. Live streams must finish before they can be processed for download."
+          "q": "ライブのTwitch配信はダウンロードできますか？",
+          "a": "現在、完了したVODとクリップのダウンロードに対応しています。ライブ配信は終了してから処理可能になります。"
         },
         {
-          "q": "How long do Twitch VODs stay available?",
-          "a": "Twitch stores VODs for 7-60 days depending on your subscription tier. Download them before they expire to keep them permanently."
+          "q": "Twitch VODはどのくらい利用可能ですか？",
+          "a": "Twitchはサブスクリプション層に応じてVODを7〜60日間保存します。期限が切れる前にダウンロードして永久に保存してください。"
         },
         {
-          "q": "What quality are Twitch downloads?",
-          "a": "Twitch clips and VODs can be downloaded in their source quality, typically up to 1080p60 (Full HD at 60fps)."
+          "q": "Twitchダウンロードの品質は？",
+          "a": "TwitchクリップとVODはソース品質でダウンロード可能で、通常は最大1080p60（60fpsのFull HD）です。"
         },
         {
-          "q": "Does it work with subscriber-only VODs?",
-          "a": "Subscriber-only VODs require Twitch authentication and cannot be accessed through our service due to access restrictions."
+          "q": "チャンネル登録者限定のVODでも使えますか？",
+          "a": "チャンネル登録者限定のVODはTwitch認証が必要であり、アクセス制限のため当サービスを通じてアクセスできません。"
         },
         {
-          "q": "Can I extract just the audio from streams?",
-          "a": "Yes, use the Audio extraction mode to convert Twitch VODs to MP3 or AAC. Perfect for creating stream podcasts or saving music sets."
+          "q": "配信から音声だけを抽出できますか？",
+          "a": "はい、音声抽出モードを使用してTwitch VODをMP3またはAACに変換できます。配信ポッドキャストの作成や音楽セットの保存に最適。"
         }
       ],
-      "metaTitle": "Twitch Video Downloader — Download Twitch Clips & VODs | DownForge",
-      "metaDescription": "Free Twitch downloader. Download Twitch clips, VODs, and highlights in HD. Extract audio as MP3. Save thumbnails. No sign-up required.",
+      "metaTitle": "Twitch Video Downloader — Twitchクリップ＆VODをダウンロード | DownForge",
+      "metaDescription": "無料のTwitchダウンローダー。Twitchクリップ、VOD、ハイライトをHDでダウンロード。MP3で音声抽出。サムネイル保存。サインアップ不要。",
       "keywords": [
         "twitch video downloader",
         "download twitch clips",
@@ -937,56 +937,56 @@
     },
     "reddit": {
       "badge": "Reddit Downloader",
-      "heading": "Download Reddit Videos",
-      "headingAccent": "& GIFs",
-      "subheading": "Save videos, GIFs, and media from any Reddit post. Download in HD quality, extract audio, grab thumbnails, or get AI transcripts — quick and free.",
-      "placeholder": "Paste your Reddit post URL here...",
+      "heading": "Reddit動画をダウンロード",
+      "headingAccent": "＆GIF",
+      "subheading": "Reddit投稿から動画、GIF、メディアを保存。HD品質でダウンロード、音声抽出、サムネイル取得、AI文字起こしも — 手軽で無料。",
+      "placeholder": "Redditの投稿URLをここに貼り付け...",
       "features": [
         {
-          "title": "Save Reddit Videos",
-          "desc": "Download videos shared on Reddit from any subreddit. Perfect for saving funny clips, tutorials, and community highlights."
+          "title": "Reddit動画を保存",
+          "desc": "あらゆるサブレディットからRedditで共有された動画をダウンロード。面白いクリップ、チュートリアル、コミュニティハイライトの保存に最適。"
         },
         {
-          "title": "Download Reddit GIFs",
-          "desc": "Reddit GIFs can be saved as MP4 video files. Download animated content for sharing and editing outside of Reddit."
+          "title": "Reddit GIFをダウンロード",
+          "desc": "RedditのGIFをMP4動画ファイルとして保存。アニメーションコンテンツをReddit外で共有・編集するためにダウンロード。"
         },
         {
-          "title": "Extract Audio from Posts",
-          "desc": "Convert Reddit video posts to MP3 or FLAC audio. Great for saving audio from music shares, podcasts, and interviews."
+          "title": "投稿から音声を抽出",
+          "desc": "Redditの動画投稿をMP3またはFLAC音声に変換。音楽共有、ポッドキャスト、インタビューからの音声保存に最適。"
         },
         {
-          "title": "Save Post Thumbnails",
-          "desc": "Download Reddit post thumbnails in high resolution. Available in JPG, PNG, and WebP formats."
+          "title": "投稿サムネイルを保存",
+          "desc": "Reddit投稿のサムネイルを高解像度でダウンロード。JPG、PNG、WebP形式で利用可能。"
         },
         {
-          "title": "AI Transcripts",
-          "desc": "Generate accurate transcripts with timestamps from any Reddit video. Download as SRT, VTT, TXT, or JSON subtitles."
+          "title": "AI文字起こし",
+          "desc": "あらゆるReddit動画からタイムスタンプ付きの正確な文字起こしを生成。SRT、VTT、TXT、JSON字幕としてダウンロード。"
         }
       ],
       "faqs": [
         {
-          "q": "Can I download videos from any subreddit?",
-          "a": "Yes, videos from any public subreddit can be downloaded as long as they are publicly accessible Reddit-hosted videos."
+          "q": "任意のサブレディットから動画をダウンロードできますか？",
+          "a": "はい、公開サブレディットの動画は、公開されているRedditホストの動画であればダウンロード可能です。"
         },
         {
-          "q": "Does it work with Reddit-hosted or external videos?",
-          "a": "We support both Reddit-hosted (v.redd.it) videos and many external sources shared on Reddit, including Gfycat, Imgur, and Streamable."
+          "q": "Redditホスト動画と外部動画の両方に対応していますか？",
+          "a": "Redditホスト（v.redd.it）動画と、Gfycat、Imgur、StreamableなどRedditで共有される多くの外部ソースの両方に対応しています。"
         },
         {
-          "q": "Can I download from NSFW subreddits?",
-          "a": "NSFW content is treated according to the same access rules. If the video is publicly viewable, it can be downloaded."
+          "q": "NSFWサブレディットからダウンロードできますか？",
+          "a": "NSFWコンテンツは同じアクセスルールに従って扱われます。動画が公開視聴可能であればダウンロードできます。"
         },
         {
-          "q": "What about Reddit live streams (RPAN)?",
-          "a": "RPAN broadcasts that have ended and are available as recordings can be downloaded through our service."
+          "q": "Redditライブ配信（RPAN）については？",
+          "a": "終了して録画として利用可能なRPAN放送は、当サービスを通じてダウンロードできます。"
         },
         {
-          "q": "What video format is used?",
-          "a": "Reddit videos are typically available in MP4 format. You can choose from multiple quality levels up to 1080p."
+          "q": "どの動画形式が使用されますか？",
+          "a": "Reddit動画は通常MP4形式で利用可能です。最大1080pまでの複数の品質レベルから選択できます。"
         }
       ],
-      "metaTitle": "Reddit Video Downloader — Download Reddit Videos & GIFs | DownForge",
-      "metaDescription": "Free Reddit video downloader. Download videos, GIFs, and media from any Reddit post in HD. Extract audio as MP3. No sign-up required.",
+      "metaTitle": "Reddit Video Downloader — Reddit動画＆GIFをダウンロード | DownForge",
+      "metaDescription": "無料のReddit動画ダウンローダー。Reddit投稿から動画、GIF、メディアをHDでダウンロード。MP3で音声抽出。サインアップ不要。",
       "keywords": [
         "reddit video downloader",
         "download reddit videos",
@@ -1002,56 +1002,56 @@
     },
     "pinterest": {
       "badge": "Pinterest Downloader",
-      "heading": "Download Pinterest Videos",
-      "headingAccent": "& Pins",
-      "subheading": "Save Pinterest videos, Idea Pins, and video pins. Download in HD, extract audio, save thumbnails, or get AI transcripts — instantly, no account required.",
-      "placeholder": "Paste your Pinterest URL here...",
+      "heading": "Pinterest動画をダウンロード",
+      "headingAccent": "＆ピン",
+      "subheading": "Pinterest動画、Idea Pin、動画ピンを保存。HDでダウンロード、音声抽出、サムネイル保存、AI文字起こしも — 即座に、アカウント不要。",
+      "placeholder": "PinterestのURLをここに貼り付け...",
       "features": [
         {
-          "title": "Save Video Pins",
-          "desc": "Download Pinterest video pins in their original quality. Perfect for saving DIY tutorials, recipe videos, and inspiration content."
+          "title": "動画ピンを保存",
+          "desc": "Pinterestの動画ピンを元の品質でダウンロード。DIYチュートリアル、レシピ動画、インスピレーションコンテンツの保存に最適。"
         },
         {
-          "title": "Extract Pin Audio",
-          "desc": "Convert Pinterest video pins to MP3 or AAC audio. Great for saving audio from music pins and instructional content."
+          "title": "ピンの音声を抽出",
+          "desc": "Pinterestの動画ピンをMP3またはAAC音声に変換。音楽ピンや指導コンテンツからの音声保存に最適。"
         },
         {
-          "title": "Download Pin Images",
-          "desc": "Save high-resolution images from Pinterest pins. Get the full quality version without compression or cropping."
+          "title": "ピン画像をダウンロード",
+          "desc": "Pinterestピンから高解像度画像を保存。圧縮やトリミングなしのフル品質バージョンを取得。"
         },
         {
-          "title": "Supports All Pin Types",
-          "desc": "Works with video pins, Idea Pins, and standard image pins. Paste any public Pinterest URL and download instantly."
+          "title": "すべてのピンタイプに対応",
+          "desc": "動画ピン、Idea Pin、標準画像ピンに対応。公開Pinterest URLを貼り付けて即座にダウンロード。"
         },
         {
-          "title": "AI Transcripts",
-          "desc": "Generate accurate transcripts with timestamps from any Pinterest video pin. Download as SRT, VTT, TXT, or JSON subtitles."
+          "title": "AI文字起こし",
+          "desc": "あらゆるPinterest動画ピンからタイムスタンプ付きの正確な文字起こしを生成。SRT、VTT、TXT、JSON字幕としてダウンロード。"
         }
       ],
       "faqs": [
         {
-          "q": "Can I download Idea Pins?",
-          "a": "Yes, Pinterest Idea Pins (formerly Story Pins) are fully supported. Download the video or extract audio from multi-page Idea Pins."
+          "q": "Idea Pinはダウンロードできますか？",
+          "a": "はい、PinterestのIdea Pin（旧ストーリーピン）は完全に対応しています。マルチページのIdea Pinから動画をダウンロードまたは音声を抽出できます。"
         },
         {
-          "q": "What video quality is available?",
-          "a": "Pinterest video pins can be downloaded in their original quality, typically HD (720p or 1080p) depending on the upload."
+          "q": "どのような動画品質が利用可能ですか？",
+          "a": "Pinterestの動画ピンは元の品質でダウンロード可能で、通常はアップロードに応じてHD（720pまたは1080p）です。"
         },
         {
-          "q": "Does it work with secret boards?",
-          "a": "Only publicly accessible Pinterest content can be downloaded. Secret board content is not accessible through our service."
+          "q": "シークレットボードでも使えますか？",
+          "a": "公開されているPinterestコンテンツのみダウンロードできます。シークレットボードのコンテンツは当サービスを通じてアクセスできません。"
         },
         {
-          "q": "Can I download just the image from a pin?",
-          "a": "Yes, for image pins you can save the full-resolution image directly. For video pins, use the Thumbnail mode to get the cover image."
+          "q": "ピンから画像だけをダウンロードできますか？",
+          "a": "はい、画像ピンの場合はフル解像度の画像を直接保存できます。動画ピンの場合は、サムネイルモードを使用してカバー画像を取得してください。"
         },
         {
-          "q": "Is there a limit on pin downloads?",
-          "a": "Free accounts get 10 downloads per day. Pro and Team plans offer unlimited downloads with batch processing."
+          "q": "ピンのダウンロードに制限はありますか？",
+          "a": "無料アカウントは1日10回のダウンロードが可能です。ProおよびTeamプランは一括処理付きの無制限ダウンロードを提供します。"
         }
       ],
-      "metaTitle": "Pinterest Video Downloader — Download Pinterest Videos & Pins | DownForge",
-      "metaDescription": "Free Pinterest video downloader. Download Pinterest videos, Idea Pins, and images in HD. Extract audio as MP3. Save thumbnails. No sign-up required.",
+      "metaTitle": "Pinterest Video Downloader — Pinterest動画＆ピンをダウンロード | DownForge",
+      "metaDescription": "無料のPinterest動画ダウンローダー。Pinterest動画、Idea Pin、画像をHDでダウンロード。MP3で音声抽出。サムネイル保存。サインアップ不要。",
       "keywords": [
         "pinterest video downloader",
         "download pinterest videos",
@@ -1067,56 +1067,56 @@
     },
     "linkedin": {
       "badge": "LinkedIn Downloader",
-      "heading": "Download LinkedIn Videos",
-      "headingAccent": "& Learning",
-      "subheading": "Save LinkedIn videos, company content, and Learning courses. Download in HD, extract audio, grab thumbnails, or get AI transcripts — fast and free.",
-      "placeholder": "Paste your LinkedIn URL here...",
+      "heading": "LinkedIn動画をダウンロード",
+      "headingAccent": "＆Learning",
+      "subheading": "LinkedIn動画、企業コンテンツ、Learningコースを保存。HDでダウンロード、音声抽出、サムネイル取得、AI文字起こしも — 高速かつ無料。",
+      "placeholder": "LinkedInのURLをここに貼り付け...",
       "features": [
         {
-          "title": "Save Professional Videos",
-          "desc": "Download videos from LinkedIn feeds, company pages, and event streams. Perfect for offline reference and content analysis."
+          "title": "プロフェッショナル動画を保存",
+          "desc": "LinkedInフィード、企業ページ、イベント配信から動画をダウンロード。オフライン参照やコンテンツ分析に最適。"
         },
         {
-          "title": "Extract Course Audio",
-          "desc": "Convert LinkedIn Learning videos to MP3 or AAC audio. Great for learning on the go by listening to course content."
+          "title": "コース音声を抽出",
+          "desc": "LinkedIn Learningの動画をMP3またはAAC音声に変換。コースコンテンツを聴いて移動中に学習するのに最適。"
         },
         {
-          "title": "Save Post Thumbnails",
-          "desc": "Download LinkedIn video thumbnails in high resolution. Useful for archiving and portfolio documentation."
+          "title": "投稿サムネイルを保存",
+          "desc": "LinkedIn動画のサムネイルを高解像度でダウンロード。アーカイブやポートフォリオのドキュメント化に便利。"
         },
         {
-          "title": "Public Content Access",
-          "desc": "Works with publicly shared LinkedIn videos and content visible without login. Privacy-restricted content requires authentication."
+          "title": "公開コンテンツへのアクセス",
+          "desc": "公開共有されたLinkedIn動画やログインなしで表示可能なコンテンツに対応。プライバシー制限のあるコンテンツは認証が必要です。"
         },
         {
-          "title": "AI Transcripts",
-          "desc": "Generate accurate transcripts with timestamps from any LinkedIn video. Download as SRT, VTT, TXT, or JSON subtitles."
+          "title": "AI文字起こし",
+          "desc": "あらゆるLinkedIn動画からタイムスタンプ付きの正確な文字起こしを生成。SRT、VTT、TXT、JSON字幕としてダウンロード。"
         }
       ],
       "faqs": [
         {
-          "q": "Can I download LinkedIn Learning courses?",
-          "a": "LinkedIn Learning videos can be downloaded for personal offline study as long as they are publicly accessible through the platform."
+          "q": "LinkedIn Learningのコースはダウンロードできますか？",
+          "a": "LinkedIn Learningの動画は、プラットフォームを通じて公開されている限り、個人のオフライン学習用にダウンロードできます。"
         },
         {
-          "q": "What about private or connections-only posts?",
-          "a": "Content restricted to connections or specific audiences cannot be accessed through our downloader due to LinkedIn's privacy settings."
+          "q": "非公開やつながり限定の投稿については？",
+          "a": "つながりや特定の視聴者に制限されたコンテンツは、LinkedInのプライバシー設定により当ダウンローダーを通じてアクセスできません。"
         },
         {
-          "q": "What video quality is available?",
-          "a": "LinkedIn videos are typically available in standard HD quality (720p) depending on the uploader's original file."
+          "q": "どのような動画品質が利用可能ですか？",
+          "a": "LinkedIn動画は通常、アップロード者の元のファイルに応じて標準HD品質（720p）で利用可能です。"
         },
         {
-          "q": "Can I download videos from company pages?",
-          "a": "Yes, publicly shared videos on LinkedIn company pages can be downloaded. Paste the company post URL to get started."
+          "q": "企業ページから動画をダウンロードできますか？",
+          "a": "はい、LinkedIn企業ページで公開共有された動画はダウンロードできます。企業の投稿URLを貼り付けて開始してください。"
         },
         {
-          "q": "Does it work with LinkedIn Events and Live?",
-          "a": "LinkedIn Events recordings that are publicly available can be downloaded. Completed live streams are supported when accessible."
+          "q": "LinkedIn EventsやLiveでも使えますか？",
+          "a": "公開されているLinkedIn Eventsの録画はダウンロードできます。完了したライブ配信はアクセス可能であれば対応しています。"
         }
       ],
-      "metaTitle": "LinkedIn Video Downloader — Download LinkedIn Videos | DownForge",
-      "metaDescription": "Free LinkedIn video downloader. Download LinkedIn videos, company content, and Learning videos in HD. Extract audio as MP3. No sign-up required.",
+      "metaTitle": "LinkedIn Video Downloader — LinkedIn動画をダウンロード | DownForge",
+      "metaDescription": "無料のLinkedIn動画ダウンローダー。LinkedIn動画、企業コンテンツ、Learning動画をHDでダウンロード。MP3で音声抽出。サインアップ不要。",
       "keywords": [
         "linkedin video downloader",
         "download linkedin videos",
@@ -1131,56 +1131,56 @@
     },
     "snapchat": {
       "badge": "Snapchat Downloader",
-      "heading": "Download Snapchat Videos",
-      "headingAccent": "& Spotlight",
-      "subheading": "Save Snapchat Spotlight videos and public stories. Download in original quality, extract audio, grab thumbnails, or get AI transcripts — fast and free.",
-      "placeholder": "Paste your Snapchat URL here...",
+      "heading": "Snapchat動画をダウンロード",
+      "headingAccent": "＆Spotlight",
+      "subheading": "Snapchat Spotlight動画と公開ストーリーを保存。元の品質でダウンロード、音声抽出、サムネイル取得、AI文字起こしも — 高速かつ無料。",
+      "placeholder": "SnapchatのURLをここに貼り付け...",
       "features": [
         {
-          "title": "Save Spotlight Videos",
-          "desc": "Download Snapchat Spotlight videos in original quality. Perfect for archiving viral content and creative highlights."
+          "title": "Spotlight動画を保存",
+          "desc": "Snapchat Spotlight動画を元の品質でダウンロード。バイラルコンテンツやクリエイティブなハイライトのアーカイブに最適。"
         },
         {
-          "title": "Extract Spotlight Audio",
-          "desc": "Convert Snapchat videos to MP3 or AAC audio. Great for saving soundtracks and audio from popular Spotlight posts."
+          "title": "Spotlight音声を抽出",
+          "desc": "Snapchat動画をMP3またはAAC音声に変換。人気のSpotlight投稿からサウンドトラックや音声を保存するのに最適。"
         },
         {
-          "title": "Save Video Thumbnails",
-          "desc": "Download Snapchat video thumbnails in high resolution. Available in JPG and PNG formats."
+          "title": "動画サムネイルを保存",
+          "desc": "Snapchat動画のサムネイルを高解像度でダウンロード。JPGおよびPNG形式で利用可能。"
         },
         {
-          "title": "Supports Public Content",
-          "desc": "Works with publicly shared Snapchat Spotlight videos and public story content that is accessible to all users."
+          "title": "公開コンテンツに対応",
+          "desc": "公開共有されたSnapchat Spotlight動画や全ユーザーがアクセス可能な公開ストーリーコンテンツに対応。"
         },
         {
-          "title": "AI Transcripts",
-          "desc": "Generate accurate transcripts with timestamps from any Snapchat Spotlight video. Download as SRT, VTT, TXT, or JSON subtitles."
+          "title": "AI文字起こし",
+          "desc": "あらゆるSnapchat Spotlight動画からタイムスタンプ付きの正確な文字起こしを生成。SRT、VTT、TXT、JSON字幕としてダウンロード。"
         }
       ],
       "faqs": [
         {
-          "q": "Can I download private Snapchat stories?",
-          "a": "Only publicly shared content like Spotlight videos and public stories can be downloaded. Private stories are not accessible."
+          "q": "非公開のSnapchatストーリーはダウンロードできますか？",
+          "a": "Spotlight動画や公開ストーリーなどの公開共有コンテンツのみダウンロードできます。非公開ストーリーにはアクセスできません。"
         },
         {
-          "q": "What video quality is available?",
-          "a": "Snapchat videos can be downloaded in their original uploaded quality. The vertical format is preserved as uploaded."
+          "q": "どのような動画品質が利用可能ですか？",
+          "a": "Snapchat動画は元のアップロード品質でダウンロード可能です。縦型フォーマットはアップロードされたまま保持されます。"
         },
         {
-          "q": "Does it work with Snapchat Spotlight?",
-          "a": "Yes, Snapchat Spotlight videos are fully supported. Paste the Spotlight URL to download the video without the Snapchat interface."
+          "q": "Snapchat Spotlightでも使えますか？",
+          "a": "はい、Snapchat Spotlight動画は完全に対応しています。SpotlightのURLを貼り付けて、Snapchatインターフェースなしで動画をダウンロード。"
         },
         {
-          "q": "What formats can I download in?",
-          "a": "Videos are available in MP4 format. Audio can be extracted as MP3, AAC, FLAC, WAV, or OGG. Thumbnails in JPG, PNG, and WebP."
+          "q": "どのような形式でダウンロードできますか？",
+          "a": "動画はMP4形式で利用可能。音声はMP3、AAC、FLAC、WAV、OGGとして抽出可能。サムネイルはJPG、PNG、WebP。"
         },
         {
-          "q": "Is there a download limit?",
-          "a": "Free accounts can download up to 10 videos per day. Pro accounts offer unlimited downloads with higher processing priority."
+          "q": "ダウンロード制限はありますか？",
+          "a": "無料アカウントは1日最大10件の動画をダウンロードできます。Proアカウントはより高い処理優先度で無制限のダウンロードを提供します。"
         }
       ],
-      "metaTitle": "Snapchat Video Downloader — Download Snapchat Spotlight Videos | DownForge",
-      "metaDescription": "Free Snapchat video downloader. Download Snapchat Spotlight videos and public stories. Extract audio as MP3. No sign-up required.",
+      "metaTitle": "Snapchat Video Downloader — Snapchat Spotlight動画をダウンロード | DownForge",
+      "metaDescription": "無料のSnapchat動画ダウンローダー。Snapchat Spotlight動画と公開ストーリーをダウンロード。MP3で音声抽出。サインアップ不要。",
       "keywords": [
         "snapchat video downloader",
         "download snapchat videos",
@@ -1195,56 +1195,56 @@
     },
     "soundcloud": {
       "badge": "SoundCloud Downloader",
-      "heading": "Download SoundCloud Tracks",
-      "headingAccent": "as MP3 & FLAC",
-      "subheading": "Save SoundCloud tracks, playlists, and remixes. Download as high-quality MP3, FLAC, AAC, WAV, or get AI transcripts — no account required.",
-      "placeholder": "Paste your SoundCloud track URL here...",
+      "heading": "SoundCloudトラックをダウンロード",
+      "headingAccent": "MP3＆FLACで",
+      "subheading": "SoundCloudのトラック、プレイリスト、リミックスを保存。高品質MP3、FLAC、AAC、WAVでダウンロード、またはAI文字起こしも — アカウント不要。",
+      "placeholder": "SoundCloudのトラックURLをここに貼り付け...",
       "features": [
         {
-          "title": "High-Quality MP3 Downloads",
-          "desc": "Download SoundCloud tracks as MP3 up to 320 kbps. Perfect for offline listening with no quality loss."
+          "title": "高品質MP3ダウンロード",
+          "desc": "SoundCloudトラックを最大320 kbpsのMP3としてダウンロード。品質を落とさずにオフラインリスニングに最適。"
         },
         {
-          "title": "Lossless FLAC & WAV",
-          "desc": "Extract SoundCloud audio as lossless FLAC or uncompressed WAV. Ideal for DJs, producers, and audiophiles."
+          "title": "ロスレスFLAC＆WAV",
+          "desc": "SoundCloud音声をロスレスFLACまたは非圧縮WAVとして抽出。DJ、プロデューサー、オーディオファンに最適。"
         },
         {
-          "title": "Download Full Playlists",
-          "desc": "Save entire SoundCloud playlists and albums in one go with a Pro subscription. No need to process tracks individually."
+          "title": "プレイリスト全体をダウンロード",
+          "desc": "ProサブスクリプションでSoundCloudのプレイリストやアルバム全体を一度に保存。トラックを個別に処理する必要はありません。"
         },
         {
-          "title": "Supports All SoundCloud Content",
-          "desc": "Works with tracks, playlists, albums, and reposts. Paste any public SoundCloud URL and download instantly."
+          "title": "すべてのSoundCloudコンテンツに対応",
+          "desc": "トラック、プレイリスト、アルバム、リポストに対応。公開SoundCloud URLを貼り付けて即座にダウンロード。"
         },
         {
-          "title": "AI Transcripts",
-          "desc": "Generate accurate transcripts with timestamps from any SoundCloud track or podcast. Download as SRT, VTT, TXT, or JSON subtitles."
+          "title": "AI文字起こし",
+          "desc": "あらゆるSoundCloudトラックやポッドキャストからタイムスタンプ付きの正確な文字起こしを生成。SRT、VTT、TXT、JSON字幕としてダウンロード。"
         }
       ],
       "faqs": [
         {
-          "q": "What audio quality does SoundCloud use?",
-          "a": "SoundCloud streams at 128 kbps MP3 for free users. Premium tracks may be available at higher bitrates. Our downloads match the source quality."
+          "q": "SoundCloudはどのような音声品質を使用していますか？",
+          "a": "SoundCloudは無料ユーザーには128 kbps MP3でストリーミングします。プレミアムトラックはより高いビットレートで利用可能な場合があります。当社のダウンロードはソース品質に一致します。"
         },
         {
-          "q": "Can I download SoundCloud playlists?",
-          "a": "Yes, you can download individual tracks from playlists. Pro users can batch download entire playlists and albums at once."
+          "q": "SoundCloudのプレイリストはダウンロードできますか？",
+          "a": "はい、プレイリストから個別のトラックをダウンロードできます。Proユーザーはプレイリストやアルバム全体を一度に一括ダウンロードできます。"
         },
         {
-          "q": "Does it work with SoundCloud Go+?",
-          "a": "SoundCloud Go+ premium content may have additional protections. We support publicly available tracks and those accessible without a premium subscription."
+          "q": "SoundCloud Go+でも使えますか？",
+          "a": "SoundCloud Go+のプレミアムコンテンツには追加の保護がかかっている場合があります。当サービスは公開トラックおよびプレミアムサブスクリプションなしでアクセス可能なトラックに対応しています。"
         },
         {
-          "q": "What audio formats are available?",
-          "a": "Choose from MP3 (128/192/320 kbps), AAC (256 kbps), FLAC (lossless), WAV (uncompressed), and OGG (192 kbps) formats."
+          "q": "どのような音声形式が利用可能ですか？",
+          "a": "MP3（128/192/320 kbps）、AAC（256 kbps）、FLAC（ロスレス）、WAV（非圧縮）、OGG（192 kbps）形式から選択できます。"
         },
         {
-          "q": "Can I download tracks from private SoundCloud?",
-          "a": "Only publicly shared SoundCloud tracks can be downloaded. Private or secret link tracks require SoundCloud authentication to access."
+          "q": "非公開のSoundCloudトラックはダウンロードできますか？",
+          "a": "公開共有されたSoundCloudトラックのみダウンロードできます。非公開やシークレットリンクトラックは、アクセスにSoundCloud認証が必要です。"
         }
       ],
-      "metaTitle": "SoundCloud Downloader — Download SoundCloud Tracks as MP3, FLAC | DownForge",
-      "metaDescription": "Free SoundCloud downloader. Download SoundCloud tracks as high-quality MP3, FLAC, AAC, WAV. Save playlists. No sign-up required.",
+      "metaTitle": "SoundCloud Downloader — SoundCloudトラックをMP3、FLACでダウンロード | DownForge",
+      "metaDescription": "無料のSoundCloudダウンローダー。SoundCloudトラックを高品質MP3、FLAC、AAC、WAVでダウンロード。プレイリスト保存。サインアップ不要。",
       "keywords": [
         "soundcloud downloader",
         "download soundcloud tracks",
@@ -1260,56 +1260,56 @@
     },
     "kick": {
       "badge": "Kick Downloader",
-      "heading": "Download Kick Videos",
-      "headingAccent": "& Streams",
-      "subheading": "Download Kick VODs, clips, and highlights. Save in HD, extract audio, grab thumbnails, or get AI transcripts — fast, free, no sign-up needed.",
-      "placeholder": "Paste your Kick URL here...",
+      "heading": "Kick動画をダウンロード",
+      "headingAccent": "＆配信",
+      "subheading": "KickのVOD、クリップ、ハイライトをダウンロード。HDで保存、音声抽出、サムネイル取得、AI文字起こしも — 高速、無料、サインアップ不要。",
+      "placeholder": "KickのURLをここに貼り付け...",
       "features": [
         {
-          "title": "Download Kick VODs",
-          "desc": "Save Kick past broadcasts and video-on-demand content in original quality. Archive your favorite streams permanently."
+          "title": "Kick VODをダウンロード",
+          "desc": "Kickの過去放送とオンデマンド動画コンテンツを元の品質で保存。お気に入りの配信を永久にアーカイブ。"
         },
         {
-          "title": "Extract Stream Audio",
-          "desc": "Convert Kick VODs to MP3 or AAC audio. Great for creating stream podcasts or saving audio highlights."
+          "title": "配信音声を抽出",
+          "desc": "Kick VODをMP3またはAAC音声に変換。配信ポッドキャストの作成や音声ハイライトの保存に最適。"
         },
         {
-          "title": "Save Video Thumbnails",
-          "desc": "Download Kick stream thumbnails in high resolution. Available in JPG, PNG, and WebP formats."
+          "title": "動画サムネイルを保存",
+          "desc": "Kick配信のサムネイルを高解像度でダウンロード。JPG、PNG、WebP形式で利用可能。"
         },
         {
-          "title": "Supports All Kick Content",
-          "desc": "Works with Kick VODs, clips, and highlighted moments from any public channel on the platform."
+          "title": "すべてのKickコンテンツに対応",
+          "desc": "プラットフォーム上のあらゆる公開チャンネルのKick VOD、クリップ、ハイライトに対応。"
         },
         {
-          "title": "AI Transcripts",
-          "desc": "Generate accurate transcripts with timestamps from any Kick VOD or clip. Download as SRT, VTT, TXT, or JSON subtitles."
+          "title": "AI文字起こし",
+          "desc": "あらゆるKick VODやクリップからタイムスタンプ付きの正確な文字起こしを生成。SRT、VTT、TXT、JSON字幕としてダウンロード。"
         }
       ],
       "faqs": [
         {
-          "q": "Can I download live Kick streams?",
-          "a": "Currently, we support downloading completed VODs and clips. Live streams need to finish before they can be processed."
+          "q": "ライブのKick配信はダウンロードできますか？",
+          "a": "現在、完了したVODとクリップのダウンロードに対応しています。ライブ配信は終了してから処理可能になります。"
         },
         {
-          "q": "What video quality is available?",
-          "a": "Kick streams are available in up to 1080p at 60fps depending on the streamer's broadcast settings."
+          "q": "どのような動画品質が利用可能ですか？",
+          "a": "Kick配信は配信者の放送設定に応じて、最大1080p、60fpsで利用可能です。"
         },
         {
-          "q": "Does it work with subscriber-only content?",
-          "a": "Subscriber-only or follower-only content on Kick cannot be accessed through our downloader due to channel restrictions."
+          "q": "チャンネル登録者限定コンテンツでも使えますか？",
+          "a": "Kickのチャンネル登録者限定やフォロワー限定のコンテンツは、チャンネル制限のため当ダウンローダーを通じてアクセスできません。"
         },
         {
-          "q": "How long are Kick VODs available?",
-          "a": "Kick stores VODs for a limited time depending on the streamer's settings. Download them promptly to keep them permanently."
+          "q": "Kick VODはどのくらい利用可能ですか？",
+          "a": "Kickは配信者の設定に応じてVODを一定期間保存します。永久に保存するには早めにダウンロードしてください。"
         },
         {
-          "q": "Can I download just the audio?",
-          "a": "Yes, use the Audio extraction mode to convert Kick VODs to MP3 or AAC. Perfect for background listening on mobile."
+          "q": "音声だけをダウンロードできますか？",
+          "a": "はい、音声抽出モードを使用してKick VODをMP3またはAACに変換できます。モバイルでのバックグラウンドリスニングに最適。"
         }
       ],
-      "metaTitle": "Kick Video Downloader — Download Kick VODs & Clips | DownForge",
-      "metaDescription": "Free Kick downloader. Download Kick VODs, clips, and stream highlights in HD. Extract audio as MP3, AAC. Save thumbnails. No sign-up required.",
+      "metaTitle": "Kick Video Downloader — Kick VOD＆クリップをダウンロード | DownForge",
+      "metaDescription": "無料のKickダウンローダー。Kick VOD、クリップ、配信ハイライトをHDでダウンロード。MP3、AACで音声抽出。サムネイル保存。サインアップ不要。",
       "keywords": [
         "kick video downloader",
         "download kick streams",
@@ -1325,56 +1325,56 @@
     },
     "youtube": {
       "badge": "YouTube Downloader",
-      "heading": "Download YouTube Videos",
-      "headingAccent": "in 4K",
-      "subheading": "Paste any YouTube video link and download in seconds. Save videos in 4K, extract audio as MP3 320kbps, get AI transcripts, or save HD thumbnails — no account required.",
-      "placeholder": "Paste your YouTube video URL here...",
+      "heading": "YouTube動画をダウンロード",
+      "headingAccent": "4Kで",
+      "subheading": "YouTubeの動画リンクを貼り付けて数秒でダウンロード。4Kで動画保存、MP3 320kbpsで音声抽出、AI文字起こし取得、HDサムネイル保存 — アカウント不要。",
+      "placeholder": "YouTubeの動画URLをここに貼り付け...",
       "features": [
         {
-          "title": "4K Ultra HD Downloads",
-          "desc": "Download YouTube videos in up to 4K (2160p) resolution. Also supports 1440p, 1080p Full HD, 720p HD, and standard definition."
+          "title": "4K Ultra HDダウンロード",
+          "desc": "YouTube動画を最大4K（2160p）解像度でダウンロード。1440p、1080p Full HD、720p HD、標準画質にも対応。"
         },
         {
-          "title": "High-Quality Audio",
-          "desc": "Convert YouTube videos to MP3 up to 320 kbps, AAC 256 kbps, FLAC lossless, WAV uncompressed, and OGG. Perfect for music and podcasts."
+          "title": "高品質音声",
+          "desc": "YouTube動画を最大320 kbpsのMP3、AAC 256 kbps、FLACロスレス、WAV非圧縮、OGGに変換。音楽やポッドキャストに最適。"
         },
         {
-          "title": "HD Thumbnail Downloads",
-          "desc": "Save YouTube video thumbnails in maximum resolution up to 1920×1080. Available in JPG, PNG, and WebP formats."
+          "title": "HDサムネイルのダウンロード",
+          "desc": "YouTube動画のサムネイルを最大1920×1080の解像度で保存。JPG、PNG、WebP形式で利用可能。"
         },
         {
-          "title": "Works with All YouTube URLs",
-          "desc": "Supports regular videos, Shorts, live streams, community posts, and embedded clips. Paste any YouTube link."
+          "title": "すべてのYouTube URLに対応",
+          "desc": "通常動画、Shorts、ライブ配信、コミュニティ投稿、埋め込みクリップに対応。あらゆるYouTubeリンクを貼り付け。"
         },
         {
-          "title": "AI Transcripts",
-          "desc": "Generate accurate transcripts with timestamps from any YouTube video. Download as SRT, VTT, TXT, or JSON subtitles."
+          "title": "AI文字起こし",
+          "desc": "あらゆるYouTube動画からタイムスタンプ付きの正確な文字起こしを生成。SRT、VTT、TXT、JSON字幕としてダウンロード。"
         }
       ],
       "faqs": [
         {
-          "q": "What video qualities are available?",
-          "a": "YouTube videos can be downloaded in multiple qualities including 4K (2160p), 1440p, 1080p (Full HD), 720p (HD), 480p, and 360p. The available qualities depend on what the original uploader provided."
+          "q": "どのような動画品質が利用可能ですか？",
+          "a": "YouTube動画は4K（2160p）、1440p、1080p（Full HD）、720p（HD）、480p、360pを含む複数の品質でダウンロードできます。利用可能な品質は元のアップロード者が提供したものに依存します。"
         },
         {
-          "q": "What audio formats do you support?",
-          "a": "We support MP3 (up to 320 kbps), AAC (256 kbps), FLAC (lossless), WAV (uncompressed), and OGG (192 kbps). For music production and archiving, FLAC is recommended."
+          "q": "どのようなオーディオ形式に対応していますか？",
+          "a": "MP3（最大320 kbps）、AAC（256 kbps）、FLAC（ロスレス）、WAV（非圧縮）、OGG（192 kbps）に対応しています。音楽制作やアーカイブにはFLACが推奨されます。"
         },
         {
-          "q": "Can I download YouTube Shorts?",
-          "a": "Yes, YouTube Shorts are fully supported. Paste any Shorts URL and choose your preferred format — video, audio, or thumbnail."
+          "q": "YouTube Shortsはダウンロードできますか？",
+          "a": "はい、YouTube Shortsは完全に対応しています。ShortsのURLを貼り付けて、動画、音声、サムネイルから希望の形式を選択してください。"
         },
         {
-          "q": "Is downloading YouTube videos legal?",
-          "a": "Downloading for personal offline use is generally permitted. Always respect copyright and use downloaded content responsibly."
+          "q": "YouTube動画のダウンロードは合法ですか？",
+          "a": "個人のオフライン使用のためのダウンロードは一般的に許可されています。常に著作権を尊重し、ダウンロードしたコンテンツを責任を持って使用してください。"
         },
         {
-          "q": "How long are downloaded files stored?",
-          "a": "Files are stored temporarily and deleted automatically after the download is complete. We do not keep copies of your downloaded content."
+          "q": "ダウンロードしたファイルはどのくらい保存されますか？",
+          "a": "ファイルは一時的に保存され、ダウンロード完了後に自動的に削除されます。ダウンロードしたコンテンツのコピーを保持することはありません。"
         }
       ],
-      "metaTitle": "YouTube Video Downloader — Download YouTube Videos in 4K, MP3 & Thumbnails | DownForge",
-      "metaDescription": "Free YouTube video downloader. Download YouTube videos in 4K, 1080p, 720p. Extract audio as MP3 320kbps, FLAC, AAC. Get HD thumbnails. No sign-up required.",
+      "metaTitle": "YouTube Video Downloader — YouTube動画を4K、MP3、サムネイルでダウンロード | DownForge",
+      "metaDescription": "無料のYouTube動画ダウンローダー。YouTube動画を4K、1080p、720pでダウンロード。MP3 320kbps、FLAC、AACで音声抽出。HDサムネイル取得。サインアップ不要。",
       "keywords": [
         "youtube video downloader",
         "download youtube videos",
@@ -1390,56 +1390,56 @@
     },
     "niconico": {
       "badge": "Niconico Downloader",
-      "heading": "Download Niconico Videos",
-      "headingAccent": "in HD",
-      "subheading": "Save Niconico Douga videos, live recordings, and user content. Download in HD, extract audio, grab thumbnails, or get AI transcripts — quick and free.",
-      "placeholder": "Paste your Niconico URL here...",
+      "heading": "ニコニコ動画をダウンロード",
+      "headingAccent": "HDで",
+      "subheading": "ニコニコ動画、ライブ録画、ユーザーコンテンツを保存。HDでダウンロード、音声抽出、サムネイル取得、AI文字起こしも — 手軽で無料。",
+      "placeholder": "ニコニコのURLをここに貼り付け...",
       "features": [
         {
-          "title": "Download Niconico Videos",
-          "desc": "Save videos from Niconico Douga in original quality. Preserve Japanese content, VocaDB covers, and user-generated videos."
+          "title": "ニコニコ動画をダウンロード",
+          "desc": "ニコニコ動画の動画を元の品質で保存。日本のコンテンツ、VocaDBカバー、ユーザー生成動画を保存。"
         },
         {
-          "title": "Extract Video Audio",
-          "desc": "Convert Niconico videos to MP3 or AAC audio. Great for listening to music covers, vocaloid tracks, and spoken content."
+          "title": "動画音声を抽出",
+          "desc": "ニコニコ動画をMP3またはAAC音声に変換。音楽カバー、ボーカロイドトラック、音声コンテンツの視聴に最適。"
         },
         {
-          "title": "Save Video Thumbnails",
-          "desc": "Download Niconico video thumbnails in high resolution. Available in JPG and PNG formats."
+          "title": "動画サムネイルを保存",
+          "desc": "ニコニコ動画のサムネイルを高解像度でダウンロード。JPGおよびPNG形式で利用可能。"
         },
         {
-          "title": "Supports Niconico Content",
-          "desc": "Works with publicly accessible Niconico Douga videos from both nicovideo.jp and niconico.jp domains."
+          "title": "ニコニココンテンツに対応",
+          "desc": "nicovideo.jpおよびniconico.jpの両ドメインから公開されているニコニコ動画に対応。"
         },
         {
-          "title": "AI Transcripts",
-          "desc": "Generate accurate transcripts with timestamps from any Niconico video. Download as SRT, VTT, TXT, or JSON subtitles."
+          "title": "AI文字起こし",
+          "desc": "あらゆるニコニコ動画からタイムスタンプ付きの正確な文字起こしを生成。SRT、VTT、TXT、JSON字幕としてダウンロード。"
         }
       ],
       "faqs": [
         {
-          "q": "Can I download Niconico videos with comments?",
-          "a": "Our service downloads the raw video file without the Niconico comment overlay. The video content itself is preserved in full quality."
+          "q": "コメント付きのニコニコ動画はダウンロードできますか？",
+          "a": "当サービスはニコニコのコメントオーバーレイなしで生の動画ファイルをダウンロードします。動画コンテンツ自体はフル品質で保存されます。"
         },
         {
-          "q": "What video quality is available?",
-          "a": "Niconico videos are available in various qualities depending on the upload. Standard definition is common, with HD available for premium content."
+          "q": "どのような動画品質が利用可能ですか？",
+          "a": "ニコニコ動画はアップロードに応じてさまざまな品質で利用可能です。標準画質が一般的で、プレミアムコンテンツではHDも利用可能です。"
         },
         {
-          "q": "Does it work with Niconico Live?",
-          "a": "Niconico Live broadcasts that have ended and are available as recordings can be downloaded through our service."
+          "q": "ニコニコ生放送でも使えますか？",
+          "a": "終了して録画として利用可能なニコニコ生放送は、当サービスを通じてダウンロードできます。"
         },
         {
-          "q": "What about premium member-only videos?",
-          "a": "Member-only or premium restricted content on Niconico cannot be accessed through our downloader due to platform restrictions."
+          "q": "プレミアム会員限定動画については？",
+          "a": "ニコニコの会員限定やプレミアム制限コンテンツは、プラットフォームの制限により当ダウンローダーを通じてアクセスできません。"
         },
         {
-          "q": "What formats can I download?",
-          "a": "Videos are available in MP4 format. Audio can be extracted as MP3, AAC, FLAC, WAV, or OGG. Thumbnails in JPG, PNG, and WebP."
+          "q": "どのような形式でダウンロードできますか？",
+          "a": "動画はMP4形式で利用可能。音声はMP3、AAC、FLAC、WAV、OGGとして抽出可能。サムネイルはJPG、PNG、WebP。"
         }
       ],
-      "metaTitle": "Niconico Video Downloader — Download Niconico Douga Videos | DownForge",
-      "metaDescription": "Free Niconico video downloader. Download Niconico Douga videos in HD. Extract audio as MP3, AAC. Save thumbnails. No sign-up required.",
+      "metaTitle": "ニコニコ動画 Downloader — ニコニコ動画をダウンロード | DownForge",
+      "metaDescription": "無料のニコニコ動画ダウンローダー。ニコニコ動画をHDでダウンロード。MP3、AACで音声抽出。サムネイル保存。サインアップ不要。",
       "keywords": [
         "niconico video downloader",
         "download niconico videos",
@@ -1456,28 +1456,28 @@
   },
   "YoutubeHero": {
     "badge": "YouTube Downloader",
-    "heading": "Download YouTube Videos",
-    "headingAccent": "in 4K & HD",
-    "placeholder": "Paste your YouTube video URL here...",
-    "chooseFormat": "Choose format",
-    "disclaimer": "Free to use · No sign-up required · Files deleted instantly after download"
+    "heading": "YouTube動画をダウンロード",
+    "headingAccent": "4K＆HDで",
+    "placeholder": "YouTubeの動画URLをここに貼り付け...",
+    "chooseFormat": "形式を選択",
+    "disclaimer": "無料で利用可能 · サインアップ不要 · ダウンロード完了後にファイルは即時削除"
   },
   "ApiPage": {
-    "title": "API Documentation",
-    "subtitle": "Integrate video downloading into your own applications. Our REST API supports 200+ platforms.",
-    "backToHome": "Back to home",
-    "authTitle": "Authentication",
-    "authDesc": "Include your API key in the request header:",
-    "baseUrlTitle": "Base URL",
-    "endpointsTitle": "Endpoints",
-    "exampleRequest": "Example Request",
-    "exampleResponse": "Example Response",
+    "title": "APIドキュメント",
+    "subtitle": "動画ダウンロード機能を自身のアプリケーションに統合。当社のREST APIは200以上のプラットフォームに対応しています。",
+    "backToHome": "ホームに戻る",
+    "authTitle": "認証",
+    "authDesc": "リクエストヘッダーにAPIキーを含めてください：",
+    "baseUrlTitle": "ベースURL",
+    "endpointsTitle": "エンドポイント",
+    "exampleRequest": "リクエスト例",
+    "exampleResponse": "レスポンス例",
     "rateLimits": {
-      "title": "Rate Limits",
-      "global": "Global: {limit} requests / minute",
-      "info": "Info endpoints: {limit} requests / minute",
-      "download": "Download endpoints: {limit} requests / minute",
-      "retryAfter": "HTTP 429 responses include a Retry-After header."
+      "title": "レート制限",
+      "global": "全体：{limit} リクエスト / 分",
+      "info": "情報エンドポイント：{limit} リクエスト / 分",
+      "download": "ダウンロードエンドポイント：{limit} リクエスト / 分",
+      "retryAfter": "HTTP 429レスポンスにはRetry-Afterヘッダーが含まれます。"
     }
   }
 }

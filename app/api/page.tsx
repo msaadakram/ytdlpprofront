@@ -1,42 +1,66 @@
 import type { Metadata } from "next";
+import Link from "next/link";
 import { Nav } from "@/components/layout/Nav";
 import { Footer } from "@/components/layout/Footer";
-import Link from "next/link";
-import { ArrowLeft, Copy, CheckCircle2, Terminal } from "lucide-react";
 import { CodeBlock } from "@/components/api/CodeBlock";
+import { CodeTabs } from "@/components/api/CodeTabs";
+import { ApiPageToc } from "@/components/api/ApiPageToc";
+import {
+  ArrowLeft,
+  ArrowRight,
+  Terminal,
+  Key,
+  Link2,
+  AlertTriangle,
+  Gauge,
+  ChevronRight,
+} from "lucide-react";
+import {
+  API_BASE_URL,
+  buildQuickStartSnippets,
+  buildAuthSnippets,
+  buildEndpointSnippets,
+} from "@/lib/api-examples";
 
 export const metadata: Metadata = {
   title: "API Documentation — DownForge",
-  description: "DownForge API documentation. Download videos, audio, and thumbnails programmatically.",
+  description:
+    "DownForge API documentation. Download videos, audio, and thumbnails programmatically using curl, Python, Node.js, JavaScript, Java, or Go.",
 };
+
+const tocItems = [
+  { id: "quick-start", label: "Quick Start" },
+  { id: "authentication", label: "Authentication" },
+  { id: "base-url", label: "Base URL" },
+  { id: "endpoints", label: "Endpoints" },
+  { id: "errors", label: "Errors" },
+  { id: "rate-limits", label: "Rate Limits" },
+];
 
 const endpoints = [
   {
-    method: "POST",
+    method: "POST" as const,
     path: "/api/:platform/info",
-    desc: "Get available formats and metadata for a URL",
-    code: `curl -X POST https://api.downforge.me/api/youtube/info \\
-  -H "Content-Type: application/json" \\
-  -d '{"url": "https://youtube.com/watch?v=dQw4w9WgXcQ"}'`,
+    desc: "Get available formats and metadata for a URL. Use the returned format_id to start a download.",
+    kind: "info" as const,
     response: `{
   "success": true,
   "data": {
     "title": "Rick Astley - Never Gonna Give You Up",
     "duration": 212,
-    "formats": [
-      { "id": "137", "ext": "mp4", "quality": "1080p" },
-      { "id": "136", "ext": "mp4", "quality": "720p" }
+    "best_format": { "format_id": "137", "ext": "mp4", "quality": "1080p" },
+    "video_formats": [
+      { "format_id": "137", "ext": "mp4", "quality_label": "1080p" },
+      { "format_id": "136", "ext": "mp4", "quality_label": "720p" }
     ]
   }
 }`,
   },
   {
-    method: "POST",
+    method: "POST" as const,
     path: "/api/:platform/download",
-    desc: "Download a video in the specified format",
-    code: `curl -X POST https://api.downforge.me/api/youtube/download \\
-  -H "Content-Type: application/json" \\
-  -d '{"url": "https://youtube.com/watch?v=dQw4w9WgXcQ", "format_id": "137"}'`,
+    desc: "Start a download job. Returns a job_id you can poll for progress and the final result.",
+    kind: "download" as const,
     response: `{
   "success": true,
   "data": {
@@ -46,10 +70,10 @@ const endpoints = [
 }`,
   },
   {
-    method: "GET",
+    method: "GET" as const,
     path: "/api/job/:id",
-    desc: "Poll for job status and progress",
-    code: `curl https://api.downforge.me/api/job/550e8400-e29b-41d4-a716-446655440000`,
+    desc: "Poll a job for status and progress. Status values: queued, downloading, processing, completed, failed, expired.",
+    kind: "status" as const,
     response: `{
   "success": true,
   "data": {
@@ -61,10 +85,10 @@ const endpoints = [
 }`,
   },
   {
-    method: "GET",
+    method: "GET" as const,
     path: "/api/job/:id/result",
-    desc: "Get the download URL when complete",
-    code: `curl https://api.downforge.me/api/job/550e8400-e29b-41d4-a716-446655440000/result`,
+    desc: "Get the download URL when the job status is \"completed\". The URL is valid for 60 minutes.",
+    kind: "result" as const,
     response: `{
   "success": true,
   "data": {
@@ -77,79 +101,300 @@ const endpoints = [
   },
 ];
 
+const errors = [
+  { status: "400", code: "VALIDATION_ERROR", desc: "Request body failed schema validation. See the details field." },
+  { status: "400", code: "BAD_REQUEST", desc: "Malformed request — missing required fields or invalid JSON." },
+  { status: "401", code: "UNAUTHORIZED", desc: "Missing or invalid Authorization header / API key." },
+  { status: "404", code: "NOT_FOUND", desc: "Unknown endpoint or job id." },
+  { status: "429", code: "RATE_LIMIT", desc: "Rate limit exceeded. Check the Retry-After header." },
+  { status: "422", code: "DOWNLOAD_FAILED", desc: "yt-dlp could not fetch the requested URL." },
+  { status: "500", code: "INTERNAL", desc: "Unexpected server error. Try again or contact support." },
+];
+
+const rateLimits = [
+  { label: "Global", value: "60 req / min", desc: "Across all endpoints per API key." },
+  { label: "Info", value: "30 req / min", desc: "Per /:platform/info calls." },
+  { label: "Download", value: "20 req / min", desc: "Per /:platform/download calls." },
+];
+
 export default function ApiPage() {
   return (
     <>
       <Nav />
-      <main className="pt-28 pb-20 px-6">
-        <div className="max-w-4xl mx-auto">
-          <Link href="/" className="inline-flex items-center gap-2 text-sm text-muted-foreground hover:text-foreground transition-colors mb-8 font-sans">
+      <main className="pt-24 pb-20 px-4 sm:px-6 lg:px-8">
+        <div className="max-w-6xl mx-auto">
+          <Link
+            href="/"
+            className="inline-flex items-center gap-2 text-sm text-muted-foreground hover:text-foreground transition-colors mb-8 font-sans"
+          >
             <ArrowLeft className="w-4 h-4" /> Back to home
           </Link>
 
+          {/* Hero */}
           <div className="mb-12">
             <div className="w-14 h-14 rounded-2xl bg-[#5baab8]/20 flex items-center justify-center mb-5">
               <Terminal className="w-7 h-7 text-[#5baab8]" />
             </div>
-            <h1 className="text-3xl md:text-5xl font-extrabold text-foreground mb-3 font-heading">API Documentation</h1>
-            <p className="text-muted-foreground max-w-xl font-sans">
-              Integrate video downloading into your own applications. Our REST API supports 200+ platforms.
+            <h1 className="text-3xl sm:text-4xl md:text-5xl font-extrabold text-foreground mb-3 font-heading tracking-tight">
+              API Documentation
+            </h1>
+            <p className="text-base sm:text-lg text-muted-foreground max-w-2xl font-sans">
+              Integrate video downloading into your own applications. Our REST API supports
+              200+ platforms with copy-paste examples in cURL, Python, Node.js, JavaScript, Java, and Go.
             </p>
-          </div>
-
-          <div className="space-y-6 mb-12">
-            <div className="bg-[#eef6f8] rounded-2xl p-6 border border-border">
-              <h2 className="text-lg font-bold text-foreground mb-2 font-heading">Authentication</h2>
-              <p className="text-sm text-muted-foreground mb-4 font-sans">
-                Include your API key in the request header:
-              </p>
-              <CodeBlock code={`curl -X POST https://api.downforge.me/api/youtube/info \\
-  -H "Authorization: Bearer YOUR_API_KEY" \\
-  -H "Content-Type: application/json" \\
-  -d '{"url": "https://youtube.com/watch?v=dQw4w9WgXcQ"}'`} />
-            </div>
-
-            <div className="bg-[#eef6f8] rounded-2xl p-6 border border-border">
-              <h2 className="text-lg font-bold text-foreground mb-2 font-heading">Base URL</h2>
-              <CodeBlock code="https://api.downforge.me/api" />
+            <div className="flex flex-col sm:flex-row gap-3 mt-6">
+              <Link
+                href="/sign-up"
+                className="inline-flex items-center justify-center gap-2 text-sm font-semibold bg-[#0d1f26] text-white px-5 py-3 rounded-full hover:bg-[#1a3545] transition-colors font-sans"
+              >
+                <Key className="w-4 h-4" /> Get an API key
+              </Link>
+              <Link
+                href="/dashboard"
+                className="inline-flex items-center justify-center gap-2 text-sm font-semibold text-foreground border border-border px-5 py-3 rounded-full hover:bg-muted/60 transition-colors font-sans"
+              >
+                View dashboard <ArrowRight className="w-4 h-4" />
+              </Link>
             </div>
           </div>
 
-          <div className="space-y-8">
-            <h2 className="text-2xl font-bold text-foreground font-heading">Endpoints</h2>
-            {endpoints.map((ep, i) => (
-              <div key={i} className="bg-white rounded-2xl border border-border p-6">
-                <div className="flex items-center gap-3 mb-4">
-                  <span className="text-xs font-bold text-white bg-[#5baab8] px-2.5 py-1 rounded-md font-mono">{ep.method}</span>
-                  <code className="text-sm text-foreground font-mono">{ep.path}</code>
-                </div>
-                <p className="text-sm text-muted-foreground mb-4 font-sans">{ep.desc}</p>
-                <div className="space-y-4">
-                  <div>
-                    <span className="text-xs font-semibold text-foreground uppercase tracking-wider mb-2 block font-mono">Example Request</span>
-                    <CodeBlock code={ep.code} />
-                  </div>
-                  <div>
-                    <span className="text-xs font-semibold text-foreground uppercase tracking-wider mb-2 block font-mono">Example Response</span>
-                    <CodeBlock code={ep.response} />
-                  </div>
-                </div>
-              </div>
-            ))}
+          {/* Mobile TOC (horizontal pills) */}
+          <div className="lg:hidden mb-10">
+            <ApiPageToc items={tocItems} />
           </div>
 
-          <div className="mt-12 bg-white rounded-2xl border border-border p-6">
-            <h2 className="text-lg font-bold text-foreground mb-4 font-heading">Rate Limits</h2>
-            <div className="space-y-3 text-sm text-muted-foreground font-sans">
-              <p>Global: <strong className="text-foreground">60 requests / minute</strong></p>
-              <p>Info endpoints: <strong className="text-foreground">30 requests / minute</strong></p>
-              <p>Download endpoints: <strong className="text-foreground">20 requests / minute</strong></p>
-              <p>HTTP 429 responses include a <code className="font-mono text-xs bg-muted px-1.5 py-0.5 rounded">Retry-After</code> header.</p>
+          {/* Desktop two-column layout */}
+          <div className="lg:grid lg:grid-cols-[14rem_minmax(0,1fr)] lg:gap-12">
+            {/* Sticky TOC sidebar — desktop only */}
+            <aside className="hidden lg:block">
+              <ApiPageToc items={tocItems} />
+            </aside>
+
+            {/* Main content */}
+            <div className="max-w-3xl space-y-16">
+              {/* ─── Quick Start ─── */}
+              <section id="quick-start" className="scroll-mt-24">
+                <SectionHeading
+                  eyebrow="01"
+                  title="Quick Start"
+                  desc="Copy, paste, run. This end-to-end example fetches formats, starts a download, polls until done, and gets the final URL."
+                />
+                <div className="mt-6">
+                  <CodeTabs snippets={buildQuickStartSnippets()} />
+                </div>
+              </section>
+
+              {/* ─── Authentication ─── */}
+              <section id="authentication" className="scroll-mt-24">
+                <SectionHeading
+                  eyebrow="02"
+                  title="Authentication"
+                  desc="Every request must include your API key as a Bearer token in the Authorization header."
+                />
+                <div className="mt-6 grid gap-4">
+                  <div className="bg-card border border-border rounded-2xl p-4 sm:p-5">
+                    <div className="flex items-start gap-3">
+                      <Key className="w-4 h-4 text-[#5baab8] mt-0.5 shrink-0" />
+                      <p className="text-sm text-muted-foreground font-sans">
+                        Create a key in the{" "}
+                        <Link href="/dashboard" className="text-foreground font-medium underline underline-offset-2 hover:text-[#5baab8]">
+                          dashboard &rarr; API Keys
+                        </Link>{" "}
+                        tab. The full key is shown only once — store it securely.
+                      </p>
+                    </div>
+                  </div>
+                  <CodeTabs snippets={buildAuthSnippets()} />
+                </div>
+              </section>
+
+              {/* ─── Base URL ─── */}
+              <section id="base-url" className="scroll-mt-24">
+                <SectionHeading
+                  eyebrow="03"
+                  title="Base URL"
+                  desc="All endpoints are prefixed with this URL."
+                />
+                <div className="mt-6">
+                  <CodeBlock code={API_BASE_URL} language="text" />
+                </div>
+              </section>
+
+              {/* ─── Endpoints ─── */}
+              <section id="endpoints" className="scroll-mt-24">
+                <SectionHeading
+                  eyebrow="04"
+                  title="Endpoints"
+                  desc="The download flow is four simple steps: get info, start download, poll status, fetch result."
+                />
+                <div className="mt-6 space-y-6">
+                  {endpoints.map((ep) => (
+                    <div key={ep.path} className="bg-card rounded-2xl border border-border p-5 sm:p-6">
+                      <div className="flex flex-col sm:flex-row sm:items-center gap-3 mb-3">
+                        <span className="text-xs font-bold text-white bg-[#5baab8] px-2.5 py-1 rounded-md font-mono w-fit">
+                          {ep.method}
+                        </span>
+                        <code className="text-sm text-foreground font-mono break-all">{ep.path}</code>
+                      </div>
+                      <p className="text-sm text-muted-foreground mb-5 font-sans">{ep.desc}</p>
+                      <div className="grid gap-5">
+                        <div>
+                          <span className="text-xs font-semibold text-foreground uppercase tracking-wider mb-2 block font-mono">
+                            Request
+                          </span>
+                          <CodeTabs snippets={buildEndpointSnippets(ep.kind)} />
+                        </div>
+                        <div>
+                          <span className="text-xs font-semibold text-foreground uppercase tracking-wider mb-2 block font-mono">
+                            Response
+                          </span>
+                          <CodeBlock code={ep.response} language="json" />
+                        </div>
+                      </div>
+                    </div>
+                  ))}
+                </div>
+              </section>
+
+              {/* ─── Errors ─── */}
+              <section id="errors" className="scroll-mt-24">
+                <SectionHeading
+                  eyebrow="05"
+                  title="Errors"
+                  desc="Errors use conventional HTTP status codes and a consistent JSON shape. The error code is in the code field."
+                />
+                <div className="mt-6">
+                  <CodeBlock
+                    language="json"
+                    code={`{
+  "success": false,
+  "error": {
+    "code": "VALIDATION_ERROR",
+    "message": "url is required",
+    "details": [{ "field": "url", "issue": "required" }]
+  }
+}`}
+                  />
+                </div>
+                {/* Cards on mobile, table on sm+ */}
+                <div className="mt-6 hidden sm:block overflow-x-auto">
+                  <table className="w-full text-sm border border-border rounded-xl overflow-hidden">
+                    <thead className="bg-muted/60">
+                      <tr className="text-left">
+                        <th className="px-4 py-2.5 font-semibold text-foreground font-sans">Status</th>
+                        <th className="px-4 py-2.5 font-semibold text-foreground font-sans">Code</th>
+                        <th className="px-4 py-2.5 font-semibold text-foreground font-sans">Description</th>
+                      </tr>
+                    </thead>
+                    <tbody>
+                      {errors.map((e) => (
+                        <tr key={e.code} className="border-t border-border">
+                          <td className="px-4 py-2.5 font-mono text-foreground">{e.status}</td>
+                          <td className="px-4 py-2.5">
+                            <code className="font-mono text-xs bg-muted px-1.5 py-0.5 rounded text-foreground">{e.code}</code>
+                          </td>
+                          <td className="px-4 py-2.5 text-muted-foreground font-sans">{e.desc}</td>
+                        </tr>
+                      ))}
+                    </tbody>
+                  </table>
+                </div>
+                <div className="mt-6 sm:hidden grid gap-3">
+                  {errors.map((e) => (
+                    <div key={e.code} className="bg-card border border-border rounded-xl p-4">
+                      <div className="flex items-center gap-2 mb-1.5">
+                        <span className="font-mono text-xs text-foreground font-bold">{e.status}</span>
+                        <code className="font-mono text-xs bg-muted px-1.5 py-0.5 rounded text-foreground">{e.code}</code>
+                      </div>
+                      <p className="text-xs text-muted-foreground font-sans">{e.desc}</p>
+                    </div>
+                  ))}
+                </div>
+              </section>
+
+              {/* ─── Rate Limits ─── */}
+              <section id="rate-limits" className="scroll-mt-24">
+                <SectionHeading
+                  eyebrow="06"
+                  title="Rate Limits"
+                  desc="Limits reset every minute. When exceeded, you'll get HTTP 429 with a Retry-After header."
+                />
+                <div className="mt-6 grid grid-cols-1 sm:grid-cols-3 gap-4">
+                  {rateLimits.map((r) => (
+                    <div key={r.label} className="bg-card border border-border rounded-2xl p-5">
+                      <div className="flex items-center gap-2 mb-2">
+                        <Gauge className="w-4 h-4 text-[#5baab8]" />
+                        <span className="text-xs font-bold uppercase tracking-wider text-muted-foreground font-mono">
+                          {r.label}
+                        </span>
+                      </div>
+                      <p className="text-lg font-bold text-foreground font-heading">{r.value}</p>
+                      <p className="text-xs text-muted-foreground mt-1 font-sans">{r.desc}</p>
+                    </div>
+                  ))}
+                </div>
+                <div className="mt-4 flex items-start gap-3 bg-yellow-50 dark:bg-yellow-950/30 border border-yellow-200 dark:border-yellow-900 rounded-xl p-4">
+                  <AlertTriangle className="w-4 h-4 text-yellow-700 dark:text-yellow-400 mt-0.5 shrink-0" />
+                  <p className="text-xs text-yellow-800 dark:text-yellow-200 font-sans">
+                    HTTP 429 responses include a{" "}
+                    <code className="font-mono bg-yellow-100 dark:bg-yellow-900/50 px-1 py-0.5 rounded">Retry-After</code>{" "}
+                    header (seconds). Back off and retry — don't hammer the endpoint.
+                  </p>
+                </div>
+              </section>
+
+              {/* ─── Footer CTA ─── */}
+              <section className="bg-card border border-border rounded-2xl p-6 sm:p-8 text-center">
+                <h2 className="text-xl sm:text-2xl font-bold text-foreground font-heading mb-2">
+                  Ready to build?
+                </h2>
+                <p className="text-sm text-muted-foreground mb-5 font-sans max-w-md mx-auto">
+                  Create a free account, generate an API key, and ship your integration today.
+                </p>
+                <div className="flex flex-col sm:flex-row gap-3 justify-center">
+                  <Link
+                    href="/sign-up"
+                    className="inline-flex items-center justify-center gap-2 text-sm font-semibold bg-[#0d1f26] text-white px-5 py-3 rounded-full hover:bg-[#1a3545] transition-colors font-sans"
+                  >
+                    Get an API key <ChevronRight className="w-4 h-4" />
+                  </Link>
+                  <Link
+                    href="/api-disclaimer"
+                    className="inline-flex items-center justify-center gap-2 text-sm font-medium text-foreground px-5 py-3 rounded-full border border-border hover:bg-muted/60 transition-colors font-sans"
+                  >
+                    <Link2 className="w-4 h-4" /> API disclaimer
+                  </Link>
+                </div>
+              </section>
             </div>
           </div>
         </div>
       </main>
       <Footer />
     </>
+  );
+}
+
+/* ── Helper component for section headers ── */
+
+function SectionHeading({
+  eyebrow,
+  title,
+  desc,
+}: {
+  eyebrow: string;
+  title: string;
+  desc: string;
+}) {
+  return (
+    <div>
+      <span className="text-xs font-bold font-mono text-[#5baab8] uppercase tracking-widest">
+        {eyebrow}
+      </span>
+      <h2 className="text-2xl sm:text-3xl font-bold text-foreground font-heading mt-1.5 mb-2 tracking-tight">
+        {title}
+      </h2>
+      <p className="text-sm sm:text-base text-muted-foreground font-sans max-w-2xl">{desc}</p>
+    </div>
   );
 }
