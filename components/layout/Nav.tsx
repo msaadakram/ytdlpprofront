@@ -91,6 +91,7 @@ export function Nav() {
   };
 
   return (
+    <>
     <motion.header
       ref={navRef}
       initial={{ y: -80, opacity: 0 }}
@@ -301,26 +302,27 @@ export function Nav() {
           </div>
         </button>
       </div>
+    </motion.header>
 
-      <AnimatePresence>
-        {menuOpen && (
-          <>
-            <motion.div
-              initial={{ opacity: 0 }}
-              animate={{ opacity: 1 }}
-              exit={{ opacity: 0 }}
-              transition={{ duration: 0.25 }}
-              className="fixed inset-0 bg-black/20 backdrop-blur-sm z-40 lg:hidden"
-              onClick={() => setMenuOpen(false)}
-            />
+    <AnimatePresence>
+      {menuOpen && (
+        <>
+          <motion.div
+            initial={{ opacity: 0 }}
+            animate={{ opacity: 1 }}
+            exit={{ opacity: 0 }}
+            transition={{ duration: 0.25 }}
+            className="fixed inset-0 bg-black/20 backdrop-blur-sm z-[55] lg:hidden"
+            onClick={() => setMenuOpen(false)}
+          />
 
-            <motion.div
-              initial={{ x: "100%" }}
-              animate={{ x: 0 }}
-              exit={{ x: "100%" }}
-              transition={{ type: "spring", stiffness: 350, damping: 30 }}
-              className="fixed top-0 right-0 bottom-0 w-full max-w-sm bg-white border-l border-border/60 shadow-2xl z-50 lg:hidden overflow-y-auto"
-            >
+          <motion.div
+            initial={{ x: "100%" }}
+            animate={{ x: 0 }}
+            exit={{ x: "100%" }}
+            transition={{ type: "spring", stiffness: 350, damping: 30 }}
+            className="fixed top-0 right-0 bottom-0 w-full max-w-sm bg-white border-l border-border/60 shadow-2xl z-[60] lg:hidden overflow-y-auto"
+          >
               <div className="flex items-center justify-between px-5 h-16 border-b border-border/50">
                 <Link href="/" onClick={closeAll} className="flex items-center gap-2" aria-label="DownForge home">
                   <img
@@ -458,6 +460,6 @@ export function Nav() {
           </>
         )}
       </AnimatePresence>
-    </motion.header>
+    </>
   );
 }
