@@ -1,0 +1,369 @@
+{
+  "LocaleSwitcher": {
+    "label": "Idioma",
+    "en": "English",
+    "es": "Español",
+    "fr": "Français",
+    "de": "Deutsch",
+    "pt": "Português",
+    "ja": "日本語",
+    "ar": "العربية",
+    "ru": "Русский",
+    "zh": "中文"
+  },
+  "Nav": {
+    "home": "DownForge",
+    "downloadVideo": "Vídeo",
+    "downloadAudio": "Áudio",
+    "downloadThumbnail": "Miniatura",
+    "downloadTranscript": "Transcrição",
+    "features": "Funcionalidades",
+    "pricing": "Preços",
+    "api": "API",
+    "apiStatus": "Status da API",
+    "changelog": "Novidades",
+    "blog": "Blog",
+    "about": "Sobre",
+    "terms": "Termos",
+    "contact": "Contato",
+    "documentation": "Documentação",
+    "privacy": "Privacidade",
+    "signIn": "Entrar",
+    "startFree": "Começar Grátis",
+    "dashboard": "Painel",
+    "logOut": "Sair",
+    "quickLinks": "Links Rápidos",
+    "product": "Produto",
+    "resources": "Recursos",
+    "company": "Empresa",
+    "platforms": "Plataformas",
+    "menuLabel": "Menu",
+    "closeMenu": "Fechar menu",
+    "openMenu": "Abrir menu"
+  },
+  "Footer": {
+    "tagline": "Baixe qualquer vídeo, áudio ou miniatura de mais de 200 plataformas. Rápido, gratuito e seguro.",
+    "copyright": "© 2025 DownForge. Todos os direitos reservados.",
+    "poweredBy": "Desenvolvido com yt-dlp & ffmpeg"
+  },
+  "HomePage": {
+    "badge": "Mais de 200 plataformas suportadas",
+    "heading": "Baixe qualquer vídeo,",
+    "headingAccent": "áudio",
+    "headingRest": ", miniatura ou transcrição.",
+    "subheading": "Cole um link do YouTube, Facebook, TikTok, Instagram e mais de 200 outros. Baixe vídeo, áudio, miniaturas ou transcrições com IA — sem necessidade de cadastro.",
+    "disclaimer": "Grátis · Sem cadastro · Arquivos excluídos instantaneamente após o download",
+    "howItWorks": {
+      "title": "Como Funciona",
+      "step1Title": "Cole o URL",
+      "step1Desc": "Copie qualquer link de vídeo do YouTube, Facebook, TikTok ou mais de 200 outras plataformas e cole no campo acima.",
+      "step2Title": "Escolha formato e qualidade",
+      "step2Desc": "Selecione o formato desejado — MP4, MP3, FLAC, SRT — e o nível de qualidade ideal para você. Vídeo, áudio, miniaturas e transcrições disponíveis.",
+      "step3Title": "Baixe instantaneamente",
+      "step3Desc": "Clique em Baixar e seu arquivo será processado e entregue em segundos. Sem necessidade de cadastro."
+    },
+    "features": {
+      "title": "Por que Escolher o DownForge?",
+      "platforms": {
+        "title": "Mais de 200 Plataformas Suportadas",
+        "desc": "Do YouTube às plataformas mais específicas. Se tem vídeo, nós o buscamos."
+      },
+      "speed": {
+        "title": "Processamento Ultrarrápido",
+        "desc": "Conversão no servidor com entrega via CDN. Seu download começa em menos de 3 segundos."
+      },
+      "security": {
+        "title": "Privado e Seguro",
+        "desc": "Não armazenamos seus URLs nem arquivos. Tudo é processado de forma efêmera e excluído imediatamente."
+      },
+      "quality": {
+        "title": "Qualquer Qualidade, Qualquer Formato",
+        "desc": "Vídeo em 4K, 1080p, 720p. Áudio FLAC sem perdas e MP3 de 320 kbps. Miniaturas PNG e WebP. Transcrições em SRT, VTT, TXT e JSON."
+      },
+      "queue": {
+        "title": "Sem Filas, Sem Espera",
+        "desc": "Planos Pro processam em paralelo. Sem esperar na fila — inicie o próximo download imediatamente."
+      },
+      "batch": {
+        "title": "Downloads em Lote",
+        "desc": "Baixe playlists ou canais inteiros com um clique com nossos planos Pro e Team."
+      }
+    },
+    "testimonials": {
+      "title": "Confiado por Milhares",
+      "items": [
+        {
+          "name": "Alex Chen",
+          "role": "Criador de Conteúdo",
+          "text": "Esta ferramenta me poupa horas toda semana. Os downloads em 4K são impecáveis e o processamento em lote é revolucionário."
+        },
+        {
+          "name": "Sarah Miller",
+          "role": "Gestora de Mídias Sociais",
+          "text": "Gerencio 12 contas de marcas e o DownForge atende todas as minhas necessidades de vídeo. A qualidade do áudio FLAC é incrível."
+        },
+        {
+          "name": "Marcus Johnson",
+          "role": "Editor de Vídeo",
+          "text": "A variedade de formatos e resoluções é incomparável. Poder extrair áudio sem perdas de qualquer plataforma é essencial para meu fluxo de trabalho."
+        }
+      ]
+    },
+    "pricing": {
+      "title": "Preços Simples",
+      "free": {
+        "name": "Free",
+        "price": "$0",
+        "period": "para sempre",
+        "features": [
+          "10 downloads / dia",
+          "Vídeo até 1080p",
+          "Formatos MP3, MP4 e SRT",
+          "Velocidade de processamento padrão",
+          "Mais de 50 plataformas suportadas"
+        ],
+        "cta": "Começar Grátis"
+      },
+      "pro": {
+        "name": "Pro",
+        "price": "$9",
+        "period": "por mês",
+        "features": [
+          "Downloads ilimitados",
+          "Vídeo 4K Ultra HD",
+          "Todos os formatos, incl. FLAC, WebP e SRT",
+          "Processamento prioritário",
+          "Mais de 200 plataformas suportadas",
+          "Downloads em lote de playlists",
+          "Sem anúncios"
+        ],
+        "cta": "Iniciar Trial Pro"
+      },
+      "team": {
+        "name": "Team",
+        "price": "$29",
+        "period": "por mês",
+        "features": [
+          "Tudo do Pro",
+          "5 vagas na equipe",
+          "Acesso à API",
+          "Notificações via webhook",
+          "Suporte prioritário por e-mail",
+          "Retenção personalizada (30 dias)"
+        ],
+        "cta": "Falar com Vendas"
+      },
+      "popular": "Mais Popular"
+    },
+    "cta": {
+      "title": "Pronto para Começar a Baixar?",
+      "subtitle": "Sem cadastro. Cole um URL e baixe instantaneamente.",
+      "button": "Experimente Agora — É Grátis"
+    }
+  },
+  "PlatformShared": {
+    "chooseVideoQuality": "Escolha a qualidade do vídeo",
+    "chooseAudioQuality": "Escolha a qualidade do áudio",
+    "chooseThumbnailFormat": "Escolha o formato da miniatura",
+    "chooseTranscriptFormat": "Escolha o formato da transcrição",
+    "fetching": "Buscando...",
+    "fetchingInfo": "Buscando informações do vídeo...",
+    "processing": "Processando...",
+    "queued": "Na fila...",
+    "downloading": "Baixando...",
+    "transcribing": "Transcrevendo...",
+    "complete": "Concluído!",
+    "ready": "Pronto!",
+    "download": "Baixar",
+    "downloadNow": "Baixar Agora",
+    "getThumbnail": "Obter Miniatura",
+    "saveThumbnail": "Salvar Miniatura",
+    "startDownload": "Iniciar",
+    "errorFetchInfo": "Não foi possível buscar as informações da mídia. Verifique o URL e tente novamente.",
+    "errorDownloadFailed": "Falha no download. Tente novamente.",
+    "noThumbnail": "Nenhuma miniatura disponível",
+    "disclaimer": "Grátis · Sem cadastro · Arquivos excluídos instantaneamente após o download",
+    "typeVideo": "Vídeo",
+    "typeAudio": "Áudio",
+    "typeThumbnail": "Miniatura",
+    "typeTranscript": "Transcrição",
+    "eta": "Tempo estimado",
+    "views": "visualizações",
+    "likes": "curtidas",
+    "duration": "Duração",
+    "uploader": "Autor",
+    "channel": "Canal"
+  },
+  "PlatformPage": {
+    "breadcrumbHome": "Início",
+    "howItWorks": "Como Baixar",
+    "features": "Funcionalidades",
+    "tips": "Dicas Pro",
+    "faq": "Perguntas Frequentes",
+    "toolFeatures": {
+      "title": "Ferramenta de Download Completa",
+      "video": {
+        "title": "Downloads de Vídeo",
+        "desc": "Baixe vídeos na qualidade original. Suporta formatos MP4, WebM e MKV."
+      },
+      "audio": {
+        "title": "Extração de Áudio",
+        "desc": "Extraia áudio de alta qualidade como MP3, FLAC, AAC, WAV e OGG."
+      },
+      "thumbnail": {
+        "title": "Salvar Miniaturas",
+        "desc": "Salve miniaturas de vídeo em JPG, PNG e WebP na resolução máxima."
+      },
+      "transcript": {
+        "title": "Transcrições com IA",
+        "desc": "Gere transcrições precisas com timestamps nos formatos SRT, VTT, TXT e JSON."
+      }
+    },
+    "howItWorksSections": {
+      "step1Title": "Copie o URL do Vídeo",
+      "step1Desc": "Abra o vídeo na sua plataforma preferida e copie o URL da barra de endereços do navegador.",
+      "step2Title": "Cole e Busque Informações",
+      "step2Desc": "Cole o URL no campo acima e clique em Baixar. Buscaremos os detalhes do vídeo e os formatos disponíveis.",
+      "step3Title": "Selecione o Formato e Baixe",
+      "step3Desc": "Escolha a qualidade e o formato desejados, depois clique em Baixar para iniciar a conversão. Seu arquivo ficará pronto em segundos."
+    }
+  },
+  "DownloadOnly": {
+    "audioBadge": "Downloader de Áudio",
+    "audioHeadingSuffix": "como MP3, FLAC e AAC",
+    "audioSubheading": "Extraia áudio de alta qualidade de qualquer vídeo. Baixe como MP3, FLAC, AAC, WAV ou OGG — perfeito para música, podcasts e narrações.",
+    "thumbnailBadge": "Downloader de Miniaturas",
+    "thumbnailHeadingSuffix": "em Qualidade HD",
+    "thumbnailSubheading": "Salve miniaturas de vídeo na resolução máxima. Baixe como JPG, PNG ou WebP — ideal para capas, miniaturas e referências.",
+    "transcriptBadge": "Downloader de Transcrições",
+    "transcriptHeadingSuffix": "com IA",
+    "transcriptSubheading": "Gere transcrições precisas com timestamps usando IA. Baixe como SRT, VTT, TXT ou JSON — perfeito para legendas, anotações e dados.",
+    "chooseAudioQuality": "Escolha a qualidade do áudio",
+    "chooseThumbnailFormat": "Escolha o formato da miniatura",
+    "chooseTranscriptFormat": "Escolha o formato da transcrição",
+    "disclaimer": "Grátis · Sem cadastro · Arquivos excluídos instantaneamente · Funciona com todos os URLs do {platform}"
+  },
+  "VideoOnly": {
+    "badge": "Downloader de Vídeo",
+    "headingSuffix": "em HD e 4K",
+    "subheading": "Baixe vídeos na melhor qualidade disponível. Escolha entre múltiplas resoluções e formatos — perfeito para assistir offline, editar e arquivar.",
+    "disclaimer": "Grátis · Sem cadastro · Arquivos excluídos instantaneamente · Funciona com todos os vídeos do {platform}"
+  },
+  "Formats": {
+    "mp4": "MP4",
+    "webm": "WebM",
+    "mkv": "MKV",
+    "mp3": "MP3",
+    "aac": "AAC",
+    "flac": "FLAC",
+    "wav": "WAV",
+    "ogg": "OGG",
+    "jpg": "JPG",
+    "png": "PNG",
+    "webp": "WebP",
+    "srt": "SRT",
+    "vtt": "VTT",
+    "txt": "TXT",
+    "json": "JSON",
+    "video4k": "4K Ultra HD",
+    "video1440p": "1440p 2K",
+    "video1080p": "1080p Full HD",
+    "video720p": "720p HD",
+    "video480p": "480p",
+    "video360p": "360p",
+    "video240p": "240p",
+    "video144p": "144p",
+    "mp3320": "MP3 • 320 kbps",
+    "mp3192": "MP3 • 192 kbps",
+    "aac256": "AAC • 256 kbps",
+    "flacLossless": "FLAC • Sem perdas",
+    "wavUncompressed": "WAV • Não compactado",
+    "ogg192": "OGG • 192 kbps",
+    "jpgMax": "JPG • Máxima",
+    "jpgHQ": "JPG • Alta qualidade",
+    "pngMax": "PNG • Máxima",
+    "webpOptimized": "WebP • Otimizado",
+    "srtTimestamps": "SRT • Timestamps",
+    "vttWebvtt": "VTT • WebVTT",
+    "txtPlain": "TXT • Texto simples",
+    "jsonStructured": "JSON • Estruturado",
+    "mp4Quality": "MP4 • {quality}"
+  },
+  "Errors": {
+    "fetchFailed": "Não foi possível buscar as informações da mídia. Verifique o URL e tente novamente.",
+    "downloadFailed": "Falha ao iniciar o download",
+    "networkError": "Falha na requisição de rede",
+    "timedOut": "O download excedeu o tempo limite",
+    "noThumbnail": "Nenhuma miniatura disponível para este vídeo",
+    "unknownError": "Ocorreu um erro desconhecido",
+    "httpError": "HTTP {status}: {statusText}"
+  },
+  "Auth": {
+    "signInTitle": "Bem-vindo de Volta",
+    "signInSubtitle": "Entre na sua conta DownForge",
+    "signUpTitle": "Crie Sua Conta",
+    "signUpSubtitle": "Comece a baixar de mais de 200 plataformas",
+    "emailLabel": "E-mail",
+    "emailPlaceholder": "voce@exemplo.com",
+    "passwordLabel": "Senha",
+    "passwordPlaceholder": "Digite sua senha",
+    "signInButton": "Entrar",
+    "signUpButton": "Criar Conta",
+    "forgotPassword": "Esqueceu a senha?",
+    "noAccount": "Não tem uma conta?",
+    "hasAccount": "Já tem uma conta?",
+    "signUpLink": "Cadastre-se",
+    "signInLink": "Entrar"
+  },
+  "Dashboard": {
+    "title": "Painel",
+    "downloads": "Downloads",
+    "usage": "Uso",
+    "settings": "Configurações",
+    "totalDownloads": "Total de Downloads",
+    "todayDownloads": "Downloads de Hoje",
+    "bandwidthUsed": "Largura de Banda Usada",
+    "plan": "Plano",
+    "upgrade": "Fazer Upgrade",
+    "recentActivity": "Atividade Recente",
+    "noActivity": "Nenhuma atividade recente"
+  },
+  "ApiDisclaimer": {
+    "title": "Aviso da API",
+    "subtitle": "Informações importantes sobre nossas políticas de uso da API.",
+    "backToHome": "Voltar ao início",
+    "fairUse": {
+      "title": "1. Política de Uso Justo",
+      "body": "Nossa API é fornecida sob uma política de uso justo. Usuários do plano Free estão limitados a 1.000 requisições por dia. Os planos Pro e Team possuem limites maiores, conforme especificado em seu plano. O uso excessivo que prejudique o serviço para outros usuários pode resultar em limitação de taxa ou suspensão temporária."
+    },
+    "noWarranty": {
+      "title": "2. Sem Garantia",
+      "body": "A API é fornecida \"como está\", sem garantia de qualquer tipo. Não garantimos disponibilidade ininterrupta, precisão dos metadados ou compatibilidade com todas as plataformas de vídeo. As APIs das plataformas mudam com frequência, e não podemos garantir que todas as fontes permanecerão acessíveis."
+    },
+    "legal": {
+      "title": "3. Conformidade Legal",
+      "body": "Você é responsável por garantir que seu uso da API esteja em conformidade com as leis aplicáveis e os termos de serviço de qualquer plataforma acessada por meio de nosso serviço. Baixar conteúdo protegido por direitos autorais sem permissão pode violar as leis de direitos autorais em sua jurisdição."
+    },
+    "dataRetention": {
+      "title": "4. Retenção de Dados",
+      "body": "Não armazenamos arquivos baixados permanentemente. Os arquivos são automaticamente excluídos de nossos servidores em até 60 minutos após o download. Metadados e registros de uso podem ser retidos para fins de análise e faturamento."
+    },
+    "rateLimits": {
+      "title": "5. Limites de Taxa",
+      "body": "Os endpoints da API estão sujeitos a limites de taxa: 60 requisições por minuto globalmente, 30 por minuto para endpoints de informação e 20 por minuto para endpoints de download. Exceder esses limites resultará em respostas HTTP 429."
+    }
+  },
+  "Privacy": {
+    "title": "Política de Privacidade",
+    "lastUpdated": "Última atualização: janeiro de 2025"
+  },
+  "Pricing": {
+    "title": "Planos de Preço",
+    "subtitle": "Escolha o plano ideal para você. Comece grátis, faça upgrade quando precisar de mais."
+  },
+  "SEO": {
+    "homeTitle": "DownForge — Baixe qualquer vídeo, áudio, miniatura ou transcrição",
+    "homeDescription": "Cole um link do YouTube, Facebook, TikTok, Instagram e mais de 200 outros. Baixe vídeo, áudio, miniaturas ou transcrições com IA — sem necessidade de cadastro.",
+    "siteName": "DownForge"
+  }
+}

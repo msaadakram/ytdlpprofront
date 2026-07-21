@@ -1,10 +1,13 @@
 "use client";
 
-import Link from "next/link";
+import { useTranslations } from "next-intl";
+import { Link } from "@/lib/i18n/navigation";
 import { motion } from "motion/react";
 import { ArrowRight } from "lucide-react";
 
 export function CTA() {
+  const t = useTranslations("HomePage.cta");
+
   return (
     <section className="py-14 md:py-20 px-6">
       <div className="max-w-4xl mx-auto">
@@ -39,10 +42,10 @@ export function CTA() {
 
           <div className="relative">
             <h2 className="text-2xl sm:text-3xl md:text-4xl font-extrabold text-white mb-4 font-heading">
-              Ready to start downloading?
+              {t("title")}
             </h2>
             <p className="text-white/60 max-w-md mx-auto mb-8 font-sans">
-              Join thousands of users who trust DownForge for their video downloads. No credit card required.
+              {t("subtitle")}
             </p>
             <div className="flex items-center justify-center gap-4">
               <motion.div whileHover={{ scale: 1.04 }} whileTap={{ scale: 0.96 }}>
@@ -50,7 +53,7 @@ export function CTA() {
                   href="/sign-up"
                   className="inline-flex items-center gap-2 bg-[#5baab8] text-white font-semibold text-sm px-7 py-3 rounded-xl hover:bg-[#4a99a7] transition-colors font-sans"
                 >
-                  Get Started Free <ArrowRight className="w-4 h-4" />
+                  {t("button")} <ArrowRight className="w-4 h-4" />
                 </Link>
               </motion.div>
               <motion.div whileHover={{ scale: 1.04 }} whileTap={{ scale: 0.96 }}>
@@ -58,7 +61,7 @@ export function CTA() {
                   href="/api"
                   className="inline-flex items-center gap-2 text-white/70 hover:text-white text-sm font-medium transition-colors font-sans"
                 >
-                  API Access
+                  API
                 </Link>
               </motion.div>
             </div>

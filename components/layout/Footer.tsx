@@ -1,5 +1,7 @@
-import Link from "next/link";
+"use client";
 
+import { useTranslations } from "next-intl";
+import { Link } from "@/lib/i18n/navigation";
 
 const platformLinks: [string, string][] = [
   ["YouTube Download", "/youtube-download"],
@@ -19,13 +21,39 @@ const platformLinks: [string, string][] = [
   ["Niconico Download", "/download/niconico"],
 ];
 
-const footerLinks = [
-  { title: "Product", links: [["Features", "#features"], ["Pricing", "/pricing"], ["API", "/api"], ["Dashboard", "/dashboard"]] },
-  { title: "Resources", links: [["Documentation", "/api"], ["API Status", "#"], ["Changelog", "#"], ["Blog", "#"]] },
-  { title: "Company", links: [["About", "#"], ["Privacy", "/privacy"], ["Terms", "#"], ["Contact", "#"]] },
+const footerGroups = [
+  {
+    titleKey: "product" as const,
+    links: [
+      { labelKey: "features" as const, href: "/pricing" },
+      { labelKey: "pricing" as const, href: "/pricing" },
+      { labelKey: "api" as const, href: "/api" },
+      { labelKey: "dashboard" as const, href: "/dashboard" },
+    ],
+  },
+  {
+    titleKey: "resources" as const,
+    links: [
+      { labelKey: "documentation" as const, href: "/api" },
+      { labelKey: "apiStatus" as const, href: "#" },
+      { labelKey: "changelog" as const, href: "#" },
+      { labelKey: "blog" as const, href: "#" },
+    ],
+  },
+  {
+    titleKey: "company" as const,
+    links: [
+      { labelKey: "about" as const, href: "#" },
+      { labelKey: "privacy" as const, href: "/privacy" },
+      { labelKey: "terms" as const, href: "#" },
+      { labelKey: "contact" as const, href: "#" },
+    ],
+  },
 ];
 
 export function Footer() {
+  const t = useTranslations("Nav");
+
   return (
     <footer className="bg-[#0d1f26] text-white">
       <div className="max-w-6xl mx-auto px-4 sm:px-6 py-12 md:py-16">
@@ -45,7 +73,7 @@ export function Footer() {
           </div>
 
           <div>
-            <h4 className="text-sm font-semibold text-white/80 mb-4 font-heading">Platforms</h4>
+            <h4 className="text-sm font-semibold text-white/80 mb-4 font-heading">{t("platforms")}</h4>
             <ul className="flex flex-col gap-2.5">
               {platformLinks.map(([label, href]) => (
                 <li key={label}>
@@ -57,17 +85,15 @@ export function Footer() {
             </ul>
           </div>
 
-          {footerLinks.map((group) => (
-            <div key={group.title}>
-              <h4 className="text-sm font-semibold text-white/80 mb-4 font-heading">{group.title}</h4>
+          {footerGroups.map((group) => (
+            <div key={group.titleKey}>
+              <h4 className="text-sm font-semibold text-white/80 mb-4 font-heading">{t(group.titleKey)}</h4>
               <ul className="flex flex-col gap-3">
-                {group.links.map(([label, href]) => (
-                  <li key={label}>
-                    {href.startsWith("/") ? (
-                      <Link href={href} className="text-sm text-white/50 hover:text-white transition-colors font-sans">{label}</Link>
-                    ) : (
-                      <a href={href} className="text-sm text-white/50 hover:text-white transition-colors font-sans">{label}</a>
-                    )}
+                {group.links.map((link) => (
+                  <li key={link.labelKey}>
+                    <Link href={link.href} className="text-sm text-white/50 hover:text-white transition-colors font-sans">
+                      {t(link.labelKey)}
+                    </Link>
                   </li>
                 ))}
               </ul>

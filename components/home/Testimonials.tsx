@@ -1,10 +1,13 @@
 "use client";
 
+import { useTranslations } from "next-intl";
 import { motion } from "motion/react";
-import { testimonials } from "@/lib/constants";
 import { Star } from "lucide-react";
 
 export function Testimonials() {
+  const t = useTranslations("HomePage.testimonials");
+  const items = t.raw("items") as Array<{ name: string; role: string; text: string }>;
+
   return (
     <section className="py-14 md:py-20 px-6 bg-white relative overflow-hidden">
       <div className="absolute top-0 left-1/2 -translate-x-1/2 w-[800px] h-[800px] pointer-events-none opacity-[0.03]"
@@ -20,7 +23,7 @@ export function Testimonials() {
           className="text-center mb-14"
         >
           <span className="inline-block text-xs font-semibold tracking-widest uppercase text-[#5baab8] mb-3 font-mono">
-            Testimonials
+            {t("title", { defaultValue: "Testimonials" })}
           </span>
           <h2 className="text-2xl sm:text-3xl md:text-4xl font-extrabold tracking-tight text-foreground mb-4 font-heading">
             Loved by creators
@@ -31,9 +34,9 @@ export function Testimonials() {
         </motion.div>
 
         <div className="grid md:grid-cols-3 gap-8">
-          {testimonials.map((t, i) => (
+          {items.map((item, i) => (
             <motion.div
-              key={t.name}
+              key={item.name}
               initial={{ opacity: 0, y: 24, scale: 0.95 }}
               whileInView="visible"
               viewport={{ once: true, margin: "-50px" }}
@@ -43,7 +46,7 @@ export function Testimonials() {
               className="bg-[#eef6f8] rounded-2xl p-8 relative group"
             >
               <div className="flex gap-1 mb-4">
-                {Array.from({ length: t.rating }).map((_, ri) => (
+                {Array.from({ length: 5 }).map((_, ri) => (
                   <motion.span
                     key={ri}
                     initial={{ scale: 0, rotate: -180 }}
@@ -56,10 +59,10 @@ export function Testimonials() {
                   </motion.span>
                 ))}
               </div>
-              <p className="text-sm text-foreground leading-relaxed mb-6 font-sans">&ldquo;{t.text}&rdquo;</p>
+              <p className="text-sm text-foreground leading-relaxed mb-6 font-sans">&ldquo;{item.text}&rdquo;</p>
               <div>
-                <p className="text-sm font-bold text-foreground font-heading">{t.name}</p>
-                <p className="text-xs text-muted-foreground font-sans">{t.role}</p>
+                <p className="text-sm font-bold text-foreground font-heading">{item.name}</p>
+                <p className="text-xs text-muted-foreground font-sans">{item.role}</p>
               </div>
             </motion.div>
           ))}

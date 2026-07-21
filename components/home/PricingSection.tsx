@@ -1,13 +1,22 @@
 "use client";
 
 import { useState } from "react";
-import Link from "next/link";
+import { useTranslations } from "next-intl";
+import { Link } from "@/lib/i18n/navigation";
 import { motion } from "motion/react";
-import { plans } from "@/lib/constants";
 import { Check } from "lucide-react";
 
+type PlanKey = "free" | "pro" | "team";
+
 export function PricingSection() {
+  const t = useTranslations("HomePage.pricing");
   const [annual, setAnnual] = useState(false);
+
+  const plans: { key: PlanKey; highlight: boolean; href: string }[] = [
+    { key: "free", highlight: false, href: "/sign-up" },
+    { key: "pro", highlight: true, href: "/sign-up" },
+    { key: "team", highlight: false, href: "/api-disclaimer" },
+  ];
 
   return (
     <section id="pricing" className="py-14 md:py-20 px-6 relative overflow-hidden">
@@ -22,7 +31,7 @@ export function PricingSection() {
           className="text-center mb-14"
         >
           <span className="inline-block text-xs font-semibold tracking-widest uppercase text-[#5baab8] mb-3 font-mono">
-            Pricing
+            {t("title", { defaultValue: "Pricing" })}
           </span>
           <h2 className="text-2xl sm:text-3xl md:text-4xl font-extrabold tracking-tight text-foreground mb-4 font-heading">
             Simple, transparent pricing
@@ -64,70 +73,76 @@ export function PricingSection() {
         </motion.div>
 
         <div className="grid md:grid-cols-3 gap-8 max-w-4xl mx-auto">
-          {plans.map((plan, i) => (
-            <motion.div
-              key={plan.name}
-              initial={{ opacity: 0, y: 24, scale: 0.96 }}
-              whileInView="visible"
-              viewport={{ once: true, margin: "-50px" }}
-              variants={{ visible: { opacity: 1, y: 0, scale: 1 } }}
-              transition={{ duration: 0.45, delay: i * 0.1, ease: [0.21, 0.6, 0.35, 1] }}
-              whileHover={{ y: plan.highlight ? -8 : -4, transition: { duration: 0.2 } }}
-              className={`bg-white/80 backdrop-blur-sm rounded-2xl border p-8 relative flex flex-col ${
-                plan.highlight
-                  ? "border-[#5baab8] shadow-xl ring-1 ring-[#5baab8]/20 md:scale-105"
-                  : "border-border shadow-sm"
-              }`}
-            >
-              {plan.highlight && (
-                <motion.span
-                  initial={{ opacity: 0, y: -10 }}
-                  whileInView="visible"
-                  viewport={{ once: true }}
-                  variants={{ visible: { opacity: 1, y: 0 } }}
-                  transition={{ delay: i * 0.1 + 0.2 }}
-                  className="absolute -top-3 left-1/2 -translate-x-1/2 bg-[#5baab8] text-white text-xs font-bold px-4 py-1 rounded-full font-mono"
-                >
-                  MOST POPULAR
-                </motion.span>
-              )}
-              <h3 className="text-lg font-bold text-foreground mb-1 font-heading">{plan.name}</h3>
-              <div className="mb-6">
-                <span className="text-4xl font-extrabold text-foreground font-heading">
-                  {annual && plan.price !== "$0" ? `$${parseInt(plan.price.slice(1)) * 10}` : plan.price}
-                </span>
-                <span className="text-sm text-muted-foreground ml-2 font-sans">/{annual ? "year" : plan.period}</span>
-              </div>
-              <ul className="space-y-3 mb-8 flex-1">
-                {plan.features.map((f) => (
-                  <motion.li
-                    key={f}
-                    initial={{ opacity: 0, x: -8 }}
+          {plans.map((plan, i) => {
+            const p = t.raw(plan.key) as {
+              name: string; price: string; period: string;
+              features: string[]; cta: string;
+            };
+            return (
+              <motion.div
+                key={plan.key}
+                initial={{ opacity: 0, y: 24, scale: 0.96 }}
+                whileInView="visible"
+                viewport={{ once: true, margin: "-50px" }}
+                variants={{ visible: { opacity: 1, y: 0, scale: 1 } }}
+                transition={{ duration: 0.45, delay: i * 0.1, ease: [0.21, 0.6, 0.35, 1] }}
+                whileHover={{ y: plan.highlight ? -8 : -4, transition: { duration: 0.2 } }}
+                className={`bg-white/80 backdrop-blur-sm rounded-2xl border p-8 relative flex flex-col ${
+                  plan.highlight
+                    ? "border-[#5baab8] shadow-xl ring-1 ring-[#5baab8]/20 md:scale-105"
+                    : "border-border shadow-sm"
+                }`}
+              >
+                {plan.highlight && (
+                  <motion.span
+                    initial={{ opacity: 0, y: -10 }}
                     whileInView="visible"
-                    viewport={{ once: true, margin: "-20px" }}
-                    variants={{ visible: { opacity: 1, x: 0 } }}
-                    transition={{ duration: 0.25 }}
-                    className="flex items-start gap-3 text-sm text-foreground font-sans"
+                    viewport={{ once: true }}
+                    variants={{ visible: { opacity: 1, y: 0 } }}
+                    transition={{ delay: i * 0.1 + 0.2 }}
+                    className="absolute -top-3 left-1/2 -translate-x-1/2 bg-[#5baab8] text-white text-xs font-bold px-4 py-1 rounded-full font-mono"
                   >
-                    <Check className="w-4 h-4 text-[#5baab8] mt-0.5 shrink-0" />
-                    {f}
-                  </motion.li>
-                ))}
-              </ul>
-              <motion.div whileHover={{ scale: 1.03 }} whileTap={{ scale: 0.97 }}>
-                <Link
-                  href={plan.name === "Team" ? "/api-disclaimer" : "/sign-up"}
-                  className={`block text-center text-sm font-semibold py-3 rounded-xl transition-colors font-sans ${
-                    plan.highlight
-                      ? "bg-[#0d1f26] text-white hover:bg-[#1a3545]"
-                      : "bg-[#eef6f8] text-foreground hover:bg-[#d4ecf0]"
-                  }`}
-                >
-                  {plan.cta}
-                </Link>
+                    {t("popular", { defaultValue: "MOST POPULAR" })}
+                  </motion.span>
+                )}
+                <h3 className="text-lg font-bold text-foreground mb-1 font-heading">{p.name}</h3>
+                <div className="mb-6">
+                  <span className="text-4xl font-extrabold text-foreground font-heading">
+                    {annual && p.price !== "$0" ? `$${parseInt(p.price.slice(1)) * 10}` : p.price}
+                  </span>
+                  <span className="text-sm text-muted-foreground ml-2 font-sans">/{annual ? "year" : p.period}</span>
+                </div>
+                <ul className="space-y-3 mb-8 flex-1">
+                  {p.features.map((f: string) => (
+                    <motion.li
+                      key={f}
+                      initial={{ opacity: 0, x: -8 }}
+                      whileInView="visible"
+                      viewport={{ once: true, margin: "-20px" }}
+                      variants={{ visible: { opacity: 1, x: 0 } }}
+                      transition={{ duration: 0.25 }}
+                      className="flex items-start gap-3 text-sm text-foreground font-sans"
+                    >
+                      <Check className="w-4 h-4 text-[#5baab8] mt-0.5 shrink-0" />
+                      {f}
+                    </motion.li>
+                  ))}
+                </ul>
+                <motion.div whileHover={{ scale: 1.03 }} whileTap={{ scale: 0.97 }}>
+                  <Link
+                    href={plan.href}
+                    className={`block text-center text-sm font-semibold py-3 rounded-xl transition-colors font-sans ${
+                      plan.highlight
+                        ? "bg-[#0d1f26] text-white hover:bg-[#1a3545]"
+                        : "bg-[#eef6f8] text-foreground hover:bg-[#d4ecf0]"
+                    }`}
+                  >
+                    {p.cta}
+                  </Link>
+                </motion.div>
               </motion.div>
-            </motion.div>
-          ))}
+            );
+          })}
         </div>
       </div>
     </section>

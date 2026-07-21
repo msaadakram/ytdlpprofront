@@ -1,0 +1,369 @@
+{
+  "LocaleSwitcher": {
+    "label": "语言",
+    "en": "English",
+    "es": "Español",
+    "fr": "Français",
+    "de": "Deutsch",
+    "pt": "Português",
+    "ja": "日本語",
+    "ar": "العربية",
+    "ru": "Русский",
+    "zh": "中文"
+  },
+  "Nav": {
+    "home": "DownForge",
+    "downloadVideo": "视频",
+    "downloadAudio": "音频",
+    "downloadThumbnail": "缩略图",
+    "downloadTranscript": "文字记录",
+    "features": "功能特性",
+    "pricing": "定价",
+    "api": "API",
+    "apiStatus": "API 状态",
+    "changelog": "更新日志",
+    "blog": "博客",
+    "about": "关于",
+    "terms": "服务条款",
+    "contact": "联系我们",
+    "documentation": "文档",
+    "privacy": "隐私政策",
+    "signIn": "登录",
+    "startFree": "免费开始",
+    "dashboard": "控制台",
+    "logOut": "退出登录",
+    "quickLinks": "快捷链接",
+    "product": "产品",
+    "resources": "资源",
+    "company": "公司",
+    "platforms": "平台",
+    "menuLabel": "菜单",
+    "closeMenu": "关闭菜单",
+    "openMenu": "打开菜单"
+  },
+  "Footer": {
+    "tagline": "从 200+ 平台下载任何视频、音频或缩略图。快速、免费、安全。",
+    "copyright": "© 2025 DownForge. 保留所有权利。",
+    "poweredBy": "由 yt-dlp & ffmpeg 提供技术支持"
+  },
+  "HomePage": {
+    "badge": "支持 200+ 平台",
+    "heading": "下载任何视频、",
+    "headingAccent": "音频",
+    "headingRest": "、缩略图或文稿。",
+    "subheading": "粘贴来自 YouTube、Facebook、TikTok、Instagram 等 200+ 平台的链接。下载视频、音频、缩略图或 AI 转录文稿——无需注册。",
+    "disclaimer": "免费使用 · 无需注册 · 下载后文件立即删除",
+    "howItWorks": {
+      "title": "如何使用",
+      "step1Title": "粘贴链接",
+      "step1Desc": "复制 YouTube、Facebook、TikTok 或 200+ 其他平台的视频链接，粘贴到上方输入框中。",
+      "step2Title": "选择格式与画质",
+      "step2Desc": "选择您偏好的格式——MP4、MP3、FLAC、SRT——以及适合您的画质级别。支持视频、音频、缩略图和转录文稿。",
+      "step3Title": "立即下载",
+      "step3Desc": "点击下载，文件将在数秒内处理完成并提供给您。无需注册。"
+    },
+    "features": {
+      "title": "为什么选择 DownForge？",
+      "platforms": {
+        "title": "支持 200+ 平台",
+        "desc": "从 YouTube 到小众平台。只要有视频，我们就能获取。"
+      },
+      "speed": {
+        "title": "极速处理",
+        "desc": "服务器端转换配合 CDN 分发。下载在 3 秒内开始。"
+      },
+      "security": {
+        "title": "私密安全",
+        "desc": "我们不会存储您的链接或文件。所有内容均临时处理后立即删除。"
+      },
+      "quality": {
+        "title": "任意画质，任意格式",
+        "desc": "4K、1080p、720p 视频。无损 FLAC 和 320 kbps MP3 音频。PNG 和 WebP 缩略图。SRT、VTT、TXT 和 JSON 转录文稿。"
+      },
+      "queue": {
+        "title": "无需排队，无需等待",
+        "desc": "Pro 计划支持并行处理。无需排队——立即开始下一次下载。"
+      },
+      "batch": {
+        "title": "批量下载",
+        "desc": "使用 Pro 和 Team 计划，一键下载整个播放列表或频道。"
+      }
+    },
+    "testimonials": {
+      "title": "深受数千用户信赖",
+      "items": [
+        {
+          "name": "Alex Chen",
+          "role": "内容创作者",
+          "text": "这个工具每周为我节省数小时。4K 下载画质完美，批量处理更是颠覆性的。"
+        },
+        {
+          "name": "Sarah Miller",
+          "role": "社交媒体经理",
+          "text": "我管理 12 个品牌账号，DownForge 满足了我所有的视频需求。FLAC 音频质量令人难以置信。"
+        },
+        {
+          "name": "Marcus Johnson",
+          "role": "视频编辑师",
+          "text": "格式和分辨率的多样性无与伦比。能够从任何平台提取无损音频对我的工作流程至关重要。"
+        }
+      ]
+    },
+    "pricing": {
+      "title": "简洁定价",
+      "free": {
+        "name": "Free",
+        "price": "$0",
+        "period": "永久",
+        "features": [
+          "每天 10 次下载",
+          "最高 1080p 视频",
+          "MP3、MP4 和 SRT 格式",
+          "标准处理速度",
+          "支持 50+ 平台"
+        ],
+        "cta": "免费开始使用"
+      },
+      "pro": {
+        "name": "Pro",
+        "price": "$9",
+        "period": "每月",
+        "features": [
+          "无限下载",
+          "4K 超高清视频",
+          "所有格式，包括 FLAC、WebP 和 SRT",
+          "优先处理",
+          "支持 200+ 平台",
+          "批量下载播放列表",
+          "无广告"
+        ],
+        "cta": "开始 Pro 试用"
+      },
+      "team": {
+        "name": "Team",
+        "price": "$29",
+        "period": "每月",
+        "features": [
+          "包含 Pro 全部功能",
+          "5 个团队席位",
+          "API 访问",
+          "Webhook 通知",
+          "优先邮件支持",
+          "自定义保留期（30 天）"
+        ],
+        "cta": "联系销售"
+      },
+      "popular": "最受欢迎"
+    },
+    "cta": {
+      "title": "准备好开始下载了吗？",
+      "subtitle": "无需注册。粘贴链接即可立即下载。",
+      "button": "立即试用——完全免费"
+    }
+  },
+  "PlatformShared": {
+    "chooseVideoQuality": "选择视频画质",
+    "chooseAudioQuality": "选择音频质量",
+    "chooseThumbnailFormat": "选择缩略图格式",
+    "chooseTranscriptFormat": "选择转录文稿格式",
+    "fetching": "正在获取...",
+    "fetchingInfo": "正在获取视频信息...",
+    "processing": "正在处理...",
+    "queued": "已排队...",
+    "downloading": "正在下载...",
+    "transcribing": "正在转录...",
+    "complete": "完成！",
+    "ready": "就绪！",
+    "download": "下载",
+    "downloadNow": "立即下载",
+    "getThumbnail": "获取缩略图",
+    "saveThumbnail": "保存缩略图",
+    "startDownload": "开始",
+    "errorFetchInfo": "无法获取媒体信息。请检查链接后重试。",
+    "errorDownloadFailed": "下载失败，请重试。",
+    "noThumbnail": "无可用缩略图",
+    "disclaimer": "免费使用 · 无需注册 · 下载后文件立即删除",
+    "typeVideo": "视频",
+    "typeAudio": "音频",
+    "typeThumbnail": "缩略图",
+    "typeTranscript": "转录文稿",
+    "eta": "预计时间",
+    "views": "次观看",
+    "likes": "赞",
+    "duration": "时长",
+    "uploader": "上传者",
+    "channel": "频道"
+  },
+  "PlatformPage": {
+    "breadcrumbHome": "首页",
+    "howItWorks": "如何下载",
+    "features": "功能特性",
+    "tips": "专业技巧",
+    "faq": "常见问题",
+    "toolFeatures": {
+      "title": "一站式下载工具",
+      "video": {
+        "title": "视频下载",
+        "desc": "下载原始画质视频。支持 MP4、WebM 和 MKV 格式。"
+      },
+      "audio": {
+        "title": "音频提取",
+        "desc": "提取高品质音频，支持 MP3、FLAC、AAC、WAV 和 OGG 格式。"
+      },
+      "thumbnail": {
+        "title": "缩略图保存",
+        "desc": "以最高分辨率保存视频缩略图，支持 JPG、PNG 和 WebP 格式。"
+      },
+      "transcript": {
+        "title": "AI 转录文稿",
+        "desc": "生成带时间戳的精确转录文稿，支持 SRT、VTT、TXT 和 JSON 格式。"
+      }
+    },
+    "howItWorksSections": {
+      "step1Title": "复制视频链接",
+      "step1Desc": "在您偏好的平台上打开视频，从浏览器地址栏复制链接。",
+      "step2Title": "粘贴并获取信息",
+      "step2Desc": "将链接粘贴到上方输入框中，点击下载。我们将获取视频详情和可用格式。",
+      "step3Title": "选择格式并下载",
+      "step3Desc": "选择您偏好的画质和格式，然后点击下载开始转换。您的文件将在数秒内准备就绪。"
+    }
+  },
+  "DownloadOnly": {
+    "audioBadge": "音频下载器",
+    "audioHeadingSuffix": "支持 MP3、FLAC 和 AAC",
+    "audioSubheading": "从任何视频中提取高品质音频。下载为 MP3、FLAC、AAC、WAV 或 OGG 格式——非常适合音乐、播客和配音。",
+    "thumbnailBadge": "缩略图下载器",
+    "thumbnailHeadingSuffix": "高清画质",
+    "thumbnailSubheading": "以最高分辨率保存视频缩略图。下载为 JPG、PNG 或 WebP 格式——非常适合封面、缩略图和参考。",
+    "transcriptBadge": "转录文稿下载器",
+    "transcriptHeadingSuffix": "AI 驱动",
+    "transcriptSubheading": "生成带时间戳的精确 AI 转录文稿。下载为 SRT、VTT、TXT 或 JSON 格式——非常适合字幕、笔记和数据分析。",
+    "chooseAudioQuality": "选择音频质量",
+    "chooseThumbnailFormat": "选择缩略图格式",
+    "chooseTranscriptFormat": "选择转录文稿格式",
+    "disclaimer": "免费使用 · 无需注册 · 文件立即删除 · 支持所有 {platform} 链接"
+  },
+  "VideoOnly": {
+    "badge": "视频下载器",
+    "headingSuffix": "支持高清和 4K",
+    "subheading": "以最高可用画质下载视频。多种分辨率和格式可选——非常适合离线观看、编辑和存档。",
+    "disclaimer": "免费使用 · 无需注册 · 文件立即删除 · 支持所有 {platform} 视频"
+  },
+  "Formats": {
+    "mp4": "MP4",
+    "webm": "WebM",
+    "mkv": "MKV",
+    "mp3": "MP3",
+    "aac": "AAC",
+    "flac": "FLAC",
+    "wav": "WAV",
+    "ogg": "OGG",
+    "jpg": "JPG",
+    "png": "PNG",
+    "webp": "WebP",
+    "srt": "SRT",
+    "vtt": "VTT",
+    "txt": "TXT",
+    "json": "JSON",
+    "video4k": "4K 超高清",
+    "video1440p": "1440p 2K",
+    "video1080p": "1080p 全高清",
+    "video720p": "720p 高清",
+    "video480p": "480p",
+    "video360p": "360p",
+    "video240p": "240p",
+    "video144p": "144p",
+    "mp3320": "MP3 • 320 kbps",
+    "mp3192": "MP3 • 192 kbps",
+    "aac256": "AAC • 256 kbps",
+    "flacLossless": "FLAC • 无损",
+    "wavUncompressed": "WAV • 未压缩",
+    "ogg192": "OGG • 192 kbps",
+    "jpgMax": "JPG • 最高画质",
+    "jpgHQ": "JPG • 高质量",
+    "pngMax": "PNG • 最高画质",
+    "webpOptimized": "WebP • 优化",
+    "srtTimestamps": "SRT • 带时间戳",
+    "vttWebvtt": "VTT • WebVTT",
+    "txtPlain": "TXT • 纯文本",
+    "jsonStructured": "JSON • 结构化",
+    "mp4Quality": "MP4 • {quality}"
+  },
+  "Errors": {
+    "fetchFailed": "无法获取媒体信息。请检查链接后重试。",
+    "downloadFailed": "下载启动失败",
+    "networkError": "网络请求失败",
+    "timedOut": "下载超时",
+    "noThumbnail": "此视频无可用缩略图",
+    "unknownError": "发生未知错误",
+    "httpError": "HTTP {status}: {statusText}"
+  },
+  "Auth": {
+    "signInTitle": "欢迎回来",
+    "signInSubtitle": "登录您的 DownForge 账户",
+    "signUpTitle": "创建您的账户",
+    "signUpSubtitle": "开始从 200+ 平台下载",
+    "emailLabel": "邮箱",
+    "emailPlaceholder": "you@example.com",
+    "passwordLabel": "密码",
+    "passwordPlaceholder": "请输入密码",
+    "signInButton": "登录",
+    "signUpButton": "创建账户",
+    "forgotPassword": "忘记密码？",
+    "noAccount": "还没有账户？",
+    "hasAccount": "已有账户？",
+    "signUpLink": "注册",
+    "signInLink": "登录"
+  },
+  "Dashboard": {
+    "title": "控制台",
+    "downloads": "下载",
+    "usage": "使用量",
+    "settings": "设置",
+    "totalDownloads": "总下载量",
+    "todayDownloads": "今日下载",
+    "bandwidthUsed": "已用带宽",
+    "plan": "套餐",
+    "upgrade": "升级",
+    "recentActivity": "最近活动",
+    "noActivity": "暂无最近活动"
+  },
+  "ApiDisclaimer": {
+    "title": "API 免责声明",
+    "subtitle": "关于我们 API 使用政策的重要信息。",
+    "backToHome": "返回首页",
+    "fairUse": {
+      "title": "1. 合理使用政策",
+      "body": "我们的 API 采用合理使用政策。免费套餐用户每天限制 1,000 次请求。Pro 和 Team 套餐根据您的计划有更高限额。过度使用影响其他用户服务可能会导致速率限制或临时暂停。"
+    },
+    "noWarranty": {
+      "title": "2. 无担保",
+      "body": "API 按\"现状\"提供，不附带任何形式的担保。我们不保证不间断的可用性、元数据的准确性，或与所有视频平台的兼容性。平台 API 频繁变更，我们无法保证所有来源始终可访问。"
+    },
+    "legal": {
+      "title": "3. 法律合规",
+      "body": "您有责任确保使用 API 的行为符合适用法律以及您通过我们服务访问的任何平台的服务条款。未经许可下载受版权保护的内容可能违反您所在司法管辖区的版权法。"
+    },
+    "dataRetention": {
+      "title": "4. 数据保留",
+      "body": "我们不会永久存储下载的文件。文件在下载后 60 分钟内自动从服务器删除。元数据和使用日志可能会为分析和计费目的而保留。"
+    },
+    "rateLimits": {
+      "title": "5. 速率限制",
+      "body": "API 端点受速率限制约束：全局每分钟 60 次请求，信息端点每分钟 30 次，下载端点每分钟 20 次。超过这些限制将返回 HTTP 429 响应。"
+    }
+  },
+  "Privacy": {
+    "title": "隐私政策",
+    "lastUpdated": "最后更新：2025 年 1 月"
+  },
+  "Pricing": {
+    "title": "定价方案",
+    "subtitle": "选择适合您需求的方案。免费开始，需要更多时再升级。"
+  },
+  "SEO": {
+    "homeTitle": "DownForge — 下载任何视频、音频、缩略图或转录文稿",
+    "homeDescription": "粘贴来自 YouTube、Facebook、TikTok、Instagram 等 200+ 平台的链接。下载视频、音频、缩略图或 AI 转录文稿——无需注册。",
+    "siteName": "DownForge"
+  }
+}

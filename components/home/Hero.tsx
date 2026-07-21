@@ -1,6 +1,7 @@
 "use client";
 
 import { useState } from "react";
+import { useTranslations } from "next-intl";
 import { motion, AnimatePresence } from "motion/react";
 import {
   Download, Music, Image, Video, ChevronDown, CheckCircle2, Play, X, FileText, Loader2,
@@ -17,6 +18,8 @@ function formatBytes(bytes: number): string {
 }
 
 export function Hero() {
+  const t = useTranslations("HomePage");
+  const st = useTranslations("PlatformShared");
   const {
     url, activeType, selectedFormat, setSelectedFormat, setActiveType,
     mediaInfo, fetchingInfo, infoReady, infoError, processing, done,
@@ -27,10 +30,10 @@ export function Hero() {
   const [showFormats, setShowFormats] = useState(false);
 
   const typeConfig = {
-    video: { icon: Video, label: "Video" },
-    audio: { icon: Music, label: "Audio" },
-    thumbnail: { icon: Image, label: "Thumbnail" },
-    transcript: { icon: FileText, label: "Transcript" },
+    video: { icon: Video, label: st("typeVideo") },
+    audio: { icon: Music, label: st("typeAudio") },
+    thumbnail: { icon: Image, label: st("typeThumbnail") },
+    transcript: { icon: FileText, label: st("typeTranscript") },
   };
 
   const selectedFmt = formats[selectedFormat];
@@ -52,9 +55,9 @@ export function Hero() {
 
       <div className="max-w-4xl mx-auto relative">
         <motion.div className="flex justify-center mb-6" initial={{ opacity: 0, y: 12 }} animate={{ opacity: 1, y: 0 }} transition={{ delay: 0.1 }}>
-          <span className="inline-flex items-center gap-2 text-xs font-semibold tracking-widest uppercase px-4 py-2 rounded-full bg-white border border-border text-muted-foreground shadow-sm font-mono">
+            <span className="inline-flex items-center gap-2 text-xs font-semibold tracking-widest uppercase px-4 py-2 rounded-full bg-white border border-border text-muted-foreground shadow-sm font-mono">
             <span className="w-1.5 h-1.5 rounded-full bg-[#5baab8] animate-pulse" />
-            200+ platforms supported
+            {t("badge")}
           </span>
         </motion.div>
 
@@ -64,9 +67,9 @@ export function Hero() {
           animate={{ opacity: 1, y: 0 }}
           transition={{ delay: 0.15, duration: 0.6 }}
         >
-          Download any video,
+          {t("heading")}
           <br />
-          <span className="text-[#5baab8]">audio</span>, thumbnail or transcript.
+          <span className="text-[#5baab8]">{t("headingAccent")}</span>{t("headingRest")}
         </motion.h1>
 
         <motion.p
@@ -75,7 +78,7 @@ export function Hero() {
           animate={{ opacity: 1, y: 0 }}
           transition={{ delay: 0.25, duration: 0.6 }}
         >
-           Paste a link from YouTube, Facebook, TikTok, Instagram and 200+ more. Download video, audio, thumbnails, or AI transcripts — no account required.
+            {t("subheading")}
         </motion.p>
 
         <motion.div className="flex justify-center mb-5" initial={{ opacity: 0, y: 16 }} animate={{ opacity: 1, y: 0 }} transition={{ delay: 0.35 }}>
@@ -126,7 +129,7 @@ export function Hero() {
                 />
                 {fetchingInfo && (
                   <p className="text-[10px] text-muted-foreground flex items-center gap-1 mt-0.5 font-sans">
-                    <Loader2 className="w-2.5 h-2.5 animate-spin" /> Fetching video info...
+                    <Loader2 className="w-2.5 h-2.5 animate-spin" /> {st("fetchingInfo")}
                   </p>
                 )}
                 {mediaInfo?.title && !fetchingInfo && (
@@ -191,27 +194,27 @@ export function Hero() {
                 {fetchingInfo ? (
                   <motion.span key="fetch" initial={{ opacity: 0 }} animate={{ opacity: 1 }} exit={{ opacity: 0 }} className="flex items-center gap-2">
                     <Loader2 className="w-4 h-4 animate-spin" />
-                    Fetching...
+                    {st("fetching")}
                   </motion.span>
                 ) : processing ? (
                   <motion.span key="proc" initial={{ opacity: 0 }} animate={{ opacity: 1 }} exit={{ opacity: 0 }} className="flex items-center gap-2">
                     <span className="w-4 h-4 border-2 border-white/30 border-t-white rounded-full animate-spin" />
-                    {statusText || "Processing..."}
+                    {statusText || st("processing")}
                   </motion.span>
                 ) : done ? (
                   <motion.span key="done" initial={{ opacity: 0, scale: 0.8 }} animate={{ opacity: 1, scale: 1 }} exit={{ opacity: 0 }} className="flex items-center gap-2">
                     <CheckCircle2 className="w-4 h-4 text-[#5baab8]" />
-                    Ready!
+                    {st("ready")}
                   </motion.span>
                 ) : infoReady ? (
                   <motion.span key="now" initial={{ opacity: 0 }} animate={{ opacity: 1 }} exit={{ opacity: 0 }} className="flex items-center gap-2">
                     <Download className="w-4 h-4" />
-                    Download Now
+                    {st("downloadNow")}
                   </motion.span>
                 ) : (
                   <motion.span key="idle" initial={{ opacity: 0 }} animate={{ opacity: 1 }} exit={{ opacity: 0 }} className="flex items-center gap-2">
                     <Download className="w-4 h-4" />
-                    Download
+                    {st("download")}
                   </motion.span>
                 )}
               </AnimatePresence>
@@ -224,7 +227,7 @@ export function Hero() {
               animate={{ opacity: 1, y: 0 }}
               className="text-xs text-destructive mt-3 font-sans"
             >
-              Could not fetch media info. Check the URL and try again.
+              {st("errorFetchInfo")}
             </motion.p>
           )}
 
@@ -296,7 +299,7 @@ export function Hero() {
           animate={{ opacity: 1 }}
           transition={{ delay: 0.6 }}
         >
-          Free to use · No sign-up required · Files deleted instantly after download
+          {t("disclaimer")}
         </motion.p>
       </div>
     </section>

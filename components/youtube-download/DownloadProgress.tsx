@@ -1,5 +1,6 @@
 "use client";
 
+import { useTranslations } from "next-intl";
 import { motion } from "motion/react";
 
 type DownloadProgressProps = {
@@ -22,6 +23,7 @@ function formatBytes(bytes: number): string {
 export function DownloadProgress({
   progress, statusText, downloadSpeed, downloadEta, downloadedBytes, totalBytes,
 }: DownloadProgressProps) {
+  const st = useTranslations("PlatformShared");
   return (
     <motion.div
       initial={{ opacity: 0, height: 0 }}
@@ -72,7 +74,7 @@ export function DownloadProgress({
         )}
         {downloadEta != null && downloadEta !== "" && (
           <span className="tabular-nums">
-            ETA {typeof downloadEta === "number" ? `${Math.round(downloadEta)}s` : String(downloadEta)}
+            {typeof downloadEta === "number" ? `${st("eta", { defaultValue: "ETA" })} ${Math.round(downloadEta)}s` : String(downloadEta)}
           </span>
         )}
         <span className="text-[10px] uppercase tracking-wider text-muted-foreground/60 font-sans">

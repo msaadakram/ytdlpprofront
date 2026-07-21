@@ -1,9 +1,15 @@
 "use client";
 
+import { useTranslations } from "next-intl";
 import { motion } from "motion/react";
-import { features } from "@/lib/constants";
+import { Globe, Zap, Shield, MonitorPlay, Clock, Star } from "lucide-react";
+
+const featureKeys = ["platforms", "speed", "security", "quality", "queue", "batch"] as const;
+const featureIcons = [Globe, Zap, Shield, MonitorPlay, Clock, Star];
 
 export function FeaturesSection() {
+  const t = useTranslations("HomePage.features");
+
   return (
     <section id="features" className="py-14 md:py-20 px-6 relative overflow-hidden">
       <div className="absolute inset-0 pointer-events-none" style={{ background: "linear-gradient(180deg, white 0%, #eef6f8 100%)" }} />
@@ -17,7 +23,7 @@ export function FeaturesSection() {
           className="text-center mb-14"
         >
           <span className="inline-block text-xs font-semibold tracking-widest uppercase text-[#5baab8] mb-3 font-mono">
-            Features
+            {t("title", { defaultValue: "Features" })}
           </span>
           <h2 className="text-2xl sm:text-3xl md:text-4xl font-extrabold tracking-tight text-foreground mb-4 font-heading">
             Everything you need
@@ -28,11 +34,11 @@ export function FeaturesSection() {
         </motion.div>
 
         <div className="grid sm:grid-cols-2 lg:grid-cols-3 gap-6">
-          {features.map((feat, i) => {
-            const Icon = feat.icon;
+          {featureKeys.map((key, i) => {
+            const Icon = featureIcons[i];
             return (
               <motion.div
-                key={feat.title}
+                key={key}
                 initial={{ opacity: 0, y: 20 }}
                 whileInView="visible"
                 viewport={{ once: true, margin: "-50px" }}
@@ -49,8 +55,8 @@ export function FeaturesSection() {
                 >
                   <Icon className="w-5 h-5 text-[#5baab8]" />
                 </motion.div>
-                <h3 className="text-base font-bold text-foreground mb-2 font-heading">{feat.title}</h3>
-                <p className="text-sm text-muted-foreground leading-relaxed font-sans">{feat.desc}</p>
+                <h3 className="text-base font-bold text-foreground mb-2 font-heading">{t(`${key}.title`)}</h3>
+                <p className="text-sm text-muted-foreground leading-relaxed font-sans">{t(`${key}.desc`)}</p>
               </motion.div>
             );
           })}
