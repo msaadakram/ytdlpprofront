@@ -105,7 +105,7 @@ export function SettingsTab() {
     return (
       <div className="space-y-6 max-w-2xl">
         {[1, 2, 3].map((i) => (
-          <div key={i} className="bg-white rounded-xl border border-border p-6 animate-pulse"><div className="h-32" /></div>
+          <div key={i} className="bg-card rounded-xl border border-border p-4 sm:p-6 animate-pulse"><div className="h-32" /></div>
         ))}
       </div>
     );
@@ -120,7 +120,7 @@ export function SettingsTab() {
 
   return (
     <div className="space-y-6 max-w-2xl">
-      <div className="bg-white rounded-xl border border-border p-6">
+      <div className="bg-card rounded-xl border border-border p-4 sm:p-6">
         <h3 className="text-sm font-bold text-foreground mb-4 font-heading flex items-center gap-2">
           <User className="w-4 h-4 text-[#5baab8]" /> Profile
         </h3>
@@ -131,7 +131,7 @@ export function SettingsTab() {
               <input
                 value={firstName}
                 onChange={(e) => setFirstName(e.target.value)}
-                className="w-full bg-[#eef6f8] rounded-xl px-4 py-2.5 text-sm text-foreground outline-none focus:ring-2 focus:ring-[#5baab8]/40 transition-all font-sans"
+                className="w-full bg-muted/60 rounded-xl px-4 py-2.5 text-sm text-foreground outline-none focus:ring-2 focus:ring-[#5baab8]/40 transition-all font-sans"
               />
             </div>
             <div>
@@ -139,7 +139,7 @@ export function SettingsTab() {
               <input
                 value={lastName}
                 onChange={(e) => setLastName(e.target.value)}
-                className="w-full bg-[#eef6f8] rounded-xl px-4 py-2.5 text-sm text-foreground outline-none focus:ring-2 focus:ring-[#5baab8]/40 transition-all font-sans"
+                className="w-full bg-muted/60 rounded-xl px-4 py-2.5 text-sm text-foreground outline-none focus:ring-2 focus:ring-[#5baab8]/40 transition-all font-sans"
               />
             </div>
           </div>
@@ -148,7 +148,7 @@ export function SettingsTab() {
             <input
               value={email}
               onChange={(e) => setEmail(e.target.value)}
-              className="w-full bg-[#eef6f8] rounded-xl px-4 py-2.5 text-sm text-foreground outline-none focus:ring-2 focus:ring-[#5baab8]/40 transition-all font-sans"
+              className="w-full bg-muted/60 rounded-xl px-4 py-2.5 text-sm text-foreground outline-none focus:ring-2 focus:ring-[#5baab8]/40 transition-all font-sans"
             />
           </div>
           <button
@@ -162,14 +162,14 @@ export function SettingsTab() {
         </div>
       </div>
 
-      <div className="bg-white rounded-xl border border-border p-6">
+      <div className="bg-card rounded-xl border border-border p-4 sm:p-6">
         <h3 className="text-sm font-bold text-foreground mb-4 font-heading flex items-center gap-2">
           <Lock className="w-4 h-4 text-[#5baab8]" /> Security
         </h3>
         <div className="space-y-4">
           <div>
             <label className="block text-xs font-medium text-foreground mb-1.5 font-sans">Current Password</label>
-            <div className="flex items-center gap-3 bg-[#eef6f8] rounded-xl px-4 py-2.5 focus-within:ring-2 focus-within:ring-[#5baab8]/40 transition-all">
+            <div className="flex items-center gap-3 bg-muted/60 rounded-xl px-4 py-2.5 focus-within:ring-2 focus-within:ring-[#5baab8]/40 transition-all">
               <input
                 type={showCurrentPw ? "text" : "password"}
                 value={currentPw}
@@ -184,7 +184,7 @@ export function SettingsTab() {
           </div>
           <div>
             <label className="block text-xs font-medium text-foreground mb-1.5 font-sans">New Password</label>
-            <div className="flex items-center gap-3 bg-[#eef6f8] rounded-xl px-4 py-2.5 focus-within:ring-2 focus-within:ring-[#5baab8]/40 transition-all">
+            <div className="flex items-center gap-3 bg-muted/60 rounded-xl px-4 py-2.5 focus-within:ring-2 focus-within:ring-[#5baab8]/40 transition-all">
               <input
                 type={showNewPw ? "text" : "password"}
                 value={newPw}
@@ -208,7 +208,7 @@ export function SettingsTab() {
         </div>
       </div>
 
-      <div className="bg-white rounded-xl border border-border p-6">
+      <div className="bg-card rounded-xl border border-border p-4 sm:p-6">
         <h3 className="text-sm font-bold text-foreground mb-4 font-heading flex items-center gap-2">
           <Bell className="w-4 h-4 text-[#5baab8]" /> Notifications
         </h3>

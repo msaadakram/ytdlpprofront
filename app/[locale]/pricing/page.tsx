@@ -39,7 +39,7 @@ export default async function PricingPage({ params }: Props) {
   return (
     <>
       <Nav />
-      <main className="pt-28 pb-20 px-6">
+      <main className="pt-28 pb-20 px-4 sm:px-6">
         <div className="max-w-4xl mx-auto">
           <Link href="/" className="inline-flex items-center gap-2 text-sm text-muted-foreground hover:text-foreground transition-colors mb-8 font-sans">
             <ArrowLeft className="w-4 h-4" /> {t("backToHome", { defaultValue: "Back to home" })}
@@ -47,7 +47,7 @@ export default async function PricingPage({ params }: Props) {
         </div>
         <PricingSection />
         <div className="max-w-4xl mx-auto mt-12">
-          <div className="bg-white rounded-2xl border border-border p-8">
+          <div className="bg-card rounded-2xl border border-border p-6 sm:p-8">
             <h2 className="text-xl font-bold text-foreground mb-4 font-heading">{t("faqTitle", { defaultValue: "Frequently Asked Questions" })}</h2>
             <div className="space-y-6">
               {[

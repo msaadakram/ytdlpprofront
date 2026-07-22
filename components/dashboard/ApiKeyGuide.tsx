@@ -57,7 +57,7 @@ export function ApiKeyGuide() {
 
       <div className="pt-2 border-t border-border">
         <Link
-          href="/api"
+          href="/api-docs"
           target="_blank"
           rel="noopener noreferrer"
           className="inline-flex items-center gap-2 text-sm font-semibold text-foreground hover:text-[#5baab8] transition-colors font-sans"

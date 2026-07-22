@@ -95,56 +95,56 @@ export function AuthPage({ mode }: { mode: AuthMode }) {
   }
 
   return (
-    <div className="max-w-4xl mx-auto px-6 w-full">
-      <Link href="/" className="inline-flex items-center gap-2 text-sm text-muted-foreground hover:text-foreground transition-colors mb-8 font-sans">
+    <div className="max-w-4xl mx-auto px-4 sm:px-6 w-full">
+      <Link href="/" className="inline-flex items-center gap-2 text-sm text-muted-foreground hover:text-foreground transition-colors mb-6 sm:mb-8 font-sans">
         <ArrowLeft className="w-4 h-4" /> {t("backToHome")}
       </Link>
-      <div className="flex gap-10 items-start">
+      <div className="flex flex-col lg:flex-row gap-8 lg:gap-10 items-start">
         <AuthAside />
-        <div className="flex-1 max-w-md">
+        <div className="flex-1 w-full max-w-md">
           <motion.div initial={{ opacity: 0, y: 20 }} animate={{ opacity: 1, y: 0 }}>
-            <h1 className="text-3xl font-extrabold text-foreground mb-2 font-heading">
+            <h1 className="text-2xl sm:text-3xl font-extrabold text-foreground mb-2 font-heading">
               {isSignIn ? t("signInTitle") : t("signUpTitle")}
             </h1>
-            <p className="text-sm text-muted-foreground mb-8 font-sans">
+            <p className="text-sm text-muted-foreground mb-6 sm:mb-8 font-sans">
               {isSignIn ? t("signInSubtitle") : t("signUpSubtitle")}
             </p>
 
-            <form className="space-y-5" onSubmit={handleSubmit}>
+            <form className="space-y-4 sm:space-y-5" onSubmit={handleSubmit}>
               {!isSignIn && (
-                <div className="grid grid-cols-2 gap-3">
+                <div className="grid grid-cols-1 sm:grid-cols-2 gap-3">
                   <div>
                     <label className="block text-sm font-medium text-foreground mb-1.5 font-sans">{t("firstNameLabel")}</label>
-                    <div className="flex items-center gap-3 bg-[#eef6f8] rounded-xl px-4 py-3 focus-within:ring-2 focus-within:ring-[#5baab8]/40 transition-all">
+                    <div className="flex items-center gap-3 bg-muted/60 rounded-xl px-4 py-3 focus-within:ring-2 focus-within:ring-[#5baab8]/40 transition-all">
                       <UserIcon className="w-4 h-4 text-muted-foreground" />
-                      <input ref={firstNameRef} type="text" placeholder="Jane" className="flex-1 bg-transparent text-sm text-foreground placeholder:text-muted-foreground outline-none font-sans" />
+                      <input ref={firstNameRef} type="text" placeholder="Jane" className="flex-1 bg-transparent text-sm text-foreground placeholder:text-muted-foreground outline-none font-sans min-w-0" />
                     </div>
                   </div>
                   <div>
                     <label className="block text-sm font-medium text-foreground mb-1.5 font-sans">{t("lastNameLabel")}</label>
-                    <div className="flex items-center gap-3 bg-[#eef6f8] rounded-xl px-4 py-3 focus-within:ring-2 focus-within:ring-[#5baab8]/40 transition-all">
+                    <div className="flex items-center gap-3 bg-muted/60 rounded-xl px-4 py-3 focus-within:ring-2 focus-within:ring-[#5baab8]/40 transition-all">
                       <UserIcon className="w-4 h-4 text-muted-foreground" />
-                      <input ref={lastNameRef} type="text" placeholder="Doe" className="flex-1 bg-transparent text-sm text-foreground placeholder:text-muted-foreground outline-none font-sans" />
+                      <input ref={lastNameRef} type="text" placeholder="Doe" className="flex-1 bg-transparent text-sm text-foreground placeholder:text-muted-foreground outline-none font-sans min-w-0" />
                     </div>
                   </div>
                 </div>
               )}
               <div>
                 <label className="block text-sm font-medium text-foreground mb-1.5 font-sans">{t("emailLabel")}</label>
-                <div className="flex items-center gap-3 bg-[#eef6f8] rounded-xl px-4 py-3 focus-within:ring-2 focus-within:ring-[#5baab8]/40 transition-all">
+                <div className="flex items-center gap-3 bg-muted/60 rounded-xl px-4 py-3 focus-within:ring-2 focus-within:ring-[#5baab8]/40 transition-all">
                   <Mail className="w-4 h-4 text-muted-foreground" />
-                  <input ref={emailRef} type="email" placeholder={t("emailPlaceholder")} className="flex-1 bg-transparent text-sm text-foreground placeholder:text-muted-foreground outline-none font-sans" />
+                  <input ref={emailRef} type="email" placeholder={t("emailPlaceholder")} className="flex-1 bg-transparent text-sm text-foreground placeholder:text-muted-foreground outline-none font-sans min-w-0" />
                 </div>
               </div>
               <div>
                 <label className="block text-sm font-medium text-foreground mb-1.5 font-sans">{t("passwordLabel")}</label>
-                <div className="flex items-center gap-3 bg-[#eef6f8] rounded-xl px-4 py-3 focus-within:ring-2 focus-within:ring-[#5baab8]/40 transition-all">
+                <div className="flex items-center gap-3 bg-muted/60 rounded-xl px-4 py-3 focus-within:ring-2 focus-within:ring-[#5baab8]/40 transition-all">
                   <LockKeyhole className="w-4 h-4 text-muted-foreground" />
                   <input
                     ref={passwordRef}
                     type={showPassword ? "text" : "password"}
                     placeholder={t("passwordPlaceholder")}
-                    className="flex-1 bg-transparent text-sm text-foreground placeholder:text-muted-foreground outline-none font-sans"
+                    className="flex-1 bg-transparent text-sm text-foreground placeholder:text-muted-foreground outline-none font-sans min-w-0"
                   />
                   <button type="button" onClick={() => setShowPassword(!showPassword)} className="text-muted-foreground hover:text-foreground">
                     {showPassword ? <EyeOff className="w-4 h-4" /> : <Eye className="w-4 h-4" />}
@@ -153,7 +153,7 @@ export function AuthPage({ mode }: { mode: AuthMode }) {
               </div>
 
               {error && (
-                <div className="text-xs text-red-600 bg-red-50 border border-red-100 rounded-lg px-3 py-2 font-sans">
+                <div className="text-xs text-red-600 bg-red-50 dark:bg-red-950/30 dark:text-red-400 border border-red-100 dark:border-red-900 rounded-lg px-3 py-2 font-sans">
                   {error}
                 </div>
               )}
@@ -176,7 +176,7 @@ export function AuthPage({ mode }: { mode: AuthMode }) {
             </form>
 
             {isSignIn && (
-              <p className="text-xs text-muted-foreground mt-4 text-center font-sans">
+              <p className="text-xs text-muted-foreground mt-4 text-center font-sans break-words">
                 {t("demoHint")} <span className="font-mono text-[#5baab8]">demo@downforge.me</span> / <span className="font-mono text-[#5baab8]">demo1234</span>
               </p>
             )}

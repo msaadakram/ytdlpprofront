@@ -14,9 +14,9 @@ function StatCard({ icon: Icon, label, value, trend, positive }: {
   icon: typeof Download; label: string; value: string; trend: string; positive: boolean;
 }) {
   return (
-    <div className="bg-white rounded-xl border border-border p-5">
+    <div className="bg-card rounded-xl border border-border p-4 sm:p-5">
       <div className="flex items-center justify-between mb-3">
-        <div className="w-10 h-10 rounded-lg bg-[#eef6f8] flex items-center justify-center">
+        <div className="w-10 h-10 rounded-lg bg-[#5baab8]/15 flex items-center justify-center">
           <Icon className="w-5 h-5 text-[#5baab8]" />
         </div>
         <span className={`flex items-center gap-1 text-xs font-medium ${positive ? "text-green-600" : "text-red-500"}`}>
@@ -33,7 +33,7 @@ function StatCard({ icon: Icon, label, value, trend, positive }: {
 function ChartTooltip({ active, payload }: any) {
   if (!active || !payload?.length) return null;
   return (
-    <div className="bg-white border border-border rounded-xl p-3 shadow-lg">
+    <div className="bg-card border border-border rounded-xl p-3 shadow-lg">
       <p className="text-xs font-medium text-muted-foreground font-sans">{payload[0].payload.bucket}</p>
       <p className="text-sm font-bold text-foreground font-heading">{payload[0].value.toLocaleString()} calls</p>
     </div>
@@ -81,9 +81,16 @@ export function OverviewTab() {
   if (loading) {
     return (
       <div className="space-y-6">
-        {[1, 2, 3, 4].map((i) => (
-          <div key={i} className="bg-white rounded-xl border border-border p-5 animate-pulse">
-            <div className="h-20" />
+        <div className="grid grid-cols-2 sm:grid-cols-2 lg:grid-cols-4 gap-4">
+          {[1, 2, 3, 4].map((i) => (
+            <div key={i} className="bg-card rounded-xl border border-border p-4 sm:p-5 animate-pulse">
+              <div className="h-20" />
+            </div>
+          ))}
+        </div>
+        {[1, 2].map((i) => (
+          <div key={i} className="bg-card rounded-xl border border-border p-5 sm:p-6 animate-pulse">
+            <div className="h-48" />
           </div>
         ))}
       </div>
@@ -125,15 +132,15 @@ export function OverviewTab() {
         />
       </div>
 
-      <div className="bg-white rounded-xl border border-border p-6">
-        <div className="flex items-center justify-between mb-6">
+      <div className="bg-card rounded-xl border border-border p-4 sm:p-6">
+        <div className="flex items-center justify-between mb-4 sm:mb-6">
           <h3 className="text-sm font-bold text-foreground font-heading">API Calls Over Time</h3>
           <span className="text-xs text-muted-foreground font-sans">Last 7 weeks</span>
         </div>
         {timeseries.length === 0 ? (
           <EmptyState />
         ) : (
-          <div className="h-64">
+          <div className="h-48 sm:h-64">
             <ResponsiveContainer width="100%" height="100%">
               <AreaChart data={timeseries}>
                 <defs>
@@ -153,7 +160,7 @@ export function OverviewTab() {
         )}
       </div>
 
-      <div className="bg-white rounded-xl border border-border p-6">
+      <div className="bg-card rounded-xl border border-border p-4 sm:p-6">
         <div className="flex items-center justify-between mb-4">
           <h3 className="text-sm font-bold text-foreground font-heading">Recent Downloads</h3>
           <span className="text-xs text-muted-foreground font-sans">Last 24 hours</span>
@@ -161,8 +168,8 @@ export function OverviewTab() {
         {recent.length === 0 ? (
           <EmptyState />
         ) : (
-          <div className="overflow-x-auto">
-            <table className="w-full text-sm">
+          <div className="overflow-x-auto -mx-4 sm:mx-0 px-4 sm:px-0">
+            <table className="w-full min-w-[480px] text-sm">
               <thead>
                 <tr className="border-b border-border">
                   <th className="text-left pb-3 text-xs font-semibold text-muted-foreground font-mono">File</th>

@@ -27,14 +27,14 @@ const footerGroups = [
     links: [
       { labelKey: "features" as const, href: "/pricing" },
       { labelKey: "pricing" as const, href: "/pricing" },
-      { labelKey: "api" as const, href: "/api" },
+      { labelKey: "api" as const, href: "/api-docs" },
       { labelKey: "dashboard" as const, href: "/dashboard" },
     ],
   },
   {
     titleKey: "resources" as const,
     links: [
-      { labelKey: "documentation" as const, href: "/api" },
+      { labelKey: "documentation" as const, href: "/api-docs" },
       { labelKey: "apiStatus" as const, href: "#" },
       { labelKey: "changelog" as const, href: "#" },
       { labelKey: "blog" as const, href: "#" },
@@ -58,8 +58,8 @@ export function Footer() {
   return (
     <footer className="bg-[#0d1f26] text-white">
       <div className="max-w-6xl mx-auto px-4 sm:px-6 py-12 md:py-16">
-        <div className="grid grid-cols-2 md:grid-cols-5 gap-8 md:gap-10">
-          <div className="col-span-2 md:col-span-1">
+        <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-5 gap-8 md:gap-10">
+          <div className="sm:col-span-2 md:col-span-1">
             <Link href="/" className="flex items-center gap-2 mb-4">
               <img
                 src="/logo.png"
@@ -75,7 +75,7 @@ export function Footer() {
 
           <div>
             <h4 className="text-sm font-semibold text-white/80 mb-4 font-heading">{t("platforms")}</h4>
-            <ul className="flex flex-col gap-2.5">
+            <ul className="grid grid-cols-2 sm:grid-cols-1 gap-x-4 gap-y-2.5">
               {platformLinks.map(([label, href]) => (
                 <li key={label}>
                   <Link href={href} className="text-sm text-white/50 hover:text-white transition-colors font-sans">

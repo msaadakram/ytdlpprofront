@@ -42,7 +42,7 @@ export function DashboardClient() {
 
   if (loading || !isAuthenticated) {
     return (
-      <div className="min-h-screen bg-[#eef6f8] flex items-center justify-center">
+      <div className="min-h-screen bg-background flex items-center justify-center">
         <div className="flex flex-col items-center gap-3">
           <div className="w-8 h-8 border-2 border-[#5baab8] border-t-transparent rounded-full animate-spin" />
           <p className="text-sm text-muted-foreground font-sans">Loading…</p>
@@ -52,8 +52,8 @@ export function DashboardClient() {
   }
 
   return (
-    <div className="min-h-screen bg-[#eef6f8]">
-      <header className="fixed top-0 left-0 right-0 z-50 bg-white/80 backdrop-blur-xl border-b border-border h-16 flex items-center px-4 sm:px-6 gap-3">
+    <div className="min-h-screen bg-background">
+      <header className="fixed top-0 left-0 right-0 z-50 bg-card/80 backdrop-blur-xl border-b border-border h-16 flex items-center px-4 sm:px-6 gap-3">
         <button
           onClick={() => setMobileNavOpen(true)}
           className="lg:hidden w-9 h-9 flex items-center justify-center rounded-xl hover:bg-muted transition-colors text-foreground"

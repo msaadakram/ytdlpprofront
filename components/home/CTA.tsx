@@ -9,7 +9,7 @@ export function CTA() {
   const t = useTranslations("HomePage.cta");
 
   return (
-    <section className="py-14 md:py-20 px-6">
+    <section className="py-14 md:py-20 px-4 sm:px-6">
       <div className="max-w-4xl mx-auto">
         <motion.div
           initial={{ opacity: 0, y: 28, scale: 0.98 }}
@@ -17,7 +17,7 @@ export function CTA() {
           viewport={{ once: true, margin: "-100px" }}
           variants={{ visible: { opacity: 1, y: 0, scale: 1 } }}
           transition={{ duration: 0.6, ease: [0.21, 0.6, 0.35, 1] }}
-          className="bg-[#0d1f26] rounded-3xl p-12 md:p-16 text-center relative overflow-hidden"
+          className="bg-[#0d1f26] rounded-3xl p-8 sm:p-12 md:p-16 text-center relative overflow-hidden"
         >
           <motion.div
             className="absolute top-0 right-0 w-64 h-64 rounded-full pointer-events-none"
@@ -44,10 +44,10 @@ export function CTA() {
             <h2 className="text-2xl sm:text-3xl md:text-4xl font-extrabold text-white mb-4 font-heading">
               {t("title")}
             </h2>
-            <p className="text-white/60 max-w-md mx-auto mb-8 font-sans">
+            <p className="text-white/60 max-w-md mx-auto mb-6 sm:mb-8 font-sans">
               {t("subtitle")}
             </p>
-            <div className="flex items-center justify-center gap-4">
+            <div className="flex flex-col sm:flex-row items-center justify-center gap-3 sm:gap-4">
               <motion.div whileHover={{ scale: 1.04 }} whileTap={{ scale: 0.96 }}>
                 <Link
                   href="/sign-up"
@@ -58,7 +58,7 @@ export function CTA() {
               </motion.div>
               <motion.div whileHover={{ scale: 1.04 }} whileTap={{ scale: 0.96 }}>
                 <Link
-                  href="/api"
+                  href="/api-docs"
                   className="inline-flex items-center gap-2 text-white/70 hover:text-white text-sm font-medium transition-colors font-sans"
                 >
                   API

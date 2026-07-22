@@ -34,20 +34,20 @@ export function DownloadsTab() {
   if (loading) {
     return (
       <div className="space-y-6">
-        <div className="bg-white rounded-xl border border-border p-6 animate-pulse"><div className="h-48" /></div>
-        <div className="bg-white rounded-xl border border-border p-6 animate-pulse"><div className="h-64" /></div>
+        <div className="bg-card rounded-xl border border-border p-4 sm:p-6 animate-pulse"><div className="h-48" /></div>
+        <div className="bg-card rounded-xl border border-border p-4 sm:p-6 animate-pulse"><div className="h-64" /></div>
       </div>
     );
   }
 
   return (
     <div className="space-y-6">
-      <div className="bg-white rounded-xl border border-border p-6">
+      <div className="bg-card rounded-xl border border-border p-4 sm:p-6">
         <h3 className="text-sm font-bold text-foreground mb-4 font-heading">This Week</h3>
         {weekly.length === 0 || weekly.every((d) => d.downloads === 0) ? (
           <EmptyState />
         ) : (
-          <div className="h-48">
+          <div className="h-40 sm:h-48">
             <ResponsiveContainer width="100%" height="100%">
               <BarChart data={weekly}>
                 <CartesianGrid strokeDasharray="3 3" stroke="rgba(91,170,184,0.1)" />
@@ -61,9 +61,9 @@ export function DownloadsTab() {
         )}
       </div>
 
-      <div className="bg-white rounded-xl border border-border p-6">
-        <div className="flex items-center gap-3 mb-6">
-          <div className="flex-1 flex items-center gap-3 bg-[#eef6f8] rounded-xl px-4 py-2.5 focus-within:ring-2 focus-within:ring-[#5baab8]/40 transition-all">
+      <div className="bg-card rounded-xl border border-border p-4 sm:p-6">
+        <div className="flex items-center gap-3 mb-4 sm:mb-6">
+          <div className="flex-1 flex items-center gap-3 bg-muted/60 rounded-xl px-3 sm:px-4 py-2.5 focus-within:ring-2 focus-within:ring-[#5baab8]/40 transition-all">
             <Search className="w-4 h-4 text-muted-foreground" />
             <input
               type="text"

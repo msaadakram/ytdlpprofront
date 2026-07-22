@@ -23,7 +23,7 @@ export function CreateApiKeyDialog({ open, onClose, keyName, plaintext }: Create
 
   return (
     <div className="fixed inset-0 bg-black/30 backdrop-blur-sm z-50 flex items-center justify-center p-4">
-      <div className="bg-white rounded-2xl shadow-xl max-w-md w-full p-6">
+      <div className="bg-card rounded-2xl shadow-xl max-w-md w-full p-5 sm:p-6">
         <div className="flex items-center justify-between mb-4">
           <h3 className="text-sm font-bold text-foreground font-heading">API Key Created</h3>
           <button onClick={onClose} className="p-1.5 rounded-lg hover:bg-muted transition-colors text-muted-foreground">
@@ -31,8 +31,8 @@ export function CreateApiKeyDialog({ open, onClose, keyName, plaintext }: Create
           </button>
         </div>
 
-        <div className="bg-yellow-50 border border-yellow-200 rounded-xl p-3 mb-4">
-          <p className="text-xs text-yellow-800 font-sans">
+        <div className="bg-yellow-50 dark:bg-yellow-950/30 border border-yellow-200 dark:border-yellow-900 rounded-xl p-3 mb-4">
+          <p className="text-xs text-yellow-800 dark:text-yellow-200 font-sans">
             <strong>Important:</strong> Copy this key now. You won't be able to see it again.
           </p>
         </div>
@@ -44,7 +44,7 @@ export function CreateApiKeyDialog({ open, onClose, keyName, plaintext }: Create
 
         <div className="mb-4">
           <p className="text-xs text-muted-foreground font-sans mb-1">Key</p>
-          <code className="block bg-[#eef6f8] rounded-lg px-4 py-2.5 text-xs font-mono text-foreground break-all">
+          <code className="block bg-muted/60 rounded-lg px-3 sm:px-4 py-2.5 text-xs font-mono text-foreground break-all">
             {plaintext}
           </code>
         </div>

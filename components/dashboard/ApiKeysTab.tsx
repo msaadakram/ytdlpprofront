@@ -75,7 +75,7 @@ export function ApiKeysTab() {
         plaintext={dialogState?.plaintext || ""}
       />
 
-      <div className="flex items-center justify-between">
+      <div className="flex flex-col sm:flex-row sm:items-center justify-between gap-3">
         <div>
           <h3 className="text-sm font-bold text-foreground font-heading">API Keys</h3>
           <p className="text-xs text-muted-foreground font-sans">Manage your API keys for programmatic access</p>
@@ -83,12 +83,12 @@ export function ApiKeysTab() {
         {!showCreateInput ? (
           <button
             onClick={() => setShowCreateInput(true)}
-            className="flex items-center gap-2 bg-[#0d1f26] text-white text-sm font-semibold px-4 py-2.5 rounded-xl hover:bg-[#1a3545] transition-colors font-sans"
+            className="flex items-center justify-center gap-2 bg-[#0d1f26] text-white text-sm font-semibold px-4 py-2.5 rounded-xl hover:bg-[#1a3545] transition-colors font-sans w-full sm:w-auto"
           >
             <Plus className="w-4 h-4" /> Create Key
           </button>
         ) : (
-          <div className="flex items-center gap-2">
+          <div className="flex flex-col sm:flex-row sm:items-center gap-2 w-full sm:w-auto">
             <input
               type="text"
               autoFocus
@@ -96,21 +96,23 @@ export function ApiKeysTab() {
               onChange={(e) => setNewKeyName(e.target.value)}
               onKeyDown={(e) => e.key === "Enter" && handleCreate()}
               placeholder="Key name (e.g. Production)"
-              className="bg-[#eef6f8] rounded-xl px-3 py-2 text-sm text-foreground placeholder:text-muted-foreground outline-none focus:ring-2 focus:ring-[#5baab8]/40 font-sans w-48"
+              className="bg-muted/60 rounded-xl px-3 py-2 text-sm text-foreground placeholder:text-muted-foreground outline-none focus:ring-2 focus:ring-[#5baab8]/40 font-sans flex-1 sm:w-48"
             />
-            <button
-              onClick={handleCreate}
-              disabled={creating}
-              className="bg-[#0d1f26] text-white text-sm font-semibold px-4 py-2 rounded-xl hover:bg-[#1a3545] transition-colors font-sans disabled:opacity-60"
-            >
-              {creating ? <Loader2 className="w-4 h-4 animate-spin" /> : "Save"}
-            </button>
-            <button
-              onClick={() => { setShowCreateInput(false); setNewKeyName(""); }}
-              className="text-sm text-muted-foreground hover:text-foreground font-sans px-2"
-            >
-              Cancel
-            </button>
+            <div className="flex items-center gap-2">
+              <button
+                onClick={handleCreate}
+                disabled={creating}
+                className="bg-[#0d1f26] text-white text-sm font-semibold px-4 py-2 rounded-xl hover:bg-[#1a3545] transition-colors font-sans disabled:opacity-60"
+              >
+                {creating ? <Loader2 className="w-4 h-4 animate-spin" /> : "Save"}
+              </button>
+              <button
+                onClick={() => { setShowCreateInput(false); setNewKeyName(""); }}
+                className="text-sm text-muted-foreground hover:text-foreground font-sans px-2"
+              >
+                Cancel
+              </button>
+            </div>
           </div>
         )}
       </div>
@@ -124,20 +126,20 @@ export function ApiKeysTab() {
       {loading ? (
         <div className="space-y-3">
           {[1, 2].map((i) => (
-            <div key={i} className="bg-white rounded-xl border border-border p-5 animate-pulse"><div className="h-16" /></div>
+            <div key={i} className="bg-card rounded-xl border border-border p-4 sm:p-5 animate-pulse"><div className="h-16" /></div>
           ))}
         </div>
       ) : keys.length === 0 ? (
-        <div className="bg-white rounded-xl border border-border p-10 text-center">
+        <div className="bg-card rounded-xl border border-border p-8 sm:p-10 text-center">
           <p className="text-sm text-muted-foreground font-sans">No API keys yet. Create one to get started.</p>
         </div>
       ) : (
         <div className="space-y-3">
           {keys.map((k) => (
-            <div key={k.id} className="bg-white rounded-xl border border-border p-5">
+            <div key={k.id} className="bg-card rounded-xl border border-border p-4 sm:p-5">
               <div className="flex items-center justify-between mb-3">
-                <h4 className="text-sm font-bold text-foreground font-heading">{k.name}</h4>
-                <div className="flex items-center gap-2">
+                <h4 className="text-sm font-bold text-foreground font-heading truncate">{k.name}</h4>
+                <div className="flex items-center gap-2 shrink-0">
                   <button
                     onClick={() => copyMasked(k.id, k.masked)}
                     className="p-1.5 rounded-lg hover:bg-muted transition-colors text-muted-foreground"
@@ -154,10 +156,10 @@ export function ApiKeysTab() {
                   </button>
                 </div>
               </div>
-              <code className="block bg-[#eef6f8] rounded-lg px-4 py-2.5 text-xs font-mono text-foreground break-all">
+              <code className="block bg-muted/60 rounded-lg px-3 sm:px-4 py-2.5 text-xs font-mono text-foreground break-all">
                 {k.masked}
               </code>
-              <div className="flex items-center gap-4 mt-3 text-xs text-muted-foreground font-sans">
+              <div className="flex flex-wrap items-center gap-x-4 gap-y-1 mt-3 text-xs text-muted-foreground font-sans">
                 <span>Created: {formatDate(k.created_at)}</span>
                 <span>Last used: {k.last_used_at ? formatDate(k.last_used_at) : "Never"}</span>
               </div>

@@ -198,7 +198,7 @@ export function Nav() {
             {t("pricing")}
             <span className="absolute bottom-0 left-3.5 right-3.5 h-0.5 bg-[#5baab8] scale-x-0 group-hover:scale-x-100 transition-transform duration-300 rounded-full" />
           </Link>
-          <Link href="/api" className="relative px-3.5 py-2 text-sm font-medium text-muted-foreground hover:text-foreground transition-colors group font-sans">
+          <Link href="/api-docs" className="relative px-3.5 py-2 text-sm font-medium text-muted-foreground hover:text-foreground transition-colors group font-sans">
             {t("api")}
             <span className="absolute bottom-0 left-3.5 right-3.5 h-0.5 bg-[#5baab8] scale-x-0 group-hover:scale-x-100 transition-transform duration-300 rounded-full" />
           </Link>
@@ -389,7 +389,7 @@ export function Nav() {
                     {t("pricing")}
                     <ExternalLink className="w-3 h-3 text-muted-foreground" />
                   </Link>
-                  <Link href="/api" onClick={closeAll} className="flex items-center justify-between text-sm font-medium text-foreground hover:text-accent transition-colors px-3 py-2.5 rounded-xl hover:bg-muted/50">
+                  <Link href="/api-docs" onClick={closeAll} className="flex items-center justify-between text-sm font-medium text-foreground hover:text-accent transition-colors px-3 py-2.5 rounded-xl hover:bg-muted/50">
                     {t("api")}
                     <ExternalLink className="w-3 h-3 text-muted-foreground" />
                   </Link>

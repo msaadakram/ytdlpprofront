@@ -18,7 +18,7 @@ export function RelatedTips() {
   ];
 
   return (
-    <section className="py-14 md:py-20 px-6 bg-white">
+    <section className="py-14 md:py-20 px-4 sm:px-6 bg-card">
       <div className="max-w-5xl mx-auto">
         <motion.div
           initial={{ opacity: 0, y: 16 }}
@@ -50,7 +50,7 @@ export function RelatedTips() {
                   viewport={{ once: true, margin: "-40px" }}
                   variants={{ visible: { opacity: 1, y: 0 } }}
                   transition={{ duration: 0.45, delay: i * 0.08 }}
-                  className="bg-[#eef6f8] rounded-2xl p-5 border border-border hover:shadow-sm transition-shadow"
+                  className="bg-muted rounded-2xl p-5 border border-border hover:shadow-sm transition-shadow"
                 >
                   <div className="flex items-start gap-4">
                     <div className="w-10 h-10 rounded-xl bg-[#5baab8]/10 flex items-center justify-center shrink-0">

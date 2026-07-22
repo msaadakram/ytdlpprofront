@@ -16,12 +16,12 @@ export function Topbar() {
   const initials = getInitials(user);
 
   return (
-    <header className="h-16 bg-white border-b border-border flex items-center justify-between px-4 sm:px-6 gap-4">
+    <header className="h-16 bg-card border-b border-border flex items-center justify-between px-4 sm:px-6 gap-3">
       <div className="min-w-0">
         <h2 className="text-sm font-bold text-foreground font-heading truncate">Dashboard</h2>
         <p className="text-xs text-muted-foreground font-sans truncate">Manage your downloads and account</p>
       </div>
-      <div className="flex items-center gap-3">
+      <div className="flex items-center gap-2 sm:gap-3 shrink-0">
         <button className="p-2 rounded-lg hover:bg-muted transition-colors text-muted-foreground relative">
           <Bell className="w-4 h-4" />
           <span className="absolute top-1.5 right-1.5 w-2 h-2 rounded-full bg-destructive" />

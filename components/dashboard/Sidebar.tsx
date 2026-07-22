@@ -49,8 +49,8 @@ export function Sidebar({
               onClick={() => handleTabClick(tab.id)}
               className={`w-full flex items-center gap-3 px-3 py-2.5 rounded-xl text-sm font-medium transition-all font-sans ${
                 active
-                  ? "bg-[#eef6f8] text-[#0d1f26]"
-                  : "text-muted-foreground hover:text-foreground hover:bg-muted"
+                  ? "bg-muted text-foreground"
+                  : "text-muted-foreground hover:text-foreground hover:bg-muted/60"
               }`}
             >
               <Icon className={`w-4 h-4 shrink-0 ${active ? "text-[#5baab8]" : ""}`} />
@@ -76,7 +76,7 @@ export function Sidebar({
     <>
       {/* Desktop: persistent collapsible sidebar */}
       <aside
-        className={`hidden lg:flex fixed left-0 top-16 h-[calc(100vh-4rem)] bg-white border-r border-border flex-col transition-all duration-300 z-30 ${
+        className={`hidden lg:flex fixed left-0 top-16 h-[calc(100vh-4rem)] bg-card border-r border-border flex-col transition-all duration-300 z-30 ${
           collapsed ? "w-16" : "w-64"
         }`}
       >
@@ -112,7 +112,7 @@ export function Sidebar({
               animate={{ x: 0 }}
               exit={{ x: "-100%" }}
               transition={{ type: "spring", stiffness: 350, damping: 32 }}
-              className="fixed left-0 top-0 bottom-0 w-72 max-w-[85vw] bg-white border-r border-border flex flex-col z-50 lg:hidden"
+              className="fixed left-0 top-0 bottom-0 w-72 max-w-[85vw] bg-card border-r border-border flex flex-col z-50 lg:hidden"
             >
               <div className="flex items-center justify-between p-4 border-b border-border h-16">
                 <span className="text-xs font-bold uppercase tracking-widest text-muted-foreground font-mono">Menu</span>

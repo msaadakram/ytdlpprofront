@@ -9,7 +9,7 @@ export function Testimonials() {
   const items = t.raw("items") as Array<{ name: string; role: string; text: string }>;
 
   return (
-    <section className="py-14 md:py-20 px-6 bg-white relative overflow-hidden">
+    <section className="py-14 md:py-20 px-4 sm:px-6 bg-card relative overflow-hidden">
       <div className="absolute top-0 left-1/2 -translate-x-1/2 w-[800px] h-[800px] pointer-events-none opacity-[0.03]"
         style={{ background: "radial-gradient(circle, #5baab8 0%, transparent 70%)" }}
       />
@@ -20,7 +20,7 @@ export function Testimonials() {
           viewport={{ once: true, margin: "-60px" }}
           variants={{ visible: { opacity: 1, y: 0 } }}
           transition={{ duration: 0.5 }}
-          className="text-center mb-14"
+          className="text-center mb-10 sm:mb-14"
         >
           <span className="inline-block text-xs font-semibold tracking-widest uppercase text-[#5baab8] mb-3 font-mono">
             {t("title", { defaultValue: "Testimonials" })}
@@ -33,7 +33,7 @@ export function Testimonials() {
           </p>
         </motion.div>
 
-        <div className="grid md:grid-cols-3 gap-8">
+        <div className="grid md:grid-cols-3 gap-5 sm:gap-8">
           {items.map((item, i) => (
             <motion.div
               key={item.name}
@@ -43,7 +43,7 @@ export function Testimonials() {
               variants={{ visible: { opacity: 1, y: 0, scale: 1 } }}
               transition={{ duration: 0.4, delay: i * 0.1, ease: [0.21, 0.6, 0.35, 1] }}
               whileHover={{ y: -6, scale: 1.01, transition: { duration: 0.2 } }}
-              className="bg-[#eef6f8] rounded-2xl p-8 relative group"
+              className="bg-muted rounded-2xl p-6 sm:p-8 relative group"
             >
               <div className="flex gap-1 mb-4">
                 {Array.from({ length: 5 }).map((_, ri) => (

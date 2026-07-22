@@ -60,10 +60,10 @@ export function BillingTab() {
   }
 
   if (loading) {
-    return (
+      return (
       <div className="space-y-6">
         {[1, 2, 3].map((i) => (
-          <div key={i} className="bg-white rounded-xl border border-border p-6 animate-pulse"><div className="h-24" /></div>
+          <div key={i} className="bg-card rounded-xl border border-border p-4 sm:p-6 animate-pulse"><div className="h-24" /></div>
         ))}
       </div>
     );
@@ -79,14 +79,14 @@ export function BillingTab() {
         </div>
       )}
 
-      <div className="bg-white rounded-xl border border-border p-6">
+      <div className="bg-card rounded-xl border border-border p-4 sm:p-6">
         <h3 className="text-sm font-bold text-foreground mb-4 font-heading">Current Plan</h3>
-        <div className="flex items-center justify-between mb-6">
+        <div className="flex flex-col sm:flex-row sm:items-center sm:justify-between gap-4 mb-6">
           <div>
             <div className="flex items-center gap-3 mb-1">
               <h4 className="text-xl font-extrabold text-foreground font-heading">{plan?.name || "Free"}</h4>
               {isPro && (
-                <span className="text-xs font-medium text-green-600 bg-green-100 px-2.5 py-0.5 rounded-full font-sans">Active</span>
+                <span className="text-xs font-medium text-green-600 bg-green-100 dark:bg-green-900/40 dark:text-green-400 px-2.5 py-0.5 rounded-full font-sans">Active</span>
               )}
             </div>
             <p className="text-sm text-muted-foreground font-sans">
@@ -127,9 +127,9 @@ export function BillingTab() {
       </div>
 
       {isPro && (
-        <div className="bg-white rounded-xl border border-border p-6">
+        <div className="bg-card rounded-xl border border-border p-4 sm:p-6">
           <h3 className="text-sm font-bold text-foreground mb-4 font-heading">Payment Method</h3>
-          <div className="flex items-center gap-4 p-4 bg-[#eef6f8] rounded-xl">
+          <div className="flex items-center gap-4 p-4 bg-muted/60 rounded-xl">
             <CreditCard className="w-8 h-8 text-muted-foreground" />
             <div>
               <p className="text-sm font-medium text-foreground font-sans">
@@ -148,25 +148,25 @@ export function BillingTab() {
         </div>
       )}
 
-      <div className="bg-white rounded-xl border border-border p-6">
+      <div className="bg-card rounded-xl border border-border p-4 sm:p-6">
         <h3 className="text-sm font-bold text-foreground mb-4 font-heading">Invoice History</h3>
         {invoices.length === 0 ? (
           <p className="text-sm text-muted-foreground font-sans py-6 text-center">No invoices yet.</p>
         ) : (
           <div className="space-y-2">
             {invoices.map((inv) => (
-              <div key={inv.id} className="flex items-center justify-between p-3 bg-[#eef6f8] rounded-xl">
-                <div>
-                  <p className="text-sm font-medium text-foreground font-sans">{inv.number}</p>
+              <div key={inv.id} className="flex items-center justify-between p-3 bg-muted/60 rounded-xl">
+                <div className="min-w-0">
+                  <p className="text-sm font-medium text-foreground font-sans truncate">{inv.number}</p>
                   <p className="text-xs text-muted-foreground font-sans">{formatDate(inv.created_at)}</p>
                 </div>
-                <div className="flex items-center gap-4">
+                <div className="flex items-center gap-3 sm:gap-4 shrink-0">
                   <span className="text-sm font-medium text-foreground font-sans">
                     ${inv.amount.toFixed(2)}
                   </span>
-                  <span className="text-xs font-medium text-green-600 bg-green-100 px-2 py-0.5 rounded-full font-sans">{inv.status}</span>
+                  <span className="text-xs font-medium text-green-600 bg-green-100 dark:bg-green-900/40 dark:text-green-400 px-2 py-0.5 rounded-full font-sans capitalize">{inv.status}</span>
                   {inv.pdf_url && (
-                    <a href={inv.pdf_url} target="_blank" rel="noopener noreferrer" className="p-1.5 rounded-lg hover:bg-white transition-colors text-muted-foreground">
+                    <a href={inv.pdf_url} target="_blank" rel="noopener noreferrer" className="p-1.5 rounded-lg hover:bg-background transition-colors text-muted-foreground">
                       <Download className="w-4 h-4" />
                     </a>
                   )}

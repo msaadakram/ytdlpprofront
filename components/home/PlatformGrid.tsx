@@ -20,7 +20,7 @@ function PlatformCard({ name }: { name: string }) {
     >
       <Link
         href={p.href}
-        className="flex items-center gap-4 bg-white/80 backdrop-blur-sm rounded-xl border border-border p-4 hover:shadow-lg hover:border-[#5baab8]/20 transition-all duration-200 group"
+        className="flex items-center gap-3 sm:gap-4 bg-card/80 backdrop-blur-sm rounded-xl border border-border p-3 sm:p-4 hover:shadow-lg hover:border-[#5baab8]/20 transition-all duration-200 group"
       >
         <motion.div
           className="w-10 h-10 rounded-xl flex items-center justify-center shrink-0"
@@ -48,8 +48,8 @@ export function PlatformGrid() {
   const t = useTranslations("HomePage");
 
   return (
-    <section id="platforms" className="py-14 md:py-20 px-6 relative overflow-hidden">
-      <div className="absolute inset-0 pointer-events-none" style={{ background: "linear-gradient(180deg, #eef6f8 0%, white 100%)" }} />
+    <section id="platforms" className="py-14 md:py-20 px-4 sm:px-6 relative overflow-hidden">
+      <div className="absolute inset-0 pointer-events-none" style={{ background: "linear-gradient(180deg, var(--muted) 0%, var(--background) 100%)" }} />
       <div className="max-w-6xl mx-auto relative">
         <motion.div
           initial={{ opacity: 0, y: 16 }}
@@ -57,7 +57,7 @@ export function PlatformGrid() {
           viewport={{ once: true, margin: "-60px" }}
           variants={{ visible: { opacity: 1, y: 0 } }}
           transition={{ duration: 0.5 }}
-          className="text-center mb-12"
+          className="text-center mb-10 sm:mb-12"
         >
           <span className="inline-block text-xs font-semibold tracking-widest uppercase text-[#5baab8] mb-3 font-mono">
             {t("platformGridTitle")}
@@ -71,7 +71,7 @@ export function PlatformGrid() {
         </motion.div>
 
         <motion.div
-          className="grid grid-cols-2 sm:grid-cols-3 md:grid-cols-5 gap-4"
+          className="grid grid-cols-2 sm:grid-cols-3 md:grid-cols-5 gap-3 sm:gap-4"
           initial="hidden"
           whileInView="visible"
           viewport={{ once: true, margin: "-30px" }}

@@ -12,7 +12,7 @@ export function PlatformHowItWorks({ platform }: { platform: string }) {
   const t = useTranslations("PlatformPage");
 
   return (
-    <section className="py-14 md:py-20 px-6 bg-white relative overflow-hidden">
+    <section className="py-14 md:py-20 px-4 sm:px-6 bg-card relative overflow-hidden">
       <div className="absolute inset-0 pointer-events-none opacity-[0.03]"
         style={{
           backgroundImage: `radial-gradient(circle at 25% 25%, ${config.brandColor} 0%, transparent 50%), radial-gradient(circle at 75% 75%, ${config.brandColor} 0%, transparent 50%)`,

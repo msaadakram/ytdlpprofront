@@ -218,7 +218,7 @@ export function DownloadOnlyHero({ platform, type }: { platform: string; type: D
     : brandColor;
 
   return (
-    <section className="pt-24 pb-16 md:pt-32 md:pb-20 px-6 relative overflow-hidden">
+    <section className="pt-24 pb-16 md:pt-32 md:pb-20 px-4 sm:px-6 relative overflow-hidden">
       <div
         className="absolute inset-0 pointer-events-none"
         style={{
@@ -286,7 +286,7 @@ export function DownloadOnlyHero({ platform, type }: { platform: string; type: D
         </motion.h1>
 
         <motion.p
-          className="text-center text-lg text-muted-foreground max-w-xl mx-auto mb-10 leading-relaxed font-sans"
+          className="text-center text-base sm:text-lg text-muted-foreground max-w-xl mx-auto mb-8 sm:mb-10 leading-relaxed font-sans"
           initial={{ opacity: 0, y: 16 }}
           animate={{ opacity: 1, y: 0 }}
           transition={{ delay: 0.25, duration: 0.6 }}

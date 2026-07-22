@@ -10,7 +10,7 @@ export function HowItWorks() {
   const t = useTranslations("HomePage.howItWorks");
 
   return (
-    <section className="py-14 md:py-20 px-6 relative overflow-hidden">
+    <section className="py-14 md:py-20 px-4 sm:px-6 relative overflow-hidden">
       <div className="absolute inset-0 pointer-events-none opacity-[0.02]"
         style={{
           backgroundImage: `radial-gradient(circle at 20% 50%, #5baab8 0%, transparent 50%), radial-gradient(circle at 80% 50%, #5baab8 0%, transparent 50%)`,
@@ -23,7 +23,7 @@ export function HowItWorks() {
           viewport={{ once: true, margin: "-60px" }}
           variants={{ visible: { opacity: 1, y: 0 } }}
           transition={{ duration: 0.5 }}
-          className="text-center mb-14"
+          className="text-center mb-10 sm:mb-14"
         >
           <span className="inline-block text-xs font-semibold tracking-widest uppercase text-[#5baab8] mb-3 font-mono">
             {t("title", { defaultValue: "How it works" })}
@@ -36,7 +36,7 @@ export function HowItWorks() {
           </p>
         </motion.div>
 
-        <div className="grid md:grid-cols-3 gap-8">
+        <div className="grid md:grid-cols-3 gap-5 sm:gap-8">
           {[1, 2, 3].map((num, i) => {
             const Icon = stepIcons[i];
             return (
@@ -48,13 +48,13 @@ export function HowItWorks() {
                 variants={{ visible: { opacity: 1, y: 0, rotateX: 0 } }}
                 transition={{ duration: 0.5, delay: i * 0.12, ease: [0.21, 0.6, 0.35, 1] }}
                 whileHover={{ y: -6, transition: { duration: 0.2 } }}
-                className="bg-white/80 backdrop-blur-sm rounded-2xl border border-border p-8 relative hover:shadow-lg transition-shadow duration-200 group"
+                className="bg-card/80 backdrop-blur-sm rounded-2xl border border-border p-6 sm:p-8 relative hover:shadow-lg transition-shadow duration-200 group"
               >
                 <span className="text-6xl font-black text-[#5baab8]/8 absolute top-4 right-6 font-heading">0{num}</span>
                 <motion.div
                   className="w-12 h-12 rounded-xl flex items-center justify-center mb-5"
-                  style={{ backgroundColor: "#eef6f8" }}
-                  whileHover={{ scale: 1.1, backgroundColor: "#d4ecf0" }}
+                  style={{ backgroundColor: "color-mix(in oklab, #5baab8 15%, transparent)" }}
+                  whileHover={{ scale: 1.1 }}
                   transition={{ type: "spring", stiffness: 400, damping: 15 }}
                 >
                   <motion.div

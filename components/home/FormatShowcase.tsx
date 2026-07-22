@@ -20,7 +20,7 @@ export function FormatShowcase() {
   const tabLabel = t(`formatShowcaseTabs.${activeTab}`);
 
   return (
-    <section className="py-14 md:py-20 px-6 bg-white">
+    <section className="py-14 md:py-20 px-4 sm:px-6 bg-card">
       <div className="max-w-5xl mx-auto">
         <motion.div
           initial={{ opacity: 0, y: 16 }}
@@ -28,7 +28,7 @@ export function FormatShowcase() {
           viewport={{ once: true, margin: "-60px" }}
           variants={{ visible: { opacity: 1, y: 0 } }}
           transition={{ duration: 0.5 }}
-          className="text-center mb-10"
+          className="text-center mb-8 sm:mb-10"
         >
           <span className="inline-block text-xs font-semibold tracking-widest uppercase text-[#5baab8] mb-3 font-mono">
             {t("formatShowcaseBadge")}
@@ -41,9 +41,9 @@ export function FormatShowcase() {
           </p>
         </motion.div>
 
-        <div className="flex justify-center mb-8">
+        <div className="flex justify-center mb-6 sm:mb-8">
           <div className="max-w-full overflow-x-auto px-2 sm:px-0 [scrollbar-width:none] [&::-webkit-scrollbar]:hidden">
-            <div className="inline-flex bg-[#eef6f8] rounded-xl p-1 gap-1">
+            <div className="inline-flex bg-muted rounded-xl p-1 gap-1">
             {tabs.map((tab) => {
               const active = activeTab === tab.key;
               const Icon = tab.icon;
@@ -80,11 +80,11 @@ export function FormatShowcase() {
             animate={{ opacity: 1, y: 0, rotateX: 0 }}
             exit={{ opacity: 0, y: -12, rotateX: -5 }}
             transition={{ duration: 0.35, ease: [0.21, 0.6, 0.35, 1] }}
-            className="bg-[#eef6f8] rounded-2xl p-8"
+            className="bg-muted rounded-2xl p-5 sm:p-8"
           >
-            <div className="flex items-center gap-2 mb-6">
+            <div className="flex items-center gap-2 mb-4 sm:mb-6">
               <motion.div
-                className="w-8 h-8 rounded-lg flex items-center justify-center"
+                className="w-8 h-8 rounded-lg flex items-center justify-center shrink-0"
                 style={{ backgroundColor: "#5baab8" }}
                 initial={{ rotate: -10, scale: 0 }}
                 animate={{ rotate: 0, scale: 1 }}
@@ -92,23 +92,23 @@ export function FormatShowcase() {
               >
                 <current.icon className="w-4 h-4 text-white" />
               </motion.div>
-              <h3 className="text-lg font-bold text-foreground font-heading">
+              <h3 className="text-base sm:text-lg font-bold text-foreground font-heading">
                 {tabLabel} {t("formatShowcaseFormats")}
               </h3>
             </div>
-            <ul className="space-y-2">
+            <ul className="grid grid-cols-1 sm:grid-cols-2 gap-2">
               {current.formats.map((f, i) => (
                 <motion.li
                   key={i}
                   initial={{ opacity: 0, x: -12 }}
                   animate={{ opacity: 1, x: 0 }}
                   transition={{ duration: 0.3, delay: i * 0.04 }}
-                  className="flex items-center justify-between bg-white/70 backdrop-blur-sm rounded-xl px-4 py-3 hover:bg-white hover:shadow-sm transition-all group"
+                  className="flex items-center justify-between bg-card/70 backdrop-blur-sm rounded-xl px-4 py-3 hover:bg-card hover:shadow-sm transition-all group"
                 >
                   <span className="text-sm text-foreground font-medium font-sans group-hover:text-[#5baab8] transition-colors">
                     {f.label}
                   </span>
-                  <span className="text-[11px] uppercase text-muted-foreground font-mono px-2 py-0.5 rounded-md bg-[#eef6f8] group-hover:bg-[#d4ecf0] transition-colors">
+                  <span className="text-[11px] uppercase text-muted-foreground font-mono px-2 py-0.5 rounded-md bg-muted group-hover:bg-muted/70 transition-colors shrink-0">
                     {f.ext}
                   </span>
                 </motion.li>

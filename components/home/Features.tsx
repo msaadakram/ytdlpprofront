@@ -11,8 +11,8 @@ export function FeaturesSection() {
   const t = useTranslations("HomePage.features");
 
   return (
-    <section id="features" className="py-14 md:py-20 px-6 relative overflow-hidden">
-      <div className="absolute inset-0 pointer-events-none" style={{ background: "linear-gradient(180deg, white 0%, #eef6f8 100%)" }} />
+    <section id="features" className="py-14 md:py-20 px-4 sm:px-6 relative overflow-hidden">
+      <div className="absolute inset-0 pointer-events-none" style={{ background: "linear-gradient(180deg, var(--background) 0%, var(--muted) 100%)" }} />
       <div className="max-w-6xl mx-auto relative">
         <motion.div
           initial={{ opacity: 0, y: 16 }}
@@ -20,7 +20,7 @@ export function FeaturesSection() {
           viewport={{ once: true, margin: "-60px" }}
           variants={{ visible: { opacity: 1, y: 0 } }}
           transition={{ duration: 0.5 }}
-          className="text-center mb-14"
+          className="text-center mb-10 sm:mb-14"
         >
           <span className="inline-block text-xs font-semibold tracking-widest uppercase text-[#5baab8] mb-3 font-mono">
             {t("title", { defaultValue: "Features" })}
@@ -33,7 +33,7 @@ export function FeaturesSection() {
           </p>
         </motion.div>
 
-        <div className="grid sm:grid-cols-2 lg:grid-cols-3 gap-6">
+        <div className="grid sm:grid-cols-2 lg:grid-cols-3 gap-4 sm:gap-6">
           {featureKeys.map((key, i) => {
             const Icon = featureIcons[i];
             return (
@@ -45,12 +45,12 @@ export function FeaturesSection() {
                 variants={{ visible: { opacity: 1, y: 0 } }}
                 transition={{ duration: 0.4, delay: i * 0.06, ease: [0.21, 0.6, 0.35, 1] }}
                 whileHover={{ y: -4, transition: { duration: 0.2 } }}
-                className="bg-white/80 backdrop-blur-sm rounded-2xl border border-border p-6 hover:shadow-lg hover:border-[#5baab8]/20 transition-all duration-200"
+                className="bg-card/80 backdrop-blur-sm rounded-2xl border border-border p-5 sm:p-6 hover:shadow-lg hover:border-[#5baab8]/20 transition-all duration-200"
               >
                 <motion.div
                   className="w-10 h-10 rounded-xl flex items-center justify-center mb-4"
-                  style={{ backgroundColor: "#eef6f8" }}
-                  whileHover={{ scale: 1.12, backgroundColor: "#d4ecf0" }}
+                  style={{ backgroundColor: "color-mix(in oklab, #5baab8 15%, transparent)" }}
+                  whileHover={{ scale: 1.12 }}
                   transition={{ type: "spring", stiffness: 400, damping: 15 }}
                 >
                   <Icon className="w-5 h-5 text-[#5baab8]" />
