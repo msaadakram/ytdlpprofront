@@ -1,12 +1,49 @@
 "use client";
 
 import { useState, useEffect, useCallback } from "react";
-import { Search, Download } from "lucide-react";
+import { Search, Download, File, Globe, Type, FileText, Calendar, CheckCircle, XCircle } from "lucide-react";
 import { BarChart, Bar, XAxis, YAxis, CartesianGrid, Tooltip, ResponsiveContainer } from "recharts";
 import { getDownloadsHistory } from "@/lib/api-client";
 import type { DownloadRow } from "@/lib/api-client";
 import { formatBytes } from "@/lib/constants";
 import { EmptyState } from "./EmptyState";
+
+function DownloadCard({ dl }: { dl: DownloadRow }) {
+  return (
+    <div className="bg-card rounded-xl border border-border p-4 sm:p-5">
+      <div className="flex items-start justify-between gap-3 mb-3">
+        <p className="text-sm font-medium text-foreground font-sans truncate pr-4">{dl.title || dl.filename || "Untitled"}</p>
+        <span className={`text-xs font-medium px-2 py-1 rounded-full font-sans shrink-0 ${
+          dl.status === "completed" ? "bg-green-100 text-green-700" : "bg-red-100 text-red-700"
+        }`}>
+          {dl.status === "completed" ? "Completed" : "Failed"}
+        </span>
+      </div>
+      <div className="space-y-2 text-sm text-muted-foreground font-sans">
+        <div className="flex items-center gap-2">
+          <Globe className="w-3.5 h-3.5 shrink-0" />
+          <span className="capitalize">{dl.platform}</span>
+        </div>
+        <div className="flex items-center gap-2">
+          <Type className="w-3.5 h-3.5 shrink-0" />
+          <span className="capitalize">{dl.type}</span>
+        </div>
+        <div className="flex items-center gap-2">
+          <FileText className="w-3.5 h-3.5 shrink-0" />
+          <span>{dl.format_label || "—"}</span>
+        </div>
+        <div className="flex items-center gap-2">
+          <File className="w-3.5 h-3.5 shrink-0" />
+          <span>{dl.size > 0 ? formatBytes(dl.size) : "—"}</span>
+        </div>
+        <div className="flex items-center gap-2">
+          <Calendar className="w-3.5 h-3.5 shrink-0" />
+          <span>{dl.created_at ? new Date(dl.created_at).toLocaleDateString() : "—"}</span>
+        </div>
+      </div>
+    </div>
+  );
+}
 
 export function DownloadsTab() {
   const [search, setSearch] = useState("");
@@ -47,12 +84,12 @@ export function DownloadsTab() {
         {weekly.length === 0 || weekly.every((d) => d.downloads === 0) ? (
           <EmptyState />
         ) : (
-          <div className="h-40 sm:h-48">
+          <div className="h-48 sm:h-56 lg:h-64">
             <ResponsiveContainer width="100%" height="100%">
               <BarChart data={weekly}>
                 <CartesianGrid strokeDasharray="3 3" stroke="rgba(91,170,184,0.1)" />
                 <XAxis dataKey="day" tick={{ fontSize: 11, fill: "#5a7d87" }} axisLine={false} tickLine={false} />
-                <YAxis tick={{ fontSize: 11, fill: "#5a7d87" }} axisLine={false} tickLine={false} />
+                <YAxis tick={{ fontSize: 11, fill: "#5a7d87" }} axisLine={false} tickLine={false} tickFormatter={(value) => value.toLocaleString()} />
                 <Tooltip contentStyle={{ borderRadius: "12px", border: "1px solid rgba(91,170,184,0.18)" }} />
                 <Bar dataKey="downloads" fill="#5baab8" radius={[6, 6, 0, 0]} />
               </BarChart>
@@ -78,40 +115,50 @@ export function DownloadsTab() {
         {items.length === 0 ? (
           <EmptyState />
         ) : (
-          <div className="overflow-x-auto -mx-4 sm:mx-0 px-4 sm:px-0">
-            <table className="w-full min-w-[760px] text-sm">
-              <thead>
-                <tr className="border-b border-border">
-                  <th className="text-left pb-3 text-xs font-semibold text-muted-foreground font-mono whitespace-nowrap">File</th>
-                  <th className="text-left pb-3 text-xs font-semibold text-muted-foreground font-mono whitespace-nowrap">Platform</th>
-                  <th className="text-left pb-3 text-xs font-semibold text-muted-foreground font-mono whitespace-nowrap">Type</th>
-                  <th className="text-left pb-3 text-xs font-semibold text-muted-foreground font-mono whitespace-nowrap">Format</th>
-                  <th className="text-left pb-3 text-xs font-semibold text-muted-foreground font-mono whitespace-nowrap">Size</th>
-                  <th className="text-left pb-3 text-xs font-semibold text-muted-foreground font-mono whitespace-nowrap">Date</th>
-                  <th className="text-left pb-3 text-xs font-semibold text-muted-foreground font-mono whitespace-nowrap">Status</th>
-                </tr>
-              </thead>
-              <tbody>
-                {items.map((dl) => (
-                  <tr key={dl.id} className="border-b border-border/50 last:border-0">
-                    <td className="py-3 pr-4 text-sm text-foreground font-sans whitespace-nowrap">{dl.title || dl.filename || "Untitled"}</td>
-                    <td className="py-3 pr-4 text-sm text-muted-foreground font-sans whitespace-nowrap capitalize">{dl.platform}</td>
-                    <td className="py-3 pr-4 text-sm text-muted-foreground font-sans whitespace-nowrap capitalize">{dl.type}</td>
-                    <td className="py-3 pr-4 text-sm text-muted-foreground font-sans whitespace-nowrap">{dl.format_label || "—"}</td>
-                    <td className="py-3 pr-4 text-sm text-muted-foreground font-sans whitespace-nowrap">{dl.size > 0 ? formatBytes(dl.size) : "—"}</td>
-                    <td className="py-3 pr-4 text-sm text-muted-foreground font-sans whitespace-nowrap">
-                      {dl.created_at ? new Date(dl.created_at).toLocaleDateString() : "—"}
-                    </td>
-                    <td className="py-3">
-                      <span className={`text-xs font-medium px-2 py-0.5 rounded-full font-sans ${
-                        dl.status === "completed" ? "bg-green-100 text-green-700" : "bg-red-100 text-red-700"
-                      }`}>{dl.status === "completed" ? "Completed" : "Failed"}</span>
-                    </td>
+          <>
+            {/* Mobile: Card layout */}
+            <div className="space-y-3 sm:hidden">
+              {items.map((dl) => (
+                <DownloadCard key={dl.id} dl={dl} />
+              ))}
+            </div>
+
+            {/* Desktop: Table layout */}
+            <div className="hidden sm:block overflow-x-auto -mx-4 sm:mx-0 px-4 sm:px-0">
+              <table className="w-full min-w-[760px] text-sm">
+                <thead>
+                  <tr className="border-b border-border">
+                    <th className="text-left pb-3 text-xs font-semibold text-muted-foreground font-mono whitespace-nowrap">File</th>
+                    <th className="text-left pb-3 text-xs font-semibold text-muted-foreground font-mono whitespace-nowrap">Platform</th>
+                    <th className="text-left pb-3 text-xs font-semibold text-muted-foreground font-mono whitespace-nowrap">Type</th>
+                    <th className="text-left pb-3 text-xs font-semibold text-muted-foreground font-mono whitespace-nowrap">Format</th>
+                    <th className="text-left pb-3 text-xs font-semibold text-muted-foreground font-mono whitespace-nowrap">Size</th>
+                    <th className="text-left pb-3 text-xs font-semibold text-muted-foreground font-mono whitespace-nowrap">Date</th>
+                    <th className="text-left pb-3 text-xs font-semibold text-muted-foreground font-mono whitespace-nowrap">Status</th>
                   </tr>
-                ))}
-              </tbody>
-            </table>
-          </div>
+                </thead>
+                <tbody>
+                  {items.map((dl) => (
+                    <tr key={dl.id} className="border-b border-border/50 last:border-0">
+                      <td className="py-3 pr-4 text-sm text-foreground font-sans whitespace-nowrap">{dl.title || dl.filename || "Untitled"}</td>
+                      <td className="py-3 pr-4 text-sm text-muted-foreground font-sans whitespace-nowrap capitalize">{dl.platform}</td>
+                      <td className="py-3 pr-4 text-sm text-muted-foreground font-sans whitespace-nowrap capitalize">{dl.type}</td>
+                      <td className="py-3 pr-4 text-sm text-muted-foreground font-sans whitespace-nowrap">{dl.format_label || "—"}</td>
+                      <td className="py-3 pr-4 text-sm text-muted-foreground font-sans whitespace-nowrap">{dl.size > 0 ? formatBytes(dl.size) : "—"}</td>
+                      <td className="py-3 pr-4 text-sm text-muted-foreground font-sans whitespace-nowrap">
+                        {dl.created_at ? new Date(dl.created_at).toLocaleDateString() : "—"}
+                      </td>
+                      <td className="py-3">
+                        <span className={`text-xs font-medium px-2 py-0.5 rounded-full font-sans ${
+                          dl.status === "completed" ? "bg-green-100 text-green-700" : "bg-red-100 text-red-700"
+                        }`}>{dl.status === "completed" ? "Completed" : "Failed"}</span>
+                      </td>
+                    </tr>
+                  ))}
+                </tbody>
+              </table>
+            </div>
+          </>
         )}
       </div>
     </div>

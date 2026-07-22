@@ -4,7 +4,7 @@ import { useState, useEffect } from "react";
 import {
   AreaChart, Area, XAxis, YAxis, CartesianGrid, Tooltip, ResponsiveContainer,
 } from "recharts";
-import { Download, Zap, Shield, Globe, ArrowUpRight, ArrowDownRight } from "lucide-react";
+import { Download, Zap, Shield, Globe, ArrowUpRight, ArrowDownRight, Tablet, Smartphone, Monitor } from "lucide-react";
 import { getOverview, getTimeseries, getRecentDownloads } from "@/lib/api-client";
 import type { DashboardOverview, TimeseriesBucket, DownloadRow } from "@/lib/api-client";
 import { formatBytes } from "@/lib/constants";
@@ -140,7 +140,7 @@ export function OverviewTab() {
         {timeseries.length === 0 ? (
           <EmptyState />
         ) : (
-          <div className="h-48 sm:h-64">
+          <div className="h-56 sm:h-64 lg:h-72">
             <ResponsiveContainer width="100%" height="100%">
               <AreaChart data={timeseries}>
                 <defs>
@@ -150,8 +150,19 @@ export function OverviewTab() {
                   </linearGradient>
                 </defs>
                 <CartesianGrid strokeDasharray="3 3" stroke="rgba(91,170,184,0.1)" />
-                <XAxis dataKey="bucket" tick={{ fontSize: 11, fill: "#5a7d87" }} axisLine={false} tickLine={false} />
-                <YAxis tick={{ fontSize: 11, fill: "#5a7d87" }} axisLine={false} tickLine={false} />
+                <XAxis
+                  dataKey="bucket"
+                  tick={{ fontSize: 11, fill: "#5a7d87" }}
+                  axisLine={false}
+                  tickLine={false}
+                  tickFormatter={(value) => value}
+                />
+                <YAxis
+                  tick={{ fontSize: 11, fill: "#5a7d87" }}
+                  axisLine={false}
+                  tickLine={false}
+                  tickFormatter={(value) => value.toLocaleString()}
+                />
                 <Tooltip content={<ChartTooltip />} />
                 <Area type="monotone" dataKey="calls" stroke="#5baab8" strokeWidth={2} fill="url(#colorCalls)" />
               </AreaChart>
@@ -168,34 +179,55 @@ export function OverviewTab() {
         {recent.length === 0 ? (
           <EmptyState />
         ) : (
-          <div className="overflow-x-auto -mx-4 sm:mx-0 px-4 sm:px-0">
-            <table className="w-full min-w-[480px] text-sm">
-              <thead>
-                <tr className="border-b border-border">
-                  <th className="text-left pb-3 text-xs font-semibold text-muted-foreground font-mono">File</th>
-                  <th className="text-left pb-3 text-xs font-semibold text-muted-foreground font-mono">Platform</th>
-                  <th className="text-left pb-3 text-xs font-semibold text-muted-foreground font-mono">Status</th>
-                  <th className="text-left pb-3 text-xs font-semibold text-muted-foreground font-mono">Size</th>
-                  <th className="text-right pb-3 text-xs font-semibold text-muted-foreground font-mono">Time</th>
-                </tr>
-              </thead>
-              <tbody>
-                {recent.map((dl) => (
-                  <tr key={dl.id} className="border-b border-border/50 last:border-0">
-                    <td className="py-3 text-sm text-foreground font-sans">{dl.title || dl.filename || "Untitled"}</td>
-                    <td className="py-3 text-sm text-muted-foreground font-sans capitalize">{dl.platform}</td>
-                    <td className="py-3">
-                      <span className={`text-xs font-medium px-2 py-0.5 rounded-full font-sans ${
-                        dl.status === "completed" ? "bg-green-100 text-green-700" :
-                        "bg-red-100 text-red-700"
-                      }`}>{dl.status === "completed" ? "Completed" : "Failed"}</span>
-                    </td>
-                    <td className="py-3 text-sm text-muted-foreground font-sans">{dl.size > 0 ? formatBytes(dl.size) : "—"}</td>
-                    <td className="py-3 text-sm text-muted-foreground text-right font-sans">{formatRelativeTime(dl.created_at)}</td>
+          <div className="space-y-3">
+            {/* Mobile card layout */}
+            <div className="block sm:hidden">
+              {recent.map((dl) => (
+                <div key={dl.id} className="bg-muted/30 rounded-xl p-4 border border-border/50">
+                  <div className="flex items-center justify-between mb-2">
+                    <p className="text-sm font-medium text-foreground font-sans truncate pr-2">{dl.title || dl.filename || "Untitled"}</p>
+                    <span className={`text-xs font-medium px-2 py-0.5 rounded-full font-sans shrink-0 ${
+                      dl.status === "completed" ? "bg-green-100 text-green-700" : "bg-red-100 text-red-700"
+                    }`}>{dl.status === "completed" ? "Completed" : "Failed"}</span>
+                  </div>
+                  <div className="grid grid-cols-2 gap-2 text-xs text-muted-foreground font-sans">
+                    <div><span className="font-medium">Platform:</span> <span className="capitalize">{dl.platform}</span></div>
+                    <div><span className="font-medium">Size:</span> <span>{dl.size > 0 ? formatBytes(dl.size) : "—"}</span></div>
+                    <div className="col-span-2"><span className="font-medium">Time:</span> <span>{formatRelativeTime(dl.created_at)}</span></div>
+                  </div>
+                </div>
+              ))}
+            </div>
+            {/* Desktop table layout */}
+            <div className="hidden sm:block overflow-x-auto -mx-4 sm:mx-0 px-4 sm:px-0">
+              <table className="w-full min-w-[480px] text-sm">
+                <thead>
+                  <tr className="border-b border-border">
+                    <th className="text-left pb-3 text-xs font-semibold text-muted-foreground font-mono">File</th>
+                    <th className="text-left pb-3 text-xs font-semibold text-muted-foreground font-mono">Platform</th>
+                    <th className="text-left pb-3 text-xs font-semibold text-muted-foreground font-mono">Status</th>
+                    <th className="text-left pb-3 text-xs font-semibold text-muted-foreground font-mono">Size</th>
+                    <th className="text-right pb-3 text-xs font-semibold text-muted-foreground font-mono">Time</th>
                   </tr>
-                ))}
-              </tbody>
-            </table>
+                </thead>
+                <tbody>
+                  {recent.map((dl) => (
+                    <tr key={dl.id} className="border-b border-border/50 last:border-0">
+                      <td className="py-3 text-sm text-foreground font-sans">{dl.title || dl.filename || "Untitled"}</td>
+                      <td className="py-3 text-sm text-muted-foreground font-sans capitalize">{dl.platform}</td>
+                      <td className="py-3">
+                        <span className={`text-xs font-medium px-2 py-0.5 rounded-full font-sans ${
+                          dl.status === "completed" ? "bg-green-100 text-green-700" :
+                          "bg-red-100 text-red-700"
+                        }`}>{dl.status === "completed" ? "Completed" : "Failed"}</span>
+                      </td>
+                      <td className="py-3 text-sm text-muted-foreground font-sans">{dl.size > 0 ? formatBytes(dl.size) : "—"}</td>
+                      <td className="py-3 text-sm text-muted-foreground text-right font-sans">{formatRelativeTime(dl.created_at)}</td>
+                    </tr>
+                  ))}
+                </tbody>
+              </table>
+            </div>
           </div>
         )}
       </div>
