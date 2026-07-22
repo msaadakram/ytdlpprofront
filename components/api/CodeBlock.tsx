@@ -1,8 +1,9 @@
 "use client";
 
-import { useState } from "react";
+import { useState, useMemo } from "react";
 import { Copy, CheckCircle2 } from "lucide-react";
 import { cn } from "@/lib/utils";
+import { highlightCode } from "@/lib/syntax-highlight";
 
 interface CodeBlockProps {
   code: string;
@@ -16,11 +17,12 @@ interface CodeBlockProps {
 export function CodeBlock({ code, language, filename, className }: CodeBlockProps) {
   const [copied, setCopied] = useState(false);
 
+  const highlighted = useMemo(() => highlightCode(code, language), [code, language]);
+
   async function handleCopy() {
     try {
       await navigator.clipboard.writeText(code);
     } catch {
-      // Fallback for environments where Clipboard API is unavailable.
       const ta = document.createElement("textarea");
       ta.value = code;
       ta.style.position = "fixed";
@@ -60,7 +62,7 @@ export function CodeBlock({ code, language, filename, className }: CodeBlockProp
         </div>
       )}
       <pre className="text-white/90 text-xs leading-relaxed p-4 overflow-x-auto font-mono">
-        <code>{code}</code>
+        <code dangerouslySetInnerHTML={{ __html: highlighted }} />
       </pre>
       <button
         onClick={handleCopy}

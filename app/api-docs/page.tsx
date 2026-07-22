@@ -21,6 +21,7 @@ import {
   buildAuthSnippets,
   buildEndpointSnippets,
 } from "@/lib/api-examples";
+import { cn } from "@/lib/utils";
 
 export const metadata: Metadata = {
   title: "API Documentation — DownForge",
@@ -43,6 +44,7 @@ const endpoints = [
     path: "/api/:platform/info",
     desc: "Get available formats and metadata for a URL. Use the returned format_id to start a download.",
     kind: "info" as const,
+    methodColor: "bg-emerald-500/15 text-emerald-400 border border-emerald-500/20",
     response: `{
   "success": true,
   "data": {
@@ -61,6 +63,7 @@ const endpoints = [
     path: "/api/:platform/download",
     desc: "Start a download job. Returns a job_id you can poll for progress and the final result.",
     kind: "download" as const,
+    methodColor: "bg-emerald-500/15 text-emerald-400 border border-emerald-500/20",
     response: `{
   "success": true,
   "data": {
@@ -74,6 +77,7 @@ const endpoints = [
     path: "/api/job/:id",
     desc: "Poll a job for status and progress. Status values: queued, downloading, processing, completed, failed, expired.",
     kind: "status" as const,
+    methodColor: "bg-blue-500/15 text-blue-400 border border-blue-500/20",
     response: `{
   "success": true,
   "data": {
@@ -89,6 +93,7 @@ const endpoints = [
     path: "/api/job/:id/result",
     desc: "Get the download URL when the job status is \"completed\". The URL is valid for 60 minutes.",
     kind: "result" as const,
+    methodColor: "bg-blue-500/15 text-blue-400 border border-blue-500/20",
     response: `{
   "success": true,
   "data": {
@@ -158,17 +163,17 @@ export default function ApiPage() {
             </div>
           </div>
 
-          {/* Mobile TOC (horizontal pills) */}
-          <div className="lg:hidden mb-10">
-            <ApiPageToc items={tocItems} />
-          </div>
-
           {/* Desktop two-column layout */}
           <div className="lg:grid lg:grid-cols-[14rem_minmax(0,1fr)] lg:gap-12">
             {/* Sticky TOC sidebar — desktop only */}
             <aside className="hidden lg:block">
               <ApiPageToc items={tocItems} />
             </aside>
+
+            {/* Mobile TOC (horizontal pills) — renders inside content area on mobile */}
+            <div className="lg:hidden mb-8">
+              <ApiPageToc items={tocItems} />
+            </div>
 
             {/* Main content */}
             <div className="max-w-3xl space-y-16">
@@ -192,10 +197,12 @@ export default function ApiPage() {
                   desc="Every request must include your API key as a Bearer token in the Authorization header."
                 />
                 <div className="mt-6 grid gap-4">
-                  <div className="bg-card border border-border rounded-2xl p-4 sm:p-5">
+                  <div className="bg-card border border-border/80 rounded-2xl p-4 sm:p-5">
                     <div className="flex items-start gap-3">
-                      <Key className="w-4 h-4 text-[#5baab8] mt-0.5 shrink-0" />
-                      <p className="text-sm text-muted-foreground font-sans">
+                      <div className="w-7 h-7 rounded-lg bg-[#5baab8]/10 flex items-center justify-center shrink-0 mt-0.5">
+                        <Key className="w-3.5 h-3.5 text-[#5baab8]" />
+                      </div>
+                      <p className="text-sm text-muted-foreground font-sans leading-relaxed">
                         Create a key in the{" "}
                         <Link href="/dashboard" className="text-foreground font-medium underline underline-offset-2 hover:text-[#5baab8]">
                           dashboard &rarr; API Keys
@@ -229,14 +236,14 @@ export default function ApiPage() {
                 />
                 <div className="mt-6 space-y-6">
                   {endpoints.map((ep) => (
-                    <div key={ep.path} className="bg-card rounded-2xl border border-border p-5 sm:p-6">
+                    <div key={ep.path} className="bg-card rounded-2xl border border-border/80 p-5 sm:p-6 hover:border-border transition-colors">
                       <div className="flex flex-col sm:flex-row sm:items-center gap-3 mb-3">
-                        <span className="text-xs font-bold text-white bg-[#5baab8] px-2.5 py-1 rounded-md font-mono w-fit">
+                        <span className={cn("text-xs font-bold px-2.5 py-1 rounded-md font-mono w-fit", ep.methodColor)}>
                           {ep.method}
                         </span>
                         <code className="text-sm text-foreground font-mono break-all">{ep.path}</code>
                       </div>
-                      <p className="text-sm text-muted-foreground mb-5 font-sans">{ep.desc}</p>
+                      <p className="text-sm text-muted-foreground mb-5 font-sans leading-relaxed">{ep.desc}</p>
                       <div className="grid gap-5">
                         <div>
                           <span className="text-xs font-semibold text-foreground uppercase tracking-wider mb-2 block font-mono">
@@ -277,23 +284,23 @@ export default function ApiPage() {
                   />
                 </div>
                 {/* Cards on mobile, table on sm+ */}
-                <div className="mt-6 hidden sm:block overflow-x-auto">
-                  <table className="w-full text-sm border border-border rounded-xl overflow-hidden">
-                    <thead className="bg-muted/60">
+                <div className="mt-6 hidden sm:block overflow-x-auto rounded-xl border border-border/80">
+                  <table className="w-full text-sm">
+                    <thead className="bg-muted/40">
                       <tr className="text-left">
-                        <th className="px-4 py-2.5 font-semibold text-foreground font-sans">Status</th>
-                        <th className="px-4 py-2.5 font-semibold text-foreground font-sans">Code</th>
-                        <th className="px-4 py-2.5 font-semibold text-foreground font-sans">Description</th>
+                        <th className="px-4 py-3 font-semibold text-foreground font-sans text-xs uppercase tracking-wider">Status</th>
+                        <th className="px-4 py-3 font-semibold text-foreground font-sans text-xs uppercase tracking-wider">Code</th>
+                        <th className="px-4 py-3 font-semibold text-foreground font-sans text-xs uppercase tracking-wider">Description</th>
                       </tr>
                     </thead>
                     <tbody>
                       {errors.map((e) => (
-                        <tr key={e.code} className="border-t border-border">
-                          <td className="px-4 py-2.5 font-mono text-foreground">{e.status}</td>
-                          <td className="px-4 py-2.5">
-                            <code className="font-mono text-xs bg-muted px-1.5 py-0.5 rounded text-foreground">{e.code}</code>
+                        <tr key={e.code} className="border-t border-border/60 hover:bg-muted/30 transition-colors">
+                          <td className="px-4 py-3 font-mono text-foreground font-medium">{e.status}</td>
+                          <td className="px-4 py-3">
+                            <code className="font-mono text-xs bg-muted/80 px-2 py-0.5 rounded-md text-foreground">{e.code}</code>
                           </td>
-                          <td className="px-4 py-2.5 text-muted-foreground font-sans">{e.desc}</td>
+                          <td className="px-4 py-3 text-muted-foreground font-sans">{e.desc}</td>
                         </tr>
                       ))}
                     </tbody>
@@ -301,12 +308,12 @@ export default function ApiPage() {
                 </div>
                 <div className="mt-6 sm:hidden grid gap-3">
                   {errors.map((e) => (
-                    <div key={e.code} className="bg-card border border-border rounded-xl p-4">
+                    <div key={e.code} className="bg-card border border-border/80 rounded-xl p-4">
                       <div className="flex items-center gap-2 mb-1.5">
                         <span className="font-mono text-xs text-foreground font-bold">{e.status}</span>
-                        <code className="font-mono text-xs bg-muted px-1.5 py-0.5 rounded text-foreground">{e.code}</code>
+                        <code className="font-mono text-xs bg-muted/80 px-1.5 py-0.5 rounded text-foreground">{e.code}</code>
                       </div>
-                      <p className="text-xs text-muted-foreground font-sans">{e.desc}</p>
+                      <p className="text-xs text-muted-foreground font-sans leading-relaxed">{e.desc}</p>
                     </div>
                   ))}
                 </div>
@@ -321,15 +328,17 @@ export default function ApiPage() {
                 />
                 <div className="mt-6 grid grid-cols-1 sm:grid-cols-3 gap-4">
                   {rateLimits.map((r) => (
-                    <div key={r.label} className="bg-card border border-border rounded-2xl p-5">
-                      <div className="flex items-center gap-2 mb-2">
-                        <Gauge className="w-4 h-4 text-[#5baab8]" />
+                    <div key={r.label} className="bg-card border border-border/80 rounded-2xl p-5 hover:border-border transition-colors">
+                      <div className="flex items-center gap-2 mb-3">
+                        <div className="w-7 h-7 rounded-lg bg-[#5baab8]/10 flex items-center justify-center">
+                          <Gauge className="w-3.5 h-3.5 text-[#5baab8]" />
+                        </div>
                         <span className="text-xs font-bold uppercase tracking-wider text-muted-foreground font-mono">
                           {r.label}
                         </span>
                       </div>
-                      <p className="text-lg font-bold text-foreground font-heading">{r.value}</p>
-                      <p className="text-xs text-muted-foreground mt-1 font-sans">{r.desc}</p>
+                      <p className="text-xl font-bold text-foreground font-heading">{r.value}</p>
+                      <p className="text-xs text-muted-foreground mt-1.5 font-sans leading-relaxed">{r.desc}</p>
                     </div>
                   ))}
                 </div>
@@ -344,23 +353,26 @@ export default function ApiPage() {
               </section>
 
               {/* ─── Footer CTA ─── */}
-              <section className="bg-card border border-border rounded-2xl p-6 sm:p-8 text-center">
+              <section className="bg-gradient-to-br from-card to-muted/30 border border-border/80 rounded-2xl p-8 sm:p-10 text-center">
+                <div className="w-12 h-12 rounded-xl bg-[#5baab8]/15 flex items-center justify-center mx-auto mb-4">
+                  <Terminal className="w-6 h-6 text-[#5baab8]" />
+                </div>
                 <h2 className="text-xl sm:text-2xl font-bold text-foreground font-heading mb-2">
                   Ready to build?
                 </h2>
-                <p className="text-sm text-muted-foreground mb-5 font-sans max-w-md mx-auto">
+                <p className="text-sm text-muted-foreground mb-6 font-sans max-w-md mx-auto leading-relaxed">
                   Create a free account, generate an API key, and ship your integration today.
                 </p>
                 <div className="flex flex-col sm:flex-row gap-3 justify-center">
                   <Link
                     href="/sign-up"
-                    className="inline-flex items-center justify-center gap-2 text-sm font-semibold bg-[#0d1f26] text-white px-5 py-3 rounded-full hover:bg-[#1a3545] transition-colors font-sans"
+                    className="inline-flex items-center justify-center gap-2 text-sm font-semibold bg-[#0d1f26] text-white px-6 py-3 rounded-full hover:bg-[#1a3545] transition-all duration-200 font-sans shadow-sm hover:shadow-md"
                   >
                     Get an API key <ChevronRight className="w-4 h-4" />
                   </Link>
                   <Link
                     href="/api-disclaimer"
-                    className="inline-flex items-center justify-center gap-2 text-sm font-medium text-foreground px-5 py-3 rounded-full border border-border hover:bg-muted/60 transition-colors font-sans"
+                    className="inline-flex items-center justify-center gap-2 text-sm font-medium text-foreground px-6 py-3 rounded-full border border-border hover:bg-muted/60 transition-all duration-200 font-sans"
                   >
                     <Link2 className="w-4 h-4" /> API disclaimer
                   </Link>
@@ -388,13 +400,13 @@ function SectionHeading({
 }) {
   return (
     <div>
-      <span className="text-xs font-bold font-mono text-[#5baab8] uppercase tracking-widest">
+      <span className="inline-block text-[10px] font-bold font-mono text-[#5baab8] uppercase tracking-[0.2em] mb-2">
         {eyebrow}
       </span>
-      <h2 className="text-2xl sm:text-3xl font-bold text-foreground font-heading mt-1.5 mb-2 tracking-tight">
+      <h2 className="text-2xl sm:text-3xl font-bold text-foreground font-heading tracking-tight">
         {title}
       </h2>
-      <p className="text-sm sm:text-base text-muted-foreground font-sans max-w-2xl">{desc}</p>
+      <p className="text-sm sm:text-base text-muted-foreground font-sans max-w-2xl mt-2 leading-relaxed">{desc}</p>
     </div>
   );
 }

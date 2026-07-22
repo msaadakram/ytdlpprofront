@@ -40,7 +40,7 @@ export function CodeTabs({ snippets, defaultId, className }: CodeTabsProps) {
       <div
         role="tablist"
         aria-label="Code language"
-        className="flex items-center gap-1.5 overflow-x-auto p-1 bg-muted/60 rounded-t-xl border border-b-0 border-border scrollbar-thin"
+        className="flex items-center gap-1 p-1 bg-muted/50 rounded-t-xl border border-b-0 border-border/80 overflow-x-auto scrollbar-thin"
       >
         {snippets.map((s) => {
           const isActive = s.id === active.id;
@@ -51,10 +51,10 @@ export function CodeTabs({ snippets, defaultId, className }: CodeTabsProps) {
               aria-selected={isActive}
               onClick={() => setActiveId(s.id)}
               className={cn(
-                "shrink-0 px-3 py-1.5 text-xs font-medium rounded-lg transition-colors font-sans whitespace-nowrap",
+                "relative shrink-0 px-3.5 py-1.5 text-xs font-medium rounded-lg transition-all duration-200 font-sans whitespace-nowrap",
                 isActive
-                  ? "bg-[#0d1f26] text-white"
-                  : "text-muted-foreground hover:text-foreground hover:bg-muted",
+                  ? "bg-[#0d1f26] text-white shadow-sm"
+                  : "text-muted-foreground hover:text-foreground hover:bg-muted/80",
               )}
             >
               {s.label}
@@ -67,7 +67,7 @@ export function CodeTabs({ snippets, defaultId, className }: CodeTabsProps) {
         code={active.code}
         language={active.language}
         filename={active.filename}
-        className="rounded-t-none"
+        className="rounded-t-none border border-t-0 border-border/80"
       />
     </div>
   );
