@@ -181,10 +181,11 @@ export async function universalDownloadAudio(
 export async function universalDownloadTranscript(
   url: string,
   format: string = "srt",
+  language: string = "en",
 ): Promise<ApiResponse<JobStart>> {
   return request<JobStart>("/api/proxy/transcribe", {
     method: "POST",
-    body: JSON.stringify({ url, format }),
+    body: JSON.stringify({ url, format, language }),
   });
 }
 
