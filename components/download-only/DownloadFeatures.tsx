@@ -63,7 +63,7 @@ export function DownloadFeatures({ platform, type }: { platform: string; type: D
   };
 
   return (
-    <section className="py-14 md:py-20 px-6 relative overflow-hidden">
+    <section className="py-14 md:py-20 px-4 sm:px-6 relative overflow-hidden">
       <div
         className="absolute inset-0 pointer-events-none"
         style={{

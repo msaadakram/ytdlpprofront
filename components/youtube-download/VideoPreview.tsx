@@ -76,7 +76,7 @@ export function VideoPreview({ info }: VideoPreviewProps) {
           )}
         </figure>
 
-        <div className="flex-1 p-4 md:p-5 space-y-3">
+        <div className="flex-1 p-3 sm:p-4 md:p-5 space-y-3">
           <motion.h3
             initial={{ opacity: 0, y: 8 }}
             animate={{ opacity: 1, y: 0 }}

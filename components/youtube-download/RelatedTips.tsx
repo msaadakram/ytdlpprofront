@@ -50,7 +50,7 @@ export function RelatedTips() {
                   viewport={{ once: true, margin: "-40px" }}
                   variants={{ visible: { opacity: 1, y: 0 } }}
                   transition={{ duration: 0.45, delay: i * 0.08 }}
-                  className="bg-muted rounded-2xl p-5 border border-border hover:shadow-sm transition-shadow"
+                   className="bg-muted rounded-2xl p-4 sm:p-5 border border-border hover:shadow-sm transition-shadow"
                 >
                   <div className="flex items-start gap-4">
                     <div className="w-10 h-10 rounded-xl bg-[#5baab8]/10 flex items-center justify-center shrink-0">

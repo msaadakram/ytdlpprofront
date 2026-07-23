@@ -155,7 +155,7 @@ export function BillingTab() {
         ) : (
           <div className="space-y-2">
             {invoices.map((inv) => (
-              <div key={inv.id} className="flex items-center justify-between p-3 bg-muted/60 rounded-xl">
+                   <div key={inv.id} className="flex items-center justify-between p-3 sm:p-4 bg-muted/60 rounded-xl">
                 <div className="min-w-0">
                   <p className="text-sm font-medium text-foreground font-sans truncate">{inv.number}</p>
                   <p className="text-xs text-muted-foreground font-sans">{formatDate(inv.created_at)}</p>

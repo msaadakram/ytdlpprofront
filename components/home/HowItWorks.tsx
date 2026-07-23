@@ -50,7 +50,7 @@ export function HowItWorks() {
                 whileHover={{ y: -6, transition: { duration: 0.2 } }}
                 className="bg-card/80 backdrop-blur-sm rounded-2xl border border-border p-6 sm:p-8 relative hover:shadow-lg transition-shadow duration-200 group"
               >
-                <span className="text-6xl font-black text-[#5baab8]/8 absolute top-4 right-6 font-heading">0{num}</span>
+                <span className="text-4xl sm:text-5xl md:text-6xl font-black text-[#5baab8]/8 absolute top-4 right-6 font-heading">0{num}</span>
                 <motion.div
                   className="w-12 h-12 rounded-xl flex items-center justify-center mb-5"
                   style={{ backgroundColor: "color-mix(in oklab, #5baab8 15%, transparent)" }}

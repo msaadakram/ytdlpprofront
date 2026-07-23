@@ -70,8 +70,8 @@ export function PlatformGrid() {
           </p>
         </motion.div>
 
-        <motion.div
-          className="grid grid-cols-2 sm:grid-cols-3 md:grid-cols-5 gap-3 sm:gap-4"
+          <motion.div
+            className="grid grid-cols-2 sm:grid-cols-3 md:grid-cols-5 gap-2 sm:gap-3 md:gap-4"
           initial="hidden"
           whileInView="visible"
           viewport={{ once: true, margin: "-30px" }}

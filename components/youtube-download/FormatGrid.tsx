@@ -86,7 +86,7 @@ function qualityBars(fmt: GridFormat, type: DownloadType): number {
 
 export function FormatGrid({ formats, selectedIndex, onSelect, type, brandColor = "#5baab8" }: FormatGridProps) {
   return (
-    <div className="grid grid-cols-2 sm:grid-cols-3 gap-2.5">
+    <div className="grid grid-cols-2 sm:grid-cols-3 gap-2 sm:gap-2.5">
       {formats.map((fmt, i) => {
         const selected = i === selectedIndex;
         const bars = qualityBars(fmt, type);
@@ -98,7 +98,7 @@ export function FormatGrid({ formats, selectedIndex, onSelect, type, brandColor 
             whileHover={{ scale: 1.03, y: -2 }}
             whileTap={{ scale: 0.97 }}
             layout
-            className="relative flex flex-col items-start gap-1 rounded-xl border p-3 text-left transition-all duration-200"
+             className="relative flex flex-col items-start gap-1 rounded-xl border p-2.5 sm:p-3 text-left transition-all duration-200"
             style={{
               backgroundColor: selected ? "rgba(255,255,255,0.9)" : "rgba(255,255,255,0.7)",
               borderColor: selected ? brandColor : undefined,

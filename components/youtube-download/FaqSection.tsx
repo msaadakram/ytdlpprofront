@@ -59,7 +59,7 @@ export function FaqSection() {
                 <dt>
                   <button
                     onClick={() => setOpenIndex(isOpen ? null : i)}
-                    className="w-full flex items-center justify-between px-5 py-4 text-left"
+                     className="w-full flex items-center justify-between px-4 py-3 sm:px-5 sm:py-4 text-left"
                     aria-expanded={isOpen}
                     aria-controls={`faq-answer-${i}`}
                   >
@@ -87,7 +87,7 @@ export function FaqSection() {
                       itemScope
                       itemType="https://schema.org/Answer"
                     >
-                      <p className="px-5 pb-4 text-sm text-muted-foreground leading-relaxed font-sans" itemProp="text">
+                      <p                       className="px-4 pb-4 sm:px-5 text-sm text-muted-foreground leading-relaxed font-sans" itemProp="text">
                         {faq.a}
                       </p>
                     </motion.dd>

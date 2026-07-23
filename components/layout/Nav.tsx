@@ -143,7 +143,7 @@ export function Nav() {
                       animate={{ opacity: 1, scale: 1, y: 0 }}
                       exit={{ opacity: 0, scale: 0.94, y: -6 }}
                       transition={{ type: "spring", stiffness: 350, damping: 26 }}
-                      className="absolute top-full left-1/2 -translate-x-1/2 mt-2.5 bg-white/95 backdrop-blur-xl border border-border/60 rounded-2xl shadow-2xl shadow-black/5 overflow-hidden min-w-[540px]"
+                       className="absolute top-full left-1/2 -translate-x-1/2 mt-2.5 bg-white/95 backdrop-blur-xl border border-border/60 rounded-2xl shadow-2xl shadow-black/5 overflow-hidden min-w-[280px] sm:min-w-[540px] max-w-[90vw]"
                     >
                       <div
                         className="h-0.5 w-full"

@@ -109,7 +109,7 @@ export function Hero() {
         </motion.div>
 
         <motion.div
-          className="bg-white rounded-2xl shadow-xl border border-border p-3 md:p-4"
+           className="bg-white rounded-2xl shadow-xl border border-border p-3 sm:p-4 md:p-5"
           initial={{ opacity: 0, y: 24, scale: 0.98 }}
           animate={{ opacity: 1, y: 0, scale: 1 }}
           transition={{ delay: 0.4, duration: 0.6 }}
@@ -188,7 +188,7 @@ export function Hero() {
               disabled={processing || fetchingInfo}
               whileHover={{ scale: processing || fetchingInfo ? 1 : 1.03 }}
               whileTap={{ scale: processing || fetchingInfo ? 1 : 0.97 }}
-               className="flex items-center justify-center gap-2 bg-[#0d1f26] hover:bg-[#1a3545] text-white font-semibold text-sm px-7 py-3 rounded-xl transition-colors disabled:opacity-70 w-full md:min-w-[150px] font-sans"
+               className="flex items-center justify-center gap-2 bg-[#0d1f26] hover:bg-[#1a3545] text-white font-semibold text-sm px-6 py-2.5 sm:py-3 rounded-xl transition-colors disabled:opacity-70 w-full sm:w-auto sm:min-w-[150px] font-sans"
             >
               <AnimatePresence mode="wait">
                 {fetchingInfo ? (

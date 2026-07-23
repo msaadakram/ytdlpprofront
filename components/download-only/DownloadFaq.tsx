@@ -22,7 +22,7 @@ export function DownloadFaq({ platform, type }: { platform: string; type: Downlo
   if (faqs.length === 0) return null;
 
   return (
-    <section className="py-14 md:py-20 px-6">
+    <section className="py-14 md:py-20 px-4 sm:px-6">
       <div className="max-w-3xl mx-auto">
         <motion.div
           initial={{ opacity: 0, y: 16 }}
@@ -61,7 +61,7 @@ export function DownloadFaq({ platform, type }: { platform: string; type: Downlo
                 <dt>
                   <button
                     onClick={() => setOpenIndex(isOpen ? null : i)}
-                    className="w-full flex items-center justify-between px-5 py-4 text-left"
+                    className="w-full flex items-center justify-between px-4 py-3 sm:px-5 sm:py-4 text-left"
                     aria-expanded={isOpen}
                     aria-controls={`faq-answer-${i}`}
                   >
@@ -89,7 +89,7 @@ export function DownloadFaq({ platform, type }: { platform: string; type: Downlo
                       itemScope
                       itemType="https://schema.org/Answer"
                     >
-                      <p className="px-5 pb-4 text-sm text-muted-foreground leading-relaxed font-sans" itemProp="text">
+                      <p                        className="px-4 pb-4 sm:px-5 text-sm text-muted-foreground leading-relaxed font-sans" itemProp="text">
                         {faq.a}
                       </p>
                     </motion.dd>
