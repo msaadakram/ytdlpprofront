@@ -45,7 +45,21 @@
   "Footer": {
     "tagline": "Download any video, audio or thumbnail from 200+ platforms. Fast, free, and secure.",
     "copyright": "© 2025 DownForge. All rights reserved.",
-    "poweredBy": "Powered by yt-dlp & ffmpeg"
+    "poweredBy": "Powered by yt-dlp & ffmpeg",
+    "newsletter": "Newsletter",
+    "newsletterPlaceholder": "you@example.com",
+    "newsletterDesc": "Get the latest updates and platform support news.",
+    "subscribe": "Subscribe",
+    "subscribed": "Subscribed!",
+    "socialLinks": {
+      "github": "GitHub",
+      "twitter": "Twitter",
+      "youtube": "YouTube",
+      "facebook": "Facebook",
+      "instagram": "Instagram",
+      "linkedin": "LinkedIn"
+    },
+    "morePlatforms": "+ 200+ more platforms →"
   },
   "HomePage": {
     "badge": "200+ platforms supported",

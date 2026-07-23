@@ -44,7 +44,21 @@
   "Footer": {
     "tagline": "Lade jedes Video, jede Audiodatei oder jedes Vorschaubild von 200+ Plattformen herunter. Schnell, kostenlos und sicher.",
     "copyright": "© 2025 DownForge. Alle Rechte vorbehalten.",
-    "poweredBy": "Unterstützt von yt-dlp & ffmpeg"
+    "poweredBy": "Unterstützt von yt-dlp & ffmpeg",
+    "newsletter": "Newsletter",
+    "newsletterPlaceholder": "du@beispiel.de",
+    "newsletterDesc": "Erhalten Sie die neuesten Updates und Plattform-News.",
+    "subscribe": "Abonnieren",
+    "subscribed": "Abonniert!",
+    "socialLinks": {
+      "github": "GitHub",
+      "twitter": "Twitter",
+      "youtube": "YouTube",
+      "facebook": "Facebook",
+      "instagram": "Instagram",
+      "linkedin": "LinkedIn"
+    },
+    "morePlatforms": "+ 200+ weitere Plattformen →"
   },
   "HomePage": {
     "badge": "200+ Plattformen unterstützt",

@@ -44,7 +44,21 @@
   "Footer": {
     "tagline": "حمّل أي فيديو أو صوت أو صورة مصغرة من أكثر من 200 منصة. سريع ومجاني وآمن.",
     "copyright": "© 2025 DownForge. جميع الحقوق محفوظة.",
-    "poweredBy": "مدعوم من yt-dlp و ffmpeg"
+    "poweredBy": "مدعوم من yt-dlp و ffmpeg",
+    "newsletter": "النشرة الإخبارية",
+    "newsletterPlaceholder": "you@example.com",
+    "newsletterDesc": "احصل على آخر التحديثات وأخبار دعم المنصات.",
+    "subscribe": "اشترك",
+    "subscribed": "تم الاشتراك!",
+    "socialLinks": {
+      "github": "GitHub",
+      "twitter": "Twitter",
+      "youtube": "YouTube",
+      "facebook": "Facebook",
+      "instagram": "Instagram",
+      "linkedin": "LinkedIn"
+    },
+    "morePlatforms": "+ 200+ منصة إضافية →"
   },
   "HomePage": {
     "badge": "أكثر من 200 منصة مدعومة",

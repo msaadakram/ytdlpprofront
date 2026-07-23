@@ -44,7 +44,21 @@
   "Footer": {
     "tagline": "Téléchargez n'importe quelle vidéo, audio ou vignette depuis plus de 200 plateformes. Rapide, gratuit et sécurisé.",
     "copyright": "© 2025 DownForge. Tous droits réservés.",
-    "poweredBy": "Propulsé par yt-dlp & ffmpeg"
+    "poweredBy": "Propulsé par yt-dlp & ffmpeg",
+    "newsletter": "Newsletter",
+    "newsletterPlaceholder": "vous@exemple.com",
+    "newsletterDesc": "Recevez les dernières actualités et nouvelles de support de plateformes.",
+    "subscribe": "S'abonner",
+    "subscribed": "Abonné!",
+    "socialLinks": {
+      "github": "GitHub",
+      "twitter": "Twitter",
+      "youtube": "YouTube",
+      "facebook": "Facebook",
+      "instagram": "Instagram",
+      "linkedin": "LinkedIn"
+    },
+    "morePlatforms": "+ 200+ plateformes supplémentaires →"
   },
   "HomePage": {
     "badge": "Plus de 200 plateformes prises en charge",

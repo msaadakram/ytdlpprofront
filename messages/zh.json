@@ -44,7 +44,21 @@
   "Footer": {
     "tagline": "从 200+ 平台下载任何视频、音频或缩略图。快速、免费、安全。",
     "copyright": "© 2025 DownForge. 保留所有权利。",
-    "poweredBy": "由 yt-dlp & ffmpeg 提供技术支持"
+    "poweredBy": "由 yt-dlp & ffmpeg 提供技术支持",
+    "newsletter": " Newsletter",
+    "newsletterPlaceholder": "you@example.com",
+    "newsletterDesc": "获取最新更新和平台支持新闻。",
+    "subscribe": "订阅",
+    "subscribed": "已订阅！",
+    "socialLinks": {
+      "github": "GitHub",
+      "twitter": "Twitter",
+      "youtube": "YouTube",
+      "facebook": "Facebook",
+      "instagram": "Instagram",
+      "linkedin": "LinkedIn"
+    },
+    "morePlatforms": "+ 200+ 更多平台 →"
   },
   "HomePage": {
     "badge": "支持 200+ 平台",

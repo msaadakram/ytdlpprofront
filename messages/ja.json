@@ -44,7 +44,21 @@
   "Footer": {
     "tagline": "200以上のプラットフォームから動画、音声、サムネイルをダウンロード。高速・無料・安全。",
     "copyright": "© 2025 DownForge. All rights reserved.",
-    "poweredBy": "Powered by yt-dlp & ffmpeg"
+    "poweredBy": "Powered by yt-dlp & ffmpeg",
+    "newsletter": "ニュースレター",
+    "newsletterPlaceholder": "you@example.com",
+    "newsletterDesc": "最新のアップデートとプラットフォームサポートのニュースを受信。",
+    "subscribe": "購読",
+    "subscribed": "購読しました！",
+    "socialLinks": {
+      "github": "GitHub",
+      "twitter": "Twitter",
+      "youtube": "YouTube",
+      "facebook": "Facebook",
+      "instagram": "Instagram",
+      "linkedin": "LinkedIn"
+    },
+    "morePlatforms": "+ 200以上のプラットフォーム →"
   },
   "HomePage": {
     "badge": "200以上のプラットフォーム対応",

@@ -44,7 +44,21 @@
   "Footer": {
     "tagline": "Скачивайте любые видео, аудио и миниатюры с 200+ платформ. Быстро, бесплатно и безопасно.",
     "copyright": "© 2025 DownForge. Все права защищены.",
-    "poweredBy": "Работает на yt-dlp и ffmpeg"
+    "poweredBy": "Работает на yt-dlp и ffmpeg",
+    "newsletter": "Рассылка",
+    "newsletterPlaceholder": "you@example.com",
+    "newsletterDesc": "Получайте последние обновления и новости поддержки платформ.",
+    "subscribe": "Подписаться",
+    "subscribed": "Подписан!",
+    "socialLinks": {
+      "github": "GitHub",
+      "twitter": "Twitter",
+      "youtube": "YouTube",
+      "facebook": "Facebook",
+      "instagram": "Instagram",
+      "linkedin": "LinkedIn"
+    },
+    "morePlatforms": "+ 200+ дополнительных платформ →"
   },
   "HomePage": {
     "badge": "Поддерживается 200+ платформ",
