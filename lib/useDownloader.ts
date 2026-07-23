@@ -24,6 +24,8 @@ export interface UseDownloaderState {
   selectedFormat: number;
   setSelectedFormat: (i: number) => void;
   setActiveType: (t: DownloadType) => void;
+  selectedLanguage: string;
+  setSelectedLanguage: (lang: string) => void;
   mediaInfo: UniversalMediaInfo | null;
   fetchingInfo: boolean;
   infoReady: boolean;
@@ -52,6 +54,7 @@ export function useDownloader(): UseDownloaderState {
   const [url, setUrl] = useState("");
   const [activeType, setActiveType] = useState<DownloadType>("video");
   const [selectedFormat, setSelectedFormat] = useState(0);
+  const [selectedLanguage, setSelectedLanguage] = useState<string>("en");
   const inputRef = useRef<HTMLInputElement>(null);
 
   const [processing, setProcessing] = useState(false);
@@ -207,7 +210,7 @@ export function useDownloader(): UseDownloaderState {
         await pollUntilDone(res.data.job_id);
       } else if (activeType === "transcript") {
         const fmt = formats[selectedFormat];
-        const res = await universalDownloadTranscript(url, fmt.ext);
+        const res = await universalDownloadTranscript(url, fmt.ext, selectedLanguage);
         if (!res.success || !res.data) {
           throw new Error(res.error?.message || "Transcription failed to start");
         }
@@ -280,6 +283,8 @@ export function useDownloader(): UseDownloaderState {
     selectedFormat,
     setSelectedFormat,
     setActiveType,
+    selectedLanguage,
+    setSelectedLanguage,
     mediaInfo,
     fetchingInfo,
     infoReady,

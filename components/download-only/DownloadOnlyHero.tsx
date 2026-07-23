@@ -20,6 +20,70 @@ import { TranscriptViewer } from "@/components/transcription/TranscriptViewer";
 import { resolveFormats, audioBitrate } from "@/lib/formats";
 import { useTranslations } from "next-intl";
 
+// Language codes for the transcript language selector
+const TRANSCRIPT_LANGUAGES = [
+  { code: "auto", label: "auto" },
+  { code: "en", label: "en" },
+  { code: "es", label: "es" },
+  { code: "fr", label: "fr" },
+  { code: "de", label: "de" },
+  { code: "pt", label: "pt" },
+  { code: "ja", label: "ja" },
+  { code: "ar", label: "ar" },
+  { code: "ru", label: "ru" },
+  { code: "zh", label: "zh" },
+  { code: "hi", label: "hi" },
+  { code: "ur", label: "ur" },
+  { code: "bn", label: "bn" },
+  { code: "pa", label: "pa" },
+  { code: "ta", label: "ta" },
+  { code: "te", label: "te" },
+  { code: "ml", label: "ml" },
+  { code: "kn", label: "kn" },
+  { code: "gu", label: "gu" },
+  { code: "mr", label: "mr" },
+  { code: "sa", label: "sa" },
+  { code: "ne", label: "ne" },
+  { code: "si", label: "si" },
+  { code: "my", label: "my" },
+  { code: "th", label: "th" },
+  { code: "vi", label: "vi" },
+  { code: "id", label: "id" },
+  { code: "ms", label: "ms" },
+  { code: "tl", label: "tl" },
+  { code: "ko", label: "ko" },
+  { code: "tr", label: "tr" },
+  { code: "it", label: "it" },
+  { code: "nl", label: "nl" },
+  { code: "pl", label: "pl" },
+  { code: "cs", label: "cs" },
+  { code: "sk", label: "sk" },
+  { code: "hu", label: "hu" },
+  { code: "ro", label: "ro" },
+  { code: "bg", label: "bg" },
+  { code: "hr", label: "hr" },
+  { code: "sr", label: "sr" },
+  { code: "sl", label: "sl" },
+  { code: "el", label: "el" },
+  { code: "he", label: "he" },
+  { code: "fa", label: "fa" },
+  { code: "sw", label: "sw" },
+  { code: "am", label: "am" },
+  { code: "yo", label: "yo" },
+  { code: "ig", label: "ig" },
+  { code: "ha", label: "ha" },
+  { code: "zu", label: "zu" },
+  { code: "af", label: "af" },
+  { code: "sv", label: "sv" },
+  { code: "no", label: "no" },
+  { code: "da", label: "da" },
+  { code: "fi", label: "fi" },
+  { code: "is", label: "is" },
+  { code: "et", label: "et" },
+  { code: "lv", label: "lv" },
+  { code: "lt", label: "lt" },
+];
+
 type DownloadOnlyType = "audio" | "thumbnail" | "transcript";
 
 export function DownloadOnlyHero({ platform, type }: { platform: string; type: DownloadOnlyType }) {
@@ -332,93 +396,24 @@ export function DownloadOnlyHero({ platform, type }: { platform: string; type: D
           />
 
           <div className="flex flex-col md:flex-row gap-3">
-            {/* Language Selector */}
-            <div className="flex items-center gap-2">
-              <label htmlFor="language" className="text-xs font-semibold text-muted-foreground whitespace-nowrap">Language:</label>
-              <select
-                id="language"
-                value={selectedLanguage}
-                onChange={(e) => setSelectedLanguage(e.target.value)}
-                className="bg-white border border-border rounded-lg px-2 py-2 text-xs text-foreground shadow-sm focus:outline-none focus:ring-2 focus:ring-[#5baab8]/30"
-              >
-                <option value="auto">🔍 Auto-Detect → English Roman</option>
-                <optgroup label="English">
-                  <option value="en">English</option>
-                </optgroup>
-                <optgroup label="South Asian">
-                  <option value="hi">Hindi (हिन्दी)</option>
-                  <option value="ur">Urdu (اردو)</option>
-                  <option value="bn">Bengali (বাংলা)</option>
-                  <option value="pa">Punjabi (ਪੰਜਾਬੀ)</option>
-                  <option value="ta">Tamil (தமிழ்)</option>
-                  <option value="te">Telugu (తెలుగు)</option>
-                  <option value="ml">Malayalam (മലയാളം)</option>
-                  <option value="kn">Kannada (ಕನ್ನಡ)</option>
-                  <option value="gu">Gujarati (ગુજરાતી)</option>
-                  <option value="mr">Marathi (मराठी)</option>
-                  <option value="sa">Sanskrit (संस्कृतम्)</option>
-                  <option value="ne">Nepali (नेपाली)</option>
-                  <option value="si">Sinhala (සිංහල)</option>
-                </optgroup>
-                <optgroup label="East Asian">
-                  <option value="zh">Chinese (中文)</option>
-                  <option value="ja">Japanese (日本語)</option>
-                  <option value="ko">Korean (한국어)</option>
-                  <option value="my">Burmese (မြန်မာ)</option>
-                </optgroup>
-                <optgroup label="Southeast Asian">
-                  <option value="th">Thai (ไทย)</option>
-                  <option value="vi">Vietnamese (Tiếng Việt)</option>
-                  <option value="id">Indonesian (Bahasa)</option>
-                  <option value="ms">Malay (Bahasa Melayu)</option>
-                  <option value="tl">Filipino/Tagalog</option>
-                </optgroup>
-                <optgroup label="European">
-                  <option value="es">Spanish</option>
-                  <option value="fr">French</option>
-                  <option value="de">German</option>
-                  <option value="pt">Portuguese</option>
-                  <option value="it">Italian</option>
-                  <option value="nl">Dutch</option>
-                  <option value="pl">Polish</option>
-                  <option value="cs">Czech</option>
-                  <option value="sk">Slovak</option>
-                  <option value="hu">Hungarian</option>
-                  <option value="ro">Romanian</option>
-                  <option value="bg">Bulgarian</option>
-                  <option value="hr">Croatian</option>
-                  <option value="sr">Serbian</option>
-                  <option value="sl">Slovenian</option>
-                  <option value="el">Greek</option>
-                  <option value="sv">Swedish</option>
-                  <option value="no">Norwegian</option>
-                  <option value="da">Danish</option>
-                  <option value="fi">Finnish</option>
-                  <option value="is">Icelandic</option>
-                  <option value="et">Estonian</option>
-                  <option value="lv">Latvian</option>
-                  <option value="lt">Lithuanian</option>
-                </optgroup>
-                <optgroup label="Middle Eastern">
-                  <option value="ar">Arabic (العربية)</option>
-                  <option value="he">Hebrew (עברית)</option>
-                  <option value="fa">Persian/Farsi (فارسی)</option>
-                  <option value="tr">Turkish (Türkçe)</option>
-                </optgroup>
-                <optgroup label="African">
-                  <option value="sw">Swahili</option>
-                  <option value="am">Amharic (አማርኛ)</option>
-                  <option value="yo">Yoruba</option>
-                  <option value="ig">Igbo</option>
-                  <option value="ha">Hausa</option>
-                  <option value="zu">Zulu</option>
-                </optgroup>
-                <optgroup label="Other">
-                  <option value="ru">Russian (Русский)</option>
-                  <option value="af">Afrikaans</option>
-                </optgroup>
-              </select>
-            </div>
+            {/* Language Selector - only show for transcript mode */}
+            {type === "transcript" && (
+              <div className="flex items-center gap-2">
+                <label htmlFor="language" className="text-xs font-semibold text-muted-foreground whitespace-nowrap">Language:</label>
+                <select
+                  id="language"
+                  value={selectedLanguage}
+                  onChange={(e) => setSelectedLanguage(e.target.value)}
+                  className="bg-white border border-border rounded-lg px-2 py-2 text-xs text-foreground shadow-sm focus:outline-none focus:ring-2 focus:ring-[#5baab8]/30 w-32 md:w-auto"
+                >
+                  {TRANSCRIPT_LANGUAGES.map((lang) => (
+                    <option key={lang.code} value={lang.code}>
+                      {t(`TranscriptLanguage.${lang.code}`, { defaultValue: lang.label })}
+                    </option>
+                  ))}
+                </select>
+              </div>
+            )}
 
             <div
               className="flex-1 flex items-center gap-3 bg-white/80 backdrop-blur-md border border-white/30 rounded-2xl px-4 py-3.5 shadow-[0_8px_30px_rgba(0,0,0,0.08),inset_0_1px_0_rgba(255,255,255,0.5)] transition-all duration-300 focus-within:shadow-[0_8px_30px_rgba(91,170,184,0.2),inset_0_1px_0_rgba(255,255,255,0.6)] focus-within:bg-white focus-within:border-[#5baab8]/40 focus-within:ring-[3px] focus-within:ring-[#5baab8]/25"
