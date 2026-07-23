@@ -332,26 +332,25 @@ export function DownloadOnlyHero({ platform, type }: { platform: string; type: D
 
           <div className="flex flex-col md:flex-row gap-3">
             <div
-              className="flex-1 flex items-center gap-3 bg-white/70 backdrop-blur-sm rounded-xl px-4 py-3 transition-all duration-300"
+              className="flex-1 flex items-center gap-3 bg-white/60 backdrop-blur-md border border-white/20 rounded-2xl px-4 py-3.5 shadow-[0_8px_30px_rgba(0,0,0,0.06),inset_0_1px_0_rgba(255,255,255,0.4)] transition-all duration-300 focus-within:shadow-[0_8px_30px_rgba(91,170,184,0.15),inset_0_1px_0_rgba(255,255,255,0.6)] focus-within:bg-white/90 focus-within:border-[#5baab8]/30 focus-within:ring-[3px] focus-within:ring-[#5baab8]/20"
               style={{ boxShadow: "inset 0 1px 2px rgba(0,0,0,0.04)" }}
               onFocus={(e) => {
                 const parent = e.currentTarget;
                 parent.style.boxShadow = `inset 0 1px 2px rgba(0,0,0,0.04), 0 0 0 2px ${brandColor}40`;
-                parent.style.backgroundColor = "white";
+                parent.style.backgroundColor = "rgba(255,255,255,0.9)";
               }}
               onBlur={(e) => {
                 const parent = e.currentTarget;
                 parent.style.boxShadow = "inset 0 1px 2px rgba(0,0,0,0.04)";
-                parent.style.backgroundColor = "rgba(255,255,255,0.7)";
+                parent.style.backgroundColor = "rgba(255,255,255,0.6)";
               }}
             >
               <span
-                className="flex-shrink-0 transition-transform duration-300"
-                style={{ color: brandColor }}
-                onMouseEnter={(e) => e.currentTarget.style.transform = "scale(1.15)"}
+                className="w-9 h-9 rounded-xl bg-gradient-to-br from-[#5baab8] to-[#3d8896] flex items-center justify-center shadow-lg shadow-[#5baab8]/25 flex-shrink-0 transition-transform duration-300 hover:scale-110"
+                onMouseEnter={(e) => e.currentTarget.style.transform = "scale(1.1)"}
                 onMouseLeave={(e) => e.currentTarget.style.transform = "scale(1)"}
               >
-                {InputIcon ? <InputIcon className="w-4 h-4" /> : <Download className="w-4 h-4" />}
+                {InputIcon ? <InputIcon className="w-4 h-4 text-white" /> : <Download className="w-4 h-4 text-white" />}
               </span>
               <div className="flex-1 min-w-0">
                 <input
@@ -361,7 +360,7 @@ export function DownloadOnlyHero({ platform, type }: { platform: string; type: D
                   onChange={(e) => handleUrlChange(e.target.value)}
                   onKeyDown={(e) => e.key === "Enter" && handleDownload()}
                   placeholder={config.placeholder}
-                  className="w-full bg-transparent text-sm text-foreground placeholder:text-muted-foreground outline-none font-sans"
+                  className="w-full bg-transparent text-sm text-foreground placeholder:text-muted-foreground/60 outline-none font-sans tracking-wide"
                 />
                 {fetchingInfo && (
                   <p className="text-[10px] text-muted-foreground flex items-center gap-1 mt-0.5 font-sans">
@@ -380,20 +379,25 @@ export function DownloadOnlyHero({ platform, type }: { platform: string; type: D
             <motion.button
               onClick={handleDownload}
               disabled={processing || fetchingInfo}
-              whileHover={{ scale: processing || fetchingInfo ? 1 : 1.03 }}
-              whileTap={{ scale: processing || fetchingInfo ? 1 : 0.97 }}
-               className="flex items-center justify-center gap-2 text-white font-semibold text-sm px-7 py-3 rounded-xl transition-all disabled:opacity-70 w-full md:min-w-[150px] font-sans shadow-lg"
+              whileHover={{ scale: processing || fetchingInfo ? 1 : 1.05, y: processing || fetchingInfo ? 0 : -2 }}
+              whileTap={{ scale: processing || fetchingInfo ? 1 : 0.95, y: processing || fetchingInfo ? 0 : 1 }}
+               className="flex items-center justify-center gap-2.5 text-white font-bold text-sm px-7 py-3.5 rounded-2xl shadow-[0_10px_30px_-10px_rgba(13,31,38,0.5)] hover:shadow-[0_20px_40px_-15px_rgba(13,31,38,0.6)] transition-all duration-300 disabled:opacity-60 disabled:shadow-none disabled:hover:scale-100 w-full md:min-w-[170px] relative overflow-hidden font-sans tracking-wide bg-gradient-to-r from-[#0d1f26] via-[#143d4a] to-[#0d1f26] bg-[length:200%_auto] animate-gradient-shift hover:animate-gradient-shift-fast"
               style={{
                 background: `linear-gradient(135deg, ${brandColor}, ${darkerShade})`,
                 boxShadow: `0 10px 25px -5px ${brandColor}33`,
               }}
               onMouseEnter={(e) => {
-                if (!processing && !fetchingInfo) e.currentTarget.style.filter = "brightness(1.1)";
+                if (!processing && !fetchingInfo) {
+                  e.currentTarget.style.filter = "brightness(1.15)";
+                  e.currentTarget.style.boxShadow = `0 20px 40px -15px ${brandColor}55`;
+                }
               }}
               onMouseLeave={(e) => {
                 e.currentTarget.style.filter = "none";
+                e.currentTarget.style.boxShadow = `0 10px 25px -5px ${brandColor}33`;
               }}
             >
+              <span className="absolute inset-0 bg-gradient-to-r from-transparent via-white/10 to-transparent -translate-x-full hover:translate-x-full transition-transform duration-[1.2s] ease-in-out pointer-events-none shimmer-overlay" />
               <AnimatePresence mode="wait">
                 {fetchingInfo ? (
                   <motion.span key="fetch" initial={{ opacity: 0 }} animate={{ opacity: 1 }} exit={{ opacity: 0 }} className="flex items-center gap-2">

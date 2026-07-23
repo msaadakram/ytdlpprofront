@@ -161,7 +161,7 @@ export function PlatformHero({ platform }: { platform: string }) {
         </motion.div>
 
         <motion.div
-          className="bg-white/80 backdrop-blur-xl rounded-2xl shadow-2xl shadow-black/5 border border-border/60 p-4 md:p-5 relative"
+           className="bg-white/80 backdrop-blur-xl rounded-2xl shadow-2xl shadow-black/5 border border-border/60 p-4 sm:p-5 md:p-6 relative"
           initial={{ opacity: 0, y: 24, scale: 0.98 }}
           animate={{ opacity: 1, y: 0, scale: 1 }}
           transition={{ delay: 0.4, duration: 0.6 }}
@@ -217,7 +217,7 @@ export function PlatformHero({ platform }: { platform: string }) {
               disabled={processing || fetchingInfo}
               whileHover={{ scale: processing || fetchingInfo ? 1 : 1.03 }}
               whileTap={{ scale: processing || fetchingInfo ? 1 : 0.97 }}
-              className="flex items-center justify-center gap-2 text-white font-semibold text-sm px-7 py-3 rounded-xl transition-all duration-300 disabled:opacity-70 whitespace-nowrap min-w-[150px] font-sans relative overflow-hidden group"
+               className="flex items-center justify-center gap-2 text-white font-semibold text-sm px-7 py-3 rounded-xl transition-all duration-300 disabled:opacity-70 w-full md:min-w-[150px] font-sans relative overflow-hidden group"
               style={{
                 background: `linear-gradient(135deg, #0d1f26, ${config.brandColor}DD)`,
               }}

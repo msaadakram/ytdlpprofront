@@ -115,9 +115,11 @@ export function Hero() {
           transition={{ delay: 0.4, duration: 0.6 }}
         >
           <div className="flex flex-col md:flex-row gap-3">
-            <div className="flex-1 flex items-center gap-3 bg-[#eef6f8] rounded-xl px-4 py-3 focus-within:ring-2 focus-within:ring-[#5baab8]/40 transition-all">
-              <Play className="w-4 h-4 text-muted-foreground flex-shrink-0" />
-              <div className="flex-1">
+            <div className="flex-1 flex items-center gap-3 bg-white/60 backdrop-blur-md border border-white/20 rounded-2xl px-4 py-3.5 shadow-[0_8px_30px_rgba(0,0,0,0.06),inset_0_1px_0_rgba(255,255,255,0.4)] transition-all duration-300 focus-within:shadow-[0_8px_30px_rgba(91,170,184,0.15),inset_0_1px_0_rgba(255,255,255,0.6)] focus-within:bg-white/90 focus-within:border-[#5baab8]/30 focus-within:ring-[3px] focus-within:ring-[#5baab8]/20">
+              <span className="w-8 h-8 rounded-lg bg-gradient-to-br from-[#5baab8] to-[#3d8896] flex items-center justify-center shadow-md shadow-[#5baab8]/20 flex-shrink-0">
+                <Play className="w-3.5 h-3.5 text-white" />
+              </span>
+              <div className="flex-1 min-w-0">
                 <input
                   ref={inputRef}
                   type="url"
@@ -125,7 +127,7 @@ export function Hero() {
                   onChange={(e) => handleUrlChange(e.target.value)}
                   onKeyDown={(e) => e.key === "Enter" && handleDownloadClick()}
                   placeholder="Paste your video URL here..."
-                  className="w-full bg-transparent text-sm text-foreground placeholder:text-muted-foreground outline-none font-sans"
+                  className="w-full bg-transparent text-sm text-foreground placeholder:text-muted-foreground/60 outline-none font-sans tracking-wide"
                 />
                 {fetchingInfo && (
                   <p className="text-[10px] text-muted-foreground flex items-center gap-1 mt-0.5 font-sans">
@@ -186,10 +188,12 @@ export function Hero() {
             <motion.button
               onClick={handleDownloadClick}
               disabled={processing || fetchingInfo}
-              whileHover={{ scale: processing || fetchingInfo ? 1 : 1.03 }}
-              whileTap={{ scale: processing || fetchingInfo ? 1 : 0.97 }}
-               className="flex items-center justify-center gap-2 bg-[#0d1f26] hover:bg-[#1a3545] text-white font-semibold text-sm px-6 py-2.5 sm:py-3 rounded-xl transition-colors disabled:opacity-70 w-full sm:w-auto sm:min-w-[150px] font-sans"
+              whileHover={{ scale: processing || fetchingInfo ? 1 : 1.05, y: processing || fetchingInfo ? 0 : -2 }}
+              whileTap={{ scale: processing || fetchingInfo ? 1 : 0.95, y: processing || fetchingInfo ? 0 : 1 }}
+              className="flex items-center justify-center gap-2.5 bg-gradient-to-r from-[#0d1f26] via-[#143d4a] to-[#0d1f26] bg-[length:200%_auto] animate-gradient-shift hover:animate-gradient-shift-fast text-white font-bold text-sm px-7 py-3.5 rounded-2xl shadow-[0_10px_30px_-10px_rgba(13,31,38,0.5)] hover:shadow-[0_20px_40px_-15px_rgba(13,31,38,0.6)] transition-all duration-300 disabled:opacity-60 disabled:shadow-none disabled:hover:scale-100 w-full sm:w-auto sm:min-w-[170px] relative overflow-hidden font-sans tracking-wide"
             >
+              {/* Shimmer overlay */}
+              <span className="absolute inset-0 bg-gradient-to-r from-transparent via-white/10 to-transparent -translate-x-full hover:translate-x-full transition-transform duration-[1.2s] ease-in-out pointer-events-none" />
               <AnimatePresence mode="wait">
                 {fetchingInfo ? (
                   <motion.span key="fetch" initial={{ opacity: 0 }} animate={{ opacity: 1 }} exit={{ opacity: 0 }} className="flex items-center gap-2">

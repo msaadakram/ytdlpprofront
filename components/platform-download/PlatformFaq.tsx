@@ -12,7 +12,7 @@ export function PlatformFaq({ platform }: { platform: string }) {
   const t = useTranslations("PlatformPage");
 
   return (
-    <section className="py-14 md:py-20 px-6">
+    <section className="py-14 md:py-20 px-4 sm:px-6">
       <div className="max-w-3xl mx-auto">
         <motion.div
           initial={{ opacity: 0, y: 16 }}
@@ -56,7 +56,7 @@ export function PlatformFaq({ platform }: { platform: string }) {
                 <dt>
                   <button
                     onClick={() => setOpenIndex(isOpen ? null : i)}
-                    className="w-full flex items-center justify-between px-5 py-4 text-left group"
+                     className="w-full flex items-center justify-between px-4 py-3 sm:px-5 sm:py-4 text-left group"
                     aria-expanded={isOpen}
                     aria-controls={`faq-answer-${config.id}-${i}`}
                   >
@@ -89,7 +89,7 @@ export function PlatformFaq({ platform }: { platform: string }) {
                       itemScope
                       itemType="https://schema.org/Answer"
                     >
-                      <div className="px-5 pb-4">
+                       <div className="px-4 pb-4 sm:px-5">
                         <div
                           className="w-8 h-0.5 rounded-full mb-3"
                           style={{ backgroundColor: config.brandColor }}

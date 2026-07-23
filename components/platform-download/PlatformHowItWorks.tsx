@@ -69,9 +69,9 @@ export function PlatformHowItWorks({ platform }: { platform: string }) {
                 )}
                 <motion.div
                   whileHover={{ y: -6, transition: { duration: 0.2 } }}
-                  className="bg-[#eef6f8] rounded-2xl p-6 md:p-8 h-full relative overflow-hidden group"
+                   className="bg-[#eef6f8] rounded-2xl p-5 sm:p-6 md:p-8 h-full relative overflow-hidden group"
                 >
-                  <span className="text-7xl font-black font-heading absolute -top-2 -right-2"
+                   <span className="text-4xl sm:text-5xl md:text-6xl lg:text-7xl font-black font-heading absolute -top-2 -right-2"
                     style={{ color: `${config.brandColor}0D` }}
                   >
                     0{i + 1}
