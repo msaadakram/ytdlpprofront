@@ -65,6 +65,12 @@ export interface JobStart {
   status: string;
 }
 
+export interface TranscriptSegment {
+  start: number;
+  end: number;
+  text: string;
+}
+
 export interface JobStatus {
   jobId: string;
   type?: string;
@@ -78,6 +84,11 @@ export interface JobStatus {
   filename?: string;
   size?: number;
   downloadUrl?: string;
+  transcript?: string | null;
+  segments?: TranscriptSegment[] | null;
+  jsonFilename?: string | null;
+  jsonDownloadUrl?: string | null;
+  jsonSize?: number;
   error?: string;
   createdAt?: number;
   completedAt?: number;

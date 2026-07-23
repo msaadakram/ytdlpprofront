@@ -220,7 +220,19 @@
     "likes": "likes",
     "duration": "Duration",
     "uploader": "Uploader",
-    "channel": "Channel"
+    "channel": "Channel",
+    "transcriptTitle": "Transcript",
+    "copyTranscript": "Copy",
+    "copied": "Copied!",
+    "copyFailed": "Failed to copy",
+    "searchTranscript": "Search transcript...",
+    "noMatches": "No matches found",
+    "words": "words",
+    "minRead": "min read",
+    "segments": "segments",
+    "showFullText": "Show full text",
+    "showSegments": "Show segments",
+    "transcribeBtn": "Transcribe"
   },
   "PlatformPage": {
     "breadcrumbHome": "Home",

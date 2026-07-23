@@ -10,7 +10,7 @@ import {
   getJobResult,
   triggerDownload,
 } from "@/lib/api-client";
-import type { ApiFormatInfo, UniversalMediaInfo } from "@/lib/api-client";
+import type { ApiFormatInfo, UniversalMediaInfo, TranscriptSegment } from "@/lib/api-client";
 import type { DownloadType } from "@/lib/constants";
 import { resolveFormats, audioBitrate } from "@/lib/formats";
 
@@ -38,6 +38,11 @@ export interface UseDownloaderState {
   totalBytes: number;
   error: string;
   formats: ApiFormatInfo[];
+  transcript: string | null;
+  transcriptSegments: TranscriptSegment[] | null;
+  transcriptFilename: string | null;
+  transcriptJsonUrl: string | null;
+  transcriptJsonFilename: string | null;
   inputRef: React.RefObject<HTMLInputElement | null>;
   handleUrlChange: (value: string) => void;
   handleDownloadClick: () => Promise<void>;
@@ -65,6 +70,13 @@ export function useDownloader(): UseDownloaderState {
   const [infoError, setInfoError] = useState(false);
   const cancelPoll = useRef<(() => void) | null>(null);
 
+  // Transcript state
+  const [transcript, setTranscript] = useState<string | null>(null);
+  const [transcriptSegments, setTranscriptSegments] = useState<TranscriptSegment[] | null>(null);
+  const [transcriptFilename, setTranscriptFilename] = useState<string | null>(null);
+  const [transcriptJsonUrl, setTranscriptJsonUrl] = useState<string | null>(null);
+  const [transcriptJsonFilename, setTranscriptJsonFilename] = useState<string | null>(null);
+
   const handleUrlChange = useCallback((value: string) => {
     setUrl(value);
     setMediaInfo(null);
@@ -72,6 +84,11 @@ export function useDownloader(): UseDownloaderState {
     setInfoError(false);
     setError("");
     setSelectedFormat(0);
+    setTranscript(null);
+    setTranscriptSegments(null);
+    setTranscriptFilename(null);
+    setTranscriptJsonUrl(null);
+    setTranscriptJsonFilename(null);
   }, []);
 
   useEffect(() => {
@@ -119,8 +136,20 @@ export function useDownloader(): UseDownloaderState {
             setStatusText("Complete!");
 
             const finalRes = await getJobResult(jobId);
-            if (finalRes.success && finalRes.data?.downloadUrl) {
-              triggerDownload(finalRes.data.downloadUrl, finalRes.data.filename);
+            if (finalRes.success && finalRes.data) {
+              const data = finalRes.data;
+
+              // For transcript type, store the transcript content for display
+              if (activeType === "transcript" && data.transcript) {
+                setTranscript(data.transcript);
+                setTranscriptSegments(data.segments || null);
+                setTranscriptFilename(data.filename || null);
+                setTranscriptJsonUrl(data.jsonDownloadUrl || null);
+                setTranscriptJsonFilename(data.jsonFilename || null);
+              } else if (data.downloadUrl) {
+                // For video/audio types, trigger download as before
+                triggerDownload(data.downloadUrl, data.filename);
+              }
             }
             setProcessing(false);
             setDone(true);
@@ -265,6 +294,11 @@ export function useDownloader(): UseDownloaderState {
     totalBytes,
     error,
     formats,
+    transcript,
+    transcriptSegments,
+    transcriptFilename,
+    transcriptJsonUrl,
+    transcriptJsonFilename,
     inputRef,
     handleUrlChange,
     handleDownloadClick,

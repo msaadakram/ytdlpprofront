@@ -16,6 +16,7 @@ import type { ApiFormatInfo, UniversalMediaInfo } from "@/lib/api-client";
 import { FormatGrid } from "@/components/youtube-download/FormatGrid";
 import { VideoPreview } from "@/components/youtube-download/VideoPreview";
 import { DownloadProgress } from "@/components/youtube-download/DownloadProgress";
+import { TranscriptViewer } from "@/components/transcription/TranscriptViewer";
 import { resolveFormats, audioBitrate } from "@/lib/formats";
 import { useTranslations } from "next-intl";
 
@@ -54,6 +55,13 @@ export function DownloadOnlyHero({ platform, type }: { platform: string; type: D
   const [infoReady, setInfoReady] = useState(false);
   const [infoError, setInfoError] = useState(false);
 
+  // Transcript-specific state
+  const [transcript, setTranscript] = useState<string | null>(null);
+  const [transcriptSegments, setTranscriptSegments] = useState<import("@/lib/api-client").TranscriptSegment[] | null>(null);
+  const [transcriptFilename, setTranscriptFilename] = useState<string | null>(null);
+  const [transcriptJsonUrl, setTranscriptJsonUrl] = useState<string | null>(null);
+  const [transcriptJsonFilename, setTranscriptJsonFilename] = useState<string | null>(null);
+
   const formats: ApiFormatInfo[] = resolveFormats(mediaInfo, type);
 
   const showPreview = type !== "thumbnail";
@@ -65,6 +73,11 @@ export function DownloadOnlyHero({ platform, type }: { platform: string; type: D
     setInfoReady(false);
     setInfoError(false);
     setError("");
+    setTranscript(null);
+    setTranscriptSegments(null);
+    setTranscriptFilename(null);
+    setTranscriptJsonUrl(null);
+    setTranscriptJsonFilename(null);
   }, []);
 
   useEffect(() => {
@@ -140,7 +153,7 @@ export function DownloadOnlyHero({ platform, type }: { platform: string; type: D
       if (!res.success || !res.data) {
         throw new Error(res.error?.message || st("errorDownloadFailed"));
       }
-      setStatusText(st("processing"));
+      setStatusText(type === "transcript" ? st("transcribing", { defaultValue: "Transcribing..." }) : st("processing"));
       await pollUntilDone(res.data.job_id);
     } catch (err) {
       setError(err instanceof Error ? err.message : st("errorDownloadFailed"));
@@ -188,8 +201,20 @@ export function DownloadOnlyHero({ platform, type }: { platform: string; type: D
             setStatusText(st("complete"));
 
             const finalRes = await getJobResult(jobId);
-            if (finalRes.success && finalRes.data?.downloadUrl) {
-              triggerDownload(finalRes.data.downloadUrl, finalRes.data.filename);
+            if (finalRes.success && finalRes.data) {
+              const data = finalRes.data;
+
+              // For transcript type, store the transcript content for display
+              if (type === "transcript" && data.transcript) {
+                setTranscript(data.transcript);
+                setTranscriptSegments(data.segments || null);
+                setTranscriptFilename(data.filename || null);
+                setTranscriptJsonUrl(data.jsonDownloadUrl || null);
+                setTranscriptJsonFilename(data.jsonFilename || null);
+              } else if (data.downloadUrl) {
+                // For audio/thumbnail types, trigger download as before
+                triggerDownload(data.downloadUrl, data.filename);
+              }
             }
             setProcessing(false);
             setDone(true);
@@ -388,12 +413,12 @@ export function DownloadOnlyHero({ platform, type }: { platform: string; type: D
                 ) : infoReady ? (
                   <motion.span key="now" initial={{ opacity: 0 }} animate={{ opacity: 1 }} exit={{ opacity: 0 }} className="flex items-center gap-2">
                     <Download className="w-4 h-4" />
-                    {type === "thumbnail" ? st("saveThumbnail") : st("downloadNow")}
+                    {type === "thumbnail" ? st("saveThumbnail") : type === "transcript" ? st("transcribeBtn", { defaultValue: "Transcribe" }) : st("downloadNow")}
                   </motion.span>
                 ) : (
                   <motion.span key="idle" initial={{ opacity: 0 }} animate={{ opacity: 1 }} exit={{ opacity: 0 }} className="flex items-center gap-2">
                     <Download className="w-4 h-4" />
-                    {type === "thumbnail" ? st("getThumbnail") : st("download")}
+                    {type === "thumbnail" ? st("getThumbnail") : type === "transcript" ? st("transcribeBtn", { defaultValue: "Transcribe" }) : st("download")}
                   </motion.span>
                 )}
               </AnimatePresence>
@@ -401,7 +426,7 @@ export function DownloadOnlyHero({ platform, type }: { platform: string; type: D
           </div>
 
           <AnimatePresence mode="wait">
-            {mediaInfo && !processing && !done && showPreview && (
+            {mediaInfo && !processing && !done && showPreview && !transcript && (
               <motion.div
                 key="preview"
                 initial={{ opacity: 0, y: 12 }}
@@ -453,7 +478,7 @@ export function DownloadOnlyHero({ platform, type }: { platform: string; type: D
           )}
 
           <AnimatePresence>
-            {!processing && !done && mediaInfo && (
+            {!processing && !done && mediaInfo && !transcript && (
               <motion.div
                 key="formatGrid"
                 initial={{ opacity: 0, y: 12 }}
@@ -502,6 +527,30 @@ export function DownloadOnlyHero({ platform, type }: { platform: string; type: D
               >
                 {error}
               </motion.p>
+            )}
+          </AnimatePresence>
+
+          {/* Transcript Viewer — shown when transcription completes */}
+          <AnimatePresence>
+            {type === "transcript" && transcript && (
+              <motion.div
+                key="transcriptViewer"
+                initial={{ opacity: 0, y: 12 }}
+                animate={{ opacity: 1, y: 0 }}
+                exit={{ opacity: 0, y: -8 }}
+                transition={{ duration: 0.4, delay: 0.1 }}
+              >
+                <TranscriptViewer
+                  transcript={transcript}
+                  segments={transcriptSegments}
+                  title={mediaInfo?.title || "transcript"}
+                  brandColor={brandColor}
+                  downloadUrl={transcriptFilename ? `/download/${transcriptFilename}` : undefined}
+                  filename={transcriptFilename || undefined}
+                  jsonDownloadUrl={transcriptJsonUrl || undefined}
+                  jsonFilename={transcriptJsonFilename || undefined}
+                />
+              </motion.div>
             )}
           </AnimatePresence>
         </motion.div>

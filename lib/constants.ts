@@ -66,9 +66,8 @@ export const thumbnailFormats: Format[] = [
 ];
 
 export const transcriptFormats: Format[] = [
-  { label: "SRT • Timestamps", ext: "srt" },
-  { label: "VTT • WebVTT", ext: "vtt" },
   { label: "TXT • Plain Text", ext: "txt" },
+  { label: "SRT • With Timestamps", ext: "srt" },
   { label: "JSON • Structured", ext: "json" },
 ];
 

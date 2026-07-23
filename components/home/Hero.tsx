@@ -188,7 +188,7 @@ export function Hero() {
               disabled={processing || fetchingInfo}
               whileHover={{ scale: processing || fetchingInfo ? 1 : 1.03 }}
               whileTap={{ scale: processing || fetchingInfo ? 1 : 0.97 }}
-              className="flex items-center justify-center gap-2 bg-[#0d1f26] hover:bg-[#1a3545] text-white font-semibold text-sm px-7 py-3 rounded-xl transition-colors disabled:opacity-70 whitespace-nowrap min-w-[150px] font-sans"
+               className="flex items-center justify-center gap-2 bg-[#0d1f26] hover:bg-[#1a3545] text-white font-semibold text-sm px-7 py-3 rounded-xl transition-colors disabled:opacity-70 w-full md:min-w-[150px] font-sans"
             >
               <AnimatePresence mode="wait">
                 {fetchingInfo ? (
