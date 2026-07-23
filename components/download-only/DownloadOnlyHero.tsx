@@ -92,6 +92,7 @@ export function DownloadOnlyHero({ platform, type }: { platform: string; type: D
   const Logo = config.Logo;
   const InputIcon = config.inputIcon;
   const t = useTranslations("DownloadOnly");
+  const rt = useTranslations();
   const st = useTranslations("PlatformShared");
 
   const typeBadgeKey = `${type}Badge` as const;
@@ -398,17 +399,17 @@ export function DownloadOnlyHero({ platform, type }: { platform: string; type: D
           <div className="flex flex-col md:flex-row gap-3">
             {/* Language Selector - only show for transcript mode */}
             {type === "transcript" && (
-              <div className="flex items-center gap-2">
+              <div className="flex items-center gap-2 w-full sm:w-auto">
                 <label htmlFor="language" className="text-xs font-semibold text-muted-foreground whitespace-nowrap">Language:</label>
                 <select
                   id="language"
                   value={selectedLanguage}
                   onChange={(e) => setSelectedLanguage(e.target.value)}
-                  className="bg-white border border-border rounded-lg px-2 py-2 text-xs text-foreground shadow-sm focus:outline-none focus:ring-2 focus:ring-[#5baab8]/30 w-32 md:w-auto"
+                  className="bg-white border border-border rounded-lg px-2 py-2 text-xs text-foreground shadow-sm focus:outline-none focus:ring-2 focus:ring-[#5baab8]/30 w-full sm:w-auto min-w-[80px] max-w-full"
                 >
                   {TRANSCRIPT_LANGUAGES.map((lang) => (
                     <option key={lang.code} value={lang.code}>
-                      {t(`TranscriptLanguage.${lang.code}`, { defaultValue: lang.label })}
+                      {rt(`TranscriptLanguage.${lang.code}`, { defaultValue: lang.label })}
                     </option>
                   ))}
                 </select>
