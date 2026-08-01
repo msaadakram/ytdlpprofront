@@ -156,9 +156,9 @@ export function VideoPreview({ info }: VideoPreviewProps) {
             >
               <MonitorPlay className="w-3.5 h-3.5 text-[#5baab8] mt-0.5 shrink-0" />
               <div className="flex flex-wrap gap-1.5">
-                {videoQualities.map((q) => (
+                {videoQualities.map((q, i) => (
                   <span
-                    key={q}
+                    key={`${q}-${i}`}
                     className="inline-flex items-center rounded-md bg-[#eef6f8] px-2 py-0.5 text-[10px] font-semibold font-mono"
                     style={{ color: "#3d8a97" }}
                   >

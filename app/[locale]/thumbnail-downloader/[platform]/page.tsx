@@ -3,7 +3,7 @@ import { notFound } from "next/navigation";
 import { getTranslations } from "next-intl/server";
 import { Nav } from "@/components/layout/Nav";
 import { Footer } from "@/components/layout/Footer";
-import { DownloadOnlyHero } from "@/components/download-only/DownloadOnlyHero";
+import { ThumbnailHero } from "@/components/download-only/ThumbnailHero";
 import { DownloadFeatures } from "@/components/download-only/DownloadFeatures";
 import { DownloadFaq } from "@/components/download-only/DownloadFaq";
 import { platformConfigs, platformSlugs } from "@/lib/platform-config";
@@ -98,7 +98,7 @@ export default async function ThumbnailDownloaderPage({ params }: Props) {
       <Nav />
       <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(jsonLd) }} />
       <main>
-        <DownloadOnlyHero platform={platform} type="thumbnail" />
+        <ThumbnailHero platform={platform} />
         <DownloadFeatures platform={platform} type="thumbnail" />
         <DownloadFaq platform={platform} type="thumbnail" />
         {content && <BlogContent content={content} />}

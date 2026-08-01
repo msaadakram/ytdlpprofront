@@ -273,31 +273,31 @@ export function Nav() {
         </div>
 
         <button
-          className="lg:hidden relative w-9 h-9 flex items-center justify-center rounded-xl hover:bg-muted/60 transition-colors"
+          className="lg:hidden relative w-11 h-11 flex items-center justify-center rounded-2xl bg-[#0d1f26]/5 dark:bg-white/5 hover:bg-[#0d1f26]/10 dark:hover:bg-white/10 transition-all duration-300 shadow-inner shadow-[#0d1f26]/5"
           onClick={() => setMenuOpen(!menuOpen)}
           aria-label={menuOpen ? t("closeMenu") : t("openMenu")}
         >
-          <div className="flex flex-col items-center justify-center gap-1">
+          <div className="flex flex-col items-center justify-center gap-[5px] w-5">
             <motion.span
               variants={hamburgerVariants}
               custom={0}
               animate={menuOpen ? "open" : "closed"}
-              className="block h-0.5 rounded-full bg-foreground origin-center"
+              className="block h-[2.5px] rounded-full bg-[#0d1f26] dark:bg-white origin-center"
               style={{ width: 20 }}
             />
             <motion.span
               variants={hamburgerVariants}
               custom={1}
               animate={menuOpen ? "open" : "closed"}
-              className="block h-0.5 rounded-full bg-foreground origin-center"
-              style={{ width: 20 }}
+              className="block h-[2.5px] rounded-full bg-[#0d1f26] dark:bg-white origin-center"
+              style={{ width: 16 }}
             />
             <motion.span
               variants={hamburgerVariants}
               custom={2}
               animate={menuOpen ? "open" : "closed"}
-              className="block h-0.5 rounded-full bg-foreground origin-center"
-              style={{ width: 20 }}
+              className="block h-[2.5px] rounded-full bg-[#0d1f26] dark:bg-white origin-center"
+              style={{ width: 12 }}
             />
           </div>
         </button>
@@ -321,7 +321,7 @@ export function Nav() {
             animate={{ x: 0 }}
             exit={{ x: "100%" }}
             transition={{ type: "spring", stiffness: 350, damping: 30 }}
-            className="fixed top-0 right-0 bottom-0 w-full max-w-sm bg-white border-l border-border/60 shadow-2xl z-[60] lg:hidden overflow-y-auto"
+            className="fixed top-0 right-0 bottom-0 w-full max-w-sm bg-white/80 dark:bg-[#0a1018]/80 backdrop-blur-3xl border-l border-white/20 dark:border-white/5 shadow-[0_0_60px_-12px_rgba(13,31,38,0.15)] z-[60] lg:hidden overflow-y-auto"
           >
               <div className="flex items-center justify-between px-5 h-16 border-b border-border/50">
                 <Link href="/" onClick={closeAll} className="flex items-center gap-2" aria-label="DownForge home">
