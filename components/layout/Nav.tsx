@@ -6,7 +6,7 @@ import { Link, usePathname, useRouter } from "@/lib/i18n/navigation";
 import { motion, AnimatePresence } from "motion/react";
 import {
   Download, Menu, X, BarChart2, Play, Music, Image, FileText,
-  ChevronDown, LogOut, ExternalLink, Globe,
+  ChevronDown, LogOut, ExternalLink, Globe, Check,
 } from "lucide-react";
 import { platforms } from "@/lib/constants";
 import { useAuth } from "@/lib/auth-context";
@@ -22,6 +22,18 @@ const downloadTypes = [
   { label: "Thumbnail", type: "thumbnail" as const, route: "/thumbnail-downloader", icon: Image },
   { label: "Transcript", type: "transcript" as const, route: "/transcript-downloader", icon: FileText },
 ];
+
+const localeFlags: Record<Locale, string> = {
+  en: "🇺🇸",
+  es: "🇪🇸",
+  fr: "🇫🇷",
+  de: "🇩🇪",
+  pt: "🇵🇹",
+  ja: "🇯🇵",
+  ar: "🇸🇦",
+  ru: "🇷🇺",
+  zh: "🇨🇳",
+};
 
 export function Nav() {
   const t = useTranslations("Nav");
@@ -217,15 +229,21 @@ export function Nav() {
         </nav>
 
         <div className="hidden lg:flex items-center gap-2">
-          {/* Locale Switcher */}
+          {/* Locale Switcher — modern with flags */}
           <div className="relative">
             <button
-              onClick={() => { setLangOpen(!langOpen); setOpenDropdown(null); }}
-              className="flex items-center gap-1.5 px-3 py-2 text-sm font-medium text-muted-foreground hover:text-foreground transition-colors rounded-xl hover:bg-muted/40 font-sans"
+              onClick={() => { setLangOpen(!langOpen); setOpenDropdown(null); setAccountOpen(false); }}
+              className="flex items-center gap-2 pl-1.5 pr-2.5 py-1 rounded-full bg-white border border-border/60 shadow-sm hover:shadow-md hover:border-border hover:bg-white transition-all font-sans"
               aria-label={lt("label")}
             >
-              <Globe className="w-3.5 h-3.5" />
-              <span className="text-xs uppercase font-semibold">{locale}</span>
+              <span className="w-7 h-7 rounded-full flex items-center justify-center text-[16px] bg-gradient-to-br from-slate-50 to-slate-100 border border-border/40 shadow-inner shrink-0">
+                {localeFlags[locale as Locale] || "🌐"}
+              </span>
+              <span className="hidden sm:block text-sm font-semibold text-foreground">{lt(locale as Locale)}</span>
+              <span className="hidden lg:block text-xs font-mono text-muted-foreground border border-border/60 rounded-full px-1.5 py-0.5 bg-muted/40">{locale.toUpperCase()}</span>
+              <motion.span animate={{ rotate: langOpen ? 180 : 0 }} transition={{ duration: 0.2 }} className="flex">
+                <ChevronDown className="w-3.5 h-3.5 text-muted-foreground" />
+              </motion.span>
             </button>
             <AnimatePresence>
               {langOpen && (
@@ -234,22 +252,44 @@ export function Nav() {
                   animate={{ opacity: 1, scale: 1, y: 0 }}
                   exit={{ opacity: 0, scale: 0.94, y: -6 }}
                   transition={{ type: "spring", stiffness: 350, damping: 26 }}
-                  className="absolute top-full right-0 mt-2 bg-white border border-border/60 rounded-xl shadow-xl overflow-hidden min-w-[140px]"
+                  className="absolute top-full right-0 mt-2 bg-white/95 backdrop-blur-xl border border-border/60 rounded-2xl shadow-2xl shadow-black/10 overflow-hidden min-w-[268px] z-50"
                 >
-                  {locales.map((l) => (
-                    <button
-                      key={l}
-                      onClick={() => switchLocale(l)}
-                      className={`w-full flex items-center gap-2 px-4 py-2.5 text-sm text-left transition-colors font-sans ${
-                        l === locale
-                          ? "bg-[#eef6f8] font-semibold text-foreground"
-                          : "text-muted-foreground hover:text-foreground hover:bg-muted/40"
-                      }`}
-                    >
-                      <span className="text-xs uppercase font-mono w-6">{l}</span>
-                      <span>{lt(l)}</span>
-                    </button>
-                  ))}
+                  <div className="p-2">
+                    <div className="flex items-center gap-2 px-3 pt-1 pb-2 text-[11px] font-bold tracking-[0.14em] uppercase text-muted-foreground font-mono">
+                      <Globe className="w-3 h-3" /> {lt("label")}
+                    </div>
+                    <div className="space-y-1">
+                      {locales.map((l) => {
+                        const isActive = l === locale;
+                        return (
+                          <button
+                            key={l}
+                            onClick={() => switchLocale(l)}
+                            className={`w-full flex items-center gap-3 px-3 py-2.5 rounded-xl text-left transition-all ${
+                              isActive ? "bg-[#0d1f26] text-white shadow-md" : "hover:bg-muted/60 text-foreground"
+                            }`}
+                          >
+                            <span className="w-9 h-9 rounded-full flex items-center justify-center text-[18px] bg-white border border-border/50 shadow-sm shrink-0">
+                              {localeFlags[l]}
+                            </span>
+                            <div className="min-w-0 flex-1">
+                              <div className={`text-sm font-semibold leading-none font-sans ${isActive ? "text-white" : "text-foreground"}`}>{lt(l)}</div>
+                              <div className={`text-xs font-mono ${isActive ? "text-white/60" : "text-muted-foreground"}`}>{l.toUpperCase()} • {l === "en" ? "English" : l === "es" ? "Español" : l === "fr" ? "Français" : l === "de" ? "Deutsch" : l === "pt" ? "Português" : l === "ja" ? "日本語" : l === "ar" ? "العربية" : l === "ru" ? "Русский" : "中文"}</div>
+                            </div>
+                            {isActive && (
+                              <span className="w-6 h-6 rounded-full bg-white/15 flex items-center justify-center shrink-0">
+                                <Check className="w-4 h-4 text-white" />
+                              </span>
+                            )}
+                          </button>
+                        );
+                      })}
+                    </div>
+                  </div>
+                  <div className="h-px bg-border/50" />
+                  <div className="px-3 py-2 text-[11px] text-muted-foreground font-sans text-center flex items-center justify-center gap-1.5">
+                    <span className="w-1.5 h-1.5 rounded-full bg-emerald-500 animate-pulse" /> Auto-saves to cookie • 1 year
+                  </div>
                 </motion.div>
               )}
             </AnimatePresence>
@@ -467,25 +507,35 @@ export function Nav() {
                   </Link>
                 </div>
 
-                {/* Mobile locale switcher */}
+                {/* Mobile locale switcher — modern with flags */}
                 <div className="border-t border-border/50 pt-4">
-                  <span className="text-xs font-bold tracking-widest uppercase text-muted-foreground font-mono px-1 pb-2 block">
-                    {lt("label")}
+                  <span className="text-xs font-bold tracking-widest uppercase text-muted-foreground font-mono px-1 pb-2 flex items-center gap-2">
+                    <Globe className="w-3 h-3" /> {lt("label")}
                   </span>
-                  <div className="grid grid-cols-3 gap-1">
-                    {locales.map((l) => (
-                      <button
-                        key={l}
-                        onClick={() => switchLocale(l)}
-                        className={`text-xs px-3 py-2 rounded-xl font-medium transition-colors font-sans ${
-                          l === locale
-                            ? "bg-[#eef6f8] text-foreground font-semibold"
-                            : "text-muted-foreground hover:bg-muted/50"
-                        }`}
-                      >
-                        {lt(l)}
-                      </button>
-                    ))}
+                  <div className="grid grid-cols-2 gap-2">
+                    {locales.map((l) => {
+                      const isActive = l === locale;
+                      return (
+                        <button
+                          key={l}
+                          onClick={() => switchLocale(l)}
+                          className={`flex items-center gap-2.5 px-3 py-2.5 rounded-xl text-left border transition-all font-sans ${
+                            isActive
+                              ? "bg-[#0d1f26] text-white border-[#0d1f26] shadow-md"
+                              : "bg-white border-border hover:border-border hover:bg-muted/40 text-foreground"
+                          }`}
+                        >
+                          <span className="w-8 h-8 rounded-full flex items-center justify-center text-[16px] bg-slate-50 border border-border/40 shadow-sm shrink-0">
+                            {localeFlags[l]}
+                          </span>
+                          <div className="min-w-0">
+                            <div className={`text-xs font-bold leading-none ${isActive ? "text-white" : "text-foreground"}`}>{lt(l)}</div>
+                            <div className={`text-[11px] font-mono ${isActive ? "text-white/60" : "text-muted-foreground"}`}>{l.toUpperCase()}</div>
+                          </div>
+                          {isActive && <Check className="w-3.5 h-3.5 text-white ml-auto shrink-0" />}
+                        </button>
+                      );
+                    })}
                   </div>
                 </div>
               </div>
