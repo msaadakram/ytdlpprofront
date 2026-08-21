@@ -135,6 +135,7 @@ export function GoogleSignInButton({ mode = "signin", onError, disabled }: Googl
     // Clear previous button
     containerRef.current.innerHTML = "";
     try {
+      const w = containerRef.current.offsetWidth;
       window.google.accounts.id.renderButton(containerRef.current, {
         type: "standard",
         theme: "outline",
@@ -142,7 +143,7 @@ export function GoogleSignInButton({ mode = "signin", onError, disabled }: Googl
         text: mode === "signup" ? "signup_with" : "signin_with",
         shape: "pill",
         logo_alignment: "left",
-        width: containerRef.current.offsetWidth || 320,
+        width: w ? Math.min(w, 400) : 280,
       });
     } catch (err) {
       // Fallback: will show custom button instead
