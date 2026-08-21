@@ -119,7 +119,16 @@ export function Nav() {
             const isOpen = openDropdown === i;
             const Icon = dt.icon;
             return (
-              <div key={dt.type} className="relative">
+              <div
+                key={dt.type}
+                className="relative"
+                onMouseEnter={() => {
+                  setOpenDropdown(i);
+                  setLangOpen(false);
+                  setAccountOpen(false);
+                }}
+                onMouseLeave={() => setOpenDropdown(null)}
+              >
                 <button
                   onClick={() => toggleDropdown(i)}
                   className={`flex items-center gap-1.5 px-3.5 py-2 text-sm font-medium rounded-xl transition-all duration-200 font-sans ${
