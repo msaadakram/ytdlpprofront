@@ -11,9 +11,10 @@ import {
   Instagram,
   Linkedin,
   Send,
-  ExternalLink,
+  ChevronDown,
+  Check,
 } from "lucide-react";
-import { useState } from "react";
+import { useId, useState } from "react";
 
 const platformLinks: [string, string][] = [
   ["YouTube Download", "/youtube-download"],
@@ -72,40 +73,118 @@ const socialLinks = [
   { name: "LinkedIn", icon: Linkedin, href: "https://linkedin.com/company/downforge" },
 ];
 
-const mobileAccordionItems = [
-  {
-    titleKey: "platforms" as const,
-    links: platformLinks,
-  },
-  ...footerGroups.map((group) => ({
-    titleKey: group.titleKey,
-    links: group.links.map((l) => [t_label(l.labelKey), l.href] as [string, string]),
-  })),
-];
+type FooterColumnData = {
+  title: string;
+  links: [string, string][];
+  moreLabel?: string;
+};
 
-function t_label(key: string): string {
-  const labels: Record<string, string> = {
-    features: "Features",
-    pricing: "Pricing",
-    api: "API",
-    dashboard: "Dashboard",
-    documentation: "Documentation",
-    apiStatus: "API Status",
-    changelog: "Changelog",
-    blog: "Blog",
-    about: "About",
-    privacy: "Privacy",
-    terms: "Terms",
-    contact: "Contact",
-  };
-  return labels[key] || key;
+function ColumnHeading({ children }: { children: React.ReactNode }) {
+  return (
+    <h3 className="font-mono text-[11px] font-medium uppercase tracking-[0.18em] text-white/40">
+      {children}
+    </h3>
+  );
+}
+
+function FooterColumn({ title, links, moreLabel }: FooterColumnData) {
+  return (
+    <div className="max-md:hidden">
+      <ColumnHeading>{title}</ColumnHeading>
+      <ul className="mt-5 flex flex-col gap-1">
+        {links.map(([label, href]) => (
+          <li key={label}>
+            <Link
+              href={href}
+              className="inline-block py-1 text-sm text-white/55 transition-colors hover:text-white"
+            >
+              {label}
+            </Link>
+          </li>
+        ))}
+        {moreLabel && (
+          <li className="pt-2">
+            <Link
+              href="/youtube-download"
+              className="inline-block text-xs font-medium text-[#6fc1cf] transition-colors hover:text-white"
+            >
+              {moreLabel}
+            </Link>
+          </li>
+        )}
+      </ul>
+    </div>
+  );
+}
+
+function FooterAccordion({ title, links }: FooterColumnData) {
+  const [open, setOpen] = useState(false);
+  const panelId = useId();
+
+  return (
+    <div className="border-b border-white/10">
+      <button
+        type="button"
+        onClick={() => setOpen((o) => !o)}
+        aria-expanded={open}
+        aria-controls={panelId}
+        className="flex w-full items-center justify-between py-4 text-left focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-[#5baab8]/50 focus-visible:rounded-lg"
+      >
+        <span className="font-heading text-sm font-semibold text-white/85">
+          {title}
+        </span>
+        <motion.span
+          animate={{ rotate: open ? 180 : 0 }}
+          transition={{ duration: 0.25, ease: "easeInOut" }}
+          className="flex h-8 w-8 items-center justify-center rounded-lg text-white/50"
+        >
+          <ChevronDown className="h-4 w-4" aria-hidden />
+        </motion.span>
+      </button>
+      <motion.div
+        id={panelId}
+        initial={false}
+        animate={{ height: open ? "auto" : 0, opacity: open ? 1 : 0 }}
+        transition={{ duration: 0.3, ease: [0.4, 0, 0.2, 1] }}
+        className="overflow-hidden"
+      >
+        <ul className="grid grid-cols-1 gap-x-6 pb-4 sm:grid-cols-2">
+          {links.map(([label, href]) => (
+            <li key={label}>
+              <Link
+                href={href}
+                className="inline-block py-1.5 text-sm text-white/55 transition-colors hover:text-white"
+              >
+                {label}
+              </Link>
+            </li>
+          ))}
+        </ul>
+      </motion.div>
+    </div>
+  );
 }
 
 export function Footer() {
   const t = useTranslations("Nav");
   const f = useTranslations("Footer");
+  const newsletterId = useId();
   const [email, setEmail] = useState("");
   const [subscribed, setSubscribed] = useState(false);
+
+  const columns: FooterColumnData[] = [
+    {
+      title: t("platforms"),
+      links: platformLinks,
+      moreLabel: f("morePlatforms"),
+    },
+    ...footerGroups.map((group) => ({
+      title: t(group.titleKey),
+      links: group.links.map(
+        (l) => [t(l.labelKey), l.href] as [string, string]
+      ),
+    })),
+  ];
 
   const handleSubscribe = (e: React.FormEvent) => {
     e.preventDefault();
@@ -117,32 +196,43 @@ export function Footer() {
   };
 
   return (
-    <footer className="bg-[#0d1f26] text-white pt-12 md:pt-16 pb-6 md:pb-8">
-      <div className="max-w-6xl mx-auto px-4 sm:px-6">
-        {/* Desktop Grid */}
-        <div className="hidden lg:grid lg:grid-cols-5 gap-8 xl:gap-10">
-          {/* Brand Column */}
-          <div className="lg:col-span-1">
-            <Link href="/" className="flex items-center gap-2 mb-4">
+    <footer className="relative overflow-hidden bg-[#0d1f26] text-white">
+      {/* Accent hairline + soft glow */}
+      <div
+        aria-hidden
+        className="h-px w-full bg-gradient-to-r from-transparent via-[#5baab8]/50 to-transparent"
+      />
+      <div
+        aria-hidden
+        className="pointer-events-none absolute inset-x-0 top-0 h-64 bg-[radial-gradient(ellipse_at_top,rgba(91,170,184,0.09),transparent_70%)]"
+      />
+
+      <div className="relative mx-auto max-w-7xl px-4 py-12 sm:px-6 md:py-16">
+        <div className="grid items-start gap-10 md:grid-cols-2 lg:grid-cols-6 xl:gap-12">
+          {/* Brand + newsletter */}
+          <div className="md:col-span-2 lg:col-span-2">
+            <Link
+              href="/"
+              className="inline-flex items-center gap-2.5 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-[#5baab8]/50 focus-visible:rounded-lg"
+            >
               <img
                 src="/logo.png"
                 alt="DownForge"
-                className="w-8 h-8 object-contain"
+                className="h-9 w-9 object-contain"
               />
-              <span className="font-bold text-lg tracking-tight font-heading">
+              <span className="font-heading text-lg font-bold tracking-tight">
                 DownForge
               </span>
             </Link>
-            <p className="text-sm text-white/60 leading-relaxed font-sans mb-6">
+
+            <p className="mt-4 max-w-sm font-sans text-sm leading-relaxed text-white/60">
               {f("tagline")}
             </p>
 
-            {/* Social Links */}
-            <div className="flex flex-col gap-2.5">
-              <h5 className="text-xs font-semibold text-white/50 uppercase tracking-widest font-mono">
-                Follow Us
-              </h5>
-              <div className="flex flex-wrap gap-2.5">
+            {/* Social links */}
+            <div className="mt-6">
+              <ColumnHeading>{f("socialHeading")}</ColumnHeading>
+              <div className="mt-3.5 flex flex-wrap gap-2.5">
                 {socialLinks.map((social) => {
                   const Icon = social.icon;
                   return (
@@ -152,221 +242,101 @@ export function Footer() {
                       target="_blank"
                       rel="noopener noreferrer"
                       aria-label={social.name}
-                      className="w-8 h-8 rounded-lg bg-white/5 hover:bg-white/10 flex items-center justify-center text-white/60 hover:text-white transition-all duration-200"
-                      whileHover={{ scale: 1.1, y: -2 }}
+                      className="flex h-9 w-9 items-center justify-center rounded-lg bg-white/5 text-white/60 ring-1 ring-white/10 transition-colors hover:bg-white/10 hover:text-white focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-[#5baab8]/60"
+                      whileHover={{ scale: 1.08, y: -2 }}
                       whileTap={{ scale: 0.95 }}
                     >
-                      <Icon className="w-4 h-4" />
+                      <Icon className="h-4 w-4" aria-hidden />
                     </motion.a>
                   );
                 })}
               </div>
             </div>
-          </div>
 
-          {/* Platforms Column */}
-          <div>
-            <h4 className="text-sm font-semibold text-white/80 mb-4 font-heading">
-              {t("platforms")}
-            </h4>
-            <ul className="flex flex-col gap-2.5">
-              {platformLinks.map(([label, href]) => (
-                <li key={label}>
-                  <Link
-                    href={href}
-                    className="text-sm text-white/50 hover:text-white transition-colors font-sans"
-                  >
-                    {label}
-                  </Link>
-                </li>
-              ))}
-              <li>
-                <Link
-                  href="/youtube-download"
-                  className="text-xs text-[#5baab8] hover:text-white transition-colors font-sans"
-                >
-                  + 200+ more platforms →
-                </Link>
-              </li>
-            </ul>
-          </div>
-
-          {/* Footer Groups */}
-          {footerGroups.map((group) => (
-            <div key={group.titleKey}>
-              <h4 className="text-sm font-semibold text-white/80 mb-4 font-heading">
-                {t(group.titleKey)}
-              </h4>
-              <ul className="flex flex-col gap-2.5">
-                {group.links.map((link) => (
-                  <li key={link.labelKey}>
-                    <Link
-                      href={link.href}
-                      className="text-sm text-white/50 hover:text-white transition-colors font-sans"
-                    >
-                      {t(link.labelKey)}
-                    </Link>
-                  </li>
-                ))}
-              </ul>
-            </div>
-          ))}
-
-          {/* Newsletter Column */}
-          <div>
-            <h4 className="text-sm font-semibold text-white/80 mb-4 font-heading">
-              Newsletter
-            </h4>
-            <p className="text-sm text-white/60 leading-relaxed font-sans mb-4">
-              Get the latest updates and platform support news.
-            </p>
-            <form onSubmit={handleSubscribe} className="space-y-3">
-              <div className="relative">
-                <input
-                  type="email"
-                  value={email}
-                  onChange={(e) => setEmail(e.target.value)}
-                  placeholder="you@example.com"
-                  required
-                  className="w-full px-4 py-2.5 bg-white/5 border border-white/10 rounded-xl text-sm text-white placeholder:text-white/40 focus:outline-none focus:ring-2 focus:ring-[#5baab8]/40 transition-all font-sans"
-                />
-                <button
-                  type="submit"
-                  disabled={subscribed}
-                  className="absolute right-1.5 top-1/2 -translate-y-1/2 w-6 h-6 rounded-lg bg-[#5baab8] text-white flex items-center justify-center hover:bg-[#3d8fa0] transition-colors disabled:opacity-50"
-                >
-                  {subscribed ? (
-                    <svg
-                      className="w-3 h-3"
-                      fill="none"
-                      stroke="currentColor"
-                      viewBox="0 0 24 24"
-                    >
-                      <path
-                        strokeLinecap="round"
-                        strokeLinejoin="round"
-                        strokeWidth={2}
-                        d="M5 13l4 4L19 7"
-                      />
-                    </svg>
-                  ) : (
-                    <Send className="w-3 h-3" />
-                  )}
-                </button>
-              </div>
-              {subscribed && (
-                <p className="text-xs text-[#5baab8] font-sans">
-                  ✓ Subscribed! Check your email.
-                </p>
-              )}
-            </form>
-          </div>
-        </div>
-
-        {/* Mobile Accordion */}
-        <div className="lg:hidden space-y-3 mt-8">
-          {mobileAccordionItems.map((item) => (
-            <MobileAccordionItem
-              key={item.titleKey}
-              title={t(item.titleKey)}
-              links={item.links}
-            />
-          ))}
-        </div>
-
-        {/* Bottom Bar */}
-        <div className="mt-10 md:mt-12 pt-6 md:pt-8 border-t border-white/10">
-          <div className="flex flex-col md:flex-row justify-between items-center gap-4">
-            <div className="flex flex-col md:flex-row items-center gap-3 md:gap-6">
-              <p className="text-xs text-white/40 font-sans">
-                {f("copyright")}
+            {/* Newsletter */}
+            <div className="mt-8 lg:mt-10">
+              <ColumnHeading>{f("newsletter")}</ColumnHeading>
+              <p className="mt-3.5 font-sans text-sm leading-relaxed text-white/60">
+                {f("newsletterDesc")}
               </p>
-              <div className="flex items-center gap-4">
-                <Link
-                  href="/privacy"
-                  className="text-xs text-white/30 hover:text-white/60 transition-colors font-sans"
+              <form onSubmit={handleSubscribe} className="mt-4">
+                <label htmlFor={newsletterId} className="sr-only">
+                  {f("newsletter")}
+                </label>
+                <div className="relative">
+                  <input
+                    id={newsletterId}
+                    type="email"
+                    value={email}
+                    onChange={(e) => setEmail(e.target.value)}
+                    placeholder={f("newsletterPlaceholder")}
+                    required
+                    className="w-full rounded-xl border border-white/10 bg-white/5 py-2.5 pl-4 pr-12 font-sans text-sm text-white transition-colors placeholder:text-white/40 focus:border-[#5baab8]/50 focus:outline-none focus:ring-2 focus:ring-[#5baab8]/30"
+                  />
+                  <button
+                    type="submit"
+                    disabled={subscribed}
+                    aria-label={f("subscribe")}
+                    className="absolute right-1.5 top-1/2 flex h-8 w-8 -translate-y-1/2 items-center justify-center rounded-lg bg-[#5baab8] text-white transition-colors hover:bg-[#3d8fa0] focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-[#5baab8]/60 disabled:opacity-60"
+                  >
+                    {subscribed ? (
+                      <Check className="h-4 w-4" aria-hidden />
+                    ) : (
+                      <Send className="h-3.5 w-3.5" aria-hidden />
+                    )}
+                  </button>
+                </div>
+                <p
+                  aria-live="polite"
+                  className="mt-2 min-h-4 font-sans text-xs text-[#6fc1cf]"
                 >
-                  Privacy Policy
-                </Link>
-                <span className="w-1 h-1 bg-white/20 rounded-full" />
-                <Link
-                  href="/api-disclaimer"
-                  className="text-xs text-white/30 hover:text-white/60 transition-colors font-sans"
-                >
-                  API Disclaimer
-                </Link>
-              </div>
+                  {subscribed ? `✓ ${f("subscribed")}` : ""}
+                </p>
+              </form>
             </div>
-            <p className="text-xs text-white/30 font-sans">
-              {f("poweredBy")}
-            </p>
+          </div>
+
+          {/* Link columns (tablet and up) */}
+          {columns.map((column) => (
+            <FooterColumn key={column.title} {...column} />
+          ))}
+
+          {/* Accordion (mobile only) */}
+          <nav aria-label="Footer" className="mt-2 border-t border-white/10 md:hidden">
+            {columns.map((column) => (
+              <FooterAccordion key={column.title} {...column} />
+            ))}
+          </nav>
+        </div>
+
+        {/* Bottom bar */}
+        <div className="mt-12 border-t border-white/10 pt-6 md:mt-16 md:pt-8">
+          <div className="flex flex-col items-center gap-4 text-center md:flex-row md:justify-between md:text-left">
+            <p className="font-sans text-xs text-white/40">{f("copyright")}</p>
+
+            <div className="flex flex-wrap items-center justify-center gap-x-5 gap-y-2">
+              <Link
+                href="/privacy"
+                className="inline-block py-1 font-sans text-xs text-white/40 transition-colors hover:text-white/80"
+              >
+                {t("privacy")}
+              </Link>
+              <span
+                aria-hidden
+                className="hidden h-1 w-1 rounded-full bg-white/20 sm:block"
+              />
+              <Link
+                href="/api-disclaimer"
+                className="inline-block py-1 font-sans text-xs text-white/40 transition-colors hover:text-white/80"
+              >
+                API Disclaimer
+              </Link>
+            </div>
+
+            <p className="font-sans text-xs text-white/30">{f("poweredBy")}</p>
           </div>
         </div>
       </div>
     </footer>
-  );
-}
-
-// Mobile Accordion Item Component
-function MobileAccordionItem({
-  title,
-  links,
-}: {
-  title: string;
-  links: [string, string][];
-}) {
-  const [open, setOpen] = useState(false);
-
-  return (
-    <motion.div
-      className="border border-white/10 rounded-xl overflow-hidden"
-      initial={false}
-    >
-      <button
-        onClick={() => setOpen(!open)}
-        className="w-full flex items-center justify-between px-4 py-3 text-left"
-      >
-        <span className="text-sm font-semibold text-white/80 font-heading">
-          {title}
-        </span>
-        <motion.span
-          animate={{ rotate: open ? 180 : 0 }}
-          transition={{ duration: 0.25, ease: "easeInOut" }}
-        >
-          <svg
-            className="w-4 h-4 text-white/50"
-            fill="none"
-            stroke="currentColor"
-            viewBox="0 0 24 24"
-          >
-            <path
-              strokeLinecap="round"
-              strokeLinejoin="round"
-              strokeWidth={2}
-              d="M19 9l-7 7-7-7"
-            />
-          </svg>
-        </motion.span>
-      </button>
-      <motion.div
-        initial={{ height: 0, opacity: 0 }}
-        animate={{ height: open ? "auto" : 0, opacity: open ? 1 : 0 }}
-        transition={{ duration: 0.3, ease: "easeOut" }}
-        className="overflow-hidden"
-      >
-        <ul className="px-4 pb-3 space-y-2">
-          {links.map(([label, href]) => (
-            <li key={label}>
-              <Link
-                href={href}
-                className="text-sm text-white/50 hover:text-white transition-colors font-sans"
-              >
-                {label}
-              </Link>
-            </li>
-          ))}
-        </ul>
-      </motion.div>
-    </motion.div>
   );
 }
