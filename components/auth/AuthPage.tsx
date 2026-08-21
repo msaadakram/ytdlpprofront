@@ -5,7 +5,7 @@ import Link from "next/link";
 import { useRouter } from "next/navigation";
 import { motion } from "motion/react";
 import {
-  Mail, LockKeyhole, Eye, EyeOff, ArrowLeft, Check, User as UserIcon,
+  Mail, LockKeyhole, Eye, EyeOff, Check, User as UserIcon,
   Sparkles, ShieldCheck, Zap
 } from "lucide-react";
 import { useAuth } from "@/lib/auth-context";
@@ -114,16 +114,6 @@ export function AuthPage({ mode }: { mode: AuthMode }) {
         {/* Right content area */}
         <section className="flex-1 flex items-center justify-center w-full min-h-[calc(100vh-4rem)] lg:min-h-screen">
           <div className="w-full max-w-md lg:max-w-lg xl:max-w-xl py-8 lg:py-16">
-            {/* Back link */}
-            <Link
-              href="/"
-              className="inline-flex items-center gap-2.5 text-sm font-medium text-[#0d1f26]/60 dark:text-white/40 hover:text-[#0d1f26] dark:hover:text-white transition-colors mb-8 sm:mb-10 font-sans"
-            >
-              <span className="inline-flex items-center justify-center w-8 h-8 rounded-full bg-[#0d1f26]/5 dark:bg-white/10 hover:bg-[#0d1f26]/10 dark:hover:bg-white/15 transition-colors">
-                <ArrowLeft className="w-4 h-4" />
-              </span>
-              {t("backToHome")}
-            </Link>
 
             <motion.div
               initial={{ opacity: 0, y: 24 }}
