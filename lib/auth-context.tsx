@@ -12,6 +12,11 @@ export interface AuthUser {
   last_name: string | null;
   plan: "free" | "pro";
   plan_expires_at: string | null;
+  avatar_url?: string | null;
+  provider?: "local" | "google" | "both" | null;
+  google_id?: string | null;
+  has_password?: boolean | null;
+  email_verified?: boolean | null;
   notifications: {
     email_completed: boolean;
     weekly_summary: boolean;
@@ -39,6 +44,7 @@ type AuthContextType = {
     email: string;
     password: string;
   }) => Promise<{ success: boolean; error?: string }>;
+  googleLogin: (id_token: string) => Promise<{ success: boolean; error?: string }>;
   logout: () => Promise<void>;
 };
 
@@ -50,6 +56,7 @@ const AuthContext = createContext<AuthContextType>({
   setUser: () => {},
   login: async () => ({ success: false }),
   signup: async () => ({ success: false }),
+  googleLogin: async () => ({ success: false }),
   logout: async () => {},
 });
 
@@ -178,6 +185,24 @@ export function AuthProvider({ children }: { children: ReactNode }) {
     return { success: true };
   }, []);
 
+  const googleLogin = useCallback(async (id_token: string) => {
+    const result = await apiCall<{ token: string; user: AuthUser }>(
+      "/api/proxy/auth/google",
+      {
+        method: "POST",
+        body: JSON.stringify({ id_token }),
+      },
+    );
+    if (!result.ok || !result.data) {
+      return { success: false, error: result.error };
+    }
+    const { token: newToken, user: newUser } = result.data;
+    writeStored({ token: newToken, user: newUser });
+    setToken(newToken);
+    setUserState(newUser);
+    return { success: true };
+  }, []);
+
   const logout = useCallback(async () => {
     if (token) {
       // Best-effort; ignore failures so the client always clears state.
@@ -201,6 +226,7 @@ export function AuthProvider({ children }: { children: ReactNode }) {
         setUser,
         login,
         signup,
+        googleLogin,
         logout,
       }}
     >

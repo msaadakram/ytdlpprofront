@@ -2,6 +2,7 @@
 
 import { useState, useRef, type FormEvent } from "react";
 import Link from "next/link";
+import { useRouter } from "next/navigation";
 import { motion } from "motion/react";
 import {
   Mail, LockKeyhole, Eye, EyeOff, ArrowLeft, Check, User as UserIcon,
@@ -9,6 +10,7 @@ import {
 } from "lucide-react";
 import { useAuth } from "@/lib/auth-context";
 import { useTranslations } from "next-intl";
+import { GoogleSignInButton } from "./GoogleSignInButton";
 
 type AuthMode = "signin" | "signup";
 
@@ -46,17 +48,20 @@ export function AuthPage({ mode }: { mode: AuthMode }) {
   const [showPassword, setShowPassword] = useState(false);
   const [submitting, setSubmitting] = useState(false);
   const [error, setError] = useState<string | null>(null);
+  const [googleError, setGoogleError] = useState<string | null>(null);
   const emailRef = useRef<HTMLInputElement>(null);
   const passwordRef = useRef<HTMLInputElement>(null);
   const firstNameRef = useRef<HTMLInputElement>(null);
   const lastNameRef = useRef<HTMLInputElement>(null);
   const { login, signup } = useAuth();
+  const router = useRouter();
   const isSignIn = mode === "signin";
   const t = useTranslations("Auth");
 
   async function handleSubmit(e: FormEvent) {
     e.preventDefault();
     setError(null);
+    setGoogleError(null);
     const email = emailRef.current?.value?.trim() || "";
     const password = passwordRef.current?.value || "";
 
@@ -73,6 +78,7 @@ export function AuthPage({ mode }: { mode: AuthMode }) {
           setError(result.error || t("errorSignIn"));
           return;
         }
+        router.push("/dashboard");
       } else {
         const first_name = firstNameRef.current?.value?.trim() || "";
         const last_name = lastNameRef.current?.value?.trim() || "";
@@ -89,6 +95,7 @@ export function AuthPage({ mode }: { mode: AuthMode }) {
           setError(result.error || t("errorSignUp"));
           return;
         }
+        router.push("/dashboard");
       }
     } finally {
       setSubmitting(false);
@@ -137,9 +144,33 @@ export function AuthPage({ mode }: { mode: AuthMode }) {
                 <h1 className="text-3xl sm:text-4xl lg:text-[2.75rem] font-extrabold text-[#0d1f26] dark:text-white mb-3 leading-[1.1] tracking-tight font-heading">
                   {isSignIn ? t("signInTitle") : t("signUpTitle")}
                 </h1>
-                <p className="text-base sm:text-lg text-[#0d1f26]/50 dark:text-white/50 mb-8 sm:mb-10 font-sans leading-relaxed">
+                <p className="text-base sm:text-lg text-[#0d1f26]/50 dark:text-white/50 mb-6 font-sans leading-relaxed">
                   {isSignIn ? t("signInSubtitle") : t("signUpSubtitle")}
                 </p>
+
+                {/* Google Sign-In — primary, above email/password */}
+                <div className="mb-6">
+                  <GoogleSignInButton mode={mode} onError={(msg) => setGoogleError(msg)} disabled={submitting} />
+                  {googleError && (
+                    <motion.div
+                      initial={{ opacity: 0, height: 0 }}
+                      animate={{ opacity: 1, height: "auto" }}
+                      className="mt-4 text-sm text-red-600 dark:text-red-400 bg-red-50/60 dark:bg-red-950/20 border border-red-100 dark:border-red-900/40 rounded-xl px-4 py-3 font-sans flex items-start gap-3"
+                    >
+                      <span className="inline-block w-1.5 h-1.5 rounded-full bg-red-500 mt-1.5 shrink-0" />
+                      <span>{googleError}</span>
+                    </motion.div>
+                  )}
+                </div>
+
+                {/* Divider */}
+                <div className="relative flex items-center gap-4 mb-6">
+                  <div className="flex-1 h-px bg-[#0d1f26]/10 dark:bg-white/10" />
+                  <span className="text-xs font-medium text-[#0d1f26]/40 dark:text-white/30 font-sans tracking-wide uppercase bg-white/70 dark:bg-[#0d1f26]/40 px-3 py-1 rounded-full border border-[#0d1f26]/5 dark:border-white/5">
+                    {t("orContinueWithEmail") || "or continue with email"}
+                  </span>
+                  <div className="flex-1 h-px bg-[#0d1f26]/10 dark:bg-white/10" />
+                </div>
 
                 <form className="space-y-5 sm:space-y-6" onSubmit={handleSubmit} noValidate>
                   {!isSignIn && (

@@ -396,6 +396,11 @@ export interface UserProfile {
   last_name: string | null;
   plan: "free" | "pro";
   plan_expires_at: string | null;
+  avatar_url?: string | null;
+  provider?: "local" | "google" | "both" | null;
+  google_id?: string | null;
+  email_verified?: boolean | null;
+  has_password?: boolean | null;
   notifications: {
     email_completed: boolean;
     weekly_summary: boolean;
