@@ -372,9 +372,11 @@ export function Footer() {
                 <div className="font-sans text-[11px] sm:text-xs text-white/40 mt-1">Fast • Private • Any format • 200+ platforms</div>
               </div>
             </div>
-            {/* Watermark */}
-            <div aria-hidden className="pointer-events-none absolute -bottom-3 sm:-bottom-5 left-1/2 -translate-x-1/2 font-heading text-[48px] sm:text-[64px] lg:text-[88px] xl:text-[110px] font-black tracking-[-0.05em] leading-none text-white/[0.04] whitespace-nowrap select-none max-w-full">
-              DownForge
+            {/* Watermark — centered, no translate, no overflow */}
+            <div aria-hidden className="pointer-events-none absolute inset-x-0 -bottom-1 sm:-bottom-2 flex justify-center overflow-hidden select-none">
+              <span className="font-heading text-[42px] sm:text-[60px] lg:text-[84px] xl:text-[110px] font-black tracking-[-0.05em] leading-none text-white/[0.05] whitespace-nowrap">
+                DownForge
+              </span>
             </div>
           </div>
 
