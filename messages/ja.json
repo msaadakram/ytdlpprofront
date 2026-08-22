@@ -1568,5 +1568,179 @@
     "et": "エストニア語",
     "lv": "ラトビア語",
     "lt": "リトアニア語"
+  },
+  "About": {
+    "badge": "About DownForge",
+    "title": "Built for creators,",
+    "titleAccent": "trusted by thousands.",
+    "subtitle": "We make downloading from 200+ platforms effortless — fast, private, and in any format you need. No bloat, no tracking, just download.",
+    "statsBadge": "At a glance",
+    "stats": [
+      {
+        "value": "200+",
+        "label": "Platforms supported",
+        "sub": "YouTube to niche sites"
+      },
+      {
+        "value": "< 3s",
+        "label": "Average processing",
+        "sub": "Server-side, CDN delivered"
+      },
+      {
+        "value": "4.9/5",
+        "label": "User rating",
+        "sub": "Trusted by creators"
+      },
+      {
+        "value": "Zero",
+        "label": "Logs kept",
+        "sub": "Ephemeral by design"
+      }
+    ],
+    "storyBadge": "Our Story",
+    "storyTitle": "Why we built DownForge",
+    "storyP1": "DownForge started in 2024 with a simple observation: creators, educators, and editors waste hours juggling platform-specific tools to save a clip in the right format.",
+    "storyP2": "We wrapped the best open-source engines — yt-dlp and ffmpeg — in a fast, private, and beautiful product. No ads in your face, no files kept on our servers, just paste → pick → download.",
+    "storyP3": "Today, DownForge serves thousands of daily downloads, from TikTok drafts to 4K YouTube masters, with the same promise: what you paste is processed ephemerally and deleted immediately.",
+    "timeline": [
+      {
+        "year": "2024",
+        "title": "Founded",
+        "desc": "Launched with YouTube + TikTok support"
+      },
+      {
+        "year": "2025",
+        "title": "200+ sites",
+        "desc": "Expanded to 14 major platforms, universal auto-detect"
+      },
+      {
+        "year": "Now",
+        "title": "Pro & API",
+        "desc": "Unlimited, 4K, batch, and developer API"
+      }
+    ],
+    "valuesBadge": "Why us",
+    "valuesTitle": "Speed, privacy, and quality — without compromise.",
+    "values": [
+      {
+        "title": "Privacy first",
+        "desc": "We don’t store URLs or files. Ephemeral processing, auto-deleted in 60 minutes. No selling data. Ever."
+      },
+      {
+        "title": "Blazing fast",
+        "desc": "Server-side conversion with CDN streaming. Your download starts in under 3 seconds."
+      },
+      {
+        "title": "Any format, any quality",
+        "desc": "MP4, WebM, FLAC, PNG, SRT — from 144p to 4K and 320 kbps to lossless."
+      }
+    ],
+    "ctaTitle": "Ready to download like a pro?",
+    "ctaSubtitle": "Paste a URL and get your file in seconds. No account required.",
+    "ctaButton": "Try it now — it’s free",
+    "ctaSecondary": "View pricing",
+    "metaTitle": "About DownForge — Fast, Private Video Downloader for 200+ Sites | DownForge",
+    "metaDescription": "Learn about DownForge: our story, values, and why thousands trust us to download video, audio, thumbnails and transcripts from 200+ platforms — fast and private."
+  },
+  "Terms": {
+    "badge": "Legal",
+    "title": "Terms of Service",
+    "subtitle": "Please read these terms carefully. By using DownForge, you agree to them.",
+    "lastUpdated": "Last updated: August 2025",
+    "tocTitle": "Contents",
+    "sections": [
+      {
+        "id": "acceptance",
+        "title": "1. Acceptance of Terms",
+        "body": "By accessing or using DownForge (the “Service”), you agree to these Terms. If you do not agree, do not use the Service. We may update these Terms; continued use after changes means acceptance. We will post the new date above."
+      },
+      {
+        "id": "eligibility",
+        "title": "2. Eligibility & Accounts",
+        "body": "You must be at least 13 years old. If you create an account, you are responsible for keeping your credentials secure and for all activity under your account. Notify us immediately of unauthorized use. We may suspend accounts that violate these Terms."
+      },
+      {
+        "id": "use",
+        "title": "3. Acceptable Use & Platform Compliance",
+        "body": "Use the Service only for content you have the right to access. You must comply with the terms of any third-party platform (e.g., YouTube, TikTok) you access through DownForge and with applicable copyright laws. Do not use the Service to infringe, to harass, or to distribute malware."
+      },
+      {
+        "id": "prohibited",
+        "title": "4. Prohibited Conduct",
+        "body": "You may not: (a) attempt to bypass rate limits, (b) scrape or overload our infrastructure, (c) upload malicious code, (d) misrepresent affiliation, or (e) use the Service for unlawful purposes. We enforce rate limits: 60/min global, 30/min info, 20/min download."
+      },
+      {
+        "id": "ip",
+        "title": "5. Intellectual Property & DMCA",
+        "body": "DownForge does not claim ownership of third-party content. If you are a rights holder and believe content accessible via the Service infringes your rights, contact us at dmca@downforge.me with the URL, proof of ownership, and your contact information. We respond promptly and may block access."
+      },
+      {
+        "id": "billing",
+        "title": "6. Billing & Subscriptions",
+        "body": "Free tier is limited (10/day, 1080p). Pro/Team are billed monthly via Stripe. You may cancel anytime; access continues until period end. Refunds are handled case-by-case within 14 days if the Service was not used."
+      },
+      {
+        "id": "disclaimer",
+        "title": "7. Disclaimers & Limitation of Liability",
+        "body": "The Service is provided “as is” without warranty. We do not guarantee availability or that any platform will remain supported. To the fullest extent permitted by law, DownForge’s liability is limited to the amount you paid in the last 3 months."
+      },
+      {
+        "id": "changes",
+        "title": "8. Changes, Termination & Contact",
+        "body": "We may modify, suspend, or discontinue the Service at any time. We may terminate access for violations. Questions? Contact legal@downforge.me or via our Contact page. These Terms are governed by the laws of your jurisdiction, without regard to conflict of law rules."
+      }
+    ],
+    "metaTitle": "Terms of Service — DownForge | Legal",
+    "metaDescription": "Read DownForge’s Terms of Service: acceptable use, billing, IP/DMCA, disclaimers, and contact. Last updated August 2025."
+  },
+  "Contact": {
+    "badge": "Contact",
+    "title": "Get in touch",
+    "subtitle": "Questions, billing help, or DMCA? We usually reply within 24 hours.",
+    "formTitle": "Send us a message",
+    "nameLabel": "Full name",
+    "namePlaceholder": "Jane Doe",
+    "emailLabel": "Email",
+    "emailPlaceholder": "you@example.com",
+    "subjectLabel": "Subject",
+    "subjectPlaceholder": "Select a topic",
+    "subjectOptions": [
+      "General inquiry",
+      "Billing & Pro",
+      "API & Developer",
+      "DMCA / Copyright",
+      "Bug report",
+      "Feature request"
+    ],
+    "messageLabel": "Message",
+    "messagePlaceholder": "How can we help you?",
+    "submitButton": "Send message",
+    "submitting": "Sending…",
+    "successTitle": "Message sent!",
+    "successDesc": "Thanks for reaching out. We’ll get back to you soon at your email.",
+    "errorRequired": "Please fill in all required fields and a valid email.",
+    "infoTitle": "Other ways to reach us",
+    "infoEmail": "support@downforge.me",
+    "infoEmailSub": "For support, billing, and general inquiries",
+    "infoLegal": "legal@downforge.me",
+    "infoLegalSub": "For DMCA and legal matters",
+    "infoResponse": "Avg. response: < 24h • Mon–Fri 9–18 UTC",
+    "faqTitle": "Quick answers",
+    "faqs": [
+      {
+        "q": "Where is my download?",
+        "a": "Files are deleted 60 minutes after processing. Check your downloads folder or re-paste the URL."
+      },
+      {
+        "q": "How do I cancel Pro?",
+        "a": "Go to Dashboard → Billing → Manage, or email support@downforge.me. Access continues until period end."
+      },
+      {
+        "q": "Do you store my URLs?",
+        "a": "No. URLs are processed ephemerally and never logged with personal data."
+      }
+    ],
+    "metaTitle": "Contact DownForge — Support, Billing & DMCA | DownForge",
+    "metaDescription": "Contact DownForge support: billing, API, DMCA, or general help. Avg. reply <24h. Email support@downforge.me or use the form."
   }
 }

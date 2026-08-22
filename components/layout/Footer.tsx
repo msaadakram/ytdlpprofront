@@ -56,10 +56,10 @@ const footerGroups = [
   {
     titleKey: "company" as const,
     links: [
-      { labelKey: "about" as const, href: "#" },
+      { labelKey: "about" as const, href: "/about" },
       { labelKey: "privacy" as const, href: "/privacy" },
-      { labelKey: "terms" as const, href: "#" },
-      { labelKey: "contact" as const, href: "#" },
+      { labelKey: "terms" as const, href: "/terms" },
+      { labelKey: "contact" as const, href: "/contact" },
     ],
   },
 ];
