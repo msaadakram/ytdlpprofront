@@ -5,9 +5,10 @@ import { useTranslations, useLocale } from "next-intl";
 import { Link, usePathname, useRouter } from "@/lib/i18n/navigation";
 import { motion, AnimatePresence } from "motion/react";
 import {
-  Download, Menu, X, BarChart2, Play, Music, Image, FileText,
+  Download, X, BarChart2, Play, Music, Image,
   ChevronDown, LogOut, ExternalLink, Globe, Check, Sparkles,
-  Users, Mail, Scale, ShieldCheck, CreditCard, ArrowRight,
+  Users, Mail, Scale, ShieldCheck, ArrowRight,
+  PartyPopper, Layers, Gem, Zap, ScrollText,
 } from "lucide-react";
 import { platforms } from "@/lib/constants";
 import { useAuth } from "@/lib/auth-context";
@@ -18,10 +19,10 @@ function platformSlug(name: string): string {
 }
 
 const downloadTypes = [
-  { label: "Video", type: "video" as const, route: "/video-downloader", icon: Play, emoji: "🎬" },
-  { label: "Audio", type: "audio" as const, route: "/audio-downloader", icon: Music, emoji: "🎧" },
-  { label: "Thumbnail", type: "thumbnail" as const, route: "/thumbnail-downloader", icon: Image, emoji: "🖼️" },
-  { label: "Transcript", type: "transcript" as const, route: "/transcript-downloader", icon: FileText, emoji: "📝" },
+  { label: "Video", type: "video" as const, route: "/video-downloader", icon: Play },
+  { label: "Audio", type: "audio" as const, route: "/audio-downloader", icon: Music },
+  { label: "Thumbnail", type: "thumbnail" as const, route: "/thumbnail-downloader", icon: Image },
+  { label: "Transcript", type: "transcript" as const, route: "/transcript-downloader", icon: ScrollText },
 ];
 
 const localeFlags: Record<Locale, string> = {
@@ -37,12 +38,12 @@ const localeFlags: Record<Locale, string> = {
 };
 
 const otherLinks = [
-  { labelKey: "about" as const, href: "/about", icon: Users, emoji: "👋", desc: "Our story & mission" },
-  { labelKey: "pricing" as const, href: "/pricing", icon: CreditCard, emoji: "💎", desc: "Plans & billing" },
-  { labelKey: "terms" as const, href: "/terms", icon: Scale, emoji: "📜", desc: "Terms of service" },
-  { labelKey: "privacy" as const, href: "/privacy", icon: ShieldCheck, emoji: "🔒", desc: "Data & privacy" },
-  { labelKey: "contact" as const, href: "/contact", icon: Mail, emoji: "💬", desc: "Help & support" },
-  { labelKey: "api" as const, href: "/api-docs", icon: FileText, emoji: "⚡", desc: "API documentation" },
+  { labelKey: "about" as const, href: "/about", icon: Users, desc: "Our story & mission" },
+  { labelKey: "pricing" as const, href: "/pricing", icon: Gem, desc: "Plans & billing" },
+  { labelKey: "terms" as const, href: "/terms", icon: Scale, desc: "Terms of service" },
+  { labelKey: "privacy" as const, href: "/privacy", icon: ShieldCheck, desc: "Data & privacy" },
+  { labelKey: "contact" as const, href: "/contact", icon: Mail, desc: "Help & support" },
+  { labelKey: "api" as const, href: "/api-docs", icon: Zap, desc: "API documentation" },
 ];
 
 export function Nav() {
@@ -158,8 +159,8 @@ export function Nav() {
           : "bg-white/70 dark:bg-[#0a1218]/50 backdrop-blur-xl border-border/40 dark:border-white/5"
       }`}
     >
-      <div className="mx-auto max-w-[1280px] px-3 lg:px-4 xl:px-6 h-[60px] sm:h-16 flex items-center justify-between gap-2 lg:gap-3 xl:gap-4">
-        <Link href="/" className="flex items-center gap-2 sm:gap-2.5 shrink-0 group" aria-label="DownForge home">
+      <div className="mx-auto max-w-[1280px] px-3 lg:px-3 xl:px-6 h-[60px] sm:h-16 flex items-center justify-between gap-1.5 lg:gap-2 xl:gap-4 min-w-0">
+        <Link href="/" className="flex items-center gap-2 sm:gap-2.5 shrink-0 group min-w-0" aria-label="DownForge home">
           <div className="w-8 h-8 sm:w-9 sm:h-9 rounded-xl bg-white border border-border/60 shadow-sm group-hover:shadow-md transition-shadow flex items-center justify-center">
             <img src="/logo.png" alt="DownForge" className="w-5 h-5 sm:w-6 sm:h-6 object-contain" />
           </div>
@@ -168,7 +169,7 @@ export function Nav() {
           </span>
         </Link>
 
-        <nav className="hidden lg:flex flex-1 justify-center items-center gap-0.5 xl:gap-1 max-w-[520px] lg:max-w-[560px] xl:max-w-none mx-auto">
+        <nav className="hidden lg:flex flex-1 justify-center items-center gap-0.5 xl:gap-1.5 min-w-0 mx-auto lg:mx-1 xl:mx-auto max-w-[520px] lg:max-w-[440px] xl:max-w-none">
           {downloadTypes.map((dt, i) => {
             const isOpen = openDropdown === i;
             const Icon = dt.icon;
@@ -187,18 +188,18 @@ export function Nav() {
                 <button
                   onClick={() => toggleDropdown(i)}
                   aria-expanded={isOpen}
-                  className={`flex items-center gap-1 lg:gap-1 xl:gap-1.5 px-2 lg:px-2.5 xl:px-3.5 py-1 lg:py-1.5 xl:py-2 text-[11px] lg:text-xs xl:text-sm font-semibold rounded-full border transition-all duration-200 font-sans whitespace-nowrap ${
+                  className={`flex items-center gap-0.5 lg:gap-1 xl:gap-1.5 px-1.5 lg:px-2 xl:px-3.5 py-1 text-[11px] xl:text-sm font-semibold rounded-full border transition-all duration-200 font-sans whitespace-nowrap ${
                     isOpen
                       ? "bg-[#0d1f26] text-white border-[#0d1f26] shadow-md dark:bg-white dark:text-[#0d1f26] dark:border-white"
                       : "text-muted-foreground border-transparent hover:text-foreground hover:bg-white hover:border-border/60 hover:shadow-sm bg-transparent"
                   }`}
                 >
-                  <span className={`w-5 h-5 lg:w-6 lg:h-6 xl:w-7 xl:h-7 rounded-full flex items-center justify-center shrink-0 text-[12px] lg:text-[13px] xl:text-[15px] border shadow-sm transition-all ${isOpen ? "bg-white/15 dark:bg-[#0d1f26]/10 border-white/20 scale-105" : "bg-gradient-to-br from-white to-slate-50 dark:from-white/5 dark:to-white/10 border-border/40 dark:border-white/10 group-hover:scale-105"}`}>
-                    {dt.emoji}
+                  <span className={`w-5 h-5 lg:w-5 lg:h-5 xl:w-7 xl:h-7 rounded-full flex items-center justify-center shrink-0 border shadow-sm transition-all ${isOpen ? "bg-white/15 dark:bg-[#0d1f26]/10 border-white/20 scale-105 text-white dark:text-[#0d1f26]" : "bg-gradient-to-br from-white to-slate-50 dark:from-white/5 dark:to-white/10 border-border/40 dark:border-white/10 group-hover:scale-105 text-[#0d1f26] dark:text-white/80"}`}>
+                    <Icon className="w-3 h-3 lg:w-3 lg:h-3 xl:w-4 xl:h-4" />
                   </span>
                   <span>{dt.label}</span>
                   <motion.span animate={{ rotate: isOpen ? 180 : 0 }} transition={{ duration: 0.22 }} className="flex">
-                    <ChevronDown className="w-3 h-3 lg:w-3 lg:h-3 xl:w-3.5 xl:h-3.5 opacity-60" />
+                    <ChevronDown className="w-3 h-3 xl:w-3.5 xl:h-3.5 opacity-60" />
                   </motion.span>
                 </button>
 
@@ -215,12 +216,12 @@ export function Nav() {
                       <div className="p-3 lg:p-4 xl:p-5">
                         <div className="flex items-center justify-between mb-3 lg:mb-4 px-1">
                           <span className="flex items-center gap-2 text-xs font-bold tracking-[0.14em] uppercase text-muted-foreground font-mono">
-                            <span className="w-7 h-7 rounded-full bg-gradient-to-br from-[#5baab8]/15 to-[#5baab8]/5 border border-[#5baab8]/20 flex items-center justify-center text-[14px] shadow-sm">
-                              {dt.emoji}
+                            <span className="w-7 h-7 rounded-full bg-gradient-to-br from-[#5baab8]/15 to-[#5baab8]/5 border border-[#5baab8]/20 flex items-center justify-center shadow-sm text-[#0d1f26] dark:text-[#5baab8]">
+                              <Icon className="w-3.5 h-3.5" />
                             </span>
-                            {t("download")} {dt.label} <span className="text-[11px]">{dt.emoji}</span>
+                            {t("download")} {dt.label} <Icon className="w-3 h-3 text-muted-foreground/60" />
                           </span>
-                          <span className="hidden sm:inline-flex text-[11px] font-medium text-muted-foreground bg-muted/60 border border-border/40 rounded-full px-2.5 py-1">15 platforms • instant ✨</span>
+                          <span className="hidden sm:inline-flex items-center gap-1 text-[11px] font-medium text-muted-foreground bg-muted/60 border border-border/40 rounded-full px-2.5 py-1">15 platforms • instant <Sparkles className="w-3 h-3 text-[#5baab8]" /></span>
                         </div>
                         <div className="grid grid-cols-2 xl:grid-cols-3 gap-1.5">
                           {platforms.map((p) => {
@@ -266,16 +267,16 @@ export function Nav() {
             <button
               onClick={() => { setOtherOpen(!otherOpen); setOpenDropdown(null); setLangOpen(false); setAccountOpen(false); }}
               aria-expanded={otherOpen}
-              className={`flex items-center gap-0.5 lg:gap-1 xl:gap-1.5 px-2 lg:px-2.5 xl:px-3.5 py-1 lg:py-1.5 xl:py-2 text-[11px] lg:text-xs xl:text-sm font-semibold rounded-full border transition-all duration-200 font-sans whitespace-nowrap ${
+              className={`flex items-center gap-0.5 xl:gap-1.5 px-1.5 lg:px-2 xl:px-3.5 py-1 text-[11px] xl:text-sm font-semibold rounded-full border transition-all duration-200 font-sans whitespace-nowrap ${
                 otherOpen ? "bg-[#0d1f26] text-white border-[#0d1f26] shadow-md dark:bg-white dark:text-[#0d1f26] dark:border-white" : "text-muted-foreground border-transparent hover:text-foreground hover:bg-white hover:border-border/60 hover:shadow-sm"
               }`}
             >
-              <span className={`w-5 h-5 lg:w-6 lg:h-6 xl:w-7 xl:h-7 rounded-full flex items-center justify-center shrink-0 text-[12px] lg:text-[13px] xl:text-[15px] border shadow-sm ${otherOpen ? "bg-white/15 dark:bg-[#0d1f26]/10 border-white/20 scale-105" : "bg-gradient-to-br from-white to-slate-50 dark:from-white/5 dark:to-white/10 border-border/40 dark:border-white/10"}`}>
-                ✨
+              <span className={`w-5 h-5 lg:w-5 lg:h-5 xl:w-7 xl:h-7 rounded-full flex items-center justify-center shrink-0 border shadow-sm ${otherOpen ? "bg-white/15 dark:bg-[#0d1f26]/10 border-white/20 scale-105 text-white dark:text-[#0d1f26]" : "bg-gradient-to-br from-white to-slate-50 dark:from-white/5 dark:to-white/10 border-border/40 dark:border-white/10 text-[#5baab8] dark:text-white/70"}`}>
+                <Layers className="w-3 h-3 lg:w-3 lg:h-3 xl:w-4 xl:h-4" />
               </span>
               <span>Other</span>
               <motion.span animate={{ rotate: otherOpen ? 180 : 0 }} transition={{ duration: 0.2 }} className="flex">
-                <ChevronDown className="w-3 h-3 lg:w-3 lg:h-3 xl:w-3.5 xl:h-3.5 opacity-60" />
+                <ChevronDown className="w-3 h-3 xl:w-3.5 xl:h-3.5 opacity-60" />
               </motion.span>
             </button>
             <AnimatePresence>
@@ -290,14 +291,17 @@ export function Nav() {
                   <div className="h-1 w-full bg-gradient-to-r from-[#5baab8] via-[#0d1f26] to-[#5baab8] opacity-80" />
                   <div className="p-3 lg:p-4">
                     <div className="flex items-center gap-2 px-2 pb-2">
-                      <span className="w-7 h-7 rounded-full bg-gradient-to-br from-[#5baab8]/15 to-[#5baab8]/5 border border-[#5baab8]/20 flex items-center justify-center text-[14px] shadow-sm">
-                        ✨
+                      <span className="w-7 h-7 rounded-full bg-gradient-to-br from-[#5baab8]/15 to-[#5baab8]/5 border border-[#5baab8]/20 flex items-center justify-center shadow-sm text-[#0d1f26] dark:text-[#5baab8]">
+                        <Sparkles className="w-3.5 h-3.5" />
                       </span>
                       <span className="text-xs font-bold tracking-[0.14em] uppercase text-muted-foreground font-mono">Other pages</span>
-                      <span className="ml-auto text-[11px]">🎉</span>
+                      <span className="ml-auto w-6 h-6 rounded-full bg-gradient-to-br from-amber-400/15 to-orange-400/10 border border-amber-400/20 flex items-center justify-center">
+                        <PartyPopper className="w-3.5 h-3.5 text-amber-500" />
+                      </span>
                     </div>
                     <div className="grid grid-cols-1 gap-1">
                       {otherLinks.map((item) => {
+                        const ItemIcon = item.icon;
                         return (
                           <Link
                             key={item.href}
@@ -305,11 +309,11 @@ export function Nav() {
                             onClick={closeAll}
                             className="flex items-center gap-3 px-3 py-2.5 rounded-xl border border-transparent hover:bg-slate-50 dark:hover:bg-white/5 hover:border-border/40 hover:shadow-sm transition-all group"
                           >
-                            <span className="w-9 h-9 rounded-xl bg-gradient-to-br from-white to-slate-50 dark:from-white/10 dark:to-white/5 border border-border/40 dark:border-white/10 flex items-center justify-center shrink-0 text-[16px] shadow-sm group-hover:scale-105 group-hover:shadow-md transition-all">
-                              {item.emoji}
+                            <span className="w-9 h-9 rounded-xl bg-gradient-to-br from-white to-slate-50 dark:from-white/10 dark:to-white/5 border border-border/40 dark:border-white/10 flex items-center justify-center shrink-0 shadow-sm group-hover:scale-105 group-hover:shadow-md transition-all text-[#0d1f26] dark:text-white/80 group-hover:text-[#0d1f26] dark:group-hover:text-white">
+                              <ItemIcon className="w-[18px] h-[18px]" />
                             </span>
                             <div className="min-w-0">
-                              <div className="text-sm font-semibold text-foreground group-hover:text-[#0d1f26] dark:group-hover:text-white font-sans leading-none flex items-center gap-1.5">{t(item.labelKey as any, { defaultValue: item.labelKey.charAt(0).toUpperCase() + item.labelKey.slice(1) })} <span className="text-xs opacity-60 group-hover:opacity-100 transition-opacity">{item.emoji}</span></div>
+                              <div className="text-sm font-semibold text-foreground group-hover:text-[#0d1f26] dark:group-hover:text-white font-sans leading-none flex items-center gap-1.5">{t(item.labelKey as any, { defaultValue: item.labelKey.charAt(0).toUpperCase() + item.labelKey.slice(1) })} <ItemIcon className="w-3 h-3 opacity-40 group-hover:opacity-100 transition-opacity" /></div>
                               <div className="text-xs text-muted-foreground font-sans">{item.desc}</div>
                             </div>
                             <ExternalLink className="w-3 h-3 text-muted-foreground opacity-0 group-hover:opacity-60 ml-auto transition-opacity" />
@@ -330,16 +334,16 @@ export function Nav() {
           </div>
         </nav>
 
-        <div className="hidden lg:flex items-center gap-1 xl:gap-2">
+        <div className="hidden lg:flex items-center gap-1 lg:gap-1.5 xl:gap-2 shrink-0">
           {/* Locale Switcher — modern with flags */}
           <div className="relative">
             <button
               onClick={() => { setLangOpen(!langOpen); setOpenDropdown(null); setAccountOpen(false); }}
-              className="flex items-center gap-1 xl:gap-1.5 pl-0.5 pr-1 xl:pl-1 xl:pr-2 py-0.5 xl:py-1 rounded-full bg-white border border-border/60 shadow-sm hover:shadow-md hover:border-border hover:bg-white transition-all font-sans"
+              className="flex items-center gap-1 xl:gap-1.5 pl-0.5 pr-1 lg:pr-1 xl:pl-1 xl:pr-2 py-0.5 xl:py-1 rounded-full bg-white border border-border/60 shadow-sm hover:shadow-md hover:border-border hover:bg-white transition-all font-sans shrink-0"
               aria-label={lt("label")}
             >
-              <span className="w-5 h-5 lg:w-6 lg:h-6 xl:w-7 xl:h-7 rounded-full flex items-center justify-center text-[12px] lg:text-[13px] xl:text-[16px] bg-gradient-to-br from-slate-50 to-slate-100 border border-border/40 shadow-inner shrink-0">
-                {localeFlags[locale as Locale] || "🌐"}
+              <span className="w-5 h-5 lg:w-5 lg:h-5 xl:w-7 xl:h-7 rounded-full flex items-center justify-center text-[12px] xl:text-[16px] bg-gradient-to-br from-slate-50 to-slate-100 border border-border/40 shadow-inner shrink-0">
+                {localeFlags[locale as Locale] ? localeFlags[locale as Locale] : <Globe className="w-3 h-3 xl:w-3.5 xl:h-3.5 text-muted-foreground" />}
               </span>
               <span className="hidden xl:block text-sm font-semibold text-foreground">{lt(locale as Locale)}</span>
               <span className="hidden xl:inline-flex text-xs font-mono text-muted-foreground border border-border/60 rounded-full px-1.5 py-0.5 bg-muted/40">{locale.toUpperCase()}</span>
@@ -473,12 +477,12 @@ export function Nav() {
             </>
           ) : (
             <>
-              <Link href="/sign-in" className="hidden lg:inline-flex text-xs xl:text-sm font-semibold text-foreground hover:text-accent transition-colors px-2.5 lg:px-3 xl:px-3.5 py-1.5 lg:py-2 rounded-full hover:bg-white hover:border-border/60 border border-transparent hover:shadow-sm font-sans">
+              <Link href="/sign-in" className="hidden xl:inline-flex text-xs xl:text-sm font-semibold text-foreground hover:text-accent transition-colors px-2.5 xl:px-3.5 py-1.5 xl:py-2 rounded-full hover:bg-white hover:border-border/60 border border-transparent hover:shadow-sm font-sans">
                 {t("signIn")}
               </Link>
               <Link
                 href="/sign-up"
-                className="inline-flex text-xs lg:text-sm font-bold bg-[#0d1f26] dark:bg-white text-white dark:text-[#0d1f26] px-3 lg:px-4 xl:px-5 py-1.5 lg:py-2 xl:py-2.5 rounded-full hover:bg-[#1a3545] dark:hover:bg-slate-100 transition-all duration-200 font-sans shadow-[0_8px_20px_-12px_rgba(13,31,38,0.4)] hover:shadow-[0_12px_28px_-12px_rgba(13,31,38,0.5)] hover:scale-[1.02] active:scale-[0.98] whitespace-nowrap"
+                className="inline-flex text-xs xl:text-sm font-bold bg-[#0d1f26] dark:bg-white text-white dark:text-[#0d1f26] px-3 lg:px-3 xl:px-5 py-1.5 xl:py-2.5 rounded-full hover:bg-[#1a3545] dark:hover:bg-slate-100 transition-all duration-200 font-sans shadow-[0_8px_20px_-12px_rgba(13,31,38,0.4)] hover:shadow-[0_12px_28px_-12px_rgba(13,31,38,0.5)] hover:scale-[1.02] active:scale-[0.98] whitespace-nowrap shrink-0"
               >
                 <span className="hidden sm:inline">{t("startFree")}</span><span className="sm:hidden">Start</span>
               </Link>
@@ -542,11 +546,11 @@ export function Nav() {
                         onClick={() => setMobileAccordions((p) => ({ ...p, [dt.type]: !p[dt.type] }))}
                         className="w-full flex items-center gap-3 px-3.5 py-3.5 text-left"
                       >
-                        <span className="w-9 h-9 rounded-xl bg-gradient-to-br from-white to-slate-50 dark:from-white/10 dark:to-white/5 border border-border/50 dark:border-white/10 shadow-sm flex items-center justify-center shrink-0 text-[18px]">
-                          {dt.emoji}
+                        <span className="w-9 h-9 rounded-xl bg-gradient-to-br from-white to-slate-50 dark:from-white/10 dark:to-white/5 border border-border/50 dark:border-white/10 shadow-sm flex items-center justify-center shrink-0 text-[#0d1f26] dark:text-white/80">
+                          <Icon className="w-[18px] h-[18px]" />
                         </span>
                         <div className="min-w-0 flex-1">
-                          <div className="text-sm font-bold text-foreground font-sans leading-none flex items-center gap-1.5">{dt.emoji} {dt.label}</div>
+                          <div className="text-sm font-bold text-foreground font-sans leading-none flex items-center gap-1.5"><Icon className="w-3.5 h-3.5 text-muted-foreground" /> {dt.label}</div>
                           <div className="text-xs text-muted-foreground font-sans">15 platforms • instant</div>
                         </div>
                         <span className={`w-7 h-7 rounded-full bg-white dark:bg-white/10 border border-border/50 dark:border-white/10 flex items-center justify-center transition-transform ${isExpanded ? "rotate-180" : ""}`}>
@@ -584,11 +588,11 @@ export function Nav() {
                     onClick={() => setMobileOtherOpen(!mobileOtherOpen)}
                     className="w-full flex items-center gap-3 px-3.5 py-3.5 text-left"
                   >
-                    <span className="w-9 h-9 rounded-xl bg-gradient-to-br from-[#5baab8]/20 to-[#5baab8]/5 dark:from-white/15 dark:to-white/5 border border-[#5baab8]/20 dark:border-white/10 shadow-sm flex items-center justify-center shrink-0 text-[16px]">
-                      ✨
+                    <span className="w-9 h-9 rounded-xl bg-gradient-to-br from-[#5baab8]/20 to-[#5baab8]/5 dark:from-white/15 dark:to-white/5 border border-[#5baab8]/20 dark:border-white/10 shadow-sm flex items-center justify-center shrink-0 text-[#0d1f26] dark:text-white/80">
+                      <Layers className="w-[18px] h-[18px]" />
                     </span>
                     <div className="min-w-0 flex-1">
-                      <div className="text-sm font-bold text-foreground font-sans leading-none flex items-center gap-1.5">✨ Other</div>
+                      <div className="text-sm font-bold text-foreground font-sans leading-none flex items-center gap-1.5"><Layers className="w-3.5 h-3.5 text-muted-foreground" /> Other</div>
                       <div className="text-xs text-muted-foreground font-sans">About • Pricing • Terms • Contact</div>
                     </div>
                     <span className={`w-7 h-7 rounded-full bg-white dark:bg-white/10 border border-border/50 dark:border-white/10 flex items-center justify-center transition-transform ${mobileOtherOpen ? "rotate-180" : ""}`}>
@@ -600,6 +604,7 @@ export function Nav() {
                       <motion.div initial={{ height: 0, opacity: 0 }} animate={{ height: "auto", opacity: 1 }} exit={{ height: 0, opacity: 0 }} transition={{ duration: 0.25 }}>
                         <div className="px-2 pb-3 space-y-1">
                           {otherLinks.map((item) => {
+                            const ItemIcon = item.icon;
                             return (
                               <Link
                                 key={item.href}
@@ -607,11 +612,11 @@ export function Nav() {
                                 onClick={closeAll}
                                 className="flex items-center gap-3 px-3 py-2.5 rounded-xl border border-transparent hover:bg-slate-50 dark:hover:bg-white/5 hover:border-border/40 hover:shadow-sm transition-all group"
                               >
-                                <span className="w-9 h-9 rounded-xl bg-gradient-to-br from-white to-slate-50 dark:from-white/10 dark:to-white/5 border border-border/40 dark:border-white/10 flex items-center justify-center shrink-0 text-[16px] shadow-sm group-hover:scale-105 transition-transform">
-                                  {item.emoji}
+                                <span className="w-9 h-9 rounded-xl bg-gradient-to-br from-white to-slate-50 dark:from-white/10 dark:to-white/5 border border-border/40 dark:border-white/10 flex items-center justify-center shrink-0 shadow-sm group-hover:scale-105 transition-transform text-[#0d1f26] dark:text-white/80">
+                                  <ItemIcon className="w-[18px] h-[18px]" />
                                 </span>
                                 <div className="min-w-0">
-                                  <div className="text-sm font-semibold text-foreground font-sans leading-none flex items-center gap-1.5">{t(item.labelKey as any, { defaultValue: item.labelKey.charAt(0).toUpperCase() + item.labelKey.slice(1) })} <span className="text-xs opacity-60">{item.emoji}</span></div>
+                                  <div className="text-sm font-semibold text-foreground font-sans leading-none flex items-center gap-1.5">{t(item.labelKey as any, { defaultValue: item.labelKey.charAt(0).toUpperCase() + item.labelKey.slice(1) })} <ItemIcon className="w-3 h-3 opacity-40 group-hover:opacity-100 transition-opacity" /></div>
                                   <div className="text-xs text-muted-foreground font-sans">{item.desc}</div>
                                 </div>
                                 <ExternalLink className="w-3 h-3 text-muted-foreground opacity-0 group-hover:opacity-60 ml-auto transition-opacity" />
