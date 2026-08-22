@@ -178,7 +178,13 @@
     "platformGridDesc": "From the biggest names to the niche platforms — if there's a video, we can fetch it.",
     "formatShowcaseBadge": "Formats",
     "formatShowcaseSubtitle": "From 4K video to AI transcripts — choose exactly what you need.",
-    "formatShowcaseFormats": "Formats"
+    "formatShowcaseFormats": "Formats",
+    "formatShowcaseTabs": {
+      "video": "视频",
+      "audio": "音频",
+      "thumbnail": "缩略图",
+      "transcript": "转录文本"
+    }
   },
   "PlatformShared": {
     "chooseVideoQuality": "选择视频画质",
@@ -1788,6 +1794,33 @@
     "incidents": "Recent incidents",
     "noIncidents": "No incidents in the last 14 days.",
     "metaTitle": "API Status — DownForge Uptime & Health",
-    "metaDescription": "Check DownForge API status: uptime, latency, and incidents for info, download, audio and transcript endpoints."
+    "metaDescription": "Check DownForge API status: uptime, latency, and incidents for info, download, audio and transcript endpoints.",
+    "checking": "检查中…",
+    "liveHealth": "实时状态",
+    "nextCheck": "{seconds} 秒后再次检查",
+    "refresh": "刷新",
+    "refreshing": "刷新中…",
+    "backendUnreachable": "无法连接 API 服务器",
+    "backendUnreachableDesc": "连接恢复后,实时数据将自动返回。",
+    "since": "自 {date} 起运行",
+    "server": "服务器",
+    "queue": "队列",
+    "queueWaiting": "{waiting} 个等待中",
+    "endpoints": "API 端点",
+    "endpointsDesc": "最近 {minutes} 分钟的成功率与延迟。",
+    "avgLatency": "平均延迟",
+    "successRate": "成功率",
+    "calls": "次调用",
+    "noTraffic": "当前时间窗口内无流量",
+    "noTrafficShort": "暂无数据",
+    "platforms": "平台",
+    "platformsDesc": "API 报告的支持平台。",
+    "jobs": "任务",
+    "jobsActive": "{count} 个进行中",
+    "jobsCompleted": "{count} 个已完成",
+    "jobsFailed": "{count} 个失败",
+    "jobsQueued": "{count} 个排队中",
+    "monitoringNote": "服务器重启后指标将重置。",
+    "allSystemsOperational": "所有系统运行正常"
   }
 }

@@ -545,3 +545,55 @@ export const changePassword = (currentPassword: string, newPassword: string) =>
     body: JSON.stringify({ currentPassword, newPassword }),
   });
 
+/* ─── Public system status ─── */
+
+export interface StatusEndpoint {
+  path: string;
+  method: string;
+  group: string;
+  desc: string;
+  state: "operational" | "degraded" | "unknown";
+  calls: number;
+  errors: number;
+  avgLatencyMs: number | null;
+  p95LatencyMs: number | null;
+  successRate: number | null;
+  windowMinutes: number | null;
+}
+
+export interface SystemStatus {
+  status: "ok" | "degraded";
+  reasons: string[];
+  version: string;
+  startedAt: string;
+  uptime: number;
+  timestamp: string;
+  process: { node: string; rssMb: number; heapMb: number };
+  queue: { waiting: number; running: number; concurrency: number };
+  jobs: {
+    queued: number;
+    downloading: number;
+    processing: number;
+    completed: number;
+    failed: number;
+    expired: number;
+    active: number;
+  };
+  endpoints: StatusEndpoint[];
+  platforms: Array<{ id: string; hasCookies: boolean }>;
+}
+
+export interface Capabilities {
+  supportedPlatforms: string[];
+  videoQualities: string[];
+  videoContainers: string[];
+  audioFormats: string[];
+  audioQualities: string[];
+}
+
+export const getSystemStatus = () =>
+  request<SystemStatus>("/api/proxy/status", { method: "GET", cache: "no-store" });
+
+export const getCapabilities = () =>
+  request<Capabilities>("/api/proxy/capabilities", { method: "GET", cache: "no-store" });
+

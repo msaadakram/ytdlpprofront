@@ -3,7 +3,7 @@ import { getTranslations } from "next-intl/server";
 import { Nav } from "@/components/layout/Nav";
 import { Footer } from "@/components/layout/Footer";
 import { StatusClient } from "@/components/status/StatusClient";
-import { Activity, Clock, Zap, ShieldCheck, AlertTriangle, CheckCircle2 } from "lucide-react";
+import { AlertTriangle } from "lucide-react";
 import { routing } from "@/lib/i18n/routing";
 
 type Props = { params: Promise<{ locale: string }> };
@@ -19,13 +19,6 @@ export async function generateMetadata({ params }: Props): Promise<Metadata> {
     openGraph: { title: t("metaTitle"), description: t("metaDescription"), type: "website", siteName: "DownForge", locale },
   };
 }
-
-const endpoints = [
-  { name: "/api/youtube/info", method: "POST", desc: "Metadata + formats", latency: "85ms", uptime: "99.98%" },
-  { name: "/api/download", method: "POST", desc: "Video download", latency: "120ms", uptime: "99.95%" },
-  { name: "/api/audio", method: "POST", desc: "Audio extraction", latency: "110ms", uptime: "99.97%" },
-  { name: "/api/transcribe", method: "POST", desc: "AI transcripts", latency: "210ms", uptime: "99.92%" },
-];
 
 const incidents = [
   { date: "2025-08-18", title: "Brief latency spike on /info", status: "Resolved", color: "bg-amber-500" },
@@ -60,57 +53,11 @@ export default async function ApiStatusPage({ params }: Props) {
             </span>
             <h1 className="mt-4 text-3xl sm:text-4xl lg:text-[2.75rem] font-black tracking-tight font-heading">{t("title")}</h1>
             <p className="mt-3 text-sm sm:text-base text-white/60 max-w-2xl font-sans">{t("subtitle")}</p>
-            <div className="mt-6 flex flex-wrap gap-3">
-              <span className="inline-flex items-center gap-2 bg-white text-[#0d1f26] px-4 py-2 rounded-full text-sm font-bold shadow">
-                <CheckCircle2 className="w-4 h-4 text-emerald-500" /> All systems operational
-              </span>
-              <span className="inline-flex items-center gap-2 bg-white/10 border border-white/15 text-white px-4 py-2 rounded-full text-xs font-semibold backdrop-blur">
-                <Clock className="w-3.5 h-3.5" /> 99.99% uptime (30d)
-              </span>
-            </div>
           </div>
         </section>
 
         <section className="max-w-6xl mx-auto px-4 sm:px-6 py-8 sm:py-10 lg:py-12">
-          <div className="rounded-2xl bg-white dark:bg-white/[0.04] border border-border/60 dark:border-white/10 p-4 sm:p-6 flex flex-col sm:flex-row sm:items-center justify-between gap-4 shadow-sm">
-            <div>
-              <h2 className="text-sm font-bold text-foreground font-heading flex items-center gap-2">
-                <Activity className="w-4 h-4 text-[#5baab8]" /> Live health
-              </h2>
-              <p className="text-xs text-muted-foreground font-sans">Polls <code className="bg-muted px-1 py-0.5 rounded text-xs">/api/health</code> every 30s</p>
-            </div>
-            <StatusClient />
-          </div>
-
-          <div className="mt-6 grid sm:grid-cols-2 lg:grid-cols-4 gap-4">
-            {endpoints.map((ep) => (
-              <div key={ep.name} className="rounded-2xl bg-white dark:bg-white/[0.04] border border-border/60 dark:border-white/10 p-5 shadow-sm hover:shadow-md transition-shadow">
-                <div className="flex items-center justify-between">
-                  <span className="text-xs font-bold tracking-wide uppercase bg-[#eef6f8] dark:bg-[#5baab8]/10 border border-[#5baab8]/20 text-[#0d1f26] dark:text-[#8fd3df] px-2 py-1 rounded-full">{ep.method}</span>
-                  <span className="w-2 h-2 rounded-full bg-emerald-500 animate-pulse" />
-                </div>
-                <div className="mt-3 font-mono text-sm font-bold text-foreground break-all">{ep.name}</div>
-                <div className="text-xs text-muted-foreground font-sans">{ep.desc}</div>
-                <div className="mt-4 grid grid-cols-2 gap-3 pt-4 border-t border-border/50">
-                  <div>
-                    <div className="text-[11px] font-bold tracking-wide uppercase text-muted-foreground font-mono flex items-center gap-1">
-                      <Zap className="w-3 h-3" /> {t("latency")}
-                    </div>
-                    <div className="text-sm font-bold text-foreground">{ep.latency}</div>
-                  </div>
-                  <div>
-                    <div className="text-[11px] font-bold tracking-wide uppercase text-muted-foreground font-mono flex items-center gap-1">
-                      <ShieldCheck className="w-3 h-3" /> {t("uptime")}
-                    </div>
-                    <div className="text-sm font-bold text-emerald-600 dark:text-emerald-400">{ep.uptime}</div>
-                  </div>
-                </div>
-                <div className="mt-3 h-1.5 rounded-full bg-muted overflow-hidden">
-                  <div className="h-full w-[98%] bg-emerald-500 rounded-full" />
-                </div>
-              </div>
-            ))}
-          </div>
+          <StatusClient />
 
           <div className="mt-8 rounded-2xl bg-white dark:bg-white/[0.04] border border-border/60 dark:border-white/10 p-5 sm:p-6 shadow-sm">
             <h3 className="text-sm font-bold text-foreground font-heading flex items-center gap-2">

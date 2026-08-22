@@ -178,7 +178,13 @@
     "platformGridDesc": "From the biggest names to the niche platforms — if there's a video, we can fetch it.",
     "formatShowcaseBadge": "Formats",
     "formatShowcaseSubtitle": "From 4K video to AI transcripts — choose exactly what you need.",
-    "formatShowcaseFormats": "Formats"
+    "formatShowcaseFormats": "Formats",
+    "formatShowcaseTabs": {
+      "video": "Видео",
+      "audio": "Аудио",
+      "thumbnail": "Миниатюра",
+      "transcript": "Транскрипция"
+    }
   },
   "PlatformShared": {
     "chooseVideoQuality": "Выберите качество видео",
@@ -1788,6 +1794,33 @@
     "incidents": "Recent incidents",
     "noIncidents": "No incidents in the last 14 days.",
     "metaTitle": "API Status — DownForge Uptime & Health",
-    "metaDescription": "Check DownForge API status: uptime, latency, and incidents for info, download, audio and transcript endpoints."
+    "metaDescription": "Check DownForge API status: uptime, latency, and incidents for info, download, audio and transcript endpoints.",
+    "checking": "Проверка…",
+    "liveHealth": "Состояние в реальном времени",
+    "nextCheck": "Следующая проверка через {seconds} с",
+    "refresh": "Обновить",
+    "refreshing": "Обновление…",
+    "backendUnreachable": "Не удаётся связаться с сервером API",
+    "backendUnreachableDesc": "Данные появятся автоматически после восстановления соединения.",
+    "since": "Работает с {date}",
+    "server": "Сервер",
+    "queue": "Очередь",
+    "queueWaiting": "В очереди: {waiting}",
+    "endpoints": "API-эндпоинты",
+    "endpointsDesc": "Доля успешных запросов и задержка за последние {minutes} мин.",
+    "avgLatency": "Ср. задержка",
+    "successRate": "Успешность",
+    "calls": "запросов",
+    "noTraffic": "Нет трафика в текущем окне",
+    "noTrafficShort": "Нет данных",
+    "platforms": "Платформы",
+    "platformsDesc": "Поддерживаемые платформы по данным API.",
+    "jobs": "Задачи",
+    "jobsActive": "Активных: {count}",
+    "jobsCompleted": "Завершено: {count}",
+    "jobsFailed": "Ошибок: {count}",
+    "jobsQueued": "В очереди: {count}",
+    "monitoringNote": "Метрики сбрасываются при перезапуске сервера.",
+    "allSystemsOperational": "Все системы работают"
   }
 }

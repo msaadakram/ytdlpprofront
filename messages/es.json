@@ -178,7 +178,13 @@
     "platformGridDesc": "From the biggest names to the niche platforms — if there's a video, we can fetch it.",
     "formatShowcaseBadge": "Formats",
     "formatShowcaseSubtitle": "From 4K video to AI transcripts — choose exactly what you need.",
-    "formatShowcaseFormats": "Formats"
+    "formatShowcaseFormats": "Formats",
+    "formatShowcaseTabs": {
+      "video": "Vídeo",
+      "audio": "Audio",
+      "thumbnail": "Miniatura",
+      "transcript": "Transcripción"
+    }
   },
   "PlatformShared": {
     "chooseVideoQuality": "Elige calidad de video",
@@ -1788,6 +1794,33 @@
     "incidents": "Recent incidents",
     "noIncidents": "No incidents in the last 14 days.",
     "metaTitle": "API Status — DownForge Uptime & Health",
-    "metaDescription": "Check DownForge API status: uptime, latency, and incidents for info, download, audio and transcript endpoints."
+    "metaDescription": "Check DownForge API status: uptime, latency, and incidents for info, download, audio and transcript endpoints.",
+    "checking": "Comprobando…",
+    "liveHealth": "Estado en vivo",
+    "nextCheck": "Próxima comprobación en {seconds}s",
+    "refresh": "Actualizar",
+    "refreshing": "Actualizando…",
+    "backendUnreachable": "No se puede conectar con el servidor de la API",
+    "backendUnreachableDesc": "Los datos en vivo volverán automáticamente cuando se restablezca la conexión.",
+    "since": "Activo desde {date}",
+    "server": "Servidor",
+    "queue": "Cola",
+    "queueWaiting": "{waiting} en espera",
+    "endpoints": "Endpoints de la API",
+    "endpointsDesc": "Tasa de éxito y latencia de los últimos {minutes} minutos.",
+    "avgLatency": "Latencia media",
+    "successRate": "Tasa de éxito",
+    "calls": "llamadas",
+    "noTraffic": "Sin tráfico en la ventana actual",
+    "noTrafficShort": "Sin datos",
+    "platforms": "Plataformas",
+    "platformsDesc": "Plataformas compatibles según la API.",
+    "jobs": "Tareas",
+    "jobsActive": "{count} activas",
+    "jobsCompleted": "{count} completadas",
+    "jobsFailed": "{count} fallidas",
+    "jobsQueued": "{count} en cola",
+    "monitoringNote": "Las métricas se reinician al reiniciar el servidor.",
+    "allSystemsOperational": "Todos los sistemas operativos"
   }
 }

@@ -178,7 +178,13 @@
     "platformGridDesc": "From the biggest names to the niche platforms — if there's a video, we can fetch it.",
     "formatShowcaseBadge": "Formats",
     "formatShowcaseSubtitle": "From 4K video to AI transcripts — choose exactly what you need.",
-    "formatShowcaseFormats": "Formats"
+    "formatShowcaseFormats": "Formats",
+    "formatShowcaseTabs": {
+      "video": "فيديو",
+      "audio": "صوت",
+      "thumbnail": "صورة مصغرة",
+      "transcript": "النص"
+    }
   },
   "PlatformShared": {
     "chooseVideoQuality": "اختر جودة الفيديو",
@@ -1788,6 +1794,33 @@
     "incidents": "Recent incidents",
     "noIncidents": "No incidents in the last 14 days.",
     "metaTitle": "API Status — DownForge Uptime & Health",
-    "metaDescription": "Check DownForge API status: uptime, latency, and incidents for info, download, audio and transcript endpoints."
+    "metaDescription": "Check DownForge API status: uptime, latency, and incidents for info, download, audio and transcript endpoints.",
+    "checking": "جارٍ التحقق…",
+    "liveHealth": "الحالة المباشرة",
+    "nextCheck": "التحقق التالي خلال {seconds} ثانية",
+    "refresh": "تحديث",
+    "refreshing": "جارٍ التحديث…",
+    "backendUnreachable": "تعذّر الوصول إلى خادم API",
+    "backendUnreachableDesc": "ستعود البيانات المباشرة تلقائيًا فور استعادة الاتصال.",
+    "since": "يعمل منذ {date}",
+    "server": "الخادم",
+    "queue": "قائمة الانتظار",
+    "queueWaiting": "{waiting} بانتظار المعالجة",
+    "endpoints": "نقاط النهاية",
+    "endpointsDesc": "نسبة النجاح وزمن الاستجابة خلال آخر {minutes} دقيقة.",
+    "avgLatency": "متوسط الاستجابة",
+    "successRate": "نسبة النجاح",
+    "calls": "طلب",
+    "noTraffic": "لا توجد حركة خلال الفترة الحالية",
+    "noTrafficShort": "لا بيانات",
+    "platforms": "المنصات",
+    "platformsDesc": "المنصات المدعومة وفق API.",
+    "jobs": "المهام",
+    "jobsActive": "{count} نشطة",
+    "jobsCompleted": "{count} مكتملة",
+    "jobsFailed": "{count} فاشلة",
+    "jobsQueued": "{count} في الانتظار",
+    "monitoringNote": "تُعاد تعيين المقاييس عند إعادة تشغيل الخادم.",
+    "allSystemsOperational": "جميع الأنظمة تعمل"
   }
 }
