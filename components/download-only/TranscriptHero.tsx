@@ -363,9 +363,9 @@ export function TranscriptHero({ platform }: { platform: string }) {
             style={{ background: getBrandGradient() }}
           />
 
-          <div className="flex flex-col sm:flex-row gap-3 sm:gap-4">
-            <div className="flex items-center gap-2.5 w-full sm:w-auto flex-shrink-0">
-              <label htmlFor="language" className="hidden sm:block text-xs font-semibold text-muted-foreground whitespace-nowrap">
+          <div className="flex flex-col lg:flex-row gap-3 lg:gap-4">
+            <div className="flex items-center gap-2.5 w-full lg:w-auto flex-shrink-0">
+              <label htmlFor="language" className="hidden lg:block text-xs font-semibold text-muted-foreground whitespace-nowrap">
                 <Globe className="w-3 h-3 inline mr-1" />
                 Language:
               </label>
@@ -373,7 +373,7 @@ export function TranscriptHero({ platform }: { platform: string }) {
                 id="language"
                 value={selectedLanguage}
                 onChange={(e) => setSelectedLanguage(e.target.value)}
-                className="bg-white dark:bg-[#141a2a] border border-border dark:border-white/10 rounded-xl px-3 py-2.5 text-sm text-foreground dark:text-white shadow-sm focus:outline-none focus:ring-2 focus:ring-[#5baab8]/40 focus:border-transparent w-full sm:w-auto min-w-[140px] max-w-[200px] appearance-none cursor-pointer transition-all duration-200"
+                className="bg-white dark:bg-[#141a2a] border border-border dark:border-white/10 rounded-xl px-3 py-2.5 text-sm text-foreground dark:text-white shadow-sm focus:outline-none focus:ring-2 focus:ring-[#5baab8]/40 focus:border-transparent w-full lg:w-auto min-w-[140px] max-w-[200px] appearance-none cursor-pointer transition-all duration-200"
                 style={{
                   backgroundImage: "url(\"data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='16' height='16' viewBox='0 0 24 24' fill='none' stroke='%236b7280' stroke-width='2' stroke-linecap='round' stroke-linejoin='round'%3E%3Cpath d='m6 9 6 6 6-6'/%3E%3C/svg%3E\")",
                   backgroundRepeat: "no-repeat",
@@ -435,7 +435,7 @@ export function TranscriptHero({ platform }: { platform: string }) {
               disabled={processing || fetchingInfo}
               whileHover={{ scale: processing || fetchingInfo ? 1 : 1.04, y: processing || fetchingInfo ? 0 : -3 }}
               whileTap={{ scale: processing || fetchingInfo ? 1 : 0.96, y: processing || fetchingInfo ? 0 : 1 }}
-              className="brand-glow group flex items-center justify-center gap-2.5 text-white font-bold text-sm sm:text-base px-7 py-3.5 md:px-8 md:py-4 rounded-2xl transition-all duration-300 disabled:opacity-50 w-full sm:w-auto md:min-w-[190px] relative overflow-hidden font-sans tracking-wide bg-gradient-to-r from-[#0d1f26] via-[#143d4a] to-[#0d1f26] bg-[length:200%_auto] animate-gradient-shift"
+              className="brand-glow group flex items-center justify-center gap-2.5 text-white font-bold text-sm sm:text-base px-7 py-3.5 md:px-8 md:py-4 rounded-2xl transition-all duration-300 disabled:opacity-50 w-full lg:w-auto lg:min-w-[190px] relative overflow-hidden font-sans tracking-wide bg-gradient-to-r from-[#0d1f26] via-[#143d4a] to-[#0d1f26] bg-[length:200%_auto] animate-gradient-shift"
               style={{ "--brand-glow": `${brandColor}55` } as CSSProperties}
             >
               <span className="absolute inset-0 bg-gradient-to-r from-transparent via-white/15 to-transparent -translate-x-full group-hover:translate-x-full transition-transform duration-[1.5s] ease-in-out pointer-events-none" />
