@@ -41,7 +41,7 @@ const footerGroups = [
   {
     titleKey: "product" as const,
     links: [
-      { labelKey: "features" as const, href: "/pricing" },
+      { labelKey: "features" as const, href: "/features" },
       { labelKey: "pricing" as const, href: "/pricing" },
       { labelKey: "api" as const, href: "/api-docs" },
       { labelKey: "dashboard" as const, href: "/dashboard" },
@@ -51,9 +51,9 @@ const footerGroups = [
     titleKey: "resources" as const,
     links: [
       { labelKey: "documentation" as const, href: "/api-docs" },
-      { labelKey: "apiStatus" as const, href: "#" },
-      { labelKey: "changelog" as const, href: "#" },
-      { labelKey: "blog" as const, href: "#" },
+      { labelKey: "apiStatus" as const, href: "/api-status" },
+      { labelKey: "changelog" as const, href: "/changelog" },
+      { labelKey: "blog" as const, href: "/blog" },
     ],
   },
   {
@@ -351,17 +351,17 @@ export function Footer() {
           {/* Beautiful DownForge large text */}
           <div className="mt-6 sm:mt-8 lg:mt-10 relative select-none overflow-hidden rounded-[1.5rem] sm:rounded-[2rem] bg-gradient-to-br from-white/[0.06] via-white/[0.02] to-transparent border border-white/[0.06] backdrop-blur-sm px-4 sm:px-5 lg:px-6 py-5 sm:py-6 lg:py-8">
             <div className="absolute inset-0 bg-gradient-to-r from-[#5baab8]/10 via-transparent to-transparent opacity-60" />
-            <div className="relative flex flex-col lg:flex-row items-center justify-between gap-3 sm:gap-4">
+            <div className="relative z-10 flex flex-col lg:flex-row items-center justify-between gap-4 sm:gap-5">
               <div className="flex items-center gap-2.5 sm:gap-3">
                 <div className="w-10 h-10 sm:w-12 sm:h-12 rounded-2xl bg-white flex items-center justify-center shadow-lg shrink-0">
                   <img src="/logo.png" alt="DownForge" className="w-6 h-6 sm:w-7 sm:h-7 object-contain" />
                 </div>
-                <div className="min-w-0 flex flex-col gap-1">
+                <div className="min-w-0 flex flex-col gap-1 sm:gap-1.5">
                   <div className="font-heading text-xl sm:text-2xl lg:text-3xl font-black tracking-[-0.03em] leading-none bg-gradient-to-r from-white via-white to-[#8fd3df] bg-clip-text text-transparent">
                     DownForge
                   </div>
-                  <div className="flex items-center gap-1.5 font-mono text-[9px] sm:text-[10px] font-bold tracking-[0.14em] sm:tracking-[0.2em] uppercase text-[#5baab8]">
-                    <span>Download</span> <span className="w-1 h-1 rounded-full bg-[#5baab8]/70" /> <span>Convert</span> <span className="w-1 h-1 rounded-full bg-[#5baab8]/70" /> <span>Create</span> <span className="ml-1">✨</span>
+                  <div className="flex flex-wrap items-center gap-x-1.5 gap-y-1 font-mono text-[10px] sm:text-[10px] font-bold tracking-[0.14em] sm:tracking-[0.18em] uppercase text-[#5baab8]">
+                    <span>Download</span> <span className="w-1 h-1 rounded-full bg-[#5baab8]/70 shrink-0" /> <span>Convert</span> <span className="w-1 h-1 rounded-full bg-[#5baab8]/70 shrink-0" /> <span>Create</span> <Sparkles className="w-3 h-3 sm:w-3.5 sm:h-3.5 text-[#5baab8] ml-0.5 shrink-0" />
                   </div>
                 </div>
               </div>
@@ -373,7 +373,7 @@ export function Footer() {
               </div>
             </div>
             {/* Watermark */}
-            <div aria-hidden className="pointer-events-none absolute -bottom-4 sm:-bottom-6 left-1/2 -translate-x-1/2 font-heading text-[56px] sm:text-[72px] lg:text-[96px] xl:text-[120px] font-black tracking-[-0.05em] leading-none text-white/[0.03] whitespace-nowrap select-none max-w-full">
+            <div aria-hidden className="pointer-events-none absolute -bottom-3 sm:-bottom-5 left-1/2 -translate-x-1/2 font-heading text-[48px] sm:text-[64px] lg:text-[88px] xl:text-[110px] font-black tracking-[-0.05em] leading-none text-white/[0.04] whitespace-nowrap select-none max-w-full">
               DownForge
             </div>
           </div>
