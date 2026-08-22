@@ -348,9 +348,9 @@ export function Footer() {
           </div>
 
           {/* Beautiful DownForge large text */}
-          <div className="mt-6 sm:mt-8 lg:mt-10 relative select-none overflow-hidden rounded-[1.5rem] sm:rounded-[2rem] bg-gradient-to-br from-white/[0.06] via-white/[0.02] to-transparent border border-white/[0.06] backdrop-blur-sm px-4 sm:px-5 lg:px-6 py-5 sm:py-6 lg:py-8">
+          <div className="mt-6 lg:mt-8 xl:mt-10 relative select-none overflow-hidden rounded-[1.5rem] lg:rounded-[1.75rem] xl:rounded-[2rem] bg-gradient-to-br from-white/[0.06] via-white/[0.02] to-transparent border border-white/[0.06] backdrop-blur-sm px-4 lg:px-5 xl:px-6 py-5 lg:py-6 xl:py-8">
             <div className="absolute inset-0 bg-gradient-to-r from-[#5baab8]/10 via-transparent to-transparent opacity-60" />
-            <div className="relative z-10 flex flex-col lg:flex-row items-center justify-between gap-4 sm:gap-5">
+            <div className="relative z-10 flex flex-col lg:flex-row items-center justify-between gap-4 lg:gap-6 xl:gap-8">
               <div className="flex items-center gap-2.5 sm:gap-3">
                 <div className="w-10 h-10 sm:w-12 sm:h-12 rounded-2xl bg-white flex items-center justify-center shadow-lg shrink-0">
                   <img src="/logo.png" alt="DownForge" className="w-6 h-6 sm:w-7 sm:h-7 object-contain" />
@@ -368,12 +368,12 @@ export function Footer() {
                 <div className="font-heading text-[13px] sm:text-sm font-bold text-white/90 flex items-center justify-center lg:justify-end gap-1.5 sm:gap-2">
                   <Sparkles className="w-3.5 h-3.5 sm:w-4 sm:h-4 text-[#8fd3df] shrink-0" /> Crafted for creators
                 </div>
-                <div className="font-sans text-[11px] sm:text-xs text-white/40 mt-1">Fast • Private • Any format • 200+ platforms</div>
+                <div className="font-sans text-[11px] lg:text-[11px] xl:text-xs text-white/40 mt-1 leading-relaxed">Fast <span className="hidden xs:inline">•</span> <span className="xs:hidden">·</span> Private <span className="hidden xs:inline">•</span> <span className="xs:hidden">·</span> Any format <span className="hidden xs:inline">•</span> <span className="xs:hidden">·</span> 200+ platforms</div>
               </div>
             </div>
             {/* Watermark — centered, no translate, no overflow */}
-            <div aria-hidden className="pointer-events-none absolute inset-x-0 -bottom-1 sm:-bottom-2 flex justify-center overflow-hidden select-none">
-              <span className="font-heading text-[42px] sm:text-[60px] lg:text-[84px] xl:text-[110px] font-black tracking-[-0.05em] leading-none text-white/[0.05] whitespace-nowrap">
+            <div aria-hidden className="pointer-events-none absolute inset-x-0 -bottom-1 lg:-bottom-1 xl:-bottom-2 flex justify-center overflow-hidden select-none">
+              <span className="font-heading text-[36px] xs:text-[42px] sm:text-[56px] lg:text-[64px] xl:text-[84px] 2xl:text-[110px] font-black tracking-[-0.05em] leading-none text-white/[0.04] sm:text-white/[0.05] whitespace-nowrap">
                 DownForge
               </span>
             </div>
