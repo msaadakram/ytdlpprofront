@@ -374,12 +374,12 @@ export function Nav() {
                               {localeFlags[l]}
                             </span>
                             <div className="min-w-0 flex-1 text-left">
-                              <div className={`text-xs xl:text-sm font-semibold leading-none font-sans ${isActive ? "text-white dark:text-[#0d1f26]" : "text-foreground"}`}>{lt(l)}</div>
-                              <div className={`text-[11px] xl:text-xs font-mono truncate ${isActive ? "text-white/60 dark:text-[#0d1f26]/60" : "text-muted-foreground"}`}>{l.toUpperCase()} • {l === "en" ? "English" : l === "es" ? "Español" : l === "fr" ? "Français" : l === "de" ? "Deutsch" : l === "pt" ? "Português" : l === "ja" ? "日本語" : l === "ar" ? "العربية" : l === "ru" ? "Русский" : "中文"}</div>
+                              <div className={`text-sm font-semibold leading-none font-sans ${isActive ? "text-white dark:text-[#0d1f26]" : "text-foreground"}`}>{lt(l)}</div>
+                              <div className={`text-xs font-mono ${isActive ? "text-white/60 dark:text-[#0d1f26]/60" : "text-muted-foreground"}`}>{l.toUpperCase()}</div>
                             </div>
                             {isActive && (
-                              <span className="w-4 h-4 lg:w-5 lg:h-5 xl:w-6 xl:h-6 rounded-full bg-white/15 dark:bg-[#0d1f26]/10 flex items-center justify-center shrink-0">
-                                <Check className="w-3 h-3 lg:w-3.5 lg:h-3.5 xl:w-4 xl:h-4 text-white dark:text-[#0d1f26]" />
+                              <span className="w-6 h-6 rounded-full bg-white/15 dark:bg-[#0d1f26]/10 flex items-center justify-center shrink-0">
+                                <Check className="w-4 h-4 text-white dark:text-[#0d1f26]" />
                               </span>
                             )}
                           </button>

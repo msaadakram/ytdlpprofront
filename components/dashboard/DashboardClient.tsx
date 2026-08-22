@@ -35,6 +35,16 @@ export function DashboardClient() {
     };
   }, [mobileNavOpen]);
 
+  // Allow Topbar (or any component) to navigate via custom event when no direct prop is wired.
+  useEffect(() => {
+    function handleDashboardNavigate(e: Event) {
+      const detail = (e as CustomEvent<DashboardTab>).detail;
+      if (detail) setActiveTab(detail);
+    }
+    window.addEventListener("dashboard:navigate" as any, handleDashboardNavigate);
+    return () => window.removeEventListener("dashboard:navigate" as any, handleDashboardNavigate);
+  }, []);
+
   async function handleLogout() {
     await logout();
     router.replace("/");
@@ -78,7 +88,7 @@ export function DashboardClient() {
       />
 
       <div className={`pt-16 transition-all duration-300 ${sidebarCollapsed ? "lg:ml-16" : "lg:ml-64"}`}>
-        <Topbar />
+        <Topbar onNavigate={setActiveTab} />
         <main className="p-4 sm:p-6">
           {activeTab === "overview" && <OverviewTab />}
           {activeTab === "api-keys" && <ApiKeysTab />}

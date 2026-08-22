@@ -1742,5 +1742,52 @@
     ],
     "metaTitle": "Contact DownForge — Support, Billing & DMCA | DownForge",
     "metaDescription": "Contact DownForge support: billing, API, DMCA, or general help. Avg. reply <24h. Email support@downforge.me or use the form."
+  },
+  "Features": {
+    "badge": "Why DownForge",
+    "title": "All-in-One Download Tool",
+    "titleAccent": "for 200+ sites",
+    "subtitle": "Built for speed, privacy, and quality. Download video, audio, thumbnails and transcripts the way it was meant to be saved.",
+    "ctaTitle": "Ready to try?",
+    "ctaSubtitle": "Paste a URL and get your file in seconds. No account required.",
+    "ctaButton": "Start free",
+    "ctaSecondary": "View pricing",
+    "metaTitle": "Features — DownForge | Video, Audio, Thumbnail & Transcript Tools",
+    "metaDescription": "Explore DownForge features: 200+ platforms, 4K video, FLAC audio, HD thumbnails, AI transcripts, batch, private & fast."
+  },
+  "Blog": {
+    "badge": "Blog",
+    "title": "Insights & Guides",
+    "subtitle": "Tutorials, platform guides, and product updates from the DownForge team.",
+    "readMore": "Read more",
+    "empty": "No posts yet — check back soon.",
+    "metaTitle": "Blog — DownForge Guides & Updates",
+    "metaDescription": "DownForge blog: tutorials, platform guides, and updates for downloading video, audio, thumbnails and transcripts."
+  },
+  "Changelog": {
+    "badge": "Changelog",
+    "title": "What’s new",
+    "subtitle": "All notable changes to DownForge — new platforms, formats, and fixes.",
+    "filterAll": "All",
+    "filterMajor": "Major",
+    "filterFix": "Fix",
+    "metaTitle": "Changelog — DownForge Updates",
+    "metaDescription": "See what’s new in DownForge: new platforms, formats, performance and fixes."
+  },
+  "ApiStatus": {
+    "badge": "Status",
+    "title": "API Status",
+    "subtitle": "Real-time health of DownForge API and its endpoints.",
+    "operational": "Operational",
+    "degraded": "Degraded",
+    "outage": "Outage",
+    "live": "Live",
+    "lastChecked": "Last checked",
+    "uptime": "Uptime",
+    "latency": "Latency",
+    "incidents": "Recent incidents",
+    "noIncidents": "No incidents in the last 14 days.",
+    "metaTitle": "API Status — DownForge Uptime & Health",
+    "metaDescription": "Check DownForge API status: uptime, latency, and incidents for info, download, audio and transcript endpoints."
   }
 }
