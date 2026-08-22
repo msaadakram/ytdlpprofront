@@ -146,24 +146,25 @@ export function AuthPage({ mode }: { mode: AuthMode }) {
   const firstNameRef = useRef<HTMLInputElement>(null);
   const lastNameRef = useRef<HTMLInputElement>(null);
   const [agree, setAgree] = useState(false);
+  const [password, setPassword] = useState("");
   const [pwFocused, setPwFocused] = useState(false);
   const { login, signup } = useAuth();
   const router = useRouter();
   const isSignIn = mode === "signin";
   const t = useTranslations("Auth");
 
-  const passwordVal = passwordRef.current?.value || "";
-  const pwLen = pwFocused ? passwordVal.length : 0;
-  const pwStrength = pwLen === 0 ? 0 : pwLen < 6 ? 1 : pwLen < 10 ? 2 : 3;
+  // Live strength - updates as you type (reactive via state)
+  const pwStrength = password.length === 0 ? 0 : password.length < 6 ? 1 : password.length < 10 ? 2 : 3;
 
   async function handleSubmit(e: FormEvent) {
     e.preventDefault();
     setError(null);
     setGoogleError(null);
     const email = emailRef.current?.value?.trim() || "";
-    const password = passwordRef.current?.value || "";
+    // Use state-driven password for reliability (keeps ref in sync)
+    const pwd = password || passwordRef.current?.value || "";
 
-    if (!email || !password) {
+    if (!email || !pwd) {
       setError(t("errorRequired"));
       return;
     }
@@ -175,7 +176,7 @@ export function AuthPage({ mode }: { mode: AuthMode }) {
     setSubmitting(true);
     try {
       if (isSignIn) {
-        const result = await login(email, password);
+        const result = await login(email, pwd);
         if (!result.success) {
           setError(result.error || t("errorSignIn"));
           return;
@@ -188,11 +189,11 @@ export function AuthPage({ mode }: { mode: AuthMode }) {
           setError(t("errorNameRequired"));
           return;
         }
-        if (password.length < 6) {
+        if (pwd.length < 6) {
           setError(t("errorPasswordShort"));
           return;
         }
-        const result = await signup({ first_name, last_name, email, password });
+        const result = await signup({ first_name, last_name, email, password: pwd });
         if (!result.success) {
           setError(result.error || t("errorSignUp"));
           return;
@@ -307,11 +308,15 @@ export function AuthPage({ mode }: { mode: AuthMode }) {
                     <input
                       id="password"
                       ref={passwordRef}
+                      value={password}
+                      onChange={(e) => {
+                        setPassword(e.target.value);
+                        if (!pwFocused) setPwFocused(true);
+                      }}
                       type={showPassword ? "text" : "password"}
                       placeholder={t("passwordPlaceholder")}
                       onFocus={() => setPwFocused(true)}
                       onBlur={() => setPwFocused(false)}
-                      onChange={() => setPwFocused(true)}
                       className="flex-1 bg-transparent text-sm font-medium text-[#0d1f26] dark:text-white placeholder:text-[#0d1f26]/30 dark:placeholder:text-white/30 outline-none font-sans min-w-0"
                       autoComplete={isSignIn ? "current-password" : "new-password"}
                     />
