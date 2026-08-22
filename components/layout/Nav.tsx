@@ -143,10 +143,11 @@ export function Nav() {
           </span>
         </Link>
 
-        <nav className="hidden lg:flex items-center gap-1">
+        <nav className="hidden lg:flex items-center gap-0.5 xl:gap-1">
           {downloadTypes.map((dt, i) => {
             const isOpen = openDropdown === i;
             const Icon = dt.icon;
+            const alignClass = i === 0 ? "left-0" : i === 3 ? "right-0" : "left-1/2 -translate-x-1/2";
             return (
               <div
                 key={dt.type}
@@ -161,18 +162,18 @@ export function Nav() {
                 <button
                   onClick={() => toggleDropdown(i)}
                   aria-expanded={isOpen}
-                  className={`flex items-center gap-1.5 sm:gap-2 px-3 lg:px-3.5 py-2 text-sm font-semibold rounded-full border transition-all duration-200 font-sans ${
+                  className={`flex items-center gap-1 xl:gap-1.5 px-2.5 xl:px-3.5 py-1.5 xl:py-2 text-xs xl:text-sm font-semibold rounded-full border transition-all duration-200 font-sans whitespace-nowrap ${
                     isOpen
                       ? "bg-[#0d1f26] text-white border-[#0d1f26] shadow-md dark:bg-white dark:text-[#0d1f26] dark:border-white"
                       : "text-muted-foreground border-transparent hover:text-foreground hover:bg-white hover:border-border/60 hover:shadow-sm bg-transparent"
                   }`}
                 >
-                  <span className={`w-6 h-6 rounded-full flex items-center justify-center ${isOpen ? "bg-white/15 dark:bg-[#0d1f26]/10" : "bg-muted"}`}>
-                    <Icon className="w-3.5 h-3.5" />
+                  <span className={`w-5 h-5 xl:w-6 xl:h-6 rounded-full flex items-center justify-center shrink-0 ${isOpen ? "bg-white/15 dark:bg-[#0d1f26]/10" : "bg-muted"}`}>
+                    <Icon className="w-3 xl:w-3.5 h-3 xl:h-3.5" />
                   </span>
                   <span>{dt.label}</span>
                   <motion.span animate={{ rotate: isOpen ? 180 : 0 }} transition={{ duration: 0.22 }} className="flex">
-                    <ChevronDown className="w-3.5 h-3.5 opacity-60" />
+                    <ChevronDown className="w-3 h-3 xl:w-3.5 xl:h-3.5 opacity-60" />
                   </motion.span>
                 </button>
 
@@ -183,7 +184,7 @@ export function Nav() {
                       animate={{ opacity: 1, scale: 1, y: 0 }}
                       exit={{ opacity: 0, scale: 0.96, y: -8 }}
                       transition={{ type: "spring", stiffness: 380, damping: 28 }}
-                      className="absolute top-full left-1/2 -translate-x-1/2 mt-3 bg-white/95 dark:bg-[#0f1e26]/90 backdrop-blur-2xl border border-border/60 dark:border-white/10 rounded-[1.75rem] shadow-[0_24px_64px_-16px_rgba(13,31,38,0.18)] overflow-hidden min-w-[300px] sm:min-w-[560px] lg:min-w-[620px] max-w-[92vw] z-50"
+                      className={`absolute top-full mt-3 bg-white/95 dark:bg-[#0f1e26]/90 backdrop-blur-2xl border border-border/60 dark:border-white/10 rounded-[1.75rem] shadow-[0_24px_64px_-16px_rgba(13,31,38,0.18)] overflow-hidden min-w-[300px] sm:min-w-[520px] lg:min-w-[560px] xl:min-w-[620px] max-w-[92vw] z-50 ${alignClass}`}
                     >
                       <div className="h-1 w-full bg-gradient-to-r from-[#5baab8] via-[#0d1f26] to-[#5baab8] opacity-80" />
                       <div className="p-4 sm:p-5">
@@ -239,21 +240,21 @@ export function Nav() {
           </Link>
         </nav>
 
-        <div className="hidden lg:flex items-center gap-1.5 lg:gap-2">
+        <div className="hidden lg:flex items-center gap-1 xl:gap-2">
           {/* Locale Switcher — modern with flags */}
           <div className="relative">
             <button
               onClick={() => { setLangOpen(!langOpen); setOpenDropdown(null); setAccountOpen(false); }}
-              className="flex items-center gap-1.5 sm:gap-2 pl-1 sm:pl-1.5 pr-2 sm:pr-2.5 py-1 sm:py-1 rounded-full bg-white border border-border/60 shadow-sm hover:shadow-md hover:border-border hover:bg-white transition-all font-sans"
+              className="flex items-center gap-1 xl:gap-1.5 pl-1 pr-1.5 xl:pl-1.5 xl:pr-2.5 py-1 rounded-full bg-white border border-border/60 shadow-sm hover:shadow-md hover:border-border hover:bg-white transition-all font-sans"
               aria-label={lt("label")}
             >
-              <span className="w-7 h-7 sm:w-7 sm:h-7 rounded-full flex items-center justify-center text-[15px] sm:text-[16px] bg-gradient-to-br from-slate-50 to-slate-100 border border-border/40 shadow-inner shrink-0">
+              <span className="w-7 h-7 rounded-full flex items-center justify-center text-[15px] xl:text-[16px] bg-gradient-to-br from-slate-50 to-slate-100 border border-border/40 shadow-inner shrink-0">
                 {localeFlags[locale as Locale] || "🌐"}
               </span>
-              <span className="hidden sm:block text-sm font-semibold text-foreground">{lt(locale as Locale)}</span>
+              <span className="hidden xl:block text-sm font-semibold text-foreground">{lt(locale as Locale)}</span>
               <span className="hidden xl:inline-flex text-xs font-mono text-muted-foreground border border-border/60 rounded-full px-1.5 py-0.5 bg-muted/40">{locale.toUpperCase()}</span>
               <motion.span animate={{ rotate: langOpen ? 180 : 0 }} transition={{ duration: 0.2 }} className="flex">
-                <ChevronDown className="w-3.5 h-3.5 text-muted-foreground" />
+                <ChevronDown className="w-3 h-3 xl:w-3.5 xl:h-3.5 text-muted-foreground" />
               </motion.span>
             </button>
             <AnimatePresence>
