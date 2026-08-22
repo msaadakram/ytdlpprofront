@@ -91,24 +91,24 @@ function ColumnHeading({ children }: { children: React.ReactNode }) {
   );
 }
 
-function FooterColumn({ title, links, moreLabel }: FooterColumnData) {
+function FooterColumn({ title, links, moreLabel, className }: FooterColumnData & { className?: string }) {
   return (
-    <div className="max-md:hidden">
+    <div className={`max-md:hidden ${className || ""}`}>
       <ColumnHeading>{title}</ColumnHeading>
-      <ul className="mt-5 flex flex-col gap-2.5">
+      <ul className="mt-4 lg:mt-5 flex flex-col gap-1.5 lg:gap-2.5">
         {links.map(([label, href]) => (
           <li key={label}>
             <Link
               href={href}
-              className="group inline-flex items-center gap-1.5 py-1 text-sm text-white/60 transition-colors hover:text-white font-sans"
+              className="group inline-flex items-center gap-1.5 py-1 text-[13px] lg:text-sm text-white/60 transition-colors hover:text-white font-sans break-words"
             >
-              <span className="h-px w-0 bg-[#5baab8] transition-all group-hover:w-3" />
-              {label}
+              <span className="h-px w-0 bg-[#5baab8] transition-all group-hover:w-3 shrink-0" />
+              <span className="min-w-0">{label}</span>
             </Link>
           </li>
         ))}
         {moreLabel && (
-          <li className="pt-2">
+          <li className="pt-1.5 lg:pt-2">
             <Link
               href="/youtube-download"
               className="inline-flex items-center gap-1.5 text-xs font-bold tracking-wide text-[#8fd3df] hover:text-white transition-colors"
@@ -210,10 +210,10 @@ export function Footer() {
         <div className="absolute inset-0 opacity-[0.03]" style={{ backgroundImage: `linear-gradient(to right,white 1px,transparent 1px), linear-gradient(to bottom,white 1px,transparent 1px)`, backgroundSize: `32px 32px` }} />
       </div>
 
-      <div className="relative mx-auto max-w-7xl px-4 py-10 sm:px-6 lg:px-6 md:py-14 lg:py-16">
-        <div className="grid items-start gap-8 sm:gap-10 md:grid-cols-2 lg:grid-cols-6 xl:gap-12">
+      <div className="relative mx-auto max-w-7xl px-4 py-8 sm:px-6 lg:px-8 md:py-12 lg:py-14 xl:py-16">
+        <div className="grid items-start gap-8 sm:gap-8 gap-y-10 md:grid-cols-2 lg:grid-cols-7 xl:grid-cols-6 lg:gap-x-6 xl:gap-x-8 2xl:gap-x-12">
           {/* Brand + newsletter — modern glass */}
-          <div className="md:col-span-2 lg:col-span-2">
+          <div className="md:col-span-2 lg:col-span-2 min-w-0">
             <Link
               href="/"
               className="group inline-flex items-center gap-3 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-[#5baab8]/50 focus-visible:rounded-xl"
@@ -233,19 +233,19 @@ export function Footer() {
               {f("tagline")}
             </p>
 
-            <div className="mt-4 inline-flex flex-wrap gap-2">
-              <span className="inline-flex items-center gap-1.5 rounded-full bg-white/5 border border-white/10 px-2.5 py-1 text-xs font-semibold text-white/70">
+            <div className="mt-4 inline-flex flex-wrap gap-1.5 sm:gap-2">
+              <span className="inline-flex items-center gap-1.5 rounded-full bg-white/5 border border-white/10 px-2 sm:px-2.5 py-1 text-[11px] sm:text-xs font-semibold text-white/70">
                 <ShieldCheck className="w-3 h-3 text-emerald-400" /> No logs
               </span>
-              <span className="inline-flex items-center gap-1.5 rounded-full bg-white/5 border border-white/10 px-2.5 py-1 text-xs font-semibold text-white/70">
+              <span className="inline-flex items-center gap-1.5 rounded-full bg-white/5 border border-white/10 px-2 sm:px-2.5 py-1 text-[11px] sm:text-xs font-semibold text-white/70">
                 <Zap className="w-3 h-3 text-amber-400" /> 200+ sites
               </span>
             </div>
 
             {/* Social — modern pill */}
-            <div className="mt-7">
+            <div className="mt-6 sm:mt-7">
               <ColumnHeading>{f("socialHeading")}</ColumnHeading>
-              <div className="mt-3.5 flex flex-wrap gap-2">
+              <div className="mt-3 sm:mt-3.5 flex flex-wrap gap-1.5 sm:gap-2">
                 {socialLinks.map((social) => {
                   const Icon = social.icon;
                   return (
@@ -255,11 +255,11 @@ export function Footer() {
                       target="_blank"
                       rel="noopener noreferrer"
                       aria-label={social.name}
-                      className="group flex h-9 w-9 items-center justify-center rounded-xl bg-white/[0.06] text-white/60 ring-1 ring-white/10 backdrop-blur-sm transition-all hover:bg-white hover:text-[#0d1f26] hover:ring-white focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-[#5baab8]/60"
+                      className="group flex h-8 w-8 sm:h-9 sm:w-9 items-center justify-center rounded-xl bg-white/[0.06] text-white/60 ring-1 ring-white/10 backdrop-blur-sm transition-all hover:bg-white hover:text-[#0d1f26] hover:ring-white focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-[#5baab8]/60"
                       whileHover={{ y: -2, scale: 1.06 }}
                       whileTap={{ scale: 0.96 }}
                     >
-                      <Icon className="h-4 w-4" aria-hidden />
+                      <Icon className="h-3.5 w-3.5 sm:h-4 sm:w-4" aria-hidden />
                     </motion.a>
                   );
                 })}
@@ -267,16 +267,16 @@ export function Footer() {
             </div>
 
             {/* Newsletter — glass */}
-            <div className="mt-8">
+            <div className="mt-6 sm:mt-8 min-w-0">
               <ColumnHeading>{f("newsletter")}</ColumnHeading>
-              <p className="mt-3 font-sans text-sm leading-relaxed text-white/55">
+              <p className="mt-2.5 sm:mt-3 font-sans text-[13px] sm:text-sm leading-relaxed text-white/55">
                 {f("newsletterDesc")}
               </p>
-              <form onSubmit={handleSubscribe} className="mt-4">
+              <form onSubmit={handleSubscribe} className="mt-3 sm:mt-4 min-w-0">
                 <label htmlFor={newsletterId} className="sr-only">
                   {f("newsletter")}
                 </label>
-                <div className="relative flex items-center rounded-full bg-white/[0.06] border border-white/10 p-1 backdrop-blur-xl focus-within:bg-white/[0.08] focus-within:border-[#5baab8]/30 transition-colors">
+                <div className="relative flex items-center gap-1 rounded-full bg-white/[0.06] border border-white/10 p-1 backdrop-blur-xl focus-within:bg-white/[0.08] focus-within:border-[#5baab8]/30 transition-colors min-w-0 overflow-hidden">
                   <input
                     id={newsletterId}
                     type="email"
@@ -284,15 +284,15 @@ export function Footer() {
                     onChange={(e) => setEmail(e.target.value)}
                     placeholder={f("newsletterPlaceholder")}
                     required
-                    className="flex-1 bg-transparent px-4 py-2 font-sans text-sm text-white placeholder:text-white/40 focus:outline-none"
+                    className="flex-1 min-w-0 bg-transparent px-3 sm:px-4 py-2 font-sans text-sm text-white placeholder:text-white/40 focus:outline-none truncate"
                   />
                   <button
                     type="submit"
                     disabled={subscribed}
                     aria-label={f("subscribe")}
-                    className="inline-flex h-8 items-center gap-1.5 rounded-full bg-white px-4 text-xs font-bold tracking-wide text-[#0d1f26] shadow hover:bg-slate-100 disabled:opacity-60 transition-colors"
+                    className="inline-flex h-7 sm:h-8 shrink-0 items-center gap-1 sm:gap-1.5 rounded-full bg-white px-3 sm:px-4 text-[11px] sm:text-xs font-bold tracking-wide text-[#0d1f26] shadow hover:bg-slate-100 disabled:opacity-60 transition-colors whitespace-nowrap"
                   >
-                    {subscribed ? <><Check className="h-3.5 w-3.5" /> {f("subscribed")}</> : <><Send className="h-3.5 w-3.5" /> {f("subscribe")}</>}
+                    {subscribed ? <><Check className="h-3 w-3 sm:h-3.5 sm:w-3.5" /> {f("subscribed")}</> : <><Send className="h-3 w-3 sm:h-3.5 sm:w-3.5" /> {f("subscribe")}</>}
                   </button>
                 </div>
                 <p aria-live="polite" className="mt-2 min-h-4 font-sans text-xs text-[#8fd3df]">
@@ -303,8 +303,12 @@ export function Footer() {
           </div>
 
           {/* Link columns (tablet and up) */}
-          {columns.map((column) => (
-            <FooterColumn key={column.title} {...column} />
+          {columns.map((column, idx) => (
+            <FooterColumn
+              key={column.title}
+              {...column}
+              className={idx === 0 ? "lg:col-span-2 xl:col-span-1" : ""}
+            />
           ))}
 
           {/* Accordion (mobile only) */}
@@ -316,61 +320,61 @@ export function Footer() {
         </div>
 
         {/* Large beautiful DownForge watermark */}
-        <div className="relative mt-10 sm:mt-12 border-t border-white/[0.06] pt-8 sm:pt-10 overflow-hidden">
+        <div className="relative mt-8 sm:mt-10 lg:mt-12 border-t border-white/[0.06] pt-6 sm:pt-8 lg:pt-10 overflow-hidden">
           <div className="pointer-events-none absolute inset-x-0 -top-10 h-40 bg-gradient-to-b from-[#5baab8]/5 to-transparent blur-2xl" />
-          <div className="flex flex-col items-center gap-6 md:flex-row md:justify-between">
-            <div className="text-center md:text-left">
-              <div className="inline-flex items-center gap-2">
-                <span className="w-1.5 h-1.5 rounded-full bg-emerald-400 animate-pulse shadow-[0_0_8px_rgba(16,185,129,0.6)]" />
-                <span className="font-mono text-[11px] font-bold tracking-[0.18em] uppercase text-white/40">All systems operational • 200+ sites live</span>
+          <div className="flex flex-col items-center gap-4 sm:gap-6 lg:flex-row lg:justify-between">
+            <div className="text-center lg:text-left min-w-0">
+              <div className="inline-flex items-center gap-2 flex-wrap justify-center lg:justify-start">
+                <span className="w-1.5 h-1.5 rounded-full bg-emerald-400 animate-pulse shadow-[0_0_8px_rgba(16,185,129,0.6)] shrink-0" />
+                <span className="font-mono text-[10px] sm:text-[11px] font-bold tracking-[0.16em] sm:tracking-[0.18em] uppercase text-white/40 text-center">All systems operational • 200+ sites live</span>
               </div>
-              <p className="mt-2 font-sans text-xs text-white/40">{f("copyright")}</p>
+              <p className="mt-1.5 sm:mt-2 font-sans text-[11px] sm:text-xs text-white/40 break-words">{f("copyright")}</p>
             </div>
 
-            <div className="flex flex-wrap items-center justify-center gap-3">
-              <Link href="/privacy" className="rounded-full bg-white/5 border border-white/10 px-3 py-1.5 font-sans text-xs font-semibold text-white/60 hover:text-white hover:bg-white/10 transition-colors">
+            <div className="flex flex-wrap items-center justify-center gap-2 sm:gap-3">
+              <Link href="/privacy" className="rounded-full bg-white/5 border border-white/10 px-2.5 sm:px-3 py-1 sm:py-1.5 font-sans text-[11px] sm:text-xs font-semibold text-white/60 hover:text-white hover:bg-white/10 transition-colors whitespace-nowrap">
                 {t("privacy")}
               </Link>
-              <Link href="/terms" className="rounded-full bg-white/5 border border-white/10 px-3 py-1.5 font-sans text-xs font-semibold text-white/60 hover:text-white hover:bg-white/10 transition-colors">
+              <Link href="/terms" className="rounded-full bg-white/5 border border-white/10 px-2.5 sm:px-3 py-1 sm:py-1.5 font-sans text-[11px] sm:text-xs font-semibold text-white/60 hover:text-white hover:bg-white/10 transition-colors whitespace-nowrap">
                 Terms
               </Link>
-              <Link href="/api-disclaimer" className="rounded-full bg-white/5 border border-white/10 px-3 py-1.5 font-sans text-xs font-semibold text-white/60 hover:text-white hover:bg-white/10 transition-colors">
+              <Link href="/api-disclaimer" className="rounded-full bg-white/5 border border-white/10 px-2.5 sm:px-3 py-1 sm:py-1.5 font-sans text-[11px] sm:text-xs font-semibold text-white/60 hover:text-white hover:bg-white/10 transition-colors whitespace-nowrap">
                 API Disclaimer
               </Link>
             </div>
 
-            <p className="hidden lg:block font-mono text-xs tracking-wide text-white/25">{f("poweredBy")}</p>
+            <p className="hidden lg:block font-mono text-xs tracking-wide text-white/25 shrink-0">{f("poweredBy")}</p>
           </div>
 
           {/* Beautiful DownForge large text */}
-          <div className="mt-8 sm:mt-10 relative select-none overflow-hidden rounded-[1.5rem] sm:rounded-[2rem] bg-gradient-to-br from-white/[0.06] via-white/[0.02] to-transparent border border-white/[0.06] backdrop-blur-sm px-4 sm:px-6 py-6 sm:py-8">
+          <div className="mt-6 sm:mt-8 lg:mt-10 relative select-none overflow-hidden rounded-[1.5rem] sm:rounded-[2rem] bg-gradient-to-br from-white/[0.06] via-white/[0.02] to-transparent border border-white/[0.06] backdrop-blur-sm px-4 sm:px-5 lg:px-6 py-5 sm:py-6 lg:py-8">
             <div className="absolute inset-0 bg-gradient-to-r from-[#5baab8]/10 via-transparent to-transparent opacity-60" />
-            <div className="relative flex flex-col lg:flex-row items-center justify-between gap-4">
-              <div className="flex items-center gap-3">
-                <div className="w-12 h-12 rounded-2xl bg-white flex items-center justify-center shadow-lg">
-                  <img src="/logo.png" alt="DownForge" className="w-7 h-7 object-contain" />
+            <div className="relative flex flex-col lg:flex-row items-center justify-between gap-3 sm:gap-4">
+              <div className="flex items-center gap-2.5 sm:gap-3">
+                <div className="w-10 h-10 sm:w-12 sm:h-12 rounded-2xl bg-white flex items-center justify-center shadow-lg shrink-0">
+                  <img src="/logo.png" alt="DownForge" className="w-6 h-6 sm:w-7 sm:h-7 object-contain" />
                 </div>
-                <div>
-                  <div className="font-heading text-2xl sm:text-3xl font-black tracking-[-0.03em] leading-none bg-gradient-to-r from-white via-white to-[#8fd3df] bg-clip-text text-transparent">
+                <div className="min-w-0">
+                  <div className="font-heading text-xl sm:text-2xl lg:text-3xl font-black tracking-[-0.03em] leading-none bg-gradient-to-r from-white via-white to-[#8fd3df] bg-clip-text text-transparent">
                     DownForge
                   </div>
-                  <div className="font-mono text-[10px] font-bold tracking-[0.2em] uppercase text-[#5baab8]">Download • Convert • Create ✨</div>
+                  <div className="font-mono text-[9px] sm:text-[10px] font-bold tracking-[0.18em] sm:tracking-[0.2em] uppercase text-[#5baab8]">Download • Convert • Create ✨</div>
                 </div>
               </div>
-              <div className="text-center lg:text-right">
-                <div className="font-heading text-sm font-bold text-white/90 flex items-center justify-center lg:justify-end gap-2">
-                  <Sparkles className="w-4 h-4 text-[#8fd3df]" /> Crafted for creators
+              <div className="text-center lg:text-right min-w-0">
+                <div className="font-heading text-[13px] sm:text-sm font-bold text-white/90 flex items-center justify-center lg:justify-end gap-1.5 sm:gap-2">
+                  <Sparkles className="w-3.5 h-3.5 sm:w-4 sm:h-4 text-[#8fd3df] shrink-0" /> Crafted for creators
                 </div>
-                <div className="font-sans text-xs text-white/40 mt-1">Fast • Private • Any format • 200+ platforms</div>
+                <div className="font-sans text-[11px] sm:text-xs text-white/40 mt-1">Fast • Private • Any format • 200+ platforms</div>
               </div>
             </div>
             {/* Watermark */}
-            <div aria-hidden className="pointer-events-none absolute -bottom-6 left-1/2 -translate-x-1/2 font-heading text-[68px] sm:text-[92px] lg:text-[120px] font-black tracking-[-0.05em] leading-none text-white/[0.03] whitespace-nowrap select-none">
+            <div aria-hidden className="pointer-events-none absolute -bottom-4 sm:-bottom-6 left-1/2 -translate-x-1/2 font-heading text-[56px] sm:text-[72px] lg:text-[96px] xl:text-[120px] font-black tracking-[-0.05em] leading-none text-white/[0.03] whitespace-nowrap select-none max-w-full">
               DownForge
             </div>
           </div>
 
-          <p className="mt-4 text-center font-mono text-[11px] tracking-wide text-white/20 lg:hidden">{f("poweredBy")}</p>
+          <p className="mt-3 sm:mt-4 text-center font-mono text-[10px] sm:text-[11px] tracking-wide text-white/20 lg:hidden px-4 break-words">{f("poweredBy")}</p>
         </div>
       </div>
     </footer>
