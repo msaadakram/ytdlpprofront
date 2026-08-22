@@ -59,7 +59,7 @@ export default async function PrivacyPolicyPage({ params }: Props) {
             <div className="absolute -bottom-24 -left-24 w-[420px] h-[420px] rounded-full bg-gradient-to-tr from-[#0ea5b0]/15 to-transparent blur-[60px]" />
             <div className="absolute inset-0 opacity-[0.03]" style={{ backgroundImage: `radial-gradient(circle at 1px 1px, white 1px, transparent 0)`, backgroundSize: `22px 22px` }} />
           </div>
-          <div className="relative max-w-6xl mx-auto px-4 sm:px-6 lg:px-6 xl:px-6 py-8 sm:py-10 lg:py-12 xl:py-14">
+          <div className="relative max-w-6xl mx-auto px-3 xs:px-4 sm:px-6 lg:px-6 xl:px-6 py-8 sm:py-10 lg:py-12 xl:py-14">
             <div className="inline-flex items-center gap-2 rounded-full bg-white/10 border border-white/10 px-3 py-1.5 mb-3 lg:mb-4 backdrop-blur">
               <ShieldCheck className="w-3.5 h-3.5 text-[#8fd3df]" />
               <span className="text-xs font-bold tracking-[0.14em] uppercase text-white/90">Privacy</span>
@@ -75,9 +75,9 @@ export default async function PrivacyPolicyPage({ params }: Props) {
         </section>
 
         <section className="max-w-6xl mx-auto px-3 xs:px-4 sm:px-6 py-6 xs:py-8 sm:py-10 lg:py-10 xl:py-12">
-          <div className="grid lg:grid-cols-[240px_1fr] xl:grid-cols-[280px_1fr] gap-4 sm:gap-6 lg:gap-6 xl:gap-10 items-start">
+          <div className="grid grid-cols-1 lg:grid-cols-[240px_minmax(0,1fr)] xl:grid-cols-[280px_minmax(0,1fr)] gap-4 sm:gap-6 lg:gap-6 xl:gap-10 items-start">
             {/* TOC */}
-            <aside className="lg:sticky lg:top-[72px] xl:top-20 self-start">
+            <aside className="lg:sticky lg:top-[72px] xl:top-20 self-start min-w-0">
               <div className="rounded-2xl bg-white dark:bg-white/[0.04] border border-border/60 dark:border-white/10 p-3 xs:p-4 xl:p-5 shadow-sm">
                 <h2 className="text-xs font-bold tracking-[0.14em] uppercase text-muted-foreground font-mono flex items-center gap-2 mb-3">
                   <FileText className="w-3.5 h-3.5" /> Contents
@@ -89,7 +89,7 @@ export default async function PrivacyPolicyPage({ params }: Props) {
                     </a>
                   ))}
                 </nav>
-                <div className="lg:hidden flex gap-2 overflow-x-auto pb-1 -mx-1 px-1">
+                <div className="lg:hidden flex gap-2 overflow-x-auto overscroll-x-contain scrollbar-none pb-1">
                   {sections.map((s) => (
                     <a key={s.id} href={`#${s.id}`} className="shrink-0 inline-flex items-center gap-1.5 text-xs font-semibold bg-muted border border-border rounded-full px-3 py-1.5 whitespace-nowrap hover:bg-white transition-colors">
                       <s.icon className="w-3 h-3 text-[#5baab8]" /> {s.title.replace(/^\d+\.\s*/, "")}
@@ -98,7 +98,7 @@ export default async function PrivacyPolicyPage({ params }: Props) {
                 </div>
                 <div className="mt-4 p-3 rounded-xl bg-[#eef6f8] dark:bg-[#5baab8]/10 border border-[#5baab8]/20 flex gap-2.5">
                   <Lock className="w-4 h-4 text-[#5baab8] shrink-0 mt-0.5" />
-                  <p className="text-xs leading-relaxed text-[#0d1f26]/70 dark:text-white/70 font-sans">
+                  <p className="text-xs leading-relaxed break-words text-[#0d1f26]/70 dark:text-white/70 font-sans">
                     Questions about data? <Link href="/contact" className="font-bold underline">Contact us</Link> — we reply within 24 hours.
                   </p>
                 </div>
@@ -109,7 +109,7 @@ export default async function PrivacyPolicyPage({ params }: Props) {
             <div className="min-w-0">
               <div className="rounded-2xl lg:rounded-[1.75rem] bg-white dark:bg-white/[0.04] border border-border/60 dark:border-white/10 shadow-sm overflow-hidden">
                 <div className="h-1 w-full bg-gradient-to-r from-[#5baab8] via-[#0d1f26] to-[#5baab8]" />
-                <div className="p-5 xs:p-6 sm:p-6 lg:p-7 xl:p-10">
+                <div className="p-4 xs:p-6 sm:p-6 lg:p-7 xl:p-10">
                   <div className="space-y-2 mb-5 lg:mb-6">
                     <span className="inline-flex items-center gap-1.5 text-xs font-bold tracking-[0.14em] uppercase text-[#5baab8] bg-[#eef6f8] border border-[#5baab8]/20 px-3 py-1 rounded-full">
                       <ShieldCheck className="w-3 h-3" /> Transparent & minimal

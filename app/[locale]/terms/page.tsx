@@ -62,7 +62,7 @@ export default async function TermsPage({ params }: Props) {
             <div className="absolute -top-24 -right-24 w-[460px] h-[460px] rounded-full bg-gradient-to-br from-[#5baab8]/20 to-transparent blur-[60px]" />
             <div className="absolute inset-0 opacity-[0.03]" style={{ backgroundImage: `radial-gradient(circle at 1px 1px, white 1px, transparent 0)`, backgroundSize: `22px 22px` }} />
           </div>
-          <div className="relative max-w-6xl mx-auto px-4 sm:px-6 lg:px-6 xl:px-6 py-8 sm:py-10 lg:py-12 xl:py-14">
+          <div className="relative max-w-6xl mx-auto px-3 xs:px-4 sm:px-6 lg:px-6 xl:px-6 py-8 sm:py-10 lg:py-12 xl:py-14">
             <div className="inline-flex items-center gap-2 rounded-full bg-white/10 border border-white/10 px-3 py-1.5 mb-3 lg:mb-4">
               <Scale className="w-3.5 h-3.5 text-[#8fd3df]" />
               <span className="text-xs font-bold tracking-[0.14em] uppercase text-white/90">{t("badge")}</span>
@@ -76,9 +76,9 @@ export default async function TermsPage({ params }: Props) {
         </section>
 
         <section className="max-w-6xl mx-auto px-3 xs:px-4 sm:px-6 py-6 xs:py-8 sm:py-10 lg:py-10 xl:py-12">
-          <div className="grid lg:grid-cols-[240px_1fr] xl:grid-cols-[280px_1fr] gap-4 sm:gap-6 lg:gap-6 xl:gap-10 items-start">
+          <div className="grid grid-cols-1 lg:grid-cols-[240px_minmax(0,1fr)] xl:grid-cols-[280px_minmax(0,1fr)] gap-4 sm:gap-6 lg:gap-6 xl:gap-10 items-start">
             {/* TOC - sticky on desktop, horizontal scroll on mobile */}
-            <aside className="lg:sticky lg:top-[72px] xl:top-20 self-start">
+            <aside className="lg:sticky lg:top-[72px] xl:top-20 self-start min-w-0">
               <div className="rounded-2xl bg-white dark:bg-white/[0.04] border border-border/60 dark:border-white/10 p-3 xs:p-4 xl:p-5 shadow-sm">
                 <h2 className="text-xs font-bold tracking-[0.14em] uppercase text-muted-foreground font-mono flex items-center gap-2 mb-3">
                   <FileText className="w-3.5 h-3.5" /> {t("tocTitle")}
@@ -90,7 +90,7 @@ export default async function TermsPage({ params }: Props) {
                     </a>
                   ))}
                 </nav>
-                <div className="lg:hidden flex gap-2 overflow-x-auto pb-1 scrollbar-none">
+                <div className="lg:hidden flex gap-2 overflow-x-auto overscroll-x-contain scrollbar-none pb-1">
                   {sections.map((s) => (
                     <a key={s.id} href={`#${s.id}`} className="shrink-0 text-xs font-semibold bg-muted border border-border rounded-full px-3 py-1.5 whitespace-nowrap hover:bg-white transition-colors">
                       {s.title.replace(/^\d+\.\s*/, "")}
@@ -99,7 +99,7 @@ export default async function TermsPage({ params }: Props) {
                 </div>
                 <div className="mt-4 p-3 rounded-xl bg-[#eef6f8] dark:bg-[#5baab8]/10 border border-[#5baab8]/20 flex gap-2.5">
                   <ShieldCheck className="w-4 h-4 text-[#5baab8] shrink-0 mt-0.5" />
-                  <p className="text-xs leading-relaxed text-[#0d1f26]/70 dark:text-white/70 font-sans">
+                  <p className="text-xs leading-relaxed break-words text-[#0d1f26]/70 dark:text-white/70 font-sans">
                     Questions? <Link href="/contact" className="font-bold underline">Contact us</Link> or email legal@downforge.me
                   </p>
                 </div>
@@ -110,8 +110,8 @@ export default async function TermsPage({ params }: Props) {
             <div className="min-w-0">
               <div className="rounded-2xl lg:rounded-[1.75rem] bg-white dark:bg-white/[0.04] border border-border/60 dark:border-white/10 shadow-sm overflow-hidden">
                 <div className="h-1 w-full bg-gradient-to-r from-[#5baab8] via-[#0d1f26] to-[#5baab8]" />
-                <div className="p-5 xs:p-6 sm:p-6 lg:p-7 xl:p-10">
-                  <div className="prose prose-sm sm:prose-base dark:prose-invert max-w-none prose-headings:font-heading prose-headings:tracking-tight prose-p:font-sans prose-p:leading-relaxed prose-a:text-[#5baab8] hover:prose-a:text-[#0d1f26] dark:hover:prose-a:text-white">
+                <div className="p-4 xs:p-6 sm:p-6 lg:p-7 xl:p-10">
+                  <div className="max-w-none">
                     {sections.map((s) => (
                       <section key={s.id} id={s.id} className="scroll-mt-20 lg:scroll-mt-24 py-5 lg:py-6 first:pt-0 border-b border-border/50 last:border-0">
                         <h2 className="text-base xs:text-lg lg:text-lg xl:text-xl font-bold text-foreground !mb-2 lg:!mb-3 break-words">{s.title}</h2>

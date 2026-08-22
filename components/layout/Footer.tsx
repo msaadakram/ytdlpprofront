@@ -348,7 +348,7 @@ export function Footer() {
           </div>
 
           {/* Beautiful DownForge large text */}
-          <div className="mt-6 lg:mt-8 xl:mt-10 relative select-none overflow-hidden rounded-[1.5rem] lg:rounded-[1.75rem] xl:rounded-[2rem] bg-gradient-to-br from-white/[0.06] via-white/[0.02] to-transparent border border-white/[0.06] backdrop-blur-sm px-4 lg:px-5 xl:px-6 pt-5 lg:pt-6 xl:pt-8 pb-[3rem] xs:pb-[3.25rem] sm:pb-[4rem] lg:pb-[4.5rem] xl:pb-[5.5rem] 2xl:pb-[6rem]">
+          <div className="mt-6 lg:mt-8 xl:mt-10 relative select-none overflow-hidden rounded-[1.5rem] lg:rounded-[1.75rem] xl:rounded-[2rem] bg-gradient-to-br from-white/[0.06] via-white/[0.02] to-transparent border border-white/[0.06] backdrop-blur-sm px-4 lg:px-5 xl:px-6 pt-5 lg:pt-6 xl:pt-8 pb-5 sm:pb-[4rem] lg:pb-[4.5rem] xl:pb-[5.5rem] 2xl:pb-[6rem]">
             <div className="absolute inset-0 bg-gradient-to-r from-[#5baab8]/10 via-transparent to-transparent opacity-60" />
             <div className="relative z-10 flex flex-col lg:flex-row items-center justify-between gap-4 lg:gap-6 xl:gap-8">
               <div className="flex items-center gap-2.5 sm:gap-3">
@@ -371,9 +371,9 @@ export function Footer() {
                 <div className="font-sans text-[11px] lg:text-[11px] xl:text-xs text-white/40 mt-1 leading-relaxed">Fast <span className="hidden xs:inline">•</span> <span className="xs:hidden">·</span> Private <span className="hidden xs:inline">•</span> <span className="xs:hidden">·</span> Any format <span className="hidden xs:inline">•</span> <span className="xs:hidden">·</span> 200+ platforms</div>
               </div>
             </div>
-            {/* Watermark — confined to its own bottom strip so it never sits under readable content */}
-            <div aria-hidden className="pointer-events-none absolute inset-x-0 bottom-0 flex h-[2.25rem] xs:h-[2.5rem] sm:h-[3.25rem] lg:h-[3.75rem] xl:h-[4.75rem] 2xl:h-[5.25rem] items-start justify-center overflow-hidden select-none">
-              <span className="font-heading text-[36px] xs:text-[42px] sm:text-[56px] lg:text-[64px] xl:text-[84px] 2xl:text-[96px] font-black tracking-[-0.05em] leading-none text-white/[0.04] sm:text-white/[0.05] whitespace-nowrap">
+            {/* Watermark — desktop/tablet only; hidden on phones where it read as dead space */}
+            <div aria-hidden className="pointer-events-none absolute inset-x-0 bottom-0 hidden sm:flex h-[3.25rem] lg:h-[3.75rem] xl:h-[4.75rem] 2xl:h-[5.25rem] items-start justify-center overflow-hidden select-none">
+              <span className="font-heading sm:text-[56px] lg:text-[64px] xl:text-[84px] 2xl:text-[96px] font-black tracking-[-0.05em] leading-none text-white/[0.05] sm:text-white/[0.06] lg:text-white/[0.07] whitespace-nowrap">
                 DownForge
               </span>
             </div>
