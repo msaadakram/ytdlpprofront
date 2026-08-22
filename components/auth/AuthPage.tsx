@@ -370,15 +370,6 @@ export function AuthPage({ mode }: { mode: AuthMode }) {
                     </span>
                   )}
                 </motion.button>
-
-                {isSignIn && (
-                  <div className="rounded-xl sm:rounded-2xl bg-[#f8fafc] dark:bg-white/[0.04] border border-dashed border-[#0d1f26]/10 dark:border-white/10 px-3 sm:px-4 py-3 flex flex-col xs:flex-row items-center justify-between gap-2 sm:gap-3">
-                    <span className="text-xs font-semibold text-[#0d1f26]/50 dark:text-white/40 font-sans shrink-0">Demo account</span>
-                    <span className="text-xs font-mono font-semibold text-[#0d1f26] dark:text-white bg-white dark:bg-white/10 border border-[#0d1f26]/5 dark:border-white/10 px-2.5 py-1.5 rounded-full break-all text-center leading-tight">
-                      demo@downforge.me <span className="text-[#0d1f26]/20 dark:text-white/20">/</span> demo1234
-                    </span>
-                  </div>
-                )}
               </form>
 
               <p className="text-center text-sm text-[#0d1f26]/60 dark:text-white/50 mt-5 sm:mt-6 font-sans px-2">
