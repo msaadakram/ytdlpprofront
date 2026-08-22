@@ -3,8 +3,10 @@ import { getTranslations } from "next-intl/server";
 import { Nav } from "@/components/layout/Nav";
 import { Footer } from "@/components/layout/Footer";
 import { PricingSection } from "@/components/home/PricingSection";
+import { PricingFaq } from "@/components/pricing/PricingFaq";
 import { Link } from "@/lib/i18n/navigation";
-import { ArrowLeft } from "lucide-react";
+import { Sparkles, ShieldCheck, Zap, Clock, ArrowRight } from "lucide-react";
+import { routing } from "@/lib/i18n/routing";
 
 type Props = { params: Promise<{ locale: string }> };
 
@@ -12,22 +14,17 @@ export async function generateMetadata({ params }: Props): Promise<Metadata> {
   const { locale } = await params;
   const t = await getTranslations({ locale, namespace: "Pricing" });
 
+  const languages = Object.fromEntries(routing.locales.map((l) => [l, `https://downforge.me/${l}/pricing`]));
   return {
     title: `${t("title")} — DownForge`,
     description: t("subtitle"),
-    alternates: {
-      canonical: `https://downforge.me/${locale}/pricing`,
-      languages: {
-        en: "https://downforge.me/en/pricing",
-        es: "https://downforge.me/es/pricing",
-        fr: "https://downforge.me/fr/pricing",
-        de: "https://downforge.me/de/pricing",
-        pt: "https://downforge.me/pt/pricing",
-        ja: "https://downforge.me/ja/pricing",
-        ar: "https://downforge.me/ar/pricing",
-        ru: "https://downforge.me/ru/pricing",
-        zh: "https://downforge.me/zh/pricing",
-      },
+    alternates: { canonical: `https://downforge.me/${locale}/pricing`, languages },
+    openGraph: {
+      title: `${t("title")} — DownForge`,
+      description: t("subtitle"),
+      type: "website",
+      siteName: "DownForge",
+      locale,
     },
   };
 }
@@ -36,32 +33,85 @@ export default async function PricingPage({ params }: Props) {
   const { locale } = await params;
   const t = await getTranslations({ locale, namespace: "Pricing" });
 
+  const jsonLd = {
+    "@context": "https://schema.org",
+    "@type": "WebPage",
+    name: t("title"),
+    description: t("subtitle"),
+    url: `https://downforge.me/${locale}/pricing`,
+    isPartOf: { "@type": "WebSite", name: "DownForge", url: "https://downforge.me" },
+  };
+
   return (
     <>
       <Nav />
-      <main className="pt-28 pb-20 px-4 sm:px-6">
-        <div className="max-w-4xl mx-auto" />
-        <PricingSection />
-        <div className="max-w-4xl mx-auto mt-12">
-          <div className="bg-card rounded-2xl border border-border p-6 sm:p-8">
-            <h2 className="text-xl font-bold text-foreground mb-4 font-heading">{t("faqTitle", { defaultValue: "Frequently Asked Questions" })}</h2>
-            <div className="space-y-6">
-              {[
-                { q: t("faq1Q", { defaultValue: "Can I switch plans at any time?" }), a: t("faq1A", { defaultValue: "Yes, you can upgrade or downgrade at any time. Changes take effect immediately." }) },
-                { q: t("faq2Q", { defaultValue: "What payment methods do you accept?" }), a: t("faq2A", { defaultValue: "We accept all major credit cards, PayPal, and cryptocurrency." }) },
-                { q: t("faq3Q", { defaultValue: "Is there a free trial for Pro?" }), a: t("faq3A", { defaultValue: "Yes, we offer a 7-day free trial of our Pro plan with no commitment required." }) },
-                { q: t("faq4Q", { defaultValue: "Can I cancel anytime?" }), a: t("faq4A", { defaultValue: "Absolutely. No contracts, no cancellation fees. Your access continues until the end of the billing period." }) },
-              ].map((faq, i) => (
-                <div key={i}>
-                  <h3 className="text-sm font-bold text-foreground mb-1 font-heading">{faq.q}</h3>
-                  <p className="text-sm text-muted-foreground font-sans">{faq.a}</p>
-                </div>
-              ))}
+      <main className="pt-16 sm:pt-20">
+        {/* Hero */}
+        <section className="relative overflow-hidden bg-[#0d1f26] text-white">
+          <div className="absolute inset-0">
+            <div className="absolute -top-28 -right-28 w-[520px] h-[520px] rounded-full bg-gradient-to-br from-[#5baab8]/20 via-[#3d8896]/10 to-transparent blur-[70px]" />
+            <div className="absolute -bottom-24 -left-24 w-[460px] h-[460px] rounded-full bg-gradient-to-tr from-[#0ea5b0]/15 to-transparent blur-[60px]" />
+            <div className="absolute inset-0 opacity-[0.03]" style={{ backgroundImage: `radial-gradient(circle at 1px 1px, white 1px, transparent 0)`, backgroundSize: `22px 22px` }} />
+          </div>
+          <div className="relative max-w-6xl mx-auto px-4 sm:px-6 py-10 sm:py-14 lg:py-16 text-center">
+            <span className="inline-flex items-center gap-2 rounded-full bg-white/10 border border-white/10 px-3 py-1.5 text-xs font-bold tracking-[0.14em] uppercase text-white/90 backdrop-blur">
+              <Sparkles className="w-3.5 h-3.5 text-[#8fd3df]" /> {t("title")}
+            </span>
+            <h1 className="mt-4 text-3xl xs:text-4xl sm:text-5xl lg:text-[2.75rem] font-black tracking-tight font-heading leading-[0.95]">
+              Choose your <span className="bg-gradient-to-r from-[#5baab8] to-[#8fd3df] bg-clip-text text-transparent">plan</span>
+            </h1>
+            <p className="mt-3 sm:mt-4 text-sm sm:text-base lg:text-lg leading-relaxed text-white/60 max-w-2xl mx-auto font-sans">
+              {t("subtitle")}
+            </p>
+            <div className="mt-6 flex flex-wrap items-center justify-center gap-2 text-xs font-medium">
+              <span className="inline-flex items-center gap-1.5 bg-white/10 border border-white/10 rounded-full px-3 py-1.5 text-white/80">
+                <ShieldCheck className="w-3.5 h-3.5 text-emerald-400" /> No credit card for Free
+              </span>
+              <span className="inline-flex items-center gap-1.5 bg-white/10 border border-white/10 rounded-full px-3 py-1.5 text-white/80">
+                <Zap className="w-3.5 h-3.5 text-amber-400" /> Cancel anytime
+              </span>
+              <span className="inline-flex items-center gap-1.5 bg-white/10 border border-white/10 rounded-full px-3 py-1.5 text-white/80">
+                <Clock className="w-3.5 h-3.5 text-[#8fd3df]" /> 30-day refund
+              </span>
             </div>
           </div>
-        </div>
+        </section>
+
+        <div className="bg-gradient-to-b from-[#0d1f26] via-[#0d1f26] to-[#f8fafc] dark:to-[#070d12] h-6 sm:h-8" />
+
+        <PricingSection />
+
+        {/* Comparison strip */}
+        <section className="max-w-5xl mx-auto px-4 sm:px-6 mt-6 lg:mt-8">
+          <div className="rounded-2xl bg-white dark:bg-white/[0.04] border border-border/60 dark:border-white/10 p-4 sm:p-6 flex flex-col sm:flex-row items-center justify-between gap-4 shadow-sm">
+            <div className="text-sm font-sans">
+              <div className="font-bold text-foreground">Not sure?</div>
+              <div className="text-muted-foreground">Start free and upgrade when you need 4K, FLAC, or batch.</div>
+            </div>
+            <div className="flex gap-2 shrink-0">
+              <Link href="/sign-up" className="inline-flex items-center gap-2 bg-[#0d1f26] dark:bg-white text-white dark:text-[#0d1f26] px-5 py-2.5 rounded-full text-sm font-bold hover:bg-[#1a3545] dark:hover:bg-slate-100 transition-colors">
+                Start free <ArrowRight className="w-4 h-4" />
+              </Link>
+              <Link href="/contact" className="inline-flex items-center gap-2 bg-white dark:bg-white/10 border border-border dark:border-white/10 px-5 py-2.5 rounded-full text-sm font-semibold hover:bg-muted/50 transition-colors">
+                Talk to us
+              </Link>
+            </div>
+          </div>
+        </section>
+
+        {/* FAQ modern accordion */}
+        <section className="max-w-4xl mx-auto px-4 sm:px-6 mt-10 sm:mt-12 lg:mt-16 pb-12 sm:pb-16 lg:pb-20">
+          <div className="text-center mb-6 sm:mb-8">
+            <span className="inline-flex items-center gap-2 text-xs font-bold tracking-[0.14em] uppercase text-[#5baab8] bg-[#eef6f8] border border-[#5baab8]/20 px-3 py-1 rounded-full font-mono">
+              FAQ
+            </span>
+            <h2 className="mt-3 text-2xl sm:text-3xl font-black tracking-tight text-foreground font-heading">{t("faqTitle")}</h2>
+          </div>
+          <PricingFaq />
+        </section>
       </main>
       <Footer />
+      <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(jsonLd) }} />
     </>
   );
 }

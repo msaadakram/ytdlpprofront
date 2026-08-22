@@ -328,10 +328,6 @@ export function Nav() {
               )}
             </AnimatePresence>
           </div>
-
-          <Link href="/api-docs" className="hidden xl:inline-flex items-center gap-1 px-3.5 py-2 text-sm font-semibold text-muted-foreground hover:text-foreground hover:bg-white hover:border-border/60 border border-transparent rounded-full transition-colors font-sans">
-            {t("api")} <ExternalLink className="w-3 h-3 opacity-60" />
-          </Link>
         </nav>
 
         <div className="hidden lg:flex items-center gap-1 xl:gap-2">
