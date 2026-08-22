@@ -181,7 +181,6 @@ export function Footer() {
     {
       title: t("platforms"),
       links: platformLinks,
-      moreLabel: f("morePlatforms"),
     },
     ...footerGroups.map((group) => ({
       title: t(group.titleKey),
