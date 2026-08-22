@@ -221,11 +221,13 @@ export function Footer() {
               <div className="w-10 h-10 rounded-2xl bg-white flex items-center justify-center shadow-[0_8px_24px_-12px_rgba(255,255,255,0.4)] group-hover:shadow-[0_12px_32px_-12px_rgba(91,170,184,0.5)] transition-shadow">
                 <img src="/logo.png" alt="DownForge" className="h-6 w-6 object-contain" />
               </div>
-              <div className="leading-none">
-                <span className="block font-heading text-[22px] font-black tracking-[-0.02em] bg-gradient-to-r from-white via-white to-[#8fd3df] bg-clip-text text-transparent">
+              <div className="flex flex-col gap-0.5">
+                <span className="block font-heading text-[22px] font-black tracking-[-0.02em] leading-none bg-gradient-to-r from-white via-white to-[#8fd3df] bg-clip-text text-transparent">
                   DownForge
                 </span>
-                <span className="block font-mono text-[10px] font-bold tracking-[0.18em] uppercase text-[#5baab8]">Download • Convert • Create</span>
+                <span className="flex items-center gap-1.5 font-mono text-[10px] font-bold tracking-[0.14em] sm:tracking-[0.18em] uppercase text-[#5baab8]/90">
+                  Download <span className="w-1 h-1 rounded-full bg-[#5baab8]/60" /> Convert <span className="w-1 h-1 rounded-full bg-[#5baab8]/60" /> Create
+                </span>
               </div>
             </Link>
 
@@ -354,11 +356,13 @@ export function Footer() {
                 <div className="w-10 h-10 sm:w-12 sm:h-12 rounded-2xl bg-white flex items-center justify-center shadow-lg shrink-0">
                   <img src="/logo.png" alt="DownForge" className="w-6 h-6 sm:w-7 sm:h-7 object-contain" />
                 </div>
-                <div className="min-w-0">
+                <div className="min-w-0 flex flex-col gap-1">
                   <div className="font-heading text-xl sm:text-2xl lg:text-3xl font-black tracking-[-0.03em] leading-none bg-gradient-to-r from-white via-white to-[#8fd3df] bg-clip-text text-transparent">
                     DownForge
                   </div>
-                  <div className="font-mono text-[9px] sm:text-[10px] font-bold tracking-[0.18em] sm:tracking-[0.2em] uppercase text-[#5baab8]">Download • Convert • Create ✨</div>
+                  <div className="flex items-center gap-1.5 font-mono text-[9px] sm:text-[10px] font-bold tracking-[0.14em] sm:tracking-[0.2em] uppercase text-[#5baab8]">
+                    <span>Download</span> <span className="w-1 h-1 rounded-full bg-[#5baab8]/70" /> <span>Convert</span> <span className="w-1 h-1 rounded-full bg-[#5baab8]/70" /> <span>Create</span> <span className="ml-1">✨</span>
+                  </div>
                 </div>
               </div>
               <div className="text-center lg:text-right min-w-0">
