@@ -32,7 +32,7 @@ export async function generateMetadata({ params }: Props): Promise<Metadata> {
     openGraph: {
       title: t("metaTitle"),
       description: t("metaDescription"),
-      url: `https://downforge.me/${locale}/video-downloader/${config.slug}`,
+      url: `https://www.downforge.me/${locale}/video-downloader/${config.slug}`,
       siteName: "DownForge",
       locale,
       type: "website",
@@ -44,17 +44,17 @@ export async function generateMetadata({ params }: Props): Promise<Metadata> {
     },
     robots: { index: true, follow: true },
     alternates: {
-      canonical: `https://downforge.me/${locale}/video-downloader/${config.slug}`,
+      canonical: `https://www.downforge.me/${locale}/video-downloader/${config.slug}`,
       languages: {
-        en: `https://downforge.me/en/video-downloader/${config.slug}`,
-        es: `https://downforge.me/es/video-downloader/${config.slug}`,
-        fr: `https://downforge.me/fr/video-downloader/${config.slug}`,
-        de: `https://downforge.me/de/video-downloader/${config.slug}`,
-        pt: `https://downforge.me/pt/video-downloader/${config.slug}`,
-        ja: `https://downforge.me/ja/video-downloader/${config.slug}`,
-        ar: `https://downforge.me/ar/video-downloader/${config.slug}`,
-        ru: `https://downforge.me/ru/video-downloader/${config.slug}`,
-        zh: `https://downforge.me/zh/video-downloader/${config.slug}`,
+        en: `https://www.downforge.me/en/video-downloader/${config.slug}`,
+        es: `https://www.downforge.me/es/video-downloader/${config.slug}`,
+        fr: `https://www.downforge.me/fr/video-downloader/${config.slug}`,
+        de: `https://www.downforge.me/de/video-downloader/${config.slug}`,
+        pt: `https://www.downforge.me/pt/video-downloader/${config.slug}`,
+        ja: `https://www.downforge.me/ja/video-downloader/${config.slug}`,
+        ar: `https://www.downforge.me/ar/video-downloader/${config.slug}`,
+        ru: `https://www.downforge.me/ru/video-downloader/${config.slug}`,
+        zh: `https://www.downforge.me/zh/video-downloader/${config.slug}`,
       },
     },
     keywords: t.raw("keywords") as string[],
@@ -76,17 +76,17 @@ export default async function VideoDownloaderPage({ params }: Props) {
     "@graph": [
       {
         "@type": "BreadcrumbList",
-        "@id": `https://downforge.me/${locale}/video-downloader/${config.slug}#breadcrumb`,
+        "@id": `https://www.downforge.me/${locale}/video-downloader/${config.slug}#breadcrumb`,
         "itemListElement": [
-          { "@type": "ListItem", position: 1, name: "Home", item: `https://downforge.me/${locale}` },
-          { "@type": "ListItem", position: 2, name: `${config.name} Video Downloader`, item: `https://downforge.me/${locale}/video-downloader/${config.slug}` },
+          { "@type": "ListItem", position: 1, name: "Home", item: `https://www.downforge.me/${locale}` },
+          { "@type": "ListItem", position: 2, name: `${config.name} Video Downloader`, item: `https://www.downforge.me/${locale}/video-downloader/${config.slug}` },
         ],
       },
       {
         "@type": "WebApplication",
-        "@id": `https://downforge.me/${locale}/video-downloader/${config.slug}#webapp`,
+        "@id": `https://www.downforge.me/${locale}/video-downloader/${config.slug}#webapp`,
         name: `DownForge ${config.name} Video Downloader`,
-        url: `https://downforge.me/${locale}/video-downloader/${config.slug}`,
+        url: `https://www.downforge.me/${locale}/video-downloader/${config.slug}`,
         description: t("metaDescription"),
         applicationCategory: "Multimedia",
         operatingSystem: "All",
@@ -95,7 +95,7 @@ export default async function VideoDownloaderPage({ params }: Props) {
       },
       {
         "@type": "FAQPage",
-        "@id": `https://downforge.me/${locale}/video-downloader/${config.slug}#faq`,
+        "@id": `https://www.downforge.me/${locale}/video-downloader/${config.slug}#faq`,
         mainEntity: faqs.map((faq) => ({
           "@type": "Question",
           name: faq.q,

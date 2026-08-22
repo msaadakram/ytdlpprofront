@@ -34,7 +34,7 @@ export async function generateMetadata({ params }: Props): Promise<Metadata> {
     openGraph: {
       title: t("metaTitle"),
       description: t("metaDescription"),
-      url: `https://downforge.me/${locale}/download/${config.slug}`,
+      url: `https://www.downforge.me/${locale}/download/${config.slug}`,
       siteName: "DownForge",
       locale,
       type: "website",
@@ -46,17 +46,17 @@ export async function generateMetadata({ params }: Props): Promise<Metadata> {
     },
     robots: { index: true, follow: true },
     alternates: {
-      canonical: `https://downforge.me/${locale}/download/${config.slug}`,
+      canonical: `https://www.downforge.me/${locale}/download/${config.slug}`,
       languages: {
-        en: `https://downforge.me/en/download/${config.slug}`,
-        es: `https://downforge.me/es/download/${config.slug}`,
-        fr: `https://downforge.me/fr/download/${config.slug}`,
-        de: `https://downforge.me/de/download/${config.slug}`,
-        pt: `https://downforge.me/pt/download/${config.slug}`,
-        ja: `https://downforge.me/ja/download/${config.slug}`,
-        ar: `https://downforge.me/ar/download/${config.slug}`,
-        ru: `https://downforge.me/ru/download/${config.slug}`,
-        zh: `https://downforge.me/zh/download/${config.slug}`,
+        en: `https://www.downforge.me/en/download/${config.slug}`,
+        es: `https://www.downforge.me/es/download/${config.slug}`,
+        fr: `https://www.downforge.me/fr/download/${config.slug}`,
+        de: `https://www.downforge.me/de/download/${config.slug}`,
+        pt: `https://www.downforge.me/pt/download/${config.slug}`,
+        ja: `https://www.downforge.me/ja/download/${config.slug}`,
+        ar: `https://www.downforge.me/ar/download/${config.slug}`,
+        ru: `https://www.downforge.me/ru/download/${config.slug}`,
+        zh: `https://www.downforge.me/zh/download/${config.slug}`,
       },
     },
     keywords: t.raw("keywords") as string[],
@@ -79,17 +79,17 @@ export default async function PlatformDownloadPage({ params }: Props) {
     "@graph": [
       {
         "@type": "BreadcrumbList",
-        "@id": `https://downforge.me/${locale}/download/${config.slug}#breadcrumb`,
+        "@id": `https://www.downforge.me/${locale}/download/${config.slug}#breadcrumb`,
         itemListElement: [
-          { "@type": "ListItem", position: 1, name: t("breadcrumbHome"), item: `https://downforge.me/${locale}` },
-          { "@type": "ListItem", position: 2, name: `${config.name} Downloader`, item: `https://downforge.me/${locale}/download/${config.slug}` },
+          { "@type": "ListItem", position: 1, name: t("breadcrumbHome"), item: `https://www.downforge.me/${locale}` },
+          { "@type": "ListItem", position: 2, name: `${config.name} Downloader`, item: `https://www.downforge.me/${locale}/download/${config.slug}` },
         ],
       },
       {
         "@type": "WebApplication",
-        "@id": `https://downforge.me/${locale}/download/${config.slug}#webapp`,
+        "@id": `https://www.downforge.me/${locale}/download/${config.slug}#webapp`,
         name: `DownForge ${config.name} Downloader`,
-        url: `https://downforge.me/${locale}/download/${config.slug}`,
+        url: `https://www.downforge.me/${locale}/download/${config.slug}`,
         description: pt("metaDescription"),
         applicationCategory: "Multimedia",
         operatingSystem: "All",
@@ -97,7 +97,7 @@ export default async function PlatformDownloadPage({ params }: Props) {
       },
       {
         "@type": "FAQPage",
-        "@id": `https://downforge.me/${locale}/download/${config.slug}#faq`,
+        "@id": `https://www.downforge.me/${locale}/download/${config.slug}#faq`,
         mainEntity: faqs.map((faq) => ({
           "@type": "Question",
           name: faq.q,

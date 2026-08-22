@@ -2,7 +2,7 @@ import type { MetadataRoute } from "next";
 import { routing } from "@/lib/i18n/routing";
 import { platformSlugs } from "@/lib/platform-config";
 
-const BASE_URL = (process.env.NEXT_PUBLIC_SITE_URL || "https://downforge.me").replace(/\/$/, "");
+const BASE_URL = (process.env.NEXT_PUBLIC_SITE_URL || "https://www.downforge.me").replace(/\/$/, "");
 
 // Static routes under [locale] — maps to app/[locale]/*
 // Excludes noindex routes: dashboard, sign-in, sign-up, admin

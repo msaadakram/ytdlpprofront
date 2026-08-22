@@ -12,12 +12,12 @@ export async function generateMetadata({ params }: Props): Promise<Metadata> {
   const { locale } = await params;
   const t = await getTranslations({ locale, namespace: "About" });
 
-  const languages = Object.fromEntries(routing.locales.map((l) => [l, `https://downforge.me/${l}/about`]));
+  const languages = Object.fromEntries(routing.locales.map((l) => [l, `https://www.downforge.me/${l}/about`]));
 
   return {
     title: t("metaTitle"),
     description: t("metaDescription"),
-    alternates: { canonical: `https://downforge.me/${locale}/about`, languages },
+    alternates: { canonical: `https://www.downforge.me/${locale}/about`, languages },
     openGraph: {
       title: t("metaTitle"),
       description: t("metaDescription"),
@@ -73,9 +73,9 @@ export default async function AboutPage({ params }: Props) {
     "@type": "AboutPage",
     name: t("metaTitle"),
     description: t("metaDescription"),
-    url: `https://downforge.me/${locale}/about`,
-    isPartOf: { "@type": "WebSite", name: "DownForge", url: "https://downforge.me" },
-    about: { "@type": "Organization", name: "DownForge", url: "https://downforge.me", logo: "https://downforge.me/logo.png", foundingDate: "2024" },
+    url: `https://www.downforge.me/${locale}/about`,
+    isPartOf: { "@type": "WebSite", name: "DownForge", url: "https://www.downforge.me" },
+    about: { "@type": "Organization", name: "DownForge", url: "https://www.downforge.me", logo: "https://www.downforge.me/logo.png", foundingDate: "2024" },
   };
 
   return (

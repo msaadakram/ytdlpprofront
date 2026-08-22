@@ -50,43 +50,46 @@
 }
 
 .dark {
-  --background: oklch(0.145 0 0);
-  --foreground: oklch(0.985 0 0);
-  --card: oklch(0.145 0 0);
-  --card-foreground: oklch(0.985 0 0);
-  --popover: oklch(0.145 0 0);
-  --popover-foreground: oklch(0.985 0 0);
-  --primary: oklch(0.985 0 0);
-  --primary-foreground: oklch(0.205 0 0);
-  --secondary: oklch(0.269 0 0);
-  --secondary-foreground: oklch(0.985 0 0);
-  --muted: oklch(0.269 0 0);
-  --muted-foreground: oklch(0.708 0 0);
-  --accent: oklch(0.269 0 0);
-  --accent-foreground: oklch(0.985 0 0);
-  --destructive: oklch(0.396 0.141 25.723);
-  --destructive-foreground: oklch(0.637 0.237 25.331);
-  --border: oklch(0.269 0 0);
-  --input: oklch(0.269 0 0);
-  --ring: oklch(0.439 0 0);
+  --background: #0a1418;
+  --foreground: #e6f2f4;
+  --card: #0f1d23;
+  --card-foreground: #e6f2f4;
+  --popover: #0f1d23;
+  --popover-foreground: #e6f2f4;
+  --primary: #e6f2f4;
+  --primary-foreground: #0d1f26;
+  --secondary: #1a2f36;
+  --secondary-foreground: #e6f2f4;
+  --muted: #162a30;
+  --muted-foreground: #8fb0ba;
+  --accent: #5baab8;
+  --accent-foreground: #06272d;
+  --destructive: #e8365a;
+  --destructive-foreground: #ffffff;
+  --border: rgba(91, 170, 184, 0.18);
+  --input: #1a2f36;
+  --input-background: #0f1d23;
+  --switch-background: #25444d;
+  --ring: #5baab8;
   --font-weight-medium: 500;
   --font-weight-normal: 400;
-  --chart-1: oklch(0.488 0.243 264.376);
-  --chart-2: oklch(0.696 0.17 162.48);
-  --chart-3: oklch(0.769 0.188 70.08);
-  --chart-4: oklch(0.627 0.265 303.9);
-  --chart-5: oklch(0.645 0.246 16.439);
-  --sidebar: oklch(0.205 0 0);
-  --sidebar-foreground: oklch(0.985 0 0);
-  --sidebar-primary: oklch(0.488 0.243 264.376);
-  --sidebar-primary-foreground: oklch(0.985 0 0);
-  --sidebar-accent: oklch(0.269 0 0);
-  --sidebar-accent-foreground: oklch(0.985 0 0);
-  --sidebar-border: oklch(0.269 0 0);
-  --sidebar-ring: oklch(0.439 0 0);
+  --chart-1: #5baab8;
+  --chart-2: #7cc4d0;
+  --chart-3: #3d8fa0;
+  --chart-4: #a8d4dc;
+  --chart-5: #2e6a77;
+  --sidebar: #0d1b21;
+  --sidebar-foreground: #e6f2f4;
+  --sidebar-primary: #5baab8;
+  --sidebar-primary-foreground: #06272d;
+  --sidebar-accent: #162a30;
+  --sidebar-accent-foreground: #e6f2f4;
+  --sidebar-border: rgba(91, 170, 184, 0.18);
+  --sidebar-ring: #5baab8;
 }
 
 @theme inline {
+  --breakpoint-xs: 30rem;
   --color-background: var(--background);
   --color-foreground: var(--foreground);
   --color-card: var(--card);
@@ -134,6 +137,65 @@
   0% { background-position: 0% 50%; }
   50% { background-position: 100% 50%; }
   100% { background-position: 0% 50%; }
+}
+
+/* Brand-aware download controls: pages pass --brand / --brand-dark so focus
+   rings and gradients match each platform's color without JS style mutation. */
+.brand-input {
+  --brand: #5baab8;
+  box-shadow:
+    0 8px 30px rgba(0, 0, 0, 0.06),
+    inset 0 1px 0 rgba(255, 255, 255, 0.4),
+    inset 0 1px 2px rgba(0, 0, 0, 0.04);
+  transition: box-shadow 0.3s ease, background-color 0.3s ease, border-color 0.3s ease;
+}
+.brand-input:focus-within {
+  border-color: color-mix(in srgb, var(--brand) 40%, transparent);
+  background-color: rgba(255, 255, 255, 0.92);
+  box-shadow:
+    0 0 0 3px color-mix(in srgb, var(--brand) 25%, transparent),
+    0 12px 40px color-mix(in srgb, var(--brand) 15%, transparent),
+    inset 0 1px 0 rgba(255, 255, 255, 0.5);
+}
+.dark .brand-input {
+  box-shadow:
+    0 8px 30px rgba(0, 0, 0, 0.3),
+    inset 0 1px 0 rgba(255, 255, 255, 0.1);
+}
+.dark .brand-input:focus-within {
+  background-color: rgba(13, 31, 38, 0.8);
+  box-shadow:
+    0 0 0 3px color-mix(in srgb, var(--brand) 35%, transparent),
+    inset 0 1px 0 rgba(255, 255, 255, 0.08);
+}
+
+/* Button glow driven by --brand-glow; pair with hover:scale from motion. */
+.brand-glow {
+  --brand-glow: rgba(13, 31, 38, 0.4);
+  box-shadow: 0 15px 40px -10px var(--brand-glow);
+}
+.brand-glow:hover:not(:disabled) {
+  filter: brightness(1.1);
+  box-shadow: 0 25px 50px -15px var(--brand-glow);
+}
+.brand-glow:disabled {
+  box-shadow: none;
+}
+
+.brand-btn {
+  --brand: #0d1f26;
+  --brand-dark: #143d4a;
+  --brand-glow: rgba(13, 31, 38, 0.33);
+  background-image: linear-gradient(135deg, var(--brand), var(--brand-dark));
+  background-size: 200% auto;
+  box-shadow: 0 10px 25px -5px var(--brand-glow);
+}
+.brand-btn:hover:not(:disabled) {
+  filter: brightness(1.12);
+  box-shadow: 0 20px 40px -15px var(--brand-glow);
+}
+.brand-btn:disabled {
+  box-shadow: none;
 }
 
 @keyframes shimmer {

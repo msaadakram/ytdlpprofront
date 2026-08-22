@@ -11,11 +11,11 @@ type Props = { params: Promise<{ locale: string }> };
 export async function generateMetadata({ params }: Props): Promise<Metadata> {
   const { locale } = await params;
   const t = await getTranslations({ locale, namespace: "ApiStatus" });
-  const languages = Object.fromEntries(routing.locales.map((l) => [l, `https://downforge.me/${l}/api-status`]));
+  const languages = Object.fromEntries(routing.locales.map((l) => [l, `https://www.downforge.me/${l}/api-status`]));
   return {
     title: t("metaTitle"),
     description: t("metaDescription"),
-    alternates: { canonical: `https://downforge.me/${locale}/api-status`, languages },
+    alternates: { canonical: `https://www.downforge.me/${locale}/api-status`, languages },
     openGraph: { title: t("metaTitle"), description: t("metaDescription"), type: "website", siteName: "DownForge", locale },
   };
 }
@@ -42,7 +42,7 @@ export default async function ApiStatusPage({ params }: Props) {
     "@type": "WebPage",
     name: t("title"),
     description: t("subtitle"),
-    url: `https://downforge.me/${locale}/api-status`,
+    url: `https://www.downforge.me/${locale}/api-status`,
   };
 
   return (

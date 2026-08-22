@@ -21,7 +21,7 @@ export async function generateMetadata({ params }: Props): Promise<Metadata> {
     openGraph: {
       title: "YouTube Video Downloader — Download YouTube Videos in 4K, MP3, Transcripts & Thumbnails | DownForge",
       description: "Free YouTube video downloader. Download YouTube videos in 4K, 1080p, 720p. Extract audio as MP3 320kbps, FLAC, AAC. Get AI transcripts as SRT, VTT, TXT or JSON. No sign-up required.",
-      url: `https://downforge.me/${locale}/youtube-download`,
+      url: `https://www.downforge.me/${locale}/youtube-download`,
       siteName: "DownForge",
       locale,
       type: "website",
@@ -33,17 +33,17 @@ export async function generateMetadata({ params }: Props): Promise<Metadata> {
     },
     robots: { index: true, follow: true },
     alternates: {
-      canonical: `https://downforge.me/${locale}/youtube-download`,
+      canonical: `https://www.downforge.me/${locale}/youtube-download`,
       languages: {
-        en: "https://downforge.me/en/youtube-download",
-        es: "https://downforge.me/es/youtube-download",
-        fr: "https://downforge.me/fr/youtube-download",
-        de: "https://downforge.me/de/youtube-download",
-        pt: "https://downforge.me/pt/youtube-download",
-        ja: "https://downforge.me/ja/youtube-download",
-        ar: "https://downforge.me/ar/youtube-download",
-        ru: "https://downforge.me/ru/youtube-download",
-        zh: "https://downforge.me/zh/youtube-download",
+        en: "https://www.downforge.me/en/youtube-download",
+        es: "https://www.downforge.me/es/youtube-download",
+        fr: "https://www.downforge.me/fr/youtube-download",
+        de: "https://www.downforge.me/de/youtube-download",
+        pt: "https://www.downforge.me/pt/youtube-download",
+        ja: "https://www.downforge.me/ja/youtube-download",
+        ar: "https://www.downforge.me/ar/youtube-download",
+        ru: "https://www.downforge.me/ru/youtube-download",
+        zh: "https://www.downforge.me/zh/youtube-download",
       },
     },
     keywords: [
@@ -93,17 +93,17 @@ export default async function YoutubeDownloadPage({ params }: Props) {
     "@graph": [
       {
         "@type": "BreadcrumbList",
-        "@id": `https://downforge.me/${locale}/youtube-download#breadcrumb`,
+        "@id": `https://www.downforge.me/${locale}/youtube-download#breadcrumb`,
         "itemListElement": [
-          { "@type": "ListItem", position: 1, name: "Home", item: `https://downforge.me/${locale}` },
-          { "@type": "ListItem", position: 2, name: "YouTube Video Downloader", item: `https://downforge.me/${locale}/youtube-download` },
+          { "@type": "ListItem", position: 1, name: "Home", item: `https://www.downforge.me/${locale}` },
+          { "@type": "ListItem", position: 2, name: "YouTube Video Downloader", item: `https://www.downforge.me/${locale}/youtube-download` },
         ],
       },
       {
         "@type": "WebApplication",
-        "@id": `https://downforge.me/${locale}/youtube-download#webapp`,
+        "@id": `https://www.downforge.me/${locale}/youtube-download#webapp`,
         name: "DownForge YouTube Video Downloader",
-        url: `https://downforge.me/${locale}/youtube-download`,
+        url: `https://www.downforge.me/${locale}/youtube-download`,
         description: "Free online YouTube video downloader. Download videos up to 4K, extract audio as MP3/FLAC/AAC, generate AI transcripts as SRT/VTT/TXT/JSON, save HD thumbnails. No registration required.",
         applicationCategory: "Multimedia",
         operatingSystem: "All",
@@ -112,7 +112,7 @@ export default async function YoutubeDownloadPage({ params }: Props) {
       },
       {
         "@type": "FAQPage",
-        "@id": `https://downforge.me/${locale}/youtube-download#faq`,
+        "@id": `https://www.downforge.me/${locale}/youtube-download#faq`,
         mainEntity: faqs.map((faq) => ({
           "@type": "Question",
           name: faq.q,

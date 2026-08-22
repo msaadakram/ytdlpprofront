@@ -32,7 +32,7 @@ export async function generateMetadata({ params }: Props): Promise<Metadata> {
     openGraph: {
       title: t("metaTitle"),
       description: t("metaDescription"),
-      url: `https://downforge.me/${locale}/audio-downloader/${config.slug}`,
+      url: `https://www.downforge.me/${locale}/audio-downloader/${config.slug}`,
       siteName: "DownForge",
       locale,
       type: "website",
@@ -44,17 +44,17 @@ export async function generateMetadata({ params }: Props): Promise<Metadata> {
     },
     robots: { index: true, follow: true },
     alternates: {
-      canonical: `https://downforge.me/${locale}/audio-downloader/${config.slug}`,
+      canonical: `https://www.downforge.me/${locale}/audio-downloader/${config.slug}`,
       languages: {
-        en: `https://downforge.me/en/audio-downloader/${config.slug}`,
-        es: `https://downforge.me/es/audio-downloader/${config.slug}`,
-        fr: `https://downforge.me/fr/audio-downloader/${config.slug}`,
-        de: `https://downforge.me/de/audio-downloader/${config.slug}`,
-        pt: `https://downforge.me/pt/audio-downloader/${config.slug}`,
-        ja: `https://downforge.me/ja/audio-downloader/${config.slug}`,
-        ar: `https://downforge.me/ar/audio-downloader/${config.slug}`,
-        ru: `https://downforge.me/ru/audio-downloader/${config.slug}`,
-        zh: `https://downforge.me/zh/audio-downloader/${config.slug}`,
+        en: `https://www.downforge.me/en/audio-downloader/${config.slug}`,
+        es: `https://www.downforge.me/es/audio-downloader/${config.slug}`,
+        fr: `https://www.downforge.me/fr/audio-downloader/${config.slug}`,
+        de: `https://www.downforge.me/de/audio-downloader/${config.slug}`,
+        pt: `https://www.downforge.me/pt/audio-downloader/${config.slug}`,
+        ja: `https://www.downforge.me/ja/audio-downloader/${config.slug}`,
+        ar: `https://www.downforge.me/ar/audio-downloader/${config.slug}`,
+        ru: `https://www.downforge.me/ru/audio-downloader/${config.slug}`,
+        zh: `https://www.downforge.me/zh/audio-downloader/${config.slug}`,
       },
     },
     keywords: t.raw("keywords") as string[],
@@ -76,17 +76,17 @@ export default async function AudioDownloaderPage({ params }: Props) {
     "@graph": [
       {
         "@type": "BreadcrumbList",
-        "@id": `https://downforge.me/${locale}/audio-downloader/${config.slug}#breadcrumb`,
+        "@id": `https://www.downforge.me/${locale}/audio-downloader/${config.slug}#breadcrumb`,
         "itemListElement": [
-          { "@type": "ListItem", position: 1, name: "Home", item: `https://downforge.me/${locale}` },
-          { "@type": "ListItem", position: 2, name: `${config.name} Audio Downloader`, item: `https://downforge.me/${locale}/audio-downloader/${config.slug}` },
+          { "@type": "ListItem", position: 1, name: "Home", item: `https://www.downforge.me/${locale}` },
+          { "@type": "ListItem", position: 2, name: `${config.name} Audio Downloader`, item: `https://www.downforge.me/${locale}/audio-downloader/${config.slug}` },
         ],
       },
       {
         "@type": "WebApplication",
-        "@id": `https://downforge.me/${locale}/audio-downloader/${config.slug}#webapp`,
+        "@id": `https://www.downforge.me/${locale}/audio-downloader/${config.slug}#webapp`,
         name: `DownForge ${config.name} Audio Downloader`,
-        url: `https://downforge.me/${locale}/audio-downloader/${config.slug}`,
+        url: `https://www.downforge.me/${locale}/audio-downloader/${config.slug}`,
         description: t("metaDescription"),
         applicationCategory: "Multimedia",
         operatingSystem: "All",
@@ -95,7 +95,7 @@ export default async function AudioDownloaderPage({ params }: Props) {
       },
       {
         "@type": "FAQPage",
-        "@id": `https://downforge.me/${locale}/audio-downloader/${config.slug}#faq`,
+        "@id": `https://www.downforge.me/${locale}/audio-downloader/${config.slug}#faq`,
         mainEntity: faqs.map((faq) => ({
           "@type": "Question",
           name: faq.q,

@@ -1,6 +1,6 @@
 "use client";
 
-import { useState, useRef, useCallback, useEffect } from "react";
+import { useState, useRef, useCallback, useEffect, type CSSProperties } from "react";
 import { motion, AnimatePresence } from "motion/react";
 import { Download, CheckCircle2, X, Sparkles, Loader2, Image } from "lucide-react";
 import { usePlatformTranslations } from "@/lib/usePlatformTranslations";
@@ -200,14 +200,12 @@ export function ThumbnailHero({ platform }: { platform: string }) {
 
           <div className="flex flex-col sm:flex-row gap-3 sm:gap-4">
             <div
-              className="flex-1 flex items-center gap-3 bg-white/60 dark:bg-[#0d1f26]/60 backdrop-blur-xl border border-white/30 dark:border-white/10 rounded-2xl px-4 py-3.5 shadow-[0_8px_30px_rgba(0,0,0,0.06),inset_0_1px_0_rgba(255,255,255,0.4)] dark:shadow-[0_8px_30px_rgba(0,0,0,0.3),inset_0_1px_0_rgba(255,255,255,0.1)] transition-all duration-300 focus-within:shadow-[0_12px_40px_rgba(91,170,184,0.15),inset_0_1px_0_rgba(255,255,255,0.5)] focus-within:bg-white/80 dark:focus-within:bg-[#0d1f26]/80 focus-within:border-[#5baab8]/40 focus-within:ring-[3px] focus-within:ring-[#5baab8]/20"
-              style={{ boxShadow: "inset 0 1px 2px rgba(0,0,0,0.03)" }}
+              className="brand-input flex-1 flex items-center gap-3 bg-white/60 dark:bg-[#0d1f26]/60 backdrop-blur-xl border border-white/30 dark:border-white/10 rounded-2xl px-4 py-3.5"
+              style={{ "--brand": brandColor } as CSSProperties}
             >
               <span
                 className="w-10 h-10 rounded-xl flex items-center justify-center shadow-lg shadow-[#5baab8]/30 flex-shrink-0 transition-transform duration-300 hover:scale-110"
                 style={{ background: `linear-gradient(135deg, #5baab8 0%, #3d8896 100%)` }}
-                onMouseEnter={(e) => e.currentTarget.style.transform = "scale(1.1)"}
-                onMouseLeave={(e) => e.currentTarget.style.transform = "scale(1)"}
               >
                 {InputIcon ? <InputIcon className="w-4.5 h-4.5 text-white" /> : <Image className="w-4.5 h-4.5 text-white" />}
               </span>
@@ -215,6 +213,7 @@ export function ThumbnailHero({ platform }: { platform: string }) {
                 <input
                   ref={inputRef}
                   type="url"
+                  inputMode="url"
                   value={url}
                   onChange={(e) => handleUrlChange(e.target.value)}
                   onKeyDown={(e) => e.key === "Enter" && handleDownload()}
@@ -246,22 +245,10 @@ export function ThumbnailHero({ platform }: { platform: string }) {
               disabled={processing || fetchingInfo}
               whileHover={{ scale: processing || fetchingInfo ? 1 : 1.04, y: processing || fetchingInfo ? 0 : -3 }}
               whileTap={{ scale: processing || fetchingInfo ? 1 : 0.96, y: processing || fetchingInfo ? 0 : 1 }}
-              className="flex items-center justify-center gap-2.5 text-white font-bold text-sm sm:text-base px-7 py-3.5 md:px-8 md:py-4 rounded-2xl shadow-[0_15px_40px_-10px_rgba(13,31,38,0.4)] hover:shadow-[0_25px_50px_-15px_rgba(13,31,38,0.5)] transition-all duration-300 disabled:opacity-50 disabled:shadow-none disabled:hover:scale-100 w-full sm:w-auto md:min-w-[190px] relative overflow-hidden font-sans tracking-wide bg-gradient-to-r from-[#0d1f26] via-[#143d4a] to-[#0d1f26] bg-[length:200%_auto] animate-gradient-shift hover:animate-gradient-shift-fast"
-              style={{
-                boxShadow: `0 15px 40px -10px ${brandColor}40`,
-              }}
-              onMouseEnter={(e) => {
-                if (!processing && !fetchingInfo) {
-                  e.currentTarget.style.filter = "brightness(1.1)";
-                  e.currentTarget.style.boxShadow = `0 25px 50px -15px ${brandColor}60`;
-                }
-              }}
-              onMouseLeave={(e) => {
-                e.currentTarget.style.filter = "none";
-                e.currentTarget.style.boxShadow = `0 15px 40px -10px ${brandColor}40`;
-              }}
+              className="brand-glow group flex items-center justify-center gap-2.5 text-white font-bold text-sm sm:text-base px-7 py-3.5 md:px-8 md:py-4 rounded-2xl transition-all duration-300 disabled:opacity-50 w-full sm:w-auto md:min-w-[190px] relative overflow-hidden font-sans tracking-wide bg-gradient-to-r from-[#0d1f26] via-[#143d4a] to-[#0d1f26] bg-[length:200%_auto] animate-gradient-shift"
+              style={{ "--brand-glow": `${brandColor}55` } as CSSProperties}
             >
-              <span className="absolute inset-0 bg-gradient-to-r from-transparent via-white/15 to-transparent -translate-x-full hover:translate-x-full transition-transform duration-[1.5s] ease-in-out pointer-events-none" />
+              <span className="absolute inset-0 bg-gradient-to-r from-transparent via-white/15 to-transparent -translate-x-full group-hover:translate-x-full transition-transform duration-[1.5s] ease-in-out pointer-events-none" />
               <AnimatePresence mode="wait">
                 {fetchingInfo ? (
                   <motion.span key="fetch" initial={{ opacity: 0 }} animate={{ opacity: 1 }} exit={{ opacity: 0 }} className="flex items-center gap-2 relative z-10">

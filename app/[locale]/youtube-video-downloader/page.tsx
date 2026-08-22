@@ -12,7 +12,7 @@ export async function generateMetadata({ params }: Props): Promise<Metadata> {
     title: "YouTube Video Downloader — Download Videos in 4K & HD | DownForge",
     description: "Download YouTube videos in 4K, 1080p, and 720p. Free online video downloader. No account required.",
     alternates: {
-      canonical: `https://downforge.me/${locale}/youtube-video-downloader`,
+      canonical: `https://www.downforge.me/${locale}/youtube-video-downloader`,
     },
   };
 }

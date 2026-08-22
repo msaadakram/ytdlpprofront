@@ -14,11 +14,11 @@ export async function generateMetadata({ params }: Props): Promise<Metadata> {
   const { locale } = await params;
   const t = await getTranslations({ locale, namespace: "Pricing" });
 
-  const languages = Object.fromEntries(routing.locales.map((l) => [l, `https://downforge.me/${l}/pricing`]));
+  const languages = Object.fromEntries(routing.locales.map((l) => [l, `https://www.downforge.me/${l}/pricing`]));
   return {
     title: `${t("title")} — DownForge`,
     description: t("subtitle"),
-    alternates: { canonical: `https://downforge.me/${locale}/pricing`, languages },
+    alternates: { canonical: `https://www.downforge.me/${locale}/pricing`, languages },
     openGraph: {
       title: `${t("title")} — DownForge`,
       description: t("subtitle"),
@@ -38,8 +38,8 @@ export default async function PricingPage({ params }: Props) {
     "@type": "WebPage",
     name: t("title"),
     description: t("subtitle"),
-    url: `https://downforge.me/${locale}/pricing`,
-    isPartOf: { "@type": "WebSite", name: "DownForge", url: "https://downforge.me" },
+    url: `https://www.downforge.me/${locale}/pricing`,
+    isPartOf: { "@type": "WebSite", name: "DownForge", url: "https://www.downforge.me" },
   };
 
   return (

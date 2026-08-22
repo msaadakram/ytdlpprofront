@@ -10,11 +10,11 @@ type Props = { params: Promise<{ locale: string }> };
 export async function generateMetadata({ params }: Props): Promise<Metadata> {
   const { locale } = await params;
   const t = await getTranslations({ locale, namespace: "Changelog" });
-  const languages = Object.fromEntries(routing.locales.map((l) => [l, `https://downforge.me/${l}/changelog`]));
+  const languages = Object.fromEntries(routing.locales.map((l) => [l, `https://www.downforge.me/${l}/changelog`]));
   return {
     title: t("metaTitle"),
     description: t("metaDescription"),
-    alternates: { canonical: `https://downforge.me/${locale}/changelog`, languages },
+    alternates: { canonical: `https://www.downforge.me/${locale}/changelog`, languages },
     openGraph: { title: t("metaTitle"), description: t("metaDescription"), type: "website", siteName: "DownForge", locale },
   };
 }
@@ -34,7 +34,7 @@ export default async function ChangelogPage({ params }: Props) {
     "@context": "https://schema.org",
     "@type": "ItemList",
     name: t("title"),
-    url: `https://downforge.me/${locale}/changelog`,
+    url: `https://www.downforge.me/${locale}/changelog`,
   };
 
   return (

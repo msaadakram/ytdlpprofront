@@ -11,11 +11,11 @@ type Props = { params: Promise<{ locale: string }> };
 export async function generateMetadata({ params }: Props): Promise<Metadata> {
   const { locale } = await params;
   const t = await getTranslations({ locale, namespace: "Blog" });
-  const languages = Object.fromEntries(routing.locales.map((l) => [l, `https://downforge.me/${l}/blog`]));
+  const languages = Object.fromEntries(routing.locales.map((l) => [l, `https://www.downforge.me/${l}/blog`]));
   return {
     title: t("metaTitle"),
     description: t("metaDescription"),
-    alternates: { canonical: `https://downforge.me/${locale}/blog`, languages },
+    alternates: { canonical: `https://www.downforge.me/${locale}/blog`, languages },
     openGraph: { title: t("metaTitle"), description: t("metaDescription"), type: "website", siteName: "DownForge", locale },
   };
 }
@@ -38,7 +38,7 @@ export default async function BlogPage({ params }: Props) {
     "@type": "Blog",
     name: t("title"),
     description: t("subtitle"),
-    url: `https://downforge.me/${locale}/blog`,
+    url: `https://www.downforge.me/${locale}/blog`,
   };
 
   return (

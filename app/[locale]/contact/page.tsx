@@ -12,11 +12,11 @@ type Props = { params: Promise<{ locale: string }> };
 export async function generateMetadata({ params }: Props): Promise<Metadata> {
   const { locale } = await params;
   const t = await getTranslations({ locale, namespace: "Contact" });
-  const languages = Object.fromEntries(routing.locales.map((l) => [l, `https://downforge.me/${l}/contact`]));
+  const languages = Object.fromEntries(routing.locales.map((l) => [l, `https://www.downforge.me/${l}/contact`]));
   return {
     title: t("metaTitle"),
     description: t("metaDescription"),
-    alternates: { canonical: `https://downforge.me/${locale}/contact`, languages },
+    alternates: { canonical: `https://www.downforge.me/${locale}/contact`, languages },
     openGraph: {
       title: t("metaTitle"),
       description: t("metaDescription"),
@@ -42,12 +42,12 @@ export default async function ContactPage({ params }: Props) {
     "@type": "ContactPage",
     name: t("title"),
     description: t("metaDescription"),
-    url: `https://downforge.me/${locale}/contact`,
-    isPartOf: { "@type": "WebSite", name: "DownForge", url: "https://downforge.me" },
+    url: `https://www.downforge.me/${locale}/contact`,
+    isPartOf: { "@type": "WebSite", name: "DownForge", url: "https://www.downforge.me" },
     mainEntity: {
       "@type": "Organization",
       name: "DownForge",
-      url: "https://downforge.me",
+      url: "https://www.downforge.me",
       contactPoint: [
         { "@type": "ContactPoint", contactType: "customer support", email: "support@downforge.me", availableLanguage: routing.locales },
         { "@type": "ContactPoint", contactType: "legal", email: "legal@downforge.me" },

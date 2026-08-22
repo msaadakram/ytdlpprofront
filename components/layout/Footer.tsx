@@ -324,7 +324,7 @@ export function Footer() {
         <div className="relative mt-8 sm:mt-10 lg:mt-12 border-t border-white/[0.06] pt-6 sm:pt-8 lg:pt-10 overflow-hidden">
           <div className="pointer-events-none absolute inset-x-0 -top-10 h-40 bg-gradient-to-b from-[#5baab8]/5 to-transparent blur-2xl" />
           <div className="flex flex-col items-center gap-4 sm:gap-6 lg:flex-row lg:justify-between">
-            <div className="text-center lg:text-left min-w-0">
+            <div className="text-center lg:text-start min-w-0">
               <div className="inline-flex items-center gap-2 flex-wrap justify-center lg:justify-start">
                 <span className="w-1.5 h-1.5 rounded-full bg-emerald-400 animate-pulse shadow-[0_0_8px_rgba(16,185,129,0.6)] shrink-0" />
                 <span className="font-mono text-[10px] sm:text-[11px] font-bold tracking-[0.16em] sm:tracking-[0.18em] uppercase text-white/40 text-center">All systems operational • 200+ sites live</span>
@@ -348,7 +348,7 @@ export function Footer() {
           </div>
 
           {/* Beautiful DownForge large text */}
-          <div className="mt-6 lg:mt-8 xl:mt-10 relative select-none overflow-hidden rounded-[1.5rem] lg:rounded-[1.75rem] xl:rounded-[2rem] bg-gradient-to-br from-white/[0.06] via-white/[0.02] to-transparent border border-white/[0.06] backdrop-blur-sm px-4 lg:px-5 xl:px-6 py-5 lg:py-6 xl:py-8">
+          <div className="mt-6 lg:mt-8 xl:mt-10 relative select-none overflow-hidden rounded-[1.5rem] lg:rounded-[1.75rem] xl:rounded-[2rem] bg-gradient-to-br from-white/[0.06] via-white/[0.02] to-transparent border border-white/[0.06] backdrop-blur-sm px-4 lg:px-5 xl:px-6 pt-5 lg:pt-6 xl:pt-8 pb-[3rem] xs:pb-[3.25rem] sm:pb-[4rem] lg:pb-[4.5rem] xl:pb-[5.5rem] 2xl:pb-[6rem]">
             <div className="absolute inset-0 bg-gradient-to-r from-[#5baab8]/10 via-transparent to-transparent opacity-60" />
             <div className="relative z-10 flex flex-col lg:flex-row items-center justify-between gap-4 lg:gap-6 xl:gap-8">
               <div className="flex items-center gap-2.5 sm:gap-3">
@@ -364,16 +364,16 @@ export function Footer() {
                   </div>
                 </div>
               </div>
-              <div className="text-center lg:text-right min-w-0">
+              <div className="text-center lg:text-end min-w-0">
                 <div className="font-heading text-[13px] sm:text-sm font-bold text-white/90 flex items-center justify-center lg:justify-end gap-1.5 sm:gap-2">
                   <Sparkles className="w-3.5 h-3.5 sm:w-4 sm:h-4 text-[#8fd3df] shrink-0" /> Crafted for creators
                 </div>
                 <div className="font-sans text-[11px] lg:text-[11px] xl:text-xs text-white/40 mt-1 leading-relaxed">Fast <span className="hidden xs:inline">•</span> <span className="xs:hidden">·</span> Private <span className="hidden xs:inline">•</span> <span className="xs:hidden">·</span> Any format <span className="hidden xs:inline">•</span> <span className="xs:hidden">·</span> 200+ platforms</div>
               </div>
             </div>
-            {/* Watermark — centered, no translate, no overflow */}
-            <div aria-hidden className="pointer-events-none absolute inset-x-0 -bottom-1 lg:-bottom-1 xl:-bottom-2 flex justify-center overflow-hidden select-none">
-              <span className="font-heading text-[36px] xs:text-[42px] sm:text-[56px] lg:text-[64px] xl:text-[84px] 2xl:text-[110px] font-black tracking-[-0.05em] leading-none text-white/[0.04] sm:text-white/[0.05] whitespace-nowrap">
+            {/* Watermark — confined to its own bottom strip so it never sits under readable content */}
+            <div aria-hidden className="pointer-events-none absolute inset-x-0 bottom-0 flex h-[2.25rem] xs:h-[2.5rem] sm:h-[3.25rem] lg:h-[3.75rem] xl:h-[4.75rem] 2xl:h-[5.25rem] items-start justify-center overflow-hidden select-none">
+              <span className="font-heading text-[36px] xs:text-[42px] sm:text-[56px] lg:text-[64px] xl:text-[84px] 2xl:text-[96px] font-black tracking-[-0.05em] leading-none text-white/[0.04] sm:text-white/[0.05] whitespace-nowrap">
                 DownForge
               </span>
             </div>

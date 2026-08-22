@@ -11,11 +11,11 @@ type Props = { params: Promise<{ locale: string }> };
 export async function generateMetadata({ params }: Props): Promise<Metadata> {
   const { locale } = await params;
   const t = await getTranslations({ locale, namespace: "Privacy" });
-  const languages = Object.fromEntries(routing.locales.map((l) => [l, `https://downforge.me/${l}/privacy`]));
+  const languages = Object.fromEntries(routing.locales.map((l) => [l, `https://www.downforge.me/${l}/privacy`]));
   return {
     title: `${t("title")} — DownForge`,
     description: "DownForge privacy policy. Learn how we handle your data, what we collect, and your rights.",
-    alternates: { canonical: `https://downforge.me/${locale}/privacy`, languages },
+    alternates: { canonical: `https://www.downforge.me/${locale}/privacy`, languages },
     openGraph: {
       title: `${t("title")} — DownForge`,
       description: "How DownForge handles your data. Ephemeral processing, no logs, your rights.",
@@ -43,9 +43,9 @@ export default async function PrivacyPolicyPage({ params }: Props) {
     "@type": "WebPage",
     name: t("title"),
     description: "DownForge privacy policy. Learn how we handle your data.",
-    url: `https://downforge.me/${locale}/privacy`,
+    url: `https://www.downforge.me/${locale}/privacy`,
     dateModified: "2025-01-01",
-    isPartOf: { "@type": "WebSite", name: "DownForge", url: "https://downforge.me" },
+    isPartOf: { "@type": "WebSite", name: "DownForge", url: "https://www.downforge.me" },
   };
 
   return (

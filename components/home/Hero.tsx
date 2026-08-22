@@ -1,6 +1,6 @@
 "use client";
 
-import { useState } from "react";
+import { useState, type CSSProperties } from "react";
 import { useTranslations } from "next-intl";
 import { motion, AnimatePresence } from "motion/react";
 import {
@@ -123,11 +123,12 @@ export function Hero() {
                 <input
                   ref={inputRef}
                   type="url"
+                  inputMode="url"
                   value={url}
                   onChange={(e) => handleUrlChange(e.target.value)}
                   onKeyDown={(e) => e.key === "Enter" && handleDownloadClick()}
                   placeholder="Paste your video URL here..."
-                  className="w-full bg-transparent text-sm text-foreground placeholder:text-muted-foreground/60 outline-none font-sans tracking-wide"
+                  className="w-full bg-transparent text-base sm:text-sm text-foreground placeholder:text-muted-foreground/60 outline-none font-sans tracking-wide"
                 />
                 {fetchingInfo && (
                   <p className="text-[10px] text-muted-foreground flex items-center gap-1 mt-0.5 font-sans">
@@ -139,7 +140,7 @@ export function Hero() {
                 )}
               </div>
               {url && (
-                <button onClick={() => handleUrlChange("")} className="text-muted-foreground hover:text-foreground transition-colors">
+                <button onClick={() => handleUrlChange("")} aria-label="Clear URL" className="text-muted-foreground hover:text-foreground transition-colors">
                   <X className="w-3.5 h-3.5" />
                 </button>
               )}
@@ -190,10 +191,11 @@ export function Hero() {
               disabled={processing || fetchingInfo}
               whileHover={{ scale: processing || fetchingInfo ? 1 : 1.05, y: processing || fetchingInfo ? 0 : -2 }}
               whileTap={{ scale: processing || fetchingInfo ? 1 : 0.95, y: processing || fetchingInfo ? 0 : 1 }}
-              className="flex items-center justify-center gap-2.5 bg-gradient-to-r from-[#0d1f26] via-[#143d4a] to-[#0d1f26] bg-[length:200%_auto] animate-gradient-shift hover:animate-gradient-shift-fast text-white font-bold text-sm px-7 py-3.5 rounded-2xl shadow-[0_10px_30px_-10px_rgba(13,31,38,0.5)] hover:shadow-[0_20px_40px_-15px_rgba(13,31,38,0.6)] transition-all duration-300 disabled:opacity-60 disabled:shadow-none disabled:hover:scale-100 w-full sm:w-auto sm:min-w-[170px] relative overflow-hidden font-sans tracking-wide"
+              className="brand-glow group flex items-center justify-center gap-2.5 bg-gradient-to-r from-[#0d1f26] via-[#143d4a] to-[#0d1f26] bg-[length:200%_auto] animate-gradient-shift text-white font-bold text-sm px-7 py-3.5 rounded-2xl transition-all duration-300 disabled:opacity-60 w-full sm:w-auto sm:min-w-[170px] relative overflow-hidden font-sans tracking-wide"
+              style={{ "--brand-glow": "rgba(13, 31, 38, 0.5)" } as CSSProperties}
             >
               {/* Shimmer overlay */}
-              <span className="absolute inset-0 bg-gradient-to-r from-transparent via-white/10 to-transparent -translate-x-full hover:translate-x-full transition-transform duration-[1.2s] ease-in-out pointer-events-none" />
+              <span className="absolute inset-0 bg-gradient-to-r from-transparent via-white/10 to-transparent -translate-x-full group-hover:translate-x-full transition-transform duration-[1.2s] ease-in-out pointer-events-none" />
               <AnimatePresence mode="wait">
                 {fetchingInfo ? (
                   <motion.span key="fetch" initial={{ opacity: 0 }} animate={{ opacity: 1 }} exit={{ opacity: 0 }} className="flex items-center gap-2">

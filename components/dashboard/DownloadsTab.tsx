@@ -14,7 +14,7 @@ function DownloadCard({ dl }: { dl: DownloadRow }) {
       <div className="flex items-start justify-between gap-3 mb-3">
         <p className="text-sm font-medium text-foreground font-sans truncate pr-4">{dl.title || dl.filename || "Untitled"}</p>
         <span className={`text-xs font-medium px-2 py-1 rounded-full font-sans shrink-0 ${
-          dl.status === "completed" ? "bg-green-100 text-green-700" : "bg-red-100 text-red-700"
+          dl.status === "completed" ? "bg-green-100 text-green-700 dark:bg-green-500/15 dark:text-green-400" : "bg-red-100 text-red-700 dark:bg-red-500/15 dark:text-red-400"
         }`}>
           {dl.status === "completed" ? "Completed" : "Failed"}
         </span>
@@ -150,7 +150,7 @@ export function DownloadsTab() {
                       </td>
                       <td className="py-3">
                         <span className={`text-xs font-medium px-2 py-0.5 rounded-full font-sans ${
-                          dl.status === "completed" ? "bg-green-100 text-green-700" : "bg-red-100 text-red-700"
+                          dl.status === "completed" ? "bg-green-100 text-green-700 dark:bg-green-500/15 dark:text-green-400" : "bg-red-100 text-red-700 dark:bg-red-500/15 dark:text-red-400"
                         }`}>{dl.status === "completed" ? "Completed" : "Failed"}</span>
                       </td>
                     </tr>

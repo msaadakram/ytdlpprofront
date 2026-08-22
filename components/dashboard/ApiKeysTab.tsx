@@ -83,7 +83,7 @@ export function ApiKeysTab() {
         {!showCreateInput ? (
           <button
             onClick={() => setShowCreateInput(true)}
-            className="flex items-center justify-center gap-2 bg-[#0d1f26] text-white text-sm font-semibold px-4 py-2.5 rounded-xl hover:bg-[#1a3545] transition-colors font-sans w-full sm:w-auto"
+            className="flex items-center justify-center gap-2 bg-[#0d1f26] text-white text-sm font-semibold px-4 py-2.5 rounded-xl hover:bg-[#1a3545] dark:bg-white dark:text-[#0d1f26] dark:hover:bg-white/90 transition-colors font-sans w-full sm:w-auto"
           >
             <Plus className="w-4 h-4" /> Create Key
           </button>
@@ -102,7 +102,7 @@ export function ApiKeysTab() {
               <button
                 onClick={handleCreate}
                 disabled={creating}
-                className="bg-[#0d1f26] text-white text-sm font-semibold px-4 py-2 rounded-xl hover:bg-[#1a3545] transition-colors font-sans disabled:opacity-60"
+                className="bg-[#0d1f26] text-white text-sm font-semibold px-4 py-2 rounded-xl hover:bg-[#1a3545] dark:bg-white dark:text-[#0d1f26] dark:hover:bg-white/90 transition-colors font-sans disabled:opacity-60"
               >
                 {creating ? <Loader2 className="w-4 h-4 animate-spin" /> : "Save"}
               </button>
@@ -118,7 +118,7 @@ export function ApiKeysTab() {
       </div>
 
       {error && (
-        <div className="text-xs text-red-600 bg-red-50 border border-red-100 rounded-lg px-3 py-2 font-sans">
+        <div className="text-xs text-red-600 dark:text-red-300 bg-red-50 dark:bg-red-950/40 border border-red-100 dark:border-red-900/50 rounded-lg px-3 py-2 font-sans">
           {error}
         </div>
       )}

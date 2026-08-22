@@ -51,7 +51,7 @@ export function CreateApiKeyDialog({ open, onClose, keyName, plaintext }: Create
 
         <button
           onClick={handleCopy}
-          className="w-full flex items-center justify-center gap-2 bg-[#0d1f26] text-white text-sm font-semibold px-4 py-2.5 rounded-xl hover:bg-[#1a3545] transition-colors font-sans"
+          className="w-full flex items-center justify-center gap-2 bg-[#0d1f26] text-white text-sm font-semibold px-4 py-2.5 rounded-xl hover:bg-[#1a3545] dark:bg-white dark:text-[#0d1f26] dark:hover:bg-white/90 transition-colors font-sans"
         >
           {copied ? <CheckCircle2 className="w-4 h-4" /> : <Copy className="w-4 h-4" />}
           {copied ? "Copied!" : "Copy Key"}

@@ -14,7 +14,7 @@ export async function generateMetadata({ params }: Props): Promise<Metadata> {
   return {
     title: `${t("title")} — DownForge`,
     description: t("subtitle"),
-    alternates: { canonical: `https://downforge.me/${locale}/api-disclaimer` },
+    alternates: { canonical: `https://www.downforge.me/${locale}/api-disclaimer` },
   };
 }
 

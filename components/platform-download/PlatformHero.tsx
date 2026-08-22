@@ -1,5 +1,6 @@
 "use client";
 
+import type { CSSProperties } from "react";
 import { motion, AnimatePresence } from "motion/react";
 import {
   Download, CheckCircle2, Play, X, Sparkles, Music, Image, Loader2, FileText,
@@ -173,40 +174,26 @@ export function PlatformHero({ platform }: { platform: string }) {
 
           <div className="flex flex-col md:flex-row gap-3">
             <div
-              className="flex-1 flex items-center gap-3 bg-white/70 backdrop-blur-sm rounded-xl px-4 py-3 transition-all duration-300"
-              style={{ boxShadow: "inset 0 1px 2px rgba(0,0,0,0.04)" }}
-              onFocus={(e) => {
-                const parent = e.currentTarget;
-                parent.style.boxShadow = `inset 0 1px 2px rgba(0,0,0,0.04), 0 0 0 2px ${config.brandColor}40`;
-                parent.style.backgroundColor = "white";
-              }}
-              onBlur={(e) => {
-                const parent = e.currentTarget;
-                parent.style.boxShadow = "inset 0 1px 2px rgba(0,0,0,0.04)";
-                parent.style.backgroundColor = "rgba(255,255,255,0.7)";
-              }}
+              className="brand-input flex-1 flex items-center gap-3 bg-white/70 backdrop-blur-sm rounded-xl px-4 py-3 transition-colors duration-300"
+              style={{ "--brand": config.brandColor } as CSSProperties}
             >
-              <span
-                className="flex-shrink-0 transition-transform duration-300"
-                style={{ color: config.brandColor }}
-                onMouseEnter={(e) => e.currentTarget.style.transform = "scale(1.15)"}
-                onMouseLeave={(e) => e.currentTarget.style.transform = "scale(1)"}
-              >
+              <span className="flex-shrink-0 transition-transform duration-300 hover:scale-110" style={{ color: config.brandColor }}>
                 <InputIcon className="w-4 h-4" />
               </span>
               <div className="flex-1 min-w-0">
                 <input
                   ref={inputRef}
                   type="url"
+                  inputMode="url"
                   value={url}
                   onChange={(e) => handleUrlChange(e.target.value)}
                   onKeyDown={(e) => e.key === "Enter" && handleDownloadClick()}
                   placeholder={config.placeholder}
-                  className="w-full bg-transparent text-sm text-foreground placeholder:text-muted-foreground outline-none font-sans"
+                  className="w-full bg-transparent text-base sm:text-sm text-foreground placeholder:text-muted-foreground outline-none font-sans"
                 />
               </div>
               {url && (
-                <button onClick={() => handleUrlChange("")} className="text-muted-foreground hover:text-foreground transition-colors shrink-0">
+                <button onClick={() => handleUrlChange("")} aria-label="Clear URL" className="text-muted-foreground hover:text-foreground transition-colors shrink-0">
                   <X className="w-3.5 h-3.5" />
                 </button>
               )}
@@ -217,7 +204,7 @@ export function PlatformHero({ platform }: { platform: string }) {
               disabled={processing || fetchingInfo}
               whileHover={{ scale: processing || fetchingInfo ? 1 : 1.03 }}
               whileTap={{ scale: processing || fetchingInfo ? 1 : 0.97 }}
-               className="flex items-center justify-center gap-2 text-white font-semibold text-sm px-7 py-3 rounded-xl transition-all duration-300 disabled:opacity-70 w-full md:min-w-[150px] font-sans relative overflow-hidden group"
+               className="flex items-center justify-center gap-2 text-white font-semibold text-sm px-7 py-3 rounded-xl transition-all duration-300 disabled:opacity-70 w-full md:w-auto md:min-w-[150px] font-sans relative overflow-hidden group"
               style={{
                 background: `linear-gradient(135deg, #0d1f26, ${config.brandColor}DD)`,
               }}

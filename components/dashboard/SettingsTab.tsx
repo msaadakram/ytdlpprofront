@@ -154,7 +154,7 @@ export function SettingsTab() {
                   <div className="text-sm font-semibold text-foreground font-sans flex items-center gap-2">
                     Google
                     {profile.provider === "google" || profile.provider === "both" ? (
-                      <span className="inline-flex items-center gap-1 text-[10px] font-bold tracking-wide uppercase px-1.5 py-0.5 rounded-full bg-green-50 text-green-700 border border-green-200">Connected</span>
+                      <span className="inline-flex items-center gap-1 text-[10px] font-bold tracking-wide uppercase px-1.5 py-0.5 rounded-full bg-green-50 text-green-700 border border-green-200 dark:bg-green-500/15 dark:text-green-400 dark:border-green-500/25">Connected</span>
                     ) : (
                       <span className="inline-flex text-[10px] font-semibold tracking-wide uppercase px-1.5 py-0.5 rounded-full bg-muted text-muted-foreground border">Not connected</span>
                     )}
@@ -178,9 +178,9 @@ export function SettingsTab() {
                 <div className="text-sm font-semibold text-foreground font-sans flex items-center gap-2">
                   Email & Password
                   {hasPassword ? (
-                    <span className="inline-flex text-[10px] font-bold tracking-wide uppercase px-1.5 py-0.5 rounded-full bg-green-50 text-green-700 border border-green-200">Active</span>
+                    <span className="inline-flex text-[10px] font-bold tracking-wide uppercase px-1.5 py-0.5 rounded-full bg-green-50 text-green-700 border border-green-200 dark:bg-green-500/15 dark:text-green-400 dark:border-green-500/25">Active</span>
                   ) : (
-                    <span className="inline-flex text-[10px] font-semibold tracking-wide uppercase px-1.5 py-0.5 rounded-full bg-amber-50 text-amber-700 border border-amber-200">No password</span>
+                    <span className="inline-flex text-[10px] font-semibold tracking-wide uppercase px-1.5 py-0.5 rounded-full bg-amber-50 text-amber-700 border border-amber-200 dark:bg-amber-500/15 dark:text-amber-400 dark:border-amber-500/25">No password</span>
                   )}
                 </div>
                 <p className="text-xs text-muted-foreground font-sans">
@@ -235,7 +235,7 @@ export function SettingsTab() {
           <button
             onClick={handleSaveProfile}
             disabled={savingProfile}
-            className="flex items-center gap-2 bg-[#0d1f26] text-white text-sm font-semibold px-5 py-2.5 rounded-xl hover:bg-[#1a3545] transition-colors font-sans disabled:opacity-60"
+            className="flex items-center gap-2 bg-[#0d1f26] text-white text-sm font-semibold px-5 py-2.5 rounded-xl hover:bg-[#1a3545] dark:bg-white dark:text-[#0d1f26] dark:hover:bg-white/90 transition-colors font-sans disabled:opacity-60"
           >
             {savingProfile && <Loader2 className="w-4 h-4 animate-spin" />}
             Save Changes
@@ -290,7 +290,7 @@ export function SettingsTab() {
           <button
             onClick={handleUpdatePassword}
             disabled={savingPw}
-            className="flex items-center gap-2 bg-[#0d1f26] text-white text-sm font-semibold px-5 py-2.5 rounded-xl hover:bg-[#1a3545] transition-colors font-sans disabled:opacity-60"
+            className="flex items-center gap-2 bg-[#0d1f26] text-white text-sm font-semibold px-5 py-2.5 rounded-xl hover:bg-[#1a3545] dark:bg-white dark:text-[#0d1f26] dark:hover:bg-white/90 transition-colors font-sans disabled:opacity-60"
           >
             {savingPw && <Loader2 className="w-4 h-4 animate-spin" />}
             {hasPassword ? "Update Password" : "Set Password"}

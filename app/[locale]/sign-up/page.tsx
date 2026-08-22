@@ -12,7 +12,7 @@ export async function generateMetadata({ params }: Props): Promise<Metadata> {
 
   return {
     title: `${t("signUpTitle")} — DownForge`,
-    alternates: { canonical: `https://downforge.me/${locale}/sign-up` },
+    alternates: { canonical: `https://www.downforge.me/${locale}/sign-up` },
   };
 }
 

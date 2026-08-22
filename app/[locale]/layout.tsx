@@ -24,7 +24,7 @@ export async function generateMetadata({ params }: Props): Promise<Metadata> {
   const siteName = t("siteName");
 
   return {
-    metadataBase: new URL("https://downforge.me"),
+    metadataBase: new URL("https://www.downforge.me"),
     title,
     description,
     applicationName: siteName,
@@ -43,19 +43,19 @@ export async function generateMetadata({ params }: Props): Promise<Metadata> {
     openGraph: {
       title,
       description,
-      url: `https://downforge.me/${locale}`,
+      url: `https://www.downforge.me/${locale}`,
       siteName,
       locale,
       type: "website",
       images: [
         {
-          url: "https://downforge.me/logo.png",
+          url: "https://www.downforge.me/logo.png",
           width: 1254,
           height: 1254,
           alt: siteName,
         },
         {
-          url: "https://downforge.me/android-chrome-512x512.png",
+          url: "https://www.downforge.me/android-chrome-512x512.png",
           width: 512,
           height: 512,
           alt: siteName,
@@ -66,20 +66,20 @@ export async function generateMetadata({ params }: Props): Promise<Metadata> {
       card: "summary_large_image",
       title,
       description,
-      images: ["https://downforge.me/logo.png"],
+      images: ["https://www.downforge.me/logo.png"],
     },
     alternates: {
-      canonical: `https://downforge.me/${locale}`,
+      canonical: `https://www.downforge.me/${locale}`,
       languages: {
-        en: "https://downforge.me/en",
-        es: "https://downforge.me/es",
-        fr: "https://downforge.me/fr",
-        de: "https://downforge.me/de",
-        pt: "https://downforge.me/pt",
-        ja: "https://downforge.me/ja",
-        ar: "https://downforge.me/ar",
-        ru: "https://downforge.me/ru",
-        zh: "https://downforge.me/zh",
+        en: "https://www.downforge.me/en",
+        es: "https://www.downforge.me/es",
+        fr: "https://www.downforge.me/fr",
+        de: "https://www.downforge.me/de",
+        pt: "https://www.downforge.me/pt",
+        ja: "https://www.downforge.me/ja",
+        ar: "https://www.downforge.me/ar",
+        ru: "https://www.downforge.me/ru",
+        zh: "https://www.downforge.me/zh",
       },
     },
     robots: {
@@ -114,9 +114,9 @@ export default async function LocaleLayout({ children, params }: Props) {
     "@context": "https://schema.org",
     "@type": "Organization",
     name: "DownForge",
-    url: "https://downforge.me",
-    logo: "https://downforge.me/organization-logo.png",
-    image: "https://downforge.me/logo.png",
+    url: "https://www.downforge.me",
+    logo: "https://www.downforge.me/organization-logo.png",
+    image: "https://www.downforge.me/logo.png",
     description: "Download any video, audio, thumbnail or transcript from 200+ platforms",
     sameAs: [
       "https://github.com/downforge",
@@ -131,14 +131,14 @@ export default async function LocaleLayout({ children, params }: Props) {
     "@context": "https://schema.org",
     "@type": "WebSite",
     name: "DownForge",
-    url: "https://downforge.me",
+    url: "https://www.downforge.me",
     inLanguage: locale,
     publisher: {
       "@type": "Organization",
       name: "DownForge",
       logo: {
         "@type": "ImageObject",
-        url: "https://downforge.me/organization-logo.png",
+        url: "https://www.downforge.me/organization-logo.png",
         width: 512,
         height: 512,
         caption: "DownForge Logo",
@@ -146,7 +146,7 @@ export default async function LocaleLayout({ children, params }: Props) {
     },
     potentialAction: {
       "@type": "SearchAction",
-      target: "https://downforge.me/search?q={search_term_string}",
+      target: "https://www.downforge.me/search?q={search_term_string}",
       "query-input": "required name=search_term_string",
     },
   };
