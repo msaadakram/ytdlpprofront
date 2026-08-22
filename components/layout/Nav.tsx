@@ -7,6 +7,7 @@ import { motion, AnimatePresence } from "motion/react";
 import {
   Download, Menu, X, BarChart2, Play, Music, Image, FileText,
   ChevronDown, LogOut, ExternalLink, Globe, Check, Sparkles,
+  Users, Mail, Scale, ShieldCheck, CreditCard, ArrowRight,
 } from "lucide-react";
 import { platforms } from "@/lib/constants";
 import { useAuth } from "@/lib/auth-context";
@@ -35,6 +36,15 @@ const localeFlags: Record<Locale, string> = {
   zh: "🇨🇳",
 };
 
+const otherLinks = [
+  { labelKey: "about" as const, href: "/about", icon: Users, desc: "Our story & mission" },
+  { labelKey: "pricing" as const, href: "/pricing", icon: CreditCard, desc: "Plans & billing" },
+  { labelKey: "terms" as const, href: "/terms", icon: Scale, desc: "Terms of service" },
+  { labelKey: "privacy" as const, href: "/privacy", icon: ShieldCheck, desc: "Data & privacy" },
+  { labelKey: "contact" as const, href: "/contact", icon: Mail, desc: "Help & support" },
+  { labelKey: "api" as const, href: "/api-docs", icon: FileText, desc: "API documentation" },
+];
+
 export function Nav() {
   const t = useTranslations("Nav");
   const lt = useTranslations("LocaleSwitcher");
@@ -46,10 +56,12 @@ export function Nav() {
   const [openDropdown, setOpenDropdown] = useState<number | null>(null);
   const [langOpen, setLangOpen] = useState(false);
   const [accountOpen, setAccountOpen] = useState(false);
+  const [otherOpen, setOtherOpen] = useState(false);
   const [scrolled, setScrolled] = useState(false);
   const [mobileAccordions, setMobileAccordions] = useState<Record<string, boolean>>({
     video: true, audio: false, thumbnail: false, transcript: false,
   });
+  const [mobileOtherOpen, setMobileOtherOpen] = useState(true);
   const navRef = useRef<HTMLElement>(null);
 
   useEffect(() => {
@@ -65,10 +77,11 @@ export function Nav() {
         setOpenDropdown(null);
         setLangOpen(false);
         setAccountOpen(false);
+        setOtherOpen(false);
       }
     }
     function handleEscape(e: KeyboardEvent) {
-      if (e.key === "Escape") { setOpenDropdown(null); setLangOpen(false); setMenuOpen(false); setAccountOpen(false); }
+      if (e.key === "Escape") { setOpenDropdown(null); setLangOpen(false); setMenuOpen(false); setAccountOpen(false); setOtherOpen(false); }
     }
     document.addEventListener("mousedown", handleClickOutside);
     document.addEventListener("keydown", handleEscape);
@@ -88,12 +101,14 @@ export function Nav() {
     setOpenDropdown(openDropdown === i ? null : i);
     setLangOpen(false);
     setAccountOpen(false);
+    setOtherOpen(false);
   }
 
   function closeAll() {
     setOpenDropdown(null);
     setLangOpen(false);
     setAccountOpen(false);
+    setOtherOpen(false);
     setMenuOpen(false);
   }
 
@@ -229,9 +244,78 @@ export function Nav() {
 
           <div className="w-px h-6 bg-border/60 mx-1 hidden xl:block" />
 
-          <Link href="/pricing" className="hidden xl:inline-flex items-center px-3.5 py-2 text-sm font-semibold text-muted-foreground hover:text-foreground hover:bg-white hover:border-border/60 border border-transparent rounded-full transition-colors font-sans">
-            {t("pricing")}
-          </Link>
+          {/* Other — replaces Pricing standalone, groups About/Pricing/Terms/Privacy/Contact/API */}
+          <div
+            className="relative hidden lg:block"
+            onMouseEnter={() => { setOtherOpen(true); setOpenDropdown(null); setLangOpen(false); setAccountOpen(false); }}
+            onMouseLeave={() => setOtherOpen(false)}
+          >
+            <button
+              onClick={() => { setOtherOpen(!otherOpen); setOpenDropdown(null); setLangOpen(false); setAccountOpen(false); }}
+              aria-expanded={otherOpen}
+              className={`flex items-center gap-1 xl:gap-1.5 px-2.5 xl:px-3.5 py-1.5 xl:py-2 text-xs xl:text-sm font-semibold rounded-full border transition-all duration-200 font-sans ${
+                otherOpen ? "bg-[#0d1f26] text-white border-[#0d1f26] shadow-md dark:bg-white dark:text-[#0d1f26] dark:border-white" : "text-muted-foreground border-transparent hover:text-foreground hover:bg-white hover:border-border/60 hover:shadow-sm"
+              }`}
+            >
+              <span className={`w-5 h-5 xl:w-6 xl:h-6 rounded-full flex items-center justify-center ${otherOpen ? "bg-white/15 dark:bg-[#0d1f26]/10" : "bg-muted"}`}>
+                <Sparkles className="w-3 h-3 xl:w-3.5 xl:h-3.5" />
+              </span>
+              <span>Other</span>
+              <motion.span animate={{ rotate: otherOpen ? 180 : 0 }} transition={{ duration: 0.2 }} className="flex">
+                <ChevronDown className="w-3 h-3 xl:w-3.5 xl:h-3.5 opacity-60" />
+              </motion.span>
+            </button>
+            <AnimatePresence>
+              {otherOpen && (
+                <motion.div
+                  initial={{ opacity: 0, scale: 0.96, y: -8 }}
+                  animate={{ opacity: 1, scale: 1, y: 0 }}
+                  exit={{ opacity: 0, scale: 0.96, y: -8 }}
+                  transition={{ type: "spring", stiffness: 380, damping: 28 }}
+                  className="absolute top-full right-0 mt-3 bg-white/95 dark:bg-[#0f1e26]/95 backdrop-blur-2xl border border-border/60 dark:border-white/10 rounded-[1.75rem] shadow-[0_24px_64px_-16px_rgba(13,31,38,0.18)] overflow-hidden w-[min(92vw,360px)] lg:w-[340px] xl:w-[380px] z-50"
+                >
+                  <div className="h-1 w-full bg-gradient-to-r from-[#5baab8] via-[#0d1f26] to-[#5baab8] opacity-80" />
+                  <div className="p-3 lg:p-4">
+                    <div className="flex items-center gap-2 px-2 pb-2">
+                      <span className="w-7 h-7 rounded-full bg-[#eef6f8] dark:bg-white/10 flex items-center justify-center">
+                        <Sparkles className="w-3.5 h-3.5 text-[#5baab8]" />
+                      </span>
+                      <span className="text-xs font-bold tracking-[0.14em] uppercase text-muted-foreground font-mono">Other pages</span>
+                    </div>
+                    <div className="grid grid-cols-1 gap-1">
+                      {otherLinks.map((item) => {
+                        const Icon = item.icon;
+                        return (
+                          <Link
+                            key={item.href}
+                            href={item.href as any}
+                            onClick={closeAll}
+                            className="flex items-center gap-3 px-3 py-2.5 rounded-xl border border-transparent hover:bg-slate-50 dark:hover:bg-white/5 hover:border-border/40 hover:shadow-sm transition-all group"
+                          >
+                            <span className="w-9 h-9 rounded-xl bg-slate-50 dark:bg-white/5 border border-border/40 dark:border-white/10 flex items-center justify-center shrink-0 group-hover:bg-white dark:group-hover:bg-white group-hover:shadow-sm transition-colors">
+                              <Icon className="w-4 h-4 text-muted-foreground group-hover:text-[#0d1f26] dark:group-hover:text-[#0d1f26]" />
+                            </span>
+                            <div className="min-w-0">
+                              <div className="text-sm font-semibold text-foreground group-hover:text-[#0d1f26] dark:group-hover:text-white font-sans leading-none">{t(item.labelKey as any, { defaultValue: item.labelKey.charAt(0).toUpperCase() + item.labelKey.slice(1) })}</div>
+                              <div className="text-xs text-muted-foreground font-sans">{item.desc}</div>
+                            </div>
+                            <ExternalLink className="w-3 h-3 text-muted-foreground opacity-0 group-hover:opacity-60 ml-auto transition-opacity" />
+                          </Link>
+                        );
+                      })}
+                    </div>
+                  </div>
+                  <div className="bg-muted/30 dark:bg-white/[0.04] border-t border-border/50 px-4 py-2.5 flex items-center justify-between">
+                    <span className="text-xs text-muted-foreground font-sans">Explore more</span>
+                    <Link href="/about" onClick={closeAll} className="text-xs font-semibold text-[#5baab8] hover:text-foreground flex items-center gap-1">
+                      About us <ArrowRight className="w-3 h-3" />
+                    </Link>
+                  </div>
+                </motion.div>
+              )}
+            </AnimatePresence>
+          </div>
+
           <Link href="/api-docs" className="hidden xl:inline-flex items-center gap-1 px-3.5 py-2 text-sm font-semibold text-muted-foreground hover:text-foreground hover:bg-white hover:border-border/60 border border-transparent rounded-full transition-colors font-sans">
             {t("api")} <ExternalLink className="w-3 h-3 opacity-60" />
           </Link>
@@ -486,16 +570,50 @@ export function Nav() {
                   );
                 })}
 
-                <div className="rounded-2xl border border-border/50 dark:border-white/5 bg-white dark:bg-white/[0.03] p-3.5 space-y-1">
-                  <span className="text-xs font-bold tracking-widest uppercase text-muted-foreground font-mono px-1 pb-1 flex items-center gap-2">
-                    <Sparkles className="w-3 h-3" /> {t("quickLinks")}
-                  </span>
-                  <Link href="/pricing" onClick={closeAll} className="flex items-center justify-between text-sm font-semibold text-foreground hover:text-accent transition-colors px-3 py-2.5 rounded-xl hover:bg-slate-50 dark:hover:bg-white/5 border border-transparent hover:border-border/40">
-                    {t("pricing")} <ExternalLink className="w-3.5 h-3.5 text-muted-foreground" />
-                  </Link>
-                  <Link href="/api-docs" onClick={closeAll} className="flex items-center justify-between text-sm font-semibold text-foreground hover:text-accent transition-colors px-3 py-2.5 rounded-xl hover:bg-slate-50 dark:hover:bg-white/5 border border-transparent hover:border-border/40">
-                    {t("api")} <ExternalLink className="w-3.5 h-3.5 text-muted-foreground" />
-                  </Link>
+                <div className="rounded-2xl border border-border/50 dark:border-white/5 bg-white dark:bg-white/[0.03] overflow-hidden">
+                  <button
+                    onClick={() => setMobileOtherOpen(!mobileOtherOpen)}
+                    className="w-full flex items-center gap-3 px-3.5 py-3.5 text-left"
+                  >
+                    <span className="w-9 h-9 rounded-xl bg-[#0d1f26] dark:bg-white text-white dark:text-[#0d1f26] flex items-center justify-center shrink-0 shadow-sm">
+                      <Sparkles className="w-4 h-4" />
+                    </span>
+                    <div className="min-w-0 flex-1">
+                      <div className="text-sm font-bold text-foreground font-sans leading-none">Other</div>
+                      <div className="text-xs text-muted-foreground font-sans">About • Pricing • Terms • Contact</div>
+                    </div>
+                    <span className={`w-7 h-7 rounded-full bg-white dark:bg-white/10 border border-border/50 dark:border-white/10 flex items-center justify-center transition-transform ${mobileOtherOpen ? "rotate-180" : ""}`}>
+                      <ChevronDown className="w-4 h-4 text-muted-foreground" />
+                    </span>
+                  </button>
+                  <AnimatePresence initial={false}>
+                    {mobileOtherOpen && (
+                      <motion.div initial={{ height: 0, opacity: 0 }} animate={{ height: "auto", opacity: 1 }} exit={{ height: 0, opacity: 0 }} transition={{ duration: 0.25 }}>
+                        <div className="px-2 pb-3 space-y-1">
+                          {otherLinks.map((item) => {
+                            const Icon = item.icon;
+                            return (
+                              <Link
+                                key={item.href}
+                                href={item.href as any}
+                                onClick={closeAll}
+                                className="flex items-center gap-3 px-3 py-2.5 rounded-xl border border-transparent hover:bg-slate-50 dark:hover:bg-white/5 hover:border-border/40 hover:shadow-sm transition-all group"
+                              >
+                                <span className="w-9 h-9 rounded-xl bg-slate-50 dark:bg-white/5 border border-border/40 dark:border-white/10 flex items-center justify-center shrink-0 group-hover:bg-white dark:group-hover:bg-white transition-colors">
+                                  <Icon className="w-4 h-4 text-muted-foreground group-hover:text-[#0d1f26]" />
+                                </span>
+                                <div className="min-w-0">
+                                  <div className="text-sm font-semibold text-foreground font-sans leading-none">{t(item.labelKey as any, { defaultValue: item.labelKey.charAt(0).toUpperCase() + item.labelKey.slice(1) })}</div>
+                                  <div className="text-xs text-muted-foreground font-sans">{item.desc}</div>
+                                </div>
+                                <ExternalLink className="w-3 h-3 text-muted-foreground opacity-0 group-hover:opacity-60 ml-auto transition-opacity" />
+                              </Link>
+                            );
+                          })}
+                        </div>
+                      </motion.div>
+                    )}
+                  </AnimatePresence>
                 </div>
 
                 <div className="rounded-2xl border border-border/50 dark:border-white/5 bg-gradient-to-br from-slate-50 to-white dark:from-white/[0.03] dark:to-transparent p-4">
