@@ -132,55 +132,67 @@ export function GoogleSignInButton({ mode = "signin", onError, disabled }: Googl
 
   useEffect(() => {
     if (!scriptReady || !containerRef.current || !window.google?.accounts?.id) return;
-    // Clear previous button
-    containerRef.current.innerHTML = "";
-    try {
-      const w = containerRef.current.offsetWidth;
-      window.google.accounts.id.renderButton(containerRef.current, {
-        type: "standard",
-        theme: "outline",
-        size: "large",
-        text: mode === "signup" ? "signup_with" : "signin_with",
-        shape: "pill",
-        logo_alignment: "left",
-        width: w ? Math.min(w, 400) : 280,
-      });
-    } catch (err) {
-      // Fallback: will show custom button instead
-      console.warn("Failed to render Google button", err);
-    }
+    const render = () => {
+      if (!containerRef.current || !window.google?.accounts?.id) return;
+      containerRef.current.innerHTML = "";
+      try {
+        const w = containerRef.current.offsetWidth;
+        // Mobile: leave 8px breathing room, cap at 360 for larger screens, fallback 240 for 320px
+        const width = w ? Math.min(Math.max(w - 2, 220), 360) : 240;
+        window.google.accounts.id.renderButton(containerRef.current, {
+          type: "standard",
+          theme: "outline",
+          size: "large",
+          text: mode === "signup" ? "signup_with" : "signin_with",
+          shape: "pill",
+          logo_alignment: "left",
+          width,
+        });
+      } catch (err) {
+        console.warn("Failed to render Google button", err);
+      }
+    };
+    render();
+    const onResize = () => render();
+    window.addEventListener("resize", onResize);
+    return () => window.removeEventListener("resize", onResize);
   }, [scriptReady, mode]);
 
   if (!clientId) {
     return (
-      <div className="w-full rounded-2xl border border-amber-200 bg-amber-50 dark:bg-amber-950/20 dark:border-amber-900/40 px-4 py-3.5 text-sm text-amber-800 dark:text-amber-200 font-sans flex items-center gap-2">
-        <span className="inline-block w-1.5 h-1.5 rounded-full bg-amber-500 shrink-0" />
-        Google Sign-In is not configured. Set <code className="font-mono text-xs bg-amber-100 dark:bg-amber-900/30 px-1 py-0.5 rounded">NEXT_PUBLIC_GOOGLE_CLIENT_ID</code> to enable.
+      <div className="w-full rounded-xl sm:rounded-2xl border border-amber-200 bg-amber-50 dark:bg-amber-950/20 dark:border-amber-900/40 px-3 sm:px-4 py-3 sm:py-3.5 text-xs sm:text-sm text-amber-800 dark:text-amber-200 font-sans flex flex-col xs:flex-row items-start xs:items-center gap-2 break-words">
+        <span className="inline-flex items-center gap-2 shrink-0">
+          <span className="inline-block w-1.5 h-1.5 rounded-full bg-amber-500 shrink-0" />
+          <span className="font-semibold">Google Sign-In not configured.</span>
+        </span>
+        <span className="text-xs break-all">
+          Set <code className="font-mono text-[11px] sm:text-xs bg-amber-100 dark:bg-amber-900/30 px-1.5 py-0.5 rounded break-all">NEXT_PUBLIC_GOOGLE_CLIENT_ID</code> to enable.
+        </span>
       </div>
     );
   }
 
   return (
-    <div className="w-full">
-      {/* Hidden GSI rendered button container — fills width */}
+    <div className="w-full max-w-full overflow-hidden">
+      {/* GSI rendered button — responsive, fills container */}
       <div
         ref={containerRef}
-        className={`w-full flex justify-center ${disabled || loading ? "pointer-events-none opacity-60" : ""} ${scriptError ? "hidden" : ""}`}
+        className={`w-full max-w-full flex justify-center overflow-hidden ${disabled || loading ? "pointer-events-none opacity-60" : ""} ${scriptError ? "hidden" : ""}`}
         aria-hidden={scriptError ? true : undefined}
-        style={{ minHeight: 44 }}
+        style={{ minHeight: 40 }}
       />
 
       {/* Fallback custom styled button — visible if renderButton fails or to provide consistent branded styling */}
       {/* We keep GSI button as primary; custom button acts as backup trigger via prompt */}
       {scriptError && (
-        <p className="text-sm text-red-600 dark:text-red-400 bg-red-50/60 dark:bg-red-950/20 border border-red-100 dark:border-red-900/40 rounded-xl px-4 py-3 font-sans" role="alert">
+        <p className="text-xs sm:text-sm text-red-600 dark:text-red-400 bg-red-50/80 dark:bg-red-950/20 border border-red-200/60 dark:border-red-900/30 rounded-xl px-3 sm:px-4 py-3 font-sans break-words" role="alert">
           {scriptError}
         </p>
       )}
 
       {/* Loading overlay */}
       {loading && (
-        <div className="mt-3 flex items-center justify-center gap-2 text-sm text-[#0d1f26]/60 dark:text-white/50 font-sans">
+        <div className="mt-2.5 sm:mt-3 flex items-center justify-center gap-2 text-xs sm:text-sm text-[#0d1f26]/60 dark:text-white/50 font-sans">
           <span className="w-4 h-4 border-2 border-[#0d1f26]/20 border-t-[#0d1f26] dark:border-white/20 dark:border-t-white rounded-full animate-spin" />
           Connecting to Google…
         </div>
@@ -191,7 +203,7 @@ export function GoogleSignInButton({ mode = "signin", onError, disabled }: Googl
         <button
           type="button"
           disabled
-          className="w-full flex items-center justify-center gap-3 bg-white dark:bg-white/10 border border-[#0d1f26]/10 dark:border-white/10 rounded-2xl px-4 py-3.5 text-sm font-semibold text-[#0d1f26]/60 dark:text-white/60 font-sans opacity-60"
+          className="w-full max-w-full flex items-center justify-center gap-2 sm:gap-3 bg-white dark:bg-white/10 border border-[#0d1f26]/10 dark:border-white/10 rounded-xl sm:rounded-2xl px-3 sm:px-4 py-3 sm:py-3.5 text-xs sm:text-sm font-semibold text-[#0d1f26]/60 dark:text-white/60 font-sans opacity-60"
         >
           <svg width="18" height="18" viewBox="0 0 24 24" aria-hidden>
             <path fill="#4285F4" d="M22.56 12.25c0-.78-.07-1.53-.2-2.25H12v4.26h5.92a5.06 5.06 0 0 1-2.2 3.31v2.77h3.57c2.08-1.92 3.28-4.74 3.28-8.09Z" />
@@ -206,7 +218,7 @@ export function GoogleSignInButton({ mode = "signin", onError, disabled }: Googl
   );
 }
 
-// Helper component for the branded custom Google button (optional manual trigger)
+// Helper component for the branded custom Google button (optional manual trigger) — mobile responsive
 export function GoogleBrandedButton({
   mode = "signin",
   onClick,
@@ -224,7 +236,7 @@ export function GoogleBrandedButton({
       type="button"
       onClick={onClick}
       disabled={disabled || loading}
-      className="w-full flex items-center justify-center gap-3 bg-white dark:bg-white text-[#0d1f26] border border-[#0d1f26]/10 hover:bg-[#f8fafc] dark:hover:bg-[#f1f5f9] rounded-2xl px-4 py-3.5 text-sm font-semibold shadow-[0_2px_10px_rgba(13,31,38,0.06)] dark:shadow-none hover:shadow-[0_4px_16px_rgba(13,31,38,0.08)] transition-all font-sans disabled:opacity-60 disabled:cursor-not-allowed disabled:shadow-none"
+      className="w-full max-w-full flex items-center justify-center gap-2 sm:gap-3 bg-white dark:bg-white text-[#0d1f26] border border-[#0d1f26]/10 hover:bg-[#f8fafc] dark:hover:bg-[#f1f5f9] rounded-xl sm:rounded-2xl px-3 sm:px-4 py-3 sm:py-3.5 text-xs sm:text-sm font-semibold shadow-[0_2px_10px_rgba(13,31,38,0.06)] dark:shadow-none hover:shadow-[0_4px_16px_rgba(13,31,38,0.08)] transition-all font-sans disabled:opacity-60 disabled:cursor-not-allowed disabled:shadow-none touch-manipulation"
     >
       {loading ? (
         <span className="w-4 h-4 border-2 border-[#0d1f26]/20 border-t-[#0d1f26] rounded-full animate-spin" />
