@@ -72,6 +72,19 @@ export function Nav() {
   }, []);
 
   useEffect(() => {
+    const onResize = () => {
+      if (window.innerWidth >= 1024) setMenuOpen(false);
+      // Close dropdowns when crossing breakpoints to avoid stuck hover states
+      if (window.innerWidth < 1024) {
+        setOpenDropdown(null);
+        setOtherOpen(false);
+      }
+    };
+    window.addEventListener("resize", onResize);
+    return () => window.removeEventListener("resize", onResize);
+  }, []);
+
+  useEffect(() => {
     function handleClickOutside(e: MouseEvent) {
       if (navRef.current && !navRef.current.contains(e.target as Node)) {
         setOpenDropdown(null);
@@ -145,7 +158,7 @@ export function Nav() {
           : "bg-white/70 dark:bg-[#0a1218]/50 backdrop-blur-xl border-border/40 dark:border-white/5"
       }`}
     >
-      <div className="mx-auto max-w-[1280px] px-3 sm:px-4 lg:px-6 h-[60px] sm:h-16 flex items-center justify-between gap-2 sm:gap-4">
+      <div className="mx-auto max-w-[1280px] px-3 lg:px-4 xl:px-6 h-[60px] sm:h-16 flex items-center justify-between gap-2 lg:gap-3 xl:gap-4">
         <Link href="/" className="flex items-center gap-2 sm:gap-2.5 shrink-0 group" aria-label="DownForge home">
           <div className="w-8 h-8 sm:w-9 sm:h-9 rounded-xl bg-white border border-border/60 shadow-sm group-hover:shadow-md transition-shadow flex items-center justify-center">
             <img src="/logo.png" alt="DownForge" className="w-5 h-5 sm:w-6 sm:h-6 object-contain" />
@@ -155,7 +168,7 @@ export function Nav() {
           </span>
         </Link>
 
-        <nav className="hidden lg:flex items-center gap-0.5 xl:gap-1">
+        <nav className="hidden lg:flex flex-1 justify-center items-center gap-0.5 xl:gap-1 max-w-[520px] lg:max-w-[560px] xl:max-w-none mx-auto">
           {downloadTypes.map((dt, i) => {
             const isOpen = openDropdown === i;
             const Icon = dt.icon;
@@ -174,18 +187,18 @@ export function Nav() {
                 <button
                   onClick={() => toggleDropdown(i)}
                   aria-expanded={isOpen}
-                  className={`flex items-center gap-1 xl:gap-1.5 px-2.5 xl:px-3.5 py-1.5 xl:py-2 text-xs xl:text-sm font-semibold rounded-full border transition-all duration-200 font-sans whitespace-nowrap ${
+                  className={`flex items-center gap-0.5 lg:gap-1 xl:gap-1.5 px-2 lg:px-2.5 xl:px-3.5 py-1 lg:py-1.5 xl:py-2 text-[11px] lg:text-xs xl:text-sm font-semibold rounded-full border transition-all duration-200 font-sans whitespace-nowrap ${
                     isOpen
                       ? "bg-[#0d1f26] text-white border-[#0d1f26] shadow-md dark:bg-white dark:text-[#0d1f26] dark:border-white"
                       : "text-muted-foreground border-transparent hover:text-foreground hover:bg-white hover:border-border/60 hover:shadow-sm bg-transparent"
                   }`}
                 >
-                  <span className={`w-5 h-5 xl:w-6 xl:h-6 rounded-full flex items-center justify-center shrink-0 ${isOpen ? "bg-white/15 dark:bg-[#0d1f26]/10" : "bg-muted"}`}>
-                    <Icon className="w-3 xl:w-3.5 h-3 xl:h-3.5" />
+                  <span className={`w-4 h-4 lg:w-5 lg:h-5 xl:w-6 xl:h-6 rounded-full flex items-center justify-center shrink-0 ${isOpen ? "bg-white/15 dark:bg-[#0d1f26]/10" : "bg-muted"}`}>
+                    <Icon className="w-3 h-3 lg:w-3 lg:h-3 xl:w-3.5 xl:h-3.5" />
                   </span>
                   <span>{dt.label}</span>
                   <motion.span animate={{ rotate: isOpen ? 180 : 0 }} transition={{ duration: 0.22 }} className="flex">
-                    <ChevronDown className="w-3 h-3 xl:w-3.5 xl:h-3.5 opacity-60" />
+                    <ChevronDown className="w-3 h-3 lg:w-3 lg:h-3 xl:w-3.5 xl:h-3.5 opacity-60" />
                   </motion.span>
                 </button>
 
@@ -199,8 +212,8 @@ export function Nav() {
                       className={`absolute top-full mt-3 bg-white/95 dark:bg-[#0f1e26]/90 backdrop-blur-2xl border border-border/60 dark:border-white/10 rounded-[1.75rem] shadow-[0_24px_64px_-16px_rgba(13,31,38,0.18)] overflow-hidden min-w-[300px] sm:min-w-[520px] lg:min-w-[560px] xl:min-w-[620px] max-w-[92vw] z-50 ${alignClass}`}
                     >
                       <div className="h-1 w-full bg-gradient-to-r from-[#5baab8] via-[#0d1f26] to-[#5baab8] opacity-80" />
-                      <div className="p-4 sm:p-5">
-                        <div className="flex items-center justify-between mb-4 px-1">
+                      <div className="p-3 lg:p-4 xl:p-5">
+                        <div className="flex items-center justify-between mb-3 lg:mb-4 px-1">
                           <span className="flex items-center gap-2 text-xs font-bold tracking-[0.14em] uppercase text-muted-foreground font-mono">
                             <span className="w-7 h-7 rounded-full bg-[#eef6f8] dark:bg-white/10 flex items-center justify-center">
                               <Icon className="w-3.5 h-3.5 text-[#5baab8]" />
@@ -253,16 +266,16 @@ export function Nav() {
             <button
               onClick={() => { setOtherOpen(!otherOpen); setOpenDropdown(null); setLangOpen(false); setAccountOpen(false); }}
               aria-expanded={otherOpen}
-              className={`flex items-center gap-1 xl:gap-1.5 px-2.5 xl:px-3.5 py-1.5 xl:py-2 text-xs xl:text-sm font-semibold rounded-full border transition-all duration-200 font-sans ${
+              className={`flex items-center gap-0.5 lg:gap-1 xl:gap-1.5 px-2 lg:px-2.5 xl:px-3.5 py-1 lg:py-1.5 xl:py-2 text-[11px] lg:text-xs xl:text-sm font-semibold rounded-full border transition-all duration-200 font-sans whitespace-nowrap ${
                 otherOpen ? "bg-[#0d1f26] text-white border-[#0d1f26] shadow-md dark:bg-white dark:text-[#0d1f26] dark:border-white" : "text-muted-foreground border-transparent hover:text-foreground hover:bg-white hover:border-border/60 hover:shadow-sm"
               }`}
             >
-              <span className={`w-5 h-5 xl:w-6 xl:h-6 rounded-full flex items-center justify-center ${otherOpen ? "bg-white/15 dark:bg-[#0d1f26]/10" : "bg-muted"}`}>
-                <Sparkles className="w-3 h-3 xl:w-3.5 xl:h-3.5" />
+              <span className={`w-4 h-4 lg:w-5 lg:h-5 xl:w-6 xl:h-6 rounded-full flex items-center justify-center shrink-0 ${otherOpen ? "bg-white/15 dark:bg-[#0d1f26]/10" : "bg-muted"}`}>
+                <Sparkles className="w-3 h-3 lg:w-3 lg:h-3 xl:w-3.5 xl:h-3.5" />
               </span>
               <span>Other</span>
               <motion.span animate={{ rotate: otherOpen ? 180 : 0 }} transition={{ duration: 0.2 }} className="flex">
-                <ChevronDown className="w-3 h-3 xl:w-3.5 xl:h-3.5 opacity-60" />
+                <ChevronDown className="w-3 h-3 lg:w-3 lg:h-3 xl:w-3.5 xl:h-3.5 opacity-60" />
               </motion.span>
             </button>
             <AnimatePresence>
@@ -396,21 +409,21 @@ export function Nav() {
               </Link>
               <div className="relative">
                 <button
-                  onClick={() => { setAccountOpen(!accountOpen); setLangOpen(false); setOpenDropdown(null); }}
-                  className="flex items-center gap-2 pl-1 pr-2 sm:pr-3 py-1 rounded-full border border-border/60 hover:border-border bg-white shadow-sm hover:shadow-md transition-all"
+                  onClick={() => { setAccountOpen(!accountOpen); setLangOpen(false); setOpenDropdown(null); setOtherOpen(false); }}
+                  className="flex items-center gap-1.5 lg:gap-2 pl-1 pr-1.5 xl:pr-3 py-1 rounded-full border border-border/60 hover:border-border bg-white shadow-sm hover:shadow-md transition-all"
                   aria-label="Account menu"
                 >
                   {user?.avatar_url ? (
-                    <img src={user.avatar_url} alt={user.name || "Account"} className="w-7 h-7 sm:w-8 sm:h-8 rounded-full object-cover border border-border/40" />
+                    <img src={user.avatar_url} alt={user.name || "Account"} className="w-6 h-6 lg:w-7 lg:h-7 xl:w-8 xl:h-8 rounded-full object-cover border border-border/40" />
                   ) : (
-                    <span className="w-7 h-7 sm:w-8 sm:h-8 rounded-full bg-[#0d1f26] dark:bg-white text-white dark:text-[#0d1f26] flex items-center justify-center text-xs font-bold shadow-sm">
+                    <span className="w-6 h-6 lg:w-7 lg:h-7 xl:w-8 xl:h-8 rounded-full bg-[#0d1f26] dark:bg-white text-white dark:text-[#0d1f26] flex items-center justify-center text-xs font-bold shadow-sm">
                       {(user?.name || user?.email || "U")[0]?.toUpperCase()}
                     </span>
                   )}
                   <span className="hidden xl:block text-sm font-semibold text-foreground max-w-[120px] truncate font-sans">
                     {user?.name || user?.email}
                   </span>
-                  <ChevronDown className={`w-3.5 h-3.5 text-muted-foreground transition-transform ${accountOpen ? "rotate-180" : ""}`} />
+                  <ChevronDown className={`w-3 h-3 lg:w-3.5 lg:h-3.5 text-muted-foreground transition-transform ${accountOpen ? "rotate-180" : ""}`} />
                 </button>
                 <AnimatePresence>
                   {accountOpen && (
@@ -464,12 +477,12 @@ export function Nav() {
             </>
           ) : (
             <>
-              <Link href="/sign-in" className="hidden sm:inline-flex text-sm font-semibold text-foreground hover:text-accent transition-colors px-3 sm:px-3.5 py-2 rounded-full hover:bg-white hover:border-border/60 border border-transparent hover:shadow-sm font-sans">
+              <Link href="/sign-in" className="hidden lg:inline-flex text-xs xl:text-sm font-semibold text-foreground hover:text-accent transition-colors px-2.5 lg:px-3 xl:px-3.5 py-1.5 lg:py-2 rounded-full hover:bg-white hover:border-border/60 border border-transparent hover:shadow-sm font-sans">
                 {t("signIn")}
               </Link>
               <Link
                 href="/sign-up"
-                className="inline-flex text-sm font-bold bg-[#0d1f26] dark:bg-white text-white dark:text-[#0d1f26] px-4 sm:px-5 py-2 sm:py-2.5 rounded-full hover:bg-[#1a3545] dark:hover:bg-slate-100 transition-all duration-200 font-sans shadow-[0_8px_20px_-12px_rgba(13,31,38,0.4)] hover:shadow-[0_12px_28px_-12px_rgba(13,31,38,0.5)] hover:scale-[1.02] active:scale-[0.98] whitespace-nowrap"
+                className="inline-flex text-xs lg:text-sm font-bold bg-[#0d1f26] dark:bg-white text-white dark:text-[#0d1f26] px-3 lg:px-4 xl:px-5 py-1.5 lg:py-2 xl:py-2.5 rounded-full hover:bg-[#1a3545] dark:hover:bg-slate-100 transition-all duration-200 font-sans shadow-[0_8px_20px_-12px_rgba(13,31,38,0.4)] hover:shadow-[0_12px_28px_-12px_rgba(13,31,38,0.5)] hover:scale-[1.02] active:scale-[0.98] whitespace-nowrap"
               >
                 <span className="hidden sm:inline">{t("startFree")}</span><span className="sm:hidden">Start</span>
               </Link>
