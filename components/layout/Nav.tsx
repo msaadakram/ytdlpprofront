@@ -132,14 +132,11 @@ export function Nav() {
     >
       <div className="mx-auto max-w-[1280px] px-3 sm:px-4 lg:px-6 h-[60px] sm:h-16 flex items-center justify-between gap-2 sm:gap-4">
         <Link href="/" className="flex items-center gap-2 sm:gap-2.5 shrink-0 group" aria-label="DownForge home">
-          <div className="w-8 h-8 sm:w-9 sm:h-9 rounded-xl bg-[#0d1f26] dark:bg-white flex items-center justify-center shadow-sm group-hover:shadow-md transition-shadow">
-            <img src="/logo.png" alt="DownForge" className="w-5 h-5 sm:w-6 sm:h-6 object-contain dark:brightness-0" />
+          <div className="w-8 h-8 sm:w-9 sm:h-9 rounded-xl bg-white border border-border/60 shadow-sm group-hover:shadow-md transition-shadow flex items-center justify-center">
+            <img src="/logo.png" alt="DownForge" className="w-5 h-5 sm:w-6 sm:h-6 object-contain" />
           </div>
           <span className="font-bold text-[17px] sm:text-lg tracking-tight text-foreground font-heading">
             DownForge
-          </span>
-          <span className="hidden xl:inline-flex items-center gap-1 ml-1 text-[10px] font-bold tracking-widest uppercase bg-[#eef6f8] dark:bg-white/10 border border-[#5baab8]/20 dark:border-white/10 text-[#0d1f26] dark:text-white px-2 py-1 rounded-full">
-            <Sparkles className="w-3 h-3" /> 200+ sites
           </span>
         </Link>
 
@@ -432,11 +429,10 @@ export function Nav() {
           >
               <div className="flex items-center justify-between px-5 h-[60px] sm:h-16 border-b border-border/50 dark:border-white/5 shrink-0 bg-gradient-to-r from-white to-slate-50/50 dark:from-[#0a1218] dark:to-[#0f1e26]/50">
                 <Link href="/" onClick={closeAll} className="flex items-center gap-2.5" aria-label="DownForge home">
-                  <div className="w-8 h-8 rounded-xl bg-[#0d1f26] dark:bg-white flex items-center justify-center shadow-sm">
-                    <img src="/logo.png" alt="DownForge" className="w-5 h-5 object-contain dark:brightness-0" />
+                  <div className="w-8 h-8 rounded-xl bg-white border border-border/60 shadow-sm flex items-center justify-center">
+                    <img src="/logo.png" alt="DownForge" className="w-5 h-5 object-contain" />
                   </div>
                   <span className="font-bold text-base tracking-tight text-foreground font-heading">DownForge</span>
-                  <span className="hidden sm:inline-flex text-[10px] font-bold tracking-widest uppercase bg-[#eef6f8] dark:bg-white/10 border border-[#5baab8]/20 text-[#0d1f26] dark:text-white px-1.5 py-0.5 rounded-full">200+ sites</span>
                 </Link>
                 <button onClick={() => setMenuOpen(false)} className="w-9 h-9 rounded-xl flex items-center justify-center bg-slate-100 dark:bg-white/10 hover:bg-slate-200 dark:hover:bg-white/15 border border-border/50 dark:border-white/10 transition-colors">
                   <X className="w-4 h-4" />
