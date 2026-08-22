@@ -42,7 +42,7 @@ export function FormatShowcase() {
         </motion.div>
 
         <div className="flex justify-center mb-6 sm:mb-8">
-          <div className="max-w-full overflow-x-auto px-2 sm:px-0 [scrollbar-width:none] [&::-webkit-scrollbar]:hidden">
+          <div className="max-w-full min-w-0 overflow-x-auto px-2 sm:px-0 [scrollbar-width:none] [&::-webkit-scrollbar]:hidden">
             <div className="inline-flex bg-muted rounded-xl p-1 gap-1">
             {tabs.map((tab) => {
               const active = activeTab === tab.key;
