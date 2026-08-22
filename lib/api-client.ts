@@ -490,6 +490,53 @@ export const updateNotifications = (data: Partial<{
     body: JSON.stringify(data),
   });
 
+/* ─── In-app notifications (dashboard bell) ─── */
+
+export type AppNotificationType =
+  | "download_completed"
+  | "download_failed"
+  | "api_key_created"
+  | "api_key_revoked"
+  | "plan_changed"
+  | string;
+
+export interface AppNotification {
+  id: string;
+  type: AppNotificationType;
+  title: string;
+  body: string;
+  data: Record<string, unknown> | null;
+  read: boolean;
+  created_at: string | null;
+}
+
+export const getNotifications = (limit = 20) =>
+  authRequest<{ notifications: AppNotification[]; unread_count: number }>(
+    `/api/proxy/notifications?limit=${limit}`,
+  );
+
+export const markNotificationRead = (id: string) =>
+  authRequest<{ notification: AppNotification }>(`/api/proxy/notifications/${id}/read`, {
+    method: "PATCH",
+    body: JSON.stringify({}),
+  });
+
+export const markAllNotificationsRead = () =>
+  authRequest<{ updated: number }>("/api/proxy/notifications/read-all", {
+    method: "PATCH",
+    body: JSON.stringify({}),
+  });
+
+export const deleteNotification = (id: string) =>
+  authRequest<{ deleted: boolean }>(`/api/proxy/notifications/${id}`, {
+    method: "DELETE",
+  });
+
+export const clearNotifications = () =>
+  authRequest<{ deleted: number }>("/api/proxy/notifications/all", {
+    method: "DELETE",
+  });
+
 /* ─── Auth (password change) ─── */
 
 export const changePassword = (currentPassword: string, newPassword: string) =>

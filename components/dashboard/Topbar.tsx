@@ -1,10 +1,19 @@
 "use client";
 
-import { useState, useRef, useEffect } from "react";
+import { useState, useRef, useEffect, useCallback } from "react";
 import { useRouter } from "next/navigation";
 import { motion, AnimatePresence } from "motion/react";
-import { Bell, LogOut, Settings, CreditCard, User, ChevronDown, Key, LayoutDashboard, CheckCheck, Sparkles, Download } from "lucide-react";
+import { Bell, LogOut, Settings, CreditCard, User, ChevronDown, Key, LayoutDashboard, CheckCheck, Sparkles, Download, AlertCircle, Trash2, X } from "lucide-react";
+import { toast } from "sonner";
 import { useAuth } from "@/lib/auth-context";
+import {
+  getNotifications,
+  markNotificationRead,
+  markAllNotificationsRead,
+  deleteNotification,
+  clearNotifications,
+  type AppNotification,
+} from "@/lib/api-client";
 import type { DashboardTab } from "@/components/dashboard/Sidebar";
 
 function getInitials(user: { name?: string; email?: string } | null) {
@@ -24,20 +33,50 @@ type TopbarProps = {
   onNavigate?: (tab: DashboardTab) => void;
 };
 
-type AppNotification = {
-  id: string;
-  title: string;
-  body: string;
-  time: string;
-  unread: boolean;
-  tone: "success" | "info" | "update";
-};
+type NotifTone = "success" | "info" | "update" | "error";
 
-const initialNotifications: AppNotification[] = [
-  { id: "1", title: "Download completed", body: "Your YouTube video is ready to save.", time: "2m ago", unread: true, tone: "success" },
-  { id: "2", title: "API key created", body: "New key sk-•••• created successfully.", time: "1h ago", unread: true, tone: "info" },
-  { id: "3", title: "Weekly summary", body: "You downloaded 12 videos this week.", time: "1d ago", unread: false, tone: "update" },
-];
+function timeAgo(iso: string | null): string {
+  if (!iso) return "";
+  const then = new Date(iso).getTime();
+  if (Number.isNaN(then)) return "";
+  const s = Math.floor((Date.now() - then) / 1000);
+  if (s < 5) return "just now";
+  if (s < 60) return `${s}s ago`;
+  const m = Math.floor(s / 60);
+  if (m < 60) return `${m}m ago`;
+  const h = Math.floor(m / 60);
+  if (h < 24) return `${h}h ago`;
+  const d = Math.floor(h / 24);
+  if (d < 7) return `${d}d ago`;
+  return new Date(iso).toLocaleDateString(undefined, { month: "short", day: "numeric" });
+}
+
+function toneFor(type: string): NotifTone {
+  switch (type) {
+    case "download_completed": return "success";
+    case "download_failed": return "error";
+    case "plan_changed": return "update";
+    default: return "info";
+  }
+}
+
+function ToneIcon({ type }: { type: string }) {
+  switch (type) {
+    case "download_completed": return <Download className="w-4 h-4" />;
+    case "download_failed": return <AlertCircle className="w-4 h-4" />;
+    case "api_key_created":
+    case "api_key_revoked": return <Key className="w-4 h-4" />;
+    case "plan_changed": return <Sparkles className="w-4 h-4" />;
+    default: return <Bell className="w-4 h-4" />;
+  }
+}
+
+const toneChipClass: Record<NotifTone, string> = {
+  success: "bg-emerald-500/10 border-emerald-500/20 text-emerald-600 dark:text-emerald-400",
+  error: "bg-red-500/10 border-red-500/20 text-red-600 dark:text-red-400",
+  info: "bg-[#5baab8]/10 border-[#5baab8]/20 text-[#5baab8]",
+  update: "bg-amber-500/10 border-amber-500/20 text-amber-600 dark:text-amber-400",
+};
 
 export function Topbar({ onNavigate }: TopbarProps) {
   const { user, logout } = useAuth();
@@ -45,13 +84,35 @@ export function Topbar({ onNavigate }: TopbarProps) {
   const initials = getInitials(user);
   const [open, setOpen] = useState(false);
   const [notifOpen, setNotifOpen] = useState(false);
-  const [notifications, setNotifications] = useState<AppNotification[]>(initialNotifications);
+  const [notifications, setNotifications] = useState<AppNotification[]>([]);
+  const [unreadCount, setUnreadCount] = useState(0);
+  const [loadingNotifs, setLoadingNotifs] = useState(true);
+  const [notifsError, setNotifsError] = useState(false);
   const [imgError, setImgError] = useState(false);
   const containerRef = useRef<HTMLDivElement>(null);
   const notifRef = useRef<HTMLDivElement>(null);
 
-  const hasUnread = notifications.some((n) => n.unread);
-  const unreadCount = notifications.filter((n) => n.unread).length;
+  const hasUnread = unreadCount > 0;
+
+  const fetchNotifications = useCallback(async () => {
+    const res = await getNotifications(20);
+    if (res.success && res.data) {
+      setNotifications(res.data.notifications);
+      setUnreadCount(res.data.unread_count);
+      setNotifsError(false);
+    } else {
+      // Keep whatever we already have; just flag the failure.
+      setNotifsError(true);
+    }
+    setLoadingNotifs(false);
+  }, []);
+
+  // Load once on mount and keep the bell fresh with a light poll.
+  useEffect(() => {
+    fetchNotifications();
+    const id = setInterval(fetchNotifications, 30_000);
+    return () => clearInterval(id);
+  }, [fetchNotifications]);
 
   // Reset image error when user changes
   useEffect(() => {
@@ -81,12 +142,45 @@ export function Topbar({ onNavigate }: TopbarProps) {
     };
   }, []);
 
-  function markAllRead() {
-    setNotifications((prev) => prev.map((n) => ({ ...n, unread: false })));
+  async function handleMarkOneRead(id: string) {
+    const target = notifications.find((n) => n.id === id);
+    if (!target || target.read) return;
+    setNotifications((prev) => prev.map((n) => (n.id === id ? { ...n, read: true } : n)));
+    setUnreadCount((c) => Math.max(0, c - 1));
+    const res = await markNotificationRead(id);
+    if (!res.success) fetchNotifications(); // resync with server state
   }
 
-  function markOneRead(id: string) {
-    setNotifications((prev) => prev.map((n) => (n.id === id ? { ...n, unread: false } : n)));
+  async function handleMarkAllRead() {
+    setNotifications((prev) => prev.map((n) => ({ ...n, read: true })));
+    setUnreadCount(0);
+    const res = await markAllNotificationsRead();
+    if (!res.success) {
+      toast.error(res.error?.message || "Failed to mark notifications as read.");
+      fetchNotifications();
+    }
+  }
+
+  async function handleDeleteOne(id: string) {
+    const target = notifications.find((n) => n.id === id);
+    setNotifications((prev) => prev.filter((n) => n.id !== id));
+    if (target && !target.read) setUnreadCount((c) => Math.max(0, c - 1));
+    const res = await deleteNotification(id);
+    if (!res.success) {
+      toast.error(res.error?.message || "Failed to delete notification.");
+      fetchNotifications();
+    }
+  }
+
+  async function handleClearAll() {
+    const res = await clearNotifications();
+    if (res.success) {
+      setNotifications([]);
+      setUnreadCount(0);
+    } else {
+      toast.error(res.error?.message || "Failed to clear notifications.");
+      fetchNotifications();
+    }
   }
 
   async function handleLogout() {
@@ -108,7 +202,7 @@ export function Topbar({ onNavigate }: TopbarProps) {
   const showAvatarImage = Boolean(user?.avatar_url && !imgError);
 
   return (
-    <header className="h-16 bg-card border-b border-border flex items-center justify-between px-4 sm:px-6 gap-3">
+    <header className="h-16 bg-card/95 backdrop-blur-sm border-b border-border flex items-center justify-between px-4 sm:px-6 gap-3 sticky top-16 z-40">
       <div className="min-w-0">
         <h2 className="text-sm font-bold text-foreground font-heading truncate">Dashboard</h2>
         <p className="text-xs text-muted-foreground font-sans truncate">Manage your downloads and account</p>
@@ -124,6 +218,7 @@ export function Topbar({ onNavigate }: TopbarProps) {
             onClick={() => {
               setNotifOpen((v) => !v);
               setOpen(false);
+              fetchNotifications();
             }}
           >
             <Bell className="w-4 h-4" />
@@ -152,46 +247,100 @@ export function Topbar({ onNavigate }: TopbarProps) {
                       <p className="text-xs text-muted-foreground font-sans">{hasUnread ? `${unreadCount} unread` : "All caught up"}</p>
                     </div>
                   </div>
-                  {hasUnread ? (
-                    <button onClick={markAllRead} className="inline-flex items-center gap-1 text-xs font-semibold text-[#5baab8] hover:text-[#0d1f26] dark:hover:text-white transition-colors">
-                      <CheckCheck className="w-3.5 h-3.5" /> Mark all read
-                    </button>
-                  ) : (
-                    <span className="inline-flex items-center gap-1 text-xs font-medium text-emerald-600 dark:text-emerald-400">
-                      <CheckCheck className="w-3.5 h-3.5" /> Up to date
-                    </span>
-                  )}
+                  <div className="flex items-center gap-1">
+                    {hasUnread ? (
+                      <button onClick={handleMarkAllRead} className="inline-flex items-center gap-1 text-xs font-semibold text-[#5baab8] hover:text-[#0d1f26] dark:hover:text-white transition-colors">
+                        <CheckCheck className="w-3.5 h-3.5" /> Mark all read
+                      </button>
+                    ) : (
+                      <span className="inline-flex items-center gap-1 text-xs font-medium text-emerald-600 dark:text-emerald-400">
+                        <CheckCheck className="w-3.5 h-3.5" /> Up to date
+                      </span>
+                    )}
+                    {notifications.length > 0 && (
+                      <button
+                        onClick={handleClearAll}
+                        title="Clear all notifications"
+                        aria-label="Clear all notifications"
+                        className="p-1.5 rounded-lg text-muted-foreground hover:text-destructive hover:bg-destructive/10 transition-colors"
+                      >
+                        <Trash2 className="w-3.5 h-3.5" />
+                      </button>
+                    )}
+                  </div>
                 </div>
 
                 <div className="max-h-[320px] overflow-y-auto overscroll-contain divide-y divide-border/50 dark:divide-white/5">
-                  {notifications.length === 0 ? (
+                  {loadingNotifs ? (
+                    [1, 2, 3].map((i) => (
+                      <div key={i} className="flex items-start gap-3 px-4 py-3 animate-pulse">
+                        <div className="w-8 h-8 rounded-xl bg-muted shrink-0 mt-0.5" />
+                        <div className="flex-1 space-y-2 pt-0.5">
+                          <div className="h-3 w-2/5 rounded bg-muted" />
+                          <div className="h-2.5 w-4/5 rounded bg-muted/70" />
+                        </div>
+                      </div>
+                    ))
+                  ) : notifsError && notifications.length === 0 ? (
+                    <div className="px-4 py-10 text-center">
+                      <div className="w-12 h-12 rounded-2xl bg-destructive/10 border border-destructive/20 flex items-center justify-center mx-auto">
+                        <AlertCircle className="w-5 h-5 text-destructive" />
+                      </div>
+                      <p className="mt-3 text-sm font-semibold text-foreground font-sans">Couldn&apos;t load notifications</p>
+                      <button onClick={() => fetchNotifications()} className="mt-2 text-xs font-bold text-[#5baab8] hover:text-[#0d1f26] dark:hover:text-white transition-colors">
+                        Try again
+                      </button>
+                    </div>
+                  ) : notifications.length === 0 ? (
                     <div className="px-4 py-10 text-center">
                       <div className="w-12 h-12 rounded-2xl bg-muted dark:bg-white/5 border border-border/50 dark:border-white/5 flex items-center justify-center mx-auto">
                         <Bell className="w-5 h-5 text-muted-foreground" />
                       </div>
                       <p className="mt-3 text-sm font-semibold text-foreground font-sans">No notifications</p>
-                      <p className="text-xs text-muted-foreground font-sans">We'll notify you when something happens.</p>
+                      <p className="text-xs text-muted-foreground font-sans">We&apos;ll notify you when something happens.</p>
                     </div>
                   ) : (
-                    notifications.map((n) => (
-                      <button
-                        key={n.id}
-                        onClick={() => markOneRead(n.id)}
-                        className={`w-full flex items-start gap-3 px-4 py-3 text-left hover:bg-muted/50 dark:hover:bg-white/[0.04] transition-colors ${n.unread ? "bg-[#5baab8]/[0.04] dark:bg-white/[0.02]" : ""}`}
-                      >
-                        <span className={`w-8 h-8 rounded-xl flex items-center justify-center shrink-0 border shadow-sm mt-0.5 ${n.tone === "success" ? "bg-emerald-500/10 border-emerald-500/20 text-emerald-600" : n.tone === "info" ? "bg-[#5baab8]/10 border-[#5baab8]/20 text-[#5baab8]" : "bg-amber-500/10 border-amber-500/20 text-amber-600"}`}>
-                          {n.tone === "success" ? <Download className="w-4 h-4" /> : n.tone === "info" ? <Key className="w-4 h-4" /> : <Sparkles className="w-4 h-4" />}
-                        </span>
-                        <span className="min-w-0 flex-1">
-                          <span className="flex items-center gap-2">
-                            <span className="text-sm font-semibold text-foreground font-sans truncate">{n.title}</span>
-                            {n.unread && <span className="w-1.5 h-1.5 rounded-full bg-[#5baab8] animate-pulse shrink-0" />}
+                    notifications.map((n) => {
+                      const tone = toneFor(n.type);
+                      return (
+                        <div
+                          key={n.id}
+                          role="button"
+                          tabIndex={0}
+                          onClick={() => handleMarkOneRead(n.id)}
+                          onKeyDown={(e) => {
+                            if (e.key === "Enter" || e.key === " ") {
+                              e.preventDefault();
+                              handleMarkOneRead(n.id);
+                            }
+                          }}
+                          className={`group w-full flex items-start gap-3 px-4 py-3 text-left cursor-pointer hover:bg-muted/50 dark:hover:bg-white/[0.04] transition-colors ${!n.read ? "bg-[#5baab8]/[0.04] dark:bg-white/[0.02]" : ""}`}
+                        >
+                          <span className={`w-8 h-8 rounded-xl flex items-center justify-center shrink-0 border shadow-sm mt-0.5 ${toneChipClass[tone]}`}>
+                            <ToneIcon type={n.type} />
                           </span>
-                          <span className="block text-xs text-muted-foreground font-sans leading-relaxed line-clamp-2">{n.body}</span>
-                          <span className="block text-[11px] font-mono text-muted-foreground/70 mt-1">{n.time}</span>
-                        </span>
-                      </button>
-                    ))
+                          <span className="min-w-0 flex-1">
+                            <span className="flex items-center gap-2">
+                              <span className="text-sm font-semibold text-foreground font-sans truncate">{n.title}</span>
+                              {!n.read && <span className="w-1.5 h-1.5 rounded-full bg-[#5baab8] animate-pulse shrink-0" />}
+                            </span>
+                            <span className="block text-xs text-muted-foreground font-sans leading-relaxed line-clamp-2">{n.body}</span>
+                            <span className="block text-[11px] font-mono text-muted-foreground/70 mt-1">{timeAgo(n.created_at)}</span>
+                          </span>
+                          <button
+                            onClick={(e) => {
+                              e.stopPropagation();
+                              handleDeleteOne(n.id);
+                            }}
+                            aria-label="Delete notification"
+                            title="Delete notification"
+                            className="p-1.5 rounded-lg text-muted-foreground/50 hover:text-destructive hover:bg-destructive/10 transition-all opacity-60 group-hover:opacity-100 focus-visible:opacity-100 shrink-0 mt-0.5"
+                          >
+                            <X className="w-3.5 h-3.5" />
+                          </button>
+                        </div>
+                      );
+                    })
                   )}
                 </div>
 
