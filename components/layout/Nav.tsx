@@ -242,10 +242,10 @@ export function Nav() {
           <div className="relative">
             <button
               onClick={() => { setLangOpen(!langOpen); setOpenDropdown(null); setAccountOpen(false); }}
-              className="flex items-center gap-1 xl:gap-1.5 pl-0.5 xl:pl-1 pr-1 xl:pr-2.5 py-0.5 xl:py-1 rounded-full bg-white border border-border/60 shadow-sm hover:shadow-md hover:border-border hover:bg-white transition-all font-sans"
+              className="flex items-center gap-1 xl:gap-1.5 pl-0.5 pr-1 xl:pl-1 xl:pr-2 py-0.5 xl:py-1 rounded-full bg-white border border-border/60 shadow-sm hover:shadow-md hover:border-border hover:bg-white transition-all font-sans"
               aria-label={lt("label")}
             >
-              <span className="w-6 h-6 xl:w-7 xl:h-7 rounded-full flex items-center justify-center text-[13px] xl:text-[16px] bg-gradient-to-br from-slate-50 to-slate-100 border border-border/40 shadow-inner shrink-0">
+              <span className="w-5 h-5 lg:w-6 lg:h-6 xl:w-7 xl:h-7 rounded-full flex items-center justify-center text-[12px] lg:text-[13px] xl:text-[16px] bg-gradient-to-br from-slate-50 to-slate-100 border border-border/40 shadow-inner shrink-0">
                 {localeFlags[locale as Locale] || "🌐"}
               </span>
               <span className="hidden xl:block text-sm font-semibold text-foreground">{lt(locale as Locale)}</span>
@@ -261,33 +261,33 @@ export function Nav() {
                   animate={{ opacity: 1, scale: 1, y: 0 }}
                   exit={{ opacity: 0, scale: 0.96, y: -8 }}
                   transition={{ type: "spring", stiffness: 380, damping: 28 }}
-                  className="absolute top-full right-0 mt-3 bg-white/95 dark:bg-[#0f1e26]/95 backdrop-blur-xl border border-border/60 dark:border-white/10 rounded-2xl shadow-2xl shadow-black/10 overflow-hidden min-w-[268px] z-50"
+                  className="absolute top-full right-0 mt-2 lg:mt-3 bg-white/95 dark:bg-[#0f1e26]/95 backdrop-blur-xl border border-border/60 dark:border-white/10 rounded-2xl shadow-2xl shadow-black/10 overflow-hidden w-[min(92vw,320px)] lg:w-auto lg:min-w-[240px] xl:min-w-[268px] max-h-[70vh] lg:max-h-[68vh] overflow-y-auto overscroll-contain z-50"
                 >
-                  <div className="p-2">
-                    <div className="flex items-center gap-2 px-3 pt-1 pb-2 text-[11px] font-bold tracking-[0.14em] uppercase text-muted-foreground font-mono">
+                  <div className="p-1.5 lg:p-2">
+                    <div className="flex items-center gap-2 px-2 lg:px-3 pt-1 pb-1.5 lg:pb-2 text-[10px] lg:text-[11px] font-bold tracking-[0.14em] uppercase text-muted-foreground font-mono">
                       <Globe className="w-3 h-3" /> {lt("label")}
                     </div>
-                    <div className="space-y-1">
+                    <div className="grid grid-cols-1 lg:grid-cols-1 xl:grid-cols-1 gap-0.5 lg:gap-1">
                       {locales.map((l) => {
                         const isActive = l === locale;
                         return (
                           <button
                             key={l}
                             onClick={() => switchLocale(l)}
-                            className={`w-full flex items-center gap-3 px-3 py-2.5 rounded-xl text-left transition-all ${
+                            className={`w-full flex items-center gap-2 lg:gap-3 px-2.5 lg:px-3 py-2 lg:py-2.5 rounded-xl text-left transition-all ${
                               isActive ? "bg-[#0d1f26] text-white shadow-md dark:bg-white dark:text-[#0d1f26]" : "hover:bg-muted/60 text-foreground"
                             }`}
                           >
-                            <span className="w-9 h-9 rounded-full flex items-center justify-center text-[18px] bg-white border border-border/50 shadow-sm shrink-0">
+                            <span className="w-7 h-7 lg:w-8 xl:w-9 lg:h-8 xl:h-9 rounded-full flex items-center justify-center text-[15px] lg:text-[16px] xl:text-[18px] bg-white border border-border/50 shadow-sm shrink-0">
                               {localeFlags[l]}
                             </span>
                             <div className="min-w-0 flex-1 text-left">
-                              <div className={`text-sm font-semibold leading-none font-sans ${isActive ? "text-white dark:text-[#0d1f26]" : "text-foreground"}`}>{lt(l)}</div>
-                              <div className={`text-xs font-mono ${isActive ? "text-white/60 dark:text-[#0d1f26]/60" : "text-muted-foreground"}`}>{l.toUpperCase()} • {l === "en" ? "English" : l === "es" ? "Español" : l === "fr" ? "Français" : l === "de" ? "Deutsch" : l === "pt" ? "Português" : l === "ja" ? "日本語" : l === "ar" ? "العربية" : l === "ru" ? "Русский" : "中文"}</div>
+                              <div className={`text-xs lg:text-sm font-semibold leading-none font-sans ${isActive ? "text-white dark:text-[#0d1f26]" : "text-foreground"}`}>{lt(l)}</div>
+                              <div className={`text-[11px] lg:text-xs font-mono truncate ${isActive ? "text-white/60 dark:text-[#0d1f26]/60" : "text-muted-foreground"}`}>{l.toUpperCase()} • {l === "en" ? "English" : l === "es" ? "Español" : l === "fr" ? "Français" : l === "de" ? "Deutsch" : l === "pt" ? "Português" : l === "ja" ? "日本語" : l === "ar" ? "العربية" : l === "ru" ? "Русский" : "中文"}</div>
                             </div>
                             {isActive && (
-                              <span className="w-6 h-6 rounded-full bg-white/15 dark:bg-[#0d1f26]/10 flex items-center justify-center shrink-0">
-                                <Check className="w-4 h-4 text-white dark:text-[#0d1f26]" />
+                              <span className="w-5 h-5 lg:w-6 lg:h-6 rounded-full bg-white/15 dark:bg-[#0d1f26]/10 flex items-center justify-center shrink-0">
+                                <Check className="w-3.5 h-3.5 lg:w-4 lg:h-4 text-white dark:text-[#0d1f26]" />
                               </span>
                             )}
                           </button>
