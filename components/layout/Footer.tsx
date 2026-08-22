@@ -13,6 +13,9 @@ import {
   Send,
   ChevronDown,
   Check,
+  Sparkles,
+  ShieldCheck,
+  Zap,
 } from "lucide-react";
 import { useId, useState } from "react";
 
@@ -81,7 +84,8 @@ type FooterColumnData = {
 
 function ColumnHeading({ children }: { children: React.ReactNode }) {
   return (
-    <h3 className="font-mono text-[11px] font-medium uppercase tracking-[0.18em] text-white/40">
+    <h3 className="font-mono text-[11px] font-bold uppercase tracking-[0.18em] text-white/35 flex items-center gap-2">
+      <span className="w-1 h-1 rounded-full bg-[#5baab8] shadow-[0_0_8px_rgba(91,170,184,0.6)]" />
       {children}
     </h3>
   );
@@ -91,13 +95,14 @@ function FooterColumn({ title, links, moreLabel }: FooterColumnData) {
   return (
     <div className="max-md:hidden">
       <ColumnHeading>{title}</ColumnHeading>
-      <ul className="mt-5 flex flex-col gap-1">
+      <ul className="mt-5 flex flex-col gap-2.5">
         {links.map(([label, href]) => (
           <li key={label}>
             <Link
               href={href}
-              className="inline-block py-1 text-sm text-white/55 transition-colors hover:text-white"
+              className="group inline-flex items-center gap-1.5 py-1 text-sm text-white/60 transition-colors hover:text-white font-sans"
             >
+              <span className="h-px w-0 bg-[#5baab8] transition-all group-hover:w-3" />
               {label}
             </Link>
           </li>
@@ -106,9 +111,9 @@ function FooterColumn({ title, links, moreLabel }: FooterColumnData) {
           <li className="pt-2">
             <Link
               href="/youtube-download"
-              className="inline-block text-xs font-medium text-[#6fc1cf] transition-colors hover:text-white"
+              className="inline-flex items-center gap-1.5 text-xs font-bold tracking-wide text-[#8fd3df] hover:text-white transition-colors"
             >
-              {moreLabel}
+              {moreLabel} <span className="text-[10px]">→</span>
             </Link>
           </li>
         )}
@@ -122,21 +127,21 @@ function FooterAccordion({ title, links }: FooterColumnData) {
   const panelId = useId();
 
   return (
-    <div className="border-b border-white/10">
+    <div className="border-b border-white/[0.07]">
       <button
         type="button"
         onClick={() => setOpen((o) => !o)}
         aria-expanded={open}
         aria-controls={panelId}
-        className="flex w-full items-center justify-between py-4 text-left focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-[#5baab8]/50 focus-visible:rounded-lg"
+        className="flex w-full items-center justify-between py-4 text-left"
       >
-        <span className="font-heading text-sm font-semibold text-white/85">
+        <span className="font-heading text-sm font-bold text-white/90">
           {title}
         </span>
         <motion.span
           animate={{ rotate: open ? 180 : 0 }}
           transition={{ duration: 0.25, ease: "easeInOut" }}
-          className="flex h-8 w-8 items-center justify-center rounded-lg text-white/50"
+          className={`flex h-8 w-8 items-center justify-center rounded-xl border transition-colors ${open ? "bg-white text-[#0d1f26] border-white" : "bg-white/5 text-white/50 border-white/10"}`}
         >
           <ChevronDown className="h-4 w-4" aria-hidden />
         </motion.span>
@@ -153,7 +158,7 @@ function FooterAccordion({ title, links }: FooterColumnData) {
             <li key={label}>
               <Link
                 href={href}
-                className="inline-block py-1.5 text-sm text-white/55 transition-colors hover:text-white"
+                className="inline-block py-2 text-sm text-white/60 transition-colors hover:text-white"
               >
                 {label}
               </Link>
@@ -196,43 +201,51 @@ export function Footer() {
   };
 
   return (
-    <footer className="relative overflow-hidden bg-[#0d1f26] text-white">
-      {/* Accent hairline + soft glow */}
-      <div
-        aria-hidden
-        className="h-px w-full bg-gradient-to-r from-transparent via-[#5baab8]/50 to-transparent"
-      />
-      <div
-        aria-hidden
-        className="pointer-events-none absolute inset-x-0 top-0 h-64 bg-[radial-gradient(ellipse_at_top,rgba(91,170,184,0.09),transparent_70%)]"
-      />
+    <footer className="relative overflow-hidden bg-[#081016] text-white border-t border-white/[0.06]">
+      {/* Top gradient hairline */}
+      <div aria-hidden className="h-[1px] w-full bg-gradient-to-r from-transparent via-[#5baab8]/40 to-transparent" />
+      {/* Glow & grid */}
+      <div aria-hidden className="pointer-events-none absolute inset-0">
+        <div className="absolute inset-x-0 top-0 h-[420px] bg-[radial-gradient(ellipse_80%_60%_at_50%_0%,rgba(91,170,184,0.12),transparent_70%)]" />
+        <div className="absolute inset-0 opacity-[0.03]" style={{ backgroundImage: `linear-gradient(to right,white 1px,transparent 1px), linear-gradient(to bottom,white 1px,transparent 1px)`, backgroundSize: `32px 32px` }} />
+      </div>
 
-      <div className="relative mx-auto max-w-7xl px-4 py-12 sm:px-6 md:py-16">
-        <div className="grid items-start gap-10 md:grid-cols-2 lg:grid-cols-6 xl:gap-12">
-          {/* Brand + newsletter */}
+      <div className="relative mx-auto max-w-7xl px-4 py-10 sm:px-6 lg:px-6 md:py-14 lg:py-16">
+        <div className="grid items-start gap-8 sm:gap-10 md:grid-cols-2 lg:grid-cols-6 xl:gap-12">
+          {/* Brand + newsletter — modern glass */}
           <div className="md:col-span-2 lg:col-span-2">
             <Link
               href="/"
-              className="inline-flex items-center gap-2.5 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-[#5baab8]/50 focus-visible:rounded-lg"
+              className="group inline-flex items-center gap-3 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-[#5baab8]/50 focus-visible:rounded-xl"
             >
-              <img
-                src="/logo.png"
-                alt="DownForge"
-                className="h-9 w-9 object-contain"
-              />
-              <span className="font-heading text-lg font-bold tracking-tight">
-                DownForge
-              </span>
+              <div className="w-10 h-10 rounded-2xl bg-white flex items-center justify-center shadow-[0_8px_24px_-12px_rgba(255,255,255,0.4)] group-hover:shadow-[0_12px_32px_-12px_rgba(91,170,184,0.5)] transition-shadow">
+                <img src="/logo.png" alt="DownForge" className="h-6 w-6 object-contain" />
+              </div>
+              <div className="leading-none">
+                <span className="block font-heading text-[22px] font-black tracking-[-0.02em] bg-gradient-to-r from-white via-white to-[#8fd3df] bg-clip-text text-transparent">
+                  DownForge
+                </span>
+                <span className="block font-mono text-[10px] font-bold tracking-[0.18em] uppercase text-[#5baab8]">Download • Convert • Create</span>
+              </div>
             </Link>
 
             <p className="mt-4 max-w-sm font-sans text-sm leading-relaxed text-white/60">
               {f("tagline")}
             </p>
 
-            {/* Social links */}
-            <div className="mt-6">
+            <div className="mt-4 inline-flex flex-wrap gap-2">
+              <span className="inline-flex items-center gap-1.5 rounded-full bg-white/5 border border-white/10 px-2.5 py-1 text-xs font-semibold text-white/70">
+                <ShieldCheck className="w-3 h-3 text-emerald-400" /> No logs
+              </span>
+              <span className="inline-flex items-center gap-1.5 rounded-full bg-white/5 border border-white/10 px-2.5 py-1 text-xs font-semibold text-white/70">
+                <Zap className="w-3 h-3 text-amber-400" /> 200+ sites
+              </span>
+            </div>
+
+            {/* Social — modern pill */}
+            <div className="mt-7">
               <ColumnHeading>{f("socialHeading")}</ColumnHeading>
-              <div className="mt-3.5 flex flex-wrap gap-2.5">
+              <div className="mt-3.5 flex flex-wrap gap-2">
                 {socialLinks.map((social) => {
                   const Icon = social.icon;
                   return (
@@ -242,9 +255,9 @@ export function Footer() {
                       target="_blank"
                       rel="noopener noreferrer"
                       aria-label={social.name}
-                      className="flex h-9 w-9 items-center justify-center rounded-lg bg-white/5 text-white/60 ring-1 ring-white/10 transition-colors hover:bg-white/10 hover:text-white focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-[#5baab8]/60"
-                      whileHover={{ scale: 1.08, y: -2 }}
-                      whileTap={{ scale: 0.95 }}
+                      className="group flex h-9 w-9 items-center justify-center rounded-xl bg-white/[0.06] text-white/60 ring-1 ring-white/10 backdrop-blur-sm transition-all hover:bg-white hover:text-[#0d1f26] hover:ring-white focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-[#5baab8]/60"
+                      whileHover={{ y: -2, scale: 1.06 }}
+                      whileTap={{ scale: 0.96 }}
                     >
                       <Icon className="h-4 w-4" aria-hidden />
                     </motion.a>
@@ -253,17 +266,17 @@ export function Footer() {
               </div>
             </div>
 
-            {/* Newsletter */}
-            <div className="mt-8 lg:mt-10">
+            {/* Newsletter — glass */}
+            <div className="mt-8">
               <ColumnHeading>{f("newsletter")}</ColumnHeading>
-              <p className="mt-3.5 font-sans text-sm leading-relaxed text-white/60">
+              <p className="mt-3 font-sans text-sm leading-relaxed text-white/55">
                 {f("newsletterDesc")}
               </p>
               <form onSubmit={handleSubscribe} className="mt-4">
                 <label htmlFor={newsletterId} className="sr-only">
                   {f("newsletter")}
                 </label>
-                <div className="relative">
+                <div className="relative flex items-center rounded-full bg-white/[0.06] border border-white/10 p-1 backdrop-blur-xl focus-within:bg-white/[0.08] focus-within:border-[#5baab8]/30 transition-colors">
                   <input
                     id={newsletterId}
                     type="email"
@@ -271,26 +284,19 @@ export function Footer() {
                     onChange={(e) => setEmail(e.target.value)}
                     placeholder={f("newsletterPlaceholder")}
                     required
-                    className="w-full rounded-xl border border-white/10 bg-white/5 py-2.5 pl-4 pr-12 font-sans text-sm text-white transition-colors placeholder:text-white/40 focus:border-[#5baab8]/50 focus:outline-none focus:ring-2 focus:ring-[#5baab8]/30"
+                    className="flex-1 bg-transparent px-4 py-2 font-sans text-sm text-white placeholder:text-white/40 focus:outline-none"
                   />
                   <button
                     type="submit"
                     disabled={subscribed}
                     aria-label={f("subscribe")}
-                    className="absolute right-1.5 top-1/2 flex h-8 w-8 -translate-y-1/2 items-center justify-center rounded-lg bg-[#5baab8] text-white transition-colors hover:bg-[#3d8fa0] focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-[#5baab8]/60 disabled:opacity-60"
+                    className="inline-flex h-8 items-center gap-1.5 rounded-full bg-white px-4 text-xs font-bold tracking-wide text-[#0d1f26] shadow hover:bg-slate-100 disabled:opacity-60 transition-colors"
                   >
-                    {subscribed ? (
-                      <Check className="h-4 w-4" aria-hidden />
-                    ) : (
-                      <Send className="h-3.5 w-3.5" aria-hidden />
-                    )}
+                    {subscribed ? <><Check className="h-3.5 w-3.5" /> {f("subscribed")}</> : <><Send className="h-3.5 w-3.5" /> {f("subscribe")}</>}
                   </button>
                 </div>
-                <p
-                  aria-live="polite"
-                  className="mt-2 min-h-4 font-sans text-xs text-[#6fc1cf]"
-                >
-                  {subscribed ? `✓ ${f("subscribed")}` : ""}
+                <p aria-live="polite" className="mt-2 min-h-4 font-sans text-xs text-[#8fd3df]">
+                  {subscribed ? `✓ ${f("subscribed")}` : <span className="text-white/30">No spam, unsubscribe anytime.</span>}
                 </p>
               </form>
             </div>
@@ -302,39 +308,69 @@ export function Footer() {
           ))}
 
           {/* Accordion (mobile only) */}
-          <nav aria-label="Footer" className="mt-2 border-t border-white/10 md:hidden">
+          <nav aria-label="Footer" className="mt-2 border-t border-white/[0.06] md:hidden">
             {columns.map((column) => (
               <FooterAccordion key={column.title} {...column} />
             ))}
           </nav>
         </div>
 
-        {/* Bottom bar */}
-        <div className="mt-12 border-t border-white/10 pt-6 md:mt-16 md:pt-8">
-          <div className="flex flex-col items-center gap-4 text-center md:flex-row md:justify-between md:text-left">
-            <p className="font-sans text-xs text-white/40">{f("copyright")}</p>
+        {/* Large beautiful DownForge watermark */}
+        <div className="relative mt-10 sm:mt-12 border-t border-white/[0.06] pt-8 sm:pt-10 overflow-hidden">
+          <div className="pointer-events-none absolute inset-x-0 -top-10 h-40 bg-gradient-to-b from-[#5baab8]/5 to-transparent blur-2xl" />
+          <div className="flex flex-col items-center gap-6 md:flex-row md:justify-between">
+            <div className="text-center md:text-left">
+              <div className="inline-flex items-center gap-2">
+                <span className="w-1.5 h-1.5 rounded-full bg-emerald-400 animate-pulse shadow-[0_0_8px_rgba(16,185,129,0.6)]" />
+                <span className="font-mono text-[11px] font-bold tracking-[0.18em] uppercase text-white/40">All systems operational • 200+ sites live</span>
+              </div>
+              <p className="mt-2 font-sans text-xs text-white/40">{f("copyright")}</p>
+            </div>
 
-            <div className="flex flex-wrap items-center justify-center gap-x-5 gap-y-2">
-              <Link
-                href="/privacy"
-                className="inline-block py-1 font-sans text-xs text-white/40 transition-colors hover:text-white/80"
-              >
+            <div className="flex flex-wrap items-center justify-center gap-3">
+              <Link href="/privacy" className="rounded-full bg-white/5 border border-white/10 px-3 py-1.5 font-sans text-xs font-semibold text-white/60 hover:text-white hover:bg-white/10 transition-colors">
                 {t("privacy")}
               </Link>
-              <span
-                aria-hidden
-                className="hidden h-1 w-1 rounded-full bg-white/20 sm:block"
-              />
-              <Link
-                href="/api-disclaimer"
-                className="inline-block py-1 font-sans text-xs text-white/40 transition-colors hover:text-white/80"
-              >
+              <Link href="/terms" className="rounded-full bg-white/5 border border-white/10 px-3 py-1.5 font-sans text-xs font-semibold text-white/60 hover:text-white hover:bg-white/10 transition-colors">
+                Terms
+              </Link>
+              <Link href="/api-disclaimer" className="rounded-full bg-white/5 border border-white/10 px-3 py-1.5 font-sans text-xs font-semibold text-white/60 hover:text-white hover:bg-white/10 transition-colors">
                 API Disclaimer
               </Link>
             </div>
 
-            <p className="font-sans text-xs text-white/30">{f("poweredBy")}</p>
+            <p className="hidden lg:block font-mono text-xs tracking-wide text-white/25">{f("poweredBy")}</p>
           </div>
+
+          {/* Beautiful DownForge large text */}
+          <div className="mt-8 sm:mt-10 relative select-none overflow-hidden rounded-[1.5rem] sm:rounded-[2rem] bg-gradient-to-br from-white/[0.06] via-white/[0.02] to-transparent border border-white/[0.06] backdrop-blur-sm px-4 sm:px-6 py-6 sm:py-8">
+            <div className="absolute inset-0 bg-gradient-to-r from-[#5baab8]/10 via-transparent to-transparent opacity-60" />
+            <div className="relative flex flex-col lg:flex-row items-center justify-between gap-4">
+              <div className="flex items-center gap-3">
+                <div className="w-12 h-12 rounded-2xl bg-white flex items-center justify-center shadow-lg">
+                  <img src="/logo.png" alt="DownForge" className="w-7 h-7 object-contain" />
+                </div>
+                <div>
+                  <div className="font-heading text-2xl sm:text-3xl font-black tracking-[-0.03em] leading-none bg-gradient-to-r from-white via-white to-[#8fd3df] bg-clip-text text-transparent">
+                    DownForge
+                  </div>
+                  <div className="font-mono text-[10px] font-bold tracking-[0.2em] uppercase text-[#5baab8]">Download • Convert • Create ✨</div>
+                </div>
+              </div>
+              <div className="text-center lg:text-right">
+                <div className="font-heading text-sm font-bold text-white/90 flex items-center justify-center lg:justify-end gap-2">
+                  <Sparkles className="w-4 h-4 text-[#8fd3df]" /> Crafted for creators
+                </div>
+                <div className="font-sans text-xs text-white/40 mt-1">Fast • Private • Any format • 200+ platforms</div>
+              </div>
+            </div>
+            {/* Watermark */}
+            <div aria-hidden className="pointer-events-none absolute -bottom-6 left-1/2 -translate-x-1/2 font-heading text-[68px] sm:text-[92px] lg:text-[120px] font-black tracking-[-0.05em] leading-none text-white/[0.03] whitespace-nowrap select-none">
+              DownForge
+            </div>
+          </div>
+
+          <p className="mt-4 text-center font-mono text-[11px] tracking-wide text-white/20 lg:hidden">{f("poweredBy")}</p>
         </div>
       </div>
     </footer>
