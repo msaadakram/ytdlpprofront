@@ -242,10 +242,10 @@ export function Nav() {
           <div className="relative">
             <button
               onClick={() => { setLangOpen(!langOpen); setOpenDropdown(null); setAccountOpen(false); }}
-              className="flex items-center gap-1 xl:gap-1.5 pl-1 pr-1.5 xl:pl-1.5 xl:pr-2.5 py-1 rounded-full bg-white border border-border/60 shadow-sm hover:shadow-md hover:border-border hover:bg-white transition-all font-sans"
+              className="flex items-center gap-1 xl:gap-1.5 pl-0.5 xl:pl-1 pr-1 xl:pr-2.5 py-0.5 xl:py-1 rounded-full bg-white border border-border/60 shadow-sm hover:shadow-md hover:border-border hover:bg-white transition-all font-sans"
               aria-label={lt("label")}
             >
-              <span className="w-7 h-7 rounded-full flex items-center justify-center text-[15px] xl:text-[16px] bg-gradient-to-br from-slate-50 to-slate-100 border border-border/40 shadow-inner shrink-0">
+              <span className="w-6 h-6 xl:w-7 xl:h-7 rounded-full flex items-center justify-center text-[13px] xl:text-[16px] bg-gradient-to-br from-slate-50 to-slate-100 border border-border/40 shadow-inner shrink-0">
                 {localeFlags[locale as Locale] || "🌐"}
               </span>
               <span className="hidden xl:block text-sm font-semibold text-foreground">{lt(locale as Locale)}</span>
