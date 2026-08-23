@@ -116,6 +116,18 @@ export function TranscriptHero({ platform }: { platform: string }) {
   const [transcriptFilename, setTranscriptFilename] = useState<string | null>(null);
   const [transcriptJsonUrl, setTranscriptJsonUrl] = useState<string | null>(null);
   const [transcriptJsonFilename, setTranscriptJsonFilename] = useState<string | null>(null);
+  const transcriptRef = useRef<HTMLDivElement>(null);
+
+  // Bring the finished transcript into view, especially on small screens
+  useEffect(() => {
+    if (transcript && transcriptRef.current) {
+      const id = window.setTimeout(
+        () => transcriptRef.current?.scrollIntoView({ behavior: "smooth", block: "start" }),
+        350,
+      );
+      return () => window.clearTimeout(id);
+    }
+  }, [transcript]);
 
   const formats: ApiFormatInfo[] = resolveFormats(mediaInfo, "transcript");
 
@@ -331,7 +343,7 @@ export function TranscriptHero({ platform }: { platform: string }) {
         </motion.div>
 
         <motion.h1
-          className="text-center text-[clamp(1.75rem,5vw,3.5rem)] leading-[1.1] sm:text-5xl md:text-7xl lg:text-8xl font-extrabold tracking-tight text-foreground mb-6 font-heading"
+          className="text-center text-[clamp(1.9rem,6vw,3rem)] leading-[1.08] sm:text-5xl md:text-6xl lg:text-7xl xl:text-8xl font-extrabold tracking-tight text-foreground mb-6 font-heading"
           initial={{ opacity: 0, y: 28 }}
           animate={{ opacity: 1, y: 0 }}
           transition={{ delay: 0.15, duration: 0.7, ease: "easeOut" }}
@@ -363,17 +375,18 @@ export function TranscriptHero({ platform }: { platform: string }) {
             style={{ background: getBrandGradient() }}
           />
 
-          <div className="flex flex-col lg:flex-row gap-3 lg:gap-4">
-            <div className="flex items-center gap-2.5 w-full lg:w-auto flex-shrink-0">
-              <label htmlFor="language" className="hidden lg:block text-xs font-semibold text-muted-foreground whitespace-nowrap">
-                <Globe className="w-3 h-3 inline mr-1" />
+          <div className="flex flex-col gap-3 lg:gap-3.5">
+            {/* Language selector: full-width bar on mobile, compact row from tablet up, joins the main row on laptop */}
+            <div className="flex items-center gap-2.5 lg:w-auto flex-shrink-0">
+              <label htmlFor="language" className="hidden md:inline-flex items-center gap-1.5 text-xs font-semibold text-muted-foreground dark:text-white/60 whitespace-nowrap">
+                <Globe className="w-3.5 h-3.5" />
                 Language:
               </label>
               <select
                 id="language"
                 value={selectedLanguage}
                 onChange={(e) => setSelectedLanguage(e.target.value)}
-                className="bg-white dark:bg-[#141a2a] border border-border dark:border-white/10 rounded-xl px-3 py-2.5 text-sm text-foreground dark:text-white shadow-sm focus:outline-none focus:ring-2 focus:ring-[#5baab8]/40 focus:border-transparent w-full lg:w-auto min-w-[140px] max-w-[200px] appearance-none cursor-pointer transition-all duration-200"
+                className="bg-white dark:bg-[#141a2a] border border-border dark:border-white/10 rounded-xl px-3 py-3 md:py-2.5 text-sm text-foreground dark:text-white shadow-sm focus:outline-none focus:ring-2 focus:ring-[#5baab8]/40 focus:border-transparent w-full md:w-auto md:min-w-[240px] lg:min-w-[210px] lg:max-w-[240px] appearance-none cursor-pointer transition-all duration-200"
                 style={{
                   backgroundImage: "url(\"data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='16' height='16' viewBox='0 0 24 24' fill='none' stroke='%236b7280' stroke-width='2' stroke-linecap='round' stroke-linejoin='round'%3E%3Cpath d='m6 9 6 6 6-6'/%3E%3C/svg%3E\")",
                   backgroundRepeat: "no-repeat",
@@ -389,12 +402,14 @@ export function TranscriptHero({ platform }: { platform: string }) {
               </select>
             </div>
 
+            {/* URL input + action button share a row from tablet up */}
+            <div className="flex flex-col md:flex-row gap-3 md:gap-3.5 lg:gap-4">
             <div
               className="brand-input flex-1 flex items-center gap-3 bg-white/60 dark:bg-[#0d1f26]/60 backdrop-blur-xl border border-white/30 dark:border-white/10 rounded-2xl px-4 py-3.5"
               style={{ "--brand": brandColor } as CSSProperties}
             >
               <span
-                className="w-10 h-10 rounded-xl flex items-center justify-center shadow-lg shadow-[#5baab8]/30 flex-shrink-0 transition-transform duration-300 hover:scale-110"
+                className="w-10 h-10 sm:w-11 sm:h-11 rounded-xl flex items-center justify-center shadow-lg shadow-[#5baab8]/30 flex-shrink-0 transition-transform duration-300 hover:scale-110"
                 style={{ background: `linear-gradient(135deg, #5baab8 0%, #3d8896 100%)` }}
               >
                 {InputIcon ? <InputIcon className="w-4.5 h-4.5 text-white" /> : <Download className="w-4.5 h-4.5 text-white" />}
@@ -422,7 +437,7 @@ export function TranscriptHero({ platform }: { platform: string }) {
               {url && (
                 <button
                   onClick={() => { setUrl(""); setMediaInfo(null); setInfoReady(false); setInfoError(false); inputRef.current?.focus(); }}
-                  className="text-muted-foreground hover:text-foreground dark:hover:text-white transition-all duration-200 shrink-0 p-1 rounded-lg hover:bg-white/50 dark:hover:bg-white/10"
+                  className="text-muted-foreground hover:text-foreground dark:hover:text-white transition-all duration-200 shrink-0 p-2 -m-1 rounded-lg hover:bg-white/50 dark:hover:bg-white/10"
                   aria-label="Clear URL"
                 >
                   <X className="w-4 h-4" />
@@ -435,7 +450,7 @@ export function TranscriptHero({ platform }: { platform: string }) {
               disabled={processing || fetchingInfo}
               whileHover={{ scale: processing || fetchingInfo ? 1 : 1.04, y: processing || fetchingInfo ? 0 : -3 }}
               whileTap={{ scale: processing || fetchingInfo ? 1 : 0.96, y: processing || fetchingInfo ? 0 : 1 }}
-              className="brand-glow group flex items-center justify-center gap-2.5 text-white font-bold text-sm sm:text-base px-7 py-3.5 md:px-8 md:py-4 rounded-2xl transition-all duration-300 disabled:opacity-50 w-full lg:w-auto lg:min-w-[190px] relative overflow-hidden font-sans tracking-wide bg-gradient-to-r from-[#0d1f26] via-[#143d4a] to-[#0d1f26] bg-[length:200%_auto] animate-gradient-shift"
+              className="brand-glow group flex items-center justify-center gap-2.5 text-white font-bold text-sm sm:text-base px-7 py-3.5 md:px-8 md:py-4 rounded-2xl transition-all duration-300 disabled:opacity-50 w-full md:w-auto md:min-w-[180px] lg:min-w-[200px] relative overflow-hidden font-sans tracking-wide bg-gradient-to-r from-[#0d1f26] via-[#143d4a] to-[#0d1f26] bg-[length:200%_auto] animate-gradient-shift"
               style={{ "--brand-glow": `${brandColor}55` } as CSSProperties}
             >
               <span className="absolute inset-0 bg-gradient-to-r from-transparent via-white/15 to-transparent -translate-x-full group-hover:translate-x-full transition-transform duration-[1.5s] ease-in-out pointer-events-none" />
@@ -468,6 +483,7 @@ export function TranscriptHero({ platform }: { platform: string }) {
                 )}
               </AnimatePresence>
             </motion.button>
+            </div>
           </div>
 
           <AnimatePresence mode="wait">
@@ -572,7 +588,8 @@ export function TranscriptHero({ platform }: { platform: string }) {
                 animate={{ opacity: 1, y: 0 }}
                 exit={{ opacity: 0, y: -10 }}
                 transition={{ duration: 0.45, delay: 0.15 }}
-                className="mt-5 md:mt-6"
+                className="mt-5 md:mt-6 scroll-mt-24"
+                ref={transcriptRef}
               >
                 <TranscriptViewer
                   transcript={transcript}

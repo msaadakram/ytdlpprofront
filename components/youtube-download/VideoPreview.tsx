@@ -38,7 +38,7 @@ export function VideoPreview({ info }: VideoPreviewProps) {
       initial={{ opacity: 0, y: 20, scale: 0.98 }}
       animate={{ opacity: 1, y: 0, scale: 1 }}
       transition={{ duration: 0.45, ease: [0.21, 0.6, 0.35, 1] }}
-      className="bg-white rounded-2xl border border-border overflow-hidden shadow-sm group"
+      className="bg-white dark:bg-[#0d1f26]/70 rounded-2xl border border-border dark:border-white/10 overflow-hidden shadow-sm group"
     >
       <div className="flex flex-col md:flex-row" itemScope itemType="https://schema.org/VideoObject">
         <figure className="relative md:w-72 lg:w-80 shrink-0 bg-[#0d1f26] overflow-hidden">
@@ -70,7 +70,7 @@ export function VideoPreview({ info }: VideoPreviewProps) {
               </motion.div>
             </>
           ) : (
-            <div className="w-full aspect-video md:aspect-[4/3] flex items-center justify-center bg-[#eef6f8]">
+            <div className="w-full aspect-video md:aspect-[4/3] flex items-center justify-center bg-[#eef6f8] dark:bg-white/[0.06]">
               <Play className="w-10 h-10 text-[#5baab8]/40" />
             </div>
           )}
@@ -93,7 +93,7 @@ export function VideoPreview({ info }: VideoPreviewProps) {
             transition={{ delay: 0.2 }}
             className="flex items-center gap-2 text-xs text-muted-foreground"
           >
-            <div className="w-5 h-5 rounded-full bg-[#eef6f8] flex items-center justify-center">
+            <div className="w-5 h-5 rounded-full bg-[#eef6f8] dark:bg-white/[0.06] flex items-center justify-center">
               <User className="w-3 h-3 text-[#5baab8]" />
             </div>
             <span className="font-medium" itemProp="author">{info.uploader || info.channel || "Unknown"}</span>
@@ -105,7 +105,7 @@ export function VideoPreview({ info }: VideoPreviewProps) {
             transition={{ delay: 0.25 }}
             className="flex flex-wrap items-center gap-2"
           >
-            <span className="inline-flex items-center gap-1 rounded-full bg-[#eef6f8] px-2.5 py-1 text-[11px] font-medium text-muted-foreground font-mono" itemProp="interactionStatistic" itemScope itemType="https://schema.org/InteractionCounter">
+            <span className="inline-flex items-center gap-1 rounded-full bg-[#eef6f8] dark:bg-white/[0.06] px-2.5 py-1 text-[11px] font-medium text-muted-foreground font-mono" itemProp="interactionStatistic" itemScope itemType="https://schema.org/InteractionCounter">
               <Eye className="w-3 h-3 text-[#5baab8]" />
               <meta itemProp="interactionType" content="https://schema.org/WatchAction" />
               <motion.span
@@ -119,18 +119,18 @@ export function VideoPreview({ info }: VideoPreviewProps) {
               <span className="text-muted-foreground/60">views</span>
             </span>
             {info.like_count > 0 && (
-              <span className="inline-flex items-center gap-1 rounded-full bg-[#eef6f8] px-2.5 py-1 text-[11px] font-medium text-muted-foreground font-mono">
+              <span className="inline-flex items-center gap-1 rounded-full bg-[#eef6f8] dark:bg-white/[0.06] px-2.5 py-1 text-[11px] font-medium text-muted-foreground font-mono">
                 <ThumbsUp className="w-3 h-3 text-[#5baab8]" />
                 <span>{formatCount(info.like_count)}</span>
               </span>
             )}
             {info.duration_str && (
-              <span className="inline-flex items-center gap-1 rounded-full bg-[#eef6f8] px-2.5 py-1 text-[11px] font-medium text-muted-foreground font-mono">
+              <span className="inline-flex items-center gap-1 rounded-full bg-[#eef6f8] dark:bg-white/[0.06] px-2.5 py-1 text-[11px] font-medium text-muted-foreground font-mono">
                 <Clock className="w-3 h-3 text-[#5baab8]" />
                 <span>{info.duration_str}</span>
               </span>
             )}
-            <span className="inline-flex items-center gap-1 rounded-full bg-[#eef6f8] px-2.5 py-1 text-[11px] font-medium text-muted-foreground font-mono">
+            <span className="inline-flex items-center gap-1 rounded-full bg-[#eef6f8] dark:bg-white/[0.06] px-2.5 py-1 text-[11px] font-medium text-muted-foreground font-mono">
               <Calendar className="w-3 h-3 text-[#5baab8]" />
               <span>{formatDate(info.upload_date)}</span>
             </span>
@@ -159,7 +159,7 @@ export function VideoPreview({ info }: VideoPreviewProps) {
                 {videoQualities.map((q, i) => (
                   <span
                     key={`${q}-${i}`}
-                    className="inline-flex items-center rounded-md bg-[#eef6f8] px-2 py-0.5 text-[10px] font-semibold font-mono"
+                    className="inline-flex items-center rounded-md bg-[#eef6f8] dark:bg-white/[0.06] px-2 py-0.5 text-[10px] font-semibold font-mono"
                     style={{ color: "#3d8a97" }}
                   >
                     {q}

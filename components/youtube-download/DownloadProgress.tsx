@@ -32,11 +32,11 @@ export function DownloadProgress({
       className="mt-5"
     >
       <div className="flex items-center gap-4 mb-2">
-        <span className="text-2xl font-bold tabular-nums text-[#0d1f26] font-mono">
+        <span className="text-2xl font-bold tabular-nums text-[#0d1f26] dark:text-white font-mono">
           {Math.round(progress)}%
         </span>
         <div className="flex-1">
-          <div className="w-full bg-[#eef6f8] rounded-full h-2.5 overflow-hidden">
+          <div className="w-full bg-[#eef6f8] dark:bg-white/10 rounded-full h-2.5 overflow-hidden">
             <motion.div
               className="h-full rounded-full relative overflow-hidden"
               style={{

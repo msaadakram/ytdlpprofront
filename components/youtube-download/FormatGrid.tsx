@@ -98,11 +98,14 @@ export function FormatGrid({ formats, selectedIndex, onSelect, type, brandColor 
             whileHover={{ scale: 1.03, y: -2 }}
             whileTap={{ scale: 0.97 }}
             layout
-             className="relative flex flex-col items-start gap-1 rounded-xl border p-2.5 sm:p-3 text-left transition-all duration-200"
+            className={`relative flex flex-col items-start gap-1 rounded-xl border p-2.5 sm:p-3 text-left transition-all duration-200 ${
+              selected
+                ? "bg-white/95 dark:bg-white/[0.1] border-transparent dark:border-transparent"
+                : "bg-white/70 dark:bg-white/[0.04] border-border/70 dark:border-white/10"
+            }`}
             style={{
-              backgroundColor: selected ? "rgba(255,255,255,0.9)" : "rgba(255,255,255,0.7)",
               borderColor: selected ? brandColor : undefined,
-              boxShadow: selected ? `0 0 0 2px ${brandColor}33` : undefined,
+              boxShadow: selected ? `0 0 0 2px ${brandColor}33, 0 8px 24px -12px ${brandColor}55` : undefined,
             }}
             onMouseEnter={(e) => {
               if (!selected) {
@@ -116,7 +119,7 @@ export function FormatGrid({ formats, selectedIndex, onSelect, type, brandColor 
             }}
           >
             <div className="flex items-center justify-between w-full">
-              <span className="text-[10px] font-bold uppercase tracking-widest px-1.5 py-0.5 rounded-md bg-[#eef6f8] font-mono"
+              <span className="text-[10px] font-bold uppercase tracking-widest px-1.5 py-0.5 rounded-md bg-[#eef6f8] dark:bg-white/[0.08] font-mono"
                 style={{ color: brandColor }}>
                 {ext}
               </span>
@@ -143,8 +146,8 @@ export function FormatGrid({ formats, selectedIndex, onSelect, type, brandColor 
                     initial={{ width: 0 }}
                     animate={{ width: b === 0 ? "0.75rem" : b === 1 ? "1.25rem" : b === 2 ? "1.75rem" : "2.25rem" }}
                     transition={{ duration: 0.4, delay: i * 0.05 + b * 0.08, ease: "easeOut" }}
-                    className="h-1 rounded-full"
-                    style={{ backgroundColor: selected ? brandColor : "#d4ecf0" }}
+                    className={`h-1 rounded-full ${selected ? "" : "bg-[#d4ecf0] dark:bg-white/15"}`}
+                    style={selected ? { backgroundColor: brandColor } : undefined}
                   />
                 ))}
               </div>

@@ -33,11 +33,36 @@ function StatCard({ icon: Icon, label, value, trend, positive }: {
 function ChartTooltip({ active, payload }: any) {
   if (!active || !payload?.length) return null;
   return (
-    <div className="bg-card border border-border rounded-xl p-3 shadow-lg">
-      <p className="text-xs font-medium text-muted-foreground font-sans">{payload[0].payload.bucket}</p>
-      <p className="text-sm font-bold text-foreground font-heading">{payload[0].value.toLocaleString()} calls</p>
+    <div className="bg-card border border-border rounded-xl px-3 py-2.5 shadow-lg">
+      <p className="text-[11px] font-medium text-muted-foreground font-sans mb-1">Week of {payload[0].payload.bucket}</p>
+      <div className="flex items-center gap-1.5">
+        <span className="w-1.5 h-1.5 rounded-full bg-[#5baab8] shrink-0" />
+        <p className="text-sm font-bold text-foreground font-heading">{payload[0].value.toLocaleString()} calls</p>
+      </div>
     </div>
   );
+}
+
+// Compact axis labels (1,200 -> 1.2k) so the Y axis stays narrow on phones.
+function formatCompactNumber(n: number): string {
+  if (n >= 1_000_000) return `${(n / 1_000_000).toFixed(1)}M`;
+  if (n >= 10_000) return `${Math.round(n / 1_000)}k`;
+  if (n >= 1_000) return `${(n / 1_000).toFixed(1)}k`;
+  return String(n);
+}
+
+// Re-renders the chart after mount/resize so ResponsiveContainer re-measures
+// the real container width instead of a stale pre-layout value.
+function useIsMobile() {
+  const [isMobile, setIsMobile] = useState(false);
+  useEffect(() => {
+    const mq = window.matchMedia("(max-width: 639px)");
+    const update = () => setIsMobile(mq.matches);
+    update();
+    mq.addEventListener("change", update);
+    return () => mq.removeEventListener("change", update);
+  }, []);
+  return isMobile;
 }
 
 function formatRelativeTime(dateStr: string | null): string {
@@ -57,6 +82,7 @@ export function OverviewTab() {
   const [timeseries, setTimeseries] = useState<TimeseriesBucket[]>([]);
   const [recent, setRecent] = useState<DownloadRow[]>([]);
   const [loading, setLoading] = useState(true);
+  const isMobile = useIsMobile();
 
   useEffect(() => {
     let cancelled = false;
@@ -98,6 +124,7 @@ export function OverviewTab() {
   }
 
   const o = overview || { totalDownloads: 0, apiCallsToday: 0, platformsUsed: 0, successRate: 0, trends: { downloads: 0, apiCalls: 0, platforms: 0, successRate: 0 } };
+  const totalCalls = timeseries.reduce((sum, b) => sum + b.calls, 0);
 
   return (
     <div className="space-y-6">
@@ -132,39 +159,78 @@ export function OverviewTab() {
         />
       </div>
 
-      <div className="bg-card rounded-xl border border-border p-4 sm:p-6">
-        <div className="flex items-center justify-between mb-4 sm:mb-6">
-          <h3 className="text-sm font-bold text-foreground font-heading">API Calls Over Time</h3>
-          <span className="text-xs text-muted-foreground font-sans">Last 7 weeks</span>
+      <div className="bg-card rounded-xl border border-border p-3.5 sm:p-6 min-w-0">
+        <div className="flex flex-wrap items-center justify-between gap-x-3 gap-y-2 mb-4 sm:mb-6">
+          <div className="flex items-center gap-2.5 min-w-0">
+            <span className="relative flex w-2 h-2 shrink-0" aria-hidden>
+              <span className="absolute inline-flex w-full h-full rounded-full bg-[#5baab8] opacity-60 animate-ping" />
+              <span className="relative inline-flex w-2 h-2 rounded-full bg-[#5baab8]" />
+            </span>
+            <h3 className="text-sm font-bold text-foreground font-heading">API Calls Over Time</h3>
+          </div>
+          <div className="flex items-center gap-2 min-w-0">
+            <span className="text-xs font-semibold font-sans px-2.5 py-1 rounded-full bg-[#5baab8]/10 text-[#5baab8] whitespace-nowrap">
+              {totalCalls.toLocaleString()} {totalCalls === 1 ? "call" : "calls"}
+            </span>
+            <span className="hidden sm:inline text-xs text-muted-foreground font-sans whitespace-nowrap">Last 7 weeks</span>
+          </div>
         </div>
         {timeseries.length === 0 ? (
           <EmptyState />
         ) : (
-          <div className="h-56 sm:h-64 lg:h-72">
+          <div className="h-56 sm:h-64 lg:h-72 w-full min-w-0">
             <ResponsiveContainer width="100%" height="100%">
-              <AreaChart data={timeseries}>
+              <AreaChart data={timeseries} margin={{ top: 10, right: 8, left: 0, bottom: 0 }}>
                 <defs>
                   <linearGradient id="colorCalls" x1="0" y1="0" x2="0" y2="1">
-                    <stop offset="5%" stopColor="#5baab8" stopOpacity={0.3} />
-                    <stop offset="95%" stopColor="#5baab8" stopOpacity={0} />
+                    <stop offset="0%" stopColor="#5baab8" stopOpacity={0.35} />
+                    <stop offset="100%" stopColor="#5baab8" stopOpacity={0} />
                   </linearGradient>
                 </defs>
-                <CartesianGrid strokeDasharray="3 3" stroke="rgba(91,170,184,0.1)" />
+                <CartesianGrid strokeDasharray="3 3" stroke="rgba(91,170,184,0.12)" vertical={false} />
                 <XAxis
                   dataKey="bucket"
-                  tick={{ fontSize: 11, fill: "#5a7d87" }}
+                  tick={{ fontSize: isMobile ? 10 : 11, fill: "#5a7d87" }}
                   axisLine={false}
                   tickLine={false}
-                  tickFormatter={(value) => value}
+                  interval="preserveStartEnd"
+                  minTickGap={isMobile ? 12 : 8}
+                  tickMargin={8}
                 />
                 <YAxis
-                  tick={{ fontSize: 11, fill: "#5a7d87" }}
+                  width={isMobile ? 34 : 44}
+                  tick={{ fontSize: isMobile ? 10 : 11, fill: "#5a7d87" }}
                   axisLine={false}
                   tickLine={false}
-                  tickFormatter={(value) => value.toLocaleString()}
+                  allowDecimals={false}
+                  tickFormatter={formatCompactNumber}
                 />
-                <Tooltip content={<ChartTooltip />} />
-                <Area type="monotone" dataKey="calls" stroke="#5baab8" strokeWidth={2} fill="url(#colorCalls)" />
+                <Tooltip
+                  content={<ChartTooltip />}
+                  cursor={{ stroke: "#5baab8", strokeOpacity: 0.3, strokeDasharray: "4 4" }}
+                />
+                <Area
+                  type="monotone"
+                  dataKey="calls"
+                  stroke="#5baab8"
+                  strokeWidth={2.5}
+                  fill="url(#colorCalls)"
+                  animationDuration={600}
+                  activeDot={{ r: 5, fill: "#5baab8", stroke: "rgba(91,170,184,0.3)", strokeWidth: 6 }}
+                  dot={(props: any) => {
+                    const { cx, cy, index } = props;
+                    if (index !== timeseries.length - 1) return <g key={index} />;
+                    return (
+                      <g key={index}>
+                        <circle cx={cx} cy={cy} r={9} fill="#5baab8" opacity={0.15}>
+                          <animate attributeName="r" values="6;11" dur="2.5s" repeatCount="indefinite" />
+                          <animate attributeName="opacity" values="0.35;0" dur="2.5s" repeatCount="indefinite" />
+                        </circle>
+                        <circle cx={cx} cy={cy} r={3.5} fill="#5baab8" stroke="rgba(91,170,184,0.25)" strokeWidth={3} />
+                      </g>
+                    );
+                  }}
+                />
               </AreaChart>
             </ResponsiveContainer>
           </div>
