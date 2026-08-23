@@ -68,6 +68,7 @@
     "headingRest": ", миниатюры и транскрипции.",
     "subheading": "Вставьте ссылку с YouTube, Facebook, TikTok, Instagram и ещё 200+. Скачивайте видео, аудио, миниатюры или AI-транскрипции — без регистрации.",
     "disclaimer": "Бесплатно · Без регистрации · Файлы удаляются сразу после скачивания",
+    "worksWith": "Работает с",
     "howItWorks": {
       "title": "Как это работает",
       "step1Title": "Вставьте ссылку",
@@ -230,7 +231,8 @@
     "segments": "сегментов",
     "showFullText": "Показать полный текст",
     "showSegments": "Показать сегменты",
-    "transcribeBtn": "Транскрибировать"
+    "transcribeBtn": "Транскрибировать",
+    "paste": "Вставить"
   },
   "PlatformPage": {
     "breadcrumbHome": "Главная",

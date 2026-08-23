@@ -68,6 +68,7 @@
     "headingRest": ", Vorschaubild oder Transkript herunter.",
     "subheading": "Füge einen Link von YouTube, Facebook, TikTok, Instagram und 200+ weiteren ein. Lade Videos, Audiodateien, Vorschaubilder oder KI-Transkripte herunter — ohne Konto.",
     "disclaimer": "Kostenlos nutzbar · Keine Anmeldung erforderlich · Dateien werden sofort nach Download gelöscht",
+    "worksWith": "Funktioniert mit",
     "howItWorks": {
       "title": "Wie es funktioniert",
       "step1Title": "URL einfügen",
@@ -230,7 +231,8 @@
     "segments": "Abschnitte",
     "showFullText": "Vollständigen Text anzeigen",
     "showSegments": "Abschnitte anzeigen",
-    "transcribeBtn": "Transkribieren"
+    "transcribeBtn": "Transkribieren",
+    "paste": "Einfügen"
   },
   "PlatformPage": {
     "breadcrumbHome": "Startseite",

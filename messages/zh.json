@@ -68,6 +68,7 @@
     "headingRest": "、缩略图或文稿。",
     "subheading": "粘贴来自 YouTube、Facebook、TikTok、Instagram 等 200+ 平台的链接。下载视频、音频、缩略图或 AI 转录文稿——无需注册。",
     "disclaimer": "免费使用 · 无需注册 · 下载后文件立即删除",
+    "worksWith": "支持的平台",
     "howItWorks": {
       "title": "如何使用",
       "step1Title": "粘贴链接",
@@ -230,7 +231,8 @@
     "segments": "分段",
     "showFullText": "显示完整文本",
     "showSegments": "显示分段",
-    "transcribeBtn": "转录"
+    "transcribeBtn": "转录",
+    "paste": "粘贴"
   },
   "PlatformPage": {
     "breadcrumbHome": "首页",

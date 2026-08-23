@@ -69,6 +69,7 @@
     "headingRest": ", thumbnail or transcript.",
     "subheading": "Paste a link from YouTube, Facebook, TikTok, Instagram and 200+ more. Download video, audio, thumbnails, or AI transcripts — no account required.",
     "disclaimer": "Free to use · No sign-up required · Files deleted instantly after download",
+    "worksWith": "Works with",
     "howItWorks": {
       "title": "How It Works",
       "step1Title": "Paste the URL",
@@ -233,7 +234,8 @@
     "segments": "segments",
     "showFullText": "Show full text",
     "showSegments": "Show segments",
-    "transcribeBtn": "Transcribe"
+    "transcribeBtn": "Transcribe",
+    "paste": "Paste"
   },
   "PlatformPage": {
     "breadcrumbHome": "Home",

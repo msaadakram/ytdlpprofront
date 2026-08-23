@@ -68,6 +68,7 @@
     "headingRest": ", miniatura o transcripción.",
     "subheading": "Pega un enlace de YouTube, Facebook, TikTok, Instagram y más de 200 más. Descarga videos, audio, miniaturas o transcripciones con IA — sin necesidad de cuenta.",
     "disclaimer": "Gratuito · Sin registro · Archivos eliminados al instante después de la descarga",
+    "worksWith": "Funciona con",
     "howItWorks": {
       "title": "Cómo funciona",
       "step1Title": "Pega la URL",
@@ -230,7 +231,8 @@
     "segments": "segmentos",
     "showFullText": "Mostrar texto completo",
     "showSegments": "Mostrar segmentos",
-    "transcribeBtn": "Transcribir"
+    "transcribeBtn": "Transcribir",
+    "paste": "Pegar"
   },
   "PlatformPage": {
     "breadcrumbHome": "Inicio",

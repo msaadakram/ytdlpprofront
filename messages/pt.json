@@ -68,6 +68,7 @@
     "headingRest": ", miniatura ou transcrição.",
     "subheading": "Cole um link do YouTube, Facebook, TikTok, Instagram e mais de 200 outros. Baixe vídeo, áudio, miniaturas ou transcrições com IA — sem necessidade de cadastro.",
     "disclaimer": "Grátis · Sem cadastro · Arquivos excluídos instantaneamente após o download",
+    "worksWith": "Funciona com",
     "howItWorks": {
       "title": "Como Funciona",
       "step1Title": "Cole o URL",
@@ -230,7 +231,8 @@
     "segments": "segmentos",
     "showFullText": "Mostrar texto completo",
     "showSegments": "Mostrar segmentos",
-    "transcribeBtn": "Transcrever"
+    "transcribeBtn": "Transcrever",
+    "paste": "Colar"
   },
   "PlatformPage": {
     "breadcrumbHome": "Início",

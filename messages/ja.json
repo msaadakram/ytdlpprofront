@@ -68,6 +68,7 @@
     "headingRest": "、サムネイル、文字起こしをダウンロード。",
     "subheading": "YouTube、Facebook、TikTok、Instagramなど200以上のサイトからリンクを貼り付けてください。動画、音声、サムネイル、AI文字起こしをダウンロード — アカウント不要。",
     "disclaimer": "無料 · 登録不要 · ダウンロード後ファイルは即時削除",
+    "worksWith": "対応サービス",
     "howItWorks": {
       "title": "使い方",
       "step1Title": "URLを貼り付ける",
@@ -230,7 +231,8 @@
     "segments": "セグメント",
     "showFullText": "全テキストを表示",
     "showSegments": "セグメントを表示",
-    "transcribeBtn": "文字起こし"
+    "transcribeBtn": "文字起こし",
+    "paste": "貼り付け"
   },
   "PlatformPage": {
     "breadcrumbHome": "ホーム",

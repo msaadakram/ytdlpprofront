@@ -68,6 +68,7 @@
     "headingRest": "أو صورة مصغرة أو نص.",
     "subheading": "الصق رابطاً من YouTube أو Facebook أو TikTok أو Instagram وأكثر من 200 منصة أخرى. حمّل فيديو أو صوتاً أو صوراً مصغرة أو نصوص AI — دون حاجة إلى حساب.",
     "disclaimer": "مجاني للاستخدام · لا حاجة للتسجيل · يتم حذف الملفات فوراً بعد التحميل",
+    "worksWith": "يعمل مع",
     "howItWorks": {
       "title": "كيف يعمل",
       "step1Title": "الصق الرابط",
@@ -230,7 +231,8 @@
     "segments": "الفقرات",
     "showFullText": "عرض النص الكامل",
     "showSegments": "عرض الفقرات",
-    "transcribeBtn": "ترجمة"
+    "transcribeBtn": "ترجمة",
+    "paste": "لصق"
   },
   "PlatformPage": {
     "breadcrumbHome": "الرئيسية",

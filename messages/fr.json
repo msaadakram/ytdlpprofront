@@ -68,6 +68,7 @@
     "headingRest": ", vignette ou transcription.",
     "subheading": "Collez un lien depuis YouTube, Facebook, TikTok, Instagram et plus de 200 autres. Téléchargez vidéo, audio, vignettes ou transcriptions IA — sans compte requis.",
     "disclaimer": "Gratuit · Inscription inutile · Fichiers supprimés instantanément après le téléchargement",
+    "worksWith": "Compatible avec",
     "howItWorks": {
       "title": "Comment ça marche",
       "step1Title": "Collez l'URL",
@@ -230,7 +231,8 @@
     "segments": "segments",
     "showFullText": "Afficher le texte complet",
     "showSegments": "Afficher les segments",
-    "transcribeBtn": "Transcrire"
+    "transcribeBtn": "Transcrire",
+    "paste": "Coller"
   },
   "PlatformPage": {
     "breadcrumbHome": "Accueil",
