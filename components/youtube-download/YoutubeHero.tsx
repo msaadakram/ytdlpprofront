@@ -51,13 +51,7 @@ export function YoutubeHero() {
 
   return (
     <section className="pt-24 pb-16 md:pt-32 md:pb-20 px-4 sm:px-6 relative overflow-hidden">
-      <div
-        className="absolute inset-0 pointer-events-none"
-        style={{
-          backgroundImage: `radial-gradient(circle, rgba(0,0,0,0.04) 1px, transparent 1px)`,
-          backgroundSize: "28px 28px",
-        }}
-      />
+      <div className="absolute inset-0 pointer-events-none bg-dot-grid" />
 
       <motion.div
         className="absolute top-[-10%] right-[-5%] w-[500px] h-[500px] rounded-full opacity-20 pointer-events-none"
@@ -94,14 +88,14 @@ export function YoutubeHero() {
           animate={{ opacity: 1, y: 0 }}
           transition={{ delay: 0.1 }}
         >
-          <span className="inline-flex items-center gap-2 text-xs font-semibold tracking-widest uppercase px-4 py-2 rounded-full bg-white/80 backdrop-blur-sm border border-border text-muted-foreground shadow-sm font-mono">
+          <span className="inline-flex items-center gap-2 text-xs font-semibold tracking-widest uppercase px-4 py-2 rounded-full bg-card/80 backdrop-blur-sm border border-border text-muted-foreground shadow-sm font-mono">
             <span className="w-1.5 h-1.5 rounded-full bg-[#FF0000] animate-pulse" style={{ boxShadow: "0 0 4px #FF0000" }} />
             {t("badge")}
           </span>
         </motion.div>
 
         <motion.h1
-          className="text-center text-[2rem] leading-tight sm:text-5xl md:text-7xl font-extrabold tracking-tight text-foreground mb-6 font-heading"
+          className="text-center text-fluid-hero leading-[1.08] font-extrabold tracking-tight text-foreground mb-6 font-heading text-balance hyphens-auto"
           initial={{ opacity: 0, y: 24 }}
           animate={{ opacity: 1, y: 0 }}
           transition={{ delay: 0.15, duration: 0.6 }}
@@ -127,7 +121,7 @@ export function YoutubeHero() {
           transition={{ delay: 0.35 }}
         >
           <div className="max-w-full overflow-x-auto px-3 sm:px-0 [scrollbar-width:none] [&::-webkit-scrollbar]:hidden">
-            <div className="inline-flex bg-white/80 backdrop-blur-sm border border-border rounded-full p-1 shadow-sm gap-0.5 sm:gap-1 relative">
+            <div className="inline-flex bg-card/80 backdrop-blur-sm border border-border rounded-full p-1 shadow-sm gap-0.5 sm:gap-1 relative">
               {(["video", "audio", "thumbnail", "transcript"] as DownloadType[]).map((type) => {
               const cfg = typeConfig[type];
               const Icon = cfg.icon;
@@ -158,7 +152,7 @@ export function YoutubeHero() {
         </motion.div>
 
         <motion.div
-           className="bg-white/80 backdrop-blur-xl rounded-2xl shadow-2xl shadow-black/5 border border-border/60 p-4 sm:p-5 md:p-6 relative"
+           className="glass rounded-2xl shadow-2xl shadow-black/5 dark:shadow-black/30 border border-border/60 p-4 sm:p-5 md:p-6 relative"
           initial={{ opacity: 0, y: 24, scale: 0.98 }}
           animate={{ opacity: 1, y: 0, scale: 1 }}
           transition={{ delay: 0.4, duration: 0.6 }}
@@ -170,7 +164,7 @@ export function YoutubeHero() {
 
           <div className="flex flex-col md:flex-row gap-3">
             <div
-              className="brand-input flex-1 flex items-center gap-3 bg-white/70 backdrop-blur-sm rounded-xl px-4 py-3 transition-colors duration-300"
+              className="brand-input flex-1 flex items-center gap-3 bg-input-background/60 backdrop-blur-sm border border-border/60 rounded-2xl px-4 py-3.5 transition-colors duration-300"
               style={{ "--brand": BRAND } as CSSProperties}
             >
               <span className="flex-shrink-0 transition-transform duration-300 hover:scale-110 text-[#FF0000]">

@@ -232,7 +232,8 @@
     "showFullText": "显示完整文本",
     "showSegments": "显示分段",
     "transcribeBtn": "转录",
-    "paste": "粘贴"
+    "paste": "粘贴",
+    "fileSize": "文件大小：{size}"
   },
   "PlatformPage": {
     "breadcrumbHome": "首页",
@@ -337,7 +338,17 @@
     "badge": "视频下载器",
     "headingSuffix": "支持高清和 4K",
     "subheading": "以最高可用画质下载视频。多种分辨率和格式可选——非常适合离线观看、编辑和存档。",
-    "disclaimer": "免费使用 · 无需注册 · 文件立即删除 · 支持所有 {platform} 视频"
+    "disclaimer": "免费使用 · 无需注册 · 文件立即删除 · 支持所有 {platform} 视频",
+    "featuresKicker": "为什么选择 DownForge",
+    "featuresHeading": "最佳的{platform}视频下载工具",
+    "featuresSubheading": "为速度、隐私和品质而设计。",
+    "faqKicker": "常见问题",
+    "faqHeading": "{platform}视频下载常见问题",
+    "faqSubheading": "关于下载{platform}视频你需要知道的一切。",
+    "trustFree": "完全免费",
+    "trustNoSignup": "无需注册",
+    "trustQuality": "最高4K画质",
+    "trustPrivate": "隐私安全"
   },
   "Formats": {
     "mp4": "MP4",
@@ -1409,8 +1420,8 @@
           "a": "文件会临时存储，下载完成后会自动删除。我们不会保留您下载内容的副本。"
         }
       ],
-      "metaTitle": "YouTube视频下载器——以4K、MP3和缩略图下载YouTube视频 | DownForge",
-      "metaDescription": "免费YouTube视频下载器。以4K、1080p、720p下载YouTube视频。提取音频为MP3 320kbps、FLAC、AAC。获取高清缩略图。无需注册。",
+      "metaTitle": "免费YouTube视频下载器 — 支持4K、1080p和MP3 | DownForge",
+      "metaDescription": "免费下载YouTube视频，支持4K、1080p全高清和720p。粘贴链接即可保存视频、Shorts短视频和MP3音频 — 无需应用、无需注册。支持安卓、iPhone和电脑。",
       "keywords": [
         "youtube视频下载器",
         "下载youtube视频",
@@ -1422,7 +1433,9 @@
         "youtube缩略图下载器",
         "youtube音频提取器",
         "youtube mp3转换器"
-      ]
+      ],
+      "metaTitleVideo": "YouTube视频下载器 — 高清、4K和Shorts下载 | DownForge",
+      "metaDescriptionVideo": "免费YouTube视频下载器。粘贴任意链接即可下载4K、1080p或720p视频 — 支持Shorts、剪辑和长视频。无需应用或注册。"
     },
     "niconico": {
       "badge": "Niconico下载器",

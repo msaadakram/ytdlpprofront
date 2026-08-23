@@ -232,7 +232,8 @@
     "showFullText": "全テキストを表示",
     "showSegments": "セグメントを表示",
     "transcribeBtn": "文字起こし",
-    "paste": "貼り付け"
+    "paste": "貼り付け",
+    "fileSize": "ファイルサイズ: {size}"
   },
   "PlatformPage": {
     "breadcrumbHome": "ホーム",
@@ -337,7 +338,17 @@
     "badge": "動画ダウンローダー",
     "headingSuffix": "をHD & 4Kで",
     "subheading": "最高品質で動画をダウンロード。複数の解像度と形式から選択 — オフライン視聴、編集、アーカイブに最適。",
-    "disclaimer": "無料 · 登録不要 · ファイルは即時削除 · すべての {platform} の動画に対応"
+    "disclaimer": "無料 · 登録不要 · ファイルは即時削除 · すべての {platform} の動画に対応",
+    "featuresKicker": "DownForgeが選ばれる理由",
+    "featuresHeading": "{platform}動画ダウンロードのベストツール",
+    "featuresSubheading": "スピード・プライバシー・品質のために設計されています。",
+    "faqKicker": "よくある質問",
+    "faqHeading": "{platform}動画ダウンロードの質問",
+    "faqSubheading": "{platform}動画のダウンロードについて知っておくべきこと。",
+    "trustFree": "完全無料",
+    "trustNoSignup": "登録不要",
+    "trustQuality": "最大4K画質",
+    "trustPrivate": "プライベート＆安全"
   },
   "Formats": {
     "mp4": "MP4",
@@ -1409,8 +1420,8 @@
           "a": "ファイルは一時的に保存され、ダウンロード完了後に自動的に削除されます。ダウンロードしたコンテンツのコピーを保持することはありません。"
         }
       ],
-      "metaTitle": "YouTube Video Downloader — YouTube動画を4K、MP3、サムネイルでダウンロード | DownForge",
-      "metaDescription": "無料のYouTube動画ダウンローダー。YouTube動画を4K、1080p、720pでダウンロード。MP3 320kbps、FLAC、AACで音声抽出。HDサムネイル取得。サインアップ不要。",
+      "metaTitle": "YouTube動画ダウンローダー 無料 — 4K・1080p・MP3対応 | DownForge",
+      "metaDescription": "YouTube動画を4K・1080pフルHD・720pで無料ダウンロード。リンクを貼るだけで動画・ショート・音声MP3を保存。アプリ不要・登録不要。Android・iPhone・PC対応。",
       "keywords": [
         "youtube video downloader",
         "download youtube videos",
@@ -1422,7 +1433,9 @@
         "youtube thumbnail downloader",
         "youtube audio extractor",
         "youtube mp3 converter"
-      ]
+      ],
+      "metaTitleVideo": "YouTube動画ダウンローダー — HD・4K・ショートを保存 | DownForge",
+      "metaDescriptionVideo": "無料のYouTube動画ダウンローダー。リンクを貼るだけで4K・1080p・720pの動画をダウンロード — ショート、クリップ、長時間動画も対応。アプリ・登録不要。"
     },
     "niconico": {
       "badge": "Niconico Downloader",

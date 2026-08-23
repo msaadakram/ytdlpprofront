@@ -1022,6 +1022,54 @@ export const youtubeDownloadSeed: PlatformContentSeed = {
     thumbnail: "YouTube thumbnails are often carefully crafted works of art. Download them in max resolution for your projects, references, or collection.",
     transcript: "AI transcripts unlock the full value of YouTube's spoken content. Transform videos into searchable, editable, reusable text with our accurate transcription engine.",
   },
+  qualityGuide: {
+    paragraphs: [
+      "Looking to download YouTube videos in 1080p Full HD — or push all the way to 4K? DownForge lists every resolution the uploader published, from 144p up to 2160p 4K (and 4320p 8K when available). Nothing is re-encoded: the file you receive is the exact stream YouTube serves to Premium-quality players, so a 1080p download looks identical to watching it in HD on the site.",
+      "A quick guide to choosing: 1080p Full HD is the most popular download — sharp on every screen from phones to laptops with reasonable file sizes. 720p HD is perfect for mobile viewing and saves data. 4K (2160p) is what you want for large TVs, video editing timelines, and archival copies — remember you can always downscale 4K to 1080p later, but you can never recover detail that wasn't downloaded. When in doubt, grab the highest quality available.",
+    ],
+  },
+  deviceGuide: {
+    paragraphs: [
+      "The most common question we hear: how do I download YouTube videos on my phone or computer? Because DownForge runs entirely in your browser, the answer is the same everywhere — no app required. That also means no risky APK sideloading on Android and no App Store workarounds on iPhone.",
+    ],
+    steps: [
+      {
+        title: "Download YouTube Videos on Android (Free, No App)",
+        body: "Open downforge.me in Chrome, paste the YouTube link, choose your quality, and tap Download. The video saves to your Downloads folder and plays in your gallery, VLC, or Google Photos. Works on Samsung, Xiaomi, OnePlus, Pixel, and every Android phone — no app install, no APK, no sign-up.",
+      },
+      {
+        title: "Download YouTube Videos on iPhone & iPad",
+        body: "Use Safari (iOS 14+). After processing, tap the download link and confirm \"Download\" — the video lands in the Files app under Downloads. From there, share it to your Camera Roll or play it directly. No shortcuts app or third-party installer needed.",
+      },
+      {
+        title: "Download YouTube Videos on PC, Windows & Mac",
+        body: "Paste any YouTube URL into the box above, pick MP4 in your preferred resolution, and click Download. Files go to your default download folder and open in VLC, Windows Media Player, QuickTime, Premiere, DaVinci Resolve, or any editor — full HD and 4K included.",
+      },
+      {
+        title: "Download YouTube Videos by Link — Anywhere",
+        body: "On any device, the flow is the same: tap Share on YouTube, Copy Link, and paste it into DownForge. Shortened youtu.be links, full youtube.com URLs, Shorts links, and timestamps all work — paste it and we handle the rest.",
+      },
+    ],
+  },
+  useCases: {
+    paragraphs: [
+      "People download YouTube videos for hundreds of reasons — here are the most popular ones DownForge handles every day. Every content type below works with the same paste-and-download flow on this page.",
+    ],
+    cases: [
+      { title: "YouTube Shorts Downloads", body: "Paste any Shorts URL (youtube.com/shorts/…) to save vertical videos in original quality — perfect for reposting references, studying viral formats, or keeping clips before they disappear." },
+      { title: "Long-Form Videos, Movies & Podcasts", body: "Hour-long uploads, full podcast episodes, documentaries, and lectures download without length limits. Start it, let the progress bar finish, and the complete file is yours." },
+      { title: "YouTube to MP3 & Audio Extraction", body: "Want just the sound? Switch to audio mode on our YouTube downloader to extract MP3 up to 320 kbps, or lossless FLAC for music archiving — songs, mixes, audiobooks, and lectures." },
+      { title: "Live Streams & Recordings", body: "Finished live streams and premieres that remain publicly available can be downloaded like regular videos, so you can rewatch events without buffering." },
+      { title: "Clips, Highlights & Embeds", body: "YouTube clip links and embedded videos resolve to the full source video — paste the clip URL and grab the original in up to 4K." },
+      { title: "Thumbnails & Transcripts", body: "Grab any video thumbnail in max resolution for design reference, or generate an AI transcript with timestamps (SRT, VTT, TXT, JSON) for research, subtitles, and note-taking." },
+    ],
+  },
+  safety: {
+    paragraphs: [
+      "Yes — downloading YouTube videos for personal, offline use is generally permitted, and millions of people do it daily to watch content during commutes, flights, and in areas with poor connectivity. The line to respect is copyright: don't re-upload, monetize, or redistribute someone else's work without permission, and remember that YouTube's own Terms of Service discourage downloading outside their offline feature. Use your downloads privately and responsibly.",
+      "On the security side, DownForge is built to be the safe choice in a category full of risky sites. No fake download buttons, no pop-under ads, no browser extensions to install, and no APK files. Everything runs over HTTPS in your browser, files are processed in real time, and we delete them from our servers the moment your download completes — zero storage, zero tracking of your links.",
+    ],
+  },
 };
 
 export const youtubeVideoSeed: PlatformContentSeed = {
@@ -1089,5 +1137,53 @@ export const youtubeVideoSeed: PlatformContentSeed = {
     audio: "Extract high-quality audio from YouTube videos for offline listening, editing, or archiving.",
     thumbnail: "Download YouTube thumbnails in the highest available resolution for your projects and reference.",
     transcript: "AI transcripts make YouTube's spoken content searchable and reusable — perfect for research, education, and content creation.",
+  },
+  qualityGuide: {
+    paragraphs: [
+      "Searching for a YouTube video downloader that actually delivers 1080p and 4K files? You're in the right place. DownForge shows every resolution the uploader published — 144p through 2160p 4K and even 8K — and delivers the untouched source stream. No silent downgrades to 360p, no watermarks, no re-encoding artifacts: a 1080p Full HD download here is pixel-identical to what YouTube streams to premium players.",
+      "How to pick: 1080p Full HD is the sweet spot for most saves — full clarity at a manageable file size. Choose 720p HD when storage or mobile data is tight. Choose 4K (2160p) for TV screens, editing projects, and archival masters — and if you edit, remember that downscaling 4K footage to a 1080p timeline yields sharper results than native 1080p. Whatever you choose, always download the highest quality available; you can compress later, but detail lost at download time never comes back.",
+    ],
+  },
+  deviceGuide: {
+    paragraphs: [
+      "How do I download YouTube videos on Android, iPhone, or PC? It's the number-one question — and the answer is the same everywhere: DownForge is a website, so it works on any device with a browser. No app to install, nothing to update, and nothing eating your storage.",
+    ],
+    steps: [
+      {
+        title: "Download YouTube Videos on Android — No App Needed",
+        body: "In Chrome, paste the YouTube link, select quality, tap Download. The MP4 lands in your Downloads folder, ready for your gallery, VLC, or Google Photos. Works on Samsung, Xiaomi, Realme, Vivo, OnePlus, Pixel, and every Android brand — no APK downloads, no permissions, no risk.",
+      },
+      {
+        title: "Download YouTube Videos on iPhone & iPad",
+        body: "Open this page in Safari (iOS 14 or newer). After you tap the download link and confirm, the video appears in the Files app → Downloads. Share it to Photos with one tap. No Shortcuts automation, no third-party app stores, no limits.",
+      },
+      {
+        title: "Download YouTube Videos on Windows & Mac",
+        body: "Paste the URL, choose MP4 and your resolution, click Download. The file opens in VLC, Windows Media Player, or QuickTime, and drops straight into editors like Premiere, DaVinci Resolve, and Final Cut. Full HD and 4K supported on every plan.",
+      },
+      {
+        title: "Paste a Link, Get the Video — Any Device",
+        body: "Tap Share → Copy Link on any YouTube video, Short, or clip, then paste it above. Full URLs, youtu.be short links, Shorts links, and timestamped links are all detected automatically. One input, every format, every device.",
+      },
+    ],
+  },
+  useCases: {
+    paragraphs: [
+      "From Shorts to full movies, this downloader handles every kind of YouTube video. Here's what people save most often with DownForge:",
+    ],
+    cases: [
+      { title: "Download YouTube Shorts", body: "Paste a Shorts link (youtube.com/shorts/…) and save the vertical video in its original quality — the easiest way to keep trending clips, study formats, or archive your own Shorts." },
+      { title: "Save Long Videos & Full Episodes", body: "Podcasts, documentaries, lectures, tutorials, movies — there's no length limit. Even hour-long 4K uploads download completely, so you can watch offline without buffering." },
+      { title: "Grab Clips and Highlights", body: "YouTube clip links and embedded videos resolve to the full source. Paste the clip URL to get the complete original in up to 4K." },
+      { title: "Re-watch Live Streams Offline", body: "Finished live streams and premiere recordings that stay publicly available download just like normal uploads." },
+      { title: "Need Audio Instead? YouTube to MP3", body: "The same paste-and-go flow on our full YouTube downloader extracts MP3 up to 320 kbps or lossless FLAC — ideal for songs, mixes, and lectures." },
+      { title: "For Creators & Editors", body: "Download your own uploads in 4K for re-editing and backup — the fastest way to recover source-quality footage when the original files are lost." },
+    ],
+  },
+  safety: {
+    paragraphs: [
+      "Downloading YouTube videos for personal offline viewing is generally fine — people do it worldwide for flights, commutes, and patchy connections. Respect copyright: don't re-upload or redistribute creators' work, and be aware YouTube's Terms of Service officially prefer their own offline feature. Private, personal use is the safe path.",
+      "Speaking of safe: DownForge has none of the traps common in this category — no fake download buttons, no pop-ups, no forced extensions or APKs, no malware. All traffic runs over HTTPS, downloads are processed in real time, and files are wiped from our servers the instant your transfer completes. Your links aren't logged or stored.",
+    ],
   },
 };

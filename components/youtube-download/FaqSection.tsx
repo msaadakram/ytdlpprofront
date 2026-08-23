@@ -52,7 +52,7 @@ export function FaqSection() {
                 viewport={{ once: true, margin: "-30px" }}
                 variants={{ visible: { opacity: 1, y: 0 } }}
                 transition={{ duration: 0.35, delay: i * 0.04 }}
-                className="bg-white rounded-2xl border border-border overflow-hidden"
+                className="bg-card rounded-2xl border border-border overflow-hidden"
                 itemScope
                 itemType="https://schema.org/Question"
               >

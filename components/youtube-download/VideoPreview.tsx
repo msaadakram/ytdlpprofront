@@ -4,31 +4,34 @@ import { motion } from "motion/react";
 import { Play, Eye, ThumbsUp, Clock, Calendar, User, MonitorPlay } from "lucide-react";
 import type { UniversalMediaInfo } from "@/lib/api-client";
 import { resolveFormats } from "@/lib/formats";
+import { useLocale, useTranslations } from "next-intl";
 
 type VideoPreviewProps = {
   info: UniversalMediaInfo;
 };
 
-function formatCount(n: number): string {
+function formatCount(n: number, locale: string): string {
   if (!n) return "0";
   if (n >= 1_000_000) return `${(n / 1_000_000).toFixed(1)}M`;
   if (n >= 1_000) return `${(n / 1_000).toFixed(1)}K`;
-  return n.toLocaleString();
+  return n.toLocaleString(locale);
 }
 
-function formatDate(dateStr: string | null): string {
+function formatDate(dateStr: string | null, locale: string): string {
   if (!dateStr) return "";
   const d = new Date(dateStr);
-  const now = new Date();
-  const diffDays = Math.floor((now.getTime() - d.getTime()) / 86400000);
-  if (diffDays < 1) return "Today";
-  if (diffDays === 1) return "Yesterday";
-  if (diffDays < 30) return `${diffDays} days ago`;
-  if (diffDays < 365) return `${Math.floor(diffDays / 30)} months ago`;
-  return `${Math.floor(diffDays / 365)} years ago`;
+  if (Number.isNaN(d.getTime())) return "";
+  const rtf = new Intl.RelativeTimeFormat(locale, { numeric: "auto" });
+  const diffDays = Math.floor((Date.now() - d.getTime()) / 86400000);
+  if (diffDays < 1) return rtf.format(0, "day");
+  if (diffDays < 30) return rtf.format(-diffDays, "day");
+  if (diffDays < 365) return rtf.format(-Math.floor(diffDays / 30), "month");
+  return rtf.format(-Math.floor(diffDays / 365), "year");
 }
 
 export function VideoPreview({ info }: VideoPreviewProps) {
+  const locale = useLocale();
+  const st = useTranslations("PlatformShared");
   const videoQualities = resolveFormats(info, "video").map(
     (f) => f.quality_label || (f.height ? `${f.height}p` : null),
   ).filter(Boolean) as string[];
@@ -114,14 +117,14 @@ export function VideoPreview({ info }: VideoPreviewProps) {
                 animate={{ scale: 1, opacity: 1 }}
                 transition={{ type: "spring", stiffness: 300, damping: 20, delay: 0.35 }}
               >
-                {formatCount(info.view_count)}
+                {formatCount(info.view_count, locale)}
               </motion.span>
-              <span className="text-muted-foreground/60">views</span>
+              <span className="text-muted-foreground/60">{st("views")}</span>
             </span>
             {info.like_count > 0 && (
               <span className="inline-flex items-center gap-1 rounded-full bg-[#eef6f8] dark:bg-white/[0.06] px-2.5 py-1 text-[11px] font-medium text-muted-foreground font-mono">
                 <ThumbsUp className="w-3 h-3 text-[#5baab8]" />
-                <span>{formatCount(info.like_count)}</span>
+                <span>{formatCount(info.like_count, locale)}</span>
               </span>
             )}
             {info.duration_str && (
@@ -132,7 +135,7 @@ export function VideoPreview({ info }: VideoPreviewProps) {
             )}
             <span className="inline-flex items-center gap-1 rounded-full bg-[#eef6f8] dark:bg-white/[0.06] px-2.5 py-1 text-[11px] font-medium text-muted-foreground font-mono">
               <Calendar className="w-3 h-3 text-[#5baab8]" />
-              <span>{formatDate(info.upload_date)}</span>
+              <span>{formatDate(info.upload_date, locale)}</span>
             </span>
           </motion.div>
 
@@ -143,7 +146,7 @@ export function VideoPreview({ info }: VideoPreviewProps) {
               transition={{ delay: 0.3 }}
               className="text-[11px] text-muted-foreground font-mono"
             >
-              File size: {info.filesize_str}
+              {st("fileSize", { size: info.filesize_str })}
             </motion.p>
           )}
 

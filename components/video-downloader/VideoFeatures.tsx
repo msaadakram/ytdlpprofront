@@ -2,7 +2,8 @@
 
 import { motion } from "motion/react";
 import { MonitorPlay, Shield, Zap, Globe, Star, Copy } from "lucide-react";
-import { platformConfigs } from "@/lib/platform-config";
+import { usePlatformTranslations } from "@/lib/usePlatformTranslations";
+import { useTranslations } from "next-intl";
 
 const stats = [
   { icon: MonitorPlay, label: "Video Quality", value: "Up to 4K", desc: "Download videos in stunning quality — from 4K Ultra HD to standard definition." },
@@ -14,15 +15,16 @@ const stats = [
 ];
 
 export function VideoFeatures({ platform }: { platform: string }) {
-  const config = platformConfigs[platform];
-  const brandColor = config?.brandColor || "#5baab8";
+  const config = usePlatformTranslations(platform);
+  const brandColor = config.brandColor;
+  const t = useTranslations("VideoOnly");
 
   return (
     <section className="py-14 md:py-20 px-6 relative overflow-hidden">
       <div
         className="absolute inset-0 pointer-events-none"
         style={{
-          background: `linear-gradient(180deg, ${brandColor}03 0%, white 50%, ${brandColor}03 100%)`,
+          background: `linear-gradient(180deg, ${brandColor}08 0%, transparent 50%, ${brandColor}08 100%)`,
         }}
       />
       <div className="max-w-6xl mx-auto relative">
@@ -38,13 +40,13 @@ export function VideoFeatures({ platform }: { platform: string }) {
             className="text-xs font-bold tracking-widest uppercase font-mono"
             style={{ color: brandColor }}
           >
-            Why DownForge
+            {t("featuresKicker")}
           </span>
-          <h2 className="text-2xl sm:text-3xl md:text-4xl font-extrabold text-foreground mt-3 mb-4 font-heading">
-            The Best {config?.name || ""} Video Download Tool
+          <h2 className="text-fluid-h2 font-extrabold text-foreground mt-3 mb-4 font-heading text-balance">
+            {t("featuresHeading", { platform: config.name })}
           </h2>
-          <p className="text-muted-foreground text-sm max-w-xl mx-auto font-sans">
-            Built for speed, privacy, and quality. Download {config?.name || ""} videos the way they were meant to be saved.
+          <p className="text-muted-foreground text-sm max-w-xl mx-auto font-sans text-pretty">
+            {t("featuresSubheading", { platform: config.name })}
           </p>
         </motion.div>
 
@@ -60,27 +62,17 @@ export function VideoFeatures({ platform }: { platform: string }) {
                 variants={{ visible: { opacity: 1, y: 0 } }}
                 transition={{ duration: 0.4, delay: i * 0.06, ease: [0.21, 0.6, 0.35, 1] }}
                 whileHover={{ y: -3, transition: { duration: 0.2 } }}
-                className="bg-white/80 backdrop-blur-sm rounded-2xl border border-border p-5 transition-all duration-200"
-                style={{
-                  boxShadow: `0 1px 3px rgba(0,0,0,0.04)`,
-                }}
-                onMouseEnter={(e) => {
-                  e.currentTarget.style.boxShadow = `0 4px 12px ${brandColor}15`;
-                  e.currentTarget.style.borderColor = `${brandColor}33`;
-                }}
-                onMouseLeave={(e) => {
-                  e.currentTarget.style.boxShadow = "0 1px 3px rgba(0,0,0,0.04)";
-                  e.currentTarget.style.borderColor = "";
-                }}
+                className="bg-card/80 backdrop-blur-sm rounded-2xl border border-border p-5 shadow-sm transition-all duration-300 hover:shadow-lg"
+                style={{ ["--brand" as string]: brandColor }}
               >
                 <div className="flex items-start gap-3.5">
                   <motion.div
                     className="w-10 h-10 rounded-xl flex items-center justify-center shrink-0"
-                    style={{ backgroundColor: `${brandColor}12` }}
+                    style={{ backgroundColor: `${brandColor}14` }}
                     whileHover={{ scale: 1.12 }}
                     transition={{ type: "spring", stiffness: 400, damping: 15 }}
                   >
-                    <Icon className="w-5 h-5" style={{ color: brandColor }} />
+                    <Icon className="w-5 h-5" style={{ color: brandColor }} aria-hidden />
                   </motion.div>
                   <div className="min-w-0">
                     <div className="flex items-baseline gap-2 flex-wrap">
@@ -88,7 +80,7 @@ export function VideoFeatures({ platform }: { platform: string }) {
                       <span
                         className="text-[11px] font-bold font-mono px-1.5 py-0.5 rounded-md"
                         style={{
-                          backgroundColor: `${brandColor}12`,
+                          backgroundColor: `${brandColor}14`,
                           color: brandColor,
                         }}
                       >

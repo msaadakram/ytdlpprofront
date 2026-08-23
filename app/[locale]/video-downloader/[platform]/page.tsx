@@ -8,7 +8,9 @@ import { VideoFeatures } from "@/components/video-downloader/VideoFeatures";
 import { VideoFaq } from "@/components/video-downloader/VideoFaq";
 import { platformConfigs, platformSlugs } from "@/lib/platform-config";
 import { getContent } from "@/lib/content/registry";
+import { relatedLinksFor } from "@/lib/content/related-links";
 import { BlogContent } from "@/components/content/BlogContent";
+import { RelatedLinks } from "@/components/content/RelatedLinks";
 
 type Props = { params: Promise<{ platform: string; locale: string }> };
 
@@ -26,12 +28,18 @@ export async function generateMetadata({ params }: Props): Promise<Metadata> {
 
   const t = await getTranslations({ locale, namespace: `Platform.${platform}` });
 
+  // Video-only pages use their own title/description so they don't duplicate
+  // the all-in-one /download/{platform} pages in SERPs. Falls back to the
+  // generic platform meta when a locale hasn't translated the video variant.
+  const title = t.has("metaTitleVideo") ? t("metaTitleVideo") : t("metaTitle");
+  const description = t.has("metaDescriptionVideo") ? t("metaDescriptionVideo") : t("metaDescription");
+
   return {
-    title: t("metaTitle"),
-    description: t("metaDescription"),
+    title,
+    description,
     openGraph: {
-      title: t("metaTitle"),
-      description: t("metaDescription"),
+      title,
+      description,
       url: `https://www.downforge.me/${locale}/video-downloader/${config.slug}`,
       siteName: "DownForge",
       locale,
@@ -39,8 +47,8 @@ export async function generateMetadata({ params }: Props): Promise<Metadata> {
     },
     twitter: {
       card: "summary_large_image",
-      title: t("metaTitle"),
-      description: t("metaDescription"),
+      title,
+      description,
     },
     robots: { index: true, follow: true },
     alternates: {
@@ -70,6 +78,8 @@ export default async function VideoDownloaderPage({ params }: Props) {
 
   const t = await getTranslations({ locale, namespace: `Platform.${platform}` });
   const faqs = t.raw("faqs") as { q: string; a: string }[];
+  const metaDescription = t.has("metaDescriptionVideo") ? t("metaDescriptionVideo") : t("metaDescription");
+  const related = relatedLinksFor("video-downloader", platform);
 
   const jsonLd = {
     "@context": "https://schema.org",
@@ -87,7 +97,7 @@ export default async function VideoDownloaderPage({ params }: Props) {
         "@id": `https://www.downforge.me/${locale}/video-downloader/${config.slug}#webapp`,
         name: `DownForge ${config.name} Video Downloader`,
         url: `https://www.downforge.me/${locale}/video-downloader/${config.slug}`,
-        description: t("metaDescription"),
+        description: metaDescription,
         applicationCategory: "Multimedia",
         operatingSystem: "All",
         browserRequirements: "Requires JavaScript",
@@ -117,6 +127,7 @@ export default async function VideoDownloaderPage({ params }: Props) {
         <VideoFeatures platform={platform} />
         <VideoFaq platform={platform} />
         {content && <BlogContent content={content} />}
+        <RelatedLinks links={related} />
       </main>
       <Footer />
     </>

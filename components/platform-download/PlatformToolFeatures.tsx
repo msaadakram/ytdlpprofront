@@ -16,7 +16,7 @@ export function PlatformToolFeatures({ platform }: { platform: string }) {
       <div
         className="absolute inset-0 pointer-events-none"
         style={{
-          background: `linear-gradient(180deg, ${config.brandColor}03 0%, white 50%, ${config.brandColor}03 100%)`,
+          background: `linear-gradient(180deg, ${config.brandColor}08 0%, transparent 50%, ${config.brandColor}08 100%)`,
         }}
       />
       <div className="max-w-6xl mx-auto relative">
@@ -54,7 +54,7 @@ export function PlatformToolFeatures({ platform }: { platform: string }) {
                 variants={{ visible: { opacity: 1, y: 0 } }}
                 transition={{ duration: 0.4, delay: i * 0.06, ease: [0.21, 0.6, 0.35, 1] }}
                 whileHover={{ y: -3, transition: { duration: 0.2 } }}
-                className="bg-white/80 backdrop-blur-sm rounded-2xl border border-border p-5 hover:shadow-md hover:border-[#5baab8]/20 transition-all duration-200"
+                className="bg-card/80 backdrop-blur-sm rounded-2xl border border-border p-5 hover:shadow-md hover:border-accent/40 transition-all duration-200"
               >
                 <div className="flex items-start gap-3.5">
                   <motion.div

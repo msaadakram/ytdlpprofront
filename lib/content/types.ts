@@ -32,10 +32,20 @@ export type PageContent = {
   whatIsPlatform: ContentSection;
   stepByStepGuide: ContentSection;
   formatGuide: ContentSection;
+  qualityGuide?: ContentSection;
+  deviceGuide?: ContentSection;
+  useCases?: ContentSection;
+  safety?: ContentSection;
   whyDownForge: ContentSection;
   proTips: ContentSection;
   troubleshooting: ContentSection;
   conclusion: ContentSection;
+};
+
+export type RelatedLink = {
+  title: string;
+  href: string;
+  desc: string;
 };
 
 export type PlatformContentSeed = {
@@ -47,4 +57,8 @@ export type PlatformContentSeed = {
   steps: Record<string, ContentStep[]>;
   formatIntros: Record<string, string>;
   conclusions: Record<string, string>;
+  qualityGuide?: { paragraphs: string[]; table?: ContentTable };
+  deviceGuide?: { paragraphs: string[]; steps: ContentStep[] };
+  useCases?: { paragraphs: string[]; cases: ContentTip[] };
+  safety?: { paragraphs: string[] };
 };

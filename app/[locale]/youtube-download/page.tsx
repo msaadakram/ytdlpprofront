@@ -8,19 +8,24 @@ import { FaqSection } from "@/components/youtube-download/FaqSection";
 import { PlatformToolFeatures } from "@/components/platform-download/PlatformToolFeatures";
 import { PlatformHowItWorks } from "@/components/platform-download/PlatformHowItWorks";
 import { getYouTubeDownloadContent } from "@/lib/content/registry";
+import { relatedLinksFor } from "@/lib/content/related-links";
 import { BlogContent } from "@/components/content/BlogContent";
+import { RelatedLinks } from "@/components/content/RelatedLinks";
 
 type Props = { params: Promise<{ locale: string }> };
+
+const pageTitle = "YouTube Video Downloader — Download YouTube Videos in 4K, 1080p HD & MP3 | DownForge";
+const pageDescription = "Free YouTube video downloader. Paste any link to download YouTube videos in 4K, 1080p Full HD & 720p — Shorts, clips & long videos. Extract MP3 audio, HD thumbnails & AI transcripts. No app, no sign-up. Works on Android, iPhone & PC.";
 
 export async function generateMetadata({ params }: Props): Promise<Metadata> {
   const { locale } = await params;
 
   return {
-    title: "YouTube Video Downloader — Download YouTube Videos in 4K, MP3, Transcripts & Thumbnails | DownForge",
-    description: "Free YouTube video downloader. Download YouTube videos in 4K, 1080p, 720p. Extract audio as MP3 320kbps, FLAC, AAC. Get AI transcripts as SRT, VTT, TXT or JSON. Get HD thumbnails. No sign-up required.",
+    title: pageTitle,
+    description: pageDescription,
     openGraph: {
-      title: "YouTube Video Downloader — Download YouTube Videos in 4K, MP3, Transcripts & Thumbnails | DownForge",
-      description: "Free YouTube video downloader. Download YouTube videos in 4K, 1080p, 720p. Extract audio as MP3 320kbps, FLAC, AAC. Get AI transcripts as SRT, VTT, TXT or JSON. No sign-up required.",
+      title: pageTitle,
+      description: pageDescription,
       url: `https://www.downforge.me/${locale}/youtube-download`,
       siteName: "DownForge",
       locale,
@@ -28,8 +33,8 @@ export async function generateMetadata({ params }: Props): Promise<Metadata> {
     },
     twitter: {
       card: "summary_large_image",
-      title: "YouTube Video Downloader — Download YouTube Videos in 4K, MP3, Transcripts & Thumbnails",
-      description: "Free YouTube video downloader. Download YouTube videos in 4K, 1080p, 720p. Extract audio as MP3, FLAC, AAC. Get AI transcripts as SRT, VTT, TXT or JSON. No sign-up required.",
+      title: "YouTube Video Downloader — Download YouTube Videos in 4K, 1080p HD & MP3",
+      description: "Free YouTube video downloader. Download YouTube videos in 4K, 1080p, 720p. Extract audio as MP3, FLAC, AAC. Get HD thumbnails & AI transcripts. No sign-up required.",
     },
     robots: { index: true, follow: true },
     alternates: {
@@ -47,12 +52,14 @@ export async function generateMetadata({ params }: Props): Promise<Metadata> {
       },
     },
     keywords: [
-      "youtube video downloader", "download youtube videos", "youtube to mp4",
-      "youtube to mp3", "youtube 4k downloader", "free youtube downloader",
-      "youtube video saver", "youtube thumbnail downloader", "youtube audio extractor",
-      "youtube mp3 converter", "youtube transcript downloader", "youtube subtitle downloader",
-      "youtube srt download", "youtube ai transcript", "online youtube downloader",
-      "youtube hd downloader",
+      "youtube video downloader", "download youtube videos", "youtube video download",
+      "free youtube downloader", "youtube downloader", "download youtube",
+      "youtube 4k downloader", "youtube video download 1080p", "youtube downloader hd",
+      "youtube shorts download", "download youtube shorts", "youtube to mp4",
+      "youtube to mp3", "youtube mp3 downloader", "mp3 youtube downloader",
+      "save youtube video", "youtube link download", "download youtube videos on android",
+      "download youtube videos on iphone", "download youtube video in hd",
+      "youtube clip downloader", "yt video download", "online youtube downloader",
     ],
   };
 }
@@ -136,6 +143,7 @@ export default async function YoutubeDownloadPage({ params }: Props) {
         <RelatedTips />
         <FaqSection />
         {content && <BlogContent content={content} />}
+        <RelatedLinks links={relatedLinksFor("youtube-download")} />
       </main>
       <Footer />
     </>

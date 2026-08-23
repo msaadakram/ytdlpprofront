@@ -4,11 +4,13 @@ import { useState } from "react";
 import { motion, AnimatePresence } from "motion/react";
 import { ChevronDown } from "lucide-react";
 import { usePlatformTranslations } from "@/lib/usePlatformTranslations";
+import { useTranslations } from "next-intl";
 
 export function VideoFaq({ platform }: { platform: string }) {
   const config = usePlatformTranslations(platform);
   const faqs = config.faqs;
   const brandColor = config.brandColor;
+  const t = useTranslations("VideoOnly");
   const [openIndex, setOpenIndex] = useState<number | null>(null);
 
   if (faqs.length === 0) return null;
@@ -25,13 +27,13 @@ export function VideoFaq({ platform }: { platform: string }) {
           className="text-center mb-12"
         >
           <span className="text-xs font-bold tracking-widest uppercase font-mono" style={{ color: brandColor }}>
-            FAQ
+            {t("faqKicker")}
           </span>
-          <h2 className="text-2xl sm:text-3xl md:text-4xl font-extrabold text-foreground mt-3 mb-4 font-heading">
-            {config.name} Video Download Questions
+          <h2 className="text-fluid-h2 font-extrabold text-foreground mt-3 mb-4 font-heading text-balance">
+            {t("faqHeading", { platform: config.name })}
           </h2>
-          <p className="text-muted-foreground text-sm font-sans">
-            Everything you need to know about downloading {config.name} videos.
+          <p className="text-muted-foreground text-sm font-sans text-pretty">
+            {t("faqSubheading", { platform: config.name })}
           </p>
         </motion.div>
 
@@ -46,7 +48,7 @@ export function VideoFaq({ platform }: { platform: string }) {
                 viewport={{ once: true, margin: "-30px" }}
                 variants={{ visible: { opacity: 1, y: 0 } }}
                 transition={{ duration: 0.35, delay: i * 0.04 }}
-                className="bg-white rounded-2xl border border-border overflow-hidden"
+                className="bg-card rounded-2xl border border-border overflow-hidden transition-colors"
                 itemScope
                 itemType="https://schema.org/Question"
               >

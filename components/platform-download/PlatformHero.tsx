@@ -1,7 +1,7 @@
 "use client";
 
 import type { CSSProperties } from "react";
-import { motion, AnimatePresence } from "motion/react";
+import { motion, AnimatePresence, useReducedMotion } from "motion/react";
 import {
   Download, CheckCircle2, Play, X, Sparkles, Music, Image, Loader2, FileText,
 } from "lucide-react";
@@ -39,6 +39,8 @@ export function PlatformHero({ platform }: { platform: string }) {
     error, formats, inputRef, handleUrlChange, handleDownloadClick,
   } = useDownloader();
   const st = useTranslations("PlatformShared");
+  const vo = useTranslations("VideoOnly");
+  const reduceMotion = useReducedMotion();
 
   const typeConfig = {
     video: { icon: Play, label: st("typeVideo") },
@@ -52,31 +54,22 @@ export function PlatformHero({ platform }: { platform: string }) {
 
   return (
     <section className="pt-24 pb-16 md:pt-32 md:pb-20 px-4 sm:px-6 relative overflow-hidden">
-      <div
-        className="absolute inset-0 pointer-events-none"
-        style={{
-          backgroundImage: `radial-gradient(circle, rgba(0,0,0,0.04) 1px, transparent 1px)`,
-          backgroundSize: "28px 28px",
-        }}
-      />
+      <div className="absolute inset-0 pointer-events-none bg-dot-grid" />
 
       <motion.div
         className="absolute top-[-10%] right-[-5%] w-[500px] h-[500px] rounded-full opacity-20 pointer-events-none"
         style={{ background: `radial-gradient(circle, ${config.brandColor} 0%, transparent 70%)` }}
-        animate={{ x: ["0%", "15%", "0%"], y: ["0%", "-10%", "0%"], scale: [1, 1.2, 1] }}
-        transition={{ duration: 10, repeat: Infinity, ease: "easeInOut" }}
+        {...(reduceMotion ? {} : { animate: { x: ["0%", "15%", "0%"], y: ["0%", "-10%", "0%"], scale: [1, 1.2, 1] }, transition: { duration: 10, repeat: Infinity, ease: "easeInOut" as const } })}
       />
       <motion.div
         className="absolute top-[20%] left-[-8%] w-[350px] h-[350px] rounded-full opacity-15 pointer-events-none"
         style={{ background: "radial-gradient(circle, #5baab8 0%, transparent 70%)" }}
-        animate={{ x: ["0%", "-10%", "0%"], y: ["0%", "15%", "0%"], scale: [1, 1.15, 1] }}
-        transition={{ duration: 13, repeat: Infinity, ease: "easeInOut" }}
+        {...(reduceMotion ? {} : { animate: { x: ["0%", "-10%", "0%"], y: ["0%", "15%", "0%"], scale: [1, 1.15, 1] }, transition: { duration: 13, repeat: Infinity, ease: "easeInOut" as const } })}
       />
       <motion.div
         className="absolute bottom-[-5%] right-[10%] w-[300px] h-[300px] rounded-full opacity-10 pointer-events-none"
         style={{ background: `radial-gradient(circle, ${config.brandColor} 0%, transparent 70%)` }}
-        animate={{ x: ["0%", "-20%", "0%"], y: ["0%", "10%", "0%"], scale: [1, 1.25, 1] }}
-        transition={{ duration: 15, repeat: Infinity, ease: "easeInOut" }}
+        {...(reduceMotion ? {} : { animate: { x: ["0%", "-20%", "0%"], y: ["0%", "10%", "0%"], scale: [1, 1.25, 1] }, transition: { duration: 15, repeat: Infinity, ease: "easeInOut" as const } })}
       />
 
       <div className="max-w-4xl mx-auto relative">
@@ -95,7 +88,7 @@ export function PlatformHero({ platform }: { platform: string }) {
           animate={{ opacity: 1, y: 0 }}
           transition={{ delay: 0.1 }}
         >
-          <span className="inline-flex items-center gap-2 text-xs font-semibold tracking-widest uppercase px-4 py-2 rounded-full bg-white/80 backdrop-blur-sm border border-border text-muted-foreground shadow-sm font-mono">
+          <span className="inline-flex items-center gap-2 text-xs font-semibold tracking-widest uppercase px-4 py-2 rounded-full bg-card/80 backdrop-blur-sm border border-border text-muted-foreground shadow-sm font-mono">
             <span
               className="w-1.5 h-1.5 rounded-full animate-pulse"
               style={{ backgroundColor: config.brandColor, boxShadow: `0 0 4px ${config.brandColor}` }}
@@ -105,14 +98,13 @@ export function PlatformHero({ platform }: { platform: string }) {
         </motion.div>
 
         <motion.h1
-          className="text-center text-[2rem] leading-tight sm:text-5xl md:text-7xl font-extrabold tracking-tight text-foreground mb-6 font-heading"
+          className="text-center text-fluid-hero leading-[1.08] font-extrabold tracking-tight text-foreground mb-6 font-heading text-balance hyphens-auto"
           initial={{ opacity: 0, y: 24 }}
           animate={{ opacity: 1, y: 0 }}
           transition={{ delay: 0.15, duration: 0.6 }}
         >
-          {config.heading}
-          <br />
-          <span style={{ color: config.brandColor }}>{config.headingAccent}</span>
+          {config.heading}{" "}
+          <span className="block sm:inline" style={{ color: config.brandColor }}>{config.headingAccent}</span>
         </motion.h1>
 
         <motion.p
@@ -131,7 +123,7 @@ export function PlatformHero({ platform }: { platform: string }) {
           transition={{ delay: 0.35 }}
         >
           <div className="max-w-full overflow-x-auto px-3 sm:px-0 [scrollbar-width:none] [&::-webkit-scrollbar]:hidden">
-            <div className="inline-flex bg-white/80 backdrop-blur-sm border border-border rounded-full p-1 shadow-sm gap-0.5 sm:gap-1 relative">
+            <div className="inline-flex bg-card/80 backdrop-blur-sm border border-border rounded-full p-1 shadow-sm gap-0.5 sm:gap-1 relative">
               {(["video", "audio", "thumbnail", "transcript"] as DownloadType[]).map((type) => {
                 const cfg = typeConfig[type];
                 const Icon = cfg.icon;
@@ -162,7 +154,7 @@ export function PlatformHero({ platform }: { platform: string }) {
         </motion.div>
 
         <motion.div
-           className="bg-white/80 backdrop-blur-xl rounded-2xl shadow-2xl shadow-black/5 border border-border/60 p-4 sm:p-5 md:p-6 relative"
+           className="glass rounded-2xl shadow-2xl shadow-black/5 dark:shadow-black/30 border border-border/60 p-4 sm:p-5 md:p-6 relative"
           initial={{ opacity: 0, y: 24, scale: 0.98 }}
           animate={{ opacity: 1, y: 0, scale: 1 }}
           transition={{ delay: 0.4, duration: 0.6 }}
@@ -174,7 +166,7 @@ export function PlatformHero({ platform }: { platform: string }) {
 
           <div className="flex flex-col md:flex-row gap-3">
             <div
-              className="brand-input flex-1 flex items-center gap-3 bg-white/70 backdrop-blur-sm rounded-xl px-4 py-3 transition-colors duration-300"
+              className="brand-input flex-1 flex items-center gap-3 bg-input-background/60 backdrop-blur-sm border border-border/60 rounded-2xl px-4 py-3.5 transition-colors duration-300"
               style={{ "--brand": config.brandColor } as CSSProperties}
             >
               <span className="flex-shrink-0 transition-transform duration-300 hover:scale-110" style={{ color: config.brandColor }}>
@@ -189,6 +181,7 @@ export function PlatformHero({ platform }: { platform: string }) {
                   onChange={(e) => handleUrlChange(e.target.value)}
                   onKeyDown={(e) => e.key === "Enter" && handleDownloadClick()}
                   placeholder={config.placeholder}
+                  aria-label={config.placeholder}
                   className="w-full bg-transparent text-base sm:text-sm text-foreground placeholder:text-muted-foreground outline-none font-sans"
                 />
               </div>
@@ -202,8 +195,8 @@ export function PlatformHero({ platform }: { platform: string }) {
             <motion.button
               onClick={handleDownloadClick}
               disabled={processing || fetchingInfo}
-              whileHover={{ scale: processing || fetchingInfo ? 1 : 1.03 }}
-              whileTap={{ scale: processing || fetchingInfo ? 1 : 0.97 }}
+              whileHover={reduceMotion || processing || fetchingInfo ? undefined : { scale: 1.03 }}
+              whileTap={reduceMotion || processing || fetchingInfo ? undefined : { scale: 0.97 }}
                className="flex items-center justify-center gap-2 text-white font-semibold text-sm px-7 py-3 rounded-xl transition-all duration-300 disabled:opacity-70 w-full md:w-auto md:min-w-[150px] font-sans relative overflow-hidden group"
               style={{
                 background: `linear-gradient(135deg, #0d1f26, ${config.brandColor}DD)`,
@@ -247,6 +240,20 @@ export function PlatformHero({ platform }: { platform: string }) {
               </span>
             </motion.button>
           </div>
+
+          <ul className="flex flex-wrap items-center justify-center gap-x-5 gap-y-2 mt-4" aria-label="Key benefits">
+            {[
+              { label: vo("trustFree") },
+              { label: vo("trustNoSignup") },
+              { label: vo("trustQuality") },
+              { label: vo("trustPrivate") },
+            ].map(({ label }) => (
+              <li key={label} className="inline-flex items-center gap-1.5 text-[11px] sm:text-xs font-medium text-muted-foreground font-sans">
+                <span className="w-1.5 h-1.5 rounded-full" style={{ backgroundColor: config.brandColor }} aria-hidden />
+                {label}
+              </li>
+            ))}
+          </ul>
 
           <AnimatePresence mode="wait">
             {fetchingInfo && !mediaInfo && (

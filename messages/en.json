@@ -235,7 +235,8 @@
     "showFullText": "Show full text",
     "showSegments": "Show segments",
     "transcribeBtn": "Transcribe",
-    "paste": "Paste"
+    "paste": "Paste",
+    "fileSize": "File size: {size}"
   },
   "PlatformPage": {
     "breadcrumbHome": "Home",
@@ -371,7 +372,17 @@
     "subheading": "Download videos in the highest quality available. Choose from multiple resolutions and formats — perfect for offline viewing, editing, and archiving.",
     "disclaimer": "Free to use · No sign-up required · Files deleted instantly · Works with all {platform} videos",
     "featuresTitle": "Features",
-    "faqTitle": "Frequently Asked Questions"
+    "faqTitle": "Frequently Asked Questions",
+    "featuresKicker": "Why DownForge",
+    "featuresHeading": "The Best {platform} Video Download Tool",
+    "featuresSubheading": "Built for speed, privacy, and quality. Download {platform} videos the way they were meant to be saved.",
+    "faqKicker": "FAQ",
+    "faqHeading": "{platform} Video Download Questions",
+    "faqSubheading": "Everything you need to know about downloading {platform} videos.",
+    "trustFree": "100% Free",
+    "trustNoSignup": "No Sign-Up",
+    "trustQuality": "Up to 4K Quality",
+    "trustPrivate": "Private & Secure"
   },
   "Formats": {
     "mp4": "MP4",
@@ -909,7 +920,9 @@
         "facebook hd downloader",
         "save facebook video",
         "facebook video download free"
-      ]
+      ],
+      "metaTitleVideo": "Facebook Video Downloader — Save Facebook Videos, Reels & Live in HD | DownForge",
+      "metaDescriptionVideo": "Free Facebook video downloader. Paste a link to save Facebook videos, Reels, Watch shows and live streams in HD or MP4. No app, no sign-up."
     },
     "instagram": {
       "badge": "Instagram Downloader",
@@ -974,7 +987,9 @@
         "reels to mp4",
         "instagram mp3",
         "instagram profile picture downloader"
-      ]
+      ],
+      "metaTitleVideo": "Instagram Video Downloader — Download Reels, Stories & Videos in HD | DownForge",
+      "metaDescriptionVideo": "Free Instagram video downloader. Save Reels, Stories, IGTV and post videos in HD MP4. No app or sign-up required."
     },
     "tiktok": {
       "badge": "TikTok Downloader",
@@ -1039,7 +1054,9 @@
         "save tiktok video",
         "tiktok audio extractor",
         "tiktok watermark remover"
-      ]
+      ],
+      "metaTitleVideo": "TikTok Video Downloader — Download TikTok Videos HD Without Watermark | DownForge",
+      "metaDescriptionVideo": "Free TikTok video downloader. Paste a TikTok link and save videos in HD MP4 without the watermark. No app or sign-up required."
     },
     "twitter": {
       "badge": "Twitter Downloader",
@@ -1104,7 +1121,9 @@
         "twitter mp3",
         "tweet media downloader",
         "twitter hd video"
-      ]
+      ],
+      "metaTitleVideo": "Twitter Video Downloader — Save X Videos & GIFs in HD | Free & Online | DownForge",
+      "metaDescriptionVideo": "Free Twitter/X video downloader. Paste a tweet link to save videos and GIFs in HD MP4. Works in your browser — no sign-up."
     },
     "vimeo": {
       "badge": "Vimeo Downloader",
@@ -1169,7 +1188,9 @@
         "save vimeo video",
         "vimeo download free",
         "vimeo video extractor"
-      ]
+      ],
+      "metaTitleVideo": "Vimeo Video Downloader — Download Vimeo Videos in 4K & 1080p HD | DownForge",
+      "metaDescriptionVideo": "Free Vimeo video downloader. Paste a Vimeo link and download videos in 4K, 1080p or 720p MP4. No sign-up required."
     },
     "dailymotion": {
       "badge": "Dailymotion Downloader",
@@ -1233,7 +1254,9 @@
         "save dailymotion video",
         "dailymotion hd downloader",
         "dailymotion download free"
-      ]
+      ],
+      "metaTitleVideo": "Dailymotion Video Downloader — Save Dailymotion Videos in HD MP4 | DownForge",
+      "metaDescriptionVideo": "Free Dailymotion video downloader. Paste a link to save Dailymotion videos in HD MP4. Fast, free, no sign-up."
     },
     "twitch": {
       "badge": "Twitch Downloader",
@@ -1298,7 +1321,9 @@
         "save twitch clips",
         "twitch downloader free",
         "twitch highlight downloader"
-      ]
+      ],
+      "metaTitleVideo": "Twitch Video Downloader — Download Twitch Clips, VODs & Highlights in HD | DownForge",
+      "metaDescriptionVideo": "Free Twitch video downloader. Save Twitch clips, VODs and highlights in HD MP4. No app or sign-up required."
     },
     "reddit": {
       "badge": "Reddit Downloader",
@@ -1363,7 +1388,9 @@
         "v.redd.it downloader",
         "reddit mp3",
         "reddit media downloader"
-      ]
+      ],
+      "metaTitleVideo": "Reddit Video Downloader — Save Reddit Videos & GIFs with Audio in HD | DownForge",
+      "metaDescriptionVideo": "Free Reddit video downloader. Paste a post link to save Reddit videos and GIFs in HD — with audio included. No sign-up."
     },
     "pinterest": {
       "badge": "Pinterest Downloader",
@@ -1428,7 +1455,9 @@
         "pinterest image downloader",
         "pinterest hd downloader",
         "pinterest mp3"
-      ]
+      ],
+      "metaTitleVideo": "Pinterest Video Downloader — Download Pinterest Videos & Idea Pins in HD | DownForge",
+      "metaDescriptionVideo": "Free Pinterest video downloader. Save Pinterest videos and Idea Pins in HD MP4. Paste a link — no sign-up required."
     },
     "linkedin": {
       "badge": "LinkedIn Downloader",
@@ -1492,7 +1521,9 @@
         "save linkedin video",
         "linkedin mp3",
         "linkedin hd video downloader"
-      ]
+      ],
+      "metaTitleVideo": "LinkedIn Video Downloader — Save LinkedIn Videos & Posts in HD | DownForge",
+      "metaDescriptionVideo": "Free LinkedIn video downloader. Paste a post link to save LinkedIn videos in HD MP4. Works in your browser."
     },
     "snapchat": {
       "badge": "Snapchat Downloader",
@@ -1556,7 +1587,9 @@
         "save snapchat video",
         "snapchat mp3",
         "spotlight video downloader"
-      ]
+      ],
+      "metaTitleVideo": "Snapchat Video Downloader — Download Snapchat Videos & Stories in HD | DownForge",
+      "metaDescriptionVideo": "Free Snapchat video downloader. Save publicly shared Snapchat videos and Stories in HD MP4. No app install needed."
     },
     "soundcloud": {
       "badge": "SoundCloud Downloader",
@@ -1621,7 +1654,9 @@
         "soundcloud audio downloader",
         "soundcloud playlist downloader",
         "soundcloud wav"
-      ]
+      ],
+      "metaTitleVideo": "SoundCloud Video Downloader — Save SoundCloud Videos & Tracks | DownForge",
+      "metaDescriptionVideo": "Free SoundCloud downloader. Paste a track link to save SoundCloud audio and videos. No sign-up required."
     },
     "kick": {
       "badge": "Kick Downloader",
@@ -1686,7 +1721,9 @@
         "kick vod to mp3",
         "kick downloader free",
         "kick highlight downloader"
-      ]
+      ],
+      "metaTitleVideo": "Kick Video Downloader — Download Kick VODs & Clips in HD | DownForge",
+      "metaDescriptionVideo": "Free Kick video downloader. Save Kick VODs, clips and highlights in HD MP4. Paste a link — no sign-up required."
     },
     "youtube": {
       "badge": "YouTube Downloader",
@@ -1718,39 +1755,63 @@
       ],
       "faqs": [
         {
-          "q": "What video qualities are available?",
-          "a": "YouTube videos can be downloaded in multiple qualities including 4K (2160p), 1440p, 1080p (Full HD), 720p (HD), 480p, and 360p. The available qualities depend on what the original uploader provided."
+          "q": "How do I download a YouTube video by link?",
+          "a": "Copy the YouTube URL (or tap Share → Copy Link on any video or Short), paste it into the box at the top of this page, pick your quality, and click Download. Full youtube.com links, youtu.be short links, Shorts links and clip links all work."
         },
         {
-          "q": "What audio formats do you support?",
-          "a": "We support MP3 (up to 320 kbps), AAC (256 kbps), FLAC (lossless), WAV (uncompressed), and OGG (192 kbps). For music production and archiving, FLAC is recommended."
+          "q": "How do I download YouTube videos in 1080p Full HD or 4K?",
+          "a": "Paste your link and DownForge lists every resolution the uploader published — 144p up to 2160p 4K. Choose 1080p Full HD for the best balance of quality and file size, or 4K for TVs and editing. You always get the original stream with no re-encoding."
         },
         {
           "q": "Can I download YouTube Shorts?",
           "a": "Yes, YouTube Shorts are fully supported. Paste any Shorts URL and choose your preferred format — video, audio, or thumbnail."
         },
         {
-          "q": "Is downloading YouTube videos legal?",
-          "a": "Downloading for personal offline use is generally permitted. Always respect copyright and use downloaded content responsibly."
+          "q": "How do I download YouTube videos on Android or iPhone?",
+          "a": "DownForge runs entirely in your browser, so there's no app to install. On Android, download in Chrome and the file saves to your Downloads folder. On iPhone, use Safari — the video lands in the Files app, and you can share it to Photos from there."
         },
         {
-          "q": "How long are downloaded files stored?",
-          "a": "Files are stored temporarily and deleted automatically after the download is complete. We do not keep copies of your downloaded content."
+          "q": "Can I convert a YouTube video to MP3?",
+          "a": "Yes. Switch to the audio mode on our YouTube downloader to extract MP3 up to 320 kbps, AAC, or lossless FLAC — perfect for songs, mixes, podcasts, and lectures."
+        },
+        {
+          "q": "Is this YouTube downloader free and safe to use?",
+          "a": "Yes — it's free for everyday use with no sign-up. Everything runs over HTTPS, downloads are processed in real time, and files are deleted from our servers immediately after your download completes. No fake buttons, no pop-ups, no extensions to install."
+        },
+        {
+          "q": "Can I download long YouTube videos, movies, or live streams?",
+          "a": "Yes. There's no length limit — hour-long podcasts, documentaries, and lectures download in full. Finished live streams and premieres that remain publicly available work like regular videos."
+        },
+        {
+          "q": "Is downloading YouTube videos legal?",
+          "a": "Downloading for personal offline use is generally permitted. Always respect copyright and use downloaded content responsibly — don't re-upload or redistribute creators' work without permission."
         }
       ],
-      "metaTitle": "YouTube Video Downloader — Download YouTube Videos in 4K, MP3 & Thumbnails | DownForge",
-      "metaDescription": "Free YouTube video downloader. Download YouTube videos in 4K, 1080p, 720p. Extract audio as MP3 320kbps, FLAC, AAC. Get HD thumbnails. No sign-up required.",
+      "metaTitle": "Free YouTube Video Downloader — Download Videos in 4K, 1080p & MP3 | DownForge",
+      "metaDescription": "Download YouTube videos free in 4K, 1080p Full HD & 720p. Paste a link to save videos, Shorts & audio as MP3 — no app, no sign-up. Works on Android, iPhone & PC.",
+      "metaTitleVideo": "YouTube Video Downloader — Save YouTube Videos in HD, 4K & Shorts | DownForge",
+      "metaDescriptionVideo": "Free YouTube video downloader. Paste any YouTube link and download videos in 4K, 1080p Full HD or 720p — Shorts, clips & long videos. No app or sign-up required.",
       "keywords": [
         "youtube video downloader",
         "download youtube videos",
+        "youtube video download",
+        "free youtube downloader",
+        "youtube downloader",
+        "youtube 4k downloader",
+        "youtube video download 1080p",
+        "youtube downloader hd",
+        "youtube shorts download",
+        "download youtube shorts",
         "youtube to mp4",
         "youtube to mp3",
-        "youtube 4k downloader",
-        "free youtube downloader",
-        "youtube video saver",
-        "youtube thumbnail downloader",
-        "youtube audio extractor",
-        "youtube mp3 converter"
+        "youtube mp3 downloader",
+        "save youtube video",
+        "youtube link download",
+        "download youtube videos on android",
+        "download youtube videos on iphone",
+        "download youtube video in hd",
+        "youtube clip downloader",
+        "yt video download"
       ]
     },
     "niconico": {
@@ -1816,7 +1877,9 @@
         "niconico mp3",
         "niconico video saver",
         "niconico download free"
-      ]
+      ],
+      "metaTitleVideo": "Niconico Video Downloader — Save Niconico Douga Videos in HD | DownForge",
+      "metaDescriptionVideo": "Free Niconico video downloader. Paste a Niconico link to save videos in original quality MP4. No sign-up required."
     }
   },
   "TranscriptLanguage": {

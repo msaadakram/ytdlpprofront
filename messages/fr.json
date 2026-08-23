@@ -232,7 +232,8 @@
     "showFullText": "Afficher le texte complet",
     "showSegments": "Afficher les segments",
     "transcribeBtn": "Transcrire",
-    "paste": "Coller"
+    "paste": "Coller",
+    "fileSize": "Taille du fichier : {size}"
   },
   "PlatformPage": {
     "breadcrumbHome": "Accueil",
@@ -337,7 +338,17 @@
     "badge": "Téléchargeur vidéo",
     "headingSuffix": "en HD et 4K",
     "subheading": "Téléchargez des vidéos dans la meilleure qualité disponible. Choisissez parmi plusieurs résolutions et formats — parfait pour le visionnage hors ligne, le montage et l'archivage.",
-    "disclaimer": "Gratuit · Inscription inutile · Fichiers supprimés instantanément · Fonctionne avec toutes les vidéos {platform}"
+    "disclaimer": "Gratuit · Inscription inutile · Fichiers supprimés instantanément · Fonctionne avec toutes les vidéos {platform}",
+    "featuresKicker": "Pourquoi DownForge",
+    "featuresHeading": "Le meilleur outil de téléchargement vidéo {platform}",
+    "featuresSubheading": "Conçu pour la vitesse, la confidentialité et la qualité.",
+    "faqKicker": "FAQ",
+    "faqHeading": "Questions sur le téléchargement de vidéos {platform}",
+    "faqSubheading": "Tout ce qu'il faut savoir pour télécharger des vidéos {platform}.",
+    "trustFree": "100% Gratuit",
+    "trustNoSignup": "Sans Inscription",
+    "trustQuality": "Jusqu'à 4K",
+    "trustPrivate": "Privé et Sécurisé"
   },
   "Formats": {
     "mp4": "MP4",
@@ -1409,8 +1420,8 @@
           "a": "Les fichiers sont stockés temporairement et supprimés automatiquement une fois le téléchargement terminé. Nous ne conservons pas de copies de votre contenu téléchargé."
         }
       ],
-      "metaTitle": "Téléchargeur de vidéos YouTube — Téléchargez des vidéos YouTube en 4K, MP3 et miniatures | DownForge",
-      "metaDescription": "Téléchargeur de vidéos YouTube gratuit. Téléchargez des vidéos YouTube en 4K, 1080p, 720p. Extrayez l'audio en MP3 320kbps, FLAC, AAC. Obtenez des miniatures HD. Aucune inscription requise.",
+      "metaTitle": "Téléchargeur de Vidéos YouTube Gratuit — 4K, 1080p et MP3 | DownForge",
+      "metaDescription": "Téléchargez des vidéos YouTube gratuitement en 4K, 1080p Full HD et 720p. Collez un lien pour enregistrer vidéos, Shorts et audio en MP3 — sans application ni inscription. Android, iPhone et PC.",
       "keywords": [
         "téléchargeur vidéo youtube",
         "télécharger vidéos youtube",
@@ -1422,7 +1433,9 @@
         "téléchargeur miniature youtube",
         "extracteur audio youtube",
         "convertisseur mp3 youtube"
-      ]
+      ],
+      "metaTitleVideo": "Téléchargeur de Vidéos YouTube — Enregistrez en HD, 4K et Shorts | DownForge",
+      "metaDescriptionVideo": "Téléchargeur de vidéos YouTube gratuit. Collez n'importe quel lien et téléchargez en 4K, 1080p ou 720p — Shorts, clips et longues vidéos. Sans application ni inscription."
     },
     "niconico": {
       "badge": "Téléchargeur Niconico",

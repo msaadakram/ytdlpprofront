@@ -88,10 +88,89 @@ export function buildContent(config: PlatformConfig, seed: PlatformContentSeed, 
     whatIsPlatform: buildWhatIsPlatform(config, seed.platformSummary, tName),
     stepByStepGuide: buildStepByStep(config, typeSteps, type, tName, verb),
     formatGuide: buildFormatGuide(config, formatIntro, type, tName),
+    qualityGuide: type === "video" ? buildQualityGuide(config, seed.qualityGuide) : undefined,
+    deviceGuide: type === "video" ? buildDeviceGuide(config, seed.deviceGuide) : undefined,
+    useCases: type === "video" ? buildUseCases(config, seed.useCases) : undefined,
+    safety: type === "video" ? buildSafety(config, seed.safety) : undefined,
     whyDownForge: buildWhyDownForge(config, seed.whyDownForgeParagraphs, type, tName, noun),
     proTips: buildProTips(config, seed.tips),
     troubleshooting: buildTroubleshooting(config, seed.troubleshooting),
     conclusion: buildConclusion(config, conclusion, type, tName, verb, noun, action),
+  };
+}
+
+const qualityTable: ContentTable = {
+  headers: ["Quality", "Resolution", "Best For", "Approx. Size (per minute)"],
+  rows: [
+    ["4K Ultra HD", "3840 × 2160", "Large screens, 4K TVs, video editing, archiving", "~130–200 MB"],
+    ["2K / QHD", "2560 × 1440", "High-detail viewing on monitors and laptops", "~80–120 MB"],
+    ["1080p Full HD", "1920 × 1080", "Everyday HD viewing — the most popular choice", "~45–70 MB"],
+    ["720p HD", "1280 × 720", "Mobile viewing, smaller files, limited data plans", "~25–40 MB"],
+    ["480p / 360p", "854 × 480 / 640 × 360", "Quick saves, slow connections, background reference", "~10–20 MB"],
+  ],
+  caption: "Available video qualities. File sizes are estimates for MP4 and vary with bitrate and frame rate.",
+};
+
+function buildQualityGuide(config: PlatformConfig, seeded?: { paragraphs: string[]; table?: ContentTable }): ContentSection {
+  return {
+    heading: `Download ${config.name} Videos in 4K, 1080p Full HD & 720p`,
+    subheading: `Choose the exact resolution you need — from data-saving 480p to crystal-clear 4K Ultra HD. DownForge shows every quality level the original upload supports.`,
+    paragraphs: seeded?.paragraphs ?? [
+      `Quality matters. When you download a ${config.name} video with DownForge, you see every resolution the original upload supports — nothing is re-encoded or compressed on our side. If a creator uploaded a video in 4K, you get the full 4K file; if the source is 720p, that's the maximum available and any tool claiming otherwise is simply upscaling.`,
+      `For most viewers, 1080p Full HD is the sweet spot: sharp on phones and laptops, moderate file size, and universally compatible. Choose 720p when saving mobile data or storing many files, and reserve 4K for large screens, video editing projects, or archiving footage at the highest possible fidelity.`,
+    ],
+    table: seeded?.table ?? qualityTable,
+  };
+}
+
+function buildDeviceGuide(config: PlatformConfig, seeded?: { paragraphs: string[]; steps: ContentStep[] }): ContentSection {
+  const steps = seeded?.steps ?? [
+    {
+      title: `Download ${config.name} Videos on Android`,
+      body: `Open this page in Chrome, paste the video link, pick your quality, and tap Download. The file saves straight to your Downloads folder — open it with Google Photos, VLC, or your gallery app. No app installation or APK required.`,
+    },
+    {
+      title: `Download ${config.name} Videos on iPhone & iPad`,
+      body: `Works in Safari on iOS 14 and later. After the file is processed, tap the download link, then "Download" in Safari's popup. Find the video in the Files app (Downloads folder) and share it to Photos or play it directly.`,
+    },
+    {
+      title: `Download ${config.name} Videos on PC & Mac`,
+      body: `Paste the link in any modern browser — Chrome, Edge, Firefox, or Safari. The video saves to your default download folder. MP4 files play instantly in Windows Media Player, QuickTime, VLC, or any editing software.`,
+    },
+    {
+      title: `Download ${config.name} Videos on Smart TVs & Tablets`,
+      body: `Download on your phone or computer first, then transfer via USB, cloud storage, or local sharing apps. Because files are standard MP4, every TV, console, and media stick plays them without conversion.`,
+    },
+  ];
+
+  return {
+    heading: `How to Download ${config.name} Videos on Android, iPhone & PC`,
+    subheading: `DownForge runs entirely in your browser, so it works the same on every device — no app to install, no software to update.`,
+    paragraphs: seeded?.paragraphs ?? [
+      `Whether you're on a phone, tablet, laptop, or desktop, the process is identical: copy the ${config.name} link, paste it above, choose your quality, and download. Because DownForge is a website — not an app — you avoid app-store restrictions, storage-hungry installs, and suspicious APK downloads.`,
+    ],
+    steps,
+  };
+}
+
+function buildUseCases(config: PlatformConfig, seeded?: { paragraphs: string[]; cases: ContentTip[] }): ContentSection | undefined {
+  if (!seeded) return undefined;
+  return {
+    heading: `What Can You Download from ${config.name}?`,
+    subheading: `More than just standard videos — DownForge handles every kind of ${config.name} content.`,
+    paragraphs: seeded.paragraphs,
+    tips: seeded.cases,
+  };
+}
+
+function buildSafety(config: PlatformConfig, seeded?: { paragraphs: string[] }): ContentSection {
+  return {
+    heading: `Is It Safe and Legal to Download ${config.name} Videos?`,
+    subheading: `The short answer: yes for personal use — here's what you should know to stay safe and within the rules.`,
+    paragraphs: seeded?.paragraphs ?? [
+      `Downloading ${config.name} videos for personal, offline viewing is generally permitted. What's not allowed: re-uploading someone else's content, monetizing copyrighted material, or redistributing downloads without the creator's permission. A simple rule of thumb — if you didn't make it, don't republish it.`,
+      `Security is the other half of "safe". Many downloader sites are plastered with fake download buttons, pop-ups, and malware. DownForge takes a different approach: no deceptive buttons, no forced app installs, no ad redirects. Files are processed in real time and deleted from our servers immediately after your download completes — we never keep copies of your content.`,
+    ],
   };
 }
 
@@ -103,7 +182,9 @@ function getFeatureTitles(platformId: string): string[] {
 
 function buildIntroduction(config: PlatformConfig, seed: PlatformContentSeed, type: DownloadType, tName: string, noun: string): ContentSection {
   return {
-    heading: `Complete Guide to ${type === "audio" ? "Extracting Audio from" : `Downloading ${tName} from`} ${config.name}`,
+    heading: type === "video"
+      ? `The Complete Guide to Downloading ${config.name} Videos`
+      : `Complete Guide to ${type === "audio" ? "Extracting Audio from" : `Downloading ${tName} from`} ${config.name}`,
     subheading: `Learn how to ${type === "audio" ? "extract" : "download"} ${noun} from ${config.name} using DownForge — the fastest, most reliable ${config.name} ${tName.toLowerCase()} downloader available online.`,
     paragraphs: [
       ...seed.introParagraphs,
@@ -154,8 +235,12 @@ function buildStepByStep(config: PlatformConfig, steps: ContentStep[], type: str
   ];
 
   return {
-    heading: `How to ${verb === "extract" ? "Extract" : "Download"} ${tName} from ${config.name}: Step-by-Step Guide`,
-    subheading: `Follow these ${steps.length >= 4 ? steps.length : 6} simple steps to ${verb} ${tName.toLowerCase()} from ${config.name} using DownForge. The entire process takes less than a minute.`,
+    heading: type === "video"
+      ? `How to Download ${config.name} Videos: Step-by-Step Guide`
+      : `How to ${verb === "extract" ? "Extract" : "Download"} ${tName} from ${config.name}: Step-by-Step Guide`,
+    subheading: type === "video"
+      ? `Follow these ${steps.length >= 4 ? steps.length : 6} simple steps to download ${config.name} videos with DownForge. The entire process takes less than a minute — just copy, paste, and save.`
+      : `Follow these ${steps.length >= 4 ? steps.length : 6} simple steps to ${verb} ${tName.toLowerCase()} from ${config.name} using DownForge. The entire process takes less than a minute.`,
     steps: steps.length >= 4 ? steps : defaultSteps,
     paragraphs: [],
   };

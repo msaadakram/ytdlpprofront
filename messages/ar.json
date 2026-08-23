@@ -232,7 +232,8 @@
     "showFullText": "عرض النص الكامل",
     "showSegments": "عرض الفقرات",
     "transcribeBtn": "ترجمة",
-    "paste": "لصق"
+    "paste": "لصق",
+    "fileSize": "حجم الملف: {size}"
   },
   "PlatformPage": {
     "breadcrumbHome": "الرئيسية",
@@ -337,7 +338,17 @@
     "badge": "أداة تحميل الفيديو",
     "headingSuffix": "بجودة عالية و 4K",
     "subheading": "حمّل الفيديو بأعلى جودة متاحة. اختر من بين دقات وصيغ متعددة — مثالي للمشاهدة دون اتصال والتحرير والأرشفة.",
-    "disclaimer": "مجاني للاستخدام · لا حاجة للتسجيل · يتم حذف الملفات فوراً · يعمل مع جميع فيديوهات {platform}"
+    "disclaimer": "مجاني للاستخدام · لا حاجة للتسجيل · يتم حذف الملفات فوراً · يعمل مع جميع فيديوهات {platform}",
+    "featuresKicker": "لماذا DownForge",
+    "featuresHeading": "أفضل أداة لتحميل فيديوهات {platform}",
+    "featuresSubheading": "مصممة للسرعة والخصوصية والجودة.",
+    "faqKicker": "الأسئلة الشائعة",
+    "faqHeading": "أسئلة حول تحميل فيديوهات {platform}",
+    "faqSubheading": "كل ما تحتاج معرفته عن تحميل فيديوهات {platform}.",
+    "trustFree": "مجاني 100%",
+    "trustNoSignup": "بدون تسجيل",
+    "trustQuality": "جودة حتى 4K",
+    "trustPrivate": "خاص وآمن"
   },
   "Formats": {
     "mp4": "MP4",
@@ -1409,8 +1420,8 @@
           "a": "يتم تخزين الملفات مؤقتًا وحذفها تلقائيًا بعد اكتمال التنزيل. لا نحتفظ بنسخ من المحتوى الذي قمت بتنزيله."
         }
       ],
-      "metaTitle": "YouTube Video Downloader — تحميل فيديوهات YouTube بدقة 4K، MP3 وصور مصغرة | DownForge",
-      "metaDescription": "أداة تنزيل فيديوهات YouTube مجانية. نزّل فيديوهات YouTube بدقة 4K، 1080p، 720p. استخرج الصوت بصيغة MP3 320kbps، FLAC، AAC. احصل على صور مصغرة بدقة HD. لا حاجة للتسجيل.",
+      "metaTitle": "أداة تحميل فيديو يوتيوب مجانية — بدقة 4K و1080p وMP3 | DownForge",
+      "metaDescription": "حمّل فيديوهات يوتيوب مجاناً بدقة 4K و1080p و720p. الصق الرابط لحفظ الفيديوهات والشورتس والصوت بصيغة MP3 — بدون تطبيق أو تسجيل. يعمل على أندرويد وآيفون والكمبيوتر.",
       "keywords": [
         "youtube video downloader",
         "تحميل فيديوهات youtube",
@@ -1422,7 +1433,9 @@
         "youtube thumbnail downloader",
         "مستخرج صوت youtube",
         "youtube mp3 converter"
-      ]
+      ],
+      "metaTitleVideo": "محمّل فيديوهات يوتيوب — احفظ بدقة HD و4K والشورتس | DownForge",
+      "metaDescriptionVideo": "محمّل فيديوهات يوتيوب مجاني. الصق أي رابط وحمّل الفيديوهات بدقة 4K أو 1080p أو 720p — شورتس ومقاطع وفيديوهات طويلة. بدون تطبيق أو تسجيل."
     },
     "niconico": {
       "badge": "Niconico Downloader",

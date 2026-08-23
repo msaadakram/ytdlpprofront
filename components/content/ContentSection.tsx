@@ -3,15 +3,22 @@ import type { ContentSection as ContentSectionType } from "@/lib/content/types";
 export function ContentSection({
   section,
   variant = "default",
+  sectionId,
 }: {
   section: ContentSectionType;
   variant?: "default" | "branded";
+  sectionId?: string;
 }) {
   return (
-    <section className={`w-full ${variant === "branded" ? "bg-gradient-to-br from-[#0d1f26] to-[#1a3545] text-white" : ""}`}>
+    <section
+      id={sectionId}
+      className={`w-full scroll-mt-24 ${variant === "branded" ? "bg-gradient-to-br from-[#0d1f26] to-[#1a3545] text-white dark:from-[#0a1418] dark:to-[#122732] border-y border-border/50" : ""}`}
+    >
       <div className={`max-w-6xl mx-auto px-4 sm:px-6 lg:px-8 ${variant === "branded" ? "py-16 md:py-20" : "py-12 md:py-16"}`}>
         <div className="max-w-3xl">
-          <h2 className={`text-2xl sm:text-3xl md:text-4xl font-bold font-heading tracking-tight ${variant === "branded" ? "text-white" : "text-foreground"} mb-4`}>
+          <h2
+            className={`text-2xl sm:text-3xl md:text-4xl font-bold font-heading tracking-tight text-balance ${variant === "branded" ? "text-white" : "text-foreground"} mb-4`}
+          >
             {section.heading}
           </h2>
           {section.subheading && (

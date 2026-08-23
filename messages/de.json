@@ -232,7 +232,8 @@
     "showFullText": "Vollständigen Text anzeigen",
     "showSegments": "Abschnitte anzeigen",
     "transcribeBtn": "Transkribieren",
-    "paste": "Einfügen"
+    "paste": "Einfügen",
+    "fileSize": "Dateigröße: {size}"
   },
   "PlatformPage": {
     "breadcrumbHome": "Startseite",
@@ -337,7 +338,17 @@
     "badge": "Video-Downloader",
     "headingSuffix": "in HD & 4K",
     "subheading": "Lade Videos in der höchsten verfügbaren Qualität herunter. Wähle aus mehreren Auflösungen und Formaten — perfekt für Offline-Ansicht, Bearbeitung und Archivierung.",
-    "disclaimer": "Kostenlos nutzbar · Keine Anmeldung erforderlich · Dateien werden sofort gelöscht · Funktioniert mit allen {platform}-Videos"
+    "disclaimer": "Kostenlos nutzbar · Keine Anmeldung erforderlich · Dateien werden sofort gelöscht · Funktioniert mit allen {platform}-Videos",
+    "featuresKicker": "Warum DownForge",
+    "featuresHeading": "Das beste Tool für {platform}-Video-Downloads",
+    "featuresSubheading": "Gebaut für Geschwindigkeit, Privatsphäre und Qualität.",
+    "faqKicker": "FAQ",
+    "faqHeading": "Fragen zum {platform}-Video-Download",
+    "faqSubheading": "Alles, was Sie über das Herunterladen von {platform}-Videos wissen müssen.",
+    "trustFree": "100% Kostenlos",
+    "trustNoSignup": "Ohne Anmeldung",
+    "trustQuality": "Bis zu 4K",
+    "trustPrivate": "Privat & Sicher"
   },
   "Formats": {
     "mp4": "MP4",
@@ -1409,8 +1420,8 @@
           "a": "Dateien werden temporär gespeichert und nach Abschluss des Downloads automatisch gelöscht. Wir behalten keine Kopien Ihrer heruntergeladenen Inhalte."
         }
       ],
-      "metaTitle": "YouTube Video Downloader — YouTube-Videos in 4K, MP3 & Thumbnails herunterladen | DownForge",
-      "metaDescription": "Kostenloser YouTube-Video-Downloader. Laden Sie YouTube-Videos in 4K, 1080p, 720p herunter. Extrahieren Sie Audio als MP3 320kbps, FLAC, AAC. Erhalten Sie HD-Thumbnails. Keine Anmeldung erforderlich.",
+      "metaTitle": "Kostenloser YouTube Video Downloader — 4K, 1080p & MP3 | DownForge",
+      "metaDescription": "YouTube-Videos kostenlos in 4K, 1080p Full HD und 720p herunterladen. Link einfügen und Videos, Shorts & Audio als MP3 speichern — ohne App, ohne Anmeldung. Android, iPhone & PC.",
       "keywords": [
         "youtube video downloader",
         "youtube videos herunterladen",
@@ -1422,7 +1433,9 @@
         "youtube thumbnail downloader",
         "youtube audio extraktor",
         "youtube mp3 konverter"
-      ]
+      ],
+      "metaTitleVideo": "YouTube Video Downloader — Videos in HD, 4K & Shorts speichern | DownForge",
+      "metaDescriptionVideo": "Kostenloser YouTube-Video-Downloader. Link einfügen und Videos in 4K, 1080p oder 720p herunterladen — Shorts, Clips und lange Videos. Ohne App oder Anmeldung."
     },
     "niconico": {
       "badge": "Niconico Downloader",

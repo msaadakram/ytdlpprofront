@@ -51,7 +51,7 @@ export function PlatformTips({ platform }: { platform: string }) {
                 variants={{ visible: { opacity: 1, y: 0, rotateX: 0 } }}
                 transition={{ duration: 0.5, delay: i * 0.08, ease: [0.21, 0.6, 0.35, 1] }}
                 whileHover={{ y: -4, transition: { duration: 0.2 } }}
-                 className="bg-white rounded-2xl p-4 sm:p-5 border border-border hover:shadow-lg transition-shadow duration-200 relative overflow-hidden group"
+                 className="bg-card rounded-2xl p-4 sm:p-5 border border-border hover:shadow-lg transition-shadow duration-200 relative overflow-hidden group"
               >
                 <div
                   className="absolute left-0 top-2 bottom-2 w-0.5 rounded-full opacity-0 group-hover:opacity-100 transition-opacity duration-200"

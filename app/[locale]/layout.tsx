@@ -163,11 +163,8 @@ export default async function LocaleLayout({ children, params }: Props) {
         caption: "DownForge Logo",
       },
     },
-    potentialAction: {
-      "@type": "SearchAction",
-      target: "https://www.downforge.me/search?q={search_term_string}",
-      "query-input": "required name=search_term_string",
-    },
+    // No SearchAction: a sitewide search endpoint does not exist, and a
+    // potentialAction pointing to a 404 is invalid structured data.
   };
 
   return (

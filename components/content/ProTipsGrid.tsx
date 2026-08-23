@@ -5,17 +5,21 @@ export function ProTipsGrid({
   subheading,
   paragraphs,
   tips,
+  sectionId,
+  variant = "grid",
 }: {
   heading: string;
   subheading?: string;
   paragraphs: string[];
   tips: ContentTip[];
+  sectionId?: string;
+  variant?: "grid" | "cards";
 }) {
   return (
-    <section className="w-full bg-gradient-to-b from-muted/30 to-muted/10 border-y border-border/50">
+    <section id={sectionId} className="w-full scroll-mt-24 bg-gradient-to-b from-muted/30 to-muted/10 border-y border-border/50">
       <div className="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8 py-12 md:py-16">
         <div className="max-w-3xl mb-8">
-          <h2 className="text-2xl sm:text-3xl md:text-4xl font-bold text-foreground font-heading tracking-tight mb-4">
+          <h2 className="text-2xl sm:text-3xl md:text-4xl font-bold text-foreground font-heading tracking-tight mb-4 text-balance">
             {heading}
           </h2>
           {subheading && (
@@ -34,17 +38,17 @@ export function ProTipsGrid({
           {tips.map((tip, i) => (
             <div
               key={i}
-              className="group bg-white rounded-xl border border-border/60 p-5 sm:p-6 shadow-sm hover:shadow-lg hover:border-[#5baab8]/20 transition-all duration-300"
+              className="group bg-card rounded-xl border border-border/60 p-5 sm:p-6 shadow-sm hover:shadow-lg hover:border-accent/40 transition-all duration-300"
             >
               <div className="flex items-start gap-3 mb-3">
-                <span className="flex-shrink-0 w-8 h-8 rounded-lg bg-[#eef6f8] flex items-center justify-center text-[#5baab8] font-bold text-sm">
+                <span className="flex-shrink-0 w-8 h-8 rounded-lg bg-muted text-accent flex items-center justify-center font-bold text-sm font-mono">
                   {i + 1}
                 </span>
-                <h3 className="font-semibold text-foreground font-heading text-sm sm:text-base pt-1">
+                <h3 className="font-semibold text-foreground font-heading text-sm sm:text-base pt-1 leading-snug">
                   {tip.title}
                 </h3>
               </div>
-              <p className="text-xs sm:text-sm text-muted-foreground font-sans leading-relaxed ml-11">
+              <p className="text-xs sm:text-sm text-muted-foreground font-sans leading-relaxed sm:ml-11">
                 {tip.body}
               </p>
             </div>

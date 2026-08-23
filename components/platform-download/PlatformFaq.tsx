@@ -47,7 +47,7 @@ export function PlatformFaq({ platform }: { platform: string }) {
                 viewport={{ once: true, margin: "-30px" }}
                 variants={{ visible: { opacity: 1, x: 0 } }}
                 transition={{ duration: 0.35, delay: i * 0.05 }}
-                className={`bg-white rounded-2xl border overflow-hidden transition-shadow duration-200 ${
+                className={`bg-card rounded-2xl border overflow-hidden transition-shadow duration-200 ${
                   isOpen ? "shadow-md border-[#5baab8]/20" : "border-border shadow-sm"
                 }`}
                 itemScope

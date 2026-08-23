@@ -5,17 +5,19 @@ export function FormatComparisonTable({
   subheading,
   paragraphs,
   table,
+  sectionId,
 }: {
   heading: string;
   subheading?: string;
   paragraphs: string[];
   table: ContentTable;
+  sectionId?: string;
 }) {
   return (
-    <section className="w-full">
+    <section id={sectionId} className="w-full scroll-mt-24">
       <div className="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8 py-12 md:py-16">
         <div className="max-w-3xl mb-8">
-          <h2 className="text-2xl sm:text-3xl md:text-4xl font-bold text-foreground font-heading tracking-tight mb-4">
+          <h2 className="text-2xl sm:text-3xl md:text-4xl font-bold text-foreground font-heading tracking-tight mb-4 text-balance">
             {heading}
           </h2>
           {subheading && (
@@ -36,11 +38,11 @@ export function FormatComparisonTable({
           <div className="overflow-x-auto">
             <table className="w-full text-sm">
               <thead>
-                <tr className="bg-[#0d1f26]">
+                <tr className="bg-primary">
                   {table.headers.map((h, i) => (
                     <th
                       key={i}
-                      className="text-left px-4 sm:px-5 py-3.5 sm:py-4 text-white font-semibold font-sans text-xs sm:text-sm whitespace-nowrap"
+                      className="text-left px-4 sm:px-5 py-3.5 sm:py-4 text-primary-foreground font-semibold font-sans text-xs sm:text-sm whitespace-nowrap"
                     >
                       {h}
                     </th>

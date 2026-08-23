@@ -232,7 +232,8 @@
     "showFullText": "Mostrar texto completo",
     "showSegments": "Mostrar segmentos",
     "transcribeBtn": "Transcrever",
-    "paste": "Colar"
+    "paste": "Colar",
+    "fileSize": "Tamanho do arquivo: {size}"
   },
   "PlatformPage": {
     "breadcrumbHome": "Início",
@@ -337,7 +338,17 @@
     "badge": "Downloader de Vídeo",
     "headingSuffix": "em HD e 4K",
     "subheading": "Baixe vídeos na melhor qualidade disponível. Escolha entre múltiplas resoluções e formatos — perfeito para assistir offline, editar e arquivar.",
-    "disclaimer": "Grátis · Sem cadastro · Arquivos excluídos instantaneamente · Funciona com todos os vídeos do {platform}"
+    "disclaimer": "Grátis · Sem cadastro · Arquivos excluídos instantaneamente · Funciona com todos os vídeos do {platform}",
+    "featuresKicker": "Por que DownForge",
+    "featuresHeading": "A melhor ferramenta para baixar vídeos do {platform}",
+    "featuresSubheading": "Feito para velocidade, privacidade e qualidade.",
+    "faqKicker": "Perguntas frequentes",
+    "faqHeading": "Perguntas sobre download de vídeos do {platform}",
+    "faqSubheading": "Tudo o que você precisa saber sobre baixar vídeos do {platform}.",
+    "trustFree": "100% Grátis",
+    "trustNoSignup": "Sem Cadastro",
+    "trustQuality": "Qualidade até 4K",
+    "trustPrivate": "Privado e Seguro"
   },
   "Formats": {
     "mp4": "MP4",
@@ -1409,8 +1420,8 @@
           "a": "Os arquivos são armazenados temporariamente e excluídos automaticamente após a conclusão do download. Não mantemos cópias do seu conteúdo baixado."
         }
       ],
-      "metaTitle": "Downloader de Vídeos do YouTube — Baixe Vídeos do YouTube em 4K, MP3 & Miniaturas | DownForge",
-      "metaDescription": "Downloader gratuito de vídeos do YouTube. Baixe vídeos do YouTube em 4K, 1080p, 720p. Extraia áudio como MP3 320kbps, FLAC, AAC. Obtenha miniaturas HD. Sem cadastro.",
+      "metaTitle": "Baixar Vídeos do YouTube Grátis — 4K, 1080p e MP3 | DownForge",
+      "metaDescription": "Baixe vídeos do YouTube grátis em 4K, 1080p Full HD e 720p. Cole um link para salvar vídeos, Shorts e áudio em MP3 — sem app, sem cadastro. Android, iPhone e PC.",
       "keywords": [
         "downloader de vídeos do youtube",
         "baixar vídeos do youtube",
@@ -1422,7 +1433,9 @@
         "downloader de miniaturas do youtube",
         "extrator de áudio do youtube",
         "conversor mp3 youtube"
-      ]
+      ],
+      "metaTitleVideo": "Baixador de Vídeos do YouTube — Salve em HD, 4K e Shorts | DownForge",
+      "metaDescriptionVideo": "Baixador de vídeos do YouTube grátis. Cole qualquer link e baixe vídeos em 4K, 1080p ou 720p — Shorts, clipes e vídeos longos. Sem app ou cadastro."
     },
     "niconico": {
       "badge": "Downloader do Niconico",
