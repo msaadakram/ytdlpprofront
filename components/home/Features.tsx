@@ -3,6 +3,9 @@
 import { useTranslations } from "next-intl";
 import { motion } from "motion/react";
 import { Globe, Zap, Shield, MonitorPlay, Clock, Star } from "lucide-react";
+import { SectionHeading } from "./SectionHeading";
+
+const easeOutExpo: [number, number, number, number] = [0.22, 1, 0.36, 1];
 
 const featureKeys = ["platforms", "speed", "security", "quality", "queue", "batch"] as const;
 const featureIcons = [Globe, Zap, Shield, MonitorPlay, Clock, Star];
@@ -14,24 +17,11 @@ export function FeaturesSection() {
     <section id="features" className="py-14 md:py-20 px-4 sm:px-6 relative overflow-hidden">
       <div className="absolute inset-0 pointer-events-none" style={{ background: "linear-gradient(180deg, var(--background) 0%, var(--muted) 100%)" }} />
       <div className="max-w-6xl mx-auto relative">
-        <motion.div
-          initial={{ opacity: 0, y: 16 }}
-          whileInView="visible"
-          viewport={{ once: true, margin: "-60px" }}
-          variants={{ visible: { opacity: 1, y: 0 } }}
-          transition={{ duration: 0.5 }}
-          className="text-center mb-10 sm:mb-14"
-        >
-          <span className="inline-block text-xs font-semibold tracking-widest uppercase text-[#5baab8] mb-3 font-mono">
-            {t("title", { defaultValue: "Features" })}
-          </span>
-          <h2 className="text-2xl sm:text-3xl md:text-4xl font-extrabold tracking-tight text-foreground mb-4 font-heading">
-            Everything you need
-          </h2>
-          <p className="text-muted-foreground max-w-lg mx-auto font-sans">
-            Built for speed, reliability, and quality. No compromises.
-          </p>
-        </motion.div>
+        <SectionHeading
+          eyebrow={t("title", { defaultValue: "Features" })}
+          title="Everything you need"
+          description="Built for speed, reliability, and quality. No compromises."
+        />
 
         <div className="grid sm:grid-cols-2 lg:grid-cols-3 gap-4 sm:gap-6">
           {featureKeys.map((key, i) => {
@@ -39,24 +29,25 @@ export function FeaturesSection() {
             return (
               <motion.div
                 key={key}
-                initial={{ opacity: 0, y: 20 }}
+                initial={{ opacity: 0, y: 24 }}
                 whileInView="visible"
                 viewport={{ once: true, margin: "-50px" }}
                 variants={{ visible: { opacity: 1, y: 0 } }}
-                transition={{ duration: 0.4, delay: i * 0.06, ease: [0.21, 0.6, 0.35, 1] }}
-                whileHover={{ y: -4, transition: { duration: 0.2 } }}
-                className="bg-card/80 backdrop-blur-sm rounded-2xl border border-border p-5 sm:p-6 hover:shadow-lg hover:border-[#5baab8]/20 transition-all duration-200"
+                transition={{ duration: 0.5, delay: i * 0.06, ease: easeOutExpo }}
+                whileHover={{ y: -5, transition: { duration: 0.2 } }}
+                className="glass group relative rounded-2xl border border-border/70 p-5 sm:p-6 overflow-hidden transition-all duration-300 hover:border-[#5baab8]/35 hover:shadow-[0_22px_50px_-20px_rgba(13,31,38,0.25)]"
               >
-                <motion.div
-                  className="w-10 h-10 rounded-xl flex items-center justify-center mb-4"
-                  style={{ backgroundColor: "color-mix(in oklab, #5baab8 15%, transparent)" }}
-                  whileHover={{ scale: 1.12 }}
-                  transition={{ type: "spring", stiffness: 400, damping: 15 }}
-                >
-                  <Icon className="w-5 h-5 text-[#5baab8]" />
-                </motion.div>
-                <h3 className="text-base font-bold text-foreground mb-2 font-heading">{t(`${key}.title`)}</h3>
-                <p className="text-sm text-muted-foreground leading-relaxed font-sans">{t(`${key}.desc`)}</p>
+                {/* Hover glow */}
+                <div
+                  className="absolute -top-16 -right-16 w-40 h-40 rounded-full opacity-0 group-hover:opacity-100 transition-opacity duration-500 pointer-events-none blur-2xl"
+                  style={{ background: "radial-gradient(circle, rgba(91,170,184,0.25) 0%, transparent 70%)" }}
+                  aria-hidden
+                />
+                <div className="relative z-10 w-10 h-10 rounded-xl bg-gradient-to-br from-[#5baab8] to-[#3d8896] flex items-center justify-center mb-4 shadow-[0_10px_24px_-8px_rgba(91,170,184,0.55)] transition-transform duration-300 group-hover:scale-110 group-hover:rotate-3">
+                  <Icon className="w-5 h-5 text-white" />
+                </div>
+                <h3 className="relative z-10 text-base font-bold text-foreground mb-2 font-heading">{t(`${key}.title`)}</h3>
+                <p className="relative z-10 text-sm text-muted-foreground leading-relaxed font-sans">{t(`${key}.desc`)}</p>
               </motion.div>
             );
           })}

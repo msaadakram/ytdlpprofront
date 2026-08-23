@@ -29,7 +29,7 @@ function getInitials(user: { name?: string; email?: string } | null) {
   return parts[0].slice(0, 2).toUpperCase();
 }
 
-type TopbarProps = {
+type HeaderActionsProps = {
   onNavigate?: (tab: DashboardTab) => void;
 };
 
@@ -78,7 +78,7 @@ const toneChipClass: Record<NotifTone, string> = {
   update: "bg-amber-500/10 border-amber-500/20 text-amber-600 dark:text-amber-400",
 };
 
-export function Topbar({ onNavigate }: TopbarProps) {
+export function HeaderActions({ onNavigate }: HeaderActionsProps) {
   const { user, logout } = useAuth();
   const router = useRouter();
   const initials = getInitials(user);
@@ -202,12 +202,7 @@ export function Topbar({ onNavigate }: TopbarProps) {
   const showAvatarImage = Boolean(user?.avatar_url && !imgError);
 
   return (
-    <header className="h-16 bg-card/95 backdrop-blur-sm border-b border-border flex items-center justify-between px-4 sm:px-6 gap-3 sticky top-16 z-40">
-      <div className="min-w-0">
-        <h2 className="text-sm font-bold text-foreground font-heading truncate">Dashboard</h2>
-        <p className="text-xs text-muted-foreground font-sans truncate">Manage your downloads and account</p>
-      </div>
-      <div className="flex items-center gap-2 sm:gap-3 shrink-0">
+    <div className="flex items-center gap-2 sm:gap-3 shrink-0 ml-auto">
         <div ref={notifRef} className="relative">
           <button
             className={`p-2 rounded-xl border transition-all relative ${notifOpen ? "bg-[#0d1f26] text-white border-[#0d1f26] shadow-md dark:bg-white dark:text-[#0d1f26] dark:border-white" : "hover:bg-muted text-muted-foreground border-transparent hover:border-border/50"}`}
@@ -523,7 +518,6 @@ export function Topbar({ onNavigate }: TopbarProps) {
             )}
           </AnimatePresence>
         </div>
-      </div>
-    </header>
+    </div>
   );
 }

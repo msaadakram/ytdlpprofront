@@ -6,7 +6,7 @@ import Link from "next/link";
 import { Menu } from "lucide-react";
 import { useAuth } from "@/lib/auth-context";
 import { Sidebar, type DashboardTab } from "@/components/dashboard/Sidebar";
-import { Topbar } from "@/components/dashboard/Topbar";
+import { HeaderActions } from "@/components/dashboard/Topbar";
 import { OverviewTab } from "@/components/dashboard/OverviewTab";
 import { ApiKeysTab } from "@/components/dashboard/ApiKeysTab";
 import { DownloadsTab } from "@/components/dashboard/DownloadsTab";
@@ -75,6 +75,7 @@ export function DashboardClient() {
           <img src="/logo.png" alt="DownForge" className="w-8 h-8 object-contain" />
           <span className="font-bold text-lg tracking-tight text-foreground font-heading">DownForge</span>
         </Link>
+        <HeaderActions onNavigate={setActiveTab} />
       </header>
 
       <Sidebar
@@ -88,7 +89,6 @@ export function DashboardClient() {
       />
 
       <div className={`pt-16 transition-all duration-300 ${sidebarCollapsed ? "lg:ml-16" : "lg:ml-64"}`}>
-        <Topbar onNavigate={setActiveTab} />
         <main className="p-4 sm:p-6">
           {activeTab === "overview" && <OverviewTab />}
           {activeTab === "api-keys" && <ApiKeysTab />}
