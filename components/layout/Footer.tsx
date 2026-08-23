@@ -372,7 +372,7 @@ export function Footer() {
               </div>
             </div>
             {/* Watermark — desktop/tablet only; hidden on phones where it read as dead space */}
-            <div aria-hidden className="pointer-events-none absolute inset-x-0 bottom-0 hidden sm:flex h-[3.25rem] lg:h-[3.75rem] xl:h-[4.75rem] 2xl:h-[5.25rem] items-start justify-center overflow-hidden select-none">
+            <div aria-hidden className="pointer-events-none absolute inset-x-0 bottom-2 sm:bottom-3 lg:bottom-4 hidden sm:flex h-[3.25rem] lg:h-[3.75rem] xl:h-[4.75rem] 2xl:h-[5.25rem] items-start justify-center overflow-hidden select-none">
               <span className="font-heading sm:text-[56px] lg:text-[64px] xl:text-[84px] 2xl:text-[96px] font-black tracking-[-0.05em] leading-none text-white/[0.05] sm:text-white/[0.06] lg:text-white/[0.07] whitespace-nowrap">
                 DownForge
               </span>
