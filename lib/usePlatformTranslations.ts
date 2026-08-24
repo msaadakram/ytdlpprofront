@@ -35,9 +35,31 @@ export type RichPlatformConfig = {
 export function usePlatformTranslations(platform: string): RichPlatformConfig {
   const config = platformConfigs[platform];
   const t = useTranslations(`Platform.${platform}`);
-  const ft = t.raw("features") as { title: string; desc: string }[];
-  const fqt = t.raw("faqs") as { q: string; a: string }[];
 
+  // Prefer audio-specific keys with fallback (audio-downloader pages)
+  const tryRaw = (key: string) => {
+    try {
+      return t.raw(key as any);
+    } catch {
+      return null;
+    }
+  };
+  const tryGet = (key: string, fallback: string) => {
+    try {
+      return t(key as any);
+    } catch {
+      return t(fallback as any);
+    }
+  };
+
+  // Detect if audio keys exist for this platform/locale
+  const hasAudio = tryRaw("featuresAudio") !== null;
+
+  const ft = (hasAudio ? tryRaw("featuresAudio") : tryRaw("features")) as { title: string; desc: string }[] | null;
+  const fqt = (hasAudio ? tryRaw("faqsAudio") : tryRaw("faqs")) as { q: string; a: string }[] | null;
+
+  // For audio downloader pages, downstream components use DownloadOnlyHero's getAudioKey,
+  // so we keep badge/heading as generic video ones for fallback; audio components will override via direct translations.
   return {
     ...config,
     defaultType: config.defaultType,
@@ -48,12 +70,12 @@ export function usePlatformTranslations(platform: string): RichPlatformConfig {
     placeholder: t("placeholder"),
     features: config.features.map((f, i) => ({
       icon: f.icon,
-      title: ft[i]?.title ?? "",
-      desc: ft[i]?.desc ?? "",
+      title: (ft as any)?.[i]?.title ?? "",
+      desc: (ft as any)?.[i]?.desc ?? "",
     })),
-    faqs: fqt.map((f) => ({ q: f.q, a: f.a })),
-    metaTitle: t("metaTitle"),
-    metaDescription: t("metaDescription"),
-    keywords: t.raw("keywords") as string[],
+    faqs: ((fqt as any) ?? []).map((f: any) => ({ q: f.q, a: f.a })),
+    metaTitle: tryGet("metaTitleAudio", "metaTitle"),
+    metaDescription: tryGet("metaDescriptionAudio", "metaDescription"),
+    keywords: (tryRaw("keywordsAudio") ?? tryRaw("keywords")) as string[],
   };
 }

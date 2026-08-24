@@ -364,7 +364,16 @@
     "disclaimer": "Free to use · No sign-up required · Files deleted instantly · Works with all {platform} URLs",
     "featuresTitle": "Features",
     "faqTitle": "Frequently Asked Questions",
-    "howItWorksTitle": "How to Download"
+    "howItWorksTitle": "How to Download",
+    "convertToMp3": "Convert to MP3",
+    "trustPills": {
+      "noSignup": "No Sign-Up",
+      "mp3320": "320kbps",
+      "flac": "FLAC Lossless",
+      "fast": "< 3s",
+      "free": "100% Free",
+      "private": "Private & Secure"
+    }
   },
   "VideoOnly": {
     "badge": "Video Downloader",
@@ -922,7 +931,65 @@
         "facebook video download free"
       ],
       "metaTitleVideo": "Facebook Video Downloader — Save Facebook Videos, Reels & Live in HD | DownForge",
-      "metaDescriptionVideo": "Free Facebook video downloader. Paste a link to save Facebook videos, Reels, Watch shows and live streams in HD or MP4. No app, no sign-up."
+      "metaDescriptionVideo": "Free Facebook video downloader. Paste a link to save Facebook videos, Reels, Watch shows and live streams in HD or MP4. No app, no sign-up.",
+      "metaTitleAudio": "Facebook to MP3 — Convert Facebook Videos to MP3 | DownForge",
+      "metaDescriptionAudio": "Free Facebook to MP3 converter. Extract audio from videos, Reels & Watch as MP3 320kbps, FLAC or AAC. Paste a link — no sign-up required.",
+      "keywordsAudio": [
+        "facebook to mp3",
+        "facebook mp3 downloader",
+        "convert facebook video to mp3",
+        "download facebook audio",
+        "fb to mp3"
+      ],
+      "headingAudio": "Facebook to MP3 — Extract Audio from Facebook Videos",
+      "headingAccentAudio": "MP3, FLAC & AAC",
+      "subheadingAudio": "Free Facebook to MP3 converter. Convert Facebook to MP3 320kbps, FLAC, AAC, WAV & OGG — paste a link and download high-quality audio instantly.",
+      "placeholderAudio": "Paste your Facebook link here...",
+      "badgeAudio": "Facebook to MP3",
+      "featuresAudio": [
+        {
+          "title": "High-Quality MP3 & FLAC",
+          "desc": "Extract Facebook audio as MP3 320kbps, FLAC lossless, AAC, WAV or OGG — choose the format that fits your needs."
+        },
+        {
+          "title": "No App, No Login",
+          "desc": "Convert Facebook to MP3 directly in your browser. Paste any public link and download instantly — no software or sign-up required."
+        },
+        {
+          "title": "Works on Any Device",
+          "desc": "Save audio on Android, iPhone, iPad, Windows, Mac or Linux. Standard MP3/FLAC files play everywhere — VLC, QuickTime, Spotify local, any editor."
+        },
+        {
+          "title": "Batch & Playlists (Pro)",
+          "desc": "Download multiple Facebook tracks or entire channels at once with Pro. No waiting per file."
+        },
+        {
+          "title": "AI Transcripts Available",
+          "desc": "Want captions too? Switch to Facebook Transcript mode for SRT, VTT, TXT or JSON with timestamps."
+        }
+      ],
+      "faqsAudio": [
+        {
+          "q": "How do I convert Facebook video to MP3?",
+          "a": "Copy the Facebook link from your browser or share menu, paste it above, choose MP3 320kbps or FLAC, and click Convert to MP3. Your audio is ready in seconds — no app or sign-up required."
+        },
+        {
+          "q": "What audio quality is best — 320kbps or FLAC?",
+          "a": "MP3 320kbps is the best universal choice: high quality, small file (~2.4 MB/min), plays everywhere. Choose FLAC lossless (~8 MB/min) for archiving, DJ use or music production where every detail matters."
+        },
+        {
+          "q": "Can I convert Facebook to MP3 on iPhone or Android?",
+          "a": "Yes. Open this page in Safari (iPhone) or Chrome (Android), paste the link, pick MP3 or FLAC, and download. On iPhone files save to the Files app; on Android to Downloads — then open in any player."
+        },
+        {
+          "q": "Is converting Facebook to MP3 safe and legal?",
+          "a": "Converting publicly accessible Facebook content for personal offline listening is generally permitted. Do not re-upload copyrighted tracks without the creator's permission. DownForge processes files ephemerally and deletes them after your download — no storage, no tracking."
+        },
+        {
+          "q": "How long does Facebook to MP3 conversion take?",
+          "a": "Most tracks complete in under 10 seconds. Longer VODs or playlists may take 30–60 seconds. Pro users get priority processing during peak times."
+        }
+      ]
     },
     "instagram": {
       "badge": "Instagram Downloader",
@@ -989,7 +1056,66 @@
         "instagram profile picture downloader"
       ],
       "metaTitleVideo": "Instagram Video Downloader — Download Reels, Stories & Videos in HD | DownForge",
-      "metaDescriptionVideo": "Free Instagram video downloader. Save Reels, Stories, IGTV and post videos in HD MP4. No app or sign-up required."
+      "metaDescriptionVideo": "Free Instagram video downloader. Save Reels, Stories, IGTV and post videos in HD MP4. No app or sign-up required.",
+      "metaTitleAudio": "Instagram to MP3 — Convert Reels & Stories Audio to MP3 | DownForge",
+      "metaDescriptionAudio": "Free Instagram to MP3 converter. Convert Reels, Stories & IGTV audio to MP3 320kbps, AAC or FLAC. Extract Instagram audio instantly — no app, no login required.",
+      "keywordsAudio": [
+        "instagram to mp3",
+        "instagram mp3 downloader",
+        "convert reels to mp3",
+        "download instagram audio",
+        "reels to mp3",
+        "instagram audio extractor"
+      ],
+      "headingAudio": "Instagram to MP3 — Extract Audio from Reels & Stories",
+      "headingAccentAudio": "320kbps & FLAC",
+      "subheadingAudio": "Free Instagram to MP3 converter. Convert Instagram to MP3 320kbps, FLAC, AAC, WAV & OGG — paste a link and download high-quality audio instantly.",
+      "placeholderAudio": "Paste your Instagram link here...",
+      "badgeAudio": "Instagram to MP3",
+      "featuresAudio": [
+        {
+          "title": "High-Quality MP3 & FLAC",
+          "desc": "Extract Instagram audio as MP3 320kbps, FLAC lossless, AAC, WAV or OGG — choose the format that fits your needs."
+        },
+        {
+          "title": "No App, No Login",
+          "desc": "Convert Instagram to MP3 directly in your browser. Paste any public link and download instantly — no software or sign-up required."
+        },
+        {
+          "title": "Works on Any Device",
+          "desc": "Save audio on Android, iPhone, iPad, Windows, Mac or Linux. Standard MP3/FLAC files play everywhere — VLC, QuickTime, Spotify local, any editor."
+        },
+        {
+          "title": "Batch & Playlists (Pro)",
+          "desc": "Download multiple Instagram tracks or entire channels at once with Pro. No waiting per file."
+        },
+        {
+          "title": "AI Transcripts Available",
+          "desc": "Want captions too? Switch to Instagram Transcript mode for SRT, VTT, TXT or JSON with timestamps."
+        }
+      ],
+      "faqsAudio": [
+        {
+          "q": "How do I convert Instagram video to MP3?",
+          "a": "Copy the Instagram link from your browser or share menu, paste it above, choose MP3 320kbps or FLAC, and click Convert to MP3. Your audio is ready in seconds — no app or sign-up required."
+        },
+        {
+          "q": "What audio quality is best — 320kbps or FLAC?",
+          "a": "MP3 320kbps is the best universal choice: high quality, small file (~2.4 MB/min), plays everywhere. Choose FLAC lossless (~8 MB/min) for archiving, DJ use or music production where every detail matters."
+        },
+        {
+          "q": "Can I convert Instagram to MP3 on iPhone or Android?",
+          "a": "Yes. Open this page in Safari (iPhone) or Chrome (Android), paste the link, pick MP3 or FLAC, and download. On iPhone files save to the Files app; on Android to Downloads — then open in any player."
+        },
+        {
+          "q": "Is converting Instagram to MP3 safe and legal?",
+          "a": "Converting publicly accessible Instagram content for personal offline listening is generally permitted. Do not re-upload copyrighted tracks without the creator's permission. DownForge processes files ephemerally and deletes them after your download — no storage, no tracking."
+        },
+        {
+          "q": "How long does Instagram to MP3 conversion take?",
+          "a": "Most tracks complete in under 10 seconds. Longer VODs or playlists may take 30–60 seconds. Pro users get priority processing during peak times."
+        }
+      ]
     },
     "tiktok": {
       "badge": "TikTok Downloader",
@@ -1056,7 +1182,66 @@
         "tiktok watermark remover"
       ],
       "metaTitleVideo": "TikTok Video Downloader — Download TikTok Videos HD Without Watermark | DownForge",
-      "metaDescriptionVideo": "Free TikTok video downloader. Paste a TikTok link and save videos in HD MP4 without the watermark. No app or sign-up required."
+      "metaDescriptionVideo": "Free TikTok video downloader. Paste a TikTok link and save videos in HD MP4 without the watermark. No app or sign-up required.",
+      "metaTitleAudio": "TikTok to MP3 — Convert TikTok Video to MP3 & FLAC | DownForge",
+      "metaDescriptionAudio": "Free TikTok to MP3 converter. Extract audio from TikTok videos as MP3 320kbps, FLAC or AAC. Save viral sounds — no watermark, no sign-up.",
+      "keywordsAudio": [
+        "tiktok to mp3",
+        "tiktok mp3 downloader",
+        "convert tiktok to mp3",
+        "download tiktok audio",
+        "tiktok sound downloader",
+        "tiktok audio extractor"
+      ],
+      "headingAudio": "TikTok to MP3 — Extract Audio from TikTok Videos",
+      "headingAccentAudio": "MP3 & FLAC",
+      "subheadingAudio": "Free TikTok to MP3 converter. Convert TikTok to MP3 320kbps, FLAC, AAC, WAV & OGG — paste a link and download high-quality audio instantly.",
+      "placeholderAudio": "Paste your TikTok link here...",
+      "badgeAudio": "TikTok to MP3",
+      "featuresAudio": [
+        {
+          "title": "High-Quality MP3 & FLAC",
+          "desc": "Extract TikTok audio as MP3 320kbps, FLAC lossless, AAC, WAV or OGG — choose the format that fits your needs."
+        },
+        {
+          "title": "No App, No Login",
+          "desc": "Convert TikTok to MP3 directly in your browser. Paste any public link and download instantly — no software or sign-up required."
+        },
+        {
+          "title": "Works on Any Device",
+          "desc": "Save audio on Android, iPhone, iPad, Windows, Mac or Linux. Standard MP3/FLAC files play everywhere — VLC, QuickTime, Spotify local, any editor."
+        },
+        {
+          "title": "Batch & Playlists (Pro)",
+          "desc": "Download multiple TikTok tracks or entire channels at once with Pro. No waiting per file."
+        },
+        {
+          "title": "AI Transcripts Available",
+          "desc": "Want captions too? Switch to TikTok Transcript mode for SRT, VTT, TXT or JSON with timestamps."
+        }
+      ],
+      "faqsAudio": [
+        {
+          "q": "How do I convert TikTok video to MP3?",
+          "a": "Copy the TikTok link from your browser or share menu, paste it above, choose MP3 320kbps or FLAC, and click Convert to MP3. Your audio is ready in seconds — no app or sign-up required."
+        },
+        {
+          "q": "What audio quality is best — 320kbps or FLAC?",
+          "a": "MP3 320kbps preserves TikTok viral sounds perfectly and stays small. Use FLAC only if you plan to edit/remix the audio in a DAW."
+        },
+        {
+          "q": "Can I convert TikTok to MP3 on iPhone or Android?",
+          "a": "Yes. Open this page in Safari (iPhone) or Chrome (Android), paste the link, pick MP3 or FLAC, and download. On iPhone files save to the Files app; on Android to Downloads — then open in any player."
+        },
+        {
+          "q": "Is converting TikTok to MP3 safe and legal?",
+          "a": "Converting publicly accessible TikTok clips for personal offline use is generally permitted. Don't re-upload viral sounds without creator credit. Files are processed ephemerally and deleted after download."
+        },
+        {
+          "q": "How long does TikTok to MP3 conversion take?",
+          "a": "Most tracks complete in under 10 seconds. Longer VODs or playlists may take 30–60 seconds. Pro users get priority processing during peak times."
+        }
+      ]
     },
     "twitter": {
       "badge": "Twitter Downloader",
@@ -1123,7 +1308,65 @@
         "twitter hd video"
       ],
       "metaTitleVideo": "Twitter Video Downloader — Save X Videos & GIFs in HD | Free & Online | DownForge",
-      "metaDescriptionVideo": "Free Twitter/X video downloader. Paste a tweet link to save videos and GIFs in HD MP4. Works in your browser — no sign-up."
+      "metaDescriptionVideo": "Free Twitter/X video downloader. Paste a tweet link to save videos and GIFs in HD MP4. Works in your browser — no sign-up.",
+      "metaTitleAudio": "Twitter to MP3 — Download Twitter / X Audio as MP3 | DownForge",
+      "metaDescriptionAudio": "Free Twitter to MP3 converter. Extract audio from X videos & GIFs as MP3, AAC or FLAC. Save Twitter audio for podcasts & offline listening — no sign-up.",
+      "keywordsAudio": [
+        "twitter to mp3",
+        "x to mp3",
+        "download twitter audio",
+        "twitter audio downloader",
+        "twitter mp3 converter"
+      ],
+      "headingAudio": "Twitter to MP3 — Extract Audio from X Videos",
+      "headingAccentAudio": "MP3 & AAC",
+      "subheadingAudio": "Free Twitter / X to MP3 converter. Convert Twitter / X to MP3 320kbps, FLAC, AAC, WAV & OGG — paste a link and download high-quality audio instantly.",
+      "placeholderAudio": "Paste your Twitter / X link here...",
+      "badgeAudio": "Twitter / X to MP3",
+      "featuresAudio": [
+        {
+          "title": "High-Quality MP3 & FLAC",
+          "desc": "Extract Twitter / X audio as MP3 320kbps, FLAC lossless, AAC, WAV or OGG — choose the format that fits your needs."
+        },
+        {
+          "title": "No App, No Login",
+          "desc": "Convert Twitter / X to MP3 directly in your browser. Paste any public link and download instantly — no software or sign-up required."
+        },
+        {
+          "title": "Works on Any Device",
+          "desc": "Save audio on Android, iPhone, iPad, Windows, Mac or Linux. Standard MP3/FLAC files play everywhere — VLC, QuickTime, Spotify local, any editor."
+        },
+        {
+          "title": "Batch & Playlists (Pro)",
+          "desc": "Download multiple Twitter / X tracks or entire channels at once with Pro. No waiting per file."
+        },
+        {
+          "title": "AI Transcripts Available",
+          "desc": "Want captions too? Switch to Twitter / X Transcript mode for SRT, VTT, TXT or JSON with timestamps."
+        }
+      ],
+      "faqsAudio": [
+        {
+          "q": "How do I convert Twitter / X video to MP3?",
+          "a": "Copy the Twitter / X link from your browser or share menu, paste it above, choose MP3 320kbps or FLAC, and click Convert to MP3. Your audio is ready in seconds — no app or sign-up required."
+        },
+        {
+          "q": "What audio quality is best — 320kbps or FLAC?",
+          "a": "MP3 320kbps is the best universal choice: high quality, small file (~2.4 MB/min), plays everywhere. Choose FLAC lossless (~8 MB/min) for archiving, DJ use or music production where every detail matters."
+        },
+        {
+          "q": "Can I convert Twitter / X to MP3 on iPhone or Android?",
+          "a": "Yes. Open this page in Safari (iPhone) or Chrome (Android), paste the link, pick MP3 or FLAC, and download. On iPhone files save to the Files app; on Android to Downloads — then open in any player."
+        },
+        {
+          "q": "Is converting Twitter / X to MP3 safe and legal?",
+          "a": "Converting publicly accessible Twitter / X content for personal offline listening is generally permitted. Do not re-upload copyrighted tracks without the creator's permission. DownForge processes files ephemerally and deletes them after your download — no storage, no tracking."
+        },
+        {
+          "q": "How long does Twitter / X to MP3 conversion take?",
+          "a": "Most tracks complete in under 10 seconds. Longer VODs or playlists may take 30–60 seconds. Pro users get priority processing during peak times."
+        }
+      ]
     },
     "vimeo": {
       "badge": "Vimeo Downloader",
@@ -1190,7 +1433,65 @@
         "vimeo video extractor"
       ],
       "metaTitleVideo": "Vimeo Video Downloader — Download Vimeo Videos in 4K & 1080p HD | DownForge",
-      "metaDescriptionVideo": "Free Vimeo video downloader. Paste a Vimeo link and download videos in 4K, 1080p or 720p MP4. No sign-up required."
+      "metaDescriptionVideo": "Free Vimeo video downloader. Paste a Vimeo link and download videos in 4K, 1080p or 720p MP4. No sign-up required.",
+      "metaTitleAudio": "Vimeo to MP3 — Convert Vimeo Videos to FLAC & MP3 | DownForge",
+      "metaDescriptionAudio": "Free Vimeo to MP3 converter. Extract pro-grade audio from Vimeo as FLAC lossless, WAV or MP3 320kbps. Preserve original quality — no app, no sign-up.",
+      "keywordsAudio": [
+        "vimeo to mp3",
+        "vimeo mp3 downloader",
+        "convert vimeo to mp3",
+        "download vimeo audio",
+        "vimeo to flac"
+      ],
+      "headingAudio": "Vimeo to MP3 — Extract High-Quality Audio from Vimeo",
+      "headingAccentAudio": "FLAC & 320kbps",
+      "subheadingAudio": "Free Vimeo to MP3 converter. Convert Vimeo to MP3 320kbps, FLAC, AAC, WAV & OGG — paste a link and download high-quality audio instantly.",
+      "placeholderAudio": "Paste your Vimeo link here...",
+      "badgeAudio": "Vimeo to MP3",
+      "featuresAudio": [
+        {
+          "title": "High-Quality MP3 & FLAC",
+          "desc": "Extract Vimeo audio as MP3 320kbps, FLAC lossless, AAC, WAV or OGG — choose the format that fits your needs."
+        },
+        {
+          "title": "No App, No Login",
+          "desc": "Convert Vimeo to MP3 directly in your browser. Paste any public link and download instantly — no software or sign-up required."
+        },
+        {
+          "title": "Works on Any Device",
+          "desc": "Save audio on Android, iPhone, iPad, Windows, Mac or Linux. Standard MP3/FLAC files play everywhere — VLC, QuickTime, Spotify local, any editor."
+        },
+        {
+          "title": "Batch & Playlists (Pro)",
+          "desc": "Download multiple Vimeo tracks or entire channels at once with Pro. No waiting per file."
+        },
+        {
+          "title": "AI Transcripts Available",
+          "desc": "Want captions too? Switch to Vimeo Transcript mode for SRT, VTT, TXT or JSON with timestamps."
+        }
+      ],
+      "faqsAudio": [
+        {
+          "q": "How do I convert Vimeo video to MP3?",
+          "a": "Copy the Vimeo link from your browser or share menu, paste it above, choose MP3 320kbps or FLAC, and click Convert to MP3. Your audio is ready in seconds — no app or sign-up required."
+        },
+        {
+          "q": "What audio quality is best — 320kbps or FLAC?",
+          "a": "For Vimeo's pro-grade audio, FLAC lossless or WAV keeps every detail for editing. MP3 320kbps is ideal for portable or streaming use."
+        },
+        {
+          "q": "Can I convert Vimeo to MP3 on iPhone or Android?",
+          "a": "Yes. Open this page in Safari (iPhone) or Chrome (Android), paste the link, pick MP3 or FLAC, and download. On iPhone files save to the Files app; on Android to Downloads — then open in any player."
+        },
+        {
+          "q": "Is converting Vimeo to MP3 safe and legal?",
+          "a": "Converting publicly accessible Vimeo content for personal offline listening is generally permitted. Do not re-upload copyrighted tracks without the creator's permission. DownForge processes files ephemerally and deletes them after your download — no storage, no tracking."
+        },
+        {
+          "q": "How long does Vimeo to MP3 conversion take?",
+          "a": "Most tracks complete in under 10 seconds. Longer VODs or playlists may take 30–60 seconds. Pro users get priority processing during peak times."
+        }
+      ]
     },
     "dailymotion": {
       "badge": "Dailymotion Downloader",
@@ -1256,7 +1557,63 @@
         "dailymotion download free"
       ],
       "metaTitleVideo": "Dailymotion Video Downloader — Save Dailymotion Videos in HD MP4 | DownForge",
-      "metaDescriptionVideo": "Free Dailymotion video downloader. Paste a link to save Dailymotion videos in HD MP4. Fast, free, no sign-up."
+      "metaDescriptionVideo": "Free Dailymotion video downloader. Paste a link to save Dailymotion videos in HD MP4. Fast, free, no sign-up.",
+      "metaTitleAudio": "Dailymotion to MP3 — Convert Dailymotion Video to MP3 | DownForge",
+      "metaDescriptionAudio": "Free Dailymotion to MP3 converter. Extract audio from Dailymotion videos as MP3, AAC or FLAC. Convert news, music & shows to audio — no sign-up required.",
+      "keywordsAudio": [
+        "dailymotion to mp3",
+        "dailymotion mp3 downloader",
+        "convert dailymotion to mp3"
+      ],
+      "headingAudio": "Dailymotion to MP3 — Extract Audio from Dailymotion",
+      "headingAccentAudio": "MP3 & AAC",
+      "subheadingAudio": "Free Dailymotion to MP3 converter. Convert Dailymotion to MP3 320kbps, FLAC, AAC, WAV & OGG — paste a link and download high-quality audio instantly.",
+      "placeholderAudio": "Paste your Dailymotion link here...",
+      "badgeAudio": "Dailymotion to MP3",
+      "featuresAudio": [
+        {
+          "title": "High-Quality MP3 & FLAC",
+          "desc": "Extract Dailymotion audio as MP3 320kbps, FLAC lossless, AAC, WAV or OGG — choose the format that fits your needs."
+        },
+        {
+          "title": "No App, No Login",
+          "desc": "Convert Dailymotion to MP3 directly in your browser. Paste any public link and download instantly — no software or sign-up required."
+        },
+        {
+          "title": "Works on Any Device",
+          "desc": "Save audio on Android, iPhone, iPad, Windows, Mac or Linux. Standard MP3/FLAC files play everywhere — VLC, QuickTime, Spotify local, any editor."
+        },
+        {
+          "title": "Batch & Playlists (Pro)",
+          "desc": "Download multiple Dailymotion tracks or entire channels at once with Pro. No waiting per file."
+        },
+        {
+          "title": "AI Transcripts Available",
+          "desc": "Want captions too? Switch to Dailymotion Transcript mode for SRT, VTT, TXT or JSON with timestamps."
+        }
+      ],
+      "faqsAudio": [
+        {
+          "q": "How do I convert Dailymotion video to MP3?",
+          "a": "Copy the Dailymotion link from your browser or share menu, paste it above, choose MP3 320kbps or FLAC, and click Convert to MP3. Your audio is ready in seconds — no app or sign-up required."
+        },
+        {
+          "q": "What audio quality is best — 320kbps or FLAC?",
+          "a": "MP3 320kbps is the best universal choice: high quality, small file (~2.4 MB/min), plays everywhere. Choose FLAC lossless (~8 MB/min) for archiving, DJ use or music production where every detail matters."
+        },
+        {
+          "q": "Can I convert Dailymotion to MP3 on iPhone or Android?",
+          "a": "Yes. Open this page in Safari (iPhone) or Chrome (Android), paste the link, pick MP3 or FLAC, and download. On iPhone files save to the Files app; on Android to Downloads — then open in any player."
+        },
+        {
+          "q": "Is converting Dailymotion to MP3 safe and legal?",
+          "a": "Converting publicly accessible Dailymotion content for personal offline listening is generally permitted. Do not re-upload copyrighted tracks without the creator's permission. DownForge processes files ephemerally and deletes them after your download — no storage, no tracking."
+        },
+        {
+          "q": "How long does Dailymotion to MP3 conversion take?",
+          "a": "Most tracks complete in under 10 seconds. Longer VODs or playlists may take 30–60 seconds. Pro users get priority processing during peak times."
+        }
+      ]
     },
     "twitch": {
       "badge": "Twitch Downloader",
@@ -1323,7 +1680,65 @@
         "twitch highlight downloader"
       ],
       "metaTitleVideo": "Twitch Video Downloader — Download Twitch Clips, VODs & Highlights in HD | DownForge",
-      "metaDescriptionVideo": "Free Twitch video downloader. Save Twitch clips, VODs and highlights in HD MP4. No app or sign-up required."
+      "metaDescriptionVideo": "Free Twitch video downloader. Save Twitch clips, VODs and highlights in HD MP4. No app or sign-up required.",
+      "metaTitleAudio": "Twitch to MP3 — Convert Twitch Clips & VODs to MP3 | DownForge",
+      "metaDescriptionAudio": "Free Twitch to MP3 converter. Extract audio from Twitch clips, VODs & highlights as MP3 320kbps or FLAC. Save streams as audio — no login required.",
+      "keywordsAudio": [
+        "twitch to mp3",
+        "twitch mp3 downloader",
+        "convert twitch to mp3",
+        "download twitch audio",
+        "twitch clip to mp3"
+      ],
+      "headingAudio": "Twitch to MP3 — Extract Audio from Clips & VODs",
+      "headingAccentAudio": "MP3 & FLAC",
+      "subheadingAudio": "Free Twitch to MP3 converter. Convert Twitch to MP3 320kbps, FLAC, AAC, WAV & OGG — paste a link and download high-quality audio instantly.",
+      "placeholderAudio": "Paste your Twitch link here...",
+      "badgeAudio": "Twitch to MP3",
+      "featuresAudio": [
+        {
+          "title": "High-Quality MP3 & FLAC",
+          "desc": "Extract Twitch audio as MP3 320kbps, FLAC lossless, AAC, WAV or OGG — choose the format that fits your needs."
+        },
+        {
+          "title": "No App, No Login",
+          "desc": "Convert Twitch to MP3 directly in your browser. Paste any public link and download instantly — no software or sign-up required."
+        },
+        {
+          "title": "Works on Any Device",
+          "desc": "Save audio on Android, iPhone, iPad, Windows, Mac or Linux. Standard MP3/FLAC files play everywhere — VLC, QuickTime, Spotify local, any editor."
+        },
+        {
+          "title": "Batch & Playlists (Pro)",
+          "desc": "Download multiple Twitch tracks or entire channels at once with Pro. No waiting per file."
+        },
+        {
+          "title": "AI Transcripts Available",
+          "desc": "Want captions too? Switch to Twitch Transcript mode for SRT, VTT, TXT or JSON with timestamps."
+        }
+      ],
+      "faqsAudio": [
+        {
+          "q": "How do I convert Twitch video to MP3?",
+          "a": "Copy the Twitch link from your browser or share menu, paste it above, choose MP3 320kbps or FLAC, and click Convert to MP3. Your audio is ready in seconds — no app or sign-up required."
+        },
+        {
+          "q": "What audio quality is best — 320kbps or FLAC?",
+          "a": "MP3 320kbps is the best universal choice: high quality, small file (~2.4 MB/min), plays everywhere. Choose FLAC lossless (~8 MB/min) for archiving, DJ use or music production where every detail matters."
+        },
+        {
+          "q": "Can I convert Twitch to MP3 on iPhone or Android?",
+          "a": "Yes. Open this page in Safari (iPhone) or Chrome (Android), paste the link, pick MP3 or FLAC, and download. On iPhone files save to the Files app; on Android to Downloads — then open in any player."
+        },
+        {
+          "q": "Is converting Twitch to MP3 safe and legal?",
+          "a": "Converting publicly accessible Twitch content for personal offline listening is generally permitted. Do not re-upload copyrighted tracks without the creator's permission. DownForge processes files ephemerally and deletes them after your download — no storage, no tracking."
+        },
+        {
+          "q": "How long does Twitch to MP3 conversion take?",
+          "a": "Most tracks complete in under 10 seconds. Longer VODs or playlists may take 30–60 seconds. Pro users get priority processing during peak times."
+        }
+      ]
     },
     "reddit": {
       "badge": "Reddit Downloader",
@@ -1390,7 +1805,63 @@
         "reddit media downloader"
       ],
       "metaTitleVideo": "Reddit Video Downloader — Save Reddit Videos & GIFs with Audio in HD | DownForge",
-      "metaDescriptionVideo": "Free Reddit video downloader. Paste a post link to save Reddit videos and GIFs in HD — with audio included. No sign-up."
+      "metaDescriptionVideo": "Free Reddit video downloader. Paste a post link to save Reddit videos and GIFs in HD — with audio included. No sign-up.",
+      "metaTitleAudio": "Reddit to MP3 — Convert Reddit Videos to MP3 | DownForge",
+      "metaDescriptionAudio": "Free Reddit to MP3 converter. Extract audio from Reddit videos & GIFs as MP3 or AAC. Convert Reddit media to audio in seconds — no app, no sign-up.",
+      "keywordsAudio": [
+        "reddit to mp3",
+        "reddit mp3 downloader",
+        "convert reddit video to mp3"
+      ],
+      "headingAudio": "Reddit to MP3 — Extract Audio from Reddit Videos",
+      "headingAccentAudio": "MP3 & AAC",
+      "subheadingAudio": "Free Reddit to MP3 converter. Convert Reddit to MP3 320kbps, FLAC, AAC, WAV & OGG — paste a link and download high-quality audio instantly.",
+      "placeholderAudio": "Paste your Reddit link here...",
+      "badgeAudio": "Reddit to MP3",
+      "featuresAudio": [
+        {
+          "title": "High-Quality MP3 & FLAC",
+          "desc": "Extract Reddit audio as MP3 320kbps, FLAC lossless, AAC, WAV or OGG — choose the format that fits your needs."
+        },
+        {
+          "title": "No App, No Login",
+          "desc": "Convert Reddit to MP3 directly in your browser. Paste any public link and download instantly — no software or sign-up required."
+        },
+        {
+          "title": "Works on Any Device",
+          "desc": "Save audio on Android, iPhone, iPad, Windows, Mac or Linux. Standard MP3/FLAC files play everywhere — VLC, QuickTime, Spotify local, any editor."
+        },
+        {
+          "title": "Batch & Playlists (Pro)",
+          "desc": "Download multiple Reddit tracks or entire channels at once with Pro. No waiting per file."
+        },
+        {
+          "title": "AI Transcripts Available",
+          "desc": "Want captions too? Switch to Reddit Transcript mode for SRT, VTT, TXT or JSON with timestamps."
+        }
+      ],
+      "faqsAudio": [
+        {
+          "q": "How do I convert Reddit video to MP3?",
+          "a": "Copy the Reddit link from your browser or share menu, paste it above, choose MP3 320kbps or FLAC, and click Convert to MP3. Your audio is ready in seconds — no app or sign-up required."
+        },
+        {
+          "q": "What audio quality is best — 320kbps or FLAC?",
+          "a": "MP3 320kbps is the best universal choice: high quality, small file (~2.4 MB/min), plays everywhere. Choose FLAC lossless (~8 MB/min) for archiving, DJ use or music production where every detail matters."
+        },
+        {
+          "q": "Can I convert Reddit to MP3 on iPhone or Android?",
+          "a": "Yes. Open this page in Safari (iPhone) or Chrome (Android), paste the link, pick MP3 or FLAC, and download. On iPhone files save to the Files app; on Android to Downloads — then open in any player."
+        },
+        {
+          "q": "Is converting Reddit to MP3 safe and legal?",
+          "a": "Converting publicly accessible Reddit content for personal offline listening is generally permitted. Do not re-upload copyrighted tracks without the creator's permission. DownForge processes files ephemerally and deletes them after your download — no storage, no tracking."
+        },
+        {
+          "q": "How long does Reddit to MP3 conversion take?",
+          "a": "Most tracks complete in under 10 seconds. Longer VODs or playlists may take 30–60 seconds. Pro users get priority processing during peak times."
+        }
+      ]
     },
     "pinterest": {
       "badge": "Pinterest Downloader",
@@ -1457,7 +1928,62 @@
         "pinterest mp3"
       ],
       "metaTitleVideo": "Pinterest Video Downloader — Download Pinterest Videos & Idea Pins in HD | DownForge",
-      "metaDescriptionVideo": "Free Pinterest video downloader. Save Pinterest videos and Idea Pins in HD MP4. Paste a link — no sign-up required."
+      "metaDescriptionVideo": "Free Pinterest video downloader. Save Pinterest videos and Idea Pins in HD MP4. Paste a link — no sign-up required.",
+      "metaTitleAudio": "Pinterest to MP3 — Convert Pinterest Videos to MP3 | DownForge",
+      "metaDescriptionAudio": "Free Pinterest to MP3 converter. Extract audio from Pinterest videos & Idea Pins as MP3 or AAC. Save audio from any Pin — no sign-up required.",
+      "keywordsAudio": [
+        "pinterest to mp3",
+        "pinterest mp3 downloader"
+      ],
+      "headingAudio": "Pinterest to MP3 — Extract Audio from Pinterest Videos",
+      "headingAccentAudio": "MP3 & AAC",
+      "subheadingAudio": "Free Pinterest to MP3 converter. Convert Pinterest to MP3 320kbps, FLAC, AAC, WAV & OGG — paste a link and download high-quality audio instantly.",
+      "placeholderAudio": "Paste your Pinterest link here...",
+      "badgeAudio": "Pinterest to MP3",
+      "featuresAudio": [
+        {
+          "title": "High-Quality MP3 & FLAC",
+          "desc": "Extract Pinterest audio as MP3 320kbps, FLAC lossless, AAC, WAV or OGG — choose the format that fits your needs."
+        },
+        {
+          "title": "No App, No Login",
+          "desc": "Convert Pinterest to MP3 directly in your browser. Paste any public link and download instantly — no software or sign-up required."
+        },
+        {
+          "title": "Works on Any Device",
+          "desc": "Save audio on Android, iPhone, iPad, Windows, Mac or Linux. Standard MP3/FLAC files play everywhere — VLC, QuickTime, Spotify local, any editor."
+        },
+        {
+          "title": "Batch & Playlists (Pro)",
+          "desc": "Download multiple Pinterest tracks or entire channels at once with Pro. No waiting per file."
+        },
+        {
+          "title": "AI Transcripts Available",
+          "desc": "Want captions too? Switch to Pinterest Transcript mode for SRT, VTT, TXT or JSON with timestamps."
+        }
+      ],
+      "faqsAudio": [
+        {
+          "q": "How do I convert Pinterest video to MP3?",
+          "a": "Copy the Pinterest link from your browser or share menu, paste it above, choose MP3 320kbps or FLAC, and click Convert to MP3. Your audio is ready in seconds — no app or sign-up required."
+        },
+        {
+          "q": "What audio quality is best — 320kbps or FLAC?",
+          "a": "MP3 320kbps is the best universal choice: high quality, small file (~2.4 MB/min), plays everywhere. Choose FLAC lossless (~8 MB/min) for archiving, DJ use or music production where every detail matters."
+        },
+        {
+          "q": "Can I convert Pinterest to MP3 on iPhone or Android?",
+          "a": "Yes. Open this page in Safari (iPhone) or Chrome (Android), paste the link, pick MP3 or FLAC, and download. On iPhone files save to the Files app; on Android to Downloads — then open in any player."
+        },
+        {
+          "q": "Is converting Pinterest to MP3 safe and legal?",
+          "a": "Converting publicly accessible Pinterest content for personal offline listening is generally permitted. Do not re-upload copyrighted tracks without the creator's permission. DownForge processes files ephemerally and deletes them after your download — no storage, no tracking."
+        },
+        {
+          "q": "How long does Pinterest to MP3 conversion take?",
+          "a": "Most tracks complete in under 10 seconds. Longer VODs or playlists may take 30–60 seconds. Pro users get priority processing during peak times."
+        }
+      ]
     },
     "linkedin": {
       "badge": "LinkedIn Downloader",
@@ -1523,7 +2049,62 @@
         "linkedin hd video downloader"
       ],
       "metaTitleVideo": "LinkedIn Video Downloader — Save LinkedIn Videos & Posts in HD | DownForge",
-      "metaDescriptionVideo": "Free LinkedIn video downloader. Paste a post link to save LinkedIn videos in HD MP4. Works in your browser."
+      "metaDescriptionVideo": "Free LinkedIn video downloader. Paste a post link to save LinkedIn videos in HD MP4. Works in your browser.",
+      "metaTitleAudio": "LinkedIn to MP3 — Convert LinkedIn Videos to MP3 | DownForge",
+      "metaDescriptionAudio": "Free LinkedIn to MP3 converter. Extract audio from LinkedIn videos & Learning courses as MP3 or AAC. Save professional content as audio — no login.",
+      "keywordsAudio": [
+        "linkedin to mp3",
+        "linkedin mp3 downloader"
+      ],
+      "headingAudio": "LinkedIn to MP3 — Extract Audio from LinkedIn Videos",
+      "headingAccentAudio": "MP3 & AAC",
+      "subheadingAudio": "Free LinkedIn to MP3 converter. Convert LinkedIn to MP3 320kbps, FLAC, AAC, WAV & OGG — paste a link and download high-quality audio instantly.",
+      "placeholderAudio": "Paste your LinkedIn link here...",
+      "badgeAudio": "LinkedIn to MP3",
+      "featuresAudio": [
+        {
+          "title": "High-Quality MP3 & FLAC",
+          "desc": "Extract LinkedIn audio as MP3 320kbps, FLAC lossless, AAC, WAV or OGG — choose the format that fits your needs."
+        },
+        {
+          "title": "No App, No Login",
+          "desc": "Convert LinkedIn to MP3 directly in your browser. Paste any public link and download instantly — no software or sign-up required."
+        },
+        {
+          "title": "Works on Any Device",
+          "desc": "Save audio on Android, iPhone, iPad, Windows, Mac or Linux. Standard MP3/FLAC files play everywhere — VLC, QuickTime, Spotify local, any editor."
+        },
+        {
+          "title": "Batch & Playlists (Pro)",
+          "desc": "Download multiple LinkedIn tracks or entire channels at once with Pro. No waiting per file."
+        },
+        {
+          "title": "AI Transcripts Available",
+          "desc": "Want captions too? Switch to LinkedIn Transcript mode for SRT, VTT, TXT or JSON with timestamps."
+        }
+      ],
+      "faqsAudio": [
+        {
+          "q": "How do I convert LinkedIn video to MP3?",
+          "a": "Copy the LinkedIn link from your browser or share menu, paste it above, choose MP3 320kbps or FLAC, and click Convert to MP3. Your audio is ready in seconds — no app or sign-up required."
+        },
+        {
+          "q": "What audio quality is best — 320kbps or FLAC?",
+          "a": "MP3 320kbps is the best universal choice: high quality, small file (~2.4 MB/min), plays everywhere. Choose FLAC lossless (~8 MB/min) for archiving, DJ use or music production where every detail matters."
+        },
+        {
+          "q": "Can I convert LinkedIn to MP3 on iPhone or Android?",
+          "a": "Yes. Open this page in Safari (iPhone) or Chrome (Android), paste the link, pick MP3 or FLAC, and download. On iPhone files save to the Files app; on Android to Downloads — then open in any player."
+        },
+        {
+          "q": "Is converting LinkedIn to MP3 safe and legal?",
+          "a": "Converting publicly accessible LinkedIn content for personal offline listening is generally permitted. Do not re-upload copyrighted tracks without the creator's permission. DownForge processes files ephemerally and deletes them after your download — no storage, no tracking."
+        },
+        {
+          "q": "How long does LinkedIn to MP3 conversion take?",
+          "a": "Most tracks complete in under 10 seconds. Longer VODs or playlists may take 30–60 seconds. Pro users get priority processing during peak times."
+        }
+      ]
     },
     "snapchat": {
       "badge": "Snapchat Downloader",
@@ -1589,7 +2170,62 @@
         "spotlight video downloader"
       ],
       "metaTitleVideo": "Snapchat Video Downloader — Download Snapchat Videos & Stories in HD | DownForge",
-      "metaDescriptionVideo": "Free Snapchat video downloader. Save publicly shared Snapchat videos and Stories in HD MP4. No app install needed."
+      "metaDescriptionVideo": "Free Snapchat video downloader. Save publicly shared Snapchat videos and Stories in HD MP4. No app install needed.",
+      "metaTitleAudio": "Snapchat to MP3 — Convert Spotlight Videos to MP3 | DownForge",
+      "metaDescriptionAudio": "Free Snapchat to MP3 converter. Extract audio from Spotlight & public Stories as MP3 or AAC. Convert Snapchat videos to audio — no sign-up required.",
+      "keywordsAudio": [
+        "snapchat to mp3",
+        "snapchat mp3 downloader"
+      ],
+      "headingAudio": "Snapchat to MP3 — Extract Audio from Spotlight Videos",
+      "headingAccentAudio": "MP3 & AAC",
+      "subheadingAudio": "Free Snapchat to MP3 converter. Convert Snapchat to MP3 320kbps, FLAC, AAC, WAV & OGG — paste a link and download high-quality audio instantly.",
+      "placeholderAudio": "Paste your Snapchat link here...",
+      "badgeAudio": "Snapchat to MP3",
+      "featuresAudio": [
+        {
+          "title": "High-Quality MP3 & FLAC",
+          "desc": "Extract Snapchat audio as MP3 320kbps, FLAC lossless, AAC, WAV or OGG — choose the format that fits your needs."
+        },
+        {
+          "title": "No App, No Login",
+          "desc": "Convert Snapchat to MP3 directly in your browser. Paste any public link and download instantly — no software or sign-up required."
+        },
+        {
+          "title": "Works on Any Device",
+          "desc": "Save audio on Android, iPhone, iPad, Windows, Mac or Linux. Standard MP3/FLAC files play everywhere — VLC, QuickTime, Spotify local, any editor."
+        },
+        {
+          "title": "Batch & Playlists (Pro)",
+          "desc": "Download multiple Snapchat tracks or entire channels at once with Pro. No waiting per file."
+        },
+        {
+          "title": "AI Transcripts Available",
+          "desc": "Want captions too? Switch to Snapchat Transcript mode for SRT, VTT, TXT or JSON with timestamps."
+        }
+      ],
+      "faqsAudio": [
+        {
+          "q": "How do I convert Snapchat video to MP3?",
+          "a": "Copy the Snapchat link from your browser or share menu, paste it above, choose MP3 320kbps or FLAC, and click Convert to MP3. Your audio is ready in seconds — no app or sign-up required."
+        },
+        {
+          "q": "What audio quality is best — 320kbps or FLAC?",
+          "a": "MP3 320kbps is the best universal choice: high quality, small file (~2.4 MB/min), plays everywhere. Choose FLAC lossless (~8 MB/min) for archiving, DJ use or music production where every detail matters."
+        },
+        {
+          "q": "Can I convert Snapchat to MP3 on iPhone or Android?",
+          "a": "Yes. Open this page in Safari (iPhone) or Chrome (Android), paste the link, pick MP3 or FLAC, and download. On iPhone files save to the Files app; on Android to Downloads — then open in any player."
+        },
+        {
+          "q": "Is converting Snapchat to MP3 safe and legal?",
+          "a": "Converting publicly accessible Snapchat content for personal offline listening is generally permitted. Do not re-upload copyrighted tracks without the creator's permission. DownForge processes files ephemerally and deletes them after your download — no storage, no tracking."
+        },
+        {
+          "q": "How long does Snapchat to MP3 conversion take?",
+          "a": "Most tracks complete in under 10 seconds. Longer VODs or playlists may take 30–60 seconds. Pro users get priority processing during peak times."
+        }
+      ]
     },
     "soundcloud": {
       "badge": "SoundCloud Downloader",
@@ -1656,7 +2292,67 @@
         "soundcloud wav"
       ],
       "metaTitleVideo": "SoundCloud Video Downloader — Save SoundCloud Videos & Tracks | DownForge",
-      "metaDescriptionVideo": "Free SoundCloud downloader. Paste a track link to save SoundCloud audio and videos. No sign-up required."
+      "metaDescriptionVideo": "Free SoundCloud downloader. Paste a track link to save SoundCloud audio and videos. No sign-up required.",
+      "metaTitleAudio": "SoundCloud to MP3 — Download Tracks as MP3, FLAC & WAV | DownForge",
+      "metaDescriptionAudio": "Free SoundCloud to MP3 downloader. Download tracks & playlists as MP3 320kbps, FLAC, AAC or WAV. High-quality audio — no sign-up, any device.",
+      "keywordsAudio": [
+        "soundcloud to mp3",
+        "soundcloud downloader",
+        "download soundcloud tracks",
+        "soundcloud to flac",
+        "soundcloud mp3 converter",
+        "soundcloud audio downloader",
+        "save soundcloud music"
+      ],
+      "headingAudio": "SoundCloud to MP3 — Download Tracks as High-Quality Audio",
+      "headingAccentAudio": "MP3 320kbps & FLAC",
+      "subheadingAudio": "Free SoundCloud to MP3 converter. Convert SoundCloud to MP3 320kbps, FLAC, AAC, WAV & OGG — paste a link and download high-quality audio instantly.",
+      "placeholderAudio": "Paste your SoundCloud link here...",
+      "badgeAudio": "SoundCloud to MP3",
+      "featuresAudio": [
+        {
+          "title": "SoundCloud Native Audio",
+          "desc": "Download SoundCloud tracks as source-quality MP3 320kbps, FLAC, AAC or WAV. Keep every waveform detail."
+        },
+        {
+          "title": "Playlists & Sets",
+          "desc": "Save entire SoundCloud playlists or DJ sets in one flow (Pro). One link per track or full set URL."
+        },
+        {
+          "title": "No App, No Login",
+          "desc": "Convert SoundCloud to MP3 in your browser — paste any public track link and download instantly."
+        },
+        {
+          "title": "Any Device",
+          "desc": "MP3/FLAC files play everywhere — phones, laptops, DJ software, audio editors."
+        },
+        {
+          "title": "AI Transcripts",
+          "desc": "Need lyrics? Use Transcript mode for timestamped SRT/VTT/JSON."
+        }
+      ],
+      "faqsAudio": [
+        {
+          "q": "How do I convert SoundCloud tracks to MP3?",
+          "a": "Copy the SoundCloud link from your browser or share menu, paste it above, choose MP3 320kbps or FLAC, and click Convert to MP3. Your audio is ready in seconds — no app or sign-up required."
+        },
+        {
+          "q": "What audio quality is best — 320kbps or FLAC?",
+          "a": "MP3 320kbps is best for portable listening — small, plays everywhere. Choose FLAC lossless for archiving SoundCloud masters, DJ sets or production where source quality matters."
+        },
+        {
+          "q": "Can I convert SoundCloud to MP3 on iPhone or Android?",
+          "a": "Yes. Open this page in Safari (iPhone) or Chrome (Android), paste the SoundCloud track link, pick MP3 or FLAC, and download. iPhone saves to Files app; Android to Downloads."
+        },
+        {
+          "q": "Is converting SoundCloud to MP3 safe and legal?",
+          "a": "Converting publicly accessible SoundCloud content for personal offline listening is generally permitted. Do not re-upload copyrighted tracks without the creator's permission. DownForge processes files ephemerally and deletes them after your download — no storage, no tracking."
+        },
+        {
+          "q": "How long does SoundCloud to MP3 conversion take?",
+          "a": "Most tracks complete in under 10 seconds. Longer VODs or playlists may take 30–60 seconds. Pro users get priority processing during peak times."
+        }
+      ]
     },
     "kick": {
       "badge": "Kick Downloader",
@@ -1723,7 +2419,62 @@
         "kick highlight downloader"
       ],
       "metaTitleVideo": "Kick Video Downloader — Download Kick VODs & Clips in HD | DownForge",
-      "metaDescriptionVideo": "Free Kick video downloader. Save Kick VODs, clips and highlights in HD MP4. Paste a link — no sign-up required."
+      "metaDescriptionVideo": "Free Kick video downloader. Save Kick VODs, clips and highlights in HD MP4. Paste a link — no sign-up required.",
+      "metaTitleAudio": "Kick to MP3 — Convert Kick VODs & Clips to MP3 | DownForge",
+      "metaDescriptionAudio": "Free Kick to MP3 converter. Extract audio from Kick VODs & clips as MP3 320kbps or AAC. Save Kick streams as audio — fast, no sign-up required.",
+      "keywordsAudio": [
+        "kick to mp3",
+        "kick mp3 downloader"
+      ],
+      "headingAudio": "Kick to MP3 — Extract Audio from VODs & Clips",
+      "headingAccentAudio": "MP3 & AAC",
+      "subheadingAudio": "Free Kick to MP3 converter. Convert Kick to MP3 320kbps, FLAC, AAC, WAV & OGG — paste a link and download high-quality audio instantly.",
+      "placeholderAudio": "Paste your Kick link here...",
+      "badgeAudio": "Kick to MP3",
+      "featuresAudio": [
+        {
+          "title": "High-Quality MP3 & FLAC",
+          "desc": "Extract Kick audio as MP3 320kbps, FLAC lossless, AAC, WAV or OGG — choose the format that fits your needs."
+        },
+        {
+          "title": "No App, No Login",
+          "desc": "Convert Kick to MP3 directly in your browser. Paste any public link and download instantly — no software or sign-up required."
+        },
+        {
+          "title": "Works on Any Device",
+          "desc": "Save audio on Android, iPhone, iPad, Windows, Mac or Linux. Standard MP3/FLAC files play everywhere — VLC, QuickTime, Spotify local, any editor."
+        },
+        {
+          "title": "Batch & Playlists (Pro)",
+          "desc": "Download multiple Kick tracks or entire channels at once with Pro. No waiting per file."
+        },
+        {
+          "title": "AI Transcripts Available",
+          "desc": "Want captions too? Switch to Kick Transcript mode for SRT, VTT, TXT or JSON with timestamps."
+        }
+      ],
+      "faqsAudio": [
+        {
+          "q": "How do I convert Kick video to MP3?",
+          "a": "Copy the Kick link from your browser or share menu, paste it above, choose MP3 320kbps or FLAC, and click Convert to MP3. Your audio is ready in seconds — no app or sign-up required."
+        },
+        {
+          "q": "What audio quality is best — 320kbps or FLAC?",
+          "a": "MP3 320kbps is the best universal choice: high quality, small file (~2.4 MB/min), plays everywhere. Choose FLAC lossless (~8 MB/min) for archiving, DJ use or music production where every detail matters."
+        },
+        {
+          "q": "Can I convert Kick to MP3 on iPhone or Android?",
+          "a": "Yes. Open this page in Safari (iPhone) or Chrome (Android), paste the link, pick MP3 or FLAC, and download. On iPhone files save to the Files app; on Android to Downloads — then open in any player."
+        },
+        {
+          "q": "Is converting Kick to MP3 safe and legal?",
+          "a": "Converting publicly accessible Kick content for personal offline listening is generally permitted. Do not re-upload copyrighted tracks without the creator's permission. DownForge processes files ephemerally and deletes them after your download — no storage, no tracking."
+        },
+        {
+          "q": "How long does Kick to MP3 conversion take?",
+          "a": "Most tracks complete in under 10 seconds. Longer VODs or playlists may take 30–60 seconds. Pro users get priority processing during peak times."
+        }
+      ]
     },
     "youtube": {
       "badge": "YouTube Downloader",
@@ -1812,6 +2563,69 @@
         "download youtube video in hd",
         "youtube clip downloader",
         "yt video download"
+      ],
+      "metaTitleAudio": "YouTube to MP3 Converter — Download YouTube Audio as MP3 | DownForge",
+      "metaDescriptionAudio": "Free YouTube to MP3 converter. Convert videos to MP3 320kbps, FLAC, AAC & WAV. Paste a link to download audio instantly — no app, no sign-up.",
+      "keywordsAudio": [
+        "youtube to mp3",
+        "youtube mp3 downloader",
+        "youtube to mp3 converter",
+        "download youtube audio",
+        "youtube to mp3 320kbps",
+        "youtube to flac",
+        "convert youtube to mp3",
+        "youtube audio downloader",
+        "youtube mp3 converter free",
+        "download youtube music"
+      ],
+      "headingAudio": "YouTube to MP3 Converter — Extract Audio from YouTube",
+      "headingAccentAudio": "as MP3, FLAC & WAV",
+      "subheadingAudio": "Free YouTube to MP3 converter. Convert YouTube videos, Shorts & music to MP3 320kbps, FLAC, AAC & WAV. No app, no sign-up. Works on Android, iPhone & PC.",
+      "placeholderAudio": "Paste your YouTube link here...",
+      "badgeAudio": "YouTube to MP3",
+      "featuresAudio": [
+        {
+          "title": "High-Quality MP3 & FLAC",
+          "desc": "Extract YouTube audio as MP3 320kbps, FLAC lossless, AAC, WAV or OGG — choose the format that fits your needs."
+        },
+        {
+          "title": "No App, No Login",
+          "desc": "Convert YouTube to MP3 directly in your browser. Paste any public link and download instantly — no software or sign-up required."
+        },
+        {
+          "title": "Works on Any Device",
+          "desc": "Save audio on Android, iPhone, iPad, Windows, Mac or Linux. Standard MP3/FLAC files play everywhere — VLC, QuickTime, Spotify local, any editor."
+        },
+        {
+          "title": "Batch & Playlists (Pro)",
+          "desc": "Download multiple YouTube tracks or entire channels at once with Pro. No waiting per file."
+        },
+        {
+          "title": "AI Transcripts Available",
+          "desc": "Want captions too? Switch to YouTube Transcript mode for SRT, VTT, TXT or JSON with timestamps."
+        }
+      ],
+      "faqsAudio": [
+        {
+          "q": "How do I convert YouTube video to MP3?",
+          "a": "Copy the YouTube link from your browser or share menu, paste it above, choose MP3 320kbps or FLAC, and click Convert to MP3. Your audio is ready in seconds — no app or sign-up required."
+        },
+        {
+          "q": "What audio quality is best — 320kbps or FLAC?",
+          "a": "MP3 320kbps is the best universal choice: high quality, small file (~2.4 MB/min), plays everywhere. Choose FLAC lossless (~8 MB/min) for archiving, DJ use or music production where every detail matters."
+        },
+        {
+          "q": "Can I convert YouTube to MP3 on iPhone or Android?",
+          "a": "Yes. Open this page in Safari (iPhone) or Chrome (Android), paste the link, pick MP3 or FLAC, and download. On iPhone files save to the Files app; on Android to Downloads — then open in any player."
+        },
+        {
+          "q": "Is converting YouTube to MP3 safe and legal?",
+          "a": "Converting publicly accessible YouTube content for personal offline listening is generally permitted. Do not re-upload copyrighted tracks without the creator's permission. DownForge processes files ephemerally and deletes them after your download — no storage, no tracking."
+        },
+        {
+          "q": "How long does YouTube to MP3 conversion take?",
+          "a": "Most tracks complete in under 10 seconds. Longer VODs or playlists may take 30–60 seconds. Pro users get priority processing during peak times."
+        }
       ]
     },
     "niconico": {
@@ -1879,7 +2693,63 @@
         "niconico download free"
       ],
       "metaTitleVideo": "Niconico Video Downloader — Save Niconico Douga Videos in HD | DownForge",
-      "metaDescriptionVideo": "Free Niconico video downloader. Paste a Niconico link to save videos in original quality MP4. No sign-up required."
+      "metaDescriptionVideo": "Free Niconico video downloader. Paste a Niconico link to save videos in original quality MP4. No sign-up required.",
+      "metaTitleAudio": "Niconico to MP3 — Convert Niconico Douga Video to MP3 | DownForge",
+      "metaDescriptionAudio": "Free Niconico to MP3 converter. Extract audio from Niconico Douga videos as MP3, AAC or FLAC. Save Niconico audio instantly — no sign-up required.",
+      "keywordsAudio": [
+        "niconico to mp3",
+        "niconico mp3 downloader",
+        "nicovideo to mp3"
+      ],
+      "headingAudio": "Niconico to MP3 — Extract Audio from Niconico Douga",
+      "headingAccentAudio": "MP3 & FLAC",
+      "subheadingAudio": "Free Niconico to MP3 converter. Convert Niconico to MP3 320kbps, FLAC, AAC, WAV & OGG — paste a link and download high-quality audio instantly.",
+      "placeholderAudio": "Paste your Niconico link here...",
+      "badgeAudio": "Niconico to MP3",
+      "featuresAudio": [
+        {
+          "title": "High-Quality MP3 & FLAC",
+          "desc": "Extract Niconico audio as MP3 320kbps, FLAC lossless, AAC, WAV or OGG — choose the format that fits your needs."
+        },
+        {
+          "title": "No App, No Login",
+          "desc": "Convert Niconico to MP3 directly in your browser. Paste any public link and download instantly — no software or sign-up required."
+        },
+        {
+          "title": "Works on Any Device",
+          "desc": "Save audio on Android, iPhone, iPad, Windows, Mac or Linux. Standard MP3/FLAC files play everywhere — VLC, QuickTime, Spotify local, any editor."
+        },
+        {
+          "title": "Batch & Playlists (Pro)",
+          "desc": "Download multiple Niconico tracks or entire channels at once with Pro. No waiting per file."
+        },
+        {
+          "title": "AI Transcripts Available",
+          "desc": "Want captions too? Switch to Niconico Transcript mode for SRT, VTT, TXT or JSON with timestamps."
+        }
+      ],
+      "faqsAudio": [
+        {
+          "q": "How do I convert Niconico video to MP3?",
+          "a": "Copy the Niconico link from your browser or share menu, paste it above, choose MP3 320kbps or FLAC, and click Convert to MP3. Your audio is ready in seconds — no app or sign-up required."
+        },
+        {
+          "q": "What audio quality is best — 320kbps or FLAC?",
+          "a": "MP3 320kbps is the best universal choice: high quality, small file (~2.4 MB/min), plays everywhere. Choose FLAC lossless (~8 MB/min) for archiving, DJ use or music production where every detail matters."
+        },
+        {
+          "q": "Can I convert Niconico to MP3 on iPhone or Android?",
+          "a": "Yes. Open this page in Safari (iPhone) or Chrome (Android), paste the link, pick MP3 or FLAC, and download. On iPhone files save to the Files app; on Android to Downloads — then open in any player."
+        },
+        {
+          "q": "Is converting Niconico to MP3 safe and legal?",
+          "a": "Converting publicly accessible Niconico content for personal offline listening is generally permitted. Do not re-upload copyrighted tracks without the creator's permission. DownForge processes files ephemerally and deletes them after your download — no storage, no tracking."
+        },
+        {
+          "q": "How long does Niconico to MP3 conversion take?",
+          "a": "Most tracks complete in under 10 seconds. Longer VODs or playlists may take 30–60 seconds. Pro users get priority processing during peak times."
+        }
+      ]
     }
   },
   "TranscriptLanguage": {

@@ -88,10 +88,10 @@ export function buildContent(config: PlatformConfig, seed: PlatformContentSeed, 
     whatIsPlatform: buildWhatIsPlatform(config, seed.platformSummary, tName),
     stepByStepGuide: buildStepByStep(config, typeSteps, type, tName, verb),
     formatGuide: buildFormatGuide(config, formatIntro, type, tName),
-    qualityGuide: type === "video" ? buildQualityGuide(config, seed.qualityGuide) : undefined,
-    deviceGuide: type === "video" ? buildDeviceGuide(config, seed.deviceGuide) : undefined,
-    useCases: type === "video" ? buildUseCases(config, seed.useCases) : undefined,
-    safety: type === "video" ? buildSafety(config, seed.safety) : undefined,
+    qualityGuide: type === "video" ? buildQualityGuide(config, seed.qualityGuide) : type === "audio" ? buildAudioQualityGuide(config) : undefined,
+    deviceGuide: type === "video" ? buildDeviceGuide(config, seed.deviceGuide) : type === "audio" ? buildAudioDeviceGuide(config) : undefined,
+    useCases: type === "video" ? buildUseCases(config, seed.useCases) : type === "audio" ? buildAudioUseCases(config) : undefined,
+    safety: type === "video" ? buildSafety(config, seed.safety) : type === "audio" ? buildAudioSafety(config) : undefined,
     whyDownForge: buildWhyDownForge(config, seed.whyDownForgeParagraphs, type, tName, noun),
     proTips: buildProTips(config, seed.tips),
     troubleshooting: buildTroubleshooting(config, seed.troubleshooting),
@@ -170,6 +170,89 @@ function buildSafety(config: PlatformConfig, seeded?: { paragraphs: string[] }):
     paragraphs: seeded?.paragraphs ?? [
       `Downloading ${config.name} videos for personal, offline viewing is generally permitted. What's not allowed: re-uploading someone else's content, monetizing copyrighted material, or redistributing downloads without the creator's permission. A simple rule of thumb — if you didn't make it, don't republish it.`,
       `Security is the other half of "safe". Many downloader sites are plastered with fake download buttons, pop-ups, and malware. DownForge takes a different approach: no deceptive buttons, no forced app installs, no ad redirects. Files are processed in real time and deleted from our servers immediately after your download completes — we never keep copies of your content.`,
+    ],
+  };
+}
+
+const audioQualityTable: ContentTable = {
+  headers: ["Quality", "Bitrate", "Best For", "Approx. Size (per minute)"],
+  rows: [
+    ["FLAC Lossless", "Lossless (~800 kbps)", "Archiving, audiophile, music production", "~6–10 MB"],
+    ["WAV Uncompressed", "1411 kbps", "Professional editing, post-production", "~10 MB"],
+    ["MP3 320 kbps", "320 kbps", "Best universal quality — music, podcasts", "~2.4 MB"],
+    ["MP3 192 kbps", "192 kbps", "Good quality, smaller files", "~1.4 MB"],
+    ["AAC 256 kbps", "256 kbps", "Efficient, better than MP3 at same bitrate", "~1.8 MB"],
+    ["OGG 192 kbps", "192 kbps", "Open format, efficient for voice", "~1.4 MB"],
+  ],
+  caption: "Audio bitrate comparison. FLAC/WAV preserve 100% quality but are larger. MP3 320kbps is best for portable use.",
+};
+
+function buildAudioQualityGuide(config: PlatformConfig): ContentSection {
+  return {
+    heading: `${config.name} Audio Quality Guide — 320kbps vs 192kbps vs FLAC Lossless`,
+    subheading: `Choose the exact audio quality you need — from compact 128kbps to pristine FLAC lossless. DownForge shows every bitrate the source supports.`,
+    paragraphs: [
+      `Quality matters when extracting audio. When you convert a ${config.name} video to MP3 with DownForge, you get the source audio without extra re-encoding where possible. If the original upload had a high-quality audio track (for example a music video or podcast), you can capture it as FLAC lossless with no quality loss. If the source is voice-only compressed audio, 192kbps MP3 is already transparent and saves space. Any tool claiming to “enhance” 128kbps to 320kbps is simply upscaling — quality cannot be created that wasn’t in the source.`,
+      `For most listeners, MP3 320kbps is the sweet spot: indistinguishable from FLAC on phones, earbuds and Bluetooth speakers, yet 3–4× smaller. Choose MP3 192kbps when saving mobile data or storing many files, and reserve FLAC or WAV for archiving, DJ use, sampling, or music production where every waveform detail matters. AAC 256kbps is a modern alternative that matches MP3 320kbps quality at a slightly smaller size and is fully compatible with iPhone, Android and browsers.`,
+      `Tip: download once in the highest quality available. You can always convert FLAC → MP3 later with Audacity or FFmpeg, but you can never restore quality lost during the initial extraction. See the table below for a quick reference.`,
+    ],
+    table: audioQualityTable,
+  };
+}
+
+function buildAudioDeviceGuide(config: PlatformConfig): ContentSection {
+  return {
+    heading: `How to Convert ${config.name} to MP3 on Android, iPhone & PC`,
+    subheading: `DownForge runs entirely in your browser, so it works the same on every device — no app to install, no software to update.`,
+    paragraphs: [
+      `Whether you’re on a phone, tablet, laptop or desktop, the process is identical: copy the ${config.name} link, paste it above, choose MP3 or FLAC, and download. Because DownForge is a website — not an app — you avoid app-store restrictions, storage-hungry installs, and suspicious APK downloads. Paste any public ${config.name} link — including ${config.name} Shorts, clips, Reels or live VODs where available — and extract the audio as MP3.`,
+    ],
+    steps: [
+      {
+        title: `Convert ${config.name} to MP3 on Android`,
+        body: `Open this page in Chrome, paste the ${config.name} link, pick MP3 320kbps or FLAC, and tap Convert to MP3. The file saves straight to your Downloads folder — open it with Spotify (Local Files), VLC, Musicolet or your system player. No APK required.`,
+      },
+      {
+        title: `Convert ${config.name} to MP3 on iPhone & iPad`,
+        body: `Works in Safari on iOS 14 and later. After processing, tap the download link, then “Download” in Safari’s popup. Find the MP3/FLAC in the Files app (Downloads folder), share it to Apple Music, VLC or GarageBand. No App Store install needed.`,
+      },
+      {
+        title: `Convert ${config.name} to MP3 on PC & Mac`,
+        body: `Paste the link in any modern browser — Chrome, Edge, Firefox or Safari. The MP3/FLAC saves to your default download folder and plays instantly in Windows Media Player, QuickTime, VLC, Audacity or any DAW. For batch work, drag the file into your audio editor.`,
+      },
+      {
+        title: `Convert ${config.name} to MP3 on Tablets & Smart Speakers`,
+        body: `Download on your phone or computer first, then transfer via AirDrop, USB, Google Drive or local sharing. Because files are standard MP3/FLAC, every phone, tablet, speaker and car stereo plays them without conversion. Sync to your music library for offline listening anywhere.`,
+      },
+    ],
+  };
+}
+
+function buildAudioUseCases(config: PlatformConfig): ContentSection {
+  const isMusicPlatform = config.id === "soundcloud" || config.id === "youtube" || config.id === "tiktok" || config.id === "vimeo";
+  return {
+    heading: `What Can You Extract from ${config.name}? Use Cases`,
+    subheading: `More than just background music — DownForge handles every kind of ${config.name} audio.`,
+    paragraphs: [
+      `${config.name} hosts a huge variety of audio content beyond the video itself — ${isMusicPlatform ? "from full music tracks and podcast episodes to viral sound bites and film scores" : "from interviews and live commentary to educational voiceovers and community discussions"}. Extracting that audio lets you listen offline, sample, study or repurpose it where video isn’t needed.`,
+    ],
+    tips: [
+      { title: "Music & Playlists", body: `Save ${config.name} music tracks, covers or live performances as MP3 320kbps or FLAC. Build an offline music library that plays in any app — no streaming needed.` },
+      { title: "Podcasts & Interviews", body: `Convert long ${config.name} interviews, podcasts or talk shows to MP3 for commute listening. Smaller, audio-only files save data and battery.` },
+      { title: "Viral Sounds & Samples", body: `TikTok, Reels and Shorts often have catchy sounds you want to keep. Extract that audio as MP3 for ringtones, edits or remixing — no watermark, just the clean audio track.` },
+      { title: "Education & Lectures", body: `Turn ${config.name} tutorials, lectures and presentations into audio notes. Listen again offline, or feed the MP3 into transcription tools for study.` },
+      { title: "Professional Production", body: `For editors and DJs, FLAC/WAV preserves every detail from ${config.name} masters and live sets. Drop straight into Audacity, Ableton or Premiere without extra conversion.` },
+    ],
+  };
+}
+
+function buildAudioSafety(config: PlatformConfig): ContentSection {
+  return {
+    heading: `Is It Safe and Legal to Convert ${config.name} to MP3?`,
+    subheading: `The short answer: yes for personal use — here’s what you should know to stay safe and within the rules.`,
+    paragraphs: [
+      `Converting ${config.name} audio for personal, offline listening is generally permitted. What’s not allowed: re-uploading someone else’s music, monetizing copyrighted tracks, or distributing extracted audio without the creator’s permission. A simple rule — if you didn’t create it, don’t republish it. Check ${config.name}’s terms and the track’s license (especially for SoundCloud and Vimeo where Creative Commons is common).`,
+      `Security is the other half of “safe”. Many converter sites are plastered with fake “Download” buttons, pop-ups and malware. DownForge takes a different approach: no deceptive buttons, no forced app installs, no ad redirects. Files are processed in real time via yt-dlp + ffmpeg and deleted from our servers immediately after your download completes — we never keep copies of your audio. If you are a rights holder, contact dmca@downforge.me with the URL and proof of ownership.`,
     ],
   };
 }

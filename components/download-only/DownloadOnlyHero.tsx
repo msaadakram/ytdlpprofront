@@ -100,6 +100,16 @@ export function DownloadOnlyHero({ platform, type }: { platform: string; type: D
   const typeSubheadingKey = `${type}Subheading` as const;
   const chooseKey = type === "audio" ? "chooseAudioQuality" : type === "thumbnail" ? "chooseThumbnailFormat" : "chooseTranscriptFormat";
 
+  // Platform translations for audio-specific keys (unconditional hook)
+  const pt = useTranslations(`Platform.${platform}`);
+  const getAudioKey = (key: string, fallback: string) => {
+    try {
+      return pt(key as any);
+    } catch {
+      return fallback;
+    }
+  };
+
   const [selectedLanguage, setSelectedLanguage] = useState<string>("en");
   const [url, setUrl] = useState("");
   const [selectedFormat, setSelectedFormat] = useState(0);
@@ -355,38 +365,61 @@ export function DownloadOnlyHero({ platform, type }: { platform: string; type: D
           animate={{ opacity: 1, y: 0 }}
           transition={{ delay: 0.1 }}
         >
-          <span className="inline-flex items-center gap-2 text-xs font-semibold tracking-widest uppercase px-4 py-2 rounded-full bg-white/80 backdrop-blur-sm border border-border text-muted-foreground shadow-sm font-mono">
+          <span className="inline-flex items-center gap-2 text-xs font-semibold tracking-widest uppercase px-4 py-2 rounded-full bg-white/80 dark:bg-card/80 backdrop-blur-sm border border-border text-muted-foreground shadow-sm font-mono">
             <span className="w-1.5 h-1.5 rounded-full animate-pulse" style={{ backgroundColor: brandColor, boxShadow: `0 0 4px ${brandColor}` }} />
-            {config.name} {t(typeBadgeKey)}
+            {type === "audio" ? getAudioKey("badgeAudio", `${config.name} ${t(typeBadgeKey)}`) : `${config.name} ${t(typeBadgeKey)}`}
           </span>
         </motion.div>
 
+        {/* Audio trust pills — only for audio */}
+        {type === "audio" && (
+          <motion.div
+            className="flex flex-wrap justify-center gap-2 mb-6"
+            initial={{ opacity: 0, y: 8 }}
+            animate={{ opacity: 1, y: 0 }}
+            transition={{ delay: 0.2, duration: 0.5 }}
+          >
+            {[
+              t("trustPills.noSignup", { defaultValue: "No Sign-Up" }),
+              "320kbps",
+              "FLAC Lossless",
+              t("trustPills.fast", { defaultValue: "< 3s" }),
+              t("trustPills.free", { defaultValue: "100% Free" }),
+            ].map((pill) => (
+              <span key={pill} className="inline-flex items-center gap-1.5 text-xs font-semibold px-3 py-1.5 rounded-full bg-white dark:bg-card border border-border/60 shadow-sm font-sans">
+                <span className="w-1.5 h-1.5 rounded-full" style={{ backgroundColor: brandColor }} />
+                {pill}
+              </span>
+            ))}
+          </motion.div>
+        )}
+
         <motion.h1
-          className="text-center text-[2rem] leading-tight sm:text-5xl md:text-7xl font-extrabold tracking-tight text-foreground mb-6 font-heading"
+          className="text-center text-fluid-hero font-extrabold tracking-tight text-foreground mb-6 font-heading leading-tight"
           initial={{ opacity: 0, y: 24 }}
           animate={{ opacity: 1, y: 0 }}
           transition={{ delay: 0.15, duration: 0.6 }}
         >
           {type === "audio"
-            ? `Extract Audio from ${config.name} Videos`
+            ? getAudioKey("headingAudio", `Extract Audio from ${config.name} Videos`)
             : type === "thumbnail"
             ? `Download ${config.name} Thumbnails`
             : `Generate ${config.name} Transcripts`}
           <br />
-          <span style={{ color: brandColor }}>{t(typeHeadingKey)}</span>
+          <span style={{ color: brandColor }}>{type === "audio" ? getAudioKey("headingAccentAudio", t(typeHeadingKey)) : t(typeHeadingKey)}</span>
         </motion.h1>
 
         <motion.p
-          className="text-center text-base sm:text-lg text-muted-foreground max-w-xl mx-auto mb-8 sm:mb-10 leading-relaxed font-sans"
+          className="text-center text-base sm:text-lg text-muted-foreground max-w-2xl mx-auto mb-8 sm:mb-10 leading-relaxed font-sans"
           initial={{ opacity: 0, y: 16 }}
           animate={{ opacity: 1, y: 0 }}
           transition={{ delay: 0.25, duration: 0.6 }}
         >
-          {t(typeSubheadingKey)}
+          {type === "audio" ? getAudioKey("subheadingAudio", t(typeSubheadingKey)) : t(typeSubheadingKey)}
         </motion.p>
 
         <motion.div
-           className="bg-white/80 backdrop-blur-xl rounded-2xl shadow-2xl shadow-black/5 border border-border/60 p-4 sm:p-5 md:p-6 relative"
+           className="bg-white/80 dark:bg-card/80 backdrop-blur-xl rounded-2xl shadow-2xl shadow-black/5 border border-border/60 p-4 sm:p-5 md:p-6 relative"
           initial={{ opacity: 0, y: 24, scale: 0.98 }}
           animate={{ opacity: 1, y: 0, scale: 1 }}
           transition={{ delay: 0.4, duration: 0.6 }}
@@ -433,7 +466,7 @@ export function DownloadOnlyHero({ platform, type }: { platform: string; type: D
                   value={url}
                   onChange={(e) => handleUrlChange(e.target.value)}
                   onKeyDown={(e) => e.key === "Enter" && handleDownload()}
-                  placeholder={config.placeholder}
+                  placeholder={type === "audio" ? getAudioKey("placeholderAudio", config.placeholder) : config.placeholder}
                   className="w-full bg-transparent text-base sm:text-sm text-foreground placeholder:text-muted-foreground/60 outline-none font-sans tracking-wide"
                 />
                 {fetchingInfo && (
@@ -482,12 +515,12 @@ export function DownloadOnlyHero({ platform, type }: { platform: string; type: D
                 ) : infoReady ? (
                   <motion.span key="now" initial={{ opacity: 0 }} animate={{ opacity: 1 }} exit={{ opacity: 0 }} className="flex items-center gap-2">
                     <Download className="w-4 h-4" />
-                    {type === "thumbnail" ? st("saveThumbnail") : type === "transcript" ? st("transcribeBtn", { defaultValue: "Transcribe" }) : st("downloadNow")}
+                    {type === "audio" ? t("convertToMp3", { defaultValue: "Convert to MP3" }) : type === "thumbnail" ? st("saveThumbnail") : type === "transcript" ? st("transcribeBtn", { defaultValue: "Transcribe" }) : st("downloadNow")}
                   </motion.span>
                 ) : (
                   <motion.span key="idle" initial={{ opacity: 0 }} animate={{ opacity: 1 }} exit={{ opacity: 0 }} className="flex items-center gap-2">
                     <Download className="w-4 h-4" />
-                    {type === "thumbnail" ? st("getThumbnail") : type === "transcript" ? st("transcribeBtn", { defaultValue: "Transcribe" }) : st("download")}
+                    {type === "audio" ? t("convertToMp3", { defaultValue: "Convert to MP3" }) : type === "thumbnail" ? st("getThumbnail") : type === "transcript" ? st("transcribeBtn", { defaultValue: "Transcribe" }) : st("download")}
                   </motion.span>
                 )}
               </AnimatePresence>
