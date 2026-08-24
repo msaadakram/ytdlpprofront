@@ -48,3 +48,31 @@ export function getYouTubeVideoContent(type: DownloadType): PageContent | null {
   contentCache.set(key, content);
   return content;
 }
+
+export function getUniversalContent(platform: string): PageContent | null {
+  // All-tools content for /download/{platform} — describe all 4 formats in one guide.
+  // Use video type as base but buildUniversalContent will expand to cover audio/thumbnail/transcript.
+  const key = `universal:${platform}`;
+  if (contentCache.has(key)) return contentCache.get(key)!;
+  const config = platformConfigs[platform];
+  if (!config) return null;
+  const seed = platformSeeds[platform] ?? (platform === "youtube" ? youtubeDownloadSeed : undefined);
+  if (!seed) return null;
+  // Defer to builders' universal builder (lazy import to avoid circular)
+  // We use buildContent with video as base, then patch with universal helpers via dynamic require
+  const { buildUniversalContent } = require("./builders") as typeof import("./builders");
+  const content = buildUniversalContent(config, seed);
+  contentCache.set(key, content);
+  return content;
+}
+
+export function getYouTubeUniversalContent(): PageContent | null {
+  const key = "youtube-universal";
+  if (contentCache.has(key)) return contentCache.get(key)!;
+  const config = platformConfigs.youtube;
+  if (!config) return null;
+  const { buildUniversalContent } = require("./builders") as typeof import("./builders");
+  const content = buildUniversalContent(config, youtubeDownloadSeed);
+  contentCache.set(key, content);
+  return content;
+}

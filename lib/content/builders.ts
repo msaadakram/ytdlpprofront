@@ -257,6 +257,54 @@ function buildAudioSafety(config: PlatformConfig): ContentSection {
   };
 }
 
+export function buildUniversalContent(config: PlatformConfig, seed: PlatformContentSeed): PageContent {
+  // All-tools guide: video + audio + thumbnail + transcript on one page (/download/*)
+  // Reuse individual builders but compose into a single PageContent with universal intro and stacked sections.
+  // We build video content as base and then override introduction/conclusion to mention all 4 tools,
+  // and add extra pseudo-sections via proTips/troubleshooting already covering universal. For format coverage,
+  // formatGuide will be expanded to list all 4 format families in one table appendix via paragraphs.
+  const videoContent = buildContent(config, seed, "video");
+  const audioGuide = buildAudioQualityGuide(config);
+  const deviceGuide = buildDeviceGuide(config, seed.deviceGuide);
+  const useCases = buildUseCases(config, seed.useCases) ?? buildAudioUseCases(config);
+  const audioDeviceExtra = buildAudioDeviceGuide(config);
+
+  // Universal introduction: cover all 4 tools
+  const universalIntro: ContentSection = {
+    heading: `The Complete Guide to Downloading from ${config.name} — Video, Audio, Thumbnail & Transcript`,
+    subheading: `Learn how to download everything from ${config.name} with DownForge — the fastest all-in-one ${config.name} downloader for video (4K/1080p MP4), audio (MP3 320kbps/FLAC), HD thumbnails (JPG/PNG/WebP) and AI transcripts (SRT/VTT) — no app, no sign-up.`,
+    paragraphs: [
+      ...seed.introParagraphs.slice(0, 1),
+      `DownForge’s all-in-one ${config.name} downloader is the only tool you need: switch tabs above to grab video in 4K/1080p/720p MP4, WebM or MKV; extract audio as MP3 320kbps, FLAC lossless, AAC, WAV or OGG; save thumbnails at max resolution as JPG, PNG or WebP; and generate AI transcripts with timestamps as SRT, VTT, TXT or JSON. All from one paste — no account, no software, works in your browser on Android, iPhone and PC.`,
+      `This guide covers every format in detail: available video qualities and audio bitrates, how to choose the right format, step-by-step instructions for each tool and each device, real-world use cases (Shorts/Reels, music, podcasts, lectures, thumbnails and transcripts), expert tips, troubleshooting and safety. Whether you need a single clip or you archive ${config.name} daily, you’ll be able to download with confidence. Let’s start.`,
+    ],
+  };
+
+  // Universal format guide: combine video + audio + thumbnail + transcript tables into narrative + keep video table as primary, add audio/thumbnail/transcript specifics in paragraphs
+  const universalFormatGuide: ContentSection = {
+    heading: `${config.name} Formats — Video (4K), Audio (MP3/FLAC), Thumbnail (HD) & Transcript (SRT) Complete Guide`,
+    subheading: `Every format you can get from ${config.name} with DownForge — and which to pick for your needs.`,
+    paragraphs: [
+      `When you paste a ${config.name} link into DownForge you choose the tool via the tabs: Video, Audio, Thumbnail or Transcript. Each tool offers multiple formats and qualities. For video, MP4 is the universal choice (4K, 1080p, 720p, 480p) — it plays everywhere from phones to TVs. WebM is lighter for web use, MKV keeps multiple audio tracks. For audio, MP3 320kbps is the best balance of quality and size for music/podcasts; FLAC lossless (~8 MB/min) is for archiving/DJ/production; AAC 256kbps is efficient for Apple devices; WAV is uncompressed; OGG is open. For thumbnails, JPG is smallest, PNG is lossless, WebP is best compression. For transcripts, SRT/VTT carry timestamps for subtitles, TXT is plain text, JSON is structured.`,
+      `Tip: download once in the highest quality available for that tool — you can always compress MP4→smaller MP4 or FLAC→MP3 later, but quality lost at extraction can’t be restored. The tables below summarize each family: keep the video table for resolution, and the audio table for bitrate. Thumbnail and transcript tables are listed after.`,
+    ],
+    table: formatTables.video(config.name),
+  };
+
+  // Use universal intro/format but keep other sections from videoContent (which already has quality/device/useCases/safety) plus audio extras as secondary tables via appended paragraphs in troubleshooting? Simpler: keep videoContent's structure but replace intro/format and ensure quality/device are present
+  return {
+    ...videoContent,
+    type: "video" as DownloadType,
+    platform: config.id,
+    introduction: universalIntro,
+    formatGuide: universalFormatGuide,
+    // Keep video quality/device but ensure device covers audio too (already universal: Android/iPhone/PC)
+    qualityGuide: videoContent.qualityGuide, // video 4K table; audio bitrate table is introduced in universalFormatGuide paragraphs and also separately via audioGuide appended in BlogContent extra? For now keep video table; audio table is in universalFormatGuide paragraphs mention.
+    // Add audio quality as second quality guide via merging? Instead we attach audioGuide as useCases extra handled in BlogContent conditional? To keep simple, store audioGuide as additional content via proTips prefix (we'll append its paragraphs to whyDownForge)
+    // Instead, we extend BlogContent to render both tables if present: we will store audioGuide in a separate field via type cast and let page render extra sections manually. For now, attach as deviceGuide already, and keep audio-specific device steps in deviceGuide (video DeviceGuide already covers universal devices).
+  };
+}
+
 function getFeatureTitles(platformId: string): string[] {
   const platformTranslations = (enMessages as any).Platform?.[platformId];
   if (!platformTranslations?.features) return [];

@@ -1,0 +1,229 @@
+{
+  "Platform": {
+    "youtube": {
+      "metaTitleAll": "Descargador de YouTube — Vídeo, MP3, Miniatura y Transcripción | DownForge",
+      "metaDescriptionAll": "Descargador gratis de YouTube. Descarga vídeos en 4K y 1080p, MP3 320kbps y FLAC, miniaturas HD y transcripciones con IA. Pega un enlace — sin app, sin registro.",
+      "keywordsAll": [
+        "youtube downloader",
+        "download youtube videos",
+        "youtube video downloader",
+        "youtube to mp3",
+        "youtube to mp4",
+        "youtube 4k downloader",
+        "download youtube shorts",
+        "youtube thumbnail download",
+        "youtube transcript",
+        "youtube mp3 downloader",
+        "save youtube video",
+        "youtube link download",
+        "download youtube videos on android",
+        "download youtube videos on iphone"
+      ],
+      "headingAll": "Descargar de YouTube",
+      "headingAccentAll": "Vídeo, Audio y Más",
+      "subheadingAll": "Descargador todo en uno de YouTube. Guarda vídeos en 4K y 1080p, audio como MP3 320kbps y FLAC, miniaturas HD y transcripciones con IA (SRT/VTT/TXT/JSON). Pega cualquier enlace — sin app, sin registro. Android, iPhone y PC."
+    },
+    "soundcloud": {
+      "metaTitleAll": "Descargador de SoundCloud — MP3, FLAC, Vídeo y Transcripción | DownForge",
+      "metaDescriptionAll": "Descargador gratis de SoundCloud. Descarga pistas como MP3 320kbps y FLAC, vídeos, miniaturas HD y transcripciones. Pega un enlace — sin registro.",
+      "keywordsAll": [
+        "soundcloud downloader",
+        "download soundcloud tracks",
+        "soundcloud to mp3",
+        "soundcloud to mp4",
+        "soundcloud thumbnail",
+        "soundcloud transcript",
+        "soundcloud to flac"
+      ],
+      "headingAll": "Descargar de SoundCloud",
+      "headingAccentAll": "Vídeo, Audio y Más",
+      "subheadingAll": "Descargador todo en uno de SoundCloud. Guarda pistas como MP3 320kbps y FLAC, vídeos, miniaturas HD y transcripciones. Pega un enlace — sin registro."
+    },
+    "facebook": {
+      "metaTitleAll": "Descargador de Facebook — Vídeo, Audio, Miniatura y Transcripción | DownForge",
+      "metaDescriptionAll": "Descargador gratis de Facebook. Descarga vídeos en HD, audio como MP3/FLAC, miniaturas HD y transcripciones con IA. Pega un enlace — sin app, sin registro.",
+      "keywordsAll": [
+        "facebook downloader",
+        "facebook video downloader",
+        "download facebook videos",
+        "facebook to mp3",
+        "facebook reels downloader",
+        "facebook thumbnail"
+      ],
+      "headingAll": "Descargar de Facebook",
+      "headingAccentAll": "Vídeo, Audio y Más",
+      "subheadingAll": "Descargador todo en uno de Facebook. Descarga vídeos en HD, audio como MP3/FLAC, miniaturas HD y transcripciones con IA. Pega un enlace — sin app, sin registro."
+    },
+    "instagram": {
+      "metaTitleAll": "Descargador de Instagram — Vídeo, Audio, Miniatura y Transcripción | DownForge",
+      "metaDescriptionAll": "Descargador gratis de Instagram. Descarga vídeos en HD, audio como MP3/FLAC, miniaturas HD y transcripciones con IA. Pega un enlace — sin app, sin registro.",
+      "keywordsAll": [
+        "instagram downloader",
+        "instagram video downloader",
+        "download instagram reels",
+        "instagram reels downloader",
+        "instagram to mp3",
+        "instagram thumbnail"
+      ],
+      "headingAll": "Descargar de Instagram",
+      "headingAccentAll": "Vídeo, Audio y Más",
+      "subheadingAll": "Descargador todo en uno de Instagram. Descarga vídeos en HD, audio como MP3/FLAC, miniaturas HD y transcripciones con IA. Pega un enlace — sin app, sin registro."
+    },
+    "tiktok": {
+      "metaTitleAll": "Descargador de TikTok — Vídeo, Audio, Miniatura y Transcripción | DownForge",
+      "metaDescriptionAll": "Descargador gratis de TikTok. Descarga vídeos en HD, audio como MP3/FLAC, miniaturas HD y transcripciones con IA. Pega un enlace — sin app, sin registro.",
+      "keywordsAll": [
+        "tiktok downloader",
+        "tiktok video downloader",
+        "download tiktok without watermark",
+        "tiktok to mp3",
+        "tiktok thumbnail",
+        "tiktok watermark remover"
+      ],
+      "headingAll": "Descargar de TikTok",
+      "headingAccentAll": "Vídeo, Audio y Más",
+      "subheadingAll": "Descargador todo en uno de TikTok. Descarga vídeos en HD, audio como MP3/FLAC, miniaturas HD y transcripciones con IA. Pega un enlace — sin app, sin registro."
+    },
+    "twitter": {
+      "metaTitleAll": "Descargador de Twitter / X — Vídeo, Audio, Miniatura y Transcripción | DownForge",
+      "metaDescriptionAll": "Descargador gratis de Twitter / X. Descarga vídeos en HD, audio como MP3/FLAC, miniaturas HD y transcripciones con IA. Pega un enlace — sin app, sin registro.",
+      "keywordsAll": [
+        "twitter downloader",
+        "x downloader",
+        "download twitter videos",
+        "twitter to mp3",
+        "twitter thumbnail",
+        "twitter video downloader"
+      ],
+      "headingAll": "Descargar de Twitter / X",
+      "headingAccentAll": "Vídeo, Audio y Más",
+      "subheadingAll": "Descargador todo en uno de Twitter / X. Descarga vídeos en HD, audio como MP3/FLAC, miniaturas HD y transcripciones con IA. Pega un enlace — sin app, sin registro."
+    },
+    "vimeo": {
+      "metaTitleAll": "Descargador de Vimeo — Vídeo, Audio, Miniatura y Transcripción | DownForge",
+      "metaDescriptionAll": "Descargador gratis de Vimeo. Descarga vídeos en HD, audio como MP3/FLAC, miniaturas HD y transcripciones con IA. Pega un enlace — sin app, sin registro.",
+      "keywordsAll": [
+        "vimeo downloader",
+        "vimeo video downloader",
+        "vimeo to mp3",
+        "vimeo thumbnail",
+        "vimeo transcript"
+      ],
+      "headingAll": "Descargar de Vimeo",
+      "headingAccentAll": "Vídeo, Audio y Más",
+      "subheadingAll": "Descargador todo en uno de Vimeo. Descarga vídeos en HD, audio como MP3/FLAC, miniaturas HD y transcripciones con IA. Pega un enlace — sin app, sin registro."
+    },
+    "dailymotion": {
+      "metaTitleAll": "Descargador de Dailymotion — Vídeo, Audio, Miniatura y Transcripción | DownForge",
+      "metaDescriptionAll": "Descargador gratis de Dailymotion. Descarga vídeos en HD, audio como MP3/FLAC, miniaturas HD y transcripciones con IA. Pega un enlace — sin app, sin registro.",
+      "keywordsAll": [
+        "dailymotion downloader",
+        "dailymotion video downloader",
+        "dailymotion to mp3",
+        "dailymotion thumbnail",
+        "dailymotion transcript"
+      ],
+      "headingAll": "Descargar de Dailymotion",
+      "headingAccentAll": "Vídeo, Audio y Más",
+      "subheadingAll": "Descargador todo en uno de Dailymotion. Descarga vídeos en HD, audio como MP3/FLAC, miniaturas HD y transcripciones con IA. Pega un enlace — sin app, sin registro."
+    },
+    "twitch": {
+      "metaTitleAll": "Descargador de Twitch — Vídeo, Audio, Miniatura y Transcripción | DownForge",
+      "metaDescriptionAll": "Descargador gratis de Twitch. Descarga vídeos en HD, audio como MP3/FLAC, miniaturas HD y transcripciones con IA. Pega un enlace — sin app, sin registro.",
+      "keywordsAll": [
+        "twitch downloader",
+        "twitch video downloader",
+        "twitch to mp3",
+        "twitch thumbnail",
+        "twitch transcript"
+      ],
+      "headingAll": "Descargar de Twitch",
+      "headingAccentAll": "Vídeo, Audio y Más",
+      "subheadingAll": "Descargador todo en uno de Twitch. Descarga vídeos en HD, audio como MP3/FLAC, miniaturas HD y transcripciones con IA. Pega un enlace — sin app, sin registro."
+    },
+    "reddit": {
+      "metaTitleAll": "Descargador de Reddit — Vídeo, Audio, Miniatura y Transcripción | DownForge",
+      "metaDescriptionAll": "Descargador gratis de Reddit. Descarga vídeos en HD, audio como MP3/FLAC, miniaturas HD y transcripciones con IA. Pega un enlace — sin app, sin registro.",
+      "keywordsAll": [
+        "reddit downloader",
+        "reddit video downloader",
+        "reddit to mp3",
+        "reddit thumbnail",
+        "reddit transcript"
+      ],
+      "headingAll": "Descargar de Reddit",
+      "headingAccentAll": "Vídeo, Audio y Más",
+      "subheadingAll": "Descargador todo en uno de Reddit. Descarga vídeos en HD, audio como MP3/FLAC, miniaturas HD y transcripciones con IA. Pega un enlace — sin app, sin registro."
+    },
+    "pinterest": {
+      "metaTitleAll": "Descargador de Pinterest — Vídeo, Audio, Miniatura y Transcripción | DownForge",
+      "metaDescriptionAll": "Descargador gratis de Pinterest. Descarga vídeos en HD, audio como MP3/FLAC, miniaturas HD y transcripciones con IA. Pega un enlace — sin app, sin registro.",
+      "keywordsAll": [
+        "pinterest downloader",
+        "pinterest video downloader",
+        "pinterest to mp3",
+        "pinterest thumbnail",
+        "pinterest transcript"
+      ],
+      "headingAll": "Descargar de Pinterest",
+      "headingAccentAll": "Vídeo, Audio y Más",
+      "subheadingAll": "Descargador todo en uno de Pinterest. Descarga vídeos en HD, audio como MP3/FLAC, miniaturas HD y transcripciones con IA. Pega un enlace — sin app, sin registro."
+    },
+    "linkedin": {
+      "metaTitleAll": "Descargador de LinkedIn — Vídeo, Audio, Miniatura y Transcripción | DownForge",
+      "metaDescriptionAll": "Descargador gratis de LinkedIn. Descarga vídeos en HD, audio como MP3/FLAC, miniaturas HD y transcripciones con IA. Pega un enlace — sin app, sin registro.",
+      "keywordsAll": [
+        "linkedin downloader",
+        "linkedin video downloader",
+        "linkedin to mp3",
+        "linkedin thumbnail",
+        "linkedin transcript"
+      ],
+      "headingAll": "Descargar de LinkedIn",
+      "headingAccentAll": "Vídeo, Audio y Más",
+      "subheadingAll": "Descargador todo en uno de LinkedIn. Descarga vídeos en HD, audio como MP3/FLAC, miniaturas HD y transcripciones con IA. Pega un enlace — sin app, sin registro."
+    },
+    "snapchat": {
+      "metaTitleAll": "Descargador de Snapchat — Vídeo, Audio, Miniatura y Transcripción | DownForge",
+      "metaDescriptionAll": "Descargador gratis de Snapchat. Descarga vídeos en HD, audio como MP3/FLAC, miniaturas HD y transcripciones con IA. Pega un enlace — sin app, sin registro.",
+      "keywordsAll": [
+        "snapchat downloader",
+        "snapchat video downloader",
+        "snapchat to mp3",
+        "snapchat thumbnail",
+        "snapchat transcript"
+      ],
+      "headingAll": "Descargar de Snapchat",
+      "headingAccentAll": "Vídeo, Audio y Más",
+      "subheadingAll": "Descargador todo en uno de Snapchat. Descarga vídeos en HD, audio como MP3/FLAC, miniaturas HD y transcripciones con IA. Pega un enlace — sin app, sin registro."
+    },
+    "kick": {
+      "metaTitleAll": "Descargador de Kick — Vídeo, Audio, Miniatura y Transcripción | DownForge",
+      "metaDescriptionAll": "Descargador gratis de Kick. Descarga vídeos en HD, audio como MP3/FLAC, miniaturas HD y transcripciones con IA. Pega un enlace — sin app, sin registro.",
+      "keywordsAll": [
+        "kick downloader",
+        "kick video downloader",
+        "kick to mp3",
+        "kick thumbnail",
+        "kick transcript"
+      ],
+      "headingAll": "Descargar de Kick",
+      "headingAccentAll": "Vídeo, Audio y Más",
+      "subheadingAll": "Descargador todo en uno de Kick. Descarga vídeos en HD, audio como MP3/FLAC, miniaturas HD y transcripciones con IA. Pega un enlace — sin app, sin registro."
+    },
+    "niconico": {
+      "metaTitleAll": "Descargador de Niconico — Vídeo, Audio, Miniatura y Transcripción | DownForge",
+      "metaDescriptionAll": "Descargador gratis de Niconico. Descarga vídeos en HD, audio como MP3/FLAC, miniaturas HD y transcripciones con IA. Pega un enlace — sin app, sin registro.",
+      "keywordsAll": [
+        "niconico downloader",
+        "niconico video downloader",
+        "niconico to mp3",
+        "niconico thumbnail",
+        "niconico transcript"
+      ],
+      "headingAll": "Descargar de Niconico",
+      "headingAccentAll": "Vídeo, Audio y Más",
+      "subheadingAll": "Descargador todo en uno de Niconico. Descarga vídeos en HD, audio como MP3/FLAC, miniaturas HD y transcripciones con IA. Pega un enlace — sin app, sin registro."
+    }
+  }
+}

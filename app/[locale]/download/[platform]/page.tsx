@@ -9,7 +9,7 @@ import { PlatformFaq } from "@/components/platform-download/PlatformFaq";
 import { PlatformToolFeatures } from "@/components/platform-download/PlatformToolFeatures";
 import { PlatformHowItWorks } from "@/components/platform-download/PlatformHowItWorks";
 import { platformConfigs, platformSlugs } from "@/lib/platform-config";
-import { getContent } from "@/lib/content/registry";
+import { getUniversalContent } from "@/lib/content/registry";
 import { relatedLinksFor } from "@/lib/content/related-links";
 import { BlogContent } from "@/components/content/BlogContent";
 import { RelatedLinks } from "@/components/content/RelatedLinks";
@@ -30,23 +30,56 @@ export async function generateMetadata({ params }: Props): Promise<Metadata> {
 
   const t = await getTranslations({ locale, namespace: `Platform.${platform}` });
 
+  // All-tools metadata: video + audio + thumbnail + transcript on one page
+  const tryGet = (key: string, fallback: string) => {
+    try {
+      return t(key as any);
+    } catch {
+      return t(fallback as any);
+    }
+  };
+  const tryRaw = (key: string, fallback: string) => {
+    try {
+      return t.raw(key as any) as string[];
+    } catch {
+      return t.raw(fallback as any) as string[];
+    }
+  };
+
+  const title = tryGet("metaTitleAll", "metaTitle");
+  const description = tryGet("metaDescriptionAll", "metaDescription");
+  const keywords = tryRaw("keywordsAll", "keywords");
+  const ogImage = `https://www.downforge.me/og/download/${config.slug}.png`;
+
   return {
-    title: t("metaTitle"),
-    description: t("metaDescription"),
+    title,
+    description,
     openGraph: {
-      title: t("metaTitle"),
-      description: t("metaDescription"),
+      title,
+      description,
       url: `https://www.downforge.me/${locale}/download/${config.slug}`,
       siteName: "DownForge",
       locale,
       type: "website",
+      images: [{ url: ogImage, width: 1200, height: 630, alt: title }],
     },
     twitter: {
       card: "summary_large_image",
-      title: t("metaTitle"),
-      description: t("metaDescription"),
+      title,
+      description,
+      images: [ogImage],
     },
-    robots: { index: true, follow: true },
+    robots: {
+      index: true,
+      follow: true,
+      googleBot: {
+        index: true,
+        follow: true,
+        "max-video-preview": -1,
+        "max-image-preview": "large",
+        "max-snippet": -1,
+      },
+    },
     alternates: {
       canonical: `https://www.downforge.me/${locale}/download/${config.slug}`,
       languages: {
@@ -61,7 +94,7 @@ export async function generateMetadata({ params }: Props): Promise<Metadata> {
         zh: `https://www.downforge.me/zh/download/${config.slug}`,
       },
     },
-    keywords: t.raw("keywords") as string[],
+    keywords,
   };
 }
 
@@ -70,11 +103,29 @@ export default async function PlatformDownloadPage({ params }: Props) {
   const config = platformConfigs[platform];
   if (!config) notFound();
 
-  const content = getContent(platform, "video");
+  const content = getUniversalContent(platform);
 
   const t = await getTranslations({ locale, namespace: "PlatformPage" });
   const pt = await getTranslations({ locale, namespace: `Platform.${platform}` });
   const faqs = pt.raw("faqs") as { q: string; a: string }[];
+
+  const tryGetAll = (key: string, fallback: string) => {
+    try {
+      return pt(key as any);
+    } catch {
+      return pt(fallback as any);
+    }
+  };
+  const allTitle = tryGetAll("metaTitleAll", "metaTitle");
+  const allDescription = tryGetAll("metaDescriptionAll", "metaDescription");
+
+  // HowTo steps from universal content
+  const howToSteps = content?.stepByStepGuide?.steps?.map((s, i) => ({
+    "@type": "HowToStep",
+    position: i + 1,
+    name: s.title,
+    text: s.body,
+  })) ?? [];
 
   const jsonLd = {
     "@context": "https://schema.org",
@@ -84,18 +135,30 @@ export default async function PlatformDownloadPage({ params }: Props) {
         "@id": `https://www.downforge.me/${locale}/download/${config.slug}#breadcrumb`,
         itemListElement: [
           { "@type": "ListItem", position: 1, name: t("breadcrumbHome"), item: `https://www.downforge.me/${locale}` },
-          { "@type": "ListItem", position: 2, name: `${config.name} Downloader`, item: `https://www.downforge.me/${locale}/download/${config.slug}` },
+          { "@type": "ListItem", position: 2, name: `${config.name} Downloader — Video, Audio, Thumbnail & Transcript`, item: `https://www.downforge.me/${locale}/download/${config.slug}` },
         ],
       },
       {
         "@type": "WebApplication",
         "@id": `https://www.downforge.me/${locale}/download/${config.slug}#webapp`,
-        name: `DownForge ${config.name} Downloader`,
+        name: allTitle,
         url: `https://www.downforge.me/${locale}/download/${config.slug}`,
-        description: pt("metaDescription"),
-        applicationCategory: "Multimedia",
+        description: allDescription,
+        applicationCategory: "MultimediaApplication",
         operatingSystem: "All",
+        browserRequirements: "Requires JavaScript",
+        featureList: ["Video 4K/1080p MP4", "Audio MP3 320kbps FLAC", "Thumbnail JPG/PNG/WebP", "Transcript SRT/VTT JSON AI"],
+        screenshot: `https://www.downforge.me/og/download/${config.slug}.png`,
         offers: { "@type": "Offer", price: "0", priceCurrency: "USD" },
+      },
+      {
+        "@type": "HowTo",
+        "@id": `https://www.downforge.me/${locale}/download/${config.slug}#howto`,
+        name: `How to Download from ${config.name} — Video, Audio, Thumbnail & Transcript`,
+        description: `Paste a ${config.name} link, pick Video, Audio, Thumbnail or Transcript, and download. Works on Android, iPhone & PC.`,
+        totalTime: "PT30S",
+        tool: [{ "@type": "HowToTool", name: "DownForge" }],
+        step: howToSteps,
       },
       {
         "@type": "FAQPage",
@@ -105,6 +168,19 @@ export default async function PlatformDownloadPage({ params }: Props) {
           name: faq.q,
           acceptedAnswer: { "@type": "Answer", text: faq.a },
         })),
+      },
+      {
+        "@type": "Article",
+        "@id": `https://www.downforge.me/${locale}/download/${config.slug}#article`,
+        headline: allTitle,
+        description: allDescription,
+        inLanguage: locale,
+        author: { "@type": "Organization", name: "DownForge", url: "https://www.downforge.me" },
+        publisher: { "@type": "Organization", name: "DownForge", logo: { "@type": "ImageObject", url: "https://www.downforge.me/organization-logo.png" } },
+        datePublished: "2025-08-22",
+        dateModified: new Date().toISOString().slice(0, 10),
+        mainEntityOfPage: `https://www.downforge.me/${locale}/download/${config.slug}`,
+        wordCount: 2700,
       },
     ],
   };

@@ -1,0 +1,229 @@
+{
+  "Platform": {
+    "youtube": {
+      "metaTitleAll": "YouTubeダウンローダー — 動画、MP3、サムネイル＆文字起こし | DownForge",
+      "metaDescriptionAll": "無料のYouTubeダウンローダー。動画を4K＆1080p、MP3 320kbps＆FLAC、HDサムネイル＆AI文字起こしでダウンロード。リンクを貼り付け — アプリ不要、登録不要。",
+      "keywordsAll": [
+        "youtube downloader",
+        "download youtube videos",
+        "youtube video downloader",
+        "youtube to mp3",
+        "youtube to mp4",
+        "youtube 4k downloader",
+        "download youtube shorts",
+        "youtube thumbnail download",
+        "youtube transcript",
+        "youtube mp3 downloader",
+        "save youtube video",
+        "youtube link download",
+        "download youtube videos on android",
+        "download youtube videos on iphone"
+      ],
+      "headingAll": "YouTubeからダウンロード",
+      "headingAccentAll": "動画、音声など",
+      "subheadingAll": "オールインワン YouTubeダウンローダー。動画を4K＆1080p、音声をMP3 320kbps＆FLAC、HDサムネイル＆AI文字起こし（SRT/VTT/TXT/JSON）で保存。リンク貼り付け — アプリ不要、登録不要。Android、iPhone＆PC対応。"
+    },
+    "soundcloud": {
+      "metaTitleAll": "SoundCloudダウンローダー — MP3、FLAC、動画＆文字起こし | DownForge",
+      "metaDescriptionAll": "無料のSoundCloudダウンローダー。トラックをMP3 320kbps＆FLAC、動画、HDサムネイル＆文字起こしでダウンロード。リンクを貼り付け — 登録不要。",
+      "keywordsAll": [
+        "soundcloud downloader",
+        "download soundcloud tracks",
+        "soundcloud to mp3",
+        "soundcloud to mp4",
+        "soundcloud thumbnail",
+        "soundcloud transcript",
+        "soundcloud to flac"
+      ],
+      "headingAll": "SoundCloudからダウンロード",
+      "headingAccentAll": "動画、音声など",
+      "subheadingAll": "オールインワン SoundCloudダウンローダー。トラックをMP3 320kbps＆FLAC、動画、HDサムネイル＆文字起こしで保存。リンク貼り付け — 登録不要。"
+    },
+    "facebook": {
+      "metaTitleAll": "Facebookダウンローダー — 動画、音声、サムネイル＆文字起こし | DownForge",
+      "metaDescriptionAll": "無料のFacebookダウンローダー。動画をHD、音声をMP3/FLAC、HDサムネイル＆AI文字起こしでダウンロード。リンクを貼り付け — アプリ不要、登録不要。",
+      "keywordsAll": [
+        "facebook downloader",
+        "facebook video downloader",
+        "download facebook videos",
+        "facebook to mp3",
+        "facebook reels downloader",
+        "facebook thumbnail"
+      ],
+      "headingAll": "Facebookからダウンロード",
+      "headingAccentAll": "動画、音声など",
+      "subheadingAll": "オールインワン Facebookダウンローダー。動画をHD、音声をMP3/FLAC、HDサムネイル＆AI文字起こしでダウンロード。リンク貼り付け — アプリ不要、登録不要。"
+    },
+    "instagram": {
+      "metaTitleAll": "Instagramダウンローダー — 動画、音声、サムネイル＆文字起こし | DownForge",
+      "metaDescriptionAll": "無料のInstagramダウンローダー。動画をHD、音声をMP3/FLAC、HDサムネイル＆AI文字起こしでダウンロード。リンクを貼り付け — アプリ不要、登録不要。",
+      "keywordsAll": [
+        "instagram downloader",
+        "instagram video downloader",
+        "download instagram reels",
+        "instagram reels downloader",
+        "instagram to mp3",
+        "instagram thumbnail"
+      ],
+      "headingAll": "Instagramからダウンロード",
+      "headingAccentAll": "動画、音声など",
+      "subheadingAll": "オールインワン Instagramダウンローダー。動画をHD、音声をMP3/FLAC、HDサムネイル＆AI文字起こしでダウンロード。リンク貼り付け — アプリ不要、登録不要。"
+    },
+    "tiktok": {
+      "metaTitleAll": "TikTokダウンローダー — 動画、音声、サムネイル＆文字起こし | DownForge",
+      "metaDescriptionAll": "無料のTikTokダウンローダー。動画をHD、音声をMP3/FLAC、HDサムネイル＆AI文字起こしでダウンロード。リンクを貼り付け — アプリ不要、登録不要。",
+      "keywordsAll": [
+        "tiktok downloader",
+        "tiktok video downloader",
+        "download tiktok without watermark",
+        "tiktok to mp3",
+        "tiktok thumbnail",
+        "tiktok watermark remover"
+      ],
+      "headingAll": "TikTokからダウンロード",
+      "headingAccentAll": "動画、音声など",
+      "subheadingAll": "オールインワン TikTokダウンローダー。動画をHD、音声をMP3/FLAC、HDサムネイル＆AI文字起こしでダウンロード。リンク貼り付け — アプリ不要、登録不要。"
+    },
+    "twitter": {
+      "metaTitleAll": "Twitter / Xダウンローダー — 動画、音声、サムネイル＆文字起こし | DownForge",
+      "metaDescriptionAll": "無料のTwitter / Xダウンローダー。動画をHD、音声をMP3/FLAC、HDサムネイル＆AI文字起こしでダウンロード。リンクを貼り付け — アプリ不要、登録不要。",
+      "keywordsAll": [
+        "twitter downloader",
+        "x downloader",
+        "download twitter videos",
+        "twitter to mp3",
+        "twitter thumbnail",
+        "twitter video downloader"
+      ],
+      "headingAll": "Twitter / Xからダウンロード",
+      "headingAccentAll": "動画、音声など",
+      "subheadingAll": "オールインワン Twitter / Xダウンローダー。動画をHD、音声をMP3/FLAC、HDサムネイル＆AI文字起こしでダウンロード。リンク貼り付け — アプリ不要、登録不要。"
+    },
+    "vimeo": {
+      "metaTitleAll": "Vimeoダウンローダー — 動画、音声、サムネイル＆文字起こし | DownForge",
+      "metaDescriptionAll": "無料のVimeoダウンローダー。動画をHD、音声をMP3/FLAC、HDサムネイル＆AI文字起こしでダウンロード。リンクを貼り付け — アプリ不要、登録不要。",
+      "keywordsAll": [
+        "vimeo downloader",
+        "vimeo video downloader",
+        "vimeo to mp3",
+        "vimeo thumbnail",
+        "vimeo transcript"
+      ],
+      "headingAll": "Vimeoからダウンロード",
+      "headingAccentAll": "動画、音声など",
+      "subheadingAll": "オールインワン Vimeoダウンローダー。動画をHD、音声をMP3/FLAC、HDサムネイル＆AI文字起こしでダウンロード。リンク貼り付け — アプリ不要、登録不要。"
+    },
+    "dailymotion": {
+      "metaTitleAll": "Dailymotionダウンローダー — 動画、音声、サムネイル＆文字起こし | DownForge",
+      "metaDescriptionAll": "無料のDailymotionダウンローダー。動画をHD、音声をMP3/FLAC、HDサムネイル＆AI文字起こしでダウンロード。リンクを貼り付け — アプリ不要、登録不要。",
+      "keywordsAll": [
+        "dailymotion downloader",
+        "dailymotion video downloader",
+        "dailymotion to mp3",
+        "dailymotion thumbnail",
+        "dailymotion transcript"
+      ],
+      "headingAll": "Dailymotionからダウンロード",
+      "headingAccentAll": "動画、音声など",
+      "subheadingAll": "オールインワン Dailymotionダウンローダー。動画をHD、音声をMP3/FLAC、HDサムネイル＆AI文字起こしでダウンロード。リンク貼り付け — アプリ不要、登録不要。"
+    },
+    "twitch": {
+      "metaTitleAll": "Twitchダウンローダー — 動画、音声、サムネイル＆文字起こし | DownForge",
+      "metaDescriptionAll": "無料のTwitchダウンローダー。動画をHD、音声をMP3/FLAC、HDサムネイル＆AI文字起こしでダウンロード。リンクを貼り付け — アプリ不要、登録不要。",
+      "keywordsAll": [
+        "twitch downloader",
+        "twitch video downloader",
+        "twitch to mp3",
+        "twitch thumbnail",
+        "twitch transcript"
+      ],
+      "headingAll": "Twitchからダウンロード",
+      "headingAccentAll": "動画、音声など",
+      "subheadingAll": "オールインワン Twitchダウンローダー。動画をHD、音声をMP3/FLAC、HDサムネイル＆AI文字起こしでダウンロード。リンク貼り付け — アプリ不要、登録不要。"
+    },
+    "reddit": {
+      "metaTitleAll": "Redditダウンローダー — 動画、音声、サムネイル＆文字起こし | DownForge",
+      "metaDescriptionAll": "無料のRedditダウンローダー。動画をHD、音声をMP3/FLAC、HDサムネイル＆AI文字起こしでダウンロード。リンクを貼り付け — アプリ不要、登録不要。",
+      "keywordsAll": [
+        "reddit downloader",
+        "reddit video downloader",
+        "reddit to mp3",
+        "reddit thumbnail",
+        "reddit transcript"
+      ],
+      "headingAll": "Redditからダウンロード",
+      "headingAccentAll": "動画、音声など",
+      "subheadingAll": "オールインワン Redditダウンローダー。動画をHD、音声をMP3/FLAC、HDサムネイル＆AI文字起こしでダウンロード。リンク貼り付け — アプリ不要、登録不要。"
+    },
+    "pinterest": {
+      "metaTitleAll": "Pinterestダウンローダー — 動画、音声、サムネイル＆文字起こし | DownForge",
+      "metaDescriptionAll": "無料のPinterestダウンローダー。動画をHD、音声をMP3/FLAC、HDサムネイル＆AI文字起こしでダウンロード。リンクを貼り付け — アプリ不要、登録不要。",
+      "keywordsAll": [
+        "pinterest downloader",
+        "pinterest video downloader",
+        "pinterest to mp3",
+        "pinterest thumbnail",
+        "pinterest transcript"
+      ],
+      "headingAll": "Pinterestからダウンロード",
+      "headingAccentAll": "動画、音声など",
+      "subheadingAll": "オールインワン Pinterestダウンローダー。動画をHD、音声をMP3/FLAC、HDサムネイル＆AI文字起こしでダウンロード。リンク貼り付け — アプリ不要、登録不要。"
+    },
+    "linkedin": {
+      "metaTitleAll": "LinkedInダウンローダー — 動画、音声、サムネイル＆文字起こし | DownForge",
+      "metaDescriptionAll": "無料のLinkedInダウンローダー。動画をHD、音声をMP3/FLAC、HDサムネイル＆AI文字起こしでダウンロード。リンクを貼り付け — アプリ不要、登録不要。",
+      "keywordsAll": [
+        "linkedin downloader",
+        "linkedin video downloader",
+        "linkedin to mp3",
+        "linkedin thumbnail",
+        "linkedin transcript"
+      ],
+      "headingAll": "LinkedInからダウンロード",
+      "headingAccentAll": "動画、音声など",
+      "subheadingAll": "オールインワン LinkedInダウンローダー。動画をHD、音声をMP3/FLAC、HDサムネイル＆AI文字起こしでダウンロード。リンク貼り付け — アプリ不要、登録不要。"
+    },
+    "snapchat": {
+      "metaTitleAll": "Snapchatダウンローダー — 動画、音声、サムネイル＆文字起こし | DownForge",
+      "metaDescriptionAll": "無料のSnapchatダウンローダー。動画をHD、音声をMP3/FLAC、HDサムネイル＆AI文字起こしでダウンロード。リンクを貼り付け — アプリ不要、登録不要。",
+      "keywordsAll": [
+        "snapchat downloader",
+        "snapchat video downloader",
+        "snapchat to mp3",
+        "snapchat thumbnail",
+        "snapchat transcript"
+      ],
+      "headingAll": "Snapchatからダウンロード",
+      "headingAccentAll": "動画、音声など",
+      "subheadingAll": "オールインワン Snapchatダウンローダー。動画をHD、音声をMP3/FLAC、HDサムネイル＆AI文字起こしでダウンロード。リンク貼り付け — アプリ不要、登録不要。"
+    },
+    "kick": {
+      "metaTitleAll": "Kickダウンローダー — 動画、音声、サムネイル＆文字起こし | DownForge",
+      "metaDescriptionAll": "無料のKickダウンローダー。動画をHD、音声をMP3/FLAC、HDサムネイル＆AI文字起こしでダウンロード。リンクを貼り付け — アプリ不要、登録不要。",
+      "keywordsAll": [
+        "kick downloader",
+        "kick video downloader",
+        "kick to mp3",
+        "kick thumbnail",
+        "kick transcript"
+      ],
+      "headingAll": "Kickからダウンロード",
+      "headingAccentAll": "動画、音声など",
+      "subheadingAll": "オールインワン Kickダウンローダー。動画をHD、音声をMP3/FLAC、HDサムネイル＆AI文字起こしでダウンロード。リンク貼り付け — アプリ不要、登録不要。"
+    },
+    "niconico": {
+      "metaTitleAll": "Niconicoダウンローダー — 動画、音声、サムネイル＆文字起こし | DownForge",
+      "metaDescriptionAll": "無料のNiconicoダウンローダー。動画をHD、音声をMP3/FLAC、HDサムネイル＆AI文字起こしでダウンロード。リンクを貼り付け — アプリ不要、登録不要。",
+      "keywordsAll": [
+        "niconico downloader",
+        "niconico video downloader",
+        "niconico to mp3",
+        "niconico thumbnail",
+        "niconico transcript"
+      ],
+      "headingAll": "Niconicoからダウンロード",
+      "headingAccentAll": "動画、音声など",
+      "subheadingAll": "オールインワン Niconicoダウンローダー。動画をHD、音声をMP3/FLAC、HDサムネイル＆AI文字起こしでダウンロード。リンク貼り付け — アプリ不要、登録不要。"
+    }
+  }
+}

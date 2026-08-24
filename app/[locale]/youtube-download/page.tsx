@@ -7,15 +7,16 @@ import { RelatedTips } from "@/components/youtube-download/RelatedTips";
 import { FaqSection } from "@/components/youtube-download/FaqSection";
 import { PlatformToolFeatures } from "@/components/platform-download/PlatformToolFeatures";
 import { PlatformHowItWorks } from "@/components/platform-download/PlatformHowItWorks";
-import { getYouTubeDownloadContent } from "@/lib/content/registry";
+import { getYouTubeUniversalContent } from "@/lib/content/registry";
 import { relatedLinksFor } from "@/lib/content/related-links";
 import { BlogContent } from "@/components/content/BlogContent";
 import { RelatedLinks } from "@/components/content/RelatedLinks";
 
 type Props = { params: Promise<{ locale: string }> };
 
-const pageTitle = "YouTube Video Downloader — Download YouTube Videos in 4K, 1080p HD & MP3 | DownForge";
-const pageDescription = "Free YouTube video downloader. Paste any link to download YouTube videos in 4K, 1080p Full HD & 720p — Shorts, clips & long videos. Extract MP3 audio, HD thumbnails & AI transcripts. No app, no sign-up. Works on Android, iPhone & PC.";
+// All-tools SEO: video + MP3 + thumbnail + transcript on one page
+const pageTitle = "YouTube Downloader — Download Video, MP3, Thumbnail & Transcript | DownForge";
+const pageDescription = "Free YouTube downloader. Download videos in 4K & 1080p, MP3 320kbps & FLAC, HD thumbnails & AI transcripts. Paste any link — no app, no sign-up. Android, iPhone & PC.";
 
 export async function generateMetadata({ params }: Props): Promise<Metadata> {
   const { locale } = await params;
@@ -30,13 +31,32 @@ export async function generateMetadata({ params }: Props): Promise<Metadata> {
       siteName: "DownForge",
       locale,
       type: "website",
+      images: [
+        {
+          url: "https://www.downforge.me/og/download/youtube.png",
+          width: 1200,
+          height: 630,
+          alt: pageTitle,
+        },
+      ],
     },
     twitter: {
       card: "summary_large_image",
-      title: "YouTube Video Downloader — Download YouTube Videos in 4K, 1080p HD & MP3",
-      description: "Free YouTube video downloader. Download YouTube videos in 4K, 1080p, 720p. Extract audio as MP3, FLAC, AAC. Get HD thumbnails & AI transcripts. No sign-up required.",
+      title: pageTitle,
+      description: pageDescription,
+      images: ["https://www.downforge.me/og/download/youtube.png"],
     },
-    robots: { index: true, follow: true },
+    robots: {
+      index: true,
+      follow: true,
+      googleBot: {
+        index: true,
+        follow: true,
+        "max-video-preview": -1,
+        "max-image-preview": "large",
+        "max-snippet": -1,
+      },
+    },
     alternates: {
       canonical: `https://www.downforge.me/${locale}/youtube-download`,
       languages: {
@@ -52,14 +72,11 @@ export async function generateMetadata({ params }: Props): Promise<Metadata> {
       },
     },
     keywords: [
-      "youtube video downloader", "download youtube videos", "youtube video download",
-      "free youtube downloader", "youtube downloader", "download youtube",
+      "youtube downloader", "youtube video downloader", "download youtube videos", "youtube video download",
+      "free youtube downloader", "download youtube", "youtube to mp3", "youtube mp3 downloader", "mp3 youtube downloader", "youtube to mp4",
       "youtube 4k downloader", "youtube video download 1080p", "youtube downloader hd",
-      "youtube shorts download", "download youtube shorts", "youtube to mp4",
-      "youtube to mp3", "youtube mp3 downloader", "mp3 youtube downloader",
-      "save youtube video", "youtube link download", "download youtube videos on android",
-      "download youtube videos on iphone", "download youtube video in hd",
-      "youtube clip downloader", "yt video download", "online youtube downloader",
+      "youtube shorts download", "download youtube shorts", "youtube thumbnail download", "youtube transcript", "youtube link download",
+      "download youtube videos on android", "download youtube videos on iphone", "youtube clip downloader", "yt video download", "online youtube downloader",
     ],
   };
 }
@@ -93,7 +110,14 @@ const faqs = [
 
 export default async function YoutubeDownloadPage({ params }: Props) {
   const { locale } = await params;
-  const content = getYouTubeDownloadContent("video");
+  const content = getYouTubeUniversalContent();
+
+  const howToSteps = content?.stepByStepGuide?.steps?.map((s, i) => ({
+    "@type": "HowToStep",
+    position: i + 1,
+    name: s.title,
+    text: s.body,
+  })) ?? [];
 
   const jsonLd = {
     "@context": "https://schema.org",
@@ -101,21 +125,32 @@ export default async function YoutubeDownloadPage({ params }: Props) {
       {
         "@type": "BreadcrumbList",
         "@id": `https://www.downforge.me/${locale}/youtube-download#breadcrumb`,
-        "itemListElement": [
+        itemListElement: [
           { "@type": "ListItem", position: 1, name: "Home", item: `https://www.downforge.me/${locale}` },
-          { "@type": "ListItem", position: 2, name: "YouTube Video Downloader", item: `https://www.downforge.me/${locale}/youtube-download` },
+          { "@type": "ListItem", position: 2, name: "YouTube Downloader — Video, MP3, Thumbnail & Transcript", item: `https://www.downforge.me/${locale}/youtube-download` },
         ],
       },
       {
         "@type": "WebApplication",
         "@id": `https://www.downforge.me/${locale}/youtube-download#webapp`,
-        name: "DownForge YouTube Video Downloader",
+        name: pageTitle,
         url: `https://www.downforge.me/${locale}/youtube-download`,
-        description: "Free online YouTube video downloader. Download videos up to 4K, extract audio as MP3/FLAC/AAC, generate AI transcripts as SRT/VTT/TXT/JSON, save HD thumbnails. No registration required.",
-        applicationCategory: "Multimedia",
+        description: pageDescription,
+        applicationCategory: "MultimediaApplication",
         operatingSystem: "All",
         browserRequirements: "Requires JavaScript",
+        featureList: ["Video 4K/1080p MP4", "Audio MP3 320kbps FLAC", "Thumbnail JPG/PNG/WebP", "Transcript SRT/VTT JSON AI"],
+        screenshot: "https://www.downforge.me/og/download/youtube.png",
         offers: { "@type": "Offer", price: "0", priceCurrency: "USD" },
+      },
+      {
+        "@type": "HowTo",
+        "@id": `https://www.downforge.me/${locale}/youtube-download#howto`,
+        name: "How to Download from YouTube — Video, Audio, Thumbnail & Transcript",
+        description: "Paste a YouTube link, pick Video, MP3, Thumbnail or Transcript, and download. Works on Android, iPhone & PC.",
+        totalTime: "PT30S",
+        tool: [{ "@type": "HowToTool", name: "DownForge" }],
+        step: howToSteps,
       },
       {
         "@type": "FAQPage",
@@ -125,6 +160,19 @@ export default async function YoutubeDownloadPage({ params }: Props) {
           name: faq.q,
           acceptedAnswer: { "@type": "Answer", text: faq.a },
         })),
+      },
+      {
+        "@type": "Article",
+        "@id": `https://www.downforge.me/${locale}/youtube-download#article`,
+        headline: pageTitle,
+        description: pageDescription,
+        inLanguage: locale,
+        author: { "@type": "Organization", name: "DownForge", url: "https://www.downforge.me" },
+        publisher: { "@type": "Organization", name: "DownForge", logo: { "@type": "ImageObject", url: "https://www.downforge.me/organization-logo.png" } },
+        datePublished: "2025-08-22",
+        dateModified: new Date().toISOString().slice(0, 10),
+        mainEntityOfPage: `https://www.downforge.me/${locale}/youtube-download`,
+        wordCount: 2800,
       },
     ],
   };
