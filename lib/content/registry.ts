@@ -19,7 +19,9 @@ export function getContent(platform: string, type: DownloadType): PageContent | 
   const config = platformConfigs[platform];
   if (!config) return null;
 
-  const seed = platformSeeds[platform];
+  // YouTube has dedicated seeds (youtubeDownloadSeed) but is not in platformSeeds map.
+  // For /audio-downloader/youtube we must use youtubeDownloadSeed to render long-form SEO content.
+  const seed = platformSeeds[platform] ?? (platform === "youtube" ? youtubeDownloadSeed : undefined);
   if (!seed) return null;
 
   const content = buildContent(config, seed, type);
