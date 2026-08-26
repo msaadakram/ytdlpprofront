@@ -6,6 +6,18 @@ import { StatusClient } from "@/components/status/StatusClient";
 import { AlertTriangle } from "lucide-react";
 import { routing } from "@/lib/i18n/routing";
 
+const ogLocaleMap: Record<string, string> = {
+  en: "en_US",
+  es: "es_ES",
+  fr: "fr_FR",
+  de: "de_DE",
+  pt: "pt_BR",
+  ja: "ja_JP",
+  ar: "ar_SA",
+  ru: "ru_RU",
+  zh: "zh_CN",
+};
+
 type Props = { params: Promise<{ locale: string }> };
 
 export async function generateMetadata({ params }: Props): Promise<Metadata> {

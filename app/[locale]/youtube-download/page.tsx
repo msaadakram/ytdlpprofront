@@ -14,12 +14,38 @@ import { RelatedLinks } from "@/components/content/RelatedLinks";
 
 type Props = { params: Promise<{ locale: string }> };
 
-// All-tools SEO: video + MP3 + thumbnail + transcript on one page
-const pageTitle = "YouTube Downloader — Download Video, MP3, Thumbnail & Transcript | DownForge";
-const pageDescription = "Free YouTube downloader. Download videos in 4K & 1080p, MP3 320kbps & FLAC, HD thumbnails & AI transcripts. Paste any link — no app, no sign-up. Android, iPhone & PC.";
+const ogLocaleMap: Record<string, string> = {
+  en: "en_US",
+  es: "es_ES",
+  fr: "fr_FR",
+  de: "de_DE",
+  pt: "pt_BR",
+  ja: "ja_JP",
+  ar: "ar_SA",
+  ru: "ru_RU",
+  zh: "zh_CN",
+};
 
 export async function generateMetadata({ params }: Props): Promise<Metadata> {
   const { locale } = await params;
+  const t = await getTranslations({ locale, namespace: "Platform.youtube" });
+  const tryGet = (key: string, fallback: string) => {
+    try {
+      return t(key as any);
+    } catch {
+      return t(fallback as any);
+    }
+  };
+  const tryRaw = (key: string, fallback: string) => {
+    try {
+      return t.raw(key as any) as string[];
+    } catch {
+      return t.raw(fallback as any) as string[];
+    }
+  };
+  const pageTitle = tryGet("metaTitleAll", "metaTitle");
+  const pageDescription = tryGet("metaDescriptionAll", "metaDescription");
+  const keywords = tryRaw("keywordsAll", "keywords");
 
   return {
     title: pageTitle,
@@ -29,7 +55,7 @@ export async function generateMetadata({ params }: Props): Promise<Metadata> {
       description: pageDescription,
       url: `https://www.downforge.me/${locale}/youtube-download`,
       siteName: "DownForge",
-      locale,
+      locale: ogLocaleMap[locale] ?? locale,
       type: "website",
       images: [
         {
@@ -71,46 +97,38 @@ export async function generateMetadata({ params }: Props): Promise<Metadata> {
         zh: "https://www.downforge.me/zh/youtube-download",
       },
     },
-    keywords: [
-      "youtube downloader", "youtube video downloader", "download youtube videos", "youtube video download",
-      "free youtube downloader", "download youtube", "youtube to mp3", "youtube mp3 downloader", "mp3 youtube downloader", "youtube to mp4",
-      "youtube 4k downloader", "youtube video download 1080p", "youtube downloader hd",
-      "youtube shorts download", "download youtube shorts", "youtube thumbnail download", "youtube transcript", "youtube link download",
-      "download youtube videos on android", "download youtube videos on iphone", "youtube clip downloader", "yt video download", "online youtube downloader",
-    ],
+    keywords,
   };
 }
 
-const faqs = [
-  {
-    q: "Is downloading YouTube videos legal?",
-    a: "Downloading videos for personal offline use is generally permitted. However, redistributing copyrighted content without permission may violate YouTube's Terms of Service. Always respect copyright and use downloaded content responsibly.",
-  },
-  {
-    q: "What video qualities are available?",
-    a: "YouTube videos can be downloaded in multiple qualities including 4K (2160p), 1440p, 1080p (Full HD), 720p (HD), 480p, and 360p. The available qualities depend on what the original uploader provided.",
-  },
-  {
-    q: "What audio formats do you support?",
-    a: "We support MP3 (up to 320 kbps), AAC (256 kbps), FLAC (lossless), WAV (uncompressed), and OGG (192 kbps). For music production and archiving, FLAC is recommended.",
-  },
-  {
-    q: "Can I download YouTube thumbnails?",
-    a: "Yes, you can download YouTube video thumbnails in maximum resolution. Available in JPG, PNG, and WebP formats at up to 1920x1080 resolution.",
-  },
-  {
-    q: "How long are downloaded files stored?",
-    a: "Files are stored temporarily and deleted automatically after the download is complete. We do not keep copies of your downloaded content. For Pro users, files remain available for 24 hours.",
-  },
-  {
-    q: "Can I download YouTube transcripts and subtitles?",
-    a: "Yes, select the Transcript mode and choose from SRT, VTT, TXT, or JSON formats. Our AI generates accurate transcripts with timestamps from any video with audio.",
-  },
-];
-
 export default async function YoutubeDownloadPage({ params }: Props) {
   const { locale } = await params;
-  const content = getYouTubeUniversalContent();
+  const content = locale === "en" ? getYouTubeUniversalContent() : null;
+  const t = await getTranslations({ locale, namespace: "Platform.youtube" });
+  const tPage = await getTranslations({ locale, namespace: "PlatformPage" });
+  const tryGet = (key: string, fallback: string) => {
+    try {
+      return t(key as any);
+    } catch {
+      return t(fallback as any);
+    }
+  };
+  const pageTitle = tryGet("metaTitleAll", "metaTitle");
+  const pageDescription = tryGet("metaDescriptionAll", "metaDescription");
+  const faqs = (() => {
+    try {
+      return t.raw("faqs") as { q: string; a: string }[];
+    } catch {
+      return [];
+    }
+  })();
+  const breadcrumbHome = (() => {
+    try {
+      return tPage("breadcrumbHome");
+    } catch {
+      return "Home";
+    }
+  })();
 
   const howToSteps = content?.stepByStepGuide?.steps?.map((s, i) => ({
     "@type": "HowToStep",
@@ -126,8 +144,8 @@ export default async function YoutubeDownloadPage({ params }: Props) {
         "@type": "BreadcrumbList",
         "@id": `https://www.downforge.me/${locale}/youtube-download#breadcrumb`,
         itemListElement: [
-          { "@type": "ListItem", position: 1, name: "Home", item: `https://www.downforge.me/${locale}` },
-          { "@type": "ListItem", position: 2, name: "YouTube Downloader — Video, MP3, Thumbnail & Transcript", item: `https://www.downforge.me/${locale}/youtube-download` },
+          { "@type": "ListItem", position: 1, name: breadcrumbHome, item: `https://www.downforge.me/${locale}` },
+          { "@type": "ListItem", position: 2, name: pageTitle, item: `https://www.downforge.me/${locale}/youtube-download` },
         ],
       },
       {

@@ -23,6 +23,18 @@ export function generateStaticParams() {
   );
 }
 
+const ogLocaleMap: Record<string, string> = {
+  en: "en_US",
+  es: "es_ES",
+  fr: "fr_FR",
+  de: "de_DE",
+  pt: "pt_BR",
+  ja: "ja_JP",
+  ar: "ar_SA",
+  ru: "ru_RU",
+  zh: "zh_CN",
+};
+
 export async function generateMetadata({ params }: Props): Promise<Metadata> {
   const { platform, locale } = await params;
   const config = platformConfigs[platform];
@@ -59,7 +71,7 @@ export async function generateMetadata({ params }: Props): Promise<Metadata> {
       description,
       url: `https://www.downforge.me/${locale}/download/${config.slug}`,
       siteName: "DownForge",
-      locale,
+      locale: ogLocaleMap[locale] ?? locale,
       type: "website",
       images: [{ url: ogImage, width: 1200, height: 630, alt: title }],
     },
@@ -103,7 +115,7 @@ export default async function PlatformDownloadPage({ params }: Props) {
   const config = platformConfigs[platform];
   if (!config) notFound();
 
-  const content = getUniversalContent(platform);
+  const content = locale === "en" ? getUniversalContent(platform) : null;
 
   const t = await getTranslations({ locale, namespace: "PlatformPage" });
   const pt = await getTranslations({ locale, namespace: `Platform.${platform}` });

@@ -6,6 +6,18 @@ import { Link } from "@/lib/i18n/navigation";
 import { ShieldCheck, Zap, Globe, Users, Clock, Star, Sparkles, ArrowRight, Award, Lock, Download } from "lucide-react";
 import { routing } from "@/lib/i18n/routing";
 
+const ogLocaleMap: Record<string, string> = {
+  en: "en_US",
+  es: "es_ES",
+  fr: "fr_FR",
+  de: "de_DE",
+  pt: "pt_BR",
+  ja: "ja_JP",
+  ar: "ar_SA",
+  ru: "ru_RU",
+  zh: "zh_CN",
+};
+
 type Props = { params: Promise<{ locale: string }> };
 
 export async function generateMetadata({ params }: Props): Promise<Metadata> {
@@ -23,7 +35,7 @@ export async function generateMetadata({ params }: Props): Promise<Metadata> {
       description: t("metaDescription"),
       type: "website",
       siteName: "DownForge",
-      locale,
+      locale: ogLocaleMap[locale] ?? locale,
       images: [{ url: "/og-about.png", width: 1200, height: 630, alt: "About DownForge" }],
     },
     twitter: { card: "summary_large_image", title: t("metaTitle"), description: t("metaDescription"), images: ["/og-about.png"] },
@@ -138,7 +150,7 @@ export default async function AboutPage({ params }: Props) {
             </div>
             <div className="lg:col-span-2">
               <div className="rounded-[1.75rem] bg-[#0d1f26] text-white p-6 sm:p-7 border border-white/5 shadow-xl">
-                <h3 className="text-sm font-bold tracking-wide font-heading flex items-center gap-2"><Award className="w-4 h-4 text-[#5baab8]" /> Milestones</h3>
+                <h3 className="text-sm font-bold tracking-wide font-heading flex items-center gap-2"><Award className="w-4 h-4 text-[#5baab8]" /> {t("milestonesTitle")}</h3>
                 <div className="mt-6 space-y-5 relative">
                   <div className="absolute left-[11px] top-2 bottom-2 w-px bg-white/10" />
                   {timeline.map((item) => (

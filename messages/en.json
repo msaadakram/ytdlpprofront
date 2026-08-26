@@ -686,7 +686,18 @@
     "section4Title": "4. Cookies",
     "section4Body": "We use essential cookies for authentication and session management. Analytics cookies are used only with your consent. You can control cookie preferences through your browser settings.",
     "section5Title": "5. Your Rights",
-    "section5Body": "You have the right to access, correct, or delete your personal data at any time. Contact us at privacy@downforge.me to exercise these rights. We will respond to your request within 30 days."
+    "section5Body": "You have the right to access, correct, or delete your personal data at any time. Contact us at privacy@downforge.me to exercise these rights. We will respond to your request within 30 days.",
+    "badge": "Privacy",
+    "heroSubtitle": "Your privacy is the core of DownForge. We process ephemerally, store nothing, and give you full control.",
+    "contentsTitle": "Contents",
+    "transparentBadge": "Transparent & minimal",
+    "ctaTerms": "Terms of Service",
+    "ctaContact": "Contact support",
+    "footerNote": "We never sell your data. For deletion requests, email privacy@downforge.me",
+    "questionsAboutData": "Questions about data?",
+    "contactUsLink": "Contact us",
+    "replyWithin": "— we reply within 24 hours.",
+    "metaDescription": "DownForge privacy policy. Learn how we handle your data, what we collect, and your rights. Ephemeral processing, no logs."
   },
   "Pricing": {
     "title": "Pricing Plans",
@@ -700,7 +711,17 @@
     "faq3Q": "Is there a free trial for Pro?",
     "faq3A": "Yes, we offer a 7-day free trial of our Pro plan with no commitment required.",
     "faq4Q": "Can I cancel anytime?",
-    "faq4A": "Absolutely. No contracts, no cancellation fees. Your access continues until the end of the billing period."
+    "faq4A": "Absolutely. No contracts, no cancellation fees. Your access continues until the end of the billing period.",
+    "heroTitle": "Choose your plan",
+    "heroTitleAccent": "plan",
+    "heroBadge": "Pricing",
+    "trustNoCard": "No credit card for Free",
+    "trustCancel": "Cancel anytime",
+    "trustRefund": "30-day refund",
+    "notSureTitle": "Not sure?",
+    "notSureDesc": "Start free and upgrade when you need 4K, FLAC, or batch.",
+    "ctaStartFree": "Start free",
+    "ctaTalkToUs": "Talk to us"
   },
   "About": {
     "badge": "About DownForge",
@@ -773,7 +794,8 @@
     "ctaButton": "Try it now — it’s free",
     "ctaSecondary": "View pricing",
     "metaTitle": "About DownForge — Fast, Private Video Downloader for 200+ Sites | DownForge",
-    "metaDescription": "Learn about DownForge: our story, values, and why thousands trust us to download video, audio, thumbnails and transcripts from 200+ platforms — fast and private."
+    "metaDescription": "Learn about DownForge: our story, values, and why thousands trust us to download video, audio, thumbnails and transcripts from 200+ platforms — fast and private.",
+    "milestonesTitle": "Milestones"
   },
   "Terms": {
     "badge": "Legal",
@@ -874,7 +896,10 @@
       }
     ],
     "metaTitle": "Contact DownForge — Support, Billing & DMCA | DownForge",
-    "metaDescription": "Contact DownForge support: billing, API, DMCA, or general help. Avg. reply <24h. Email support@downforge.me or use the form."
+    "metaDescription": "Contact DownForge support: billing, API, DMCA, or general help. Avg. reply <24h. Email support@downforge.me or use the form.",
+    "linkPrivacy": "Privacy",
+    "linkTerms": "Terms",
+    "linkApiDocs": "API Docs"
   },
   "Features": {
     "badge": "Why DownForge",

@@ -8,6 +8,18 @@ import { Link } from "@/lib/i18n/navigation";
 import { Sparkles, ShieldCheck, Zap, Clock, ArrowRight } from "lucide-react";
 import { routing } from "@/lib/i18n/routing";
 
+const ogLocaleMap: Record<string, string> = {
+  en: "en_US",
+  es: "es_ES",
+  fr: "fr_FR",
+  de: "de_DE",
+  pt: "pt_BR",
+  ja: "ja_JP",
+  ar: "ar_SA",
+  ru: "ru_RU",
+  zh: "zh_CN",
+};
+
 type Props = { params: Promise<{ locale: string }> };
 
 export async function generateMetadata({ params }: Props): Promise<Metadata> {
@@ -24,7 +36,7 @@ export async function generateMetadata({ params }: Props): Promise<Metadata> {
       description: t("subtitle"),
       type: "website",
       siteName: "DownForge",
-      locale,
+      locale: ogLocaleMap[locale] ?? locale,
     },
   };
 }
@@ -58,20 +70,20 @@ export default async function PricingPage({ params }: Props) {
               <Sparkles className="w-3.5 h-3.5 text-[#8fd3df]" /> {t("title")}
             </span>
             <h1 className="mt-4 text-3xl xs:text-4xl sm:text-5xl lg:text-[2.75rem] font-black tracking-tight font-heading leading-[0.95]">
-              Choose your <span className="bg-gradient-to-r from-[#5baab8] to-[#8fd3df] bg-clip-text text-transparent">plan</span>
+              {t("heroTitle")} <span className="bg-gradient-to-r from-[#5baab8] to-[#8fd3df] bg-clip-text text-transparent">{t("heroTitleAccent")}</span>
             </h1>
             <p className="mt-3 sm:mt-4 text-sm sm:text-base lg:text-lg leading-relaxed text-white/60 max-w-2xl mx-auto font-sans">
               {t("subtitle")}
             </p>
             <div className="mt-6 flex flex-wrap items-center justify-center gap-2 text-xs font-medium">
               <span className="inline-flex items-center gap-1.5 bg-white/10 border border-white/10 rounded-full px-3 py-1.5 text-white/80">
-                <ShieldCheck className="w-3.5 h-3.5 text-emerald-400" /> No credit card for Free
+                <ShieldCheck className="w-3.5 h-3.5 text-emerald-400" /> {t("trustNoCard")}
               </span>
               <span className="inline-flex items-center gap-1.5 bg-white/10 border border-white/10 rounded-full px-3 py-1.5 text-white/80">
-                <Zap className="w-3.5 h-3.5 text-amber-400" /> Cancel anytime
+                <Zap className="w-3.5 h-3.5 text-amber-400" /> {t("trustCancel")}
               </span>
               <span className="inline-flex items-center gap-1.5 bg-white/10 border border-white/10 rounded-full px-3 py-1.5 text-white/80">
-                <Clock className="w-3.5 h-3.5 text-[#8fd3df]" /> 30-day refund
+                <Clock className="w-3.5 h-3.5 text-[#8fd3df]" /> {t("trustRefund")}
               </span>
             </div>
           </div>
@@ -85,15 +97,15 @@ export default async function PricingPage({ params }: Props) {
         <section className="max-w-5xl mx-auto px-4 sm:px-6 mt-6 lg:mt-8">
           <div className="rounded-2xl bg-white dark:bg-white/[0.04] border border-border/60 dark:border-white/10 p-4 sm:p-6 flex flex-col sm:flex-row items-center justify-between gap-4 shadow-sm">
             <div className="text-sm font-sans">
-              <div className="font-bold text-foreground">Not sure?</div>
-              <div className="text-muted-foreground">Start free and upgrade when you need 4K, FLAC, or batch.</div>
+              <div className="font-bold text-foreground">{t("notSureTitle")}</div>
+              <div className="text-muted-foreground">{t("notSureDesc")}</div>
             </div>
             <div className="flex gap-2 shrink-0">
               <Link href="/sign-up" className="inline-flex items-center gap-2 bg-[#0d1f26] dark:bg-white text-white dark:text-[#0d1f26] px-5 py-2.5 rounded-full text-sm font-bold hover:bg-[#1a3545] dark:hover:bg-slate-100 transition-colors">
-                Start free <ArrowRight className="w-4 h-4" />
+                {t("ctaStartFree")} <ArrowRight className="w-4 h-4" />
               </Link>
               <Link href="/contact" className="inline-flex items-center gap-2 bg-white dark:bg-white/10 border border-border dark:border-white/10 px-5 py-2.5 rounded-full text-sm font-semibold hover:bg-muted/50 transition-colors">
-                Talk to us
+                {t("ctaTalkToUs")}
               </Link>
             </div>
           </div>

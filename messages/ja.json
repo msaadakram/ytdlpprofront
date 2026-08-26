@@ -621,33 +621,53 @@
     }
   },
   "Privacy": {
-    "backToHome": "Back to home",
     "title": "プライバシーポリシー",
-    "lastUpdated": "最終更新日：2025年1月",
-    "section1Title": "1. Information We Collect",
-    "section1Body": "We collect only the information necessary to provide our service: the URLs you submit for download, your IP address for rate limiting, and account information (email, name) if you create an account. We do not collect or store the actual content of your downloads beyond the processing period.",
-    "section2Title": "2. How We Use Your Data",
-    "section2Body": "URLs are used solely to process your download request and are deleted from our servers immediately after processing. Account information is used for authentication, billing, and communication about your account. We do not sell, trade, or share your personal data with third parties.",
-    "section3Title": "3. Data Security",
-    "section3Body": "We implement industry-standard security measures including encryption in transit (TLS), secure API authentication, and regular security audits. Downloaded files are stored temporarily in isolated storage and automatically purged.",
-    "section4Title": "4. Cookies",
-    "section4Body": "We use essential cookies for authentication and session management. Analytics cookies are used only with your consent. You can control cookie preferences through your browser settings.",
-    "section5Title": "5. Your Rights",
-    "section5Body": "You have the right to access, correct, or delete your personal data at any time. Contact us at privacy@downforge.me to exercise these rights. We will respond to your request within 30 days."
+    "lastUpdated": "最終更新: 2025年1月",
+    "backToHome": "ホームに戻る",
+    "section1Title": "1. 収集する情報",
+    "section1Body": "私たちはサービス提供に必要な情報のみを収集します：ダウンロードのために送信されたURL、レート制限のためのIPアドレス、アカウントを作成する場合のアカウント情報（メール、名前）。処理期間を超えてダウンロードの実際のコンテンツを収集または保存しません。",
+    "section2Title": "2. データの使用方法",
+    "section2Body": "URLはダウンロードリクエストの処理にのみ使用され、処理後すぐにサーバーから削除されます。アカウント情報は認証、請求、アカウントに関する連絡に使用されます。個人データを第三者に販売、取引、共有しません。",
+    "section3Title": "3. データセキュリティ",
+    "section3Body": "TLSによる転送中の暗号化、安全なAPI認証、定期的なセキュリティ監査を含む業界標準のセキュリティ対策を実装しています。ダウンロードされたファイルは一時的に隔離されたストレージに保存され、自動的に削除されます。",
+    "section4Title": "4. Cookie",
+    "section4Body": "認証とセッション管理に必須のCookieを使用します。分析Cookieは同意がある場合のみ使用します。ブラウザ設定でCookie設定を制御できます。",
+    "section5Title": "5. あなたの権利",
+    "section5Body": "あなたはいつでも個人データにアクセス、修正、削除する権利があります。これらの権利を行使するには privacy@downforge.me にお問い合わせください。30日以内に対応します。",
+    "badge": "プライバシー",
+    "heroSubtitle": "あなたのプライバシーはDownForgeの核です。一時的に処理し、何も保存せず、完全な制御を提供します。",
+    "contentsTitle": "目次",
+    "transparentBadge": "透明でミニマル",
+    "ctaTerms": "利用規約",
+    "ctaContact": "サポートにお問い合わせ",
+    "footerNote": "私たちはあなたのデータを販売しません。削除リクエストは privacy@downforge.me まで",
+    "questionsAboutData": "データについて質問がありますか？",
+    "contactUsLink": "お問い合わせ",
+    "replyWithin": "— 24時間以内に返信します。"
   },
   "Pricing": {
     "title": "料金プラン",
-    "subtitle": "ニーズに合ったプランをお選びください。無料から始めて、必要に応じてアップグレード。",
+    "subtitle": "ニーズに合ったプランを選択。無料で開始し、必要に応じてアップグレード。",
     "backToHome": "Back to home",
-    "faqTitle": "Frequently Asked Questions",
-    "faq1Q": "Can I switch plans at any time?",
-    "faq1A": "Yes, you can upgrade or downgrade at any time. Changes take effect immediately.",
-    "faq2Q": "What payment methods do you accept?",
-    "faq2A": "We accept all major credit cards, PayPal, and cryptocurrency.",
-    "faq3Q": "Is there a free trial for Pro?",
-    "faq3A": "Yes, we offer a 7-day free trial of our Pro plan with no commitment required.",
-    "faq4Q": "Can I cancel anytime?",
-    "faq4A": "Absolutely. No contracts, no cancellation fees. Your access continues until the end of the billing period."
+    "faqTitle": "よくある質問",
+    "faq1Q": "いつでもプランを変更できますか？",
+    "faq1A": "はい、いつでもアップグレード/ダウングレード可能。即時反映。",
+    "faq2Q": "どの支払い方法を受け付けていますか？",
+    "faq2A": "主要なクレジットカード、PayPal、暗号通貨。",
+    "faq3Q": "Proの無料トライアルはありますか？",
+    "faq3A": "はい、7日間無料トライアルを提供。",
+    "faq4Q": "いつでもキャンセルできますか？",
+    "faq4A": "もちろんです。契約なし、キャンセル料なし。",
+    "heroTitle": "プランを選択",
+    "heroTitleAccent": "",
+    "heroBadge": "料金",
+    "trustNoCard": "無料はカード不要",
+    "trustCancel": "いつでもキャンセル",
+    "trustRefund": "30日間返金",
+    "notSureTitle": "迷っていますか？",
+    "notSureDesc": "無料で開始し、4K、FLAC、バッチが必要になったらアップグレード。",
+    "ctaStartFree": "無料で開始",
+    "ctaTalkToUs": "お問い合わせ"
   },
   "SEO": {
     "homeTitle": "DownForge — あらゆる動画、音声、サムネイル、文字起こしをダウンロード",
@@ -3108,209 +3128,213 @@
     "lt": "リトアニア語"
   },
   "About": {
-    "badge": "About DownForge",
-    "title": "Built for creators,",
-    "titleAccent": "trusted by thousands.",
-    "subtitle": "We make downloading from 200+ platforms effortless — fast, private, and in any format you need. No bloat, no tracking, just download.",
-    "statsBadge": "At a glance",
+    "badge": "DownForgeについて",
+    "title": "クリエイターのために作られ、",
+    "titleAccent": "何千人にも信頼されています。",
+    "subtitle": "200以上のプラットフォームからのダウンロードを簡単に — 高速、プライベート、あらゆる形式で。余計なものなし、トラッキングなし、ただダウンロード。",
+    "statsBadge": "概要",
     "stats": [
       {
         "value": "200+",
-        "label": "Platforms supported",
-        "sub": "YouTube to niche sites"
+        "label": "対応プラットフォーム",
+        "sub": "YouTubeからニッチサイトまで"
       },
       {
-        "value": "< 3s",
-        "label": "Average processing",
-        "sub": "Server-side, CDN delivered"
+        "value": "< 3秒",
+        "label": "平均処理時間",
+        "sub": "サーバー処理、CDN配信"
       },
       {
         "value": "4.9/5",
-        "label": "User rating",
-        "sub": "Trusted by creators"
+        "label": "ユーザー評価",
+        "sub": "クリエイターに信頼されています"
       },
       {
-        "value": "Zero",
-        "label": "Logs kept",
-        "sub": "Ephemeral by design"
+        "value": "ゼロ",
+        "label": "保存されたログ",
+        "sub": "一時的処理による設計"
       }
     ],
-    "storyBadge": "Our Story",
-    "storyTitle": "Why we built DownForge",
-    "storyP1": "DownForge started in 2024 with a simple observation: creators, educators, and editors waste hours juggling platform-specific tools to save a clip in the right format.",
-    "storyP2": "We wrapped the best open-source engines — yt-dlp and ffmpeg — in a fast, private, and beautiful product. No ads in your face, no files kept on our servers, just paste → pick → download.",
-    "storyP3": "Today, DownForge serves thousands of daily downloads, from TikTok drafts to 4K YouTube masters, with the same promise: what you paste is processed ephemerally and deleted immediately.",
+    "storyBadge": "私たちの物語",
+    "storyTitle": "なぜDownForgeを作ったのか",
+    "storyP1": "DownForgeは2024年、シンプルな観察から生まれました。クリエイター、教育者、編集者は、クリップを正しい形式で保存するためにプラットフォーム固有のツールを行き来して何時間も無駄にしています。",
+    "storyP2": "私たちは最高のオープンソースエンジン — yt-dlpとffmpeg — を高速、プライベート、美しいプロダクトに包みました。邪魔な広告なし、サーバーにファイルを保存せず、ただ貼り付け → 選択 → ダウンロード。",
+    "storyP3": "今日、DownForgeはTikTokの下書きから4K YouTubeマスターまで毎日何千ものダウンロードを提供し、同じ約束を守ります。貼り付けたものは一時的に処理され、すぐに削除されます。",
     "timeline": [
       {
         "year": "2024",
-        "title": "Founded",
-        "desc": "Launched with YouTube + TikTok support"
+        "title": "設立",
+        "desc": "YouTube + TikTokサポートでローンチ"
       },
       {
         "year": "2025",
-        "title": "200+ sites",
-        "desc": "Expanded to 14 major platforms, universal auto-detect"
+        "title": "200+サイト",
+        "desc": "14の主要プラットフォームに拡大、ユニバーサル自動検出"
       },
       {
-        "year": "Now",
+        "year": "現在",
         "title": "Pro & API",
-        "desc": "Unlimited, 4K, batch, and developer API"
+        "desc": "無制限、4K、バッチ、開発者API"
       }
     ],
-    "valuesBadge": "Why us",
-    "valuesTitle": "Speed, privacy, and quality — without compromise.",
+    "valuesBadge": "私たちが選ばれる理由",
+    "valuesTitle": "スピード、プライバシー、品質 — 妥協なし。",
     "values": [
       {
-        "title": "Privacy first",
-        "desc": "We don’t store URLs or files. Ephemeral processing, auto-deleted in 60 minutes. No selling data. Ever."
+        "title": "プライバシー第一",
+        "desc": "URLやファイルを保存しません。一時的処理、60分で自動削除。データを販売しません。"
       },
       {
-        "title": "Blazing fast",
-        "desc": "Server-side conversion with CDN streaming. Your download starts in under 3 seconds."
+        "title": "超高速",
+        "desc": "CDNストリーミングによるサーバー側変換。ダウンロードは3秒以内に開始。"
       },
       {
-        "title": "Any format, any quality",
-        "desc": "MP4, WebM, FLAC, PNG, SRT — from 144p to 4K and 320 kbps to lossless."
+        "title": "あらゆる形式、あらゆる品質",
+        "desc": "MP4、WebM、FLAC、PNG、SRT — 144pから4K、320 kbpsからロスレスまで。"
       }
     ],
-    "ctaTitle": "Ready to download like a pro?",
-    "ctaSubtitle": "Paste a URL and get your file in seconds. No account required.",
-    "ctaButton": "Try it now — it’s free",
-    "ctaSecondary": "View pricing",
-    "metaTitle": "About DownForge — Fast, Private Video Downloader for 200+ Sites | DownForge",
-    "metaDescription": "Learn about DownForge: our story, values, and why thousands trust us to download video, audio, thumbnails and transcripts from 200+ platforms — fast and private."
+    "ctaTitle": "プロのようにダウンロードする準備はできましたか？",
+    "ctaSubtitle": "URLを貼り付けて数秒でファイルを取得。アカウント不要。",
+    "ctaButton": "今すぐ試す — 無料",
+    "ctaSecondary": "料金を見る",
+    "metaTitle": "DownForgeについて — 200以上のサイト向け高速プライベートダウンローダー | DownForge",
+    "metaDescription": "DownForgeについて学ぶ：私たちの物語、価値、そして何千人もの人々が200以上のプラットフォームからビデオ、音声、サムネイル、文字起こしをダウンロードするために私たちを信頼する理由 — 高速でプライベート。",
+    "milestonesTitle": "マイルストーン"
   },
   "Terms": {
-    "badge": "Legal",
-    "title": "Terms of Service",
-    "subtitle": "Please read these terms carefully. By using DownForge, you agree to them.",
-    "lastUpdated": "Last updated: August 2025",
-    "tocTitle": "Contents",
+    "badge": "法的情報",
+    "title": "利用規約",
+    "subtitle": "これらの規約を注意深くお読みください。DownForgeを使用することで、これらに同意したものとみなされます。",
+    "lastUpdated": "最終更新: 2025年8月",
+    "tocTitle": "目次",
     "sections": [
       {
         "id": "acceptance",
-        "title": "1. Acceptance of Terms",
-        "body": "By accessing or using DownForge (the “Service”), you agree to these Terms. If you do not agree, do not use the Service. We may update these Terms; continued use after changes means acceptance. We will post the new date above."
+        "title": "1. 規約の承諾",
+        "body": "DownForge（「サービス」）にアクセスまたは使用することで、これらの規約に同意したことになります。同意しない場合はサービスを使用しないでください。これらの規約を更新する場合があります。変更後の継続使用は承諾を意味します。"
       },
       {
         "id": "eligibility",
-        "title": "2. Eligibility & Accounts",
-        "body": "You must be at least 13 years old. If you create an account, you are responsible for keeping your credentials secure and for all activity under your account. Notify us immediately of unauthorized use. We may suspend accounts that violate these Terms."
+        "title": "2. 適格性とアカウント",
+        "body": "13歳以上である必要があります。アカウントを作成した場合、認証情報を安全に保ち、アカウント下のすべての活動に責任を負います。不正使用をすぐに通知してください。"
       },
       {
         "id": "use",
-        "title": "3. Acceptable Use & Platform Compliance",
-        "body": "Use the Service only for content you have the right to access. You must comply with the terms of any third-party platform (e.g., YouTube, TikTok) you access through DownForge and with applicable copyright laws. Do not use the Service to infringe, to harass, or to distribute malware."
+        "title": "3. 許容可能な使用とプラットフォーム遵守",
+        "body": "アクセスする権利があるコンテンツにのみサービスを使用してください。DownForge経由でアクセスするサードパーティプラットフォーム（例：YouTube、TikTok）の規約および適用される著作権法を遵守する必要があります。"
       },
       {
         "id": "prohibited",
-        "title": "4. Prohibited Conduct",
-        "body": "You may not: (a) attempt to bypass rate limits, (b) scrape or overload our infrastructure, (c) upload malicious code, (d) misrepresent affiliation, or (e) use the Service for unlawful purposes. We enforce rate limits: 60/min global, 30/min info, 20/min download."
+        "title": "4. 禁止行為",
+        "body": "以下を行ってはなりません：(a) レート制限の回避を試みる、(b) インフラをスクレイピングまたは過負荷にする、(c) 悪意のあるコードをアップロードする、(d) 所属を偽る、または (e) 違法目的でサービスを使用する。制限: 60/分 グローバル、30/分 info、20/分 download。"
       },
       {
         "id": "ip",
-        "title": "5. Intellectual Property & DMCA",
-        "body": "DownForge does not claim ownership of third-party content. If you are a rights holder and believe content accessible via the Service infringes your rights, contact us at dmca@downforge.me with the URL, proof of ownership, and your contact information. We respond promptly and may block access."
+        "title": "5. 知的財産とDMCA",
+        "body": "DownForgeはサードパーティコンテンツの所有権を主張しません。権利者であり、サービス経由でアクセス可能なコンテンツが権利を侵害していると考える場合は、URL、所有権の証明、連絡先情報とともに dmca@downforge.me にお問い合わせください。"
       },
       {
         "id": "billing",
-        "title": "6. Billing & Subscriptions",
-        "body": "Free tier is limited (10/day, 1080p). Pro/Team are billed monthly via Stripe. You may cancel anytime; access continues until period end. Refunds are handled case-by-case within 14 days if the Service was not used."
+        "title": "6. 請求とサブスクリプション",
+        "body": "無料プランは制限付き（10/日、1080p）。Pro/TeamはStripe経由で月額請求。いつでもキャンセル可能；アクセスは期間終了まで継続。サービスが使用されていない場合、14日以内にケースバイケースで返金。"
       },
       {
         "id": "disclaimer",
-        "title": "7. Disclaimers & Limitation of Liability",
-        "body": "The Service is provided “as is” without warranty. We do not guarantee availability or that any platform will remain supported. To the fullest extent permitted by law, DownForge’s liability is limited to the amount you paid in the last 3 months."
+        "title": "7. 免責事項と責任の制限",
+        "body": "サービスは「現状有姿」で保証なしに提供されます。可用性やプラットフォームがサポートされ続けることを保証しません。法律で許される最大限の範囲で、DownForgeの責任は過去3ヶ月間に支払った金額に制限されます。"
       },
       {
         "id": "changes",
-        "title": "8. Changes, Termination & Contact",
-        "body": "We may modify, suspend, or discontinue the Service at any time. We may terminate access for violations. Questions? Contact legal@downforge.me or via our Contact page. These Terms are governed by the laws of your jurisdiction, without regard to conflict of law rules."
+        "title": "8. 変更、終了および連絡先",
+        "body": "私たちはいつでもサービスを変更、中断、または中止する場合があります。違反に対してアクセスを終了する場合があります。質問？ legal@downforge.me にお問い合わせください。"
       }
     ],
-    "metaTitle": "Terms of Service — DownForge | Legal",
-    "metaDescription": "Read DownForge’s Terms of Service: acceptable use, billing, IP/DMCA, disclaimers, and contact. Last updated August 2025."
+    "metaTitle": "利用規約 — DownForge | 法的情報",
+    "metaDescription": "DownForgeの利用規約を読む：許容可能な使用、請求、IP/DMCA、免責事項、お問い合わせ。最終更新2025年8月。"
   },
   "Contact": {
-    "badge": "Contact",
-    "title": "Get in touch",
-    "subtitle": "Questions, billing help, or DMCA? We usually reply within 24 hours.",
-    "formTitle": "Send us a message",
-    "nameLabel": "Full name",
-    "namePlaceholder": "Jane Doe",
-    "emailLabel": "Email",
+    "badge": "お問い合わせ",
+    "title": "お問い合わせ",
+    "subtitle": "質問、請求のサポート、DMCA？通常24時間以内に返信します。",
+    "formTitle": "メッセージを送信",
+    "nameLabel": "氏名",
+    "namePlaceholder": "山田 太郎",
+    "emailLabel": "メール",
     "emailPlaceholder": "you@example.com",
-    "subjectLabel": "Subject",
-    "subjectPlaceholder": "Select a topic",
+    "subjectLabel": "件名",
+    "subjectPlaceholder": "トピックを選択",
     "subjectOptions": [
-      "General inquiry",
-      "Billing & Pro",
-      "API & Developer",
-      "DMCA / Copyright",
-      "Bug report",
-      "Feature request"
+      "一般的なお問い合わせ",
+      "請求とPro",
+      "APIと開発者",
+      "DMCA / 著作権",
+      "バグ報告",
+      "機能要望"
     ],
-    "messageLabel": "Message",
-    "messagePlaceholder": "How can we help you?",
-    "submitButton": "Send message",
-    "submitting": "Sending…",
-    "successTitle": "Message sent!",
-    "successDesc": "Thanks for reaching out. We’ll get back to you soon at your email.",
-    "errorRequired": "Please fill in all required fields and a valid email.",
-    "infoTitle": "Other ways to reach us",
+    "messageLabel": "メッセージ",
+    "messagePlaceholder": "どのようにお手伝いできますか？",
+    "submitButton": "メッセージを送信",
+    "submitting": "送信中…",
+    "successTitle": "メッセージを送信しました！",
+    "successDesc": "お問い合わせありがとうございます。メールで近日中に返信します。",
+    "errorRequired": "すべての必須フィールドと有効なメールを入力してください。",
+    "infoTitle": "その他の連絡方法",
     "infoEmail": "support@downforge.me",
-    "infoEmailSub": "For support, billing, and general inquiries",
+    "infoEmailSub": "サポート、請求、一般的なお問い合わせ用",
     "infoLegal": "legal@downforge.me",
-    "infoLegalSub": "For DMCA and legal matters",
-    "infoResponse": "Avg. response: < 24h • Mon–Fri 9–18 UTC",
-    "faqTitle": "Quick answers",
+    "infoLegalSub": "DMCAおよび法的事項用",
+    "infoResponse": "平均返信: < 24時間 • 月–金 9–18 UTC",
+    "faqTitle": "クイック回答",
     "faqs": [
       {
-        "q": "Where is my download?",
-        "a": "Files are deleted 60 minutes after processing. Check your downloads folder or re-paste the URL."
+        "q": "ダウンロードはどこにありますか？",
+        "a": "ファイルは処理後60分で削除されます。ダウンロードフォルダを確認するか、URLを再貼り付けしてください。"
       },
       {
-        "q": "How do I cancel Pro?",
-        "a": "Go to Dashboard → Billing → Manage, or email support@downforge.me. Access continues until period end."
+        "q": "Proをキャンセルするには？",
+        "a": "ダッシュボード → 請求 → 管理 に進むか、support@downforge.me にメールしてください。"
       },
       {
-        "q": "Do you store my URLs?",
-        "a": "No. URLs are processed ephemerally and never logged with personal data."
+        "q": "私のURLを保存していますか？",
+        "a": "いいえ。URLは一時的に処理され、個人データと一緒にログされません。"
       }
     ],
-    "metaTitle": "Contact DownForge — Support, Billing & DMCA | DownForge",
-    "metaDescription": "Contact DownForge support: billing, API, DMCA, or general help. Avg. reply <24h. Email support@downforge.me or use the form."
+    "metaTitle": "お問い合わせ DownForge — サポート、請求＆DMCA | DownForge",
+    "metaDescription": "DownForgeサポートにお問い合わせ：請求、API、DMCAまたはヘルプ。平均返信<24時間。support@downforge.me またはフォームを使用。",
+    "linkPrivacy": "プライバシー",
+    "linkTerms": "利用規約",
+    "linkApiDocs": "API ドキュメント"
   },
   "Features": {
-    "badge": "Why DownForge",
-    "title": "All-in-One Download Tool",
-    "titleAccent": "for 200+ sites",
-    "subtitle": "Built for speed, privacy, and quality. Download video, audio, thumbnails and transcripts the way it was meant to be saved.",
-    "ctaTitle": "Ready to try?",
-    "ctaSubtitle": "Paste a URL and get your file in seconds. No account required.",
-    "ctaButton": "Start free",
-    "ctaSecondary": "View pricing",
-    "metaTitle": "Features — DownForge | Video, Audio, Thumbnail & Transcript Tools",
-    "metaDescription": "Explore DownForge features: 200+ platforms, 4K video, FLAC audio, HD thumbnails, AI transcripts, batch, private & fast."
+    "badge": "DownForgeが選ばれる理由",
+    "title": "オールインワンダウンロードツール",
+    "titleAccent": "200以上のサイト向け",
+    "subtitle": "スピード、プライバシー、品質のために構築。ビデオ、音声、サムネイル、文字起こしをあるべき方法でダウンロード。",
+    "ctaTitle": "試す準備はできましたか？",
+    "ctaSubtitle": "URLを貼り付けて数秒でファイルを取得。アカウント不要。",
+    "ctaButton": "無料で開始",
+    "ctaSecondary": "料金を見る",
+    "metaTitle": "機能 — DownForge | ビデオ、音声、サムネイル＆文字起こしツール",
+    "metaDescription": "DownForge機能を探索：200+プラットフォーム、4Kビデオ、FLAC音声、HDサムネイル、AI文字起こし、バッチ、プライベート＆高速。"
   },
   "Blog": {
-    "badge": "Blog",
-    "title": "Insights & Guides",
-    "subtitle": "Tutorials, platform guides, and product updates from the DownForge team.",
-    "readMore": "Read more",
-    "empty": "No posts yet — check back soon.",
-    "metaTitle": "Blog — DownForge Guides & Updates",
-    "metaDescription": "DownForge blog: tutorials, platform guides, and updates for downloading video, audio, thumbnails and transcripts."
+    "badge": "ブログ",
+    "title": "インサイト＆ガイド",
+    "subtitle": "チュートリアル、プラットフォームガイド、DownForgeチームからの製品アップデート。",
+    "readMore": "続きを読む",
+    "empty": "まだ投稿がありません — すぐに戻ってきてください。",
+    "metaTitle": "ブログ — DownForge ガイド＆アップデート",
+    "metaDescription": "DownForgeブログ：ビデオ、音声、サムネイル、文字起こしをダウンロードするためのチュートリアル、プラットフォームガイド、アップデート。"
   },
   "Changelog": {
-    "badge": "Changelog",
-    "title": "What’s new",
-    "subtitle": "All notable changes to DownForge — new platforms, formats, and fixes.",
-    "filterAll": "All",
-    "filterMajor": "Major",
-    "filterFix": "Fix",
-    "metaTitle": "Changelog — DownForge Updates",
-    "metaDescription": "See what’s new in DownForge: new platforms, formats, performance and fixes."
+    "badge": "変更履歴",
+    "title": "新着情報",
+    "subtitle": "DownForgeのすべての注目すべき変更 — 新プラットフォーム、フォーマット、修正。",
+    "filterAll": "すべて",
+    "filterMajor": "メジャー",
+    "filterFix": "修正",
+    "metaTitle": "変更履歴 — DownForge アップデート",
+    "metaDescription": "DownForgeの新着情報を確認：新プラットフォーム、フォーマット、パフォーマンスと修正。"
   },
   "ApiStatus": {
     "badge": "Status",

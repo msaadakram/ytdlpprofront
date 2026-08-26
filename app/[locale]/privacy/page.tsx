@@ -6,22 +6,42 @@ import { Link } from "@/lib/i18n/navigation";
 import { ShieldCheck, Lock, FileText, Clock, Eye, Cookie, UserCheck, ArrowRight } from "lucide-react";
 import { routing } from "@/lib/i18n/routing";
 
+const ogLocaleMap: Record<string, string> = {
+  en: "en_US",
+  es: "es_ES",
+  fr: "fr_FR",
+  de: "de_DE",
+  pt: "pt_BR",
+  ja: "ja_JP",
+  ar: "ar_SA",
+  ru: "ru_RU",
+  zh: "zh_CN",
+};
+
 type Props = { params: Promise<{ locale: string }> };
 
 export async function generateMetadata({ params }: Props): Promise<Metadata> {
   const { locale } = await params;
   const t = await getTranslations({ locale, namespace: "Privacy" });
   const languages = Object.fromEntries(routing.locales.map((l) => [l, `https://www.downforge.me/${l}/privacy`]));
+  const title = `${t("title")} — DownForge`;
+  const description = (() => {
+    try {
+      return t("heroSubtitle");
+    } catch {
+      return "DownForge privacy policy. Learn how we handle your data, what we collect, and your rights.";
+    }
+  })();
   return {
-    title: `${t("title")} — DownForge`,
-    description: "DownForge privacy policy. Learn how we handle your data, what we collect, and your rights.",
+    title,
+    description,
     alternates: { canonical: `https://www.downforge.me/${locale}/privacy`, languages },
     openGraph: {
-      title: `${t("title")} — DownForge`,
-      description: "How DownForge handles your data. Ephemeral processing, no logs, your rights.",
+      title,
+      description,
       type: "website",
       siteName: "DownForge",
-      locale,
+      locale: ogLocaleMap[locale] ?? locale,
     },
   };
 }
@@ -42,7 +62,13 @@ export default async function PrivacyPolicyPage({ params }: Props) {
     "@context": "https://schema.org",
     "@type": "WebPage",
     name: t("title"),
-    description: "DownForge privacy policy. Learn how we handle your data.",
+    description: (() => {
+      try {
+        return t("heroSubtitle");
+      } catch {
+        return "DownForge privacy policy. Learn how we handle your data.";
+      }
+    })(),
     url: `https://www.downforge.me/${locale}/privacy`,
     dateModified: "2025-01-01",
     isPartOf: { "@type": "WebSite", name: "DownForge", url: "https://www.downforge.me" },
@@ -62,14 +88,14 @@ export default async function PrivacyPolicyPage({ params }: Props) {
           <div className="relative max-w-6xl mx-auto px-3 xs:px-4 sm:px-6 lg:px-6 xl:px-6 py-8 sm:py-10 lg:py-12 xl:py-14">
             <div className="inline-flex items-center gap-2 rounded-full bg-white/10 border border-white/10 px-3 py-1.5 mb-3 lg:mb-4 backdrop-blur">
               <ShieldCheck className="w-3.5 h-3.5 text-[#8fd3df]" />
-              <span className="text-xs font-bold tracking-[0.14em] uppercase text-white/90">Privacy</span>
+              <span className="text-xs font-bold tracking-[0.14em] uppercase text-white/90">{t("badge")}</span>
             </div>
             <h1 className="text-2xl xs:text-3xl sm:text-4xl lg:text-4xl xl:text-[2.75rem] font-black tracking-tight font-heading leading-[0.95]">{t("title")}</h1>
             <p className="mt-2 lg:mt-3 inline-flex items-center gap-2 text-xs font-medium text-white/60 bg-white/5 border border-white/10 rounded-full px-3 py-1.5">
               <Clock className="w-3 h-3" /> {t("lastUpdated")}
             </p>
             <p className="mt-3 lg:mt-4 text-sm lg:text-[15px] xl:text-base leading-relaxed text-white/60 max-w-2xl font-sans">
-              Your privacy is the core of DownForge. We process ephemerally, store nothing, and give you full control.
+              {t("heroSubtitle")}
             </p>
           </div>
         </section>
@@ -80,7 +106,7 @@ export default async function PrivacyPolicyPage({ params }: Props) {
             <aside className="lg:sticky lg:top-[72px] xl:top-20 self-start min-w-0">
               <div className="rounded-2xl bg-white dark:bg-white/[0.04] border border-border/60 dark:border-white/10 p-3 xs:p-4 xl:p-5 shadow-sm">
                 <h2 className="text-xs font-bold tracking-[0.14em] uppercase text-muted-foreground font-mono flex items-center gap-2 mb-3">
-                  <FileText className="w-3.5 h-3.5" /> Contents
+                  <FileText className="w-3.5 h-3.5" /> {t("contentsTitle")}
                 </h2>
                 <nav className="hidden lg:block space-y-1">
                   {sections.map((s) => (
@@ -99,7 +125,7 @@ export default async function PrivacyPolicyPage({ params }: Props) {
                 <div className="mt-4 p-3 rounded-xl bg-[#eef6f8] dark:bg-[#5baab8]/10 border border-[#5baab8]/20 flex gap-2.5">
                   <Lock className="w-4 h-4 text-[#5baab8] shrink-0 mt-0.5" />
                   <p className="text-xs leading-relaxed break-words text-[#0d1f26]/70 dark:text-white/70 font-sans">
-                    Questions about data? <Link href="/contact" className="font-bold underline">Contact us</Link> — we reply within 24 hours.
+                    {t("questionsAboutData")} <Link href="/contact" className="font-bold underline">{t("contactUsLink")}</Link> {t("replyWithin")}
                   </p>
                 </div>
               </div>
@@ -112,7 +138,7 @@ export default async function PrivacyPolicyPage({ params }: Props) {
                 <div className="p-4 xs:p-6 sm:p-6 lg:p-7 xl:p-10">
                   <div className="space-y-2 mb-5 lg:mb-6">
                     <span className="inline-flex items-center gap-1.5 text-xs font-bold tracking-[0.14em] uppercase text-[#5baab8] bg-[#eef6f8] border border-[#5baab8]/20 px-3 py-1 rounded-full">
-                      <ShieldCheck className="w-3 h-3" /> Transparent & minimal
+                      <ShieldCheck className="w-3 h-3" /> {t("transparentBadge")}
                     </span>
                   </div>
                   <div className="space-y-6 lg:space-y-8">
@@ -130,15 +156,15 @@ export default async function PrivacyPolicyPage({ params }: Props) {
                   </div>
                   <div className="mt-8 lg:mt-10 flex flex-col xs:flex-row flex-wrap gap-2.5 lg:gap-3 border-t border-border/50 pt-5 lg:pt-6">
                     <Link href="/terms" className="inline-flex items-center justify-center gap-2 text-sm font-semibold bg-[#0d1f26] dark:bg-white text-white dark:text-[#0d1f26] px-5 py-2.5 lg:py-2.5 rounded-full hover:bg-[#1a3545] dark:hover:bg-slate-100 transition-colors w-full xs:w-auto">
-                      Terms of Service <ArrowRight className="w-4 h-4" />
+                      {t("ctaTerms")} <ArrowRight className="w-4 h-4" />
                     </Link>
                     <Link href="/contact" className="inline-flex items-center justify-center gap-2 text-sm font-semibold bg-white dark:bg-white/10 border border-border dark:border-white/10 text-foreground px-5 py-2.5 rounded-full hover:bg-muted/50 transition-colors w-full xs:w-auto">
-                      Contact support
+                      {t("ctaContact")}
                     </Link>
                   </div>
                 </div>
               </div>
-              <p className="mt-4 text-xs text-center text-muted-foreground font-sans">We never sell your data. For deletion requests, email privacy@downforge.me</p>
+              <p className="mt-4 text-xs text-center text-muted-foreground font-sans">{t("footerNote")}</p>
             </div>
           </div>
         </section>

@@ -12,6 +12,18 @@ import { RelatedLinks } from "@/components/content/RelatedLinks";
 
 type Props = { params: Promise<{ locale: string }> };
 
+const ogLocaleMap: Record<string, string> = {
+  en: "en_US",
+  es: "es_ES",
+  fr: "fr_FR",
+  de: "de_DE",
+  pt: "pt_BR",
+  ja: "ja_JP",
+  ar: "ar_SA",
+  ru: "ru_RU",
+  zh: "zh_CN",
+};
+
 export async function generateMetadata({ params }: Props): Promise<Metadata> {
   const { locale } = await params;
   const t = await getTranslations({ locale, namespace: "Platform.youtube" });
@@ -29,7 +41,7 @@ export async function generateMetadata({ params }: Props): Promise<Metadata> {
       description,
       url: `https://www.downforge.me/${locale}/youtube-video-downloader`,
       siteName: "DownForge",
-      locale,
+      locale: ogLocaleMap[locale] ?? locale,
       type: "website",
     },
     twitter: {
@@ -58,10 +70,18 @@ export async function generateMetadata({ params }: Props): Promise<Metadata> {
 
 export default async function YoutubeVideoDownloaderPage({ params }: Props) {
   const { locale } = await params;
-  const content = getYouTubeVideoContent("video");
+  const content = locale === "en" ? getYouTubeVideoContent("video") : null;
 
   const t = await getTranslations({ locale, namespace: "Platform.youtube" });
+  const pt = await getTranslations({ locale, namespace: "PlatformPage" });
   const faqs = t.raw("faqs") as { q: string; a: string }[];
+  const breadcrumbHome = (() => {
+    try {
+      return pt("breadcrumbHome");
+    } catch {
+      return "Home";
+    }
+  })();
 
   const jsonLd = {
     "@context": "https://schema.org",
@@ -69,8 +89,8 @@ export default async function YoutubeVideoDownloaderPage({ params }: Props) {
       {
         "@type": "BreadcrumbList",
         "@id": `https://www.downforge.me/${locale}/youtube-video-downloader#breadcrumb`,
-        "itemListElement": [
-          { "@type": "ListItem", position: 1, name: "Home", item: `https://www.downforge.me/${locale}` },
+        itemListElement: [
+          { "@type": "ListItem", position: 1, name: breadcrumbHome, item: `https://www.downforge.me/${locale}` },
           { "@type": "ListItem", position: 2, name: "YouTube Video Downloader", item: `https://www.downforge.me/${locale}/youtube-video-downloader` },
         ],
       },

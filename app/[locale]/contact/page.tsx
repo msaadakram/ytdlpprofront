@@ -7,6 +7,18 @@ import { Mail, ShieldCheck, Clock, MessageCircle, HelpCircle, ArrowRight } from 
 import { routing } from "@/lib/i18n/routing";
 import { Link } from "@/lib/i18n/navigation";
 
+const ogLocaleMap: Record<string, string> = {
+  en: "en_US",
+  es: "es_ES",
+  fr: "fr_FR",
+  de: "de_DE",
+  pt: "pt_BR",
+  ja: "ja_JP",
+  ar: "ar_SA",
+  ru: "ru_RU",
+  zh: "zh_CN",
+};
+
 type Props = { params: Promise<{ locale: string }> };
 
 export async function generateMetadata({ params }: Props): Promise<Metadata> {
@@ -22,7 +34,7 @@ export async function generateMetadata({ params }: Props): Promise<Metadata> {
       description: t("metaDescription"),
       type: "website",
       siteName: "DownForge",
-      locale,
+      locale: ogLocaleMap[locale] ?? locale,
     },
   };
 }
@@ -141,15 +153,15 @@ export default async function ContactPage({ params }: Props) {
                 </div>
                 <div className="mt-4 flex gap-2">
                   <Link href="/privacy" className="text-xs font-semibold text-[#5baab8] hover:text-foreground underline underline-offset-2">
-                    Privacy
+                    {t("linkPrivacy")}
                   </Link>
                   <span className="text-muted-foreground">•</span>
                   <Link href="/terms" className="text-xs font-semibold text-[#5baab8] hover:text-foreground underline underline-offset-2">
-                    Terms
+                    {t("linkTerms")}
                   </Link>
                   <span className="text-muted-foreground">•</span>
                   <Link href="/api-docs" className="text-xs font-semibold text-[#5baab8] hover:text-foreground underline underline-offset-2">
-                    API Docs <ArrowRight className="w-3 h-3 inline" />
+                    {t("linkApiDocs")} <ArrowRight className="w-3 h-3 inline" />
                   </Link>
                 </div>
               </div>

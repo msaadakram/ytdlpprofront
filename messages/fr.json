@@ -621,33 +621,53 @@
     }
   },
   "Privacy": {
-    "backToHome": "Back to home",
-    "title": "Politique de confidentialité",
+    "title": "Politique de Confidentialité",
     "lastUpdated": "Dernière mise à jour : janvier 2025",
-    "section1Title": "1. Information We Collect",
-    "section1Body": "We collect only the information necessary to provide our service: the URLs you submit for download, your IP address for rate limiting, and account information (email, name) if you create an account. We do not collect or store the actual content of your downloads beyond the processing period.",
-    "section2Title": "2. How We Use Your Data",
-    "section2Body": "URLs are used solely to process your download request and are deleted from our servers immediately after processing. Account information is used for authentication, billing, and communication about your account. We do not sell, trade, or share your personal data with third parties.",
-    "section3Title": "3. Data Security",
-    "section3Body": "We implement industry-standard security measures including encryption in transit (TLS), secure API authentication, and regular security audits. Downloaded files are stored temporarily in isolated storage and automatically purged.",
+    "backToHome": "Retour à l'accueil",
+    "section1Title": "1. Informations que Nous Collectons",
+    "section1Body": "Nous collectons uniquement les informations nécessaires pour fournir notre service : les URLs que vous soumettez, votre adresse IP pour limitation, et infos compte (email, nom) si vous créez un compte. Nous ne collectons ni stockons le contenu réel de vos téléchargements au-delà de la période de traitement.",
+    "section2Title": "2. Comment Nous Utilisons Vos Données",
+    "section2Body": "Les URLs sont utilisées uniquement pour traiter votre demande et supprimées immédiatement après. Les infos compte servent à l'authentification, facturation et communication. Nous ne vendons ni partageons vos données personnelles avec des tiers.",
+    "section3Title": "3. Sécurité des Données",
+    "section3Body": "Nous mettons en œuvre mesures de sécurité standard incluant chiffrement en transit (TLS), authentification API sécurisée et audits réguliers. Les fichiers téléchargés sont stockés temporairement en stockage isolé et purgés automatiquement.",
     "section4Title": "4. Cookies",
-    "section4Body": "We use essential cookies for authentication and session management. Analytics cookies are used only with your consent. You can control cookie preferences through your browser settings.",
-    "section5Title": "5. Your Rights",
-    "section5Body": "You have the right to access, correct, or delete your personal data at any time. Contact us at privacy@downforge.me to exercise these rights. We will respond to your request within 30 days."
+    "section4Body": "Nous utilisons cookies essentiels pour authentification et gestion de session. Cookies analytiques uniquement avec votre consentement. Vous pouvez contrôler les préférences via votre navigateur.",
+    "section5Title": "5. Vos Droits",
+    "section5Body": "Vous avez le droit d'accéder, corriger ou supprimer vos données personnelles à tout moment. Contactez privacy@downforge.me pour exercer ces droits. Nous répondrons dans 30 jours.",
+    "badge": "Confidentialité",
+    "heroSubtitle": "Votre confidentialité est au cœur de DownForge. Nous traitons de manière éphémère, ne stockons rien et vous donnons le contrôle total.",
+    "contentsTitle": "Contenu",
+    "transparentBadge": "Transparent & minimal",
+    "ctaTerms": "Conditions d'Utilisation",
+    "ctaContact": "Contacter le support",
+    "footerNote": "Nous ne vendons jamais vos données. Pour suppressions, écrivez à privacy@downforge.me",
+    "questionsAboutData": "Questions sur les données ?",
+    "contactUsLink": "Contactez-nous",
+    "replyWithin": "— nous répondons en 24 heures."
   },
   "Pricing": {
-    "title": "Offres et tarifs",
-    "subtitle": "Choisissez l'offre qui correspond à vos besoins. Commencez gratuitement, passez à l'offre supérieure quand vous avez besoin de plus.",
+    "title": "Plans Tarifaires",
+    "subtitle": "Choisissez le plan qui vous convient. Commencez gratuit, évoluez quand besoin.",
     "backToHome": "Back to home",
-    "faqTitle": "Frequently Asked Questions",
-    "faq1Q": "Can I switch plans at any time?",
-    "faq1A": "Yes, you can upgrade or downgrade at any time. Changes take effect immediately.",
-    "faq2Q": "What payment methods do you accept?",
-    "faq2A": "We accept all major credit cards, PayPal, and cryptocurrency.",
-    "faq3Q": "Is there a free trial for Pro?",
-    "faq3A": "Yes, we offer a 7-day free trial of our Pro plan with no commitment required.",
-    "faq4Q": "Can I cancel anytime?",
-    "faq4A": "Absolutely. No contracts, no cancellation fees. Your access continues until the end of the billing period."
+    "faqTitle": "Questions Fréquentes",
+    "faq1Q": "Puis-je changer de plan à tout moment ?",
+    "faq1A": "Oui, améliorez ou réduisez à tout moment. Changements immédiats.",
+    "faq2Q": "Quels paiements acceptez-vous ?",
+    "faq2A": "Toutes cartes majeures, PayPal et crypto.",
+    "faq3Q": "Essai gratuit Pro ?",
+    "faq3A": "Oui, 7 jours gratuits Pro sans engagement.",
+    "faq4Q": "Puis-je annuler à tout moment ?",
+    "faq4A": "Absolument. Sans contrat, sans frais.",
+    "heroTitle": "Choisissez votre",
+    "heroTitleAccent": "plan",
+    "heroBadge": "Tarifs",
+    "trustNoCard": "Sans carte pour Gratuit",
+    "trustCancel": "Annulez à tout moment",
+    "trustRefund": "Remboursement 30 jours",
+    "notSureTitle": "Hésitant ?",
+    "notSureDesc": "Commencez gratuit et évoluez quand vous avez besoin de 4K, FLAC ou lot.",
+    "ctaStartFree": "Commencer gratuit",
+    "ctaTalkToUs": "Parlez-nous"
   },
   "SEO": {
     "homeTitle": "DownForge — Téléchargez n'importe quelle vidéo, audio, vignette ou transcription",
@@ -3133,209 +3153,213 @@
     "lt": "Lituanien"
   },
   "About": {
-    "badge": "About DownForge",
-    "title": "Built for creators,",
-    "titleAccent": "trusted by thousands.",
-    "subtitle": "We make downloading from 200+ platforms effortless — fast, private, and in any format you need. No bloat, no tracking, just download.",
-    "statsBadge": "At a glance",
+    "badge": "À propos de DownForge",
+    "title": "Conçu pour les créateurs,",
+    "titleAccent": "approuvé par des milliers.",
+    "subtitle": "Nous rendons le téléchargement depuis 200+ plateformes sans effort — rapide, privé et dans n'importe quel format dont vous avez besoin. Sans surcharge, sans suivi, juste télécharger.",
+    "statsBadge": "En un coup d'œil",
     "stats": [
       {
         "value": "200+",
-        "label": "Platforms supported",
-        "sub": "YouTube to niche sites"
+        "label": "Plateformes prises en charge",
+        "sub": "De YouTube aux sites de niche"
       },
       {
         "value": "< 3s",
-        "label": "Average processing",
-        "sub": "Server-side, CDN delivered"
+        "label": "Traitement moyen",
+        "sub": "Serveur, livré via CDN"
       },
       {
         "value": "4.9/5",
-        "label": "User rating",
-        "sub": "Trusted by creators"
+        "label": "Note des utilisateurs",
+        "sub": "Approuvé par les créateurs"
       },
       {
-        "value": "Zero",
-        "label": "Logs kept",
-        "sub": "Ephemeral by design"
+        "value": "Zéro",
+        "label": "Journaux conservés",
+        "sub": "Éphémère par conception"
       }
     ],
-    "storyBadge": "Our Story",
-    "storyTitle": "Why we built DownForge",
-    "storyP1": "DownForge started in 2024 with a simple observation: creators, educators, and editors waste hours juggling platform-specific tools to save a clip in the right format.",
-    "storyP2": "We wrapped the best open-source engines — yt-dlp and ffmpeg — in a fast, private, and beautiful product. No ads in your face, no files kept on our servers, just paste → pick → download.",
-    "storyP3": "Today, DownForge serves thousands of daily downloads, from TikTok drafts to 4K YouTube masters, with the same promise: what you paste is processed ephemerally and deleted immediately.",
+    "storyBadge": "Notre Histoire",
+    "storyTitle": "Pourquoi nous avons créé DownForge",
+    "storyP1": "DownForge est né en 2024 d'une observation simple : créateurs, éducateurs et éditeurs perdent des heures à jongler avec des outils spécifiques pour sauvegarder un clip au bon format.",
+    "storyP2": "Nous avons enveloppé les meilleurs moteurs open-source — yt-dlp et ffmpeg — dans un produit rapide, privé et beau. Sans pubs invasives, sans fichiers gardés, juste coller → choisir → télécharger.",
+    "storyP3": "Aujourd'hui, DownForge sert des milliers de téléchargements quotidiens, des brouillons TikTok aux masters 4K YouTube, avec la même promesse : ce que vous collez est traité éphémère et supprimé immédiatement.",
     "timeline": [
       {
         "year": "2024",
-        "title": "Founded",
-        "desc": "Launched with YouTube + TikTok support"
+        "title": "Fondé",
+        "desc": "Lancé avec support YouTube + TikTok"
       },
       {
         "year": "2025",
         "title": "200+ sites",
-        "desc": "Expanded to 14 major platforms, universal auto-detect"
+        "desc": "Étendu à 14 plateformes majeures, auto-détection universelle"
       },
       {
-        "year": "Now",
+        "year": "Maintenant",
         "title": "Pro & API",
-        "desc": "Unlimited, 4K, batch, and developer API"
+        "desc": "Illimité, 4K, lot et API développeur"
       }
     ],
-    "valuesBadge": "Why us",
-    "valuesTitle": "Speed, privacy, and quality — without compromise.",
+    "valuesBadge": "Pourquoi nous",
+    "valuesTitle": "Vitesse, confidentialité et qualité — sans compromis.",
     "values": [
       {
-        "title": "Privacy first",
-        "desc": "We don’t store URLs or files. Ephemeral processing, auto-deleted in 60 minutes. No selling data. Ever."
+        "title": "Confidentialité d'abord",
+        "desc": "Nous ne stockons ni URLs ni fichiers. Traitement éphémère, auto-supprimé en 60 minutes. Jamais de vente."
       },
       {
-        "title": "Blazing fast",
-        "desc": "Server-side conversion with CDN streaming. Your download starts in under 3 seconds."
+        "title": "Ultra rapide",
+        "desc": "Conversion serveur avec streaming CDN. Votre téléchargement commence en moins de 3 secondes."
       },
       {
-        "title": "Any format, any quality",
-        "desc": "MP4, WebM, FLAC, PNG, SRT — from 144p to 4K and 320 kbps to lossless."
+        "title": "Tout format, toute qualité",
+        "desc": "MP4, WebM, FLAC, PNG, SRT — de 144p à 4K et 320 kbps à sans perte."
       }
     ],
-    "ctaTitle": "Ready to download like a pro?",
-    "ctaSubtitle": "Paste a URL and get your file in seconds. No account required.",
-    "ctaButton": "Try it now — it’s free",
-    "ctaSecondary": "View pricing",
-    "metaTitle": "About DownForge — Fast, Private Video Downloader for 200+ Sites | DownForge",
-    "metaDescription": "Learn about DownForge: our story, values, and why thousands trust us to download video, audio, thumbnails and transcripts from 200+ platforms — fast and private."
+    "ctaTitle": "Prêt à télécharger comme un pro ?",
+    "ctaSubtitle": "Collez une URL et obtenez votre fichier en secondes. Aucun compte requis.",
+    "ctaButton": "Essayez maintenant — c'est gratuit",
+    "ctaSecondary": "Voir les prix",
+    "metaTitle": "À propos de DownForge — Téléchargeur rapide et privé pour 200+ sites | DownForge",
+    "metaDescription": "Découvrez DownForge : notre histoire, valeurs et pourquoi des milliers nous font confiance pour télécharger vidéo, audio, miniatures et transcriptions depuis 200+ plateformes — rapide et privé.",
+    "milestonesTitle": "Jalons"
   },
   "Terms": {
-    "badge": "Legal",
-    "title": "Terms of Service",
-    "subtitle": "Please read these terms carefully. By using DownForge, you agree to them.",
-    "lastUpdated": "Last updated: August 2025",
-    "tocTitle": "Contents",
+    "badge": "Légal",
+    "title": "Conditions d'Utilisation",
+    "subtitle": "Veuillez lire ces conditions attentivement. En utilisant DownForge, vous les acceptez.",
+    "lastUpdated": "Dernière mise à jour : août 2025",
+    "tocTitle": "Contenu",
     "sections": [
       {
         "id": "acceptance",
-        "title": "1. Acceptance of Terms",
-        "body": "By accessing or using DownForge (the “Service”), you agree to these Terms. If you do not agree, do not use the Service. We may update these Terms; continued use after changes means acceptance. We will post the new date above."
+        "title": "1. Acceptation des Conditions",
+        "body": "En accédant ou utilisant DownForge (le “Service”), vous acceptez ces Conditions. Si désaccord, n'utilisez pas le Service. Nous pouvons mettre à jour ces Conditions ; utilisation continue après changements signifie acceptation."
       },
       {
         "id": "eligibility",
-        "title": "2. Eligibility & Accounts",
-        "body": "You must be at least 13 years old. If you create an account, you are responsible for keeping your credentials secure and for all activity under your account. Notify us immediately of unauthorized use. We may suspend accounts that violate these Terms."
+        "title": "2. Éligibilité & Comptes",
+        "body": "Vous devez avoir au moins 13 ans. Si vous créez un compte, vous êtes responsable de garder vos identifiants sécurisés et de toute activité sous votre compte. Notifiez immédiatement usage non autorisé."
       },
       {
         "id": "use",
-        "title": "3. Acceptable Use & Platform Compliance",
-        "body": "Use the Service only for content you have the right to access. You must comply with the terms of any third-party platform (e.g., YouTube, TikTok) you access through DownForge and with applicable copyright laws. Do not use the Service to infringe, to harass, or to distribute malware."
+        "title": "3. Utilisation Acceptable & Conformité Plateforme",
+        "body": "Utilisez le Service uniquement pour contenu auquel vous avez droit d'accès. Vous devez respecter conditions de toute plateforme tierce (ex. YouTube, TikTok) via DownForge et lois applicables sur droits d'auteur."
       },
       {
         "id": "prohibited",
-        "title": "4. Prohibited Conduct",
-        "body": "You may not: (a) attempt to bypass rate limits, (b) scrape or overload our infrastructure, (c) upload malicious code, (d) misrepresent affiliation, or (e) use the Service for unlawful purposes. We enforce rate limits: 60/min global, 30/min info, 20/min download."
+        "title": "4. Conduite Interdite",
+        "body": "Vous ne pouvez pas : (a) tenter contourner limites, (b) scraper ou surcharger infra, (c) téléverser code malveillant, (d) fausse affiliation, ou (e) utiliser Service à fins illicites. Limites : 60/min global, 30/min info, 20/min download."
       },
       {
         "id": "ip",
-        "title": "5. Intellectual Property & DMCA",
-        "body": "DownForge does not claim ownership of third-party content. If you are a rights holder and believe content accessible via the Service infringes your rights, contact us at dmca@downforge.me with the URL, proof of ownership, and your contact information. We respond promptly and may block access."
+        "title": "5. Propriété Intellectuelle & DMCA",
+        "body": "DownForge ne revendique propriété de contenu tiers. Si titulaire de droits et croyez contenu via Service enfreint vos droits, contactez dmca@downforge.me avec URL, preuve propriété et contact. Nous répondons rapidement."
       },
       {
         "id": "billing",
-        "title": "6. Billing & Subscriptions",
-        "body": "Free tier is limited (10/day, 1080p). Pro/Team are billed monthly via Stripe. You may cancel anytime; access continues until period end. Refunds are handled case-by-case within 14 days if the Service was not used."
+        "title": "6. Facturation & Abonnements",
+        "body": "Niveau gratuit limité (10/jour, 1080p). Pro/Team facturé mensuel via Stripe. Vous pouvez annuler à tout moment ; accès continue jusqu'à fin période. Remboursements cas par cas sous 14 jours si Service non utilisé."
       },
       {
         "id": "disclaimer",
-        "title": "7. Disclaimers & Limitation of Liability",
-        "body": "The Service is provided “as is” without warranty. We do not guarantee availability or that any platform will remain supported. To the fullest extent permitted by law, DownForge’s liability is limited to the amount you paid in the last 3 months."
+        "title": "7. Avertissements & Limitation Responsabilité",
+        "body": "Service fourni “tel quel” sans garantie. Nous ne garantissons disponibilité ou que toute plateforme restera supportée. Dans la mesure maximale permise, responsabilité DownForge limitée au montant payé sur 3 derniers mois."
       },
       {
         "id": "changes",
-        "title": "8. Changes, Termination & Contact",
-        "body": "We may modify, suspend, or discontinue the Service at any time. We may terminate access for violations. Questions? Contact legal@downforge.me or via our Contact page. These Terms are governed by the laws of your jurisdiction, without regard to conflict of law rules."
+        "title": "8. Changements, Résiliation & Contact",
+        "body": "Nous pouvons modifier, suspendre ou arrêter Service à tout moment. Nous pouvons terminer accès pour violations. Questions ? Contact legal@downforge.me."
       }
     ],
-    "metaTitle": "Terms of Service — DownForge | Legal",
-    "metaDescription": "Read DownForge’s Terms of Service: acceptable use, billing, IP/DMCA, disclaimers, and contact. Last updated August 2025."
+    "metaTitle": "Conditions d'Utilisation — DownForge | Légal",
+    "metaDescription": "Lisez Conditions d'Utilisation DownForge : usage acceptable, facturation, PI/DMCA, avertissements et contact. Dernière mise à jour août 2025."
   },
   "Contact": {
     "badge": "Contact",
-    "title": "Get in touch",
-    "subtitle": "Questions, billing help, or DMCA? We usually reply within 24 hours.",
-    "formTitle": "Send us a message",
-    "nameLabel": "Full name",
-    "namePlaceholder": "Jane Doe",
+    "title": "Contactez-nous",
+    "subtitle": "Questions, aide facturation ou DMCA ? Nous répondons habituellement en 24 heures.",
+    "formTitle": "Envoyez-nous un message",
+    "nameLabel": "Nom complet",
+    "namePlaceholder": "Jean Dupont",
     "emailLabel": "Email",
-    "emailPlaceholder": "you@example.com",
-    "subjectLabel": "Subject",
-    "subjectPlaceholder": "Select a topic",
+    "emailPlaceholder": "vous@exemple.fr",
+    "subjectLabel": "Sujet",
+    "subjectPlaceholder": "Sélectionnez un sujet",
     "subjectOptions": [
-      "General inquiry",
-      "Billing & Pro",
-      "API & Developer",
-      "DMCA / Copyright",
-      "Bug report",
-      "Feature request"
+      "Demande générale",
+      "Facturation & Pro",
+      "API & Développeur",
+      "DMCA / Droits d'auteur",
+      "Rapport de bug",
+      "Demande de fonctionnalité"
     ],
     "messageLabel": "Message",
-    "messagePlaceholder": "How can we help you?",
-    "submitButton": "Send message",
-    "submitting": "Sending…",
-    "successTitle": "Message sent!",
-    "successDesc": "Thanks for reaching out. We’ll get back to you soon at your email.",
-    "errorRequired": "Please fill in all required fields and a valid email.",
-    "infoTitle": "Other ways to reach us",
+    "messagePlaceholder": "Comment pouvons-nous vous aider ?",
+    "submitButton": "Envoyer le message",
+    "submitting": "Envoi…",
+    "successTitle": "Message envoyé !",
+    "successDesc": "Merci de nous avoir contactés. Nous répondrons bientôt à votre email.",
+    "errorRequired": "Veuillez remplir tous les champs requis et un email valide.",
+    "infoTitle": "Autres moyens de nous joindre",
     "infoEmail": "support@downforge.me",
-    "infoEmailSub": "For support, billing, and general inquiries",
+    "infoEmailSub": "Pour support, facturation et demandes générales",
     "infoLegal": "legal@downforge.me",
-    "infoLegalSub": "For DMCA and legal matters",
-    "infoResponse": "Avg. response: < 24h • Mon–Fri 9–18 UTC",
-    "faqTitle": "Quick answers",
+    "infoLegalSub": "Pour DMCA et affaires juridiques",
+    "infoResponse": "Réponse moyenne : < 24h • Lun–Ven 9–18 UTC",
+    "faqTitle": "Réponses rapides",
     "faqs": [
       {
-        "q": "Where is my download?",
-        "a": "Files are deleted 60 minutes after processing. Check your downloads folder or re-paste the URL."
+        "q": "Où est mon téléchargement ?",
+        "a": "Les fichiers sont supprimés 60 minutes après traitement. Vérifiez votre dossier ou recollez l'URL."
       },
       {
-        "q": "How do I cancel Pro?",
-        "a": "Go to Dashboard → Billing → Manage, or email support@downforge.me. Access continues until period end."
+        "q": "Comment annuler Pro ?",
+        "a": "Allez à Tableau de bord → Facturation → Gérer, ou écrivez à support@downforge.me."
       },
       {
-        "q": "Do you store my URLs?",
-        "a": "No. URLs are processed ephemerally and never logged with personal data."
+        "q": "Stockez-vous mes URLs ?",
+        "a": "Non. Les URLs sont traitées de manière éphémère et jamais journalisées avec données perso."
       }
     ],
-    "metaTitle": "Contact DownForge — Support, Billing & DMCA | DownForge",
-    "metaDescription": "Contact DownForge support: billing, API, DMCA, or general help. Avg. reply <24h. Email support@downforge.me or use the form."
+    "metaTitle": "Contact DownForge — Support, Facturation & DMCA | DownForge",
+    "metaDescription": "Contactez support DownForge : facturation, API, DMCA ou aide générale. Réponse <24h. Email support@downforge.me.",
+    "linkPrivacy": "Confidentialité",
+    "linkTerms": "Conditions",
+    "linkApiDocs": "Docs API"
   },
   "Features": {
-    "badge": "Why DownForge",
-    "title": "All-in-One Download Tool",
-    "titleAccent": "for 200+ sites",
-    "subtitle": "Built for speed, privacy, and quality. Download video, audio, thumbnails and transcripts the way it was meant to be saved.",
-    "ctaTitle": "Ready to try?",
-    "ctaSubtitle": "Paste a URL and get your file in seconds. No account required.",
-    "ctaButton": "Start free",
-    "ctaSecondary": "View pricing",
-    "metaTitle": "Features — DownForge | Video, Audio, Thumbnail & Transcript Tools",
-    "metaDescription": "Explore DownForge features: 200+ platforms, 4K video, FLAC audio, HD thumbnails, AI transcripts, batch, private & fast."
+    "badge": "Pourquoi DownForge",
+    "title": "Outil Tout-en-Un",
+    "titleAccent": "pour 200+ sites",
+    "subtitle": "Conçu pour vitesse, confidentialité et qualité. Téléchargez vidéo, audio, miniatures et transcriptions comme il se doit.",
+    "ctaTitle": "Prêt à essayer ?",
+    "ctaSubtitle": "Collez une URL et obtenez votre fichier en secondes. Aucun compte.",
+    "ctaButton": "Commencer gratuitement",
+    "ctaSecondary": "Voir les prix",
+    "metaTitle": "Fonctionnalités — DownForge | Outils Vidéo, Audio, Miniature et Transcription",
+    "metaDescription": "Découvrez fonctions DownForge : 200+ plateformes, vidéo 4K, audio FLAC, miniatures HD, transcriptions IA, lot, privé et rapide."
   },
   "Blog": {
     "badge": "Blog",
-    "title": "Insights & Guides",
-    "subtitle": "Tutorials, platform guides, and product updates from the DownForge team.",
-    "readMore": "Read more",
-    "empty": "No posts yet — check back soon.",
-    "metaTitle": "Blog — DownForge Guides & Updates",
-    "metaDescription": "DownForge blog: tutorials, platform guides, and updates for downloading video, audio, thumbnails and transcripts."
+    "title": "Perspectives et Guides",
+    "subtitle": "Tutoriels, guides plateformes et mises à jour de l'équipe DownForge.",
+    "readMore": "Lire plus",
+    "empty": "Pas encore de publications — revenez bientôt.",
+    "metaTitle": "Blog — Guides et Mises à jour DownForge",
+    "metaDescription": "Blog DownForge : tutoriels, guides plateformes et mises à jour pour télécharger vidéo, audio, miniatures et transcriptions."
   },
   "Changelog": {
-    "badge": "Changelog",
-    "title": "What’s new",
-    "subtitle": "All notable changes to DownForge — new platforms, formats, and fixes.",
-    "filterAll": "All",
-    "filterMajor": "Major",
-    "filterFix": "Fix",
-    "metaTitle": "Changelog — DownForge Updates",
-    "metaDescription": "See what’s new in DownForge: new platforms, formats, performance and fixes."
+    "badge": "Journal",
+    "title": "Quoi de neuf",
+    "subtitle": "Tous changements notables DownForge — nouvelles plateformes, formats et correctifs.",
+    "filterAll": "Tous",
+    "filterMajor": "Majeur",
+    "filterFix": "Correction",
+    "metaTitle": "Journal — Mises à jour DownForge",
+    "metaDescription": "Voyez quoi de neuf DownForge : nouvelles plateformes, formats, performance et correctifs."
   },
   "ApiStatus": {
     "badge": "Status",

@@ -5,6 +5,18 @@ import { Footer } from "@/components/layout/Footer";
 import { Link } from "@/lib/i18n/navigation";
 import { ShieldCheck, ArrowLeft } from "lucide-react";
 
+const ogLocaleMap: Record<string, string> = {
+  en: "en_US",
+  es: "es_ES",
+  fr: "fr_FR",
+  de: "de_DE",
+  pt: "pt_BR",
+  ja: "ja_JP",
+  ar: "ar_SA",
+  ru: "ru_RU",
+  zh: "zh_CN",
+};
+
 type Props = { params: Promise<{ locale: string }> };
 
 export async function generateMetadata({ params }: Props): Promise<Metadata> {

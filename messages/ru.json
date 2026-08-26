@@ -621,33 +621,53 @@
     }
   },
   "Privacy": {
-    "backToHome": "Back to home",
-    "title": "Политика конфиденциальности",
-    "lastUpdated": "Последнее обновление: январь 2025 г.",
-    "section1Title": "1. Information We Collect",
-    "section1Body": "We collect only the information necessary to provide our service: the URLs you submit for download, your IP address for rate limiting, and account information (email, name) if you create an account. We do not collect or store the actual content of your downloads beyond the processing period.",
-    "section2Title": "2. How We Use Your Data",
-    "section2Body": "URLs are used solely to process your download request and are deleted from our servers immediately after processing. Account information is used for authentication, billing, and communication about your account. We do not sell, trade, or share your personal data with third parties.",
-    "section3Title": "3. Data Security",
-    "section3Body": "We implement industry-standard security measures including encryption in transit (TLS), secure API authentication, and regular security audits. Downloaded files are stored temporarily in isolated storage and automatically purged.",
+    "title": "Политика Конфиденциальности",
+    "lastUpdated": "Последнее обновление: январь 2025",
+    "backToHome": "На главную",
+    "section1Title": "1. Какую Информацию Мы Собираем",
+    "section1Body": "Мы собираем только информацию, необходимую для предоставления сервиса: URL, которые вы отправляете для загрузки, ваш IP-адрес для ограничения и информацию об аккаунте (email, имя), если вы создаёте аккаунт. Мы не собираем и не храним фактическое содержание ваших загрузок сверх периода обработки.",
+    "section2Title": "2. Как Мы Используем Ваши Данные",
+    "section2Body": "URL используются исключительно для обработки запроса на загрузку и удаляются с серверов сразу после обработки. Информация об аккаунте используется для аутентификации, биллинга и связи. Мы не продаём и не делимся вашими личными данными с третьими лицами.",
+    "section3Title": "3. Безопасность Данных",
+    "section3Body": "Мы внедряем отраслевые меры безопасности, включая шифрование при передаче (TLS), безопасную аутентификацию API и регулярные аудиты. Загруженные файлы временно хранятся в изолированном хранилище и автоматически удаляются.",
     "section4Title": "4. Cookies",
-    "section4Body": "We use essential cookies for authentication and session management. Analytics cookies are used only with your consent. You can control cookie preferences through your browser settings.",
-    "section5Title": "5. Your Rights",
-    "section5Body": "You have the right to access, correct, or delete your personal data at any time. Contact us at privacy@downforge.me to exercise these rights. We will respond to your request within 30 days."
+    "section4Body": "Мы используем необходимые cookies для аутентификации и управления сессией. Аналитические cookies только с вашего согласия. Вы можете управлять настройками cookies через браузер.",
+    "section5Title": "5. Ваши Права",
+    "section5Body": "Вы имеете право в любое время получить доступ, исправить или удалить личные данные. Свяжитесь с privacy@downforge.me для осуществления этих прав. Мы ответим в течение 30 дней.",
+    "badge": "Конфиденциальность",
+    "heroSubtitle": "Ваша конфиденциальность — основа DownForge. Мы обрабатываем временно, ничего не храним и даём полный контроль.",
+    "contentsTitle": "Содержание",
+    "transparentBadge": "Прозрачно и минимально",
+    "ctaTerms": "Условия использования",
+    "ctaContact": "Связаться с поддержкой",
+    "footerNote": "Мы никогда не продаём ваши данные. Для удаления пишите на privacy@downforge.me",
+    "questionsAboutData": "Вопросы о данных?",
+    "contactUsLink": "Свяжитесь с нами",
+    "replyWithin": "— отвечаем в течение 24 часов."
   },
   "Pricing": {
     "title": "Тарифные планы",
-    "subtitle": "Выберите тариф, который подходит вам. Начните бесплатно, улучшите, когда понадобится больше.",
+    "subtitle": "Выберите подходящий тариф. Начните бесплатно, улучшите когда нужно.",
     "backToHome": "Back to home",
-    "faqTitle": "Frequently Asked Questions",
-    "faq1Q": "Can I switch plans at any time?",
-    "faq1A": "Yes, you can upgrade or downgrade at any time. Changes take effect immediately.",
-    "faq2Q": "What payment methods do you accept?",
-    "faq2A": "We accept all major credit cards, PayPal, and cryptocurrency.",
-    "faq3Q": "Is there a free trial for Pro?",
-    "faq3A": "Yes, we offer a 7-day free trial of our Pro plan with no commitment required.",
-    "faq4Q": "Can I cancel anytime?",
-    "faq4A": "Absolutely. No contracts, no cancellation fees. Your access continues until the end of the billing period."
+    "faqTitle": "Частые вопросы",
+    "faq1Q": "Могу ли я сменить тариф в любой момент?",
+    "faq1A": "Да, улучшайте или понижайте в любой момент. Мгновенно.",
+    "faq2Q": "Какие платежи принимаете?",
+    "faq2A": "Все основные карты, PayPal и крипто.",
+    "faq3Q": "Есть ли пробный Pro?",
+    "faq3A": "Да, 7 дней бесплатно Pro без обязательств.",
+    "faq4Q": "Могу ли я отменить в любой момент?",
+    "faq4A": "Абсолютно. Без контрактов, без сборов.",
+    "heroTitle": "Выберите",
+    "heroTitleAccent": "тариф",
+    "heroBadge": "Цены",
+    "trustNoCard": "Без карты для Бесплатно",
+    "trustCancel": "Отмена в любое время",
+    "trustRefund": "Возврат 30 дней",
+    "notSureTitle": "Не уверены?",
+    "notSureDesc": "Начните бесплатно и улучшите когда нужен 4K, FLAC или пакет.",
+    "ctaStartFree": "Начать бесплатно",
+    "ctaTalkToUs": "Свяжитесь с нами"
   },
   "SEO": {
     "homeTitle": "DownForge — Скачивайте любые видео, аудио, миниатюры и транскрипции",
@@ -3133,209 +3153,213 @@
     "lt": "Lithuanian"
   },
   "About": {
-    "badge": "About DownForge",
-    "title": "Built for creators,",
-    "titleAccent": "trusted by thousands.",
-    "subtitle": "We make downloading from 200+ platforms effortless — fast, private, and in any format you need. No bloat, no tracking, just download.",
-    "statsBadge": "At a glance",
+    "badge": "О DownForge",
+    "title": "Создан для создателей,",
+    "titleAccent": "ему доверяют тысячи.",
+    "subtitle": "Мы делаем загрузку с 200+ платформ простой — быстро, приватно и в любом формате, который вам нужен. Без лишнего, без отслеживания, просто скачивайте.",
+    "statsBadge": "Кратко",
     "stats": [
       {
         "value": "200+",
-        "label": "Platforms supported",
-        "sub": "YouTube to niche sites"
+        "label": "Платформ поддерживается",
+        "sub": "От YouTube до нишевых сайтов"
       },
       {
-        "value": "< 3s",
-        "label": "Average processing",
-        "sub": "Server-side, CDN delivered"
+        "value": "< 3с",
+        "label": "Средняя обработка",
+        "sub": "Сервер, доставка через CDN"
       },
       {
         "value": "4.9/5",
-        "label": "User rating",
-        "sub": "Trusted by creators"
+        "label": "Оценка пользователей",
+        "sub": "Доверяют создатели"
       },
       {
-        "value": "Zero",
-        "label": "Logs kept",
-        "sub": "Ephemeral by design"
+        "value": "Ноль",
+        "label": "Сохранённых логов",
+        "sub": "Временно по дизайну"
       }
     ],
-    "storyBadge": "Our Story",
-    "storyTitle": "Why we built DownForge",
-    "storyP1": "DownForge started in 2024 with a simple observation: creators, educators, and editors waste hours juggling platform-specific tools to save a clip in the right format.",
-    "storyP2": "We wrapped the best open-source engines — yt-dlp and ffmpeg — in a fast, private, and beautiful product. No ads in your face, no files kept on our servers, just paste → pick → download.",
-    "storyP3": "Today, DownForge serves thousands of daily downloads, from TikTok drafts to 4K YouTube masters, with the same promise: what you paste is processed ephemerally and deleted immediately.",
+    "storyBadge": "Наша История",
+    "storyTitle": "Почему мы создали DownForge",
+    "storyP1": "DownForge появился в 2024 году из простого наблюдения: создатели, преподаватели и монтажёры тратят часы, переключаясь между специфичными инструментами, чтобы сохранить клип в правильном формате.",
+    "storyP2": "Мы обернули лучшие open-source движки — yt-dlp и ffmpeg — в быстрый, приватный и красивый продукт. Без навязчивой рекламы, без хранения файлов на серверах, просто вставь → выбери → скачай.",
+    "storyP3": "Сегодня DownForge обслуживает тысячи загрузок ежедневно, от черновиков TikTok до мастеров YouTube в 4K, с тем же обещанием: вставленное обрабатывается временно и немедленно удаляется.",
     "timeline": [
       {
         "year": "2024",
-        "title": "Founded",
-        "desc": "Launched with YouTube + TikTok support"
+        "title": "Основан",
+        "desc": "Запущен с поддержкой YouTube + TikTok"
       },
       {
         "year": "2025",
-        "title": "200+ sites",
-        "desc": "Expanded to 14 major platforms, universal auto-detect"
+        "title": "200+ сайтов",
+        "desc": "Расширен до 14 основных платформ, универсальное автоопределение"
       },
       {
-        "year": "Now",
-        "title": "Pro & API",
-        "desc": "Unlimited, 4K, batch, and developer API"
+        "year": "Сейчас",
+        "title": "Pro и API",
+        "desc": "Безлимит, 4K, пакеты и API для разработчиков"
       }
     ],
-    "valuesBadge": "Why us",
-    "valuesTitle": "Speed, privacy, and quality — without compromise.",
+    "valuesBadge": "Почему мы",
+    "valuesTitle": "Скорость, приватность и качество — без компромиссов.",
     "values": [
       {
-        "title": "Privacy first",
-        "desc": "We don’t store URLs or files. Ephemeral processing, auto-deleted in 60 minutes. No selling data. Ever."
+        "title": "Приватность прежде всего",
+        "desc": "Мы не храним URL или файлы. Временная обработка, автоудаление через 60 минут. Никогда не продаём данные."
       },
       {
-        "title": "Blazing fast",
-        "desc": "Server-side conversion with CDN streaming. Your download starts in under 3 seconds."
+        "title": "Молниеносно",
+        "desc": "Конвертация на сервере с CDN-стримингом. Загрузка начинается менее чем за 3 секунды."
       },
       {
-        "title": "Any format, any quality",
-        "desc": "MP4, WebM, FLAC, PNG, SRT — from 144p to 4K and 320 kbps to lossless."
+        "title": "Любой формат, любое качество",
+        "desc": "MP4, WebM, FLAC, PNG, SRT — от 144p до 4K и от 320 kbps до lossless."
       }
     ],
-    "ctaTitle": "Ready to download like a pro?",
-    "ctaSubtitle": "Paste a URL and get your file in seconds. No account required.",
-    "ctaButton": "Try it now — it’s free",
-    "ctaSecondary": "View pricing",
-    "metaTitle": "About DownForge — Fast, Private Video Downloader for 200+ Sites | DownForge",
-    "metaDescription": "Learn about DownForge: our story, values, and why thousands trust us to download video, audio, thumbnails and transcripts from 200+ platforms — fast and private."
+    "ctaTitle": "Готовы качать как профи?",
+    "ctaSubtitle": "Вставьте URL и получите файл за секунды. Аккаунт не нужен.",
+    "ctaButton": "Попробовать сейчас — бесплатно",
+    "ctaSecondary": "Посмотреть цены",
+    "metaTitle": "О DownForge — Быстрый приватный загрузчик для 200+ сайтов | DownForge",
+    "metaDescription": "Узнайте о DownForge: наша история, ценности и почему тысячи доверяют нам загрузку видео, аудио, превью и транскриптов с 200+ платформ — быстро и приватно.",
+    "milestonesTitle": "Вехи"
   },
   "Terms": {
-    "badge": "Legal",
-    "title": "Terms of Service",
-    "subtitle": "Please read these terms carefully. By using DownForge, you agree to them.",
-    "lastUpdated": "Last updated: August 2025",
-    "tocTitle": "Contents",
+    "badge": "Юридическая информация",
+    "title": "Условия Использования",
+    "subtitle": "Пожалуйста, внимательно прочитайте эти условия. Используя DownForge, вы их принимаете.",
+    "lastUpdated": "Последнее обновление: август 2025",
+    "tocTitle": "Содержание",
     "sections": [
       {
         "id": "acceptance",
-        "title": "1. Acceptance of Terms",
-        "body": "By accessing or using DownForge (the “Service”), you agree to these Terms. If you do not agree, do not use the Service. We may update these Terms; continued use after changes means acceptance. We will post the new date above."
+        "title": "1. Принятие Условий",
+        "body": "Получая доступ к DownForge (\"Сервис\") или используя его, вы принимаете эти Условия. Если не согласны, не используйте Сервис. Мы можем обновлять Условия; продолжение после изменений означает принятие."
       },
       {
         "id": "eligibility",
-        "title": "2. Eligibility & Accounts",
-        "body": "You must be at least 13 years old. If you create an account, you are responsible for keeping your credentials secure and for all activity under your account. Notify us immediately of unauthorized use. We may suspend accounts that violate these Terms."
+        "title": "2. Правомочность и Аккаунты",
+        "body": "Вам должно быть не менее 13 лет. Если вы создаёте аккаунт, вы отвечаете за сохранность учётных данных и всю активность под вашим аккаунтом. Немедленно сообщите о несанкционированном использовании."
       },
       {
         "id": "use",
-        "title": "3. Acceptable Use & Platform Compliance",
-        "body": "Use the Service only for content you have the right to access. You must comply with the terms of any third-party platform (e.g., YouTube, TikTok) you access through DownForge and with applicable copyright laws. Do not use the Service to infringe, to harass, or to distribute malware."
+        "title": "3. Допустимое Использование и Соблюдение Платформ",
+        "body": "Используйте Сервис только для контента, к которому у вас есть право доступа. Вы должны соблюдать условия любых сторонних платформ (например, YouTube, TikTok), к которым обращаетесь через DownForge, и применимые законы об авторском праве."
       },
       {
         "id": "prohibited",
-        "title": "4. Prohibited Conduct",
-        "body": "You may not: (a) attempt to bypass rate limits, (b) scrape or overload our infrastructure, (c) upload malicious code, (d) misrepresent affiliation, or (e) use the Service for unlawful purposes. We enforce rate limits: 60/min global, 30/min info, 20/min download."
+        "title": "4. Запрещённое Поведение",
+        "body": "Вы не можете: (а) пытаться обойти лимиты, (б) парсить или перегружать инфраструктуру, (в) загружать вредоносный код, (г) искажать принадлежность, или (д) использовать Сервис в незаконных целях. Лимиты: 60/мин глобально, 30/мин info, 20/мин download."
       },
       {
         "id": "ip",
-        "title": "5. Intellectual Property & DMCA",
-        "body": "DownForge does not claim ownership of third-party content. If you are a rights holder and believe content accessible via the Service infringes your rights, contact us at dmca@downforge.me with the URL, proof of ownership, and your contact information. We respond promptly and may block access."
+        "title": "5. Интеллектуальная Собственность и DMCA",
+        "body": "DownForge не заявляет права собственности на сторонний контент. Если вы правообладатель и считаете, что контент через Сервис нарушает ваши права, свяжитесь с dmca@downforge.me с URL, доказательством владения и контактами."
       },
       {
         "id": "billing",
-        "title": "6. Billing & Subscriptions",
-        "body": "Free tier is limited (10/day, 1080p). Pro/Team are billed monthly via Stripe. You may cancel anytime; access continues until period end. Refunds are handled case-by-case within 14 days if the Service was not used."
+        "title": "6. Оплата и Подписки",
+        "body": "Бесплатный уровень ограничен (10/день, 1080p). Pro/Team биллинг ежемесячно через Stripe. Вы можете отменить в любой момент; доступ до конца периода. Возвраты в каждом случае в течение 14 дней если Сервис не использовался."
       },
       {
         "id": "disclaimer",
-        "title": "7. Disclaimers & Limitation of Liability",
-        "body": "The Service is provided “as is” without warranty. We do not guarantee availability or that any platform will remain supported. To the fullest extent permitted by law, DownForge’s liability is limited to the amount you paid in the last 3 months."
+        "title": "7. Отказы и Ограничение Ответственности",
+        "body": "Сервис предоставляется \"как есть\" без гарантий. Мы не гарантируем доступность или что любая платформа останется поддерживаемой. В максимальной разрешённой степени ответственность DownForge ограничена суммой, уплаченной за последние 3 месяца."
       },
       {
         "id": "changes",
-        "title": "8. Changes, Termination & Contact",
-        "body": "We may modify, suspend, or discontinue the Service at any time. We may terminate access for violations. Questions? Contact legal@downforge.me or via our Contact page. These Terms are governed by the laws of your jurisdiction, without regard to conflict of law rules."
+        "title": "8. Изменения, Прекращение и Контакты",
+        "body": "Мы можем изменять, приостанавливать или прекращать Сервис в любое время. Можем прекратить доступ за нарушения. Вопросы? Свяжитесь legal@downforge.me."
       }
     ],
-    "metaTitle": "Terms of Service — DownForge | Legal",
-    "metaDescription": "Read DownForge’s Terms of Service: acceptable use, billing, IP/DMCA, disclaimers, and contact. Last updated August 2025."
+    "metaTitle": "Условия Использования — DownForge | Юридическая информация",
+    "metaDescription": "Прочитайте Условия DownForge: допустимое использование, оплата, ИС/DMCA, отказы и контакты. Последнее обновление август 2025."
   },
   "Contact": {
-    "badge": "Contact",
-    "title": "Get in touch",
-    "subtitle": "Questions, billing help, or DMCA? We usually reply within 24 hours.",
-    "formTitle": "Send us a message",
-    "nameLabel": "Full name",
-    "namePlaceholder": "Jane Doe",
+    "badge": "Контакты",
+    "title": "Свяжитесь с нами",
+    "subtitle": "Вопросы, помощь с оплатой или DMCA? Обычно отвечаем в течение 24 часов.",
+    "formTitle": "Отправьте сообщение",
+    "nameLabel": "Полное имя",
+    "namePlaceholder": "Иван Иванов",
     "emailLabel": "Email",
     "emailPlaceholder": "you@example.com",
-    "subjectLabel": "Subject",
-    "subjectPlaceholder": "Select a topic",
+    "subjectLabel": "Тема",
+    "subjectPlaceholder": "Выберите тему",
     "subjectOptions": [
-      "General inquiry",
-      "Billing & Pro",
-      "API & Developer",
-      "DMCA / Copyright",
-      "Bug report",
-      "Feature request"
+      "Общий запрос",
+      "Оплата и Pro",
+      "API и разработчик",
+      "DMCA / Авторские права",
+      "Сообщение об ошибке",
+      "Запрос функции"
     ],
-    "messageLabel": "Message",
-    "messagePlaceholder": "How can we help you?",
-    "submitButton": "Send message",
-    "submitting": "Sending…",
-    "successTitle": "Message sent!",
-    "successDesc": "Thanks for reaching out. We’ll get back to you soon at your email.",
-    "errorRequired": "Please fill in all required fields and a valid email.",
-    "infoTitle": "Other ways to reach us",
+    "messageLabel": "Сообщение",
+    "messagePlaceholder": "Как мы можем помочь?",
+    "submitButton": "Отправить сообщение",
+    "submitting": "Отправка…",
+    "successTitle": "Сообщение отправлено!",
+    "successDesc": "Спасибо за обращение. Скоро ответим на вашу почту.",
+    "errorRequired": "Пожалуйста, заполните все обязательные поля и корректный email.",
+    "infoTitle": "Другие способы связи",
     "infoEmail": "support@downforge.me",
-    "infoEmailSub": "For support, billing, and general inquiries",
+    "infoEmailSub": "Для поддержки, оплаты и общих вопросов",
     "infoLegal": "legal@downforge.me",
-    "infoLegalSub": "For DMCA and legal matters",
-    "infoResponse": "Avg. response: < 24h • Mon–Fri 9–18 UTC",
-    "faqTitle": "Quick answers",
+    "infoLegalSub": "Для DMCA и юридических вопросов",
+    "infoResponse": "Средний ответ: < 24ч • Пн–Пт 9–18 UTC",
+    "faqTitle": "Быстрые ответы",
     "faqs": [
       {
-        "q": "Where is my download?",
-        "a": "Files are deleted 60 minutes after processing. Check your downloads folder or re-paste the URL."
+        "q": "Где моя загрузка?",
+        "a": "Файлы удаляются через 60 минут после обработки. Проверьте папку загрузок или вставьте ссылку снова."
       },
       {
-        "q": "How do I cancel Pro?",
-        "a": "Go to Dashboard → Billing → Manage, or email support@downforge.me. Access continues until period end."
+        "q": "Как отменить Pro?",
+        "a": "Перейдите в Панель → Оплата → Управление, или напишите на support@downforge.me."
       },
       {
-        "q": "Do you store my URLs?",
-        "a": "No. URLs are processed ephemerally and never logged with personal data."
+        "q": "Вы храните мои URL?",
+        "a": "Нет. URL обрабатываются временно и не логируются с личными данными."
       }
     ],
-    "metaTitle": "Contact DownForge — Support, Billing & DMCA | DownForge",
-    "metaDescription": "Contact DownForge support: billing, API, DMCA, or general help. Avg. reply <24h. Email support@downforge.me or use the form."
+    "metaTitle": "Контакты DownForge — Поддержка, Оплата и DMCA | DownForge",
+    "metaDescription": "Свяжитесь с поддержкой DownForge: оплата, API, DMCA или помощь. Ответ <24ч. support@downforge.me или форма.",
+    "linkPrivacy": "Конфиденциальность",
+    "linkTerms": "Условия",
+    "linkApiDocs": "Доки API"
   },
   "Features": {
-    "badge": "Why DownForge",
-    "title": "All-in-One Download Tool",
-    "titleAccent": "for 200+ sites",
-    "subtitle": "Built for speed, privacy, and quality. Download video, audio, thumbnails and transcripts the way it was meant to be saved.",
-    "ctaTitle": "Ready to try?",
-    "ctaSubtitle": "Paste a URL and get your file in seconds. No account required.",
-    "ctaButton": "Start free",
-    "ctaSecondary": "View pricing",
-    "metaTitle": "Features — DownForge | Video, Audio, Thumbnail & Transcript Tools",
-    "metaDescription": "Explore DownForge features: 200+ platforms, 4K video, FLAC audio, HD thumbnails, AI transcripts, batch, private & fast."
+    "badge": "Почему DownForge",
+    "title": "Универсальный инструмент",
+    "titleAccent": "для 200+ сайтов",
+    "subtitle": "Создан для скорости, приватности и качества. Скачивайте видео, аудио, превью и транскрипты как должно сохраняться.",
+    "ctaTitle": "Готовы попробовать?",
+    "ctaSubtitle": "Вставьте URL и получите файл за секунды. Без аккаунта.",
+    "ctaButton": "Начать бесплатно",
+    "ctaSecondary": "Посмотреть цены",
+    "metaTitle": "Возможности — DownForge | Инструменты Видео, Аудио, Превью и Транскриптов",
+    "metaDescription": "Изучите возможности DownForge: 200+ платформ, видео 4K, аудио FLAC, превью HD, транскрипты ИИ, пакеты, приватно и быстро."
   },
   "Blog": {
-    "badge": "Blog",
-    "title": "Insights & Guides",
-    "subtitle": "Tutorials, platform guides, and product updates from the DownForge team.",
-    "readMore": "Read more",
-    "empty": "No posts yet — check back soon.",
-    "metaTitle": "Blog — DownForge Guides & Updates",
-    "metaDescription": "DownForge blog: tutorials, platform guides, and updates for downloading video, audio, thumbnails and transcripts."
+    "badge": "Блог",
+    "title": "Идеи и Руководства",
+    "subtitle": "Уроки, гайды по платформам и обновления от команды DownForge.",
+    "readMore": "Читать далее",
+    "empty": "Пока нет публикаций — зайдите позже.",
+    "metaTitle": "Блог — Гайды и Обновления DownForge",
+    "metaDescription": "Блог DownForge: уроки, гайды по платформам и обновления для загрузки видео, аудио, превью и транскриптов."
   },
   "Changelog": {
-    "badge": "Changelog",
-    "title": "What’s new",
-    "subtitle": "All notable changes to DownForge — new platforms, formats, and fixes.",
-    "filterAll": "All",
-    "filterMajor": "Major",
-    "filterFix": "Fix",
-    "metaTitle": "Changelog — DownForge Updates",
-    "metaDescription": "See what’s new in DownForge: new platforms, formats, performance and fixes."
+    "badge": "Журнал",
+    "title": "Что нового",
+    "subtitle": "Все заметные изменения DownForge — новые платформы, форматы и исправления.",
+    "filterAll": "Все",
+    "filterMajor": "Крупное",
+    "filterFix": "Исправление",
+    "metaTitle": "Журнал — Обновления DownForge",
+    "metaDescription": "Смотрите что нового в DownForge: новые платформы, форматы, производительность и исправления."
   },
   "ApiStatus": {
     "badge": "Status",

@@ -621,33 +621,53 @@
     }
   },
   "Privacy": {
-    "backToHome": "Back to home",
     "title": "سياسة الخصوصية",
     "lastUpdated": "آخر تحديث: يناير 2025",
-    "section1Title": "1. Information We Collect",
-    "section1Body": "We collect only the information necessary to provide our service: the URLs you submit for download, your IP address for rate limiting, and account information (email, name) if you create an account. We do not collect or store the actual content of your downloads beyond the processing period.",
-    "section2Title": "2. How We Use Your Data",
-    "section2Body": "URLs are used solely to process your download request and are deleted from our servers immediately after processing. Account information is used for authentication, billing, and communication about your account. We do not sell, trade, or share your personal data with third parties.",
-    "section3Title": "3. Data Security",
-    "section3Body": "We implement industry-standard security measures including encryption in transit (TLS), secure API authentication, and regular security audits. Downloaded files are stored temporarily in isolated storage and automatically purged.",
-    "section4Title": "4. Cookies",
-    "section4Body": "We use essential cookies for authentication and session management. Analytics cookies are used only with your consent. You can control cookie preferences through your browser settings.",
-    "section5Title": "5. Your Rights",
-    "section5Body": "You have the right to access, correct, or delete your personal data at any time. Contact us at privacy@downforge.me to exercise these rights. We will respond to your request within 30 days."
+    "backToHome": "العودة إلى الرئيسية",
+    "section1Title": "1. المعلومات التي نجمعها",
+    "section1Body": "نجمع فقط المعلومات اللازمة لتقديم خدمتنا: الروابط التي ترسلها للتنزيل، عنوان IP الخاص بك للحد من السرعة، ومعلومات الحساب (البريد، الاسم) إذا أنشأت حساباً. لا نجمع أو نخزن المحتوى الفعلي لتنزيلاتك بعد فترة المعالجة.",
+    "section2Title": "2. كيف نستخدم بياناتك",
+    "section2Body": "تُستخدم الروابط فقط لمعالجة طلب التنزيل وتُحذف من خوادمنا فوراً بعد المعالجة. تُستخدم معلومات الحساب للمصادقة والفوترة والتواصل حول حسابك. لا نبيع أو نشارك بياناتك الشخصية مع أطراف ثالثة.",
+    "section3Title": "3. أمان البيانات",
+    "section3Body": "ننفذ تدابير أمان قياسية في الصناعة تشمل التشفير أثناء النقل (TLS)، مصادقة API آمنة وتدقيقات أمنية منتظمة. تُخزن الملفات المنزلة مؤقتاً في تخزين معزول وتُحذف تلقائياً.",
+    "section4Title": "4. ملفات تعريف الارتباط",
+    "section4Body": "نستخدم ملفات تعريف الارتباط الأساسية للمصادقة وإدارة الجلسة. ملفات التحليل تُستخدم فقط بموافقتك. يمكنك التحكم في تفضيلات ملفات تعريف الارتباط عبر إعدادات المتصفح.",
+    "section5Title": "5. حقوقك",
+    "section5Body": "لديك الحق في الوصول إلى بياناتك الشخصية أو تصحيحها أو حذفها في أي وقت. اتصل بنا على privacy@downforge.me لممارسة هذه الحقوق. سنرد خلال 30 يوماً.",
+    "badge": "الخصوصية",
+    "heroSubtitle": "خصوصيتك هي جوهر DownForge. نعالج بشكل مؤقت، لا نخزن شيئاً، ونمنحك التحكم الكامل.",
+    "contentsTitle": "المحتويات",
+    "transparentBadge": "شفاف وبسيط",
+    "ctaTerms": "شروط الخدمة",
+    "ctaContact": "اتصل بالدعم",
+    "footerNote": "نحن لا نبيع بياناتك أبداً. لطلبات الحذف، راسل privacy@downforge.me",
+    "questionsAboutData": "أسئلة حول البيانات؟",
+    "contactUsLink": "اتصل بنا",
+    "replyWithin": "— نرد خلال 24 ساعة."
   },
   "Pricing": {
     "title": "خطط الأسعار",
-    "subtitle": "اختر الخطة التي تناسب احتياجاتك. ابدأ مجاناً، ورقّ عندما تحتاج المزيد.",
+    "subtitle": "اختر الخطة التي تناسبك. ابدأ مجاناً، قم بالترقية عند الحاجة.",
     "backToHome": "Back to home",
-    "faqTitle": "Frequently Asked Questions",
-    "faq1Q": "Can I switch plans at any time?",
-    "faq1A": "Yes, you can upgrade or downgrade at any time. Changes take effect immediately.",
-    "faq2Q": "What payment methods do you accept?",
-    "faq2A": "We accept all major credit cards, PayPal, and cryptocurrency.",
-    "faq3Q": "Is there a free trial for Pro?",
-    "faq3A": "Yes, we offer a 7-day free trial of our Pro plan with no commitment required.",
-    "faq4Q": "Can I cancel anytime?",
-    "faq4A": "Absolutely. No contracts, no cancellation fees. Your access continues until the end of the billing period."
+    "faqTitle": "الأسئلة الشائعة",
+    "faq1Q": "هل يمكنني تغيير الخطة في أي وقت؟",
+    "faq1A": "نعم، يمكنك الترقية أو التخفيض في أي وقت. فوري.",
+    "faq2Q": "ما طرق الدفع المقبولة؟",
+    "faq2A": "جميع البطاقات الرئيسية، PayPal والعملات المشفرة.",
+    "faq3Q": "هل هناك تجربة مجانية لـ Pro؟",
+    "faq3A": "نعم، نقدم 7 أيام مجانية لـ Pro بدون التزام.",
+    "faq4Q": "هل يمكنني الإلغاء في أي وقت؟",
+    "faq4A": "بالتأكيد. بدون عقود، بدون رسوم.",
+    "heroTitle": "اختر",
+    "heroTitleAccent": "خطتك",
+    "heroBadge": "الأسعار",
+    "trustNoCard": "بدون بطاقة للمجاني",
+    "trustCancel": "إلغاء في أي وقت",
+    "trustRefund": "استرداد 30 يوماً",
+    "notSureTitle": "غير متأكد؟",
+    "notSureDesc": "ابدأ مجاناً وقم بالترقية عندما تحتاج 4K أو FLAC أو الدفعات.",
+    "ctaStartFree": "ابدأ مجاناً",
+    "ctaTalkToUs": "تحدث معنا"
   },
   "SEO": {
     "homeTitle": "DownForge — حمّل أي فيديو أو صوت أو صورة مصغرة أو نص",
@@ -3133,209 +3153,213 @@
     "lt": "لتواني"
   },
   "About": {
-    "badge": "About DownForge",
-    "title": "Built for creators,",
-    "titleAccent": "trusted by thousands.",
-    "subtitle": "We make downloading from 200+ platforms effortless — fast, private, and in any format you need. No bloat, no tracking, just download.",
-    "statsBadge": "At a glance",
+    "badge": "حول DownForge",
+    "title": "مصمم للمبدعين،",
+    "titleAccent": "موثوق من الآلاف.",
+    "subtitle": "نجعل التحميل من 200+ منصة سهلاً — سريع، خاص وبأي صيغة تحتاجها. بدون عبء، بدون تتبع، فقط حمّل.",
+    "statsBadge": "لمحة سريعة",
     "stats": [
       {
         "value": "200+",
-        "label": "Platforms supported",
-        "sub": "YouTube to niche sites"
+        "label": "منصات مدعومة",
+        "sub": "من يوتيوب إلى المواقع المتخصصة"
       },
       {
-        "value": "< 3s",
-        "label": "Average processing",
-        "sub": "Server-side, CDN delivered"
+        "value": "< 3ث",
+        "label": "متوسط المعالجة",
+        "sub": "خادم، مُسلّم عبر CDN"
       },
       {
         "value": "4.9/5",
-        "label": "User rating",
-        "sub": "Trusted by creators"
+        "label": "تقييم المستخدمين",
+        "sub": "موثوق من المبدعين"
       },
       {
-        "value": "Zero",
-        "label": "Logs kept",
-        "sub": "Ephemeral by design"
+        "value": "صفر",
+        "label": "سجلات محفوظة",
+        "sub": "مؤقت حسب التصميم"
       }
     ],
-    "storyBadge": "Our Story",
-    "storyTitle": "Why we built DownForge",
-    "storyP1": "DownForge started in 2024 with a simple observation: creators, educators, and editors waste hours juggling platform-specific tools to save a clip in the right format.",
-    "storyP2": "We wrapped the best open-source engines — yt-dlp and ffmpeg — in a fast, private, and beautiful product. No ads in your face, no files kept on our servers, just paste → pick → download.",
-    "storyP3": "Today, DownForge serves thousands of daily downloads, from TikTok drafts to 4K YouTube masters, with the same promise: what you paste is processed ephemerally and deleted immediately.",
+    "storyBadge": "قصتنا",
+    "storyTitle": "لماذا بنينا DownForge",
+    "storyP1": "بدأ DownForge في 2024 من ملاحظة بسيطة: المبدعون والمعلمون والمحررون يضيعون ساعات في التنقل بين أدوات خاصة بكل منصة لحفظ مقطع بالصيغة الصحيحة.",
+    "storyP2": "قمنا بتغليف أفضل المحركات مفتوحة المصدر — yt-dlp و ffmpeg — في منتج سريع وخاص وجميل. بدون إعلانات مزعجة، بدون ملفات محفوظة على خوادمنا، فقط الصق → اختر → حمّل.",
+    "storyP3": "اليوم، يخدم DownForge آلاف التنزيلات يومياً، من مسودات TikTok إلى أساتذة YouTube بدقة 4K، بنفس الوعد: ما تلصقه يُعالج مؤقتاً ويُحذف فوراً.",
     "timeline": [
       {
         "year": "2024",
-        "title": "Founded",
-        "desc": "Launched with YouTube + TikTok support"
+        "title": "التأسيس",
+        "desc": "انطلق بدعم يوتيوب + تيك توك"
       },
       {
         "year": "2025",
-        "title": "200+ sites",
-        "desc": "Expanded to 14 major platforms, universal auto-detect"
+        "title": "200+ موقع",
+        "desc": "توسع إلى 14 منصة رئيسية، كشف تلقائي شامل"
       },
       {
-        "year": "Now",
-        "title": "Pro & API",
-        "desc": "Unlimited, 4K, batch, and developer API"
+        "year": "الآن",
+        "title": "Pro و API",
+        "desc": "غير محدود، 4K، دفعات و API للمطورين"
       }
     ],
-    "valuesBadge": "Why us",
-    "valuesTitle": "Speed, privacy, and quality — without compromise.",
+    "valuesBadge": "لماذا نحن",
+    "valuesTitle": "السرعة والخصوصية والجودة — بدون تنازل.",
     "values": [
       {
-        "title": "Privacy first",
-        "desc": "We don’t store URLs or files. Ephemeral processing, auto-deleted in 60 minutes. No selling data. Ever."
+        "title": "الخصوصية أولاً",
+        "desc": "لا نخزن الروابط أو الملفات. معالجة مؤقتة، حذف تلقائي خلال 60 دقيقة. لا نبيع البيانات أبداً."
       },
       {
-        "title": "Blazing fast",
-        "desc": "Server-side conversion with CDN streaming. Your download starts in under 3 seconds."
+        "title": "فائق السرعة",
+        "desc": "تحويل من جانب الخادم مع بث CDN. يبدأ تحميلك في أقل من 3 ثوانٍ."
       },
       {
-        "title": "Any format, any quality",
-        "desc": "MP4, WebM, FLAC, PNG, SRT — from 144p to 4K and 320 kbps to lossless."
+        "title": "أي صيغة، أي جودة",
+        "desc": "MP4، WebM، FLAC، PNG، SRT — من 144p إلى 4K ومن 320 kbps إلى بدون فقدان."
       }
     ],
-    "ctaTitle": "Ready to download like a pro?",
-    "ctaSubtitle": "Paste a URL and get your file in seconds. No account required.",
-    "ctaButton": "Try it now — it’s free",
-    "ctaSecondary": "View pricing",
-    "metaTitle": "About DownForge — Fast, Private Video Downloader for 200+ Sites | DownForge",
-    "metaDescription": "Learn about DownForge: our story, values, and why thousands trust us to download video, audio, thumbnails and transcripts from 200+ platforms — fast and private."
+    "ctaTitle": "جاهز للتحميل كالمحترفين؟",
+    "ctaSubtitle": "الصق رابطاً واحصل على ملفك في ثوانٍ. لا حاجة لحساب.",
+    "ctaButton": "جربه الآن — مجاناً",
+    "ctaSecondary": "عرض الأسعار",
+    "metaTitle": "حول DownForge — أداة تحميل سريعة وخاصة لـ 200+ موقع | DownForge",
+    "metaDescription": "تعرف على DownForge: قصتنا وقيمنا ولماذا يثق بنا الآلاف لتنزيل الفيديو والصوت والصور المصغرة والنصوص من 200+ منصة — بسرعة وخصوصية.",
+    "milestonesTitle": "المعالم"
   },
   "Terms": {
-    "badge": "Legal",
-    "title": "Terms of Service",
-    "subtitle": "Please read these terms carefully. By using DownForge, you agree to them.",
-    "lastUpdated": "Last updated: August 2025",
-    "tocTitle": "Contents",
+    "badge": "قانوني",
+    "title": "شروط الخدمة",
+    "subtitle": "يرجى قراءة هذه الشروط بعناية. باستخدام DownForge، فإنك توافق عليها.",
+    "lastUpdated": "آخر تحديث: أغسطس 2025",
+    "tocTitle": "المحتويات",
     "sections": [
       {
         "id": "acceptance",
-        "title": "1. Acceptance of Terms",
-        "body": "By accessing or using DownForge (the “Service”), you agree to these Terms. If you do not agree, do not use the Service. We may update these Terms; continued use after changes means acceptance. We will post the new date above."
+        "title": "1. قبول الشروط",
+        "body": "بالوصول إلى DownForge (\"الخدمة\") أو استخدامه، فإنك توافق على هذه الشروط. إذا لم توافق، لا تستخدم الخدمة. قد نحدّث هذه الشروط؛ الاستمرار بعد التغييرات يعني القبول."
       },
       {
         "id": "eligibility",
-        "title": "2. Eligibility & Accounts",
-        "body": "You must be at least 13 years old. If you create an account, you are responsible for keeping your credentials secure and for all activity under your account. Notify us immediately of unauthorized use. We may suspend accounts that violate these Terms."
+        "title": "2. الأهلية والحسابات",
+        "body": "يجب أن تكون 13 عاماً على الأقل. إذا أنشأت حساباً، فأنت مسؤول عن الحفاظ على بيانات الاعتماد آمنة وعن كل نشاط تحت حسابك. أبلغنا فوراً عن الاستخدام غير المصرح."
       },
       {
         "id": "use",
-        "title": "3. Acceptable Use & Platform Compliance",
-        "body": "Use the Service only for content you have the right to access. You must comply with the terms of any third-party platform (e.g., YouTube, TikTok) you access through DownForge and with applicable copyright laws. Do not use the Service to infringe, to harass, or to distribute malware."
+        "title": "3. الاستخدام المقبول والامتثال للمنصة",
+        "body": "استخدم الخدمة فقط للمحتوى الذي لديك حق الوصول إليه. يجب أن تمتثل لشروط أي منصة تابعة لجهة خارجية (مثل YouTube، TikTok) تصل إليها عبر DownForge ولقوانين حقوق النشر المعمول بها."
       },
       {
         "id": "prohibited",
-        "title": "4. Prohibited Conduct",
-        "body": "You may not: (a) attempt to bypass rate limits, (b) scrape or overload our infrastructure, (c) upload malicious code, (d) misrepresent affiliation, or (e) use the Service for unlawful purposes. We enforce rate limits: 60/min global, 30/min info, 20/min download."
+        "title": "4. السلوك المحظور",
+        "body": "لا يجوز لك: (أ) محاولة تجاوز حدود المعدل، (ب) كشط أو إثقال بنيتنا التحتية، (ج) تحميل كود ضار، (د) تحريف الانتماء، أو (ه) استخدام الخدمة لأغراض غير قانونية. الحدود: 60/دقيقة عالمي، 30/دقيقة معلومات، 20/دقيقة تنزيل."
       },
       {
         "id": "ip",
-        "title": "5. Intellectual Property & DMCA",
-        "body": "DownForge does not claim ownership of third-party content. If you are a rights holder and believe content accessible via the Service infringes your rights, contact us at dmca@downforge.me with the URL, proof of ownership, and your contact information. We respond promptly and may block access."
+        "title": "5. الملكية الفكرية و DMCA",
+        "body": "لا تدعي DownForge ملكية محتوى الطرف الثالث. إذا كنت صاحب حقوق وتعتقد أن محتوى يمكن الوصول إليه عبر الخدمة ينتهك حقوقك، اتصل بنا على dmca@downforge.me مع الرابط وإثبات الملكية ومعلومات الاتصال."
       },
       {
         "id": "billing",
-        "title": "6. Billing & Subscriptions",
-        "body": "Free tier is limited (10/day, 1080p). Pro/Team are billed monthly via Stripe. You may cancel anytime; access continues until period end. Refunds are handled case-by-case within 14 days if the Service was not used."
+        "title": "6. الفوترة والاشتراكات",
+        "body": "المستوى المجاني محدود (10/يوم، 1080p). يتم فوترة Pro/Team شهرياً عبر Stripe. يمكنك الإلغاء في أي وقت؛ يستمر الوصول حتى نهاية الفترة. المبالغ المستردة حالة بحالة خلال 14 يوماً إذا لم تُستخدم الخدمة."
       },
       {
         "id": "disclaimer",
-        "title": "7. Disclaimers & Limitation of Liability",
-        "body": "The Service is provided “as is” without warranty. We do not guarantee availability or that any platform will remain supported. To the fullest extent permitted by law, DownForge’s liability is limited to the amount you paid in the last 3 months."
+        "title": "7. إخلاء المسؤولية وتحديد المسؤولية",
+        "body": "الخدمة مقدمة \"كما هي\" بدون ضمان. لا نضمن التوفر أو أن أي منصة ستظل مدعومة. إلى أقصى حد يسمح به القانون، تقتصر مسؤولية DownForge على المبلغ المدفوع في آخر 3 أشهر."
       },
       {
         "id": "changes",
-        "title": "8. Changes, Termination & Contact",
-        "body": "We may modify, suspend, or discontinue the Service at any time. We may terminate access for violations. Questions? Contact legal@downforge.me or via our Contact page. These Terms are governed by the laws of your jurisdiction, without regard to conflict of law rules."
+        "title": "8. التغييرات والإنهاء والاتصال",
+        "body": "قد نعدّل أو نعلق أو نوقف الخدمة في أي وقت. قد ننهي الوصول للانتهاكات. أسئلة؟ اتصل legal@downforge.me."
       }
     ],
-    "metaTitle": "Terms of Service — DownForge | Legal",
-    "metaDescription": "Read DownForge’s Terms of Service: acceptable use, billing, IP/DMCA, disclaimers, and contact. Last updated August 2025."
+    "metaTitle": "شروط الخدمة — DownForge | قانوني",
+    "metaDescription": "اقرأ شروط خدمة DownForge: الاستخدام المقبول، الفوترة، الملكية الفكرية/DMCA، إخلاء المسؤولية والاتصال. آخر تحديث أغسطس 2025."
   },
   "Contact": {
-    "badge": "Contact",
-    "title": "Get in touch",
-    "subtitle": "Questions, billing help, or DMCA? We usually reply within 24 hours.",
-    "formTitle": "Send us a message",
-    "nameLabel": "Full name",
-    "namePlaceholder": "Jane Doe",
-    "emailLabel": "Email",
+    "badge": "اتصل بنا",
+    "title": "تواصل معنا",
+    "subtitle": "أسئلة، مساعدة الفوترة أو DMCA؟ نرد عادة خلال 24 ساعة.",
+    "formTitle": "أرسل لنا رسالة",
+    "nameLabel": "الاسم الكامل",
+    "namePlaceholder": "أحمد محمد",
+    "emailLabel": "البريد الإلكتروني",
     "emailPlaceholder": "you@example.com",
-    "subjectLabel": "Subject",
-    "subjectPlaceholder": "Select a topic",
+    "subjectLabel": "الموضوع",
+    "subjectPlaceholder": "اختر موضوعاً",
     "subjectOptions": [
-      "General inquiry",
-      "Billing & Pro",
-      "API & Developer",
-      "DMCA / Copyright",
-      "Bug report",
-      "Feature request"
+      "استفسار عام",
+      "الفوترة و Pro",
+      "API والمطور",
+      "DMCA / حقوق النشر",
+      "تقرير خطأ",
+      "طلب ميزة"
     ],
-    "messageLabel": "Message",
-    "messagePlaceholder": "How can we help you?",
-    "submitButton": "Send message",
-    "submitting": "Sending…",
-    "successTitle": "Message sent!",
-    "successDesc": "Thanks for reaching out. We’ll get back to you soon at your email.",
-    "errorRequired": "Please fill in all required fields and a valid email.",
-    "infoTitle": "Other ways to reach us",
+    "messageLabel": "الرسالة",
+    "messagePlaceholder": "كيف يمكننا مساعدتك؟",
+    "submitButton": "إرسال الرسالة",
+    "submitting": "جارٍ الإرسال…",
+    "successTitle": "تم إرسال الرسالة!",
+    "successDesc": "شكراً لتواصلك. سنرد قريباً عبر بريدك.",
+    "errorRequired": "يرجى ملء جميع الحقول المطلوبة وبريد صالح.",
+    "infoTitle": "طرق أخرى للتواصل",
     "infoEmail": "support@downforge.me",
-    "infoEmailSub": "For support, billing, and general inquiries",
+    "infoEmailSub": "للدعم والفوترة والاستفسارات العامة",
     "infoLegal": "legal@downforge.me",
-    "infoLegalSub": "For DMCA and legal matters",
-    "infoResponse": "Avg. response: < 24h • Mon–Fri 9–18 UTC",
-    "faqTitle": "Quick answers",
+    "infoLegalSub": "لـ DMCA والمسائل القانونية",
+    "infoResponse": "متوسط الرد: < 24 ساعة • الإثنين–الجمعة 9–18 UTC",
+    "faqTitle": "إجابات سريعة",
     "faqs": [
       {
-        "q": "Where is my download?",
-        "a": "Files are deleted 60 minutes after processing. Check your downloads folder or re-paste the URL."
+        "q": "أين تنزيلي؟",
+        "a": "تُحذف الملفات بعد 60 دقيقة من المعالجة. تحقق من مجلد التنزيلات أو أعد لصق الرابط."
       },
       {
-        "q": "How do I cancel Pro?",
-        "a": "Go to Dashboard → Billing → Manage, or email support@downforge.me. Access continues until period end."
+        "q": "كيف ألغي Pro؟",
+        "a": "اذهب إلى لوحة التحكم → الفوترة → إدارة، أو راسل support@downforge.me."
       },
       {
-        "q": "Do you store my URLs?",
-        "a": "No. URLs are processed ephemerally and never logged with personal data."
+        "q": "هل تخزنون روابطي؟",
+        "a": "لا. تُعالج الروابط مؤقتاً ولا تُسجل مع بيانات شخصية."
       }
     ],
-    "metaTitle": "Contact DownForge — Support, Billing & DMCA | DownForge",
-    "metaDescription": "Contact DownForge support: billing, API, DMCA, or general help. Avg. reply <24h. Email support@downforge.me or use the form."
+    "metaTitle": "اتصل بـ DownForge — دعم، فوترة و DMCA | DownForge",
+    "metaDescription": "اتصل بدعم DownForge: الفوترة، API، DMCA أو المساعدة. رد <24 ساعة. support@downforge.me أو استخدم النموذج.",
+    "linkPrivacy": "الخصوصية",
+    "linkTerms": "الشروط",
+    "linkApiDocs": "وثائق API"
   },
   "Features": {
-    "badge": "Why DownForge",
-    "title": "All-in-One Download Tool",
-    "titleAccent": "for 200+ sites",
-    "subtitle": "Built for speed, privacy, and quality. Download video, audio, thumbnails and transcripts the way it was meant to be saved.",
-    "ctaTitle": "Ready to try?",
-    "ctaSubtitle": "Paste a URL and get your file in seconds. No account required.",
-    "ctaButton": "Start free",
-    "ctaSecondary": "View pricing",
-    "metaTitle": "Features — DownForge | Video, Audio, Thumbnail & Transcript Tools",
-    "metaDescription": "Explore DownForge features: 200+ platforms, 4K video, FLAC audio, HD thumbnails, AI transcripts, batch, private & fast."
+    "badge": "لماذا DownForge",
+    "title": "أداة الكل في واحد",
+    "titleAccent": "لـ 200+ موقع",
+    "subtitle": "مصممة للسرعة والخصوصية والجودة. حمّل فيديو وصوت وصور مصغرة ونصوص كما يجب حفظها.",
+    "ctaTitle": "جاهز للتجربة؟",
+    "ctaSubtitle": "الصق رابطاً واحصل على ملفك في ثوانٍ. بدون حساب.",
+    "ctaButton": "ابدأ مجاناً",
+    "ctaSecondary": "عرض الأسعار",
+    "metaTitle": "الميزات — DownForge | أدوات الفيديو والصوت والصورة والنص",
+    "metaDescription": "استكشف ميزات DownForge: 200+ منصة، فيديو 4K، صوت FLAC، صور HD، نصوص AI، دفعات، خاص وسريع."
   },
   "Blog": {
-    "badge": "Blog",
-    "title": "Insights & Guides",
-    "subtitle": "Tutorials, platform guides, and product updates from the DownForge team.",
-    "readMore": "Read more",
-    "empty": "No posts yet — check back soon.",
-    "metaTitle": "Blog — DownForge Guides & Updates",
-    "metaDescription": "DownForge blog: tutorials, platform guides, and updates for downloading video, audio, thumbnails and transcripts."
+    "badge": "المدونة",
+    "title": "رؤى وأدلة",
+    "subtitle": "دروس، أدلة المنصات وتحديثات من فريق DownForge.",
+    "readMore": "اقرأ المزيد",
+    "empty": "لا توجد منشورات بعد — تحقق قريباً.",
+    "metaTitle": "المدونة — أدلة وتحديثات DownForge",
+    "metaDescription": "مدونة DownForge: دروس، أدلة المنصات وتحديثات لتنزيل الفيديو والصوت والصور والنصوص."
   },
   "Changelog": {
-    "badge": "Changelog",
-    "title": "What’s new",
-    "subtitle": "All notable changes to DownForge — new platforms, formats, and fixes.",
-    "filterAll": "All",
-    "filterMajor": "Major",
-    "filterFix": "Fix",
-    "metaTitle": "Changelog — DownForge Updates",
-    "metaDescription": "See what’s new in DownForge: new platforms, formats, performance and fixes."
+    "badge": "سجل التغييرات",
+    "title": "ما الجديد",
+    "subtitle": "جميع التغييرات البارزة في DownForge — منصات جديدة، صيغ وإصلاحات.",
+    "filterAll": "الكل",
+    "filterMajor": "رئيسي",
+    "filterFix": "إصلاح",
+    "metaTitle": "سجل التغييرات — تحديثات DownForge",
+    "metaDescription": "شاهد ما الجديد في DownForge: منصات جديدة، صيغ، أداء وإصلاحات."
   },
   "ApiStatus": {
     "badge": "Status",
