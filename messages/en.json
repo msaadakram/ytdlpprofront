@@ -391,7 +391,39 @@
     "trustFree": "100% Free",
     "trustNoSignup": "No Sign-Up",
     "trustQuality": "Up to 4K Quality",
-    "trustPrivate": "Private & Secure"
+    "trustPrivate": "Private & Secure",
+    "stats": [
+      {
+        "label": "Video Quality",
+        "value": "Up to 4K",
+        "desc": "Download videos in stunning quality — from 4K Ultra HD to standard definition."
+      },
+      {
+        "label": "Blazing Fast",
+        "value": "< 3 Seconds",
+        "desc": "Server-side processing with instant CDN delivery. Start your download in seconds."
+      },
+      {
+        "label": "Private & Secure",
+        "value": "Zero Storage",
+        "desc": "Files processed ephemerally and deleted immediately after download."
+      },
+      {
+        "label": "Format Choices",
+        "value": "MP4 · WebM · MKV",
+        "desc": "Choose the container format that works best for your device and use case."
+      },
+      {
+        "label": "No Account Required",
+        "value": "Free Forever",
+        "desc": "Start downloading instantly — no sign-up or login needed."
+      },
+      {
+        "label": "Batch Processing",
+        "value": "Playlists",
+        "desc": "Download entire channels and playlists in one click with a Pro plan."
+      }
+    ]
   },
   "Formats": {
     "mp4": "MP4",

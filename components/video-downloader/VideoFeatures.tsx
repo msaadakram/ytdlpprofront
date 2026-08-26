@@ -5,19 +5,27 @@ import { MonitorPlay, Shield, Zap, Globe, Star, Copy } from "lucide-react";
 import { usePlatformTranslations } from "@/lib/usePlatformTranslations";
 import { useTranslations } from "next-intl";
 
-const stats = [
-  { icon: MonitorPlay, label: "Video Quality", value: "Up to 4K", desc: "Download videos in stunning quality — from 4K Ultra HD to standard definition." },
-  { icon: Zap, label: "Blazing Fast", value: "< 3 Seconds", desc: "Server-side processing with instant CDN delivery. Start your download in seconds." },
-  { icon: Shield, label: "Private & Secure", value: "Zero Storage", desc: "Files processed ephemerally and deleted immediately after download." },
-  { icon: Globe, label: "Format Choices", value: "MP4 · WebM · MKV", desc: "Choose the container format that works best for your device and use case." },
-  { icon: Star, label: "No Account Required", value: "Free Forever", desc: "Start downloading instantly — no sign-up or login needed." },
-  { icon: Copy, label: "Batch Processing", value: "Playlists", desc: "Download entire channels and playlists in one click with a Pro plan." },
-];
+const iconMap = [MonitorPlay, Zap, Shield, Globe, Star, Copy] as const;
 
 export function VideoFeatures({ platform }: { platform: string }) {
   const config = usePlatformTranslations(platform);
   const brandColor = config.brandColor;
   const t = useTranslations("VideoOnly");
+  const rawStats = (() => {
+    try {
+      return t.raw("stats") as Array<{ label: string; value: string; desc: string }>;
+    } catch {
+      return null;
+    }
+  })();
+  const stats = (rawStats ?? [
+    { label: "Video Quality", value: "Up to 4K", desc: "Download videos in stunning quality — from 4K Ultra HD to standard definition." },
+    { label: "Blazing Fast", value: "< 3 Seconds", desc: "Server-side processing with instant CDN delivery. Start your download in seconds." },
+    { label: "Private & Secure", value: "Zero Storage", desc: "Files processed ephemerally and deleted immediately after download." },
+    { label: "Format Choices", value: "MP4 · WebM · MKV", desc: "Choose the container format that works best for your device and use case." },
+    { label: "No Account Required", value: "Free Forever", desc: "Start downloading instantly — no sign-up or login needed." },
+    { label: "Batch Processing", value: "Playlists", desc: "Download entire channels and playlists in one click with a Pro plan." },
+  ]).map((s, i) => ({ ...s, icon: iconMap[i] }));
 
   return (
     <section className="py-14 md:py-20 px-6 relative overflow-hidden">
@@ -51,8 +59,8 @@ export function VideoFeatures({ platform }: { platform: string }) {
         </motion.div>
 
         <div className="grid sm:grid-cols-2 lg:grid-cols-3 gap-4">
-          {stats.map((stat, i) => {
-            const Icon = stat.icon;
+          {stats.map((stat: any, i: number) => {
+            const Icon = stat.icon as any;
             return (
               <motion.article
                 key={stat.label}

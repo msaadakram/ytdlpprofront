@@ -268,56 +268,56 @@
       "step3Title": "Format wählen und herunterladen",
       "step3Desc": "Wähle deine bevorzugte Qualität und dein Format aus und klicke dann auf Download, um die Konvertierung zu starten. Deine Datei ist in Sekunden bereit."
     },
-    "toolFeaturesBadge": "Why DownForge",
-    "toolFeaturesHeading": "The Best {name} Download Tool",
-    "toolFeaturesSubheading": "Built for speed, privacy, and quality. Download {name} content the way it was meant to be saved.",
+    "toolFeaturesBadge": "Warum DownForge",
+    "toolFeaturesHeading": "Das beste Tool für {name}-Downloads",
+    "toolFeaturesSubheading": "Gebaut für Geschwindigkeit, Privatsphäre und Qualität. Lade {name}-Inhalte so herunter, wie sie gespeichert werden sollten.",
     "toolFeaturesStats": [
       {
-        "title": "Blazing Fast",
-        "value": "< 3 seconds",
-        "desc": "Server-side processing with instant CDN delivery"
+        "title": "Blitzschnell",
+        "value": "< 3 Sekunden",
+        "desc": "Serverseitige Verarbeitung mit sofortiger CDN-Bereitstellung"
       },
       {
-        "title": "Private & Secure",
-        "value": "Zero Storage",
-        "desc": "Files processed ephemerally and deleted immediately"
+        "title": "Privat & sicher",
+        "value": "Kein Speicher",
+        "desc": "Dateien werden flüchtig verarbeitet und sofort gelöscht"
       },
       {
-        "title": "Formats & Qualities",
+        "title": "Formate & Qualitäten",
         "value": "4K · FLAC · SRT",
-        "desc": "Video, audio, thumbnails & AI transcripts in any format"
+        "desc": "Video, Audio, Thumbnails & KI-Transkripte in jedem Format"
       },
       {
-        "title": "Platform Support",
-        "value": "200+ Sites",
-        "desc": "From major platforms to the most obscure"
+        "title": "Plattform-Support",
+        "value": "200+ Seiten",
+        "desc": "Von den größten Plattformen bis zu den speziellsten"
       },
       {
-        "title": "No Account Required",
-        "value": "Free Forever",
-        "desc": "Start downloading instantly — no sign-up needed"
+        "title": "Ohne Konto",
+        "value": "Für immer kostenlos",
+        "desc": "Starte sofort — keine Anmeldung nötig"
       },
       {
-        "title": "Batch Processing",
+        "title": "Batch-Verarbeitung",
         "value": "Playlists",
-        "desc": "Download entire channels in one click (Pro)"
+        "desc": "Lade ganze Kanäle mit einem Klick herunter (Pro)"
       }
     ],
-    "tipsBadge": "Tips & Tricks",
-    "tipsHeading": "Get the Most from {name} Downloads",
-    "tipsSubheading": "Whether you need video for editing, audio for podcasts, thumbnails for projects, or AI transcripts for accessibility — we have you covered.",
+    "tipsBadge": "Tipps & Tricks",
+    "tipsHeading": "Hole das Maximum aus {name}-Downloads",
+    "tipsSubheading": "Ob du Video zum Bearbeiten, Audio für Podcasts, Thumbnails für Projekte oder KI-Transkripte für Barrierefreiheit brauchst — wir haben alles.",
     "faqBadge": "FAQ",
-    "faqHeading": "{name} Download Questions",
-    "faqSubheading": "Everything you need to know about downloading from {name}.",
-    "howItWorksBadge": "How It Works",
-    "howItWorksHeading": "Download {name} in 3 Steps",
-    "howItWorksSubheading": "No software, no sign-up, no hassle. Just paste, pick, and download.",
-    "howItWorksStep1Title": "Paste the Link",
-    "howItWorksStep1Desc": "Copy any {name} video URL and paste it into the input above. We support all public video types including shorts, streams, and highlights.",
-    "howItWorksStep2Title": "Pick Your Format",
-    "howItWorksStep2Desc": "Choose from 4K video, 1080p HD, MP3 audio up to 320kbps, FLAC lossless, HD thumbnails, or AI transcripts in SRT, VTT, TXT & JSON. Whatever you need.",
-    "howItWorksStep3Title": "Download Instantly",
-    "howItWorksStep3Desc": "Hit download and your file is ready in seconds. No queues, no waiting, no account required. Just a fast, clean download."
+    "faqHeading": "Fragen zum {name}-Download",
+    "faqSubheading": "Alles, was du über das Herunterladen von {name} wissen musst.",
+    "howItWorksBadge": "Wie es funktioniert",
+    "howItWorksHeading": "{name} in 3 Schritten herunterladen",
+    "howItWorksSubheading": "Keine Software, keine Anmeldung, kein Aufwand. Einfügen, wählen, herunterladen.",
+    "howItWorksStep1Title": "Link einfügen",
+    "howItWorksStep1Desc": "Kopiere eine beliebige {name}-Video-URL und füge sie oben ein. Wir unterstützen alle öffentlichen Typen inkl. Shorts, Streams und Highlights.",
+    "howItWorksStep2Title": "Format wählen",
+    "howItWorksStep2Desc": "Wähle zwischen 4K-Video, 1080p HD, MP3-Audio bis 320kbps, FLAC verlustfrei, HD-Thumbnails oder KI-Transkripte in SRT, VTT, TXT & JSON.",
+    "howItWorksStep3Title": "Sofort herunterladen",
+    "howItWorksStep3Desc": "Klicke auf Download und deine Datei ist in Sekunden bereit. Keine Warteschlange, kein Konto erforderlich. Schnell und sauber."
   },
   "DownloadOnly": {
     "audioBadge": "Audio-Downloader",
@@ -357,7 +357,41 @@
     "trustFree": "100% Kostenlos",
     "trustNoSignup": "Ohne Anmeldung",
     "trustQuality": "Bis zu 4K",
-    "trustPrivate": "Privat & Sicher"
+    "trustPrivate": "Privat & Sicher",
+    "featuresTitle": "Funktionen",
+    "faqTitle": "Häufige Fragen",
+    "stats": [
+      {
+        "label": "Videoqualität",
+        "value": "Bis zu 4K",
+        "desc": "Lade Videos in atemberaubender Qualität — von 4K Ultra HD bis Standard."
+      },
+      {
+        "label": "Blitzschnell",
+        "value": "< 3 Sekunden",
+        "desc": "Serverseitige Verarbeitung mit sofortiger CDN-Bereitstellung."
+      },
+      {
+        "label": "Privat & sicher",
+        "value": "Kein Speicher",
+        "desc": "Dateien werden flüchtig verarbeitet und sofort nach Download gelöscht."
+      },
+      {
+        "label": "Formatauswahl",
+        "value": "MP4 · WebM · MKV",
+        "desc": "Wähle das Containerformat, das am besten zu deinem Gerät passt."
+      },
+      {
+        "label": "Ohne Konto",
+        "value": "Für immer kostenlos",
+        "desc": "Starte sofort — keine Anmeldung nötig."
+      },
+      {
+        "label": "Batch-Verarbeitung",
+        "value": "Playlists",
+        "desc": "Lade ganze Kanäle und Playlists mit einem Klick herunter (Pro)."
+      }
+    ]
   },
   "Formats": {
     "mp4": "MP4",
@@ -617,24 +651,24 @@
       "badgeAudio": "Facebook zu MP3",
       "featuresAudio": [
         {
-          "title": "High-Quality MP3 & FLAC",
-          "desc": "Extract Facebook audio as MP3 320kbps, FLAC lossless, AAC, WAV or OGG — choose the format that fits your needs."
+          "title": "Hochwertiges MP3 & FLAC",
+          "desc": "Extrahiere Facebook-Audio als MP3 320kbps, FLAC verlustfrei, AAC, WAV oder OGG."
         },
         {
-          "title": "No App, No Login",
-          "desc": "Convert Facebook to MP3 directly in your browser. Paste any public link and download instantly — no software or sign-up required."
+          "title": "Ohne App, ohne Login",
+          "desc": "Konvertiere Facebook zu MP3 direkt im Browser."
         },
         {
-          "title": "Works on Any Device",
-          "desc": "Save audio on Android, iPhone, iPad, Windows, Mac or Linux. Standard MP3/FLAC files play everywhere — VLC, QuickTime, Spotify local, any editor."
+          "title": "Funktioniert überall",
+          "desc": "Speichere Audio auf Android, iPhone, iPad, Windows, Mac oder Linux."
         },
         {
           "title": "Batch & Playlists (Pro)",
-          "desc": "Download multiple Facebook tracks or entire channels at once with Pro. No waiting per file."
+          "desc": "Lade mehrere Facebook-Tracks auf einmal mit Pro herunter."
         },
         {
-          "title": "AI Transcripts Available",
-          "desc": "Want captions too? Switch to Facebook Transcript mode for SRT, VTT, TXT or JSON with timestamps."
+          "title": "KI-Transkripte verfügbar",
+          "desc": "Untertitel gewünscht? Wechsel zu Facebook Transkript-Modus."
         }
       ],
       "faqsAudio": [
@@ -671,7 +705,9 @@
       ],
       "headingAll": "Von Facebook herunterladen",
       "headingAccentAll": "Video, Audio & Mehr",
-      "subheadingAll": "All-in-One Facebook Downloader. Videos in HD, Audio MP3/FLAC, Thumbnails & Transkripte. Link einfügen — ohne App, ohne Anmeldung."
+      "subheadingAll": "All-in-One Facebook Downloader. Videos in HD, Audio MP3/FLAC, Thumbnails & Transkripte. Link einfügen — ohne App, ohne Anmeldung.",
+      "metaTitleVideo": "Facebook Video Downloader — Facebook Videos in HD | DownForge",
+      "metaDescriptionVideo": "Kostenloser Facebook Video Downloader. Facebook-Videos in HD und 4K MP4 speichern. Ohne App, ohne Anmeldung — Link einfügen."
     },
     "instagram": {
       "badge": "Instagram Downloader",
@@ -754,24 +790,24 @@
       "badgeAudio": "Instagram zu MP3",
       "featuresAudio": [
         {
-          "title": "High-Quality MP3 & FLAC",
-          "desc": "Extract Instagram audio as MP3 320kbps, FLAC lossless, AAC, WAV or OGG — choose the format that fits your needs."
+          "title": "Hochwertiges MP3 & FLAC",
+          "desc": "Extrahiere Instagram-Audio als MP3 320kbps, FLAC verlustfrei, AAC, WAV oder OGG."
         },
         {
-          "title": "No App, No Login",
-          "desc": "Convert Instagram to MP3 directly in your browser. Paste any public link and download instantly — no software or sign-up required."
+          "title": "Ohne App, ohne Login",
+          "desc": "Konvertiere Instagram zu MP3 direkt im Browser."
         },
         {
-          "title": "Works on Any Device",
-          "desc": "Save audio on Android, iPhone, iPad, Windows, Mac or Linux. Standard MP3/FLAC files play everywhere — VLC, QuickTime, Spotify local, any editor."
+          "title": "Funktioniert überall",
+          "desc": "Speichere Audio auf Android, iPhone, iPad, Windows, Mac oder Linux."
         },
         {
           "title": "Batch & Playlists (Pro)",
-          "desc": "Download multiple Instagram tracks or entire channels at once with Pro. No waiting per file."
+          "desc": "Lade mehrere Instagram-Tracks auf einmal mit Pro herunter."
         },
         {
-          "title": "AI Transcripts Available",
-          "desc": "Want captions too? Switch to Instagram Transcript mode for SRT, VTT, TXT or JSON with timestamps."
+          "title": "KI-Transkripte verfügbar",
+          "desc": "Untertitel gewünscht? Wechsel zu Instagram Transkript-Modus."
         }
       ],
       "faqsAudio": [
@@ -808,7 +844,9 @@
       ],
       "headingAll": "Von Instagram herunterladen",
       "headingAccentAll": "Video, Audio & Mehr",
-      "subheadingAll": "All-in-One Instagram Downloader. Videos in HD, Audio MP3/FLAC, Thumbnails & Transkripte. Link einfügen — ohne App, ohne Anmeldung."
+      "subheadingAll": "All-in-One Instagram Downloader. Videos in HD, Audio MP3/FLAC, Thumbnails & Transkripte. Link einfügen — ohne App, ohne Anmeldung.",
+      "metaTitleVideo": "Instagram Video Downloader — Reels & Stories in HD | DownForge",
+      "metaDescriptionVideo": "Kostenloser Instagram Downloader. Reels und Stories in HD MP4 speichern. Ohne App."
     },
     "tiktok": {
       "badge": "TikTok Downloader",
@@ -891,24 +929,24 @@
       "badgeAudio": "TikTok zu MP3",
       "featuresAudio": [
         {
-          "title": "High-Quality MP3 & FLAC",
-          "desc": "Extract TikTok audio as MP3 320kbps, FLAC lossless, AAC, WAV or OGG — choose the format that fits your needs."
+          "title": "Hochwertiges MP3 & FLAC",
+          "desc": "Extrahiere TikTok-Audio als MP3 320kbps, FLAC verlustfrei, AAC, WAV oder OGG."
         },
         {
-          "title": "No App, No Login",
-          "desc": "Convert TikTok to MP3 directly in your browser. Paste any public link and download instantly — no software or sign-up required."
+          "title": "Ohne App, ohne Login",
+          "desc": "Konvertiere TikTok zu MP3 direkt im Browser."
         },
         {
-          "title": "Works on Any Device",
-          "desc": "Save audio on Android, iPhone, iPad, Windows, Mac or Linux. Standard MP3/FLAC files play everywhere — VLC, QuickTime, Spotify local, any editor."
+          "title": "Funktioniert überall",
+          "desc": "Speichere Audio auf Android, iPhone, iPad, Windows, Mac oder Linux."
         },
         {
           "title": "Batch & Playlists (Pro)",
-          "desc": "Download multiple TikTok tracks or entire channels at once with Pro. No waiting per file."
+          "desc": "Lade mehrere TikTok-Tracks auf einmal mit Pro herunter."
         },
         {
-          "title": "AI Transcripts Available",
-          "desc": "Want captions too? Switch to TikTok Transcript mode for SRT, VTT, TXT or JSON with timestamps."
+          "title": "KI-Transkripte verfügbar",
+          "desc": "Untertitel gewünscht? Wechsel zu TikTok Transkript-Modus."
         }
       ],
       "faqsAudio": [
@@ -945,7 +983,9 @@
       ],
       "headingAll": "Von TikTok herunterladen",
       "headingAccentAll": "Video, Audio & Mehr",
-      "subheadingAll": "All-in-One TikTok Downloader. Videos in HD, Audio MP3/FLAC, Thumbnails & Transkripte. Link einfügen — ohne App, ohne Anmeldung."
+      "subheadingAll": "All-in-One TikTok Downloader. Videos in HD, Audio MP3/FLAC, Thumbnails & Transkripte. Link einfügen — ohne App, ohne Anmeldung.",
+      "metaTitleVideo": "TikTok Video Downloader — Ohne Wasserzeichen | DownForge",
+      "metaDescriptionVideo": "Kostenloser TikTok Downloader. TikTok Videos ohne Wasserzeichen in HD speichern. Ohne App."
     },
     "twitter": {
       "badge": "Twitter Downloader",
@@ -1027,24 +1067,24 @@
       "badgeAudio": "Twitter / X zu MP3",
       "featuresAudio": [
         {
-          "title": "High-Quality MP3 & FLAC",
-          "desc": "Extract Twitter / X audio as MP3 320kbps, FLAC lossless, AAC, WAV or OGG — choose the format that fits your needs."
+          "title": "Hochwertiges MP3 & FLAC",
+          "desc": "Extrahiere Twitter-Audio als MP3 320kbps, FLAC verlustfrei, AAC, WAV oder OGG."
         },
         {
-          "title": "No App, No Login",
-          "desc": "Convert Twitter / X to MP3 directly in your browser. Paste any public link and download instantly — no software or sign-up required."
+          "title": "Ohne App, ohne Login",
+          "desc": "Konvertiere Twitter zu MP3 direkt im Browser."
         },
         {
-          "title": "Works on Any Device",
-          "desc": "Save audio on Android, iPhone, iPad, Windows, Mac or Linux. Standard MP3/FLAC files play everywhere — VLC, QuickTime, Spotify local, any editor."
+          "title": "Funktioniert überall",
+          "desc": "Speichere Audio auf Android, iPhone, iPad, Windows, Mac oder Linux."
         },
         {
           "title": "Batch & Playlists (Pro)",
-          "desc": "Download multiple Twitter / X tracks or entire channels at once with Pro. No waiting per file."
+          "desc": "Lade mehrere Twitter-Tracks auf einmal mit Pro herunter."
         },
         {
-          "title": "AI Transcripts Available",
-          "desc": "Want captions too? Switch to Twitter / X Transcript mode for SRT, VTT, TXT or JSON with timestamps."
+          "title": "KI-Transkripte verfügbar",
+          "desc": "Untertitel gewünscht? Wechsel zu Twitter Transkript-Modus."
         }
       ],
       "faqsAudio": [
@@ -1081,7 +1121,9 @@
       ],
       "headingAll": "Von Twitter / X herunterladen",
       "headingAccentAll": "Video, Audio & Mehr",
-      "subheadingAll": "All-in-One Twitter / X Downloader. Videos in HD, Audio MP3/FLAC, Thumbnails & Transkripte. Link einfügen — ohne App, ohne Anmeldung."
+      "subheadingAll": "All-in-One Twitter / X Downloader. Videos in HD, Audio MP3/FLAC, Thumbnails & Transkripte. Link einfügen — ohne App, ohne Anmeldung.",
+      "metaTitleVideo": "Twitter Video Downloader — Videos & GIFs | DownForge",
+      "metaDescriptionVideo": "Kostenloser Twitter Video Downloader. Twitter-Videos in HD und 4K MP4 speichern. Ohne App, ohne Anmeldung — Link einfügen."
     },
     "vimeo": {
       "badge": "Vimeo Downloader",
@@ -1163,24 +1205,24 @@
       "badgeAudio": "Vimeo zu MP3",
       "featuresAudio": [
         {
-          "title": "High-Quality MP3 & FLAC",
-          "desc": "Extract Vimeo audio as MP3 320kbps, FLAC lossless, AAC, WAV or OGG — choose the format that fits your needs."
+          "title": "Hochwertiges MP3 & FLAC",
+          "desc": "Extrahiere Vimeo-Audio als MP3 320kbps, FLAC verlustfrei, AAC, WAV oder OGG."
         },
         {
-          "title": "No App, No Login",
-          "desc": "Convert Vimeo to MP3 directly in your browser. Paste any public link and download instantly — no software or sign-up required."
+          "title": "Ohne App, ohne Login",
+          "desc": "Konvertiere Vimeo zu MP3 direkt im Browser."
         },
         {
-          "title": "Works on Any Device",
-          "desc": "Save audio on Android, iPhone, iPad, Windows, Mac or Linux. Standard MP3/FLAC files play everywhere — VLC, QuickTime, Spotify local, any editor."
+          "title": "Funktioniert überall",
+          "desc": "Speichere Audio auf Android, iPhone, iPad, Windows, Mac oder Linux."
         },
         {
           "title": "Batch & Playlists (Pro)",
-          "desc": "Download multiple Vimeo tracks or entire channels at once with Pro. No waiting per file."
+          "desc": "Lade mehrere Vimeo-Tracks auf einmal mit Pro herunter."
         },
         {
-          "title": "AI Transcripts Available",
-          "desc": "Want captions too? Switch to Vimeo Transcript mode for SRT, VTT, TXT or JSON with timestamps."
+          "title": "KI-Transkripte verfügbar",
+          "desc": "Untertitel gewünscht? Wechsel zu Vimeo Transkript-Modus."
         }
       ],
       "faqsAudio": [
@@ -1216,7 +1258,9 @@
       ],
       "headingAll": "Von Vimeo herunterladen",
       "headingAccentAll": "Video, Audio & Mehr",
-      "subheadingAll": "All-in-One Vimeo Downloader. Videos in HD, Audio MP3/FLAC, Thumbnails & Transkripte. Link einfügen — ohne App, ohne Anmeldung."
+      "subheadingAll": "All-in-One Vimeo Downloader. Videos in HD, Audio MP3/FLAC, Thumbnails & Transkripte. Link einfügen — ohne App, ohne Anmeldung.",
+      "metaTitleVideo": "Vimeo Video Downloader — Vimeo Videos in HD | DownForge",
+      "metaDescriptionVideo": "Kostenloser Vimeo Video Downloader. Vimeo-Videos in HD und 4K MP4 speichern. Ohne App, ohne Anmeldung — Link einfügen."
     },
     "dailymotion": {
       "badge": "Dailymotion Downloader",
@@ -1295,24 +1339,24 @@
       "badgeAudio": "Dailymotion zu MP3",
       "featuresAudio": [
         {
-          "title": "High-Quality MP3 & FLAC",
-          "desc": "Extract Dailymotion audio as MP3 320kbps, FLAC lossless, AAC, WAV or OGG — choose the format that fits your needs."
+          "title": "Hochwertiges MP3 & FLAC",
+          "desc": "Extrahiere Dailymotion-Audio als MP3 320kbps, FLAC verlustfrei, AAC, WAV oder OGG."
         },
         {
-          "title": "No App, No Login",
-          "desc": "Convert Dailymotion to MP3 directly in your browser. Paste any public link and download instantly — no software or sign-up required."
+          "title": "Ohne App, ohne Login",
+          "desc": "Konvertiere Dailymotion zu MP3 direkt im Browser."
         },
         {
-          "title": "Works on Any Device",
-          "desc": "Save audio on Android, iPhone, iPad, Windows, Mac or Linux. Standard MP3/FLAC files play everywhere — VLC, QuickTime, Spotify local, any editor."
+          "title": "Funktioniert überall",
+          "desc": "Speichere Audio auf Android, iPhone, iPad, Windows, Mac oder Linux."
         },
         {
           "title": "Batch & Playlists (Pro)",
-          "desc": "Download multiple Dailymotion tracks or entire channels at once with Pro. No waiting per file."
+          "desc": "Lade mehrere Dailymotion-Tracks auf einmal mit Pro herunter."
         },
         {
-          "title": "AI Transcripts Available",
-          "desc": "Want captions too? Switch to Dailymotion Transcript mode for SRT, VTT, TXT or JSON with timestamps."
+          "title": "KI-Transkripte verfügbar",
+          "desc": "Untertitel gewünscht? Wechsel zu Dailymotion Transkript-Modus."
         }
       ],
       "faqsAudio": [
@@ -1348,7 +1392,9 @@
       ],
       "headingAll": "Von Dailymotion herunterladen",
       "headingAccentAll": "Video, Audio & Mehr",
-      "subheadingAll": "All-in-One Dailymotion Downloader. Videos in HD, Audio MP3/FLAC, Thumbnails & Transkripte. Link einfügen — ohne App, ohne Anmeldung."
+      "subheadingAll": "All-in-One Dailymotion Downloader. Videos in HD, Audio MP3/FLAC, Thumbnails & Transkripte. Link einfügen — ohne App, ohne Anmeldung.",
+      "metaTitleVideo": "Dailymotion Video Downloader — Dailymotion Videos in HD | DownForge",
+      "metaDescriptionVideo": "Kostenloser Dailymotion Video Downloader. Dailymotion-Videos in HD und 4K MP4 speichern. Ohne App, ohne Anmeldung — Link einfügen."
     },
     "twitch": {
       "badge": "Twitch Downloader",
@@ -1430,24 +1476,24 @@
       "badgeAudio": "Twitch zu MP3",
       "featuresAudio": [
         {
-          "title": "High-Quality MP3 & FLAC",
-          "desc": "Extract Twitch audio as MP3 320kbps, FLAC lossless, AAC, WAV or OGG — choose the format that fits your needs."
+          "title": "Hochwertiges MP3 & FLAC",
+          "desc": "Extrahiere Twitch-Audio als MP3 320kbps, FLAC verlustfrei, AAC, WAV oder OGG."
         },
         {
-          "title": "No App, No Login",
-          "desc": "Convert Twitch to MP3 directly in your browser. Paste any public link and download instantly — no software or sign-up required."
+          "title": "Ohne App, ohne Login",
+          "desc": "Konvertiere Twitch zu MP3 direkt im Browser."
         },
         {
-          "title": "Works on Any Device",
-          "desc": "Save audio on Android, iPhone, iPad, Windows, Mac or Linux. Standard MP3/FLAC files play everywhere — VLC, QuickTime, Spotify local, any editor."
+          "title": "Funktioniert überall",
+          "desc": "Speichere Audio auf Android, iPhone, iPad, Windows, Mac oder Linux."
         },
         {
           "title": "Batch & Playlists (Pro)",
-          "desc": "Download multiple Twitch tracks or entire channels at once with Pro. No waiting per file."
+          "desc": "Lade mehrere Twitch-Tracks auf einmal mit Pro herunter."
         },
         {
-          "title": "AI Transcripts Available",
-          "desc": "Want captions too? Switch to Twitch Transcript mode for SRT, VTT, TXT or JSON with timestamps."
+          "title": "KI-Transkripte verfügbar",
+          "desc": "Untertitel gewünscht? Wechsel zu Twitch Transkript-Modus."
         }
       ],
       "faqsAudio": [
@@ -1483,7 +1529,9 @@
       ],
       "headingAll": "Von Twitch herunterladen",
       "headingAccentAll": "Video, Audio & Mehr",
-      "subheadingAll": "All-in-One Twitch Downloader. Videos in HD, Audio MP3/FLAC, Thumbnails & Transkripte. Link einfügen — ohne App, ohne Anmeldung."
+      "subheadingAll": "All-in-One Twitch Downloader. Videos in HD, Audio MP3/FLAC, Thumbnails & Transkripte. Link einfügen — ohne App, ohne Anmeldung.",
+      "metaTitleVideo": "Twitch Video Downloader — Twitch Videos in HD | DownForge",
+      "metaDescriptionVideo": "Kostenloser Twitch Video Downloader. Twitch-Videos in HD und 4K MP4 speichern. Ohne App, ohne Anmeldung — Link einfügen."
     },
     "reddit": {
       "badge": "Reddit Downloader",
@@ -1563,24 +1611,24 @@
       "badgeAudio": "Reddit zu MP3",
       "featuresAudio": [
         {
-          "title": "High-Quality MP3 & FLAC",
-          "desc": "Extract Reddit audio as MP3 320kbps, FLAC lossless, AAC, WAV or OGG — choose the format that fits your needs."
+          "title": "Hochwertiges MP3 & FLAC",
+          "desc": "Extrahiere Reddit-Audio als MP3 320kbps, FLAC verlustfrei, AAC, WAV oder OGG."
         },
         {
-          "title": "No App, No Login",
-          "desc": "Convert Reddit to MP3 directly in your browser. Paste any public link and download instantly — no software or sign-up required."
+          "title": "Ohne App, ohne Login",
+          "desc": "Konvertiere Reddit zu MP3 direkt im Browser."
         },
         {
-          "title": "Works on Any Device",
-          "desc": "Save audio on Android, iPhone, iPad, Windows, Mac or Linux. Standard MP3/FLAC files play everywhere — VLC, QuickTime, Spotify local, any editor."
+          "title": "Funktioniert überall",
+          "desc": "Speichere Audio auf Android, iPhone, iPad, Windows, Mac oder Linux."
         },
         {
           "title": "Batch & Playlists (Pro)",
-          "desc": "Download multiple Reddit tracks or entire channels at once with Pro. No waiting per file."
+          "desc": "Lade mehrere Reddit-Tracks auf einmal mit Pro herunter."
         },
         {
-          "title": "AI Transcripts Available",
-          "desc": "Want captions too? Switch to Reddit Transcript mode for SRT, VTT, TXT or JSON with timestamps."
+          "title": "KI-Transkripte verfügbar",
+          "desc": "Untertitel gewünscht? Wechsel zu Reddit Transkript-Modus."
         }
       ],
       "faqsAudio": [
@@ -1616,7 +1664,9 @@
       ],
       "headingAll": "Von Reddit herunterladen",
       "headingAccentAll": "Video, Audio & Mehr",
-      "subheadingAll": "All-in-One Reddit Downloader. Videos in HD, Audio MP3/FLAC, Thumbnails & Transkripte. Link einfügen — ohne App, ohne Anmeldung."
+      "subheadingAll": "All-in-One Reddit Downloader. Videos in HD, Audio MP3/FLAC, Thumbnails & Transkripte. Link einfügen — ohne App, ohne Anmeldung.",
+      "metaTitleVideo": "Reddit Video Downloader — Reddit Videos in HD | DownForge",
+      "metaDescriptionVideo": "Kostenloser Reddit Video Downloader. Reddit-Videos in HD und 4K MP4 speichern. Ohne App, ohne Anmeldung — Link einfügen."
     },
     "pinterest": {
       "badge": "Pinterest Downloader",
@@ -1695,24 +1745,24 @@
       "badgeAudio": "Pinterest zu MP3",
       "featuresAudio": [
         {
-          "title": "High-Quality MP3 & FLAC",
-          "desc": "Extract Pinterest audio as MP3 320kbps, FLAC lossless, AAC, WAV or OGG — choose the format that fits your needs."
+          "title": "Hochwertiges MP3 & FLAC",
+          "desc": "Extrahiere Pinterest-Audio als MP3 320kbps, FLAC verlustfrei, AAC, WAV oder OGG."
         },
         {
-          "title": "No App, No Login",
-          "desc": "Convert Pinterest to MP3 directly in your browser. Paste any public link and download instantly — no software or sign-up required."
+          "title": "Ohne App, ohne Login",
+          "desc": "Konvertiere Pinterest zu MP3 direkt im Browser."
         },
         {
-          "title": "Works on Any Device",
-          "desc": "Save audio on Android, iPhone, iPad, Windows, Mac or Linux. Standard MP3/FLAC files play everywhere — VLC, QuickTime, Spotify local, any editor."
+          "title": "Funktioniert überall",
+          "desc": "Speichere Audio auf Android, iPhone, iPad, Windows, Mac oder Linux."
         },
         {
           "title": "Batch & Playlists (Pro)",
-          "desc": "Download multiple Pinterest tracks or entire channels at once with Pro. No waiting per file."
+          "desc": "Lade mehrere Pinterest-Tracks auf einmal mit Pro herunter."
         },
         {
-          "title": "AI Transcripts Available",
-          "desc": "Want captions too? Switch to Pinterest Transcript mode for SRT, VTT, TXT or JSON with timestamps."
+          "title": "KI-Transkripte verfügbar",
+          "desc": "Untertitel gewünscht? Wechsel zu Pinterest Transkript-Modus."
         }
       ],
       "faqsAudio": [
@@ -1748,7 +1798,9 @@
       ],
       "headingAll": "Von Pinterest herunterladen",
       "headingAccentAll": "Video, Audio & Mehr",
-      "subheadingAll": "All-in-One Pinterest Downloader. Videos in HD, Audio MP3/FLAC, Thumbnails & Transkripte. Link einfügen — ohne App, ohne Anmeldung."
+      "subheadingAll": "All-in-One Pinterest Downloader. Videos in HD, Audio MP3/FLAC, Thumbnails & Transkripte. Link einfügen — ohne App, ohne Anmeldung.",
+      "metaTitleVideo": "Pinterest Video Downloader — Pinterest Videos in HD | DownForge",
+      "metaDescriptionVideo": "Kostenloser Pinterest Video Downloader. Pinterest-Videos in HD und 4K MP4 speichern. Ohne App, ohne Anmeldung — Link einfügen."
     },
     "linkedin": {
       "badge": "LinkedIn Downloader",
@@ -1826,24 +1878,24 @@
       "badgeAudio": "LinkedIn zu MP3",
       "featuresAudio": [
         {
-          "title": "High-Quality MP3 & FLAC",
-          "desc": "Extract LinkedIn audio as MP3 320kbps, FLAC lossless, AAC, WAV or OGG — choose the format that fits your needs."
+          "title": "Hochwertiges MP3 & FLAC",
+          "desc": "Extrahiere LinkedIn-Audio als MP3 320kbps, FLAC verlustfrei, AAC, WAV oder OGG."
         },
         {
-          "title": "No App, No Login",
-          "desc": "Convert LinkedIn to MP3 directly in your browser. Paste any public link and download instantly — no software or sign-up required."
+          "title": "Ohne App, ohne Login",
+          "desc": "Konvertiere LinkedIn zu MP3 direkt im Browser."
         },
         {
-          "title": "Works on Any Device",
-          "desc": "Save audio on Android, iPhone, iPad, Windows, Mac or Linux. Standard MP3/FLAC files play everywhere — VLC, QuickTime, Spotify local, any editor."
+          "title": "Funktioniert überall",
+          "desc": "Speichere Audio auf Android, iPhone, iPad, Windows, Mac oder Linux."
         },
         {
           "title": "Batch & Playlists (Pro)",
-          "desc": "Download multiple LinkedIn tracks or entire channels at once with Pro. No waiting per file."
+          "desc": "Lade mehrere LinkedIn-Tracks auf einmal mit Pro herunter."
         },
         {
-          "title": "AI Transcripts Available",
-          "desc": "Want captions too? Switch to LinkedIn Transcript mode for SRT, VTT, TXT or JSON with timestamps."
+          "title": "KI-Transkripte verfügbar",
+          "desc": "Untertitel gewünscht? Wechsel zu LinkedIn Transkript-Modus."
         }
       ],
       "faqsAudio": [
@@ -1879,7 +1931,9 @@
       ],
       "headingAll": "Von LinkedIn herunterladen",
       "headingAccentAll": "Video, Audio & Mehr",
-      "subheadingAll": "All-in-One LinkedIn Downloader. Videos in HD, Audio MP3/FLAC, Thumbnails & Transkripte. Link einfügen — ohne App, ohne Anmeldung."
+      "subheadingAll": "All-in-One LinkedIn Downloader. Videos in HD, Audio MP3/FLAC, Thumbnails & Transkripte. Link einfügen — ohne App, ohne Anmeldung.",
+      "metaTitleVideo": "LinkedIn Video Downloader — LinkedIn Videos in HD | DownForge",
+      "metaDescriptionVideo": "Kostenloser LinkedIn Video Downloader. LinkedIn-Videos in HD und 4K MP4 speichern. Ohne App, ohne Anmeldung — Link einfügen."
     },
     "snapchat": {
       "badge": "Snapchat Downloader",
@@ -1957,24 +2011,24 @@
       "badgeAudio": "Snapchat zu MP3",
       "featuresAudio": [
         {
-          "title": "High-Quality MP3 & FLAC",
-          "desc": "Extract Snapchat audio as MP3 320kbps, FLAC lossless, AAC, WAV or OGG — choose the format that fits your needs."
+          "title": "Hochwertiges MP3 & FLAC",
+          "desc": "Extrahiere Snapchat-Audio als MP3 320kbps, FLAC verlustfrei, AAC, WAV oder OGG."
         },
         {
-          "title": "No App, No Login",
-          "desc": "Convert Snapchat to MP3 directly in your browser. Paste any public link and download instantly — no software or sign-up required."
+          "title": "Ohne App, ohne Login",
+          "desc": "Konvertiere Snapchat zu MP3 direkt im Browser."
         },
         {
-          "title": "Works on Any Device",
-          "desc": "Save audio on Android, iPhone, iPad, Windows, Mac or Linux. Standard MP3/FLAC files play everywhere — VLC, QuickTime, Spotify local, any editor."
+          "title": "Funktioniert überall",
+          "desc": "Speichere Audio auf Android, iPhone, iPad, Windows, Mac oder Linux."
         },
         {
           "title": "Batch & Playlists (Pro)",
-          "desc": "Download multiple Snapchat tracks or entire channels at once with Pro. No waiting per file."
+          "desc": "Lade mehrere Snapchat-Tracks auf einmal mit Pro herunter."
         },
         {
-          "title": "AI Transcripts Available",
-          "desc": "Want captions too? Switch to Snapchat Transcript mode for SRT, VTT, TXT or JSON with timestamps."
+          "title": "KI-Transkripte verfügbar",
+          "desc": "Untertitel gewünscht? Wechsel zu Snapchat Transkript-Modus."
         }
       ],
       "faqsAudio": [
@@ -2010,7 +2064,9 @@
       ],
       "headingAll": "Von Snapchat herunterladen",
       "headingAccentAll": "Video, Audio & Mehr",
-      "subheadingAll": "All-in-One Snapchat Downloader. Videos in HD, Audio MP3/FLAC, Thumbnails & Transkripte. Link einfügen — ohne App, ohne Anmeldung."
+      "subheadingAll": "All-in-One Snapchat Downloader. Videos in HD, Audio MP3/FLAC, Thumbnails & Transkripte. Link einfügen — ohne App, ohne Anmeldung.",
+      "metaTitleVideo": "Snapchat Video Downloader — Snapchat Videos in HD | DownForge",
+      "metaDescriptionVideo": "Kostenloser Snapchat Video Downloader. Snapchat-Videos in HD und 4K MP4 speichern. Ohne App, ohne Anmeldung — Link einfügen."
     },
     "soundcloud": {
       "badge": "SoundCloud Downloader",
@@ -2094,24 +2150,24 @@
       "badgeAudio": "SoundCloud zu MP3",
       "featuresAudio": [
         {
-          "title": "SoundCloud Native Audio",
-          "desc": "Download SoundCloud tracks as source-quality MP3 320kbps, FLAC, AAC or WAV. Keep every waveform detail."
+          "title": "Hochwertiges MP3 & FLAC",
+          "desc": "Extrahiere SoundCloud-Audio als MP3 320kbps, FLAC verlustfrei, AAC, WAV oder OGG."
         },
         {
-          "title": "Playlists & Sets",
-          "desc": "Save entire SoundCloud playlists or DJ sets in one flow (Pro). One link per track or full set URL."
+          "title": "Ohne App, ohne Login",
+          "desc": "Konvertiere SoundCloud zu MP3 direkt im Browser."
         },
         {
-          "title": "No App, No Login",
-          "desc": "Convert SoundCloud to MP3 in your browser — paste any public track link and download instantly."
+          "title": "Funktioniert überall",
+          "desc": "Speichere Audio auf Android, iPhone, iPad, Windows, Mac oder Linux."
         },
         {
-          "title": "Any Device",
-          "desc": "MP3/FLAC files play everywhere — phones, laptops, DJ software, audio editors."
+          "title": "Batch & Playlists (Pro)",
+          "desc": "Lade mehrere SoundCloud-Tracks auf einmal mit Pro herunter."
         },
         {
-          "title": "AI Transcripts",
-          "desc": "Need lyrics? Use Transcript mode for timestamped SRT/VTT/JSON."
+          "title": "KI-Transkripte verfügbar",
+          "desc": "Untertitel gewünscht? Wechsel zu SoundCloud Transkript-Modus."
         }
       ],
       "faqsAudio": [
@@ -2149,7 +2205,9 @@
       ],
       "headingAll": "Von SoundCloud herunterladen",
       "headingAccentAll": "Video, Audio & Mehr",
-      "subheadingAll": "All-in-One SoundCloud Downloader. Tracks als MP3 320kbps & FLAC, Videos, Thumbnails & Transkripte. Link einfügen — ohne Anmeldung."
+      "subheadingAll": "All-in-One SoundCloud Downloader. Tracks als MP3 320kbps & FLAC, Videos, Thumbnails & Transkripte. Link einfügen — ohne Anmeldung.",
+      "metaTitleVideo": "SoundCloud Video Downloader — SoundCloud Videos in HD | DownForge",
+      "metaDescriptionVideo": "Kostenloser SoundCloud Video Downloader. SoundCloud-Videos in HD und 4K MP4 speichern. Ohne App, ohne Anmeldung — Link einfügen."
     },
     "kick": {
       "badge": "Kick Downloader",
@@ -2228,24 +2286,24 @@
       "badgeAudio": "Kick zu MP3",
       "featuresAudio": [
         {
-          "title": "High-Quality MP3 & FLAC",
-          "desc": "Extract Kick audio as MP3 320kbps, FLAC lossless, AAC, WAV or OGG — choose the format that fits your needs."
+          "title": "Hochwertiges MP3 & FLAC",
+          "desc": "Extrahiere Kick-Audio als MP3 320kbps, FLAC verlustfrei, AAC, WAV oder OGG."
         },
         {
-          "title": "No App, No Login",
-          "desc": "Convert Kick to MP3 directly in your browser. Paste any public link and download instantly — no software or sign-up required."
+          "title": "Ohne App, ohne Login",
+          "desc": "Konvertiere Kick zu MP3 direkt im Browser."
         },
         {
-          "title": "Works on Any Device",
-          "desc": "Save audio on Android, iPhone, iPad, Windows, Mac or Linux. Standard MP3/FLAC files play everywhere — VLC, QuickTime, Spotify local, any editor."
+          "title": "Funktioniert überall",
+          "desc": "Speichere Audio auf Android, iPhone, iPad, Windows, Mac oder Linux."
         },
         {
           "title": "Batch & Playlists (Pro)",
-          "desc": "Download multiple Kick tracks or entire channels at once with Pro. No waiting per file."
+          "desc": "Lade mehrere Kick-Tracks auf einmal mit Pro herunter."
         },
         {
-          "title": "AI Transcripts Available",
-          "desc": "Want captions too? Switch to Kick Transcript mode for SRT, VTT, TXT or JSON with timestamps."
+          "title": "KI-Transkripte verfügbar",
+          "desc": "Untertitel gewünscht? Wechsel zu Kick Transkript-Modus."
         }
       ],
       "faqsAudio": [
@@ -2281,7 +2339,9 @@
       ],
       "headingAll": "Von Kick herunterladen",
       "headingAccentAll": "Video, Audio & Mehr",
-      "subheadingAll": "All-in-One Kick Downloader. Videos in HD, Audio MP3/FLAC, Thumbnails & Transkripte. Link einfügen — ohne App, ohne Anmeldung."
+      "subheadingAll": "All-in-One Kick Downloader. Videos in HD, Audio MP3/FLAC, Thumbnails & Transkripte. Link einfügen — ohne App, ohne Anmeldung.",
+      "metaTitleVideo": "Kick Video Downloader — Kick Videos in HD | DownForge",
+      "metaDescriptionVideo": "Kostenloser Kick Video Downloader. Kick-Videos in HD und 4K MP4 speichern. Ohne App, ohne Anmeldung — Link einfügen."
     },
     "youtube": {
       "badge": "YouTube Downloader",
@@ -2370,24 +2430,24 @@
       "badgeAudio": "YouTube zu MP3",
       "featuresAudio": [
         {
-          "title": "High-Quality MP3 & FLAC",
-          "desc": "Extract YouTube audio as MP3 320kbps, FLAC lossless, AAC, WAV or OGG — choose the format that fits your needs."
+          "title": "Hochwertiges MP3 & FLAC",
+          "desc": "Extrahiere YouTube-Audio als MP3 320kbps, FLAC verlustfrei, AAC, WAV oder OGG."
         },
         {
-          "title": "No App, No Login",
-          "desc": "Convert YouTube to MP3 directly in your browser. Paste any public link and download instantly — no software or sign-up required."
+          "title": "Ohne App, ohne Login",
+          "desc": "Konvertiere YouTube zu MP3 direkt im Browser."
         },
         {
-          "title": "Works on Any Device",
-          "desc": "Save audio on Android, iPhone, iPad, Windows, Mac or Linux. Standard MP3/FLAC files play everywhere — VLC, QuickTime, Spotify local, any editor."
+          "title": "Funktioniert überall",
+          "desc": "Speichere Audio auf Android, iPhone, iPad, Windows, Mac oder Linux."
         },
         {
           "title": "Batch & Playlists (Pro)",
-          "desc": "Download multiple YouTube tracks or entire channels at once with Pro. No waiting per file."
+          "desc": "Lade mehrere YouTube-Tracks auf einmal mit Pro herunter."
         },
         {
-          "title": "AI Transcripts Available",
-          "desc": "Want captions too? Switch to YouTube Transcript mode for SRT, VTT, TXT or JSON with timestamps."
+          "title": "KI-Transkripte verfügbar",
+          "desc": "Untertitel gewünscht? Wechsel zu YouTube Transkript-Modus."
         }
       ],
       "faqsAudio": [
@@ -2512,24 +2572,24 @@
       "badgeAudio": "Niconico zu MP3",
       "featuresAudio": [
         {
-          "title": "High-Quality MP3 & FLAC",
-          "desc": "Extract Niconico audio as MP3 320kbps, FLAC lossless, AAC, WAV or OGG — choose the format that fits your needs."
+          "title": "Hochwertiges MP3 & FLAC",
+          "desc": "Extrahiere Niconico-Audio als MP3 320kbps, FLAC verlustfrei, AAC, WAV oder OGG."
         },
         {
-          "title": "No App, No Login",
-          "desc": "Convert Niconico to MP3 directly in your browser. Paste any public link and download instantly — no software or sign-up required."
+          "title": "Ohne App, ohne Login",
+          "desc": "Konvertiere Niconico zu MP3 direkt im Browser."
         },
         {
-          "title": "Works on Any Device",
-          "desc": "Save audio on Android, iPhone, iPad, Windows, Mac or Linux. Standard MP3/FLAC files play everywhere — VLC, QuickTime, Spotify local, any editor."
+          "title": "Funktioniert überall",
+          "desc": "Speichere Audio auf Android, iPhone, iPad, Windows, Mac oder Linux."
         },
         {
           "title": "Batch & Playlists (Pro)",
-          "desc": "Download multiple Niconico tracks or entire channels at once with Pro. No waiting per file."
+          "desc": "Lade mehrere Niconico-Tracks auf einmal mit Pro herunter."
         },
         {
-          "title": "AI Transcripts Available",
-          "desc": "Want captions too? Switch to Niconico Transcript mode for SRT, VTT, TXT or JSON with timestamps."
+          "title": "KI-Transkripte verfügbar",
+          "desc": "Untertitel gewünscht? Wechsel zu Niconico Transkript-Modus."
         }
       ],
       "faqsAudio": [
@@ -2565,7 +2625,9 @@
       ],
       "headingAll": "Von Niconico herunterladen",
       "headingAccentAll": "Video, Audio & Mehr",
-      "subheadingAll": "All-in-One Niconico Downloader. Videos in HD, Audio MP3/FLAC, Thumbnails & Transkripte. Link einfügen — ohne App, ohne Anmeldung."
+      "subheadingAll": "All-in-One Niconico Downloader. Videos in HD, Audio MP3/FLAC, Thumbnails & Transkripte. Link einfügen — ohne App, ohne Anmeldung.",
+      "metaTitleVideo": "Niconico Video Downloader — Niconico Videos in HD | DownForge",
+      "metaDescriptionVideo": "Kostenloser Niconico Video Downloader. Niconico-Videos in HD und 4K MP4 speichern. Ohne App, ohne Anmeldung — Link einfügen."
     }
   },
   "YoutubeHero": {

@@ -21,6 +21,18 @@ export function generateStaticParams() {
   );
 }
 
+const ogLocaleMap: Record<string, string> = {
+  en: "en_US",
+  es: "es_ES",
+  fr: "fr_FR",
+  de: "de_DE",
+  pt: "pt_BR",
+  ja: "ja_JP",
+  ar: "ar_SA",
+  ru: "ru_RU",
+  zh: "zh_CN",
+};
+
 export async function generateMetadata({ params }: Props): Promise<Metadata> {
   const { platform, locale } = await params;
   const config = platformConfigs[platform];
@@ -42,7 +54,7 @@ export async function generateMetadata({ params }: Props): Promise<Metadata> {
       description,
       url: `https://www.downforge.me/${locale}/video-downloader/${config.slug}`,
       siteName: "DownForge",
-      locale,
+      locale: ogLocaleMap[locale] ?? locale,
       type: "website",
     },
     twitter: {
@@ -74,12 +86,24 @@ export default async function VideoDownloaderPage({ params }: Props) {
   const config = platformConfigs[platform];
   if (!config) notFound();
 
-  const content = getContent(platform, "video");
+  // BlogContent is English-only (lib/content/builders.ts). For non-EN locales,
+  // hide it to avoid English paragraphs under localized hero/FAQ (ensures "every word changes").
+  // Long-form localization tracked in VIDEO_DOWNLOADER_I18N_SEO_PLAN.md Phase 4B.
+  const content = locale === "en" ? getContent(platform, "video") : null;
 
   const t = await getTranslations({ locale, namespace: `Platform.${platform}` });
+  const pt = await getTranslations({ locale, namespace: "PlatformPage" });
   const faqs = t.raw("faqs") as { q: string; a: string }[];
   const metaDescription = t.has("metaDescriptionVideo") ? t("metaDescriptionVideo") : t("metaDescription");
   const related = relatedLinksFor("video-downloader", platform);
+
+  const breadcrumbHome = (() => {
+    try {
+      return pt("breadcrumbHome");
+    } catch {
+      return "Home";
+    }
+  })();
 
   const jsonLd = {
     "@context": "https://schema.org",
@@ -88,7 +112,7 @@ export default async function VideoDownloaderPage({ params }: Props) {
         "@type": "BreadcrumbList",
         "@id": `https://www.downforge.me/${locale}/video-downloader/${config.slug}#breadcrumb`,
         "itemListElement": [
-          { "@type": "ListItem", position: 1, name: "Home", item: `https://www.downforge.me/${locale}` },
+          { "@type": "ListItem", position: 1, name: breadcrumbHome, item: `https://www.downforge.me/${locale}` },
           { "@type": "ListItem", position: 2, name: `${config.name} Video Downloader`, item: `https://www.downforge.me/${locale}/video-downloader/${config.slug}` },
         ],
       },

@@ -268,56 +268,56 @@
       "step3Title": "形式を選んでダウンロード",
       "step3Desc": "希望の画質と形式を選択し、ダウンロードをクリックして変換を開始。ファイルは数秒で準備完了です。"
     },
-    "toolFeaturesBadge": "Why DownForge",
-    "toolFeaturesHeading": "The Best {name} Download Tool",
-    "toolFeaturesSubheading": "Built for speed, privacy, and quality. Download {name} content the way it was meant to be saved.",
+    "toolFeaturesBadge": "DownForgeが選ばれる理由",
+    "toolFeaturesHeading": "最高の{name}ダウンロードツール",
+    "toolFeaturesSubheading": "スピード、プライバシー、品質のために構築。{name}のコンテンツを本来あるべき方法で保存。",
     "toolFeaturesStats": [
       {
-        "title": "Blazing Fast",
-        "value": "< 3 seconds",
-        "desc": "Server-side processing with instant CDN delivery"
+        "title": "超高速",
+        "value": "< 3秒",
+        "desc": "サーバー側処理とCDN配信ですぐにダウンロード開始"
       },
       {
-        "title": "Private & Secure",
-        "value": "Zero Storage",
-        "desc": "Files processed ephemerally and deleted immediately"
+        "title": "プライベート＆安全",
+        "value": "保存ゼロ",
+        "desc": "ファイルは一時的に処理され、ダウンロード後すぐに削除"
       },
       {
-        "title": "Formats & Qualities",
-        "value": "4K · FLAC · SRT",
-        "desc": "Video, audio, thumbnails & AI transcripts in any format"
+        "title": "形式と品質",
+        "value": "4K・FLAC・SRT",
+        "desc": "あらゆる形式の動画、音声、サムネイル、AI文字起こし"
       },
       {
-        "title": "Platform Support",
-        "value": "200+ Sites",
-        "desc": "From major platforms to the most obscure"
+        "title": "対応プラットフォーム",
+        "value": "200以上のサイト",
+        "desc": "大手からニッチなサイトまで幅広く対応"
       },
       {
-        "title": "No Account Required",
-        "value": "Free Forever",
-        "desc": "Start downloading instantly — no sign-up needed"
+        "title": "登録不要",
+        "value": "永久無料",
+        "desc": "すぐにダウンロード開始 — 登録不要"
       },
       {
-        "title": "Batch Processing",
-        "value": "Playlists",
-        "desc": "Download entire channels in one click (Pro)"
+        "title": "一括処理",
+        "value": "プレイリスト",
+        "desc": "チャンネル全体をワンクリックでダウンロード（Pro）"
       }
     ],
-    "tipsBadge": "Tips & Tricks",
-    "tipsHeading": "Get the Most from {name} Downloads",
-    "tipsSubheading": "Whether you need video for editing, audio for podcasts, thumbnails for projects, or AI transcripts for accessibility — we have you covered.",
-    "faqBadge": "FAQ",
-    "faqHeading": "{name} Download Questions",
-    "faqSubheading": "Everything you need to know about downloading from {name}.",
-    "howItWorksBadge": "How It Works",
-    "howItWorksHeading": "Download {name} in 3 Steps",
-    "howItWorksSubheading": "No software, no sign-up, no hassle. Just paste, pick, and download.",
-    "howItWorksStep1Title": "Paste the Link",
-    "howItWorksStep1Desc": "Copy any {name} video URL and paste it into the input above. We support all public video types including shorts, streams, and highlights.",
-    "howItWorksStep2Title": "Pick Your Format",
-    "howItWorksStep2Desc": "Choose from 4K video, 1080p HD, MP3 audio up to 320kbps, FLAC lossless, HD thumbnails, or AI transcripts in SRT, VTT, TXT & JSON. Whatever you need.",
-    "howItWorksStep3Title": "Download Instantly",
-    "howItWorksStep3Desc": "Hit download and your file is ready in seconds. No queues, no waiting, no account required. Just a fast, clean download."
+    "tipsBadge": "ヒントとコツ",
+    "tipsHeading": "{name}のダウンロードを最大限に活用",
+    "tipsSubheading": "編集用の動画、ポッドキャスト用の音声、プロジェクト用のサムネイル、アクセシビリティ用のAI文字起こし — すべてカバーします。",
+    "faqBadge": "よくある質問",
+    "faqHeading": "{name}ダウンロードに関する質問",
+    "faqSubheading": "{name}からのダウンロードについて知っておくべきすべて。",
+    "howItWorksBadge": "使い方",
+    "howItWorksHeading": "{name}を3ステップでダウンロード",
+    "howItWorksSubheading": "ソフト不要、登録不要、手間なし。貼り付けて、選んで、ダウンロードするだけ。",
+    "howItWorksStep1Title": "リンクを貼り付け",
+    "howItWorksStep1Desc": "{name}の動画URLをコピーして上に入力。ショート、配信、ハイライトなどすべての公開動画タイプに対応。",
+    "howItWorksStep2Title": "形式を選択",
+    "howItWorksStep2Desc": "4K動画、1080p HD、320kbpsまでのMP3、ロスレスFLAC、HDサムネイル、SRT/VTT/TXT/JSONのAI文字起こしから選択。必要なものを。",
+    "howItWorksStep3Title": "すぐにダウンロード",
+    "howItWorksStep3Desc": "ダウンロードをクリックすれば数秒で準備完了。待ち時間なし、キューなし、アカウント不要。高速でクリーンなダウンロード。"
   },
   "DownloadOnly": {
     "audioBadge": "音声ダウンローダー",
@@ -357,7 +357,41 @@
     "trustFree": "完全無料",
     "trustNoSignup": "登録不要",
     "trustQuality": "最大4K画質",
-    "trustPrivate": "プライベート＆安全"
+    "trustPrivate": "プライベート＆安全",
+    "featuresTitle": "機能",
+    "faqTitle": "よくある質問",
+    "stats": [
+      {
+        "label": "動画品質",
+        "value": "最大4K",
+        "desc": "4K Ultra HDから標準画質まで、驚くほど美しい品質で動画をダウンロード。"
+      },
+      {
+        "label": "超高速",
+        "value": "< 3秒",
+        "desc": "サーバー側処理とCDN配信で数秒でダウンロード開始。"
+      },
+      {
+        "label": "プライベート＆安全",
+        "value": "保存ゼロ",
+        "desc": "ファイルは一時的に処理され、ダウンロード後すぐに削除されます。"
+      },
+      {
+        "label": "形式を選択",
+        "value": "MP4・WebM・MKV",
+        "desc": "デバイスや用途に最適なコンテナ形式を選択。"
+      },
+      {
+        "label": "登録不要",
+        "value": "永久無料",
+        "desc": "すぐにダウンロード開始 — 登録不要。"
+      },
+      {
+        "label": "一括処理",
+        "value": "プレイリスト",
+        "desc": "Proでチャンネルやプレイリスト全体をワンクリックでダウンロード。"
+      }
+    ]
   },
   "Formats": {
     "mp4": "MP4",
@@ -538,7 +572,7 @@
   },
   "Platform": {
     "facebook": {
-      "badge": "Facebook Downloader",
+      "badge": "Facebookダウンローダー",
       "heading": "Facebook動画をダウンロード",
       "headingAccent": "HDで",
       "subheading": "Facebookの動画リンクを貼り付けて数秒でダウンロード。Facebook Watch動画、ライブ配信、Reelsを保存。AI文字起こしも取得 — アカウント不要。",
@@ -590,16 +624,14 @@
       "metaTitle": "Facebook Video Downloader — Facebook動画をHDでダウンロード | DownForge",
       "metaDescription": "無料のFacebook動画ダウンローダー。Facebook動画、Watch番組、Reels、ライブ配信をHDでダウンロード。MP3で音声抽出。サインアップ不要。",
       "keywords": [
-        "facebook video downloader",
-        "download facebook videos",
-        "fb video downloader",
-        "facebook video saver",
+        "facebook動画ダウンロード",
+        "facebook動画保存",
+        "フェイスブック動画ダウンロード",
+        "facebook 動画 ダウンローダー",
         "facebook to mp4",
-        "download facebook watch",
-        "facebook reels downloader",
-        "facebook hd downloader",
-        "save facebook video",
-        "facebook video download free"
+        "facebook リール 保存",
+        "fb動画保存",
+        "facebook hd 保存"
       ],
       "metaTitleAudio": "FacebookをMP3に変換 — Facebook動画をMP3に変換 | DownForge",
       "metaDescriptionAudio": "無料のFacebook MP3変換。Facebook動画から音声をMP3、AAC、FLACで抽出。登録不要。",
@@ -617,24 +649,24 @@
       "badgeAudio": "Facebook をMP3に",
       "featuresAudio": [
         {
-          "title": "High-Quality MP3 & FLAC",
-          "desc": "Extract Facebook audio as MP3 320kbps, FLAC lossless, AAC, WAV or OGG — choose the format that fits your needs."
+          "title": "高品質MP3＆FLAC",
+          "desc": "Facebookの音声をMP3 320kbps、ロスレスFLAC、AAC、WAV、OGGで抽出。"
         },
         {
-          "title": "No App, No Login",
-          "desc": "Convert Facebook to MP3 directly in your browser. Paste any public link and download instantly — no software or sign-up required."
+          "title": "アプリ不要、登録不要",
+          "desc": "ブラウザで直接FacebookをMP3に変換。公開リンクを貼り付けて即ダウンロード。"
         },
         {
-          "title": "Works on Any Device",
-          "desc": "Save audio on Android, iPhone, iPad, Windows, Mac or Linux. Standard MP3/FLAC files play everywhere — VLC, QuickTime, Spotify local, any editor."
+          "title": "どのデバイスでも動作",
+          "desc": "Android、iPhone、iPad、Windows、Mac、Linuxで保存。標準MP3/FLACはどこでも再生。"
         },
         {
-          "title": "Batch & Playlists (Pro)",
-          "desc": "Download multiple Facebook tracks or entire channels at once with Pro. No waiting per file."
+          "title": "一括＆プレイリスト（Pro）",
+          "desc": "ProでFacebookの複数トラックを一度にダウンロード。"
         },
         {
-          "title": "AI Transcripts Available",
-          "desc": "Want captions too? Switch to Facebook Transcript mode for SRT, VTT, TXT or JSON with timestamps."
+          "title": "AI文字起こしも利用可",
+          "desc": "字幕も必要？ Facebookの文字起こしモードに切り替え。"
         }
       ],
       "faqsAudio": [
@@ -671,10 +703,12 @@
       ],
       "headingAll": "Facebookからダウンロード",
       "headingAccentAll": "動画、音声など",
-      "subheadingAll": "オールインワン Facebookダウンローダー。動画をHD、音声をMP3/FLAC、HDサムネイル＆AI文字起こしでダウンロード。リンク貼り付け — アプリ不要、登録不要。"
+      "subheadingAll": "オールインワン Facebookダウンローダー。動画をHD、音声をMP3/FLAC、HDサムネイル＆AI文字起こしでダウンロード。リンク貼り付け — アプリ不要、登録不要。",
+      "metaTitleVideo": "Facebook動画ダウンローダー — HDで保存 | DownForge",
+      "metaDescriptionVideo": "無料のFacebook動画ダウンローダー。Facebook動画をHD＆4K MP4で保存。アプリ不要、登録不要 — リンクを貼り付け。"
     },
     "instagram": {
-      "badge": "Instagram Downloader",
+      "badge": "Instagramダウンローダー",
       "heading": "Instagram動画をダウンロード",
       "headingAccent": "Reels＆ストーリー",
       "subheading": "InstagramのReels、ストーリー、IGTV、投稿を数秒で保存。動画、音声、サムネイル、AI文字起こしを即座にダウンロード — アカウント不要。",
@@ -726,16 +760,14 @@
       "metaTitle": "Instagram Video Downloader — Reels、ストーリー、投稿をダウンロード | DownForge",
       "metaDescription": "無料のInstagramダウンローダー。Reels、ストーリー、IGTV、投稿をHDでダウンロード。MP3で音声抽出。プロフィール画像を保存。サインアップ不要。",
       "keywords": [
-        "instagram video downloader",
-        "download instagram reels",
-        "instagram reels downloader",
-        "ig downloader",
-        "instagram story saver",
-        "instagram video saver",
-        "download ig videos",
-        "reels to mp4",
-        "instagram mp3",
-        "instagram profile picture downloader"
+        "instagram動画ダウンロード",
+        "インスタ 動画 保存",
+        "instagram リール ダウンロード",
+        "インスタ reels 保存",
+        "instagram ストーリー 保存",
+        "instagram to mp4",
+        "ig 動画 ダウンローダー",
+        "instagram 保存"
       ],
       "metaTitleAudio": "InstagramをMP3に変換 — Instagram動画をMP3に変換 | DownForge",
       "metaDescriptionAudio": "無料のInstagram MP3変換。Instagram動画から音声をMP3、AAC、FLACで抽出。登録不要。",
@@ -754,24 +786,24 @@
       "badgeAudio": "Instagram をMP3に",
       "featuresAudio": [
         {
-          "title": "High-Quality MP3 & FLAC",
-          "desc": "Extract Instagram audio as MP3 320kbps, FLAC lossless, AAC, WAV or OGG — choose the format that fits your needs."
+          "title": "高品質MP3＆FLAC",
+          "desc": "Instagramの音声をMP3 320kbps、ロスレスFLAC、AAC、WAV、OGGで抽出。"
         },
         {
-          "title": "No App, No Login",
-          "desc": "Convert Instagram to MP3 directly in your browser. Paste any public link and download instantly — no software or sign-up required."
+          "title": "アプリ不要、登録不要",
+          "desc": "ブラウザで直接InstagramをMP3に変換。公開リンクを貼り付けて即ダウンロード。"
         },
         {
-          "title": "Works on Any Device",
-          "desc": "Save audio on Android, iPhone, iPad, Windows, Mac or Linux. Standard MP3/FLAC files play everywhere — VLC, QuickTime, Spotify local, any editor."
+          "title": "どのデバイスでも動作",
+          "desc": "Android、iPhone、iPad、Windows、Mac、Linuxで保存。標準MP3/FLACはどこでも再生。"
         },
         {
-          "title": "Batch & Playlists (Pro)",
-          "desc": "Download multiple Instagram tracks or entire channels at once with Pro. No waiting per file."
+          "title": "一括＆プレイリスト（Pro）",
+          "desc": "ProでInstagramの複数トラックを一度にダウンロード。"
         },
         {
-          "title": "AI Transcripts Available",
-          "desc": "Want captions too? Switch to Instagram Transcript mode for SRT, VTT, TXT or JSON with timestamps."
+          "title": "AI文字起こしも利用可",
+          "desc": "字幕も必要？ Instagramの文字起こしモードに切り替え。"
         }
       ],
       "faqsAudio": [
@@ -808,10 +840,12 @@
       ],
       "headingAll": "Instagramからダウンロード",
       "headingAccentAll": "動画、音声など",
-      "subheadingAll": "オールインワン Instagramダウンローダー。動画をHD、音声をMP3/FLAC、HDサムネイル＆AI文字起こしでダウンロード。リンク貼り付け — アプリ不要、登録不要。"
+      "subheadingAll": "オールインワン Instagramダウンローダー。動画をHD、音声をMP3/FLAC、HDサムネイル＆AI文字起こしでダウンロード。リンク貼り付け — アプリ不要、登録不要。",
+      "metaTitleVideo": "Instagram動画ダウンローダー — リール＆ストーリーをHD保存 | DownForge",
+      "metaDescriptionVideo": "無料のInstagramダウンローダー。ReelsとストーリーをHD MP4で保存。アプリ不要。"
     },
     "tiktok": {
-      "badge": "TikTok Downloader",
+      "badge": "TikTokダウンローダー",
       "heading": "TikTok動画をダウンロード",
       "headingAccent": "透かしなし",
       "subheading": "TikTok動画を透かしなしで保存。HDでダウンロード、MP3で音声抽出、サムネイル保存、AI文字起こしも取得。高速、無料、サインアップ不要。",
@@ -863,16 +897,14 @@
       "metaTitle": "TikTok Video Downloader — 透かしなしでダウンロード | DownForge",
       "metaDescription": "無料のTikTokダウンローダー。TikTok動画を透かしなしでHDダウンロード。MP3、FLACで音声抽出。サムネイル保存。サインアップ不要。",
       "keywords": [
+        "tiktok動画ダウンロード",
+        "tiktok 保存 透かしなし",
+        "tiktok 透かしなし",
         "tiktok video downloader",
-        "download tiktok without watermark",
-        "tiktok no watermark",
-        "tiktok video saver",
-        "tiktok mp3",
-        "tiktok downloader hd",
-        "tik tok download",
-        "save tiktok video",
-        "tiktok audio extractor",
-        "tiktok watermark remover"
+        "tiktok 動画 保存",
+        "tiktok mp4",
+        "tiktok ダウンローダー",
+        "tiktok mp3"
       ],
       "metaTitleAudio": "TikTokをMP3に変換 — TikTok動画をMP3・FLACに変換 | DownForge",
       "metaDescriptionAudio": "無料のTikTok MP3変換。TikTok動画から音声をMP3 320kbps、FLAC、AACで抽出。バズ音源を保存 — 透かしなし、登録不要。",
@@ -891,24 +923,24 @@
       "badgeAudio": "TikTokをMP3に",
       "featuresAudio": [
         {
-          "title": "High-Quality MP3 & FLAC",
-          "desc": "Extract TikTok audio as MP3 320kbps, FLAC lossless, AAC, WAV or OGG — choose the format that fits your needs."
+          "title": "高品質MP3＆FLAC",
+          "desc": "TikTokの音声をMP3 320kbps、ロスレスFLAC、AAC、WAV、OGGで抽出。"
         },
         {
-          "title": "No App, No Login",
-          "desc": "Convert TikTok to MP3 directly in your browser. Paste any public link and download instantly — no software or sign-up required."
+          "title": "アプリ不要、登録不要",
+          "desc": "ブラウザで直接TikTokをMP3に変換。公開リンクを貼り付けて即ダウンロード。"
         },
         {
-          "title": "Works on Any Device",
-          "desc": "Save audio on Android, iPhone, iPad, Windows, Mac or Linux. Standard MP3/FLAC files play everywhere — VLC, QuickTime, Spotify local, any editor."
+          "title": "どのデバイスでも動作",
+          "desc": "Android、iPhone、iPad、Windows、Mac、Linuxで保存。標準MP3/FLACはどこでも再生。"
         },
         {
-          "title": "Batch & Playlists (Pro)",
-          "desc": "Download multiple TikTok tracks or entire channels at once with Pro. No waiting per file."
+          "title": "一括＆プレイリスト（Pro）",
+          "desc": "ProでTikTokの複数トラックを一度にダウンロード。"
         },
         {
-          "title": "AI Transcripts Available",
-          "desc": "Want captions too? Switch to TikTok Transcript mode for SRT, VTT, TXT or JSON with timestamps."
+          "title": "AI文字起こしも利用可",
+          "desc": "字幕も必要？ TikTokの文字起こしモードに切り替え。"
         }
       ],
       "faqsAudio": [
@@ -945,10 +977,12 @@
       ],
       "headingAll": "TikTokからダウンロード",
       "headingAccentAll": "動画、音声など",
-      "subheadingAll": "オールインワン TikTokダウンローダー。動画をHD、音声をMP3/FLAC、HDサムネイル＆AI文字起こしでダウンロード。リンク貼り付け — アプリ不要、登録不要。"
+      "subheadingAll": "オールインワン TikTokダウンローダー。動画をHD、音声をMP3/FLAC、HDサムネイル＆AI文字起こしでダウンロード。リンク貼り付け — アプリ不要、登録不要。",
+      "metaTitleVideo": "TikTok動画ダウンローダー — 透かしなし保存 | DownForge",
+      "metaDescriptionVideo": "無料のTikTokダウンローダー。透かしなしでTikTok動画をHD保存。アプリ不要。"
     },
     "twitter": {
-      "badge": "Twitter Downloader",
+      "badge": "Twitterダウンローダー",
       "heading": "Twitter動画をダウンロード",
       "headingAccent": "＆GIF",
       "subheading": "ツイートからTwitter動画、GIF、メディアを保存。HDでダウンロード、音声抽出、サムネイル取得、AI文字起こしも — 高速かつ無料。",
@@ -1000,16 +1034,14 @@
       "metaTitle": "Twitter Video Downloader — X動画＆GIFをダウンロード | DownForge",
       "metaDescription": "無料のTwitter/X動画ダウンローダー。任意のツイートから動画、GIF、メディアをHDでダウンロード。MP3で音声抽出。サインアップ不要。",
       "keywords": [
+        "twitter動画ダウンロード",
+        "twitter 動画 保存",
+        "x 動画 ダウンロード",
         "twitter video downloader",
+        "twitter gif 保存",
+        "twitter mp4",
         "x video downloader",
-        "download twitter videos",
-        "twitter video saver",
-        "twitter gif download",
-        "x video saver",
-        "download from tweet",
-        "twitter mp3",
-        "tweet media downloader",
-        "twitter hd video"
+        "twitter 保存"
       ],
       "metaTitleAudio": "Twitter / XをMP3に変換 — Twitter / X動画をMP3に変換 | DownForge",
       "metaDescriptionAudio": "無料のTwitter / X MP3変換。Twitter / X動画から音声をMP3、AAC、FLACで抽出。登録不要。",
@@ -1027,24 +1059,24 @@
       "badgeAudio": "Twitter / X をMP3に",
       "featuresAudio": [
         {
-          "title": "High-Quality MP3 & FLAC",
-          "desc": "Extract Twitter / X audio as MP3 320kbps, FLAC lossless, AAC, WAV or OGG — choose the format that fits your needs."
+          "title": "高品質MP3＆FLAC",
+          "desc": "Twitterの音声をMP3 320kbps、ロスレスFLAC、AAC、WAV、OGGで抽出。"
         },
         {
-          "title": "No App, No Login",
-          "desc": "Convert Twitter / X to MP3 directly in your browser. Paste any public link and download instantly — no software or sign-up required."
+          "title": "アプリ不要、登録不要",
+          "desc": "ブラウザで直接TwitterをMP3に変換。公開リンクを貼り付けて即ダウンロード。"
         },
         {
-          "title": "Works on Any Device",
-          "desc": "Save audio on Android, iPhone, iPad, Windows, Mac or Linux. Standard MP3/FLAC files play everywhere — VLC, QuickTime, Spotify local, any editor."
+          "title": "どのデバイスでも動作",
+          "desc": "Android、iPhone、iPad、Windows、Mac、Linuxで保存。標準MP3/FLACはどこでも再生。"
         },
         {
-          "title": "Batch & Playlists (Pro)",
-          "desc": "Download multiple Twitter / X tracks or entire channels at once with Pro. No waiting per file."
+          "title": "一括＆プレイリスト（Pro）",
+          "desc": "ProでTwitterの複数トラックを一度にダウンロード。"
         },
         {
-          "title": "AI Transcripts Available",
-          "desc": "Want captions too? Switch to Twitter / X Transcript mode for SRT, VTT, TXT or JSON with timestamps."
+          "title": "AI文字起こしも利用可",
+          "desc": "字幕も必要？ Twitterの文字起こしモードに切り替え。"
         }
       ],
       "faqsAudio": [
@@ -1081,10 +1113,12 @@
       ],
       "headingAll": "Twitter / Xからダウンロード",
       "headingAccentAll": "動画、音声など",
-      "subheadingAll": "オールインワン Twitter / Xダウンローダー。動画をHD、音声をMP3/FLAC、HDサムネイル＆AI文字起こしでダウンロード。リンク貼り付け — アプリ不要、登録不要。"
+      "subheadingAll": "オールインワン Twitter / Xダウンローダー。動画をHD、音声をMP3/FLAC、HDサムネイル＆AI文字起こしでダウンロード。リンク貼り付け — アプリ不要、登録不要。",
+      "metaTitleVideo": "Twitter動画ダウンローダー — 動画＆GIF保存 | DownForge",
+      "metaDescriptionVideo": "無料のTwitter動画ダウンローダー。Twitter動画をHD＆4K MP4で保存。アプリ不要、登録不要 — リンクを貼り付け。"
     },
     "vimeo": {
-      "badge": "Vimeo Downloader",
+      "badge": "Vimeoダウンローダー",
       "heading": "Vimeo動画をダウンロード",
       "headingAccent": "4Kで",
       "subheading": "Vimeo動画を最大4K Ultra HDでダウンロード。プロフェッショナルコンテンツを保存、FLACで音声抽出、HDサムネイル取得、AI文字起こしも。",
@@ -1136,16 +1170,14 @@
       "metaTitle": "Vimeo Video Downloader — Vimeo動画を4Kでダウンロード | DownForge",
       "metaDescription": "無料のVimeo動画ダウンローダー。Vimeo動画を4K、1080p、720pでダウンロード。FLAC、MP3、AACで音声抽出。HDサムネイル取得。サインアップ不要。",
       "keywords": [
-        "vimeo video downloader",
-        "download vimeo videos",
-        "vimeo to mp4",
-        "vimeo 4k download",
-        "vimeo video saver",
-        "vimeo to mp3",
-        "vimeo hd downloader",
-        "save vimeo video",
-        "vimeo download free",
-        "vimeo video extractor"
+        "vimeo動画ダウンロード",
+        "vimeo 保存",
+        "vimeo ダウンローダー",
+        "vimeo mp4",
+        "vimeo hd",
+        "vimeo video downloader ja",
+        "vimeo video downloader ja",
+        "vimeo video downloader ja"
       ],
       "metaTitleAudio": "VimeoをMP3に変換 — Vimeo動画をMP3に変換 | DownForge",
       "metaDescriptionAudio": "無料のVimeo MP3変換。Vimeo動画から音声をMP3、AAC、FLACで抽出。登録不要。",
@@ -1163,24 +1195,24 @@
       "badgeAudio": "Vimeo をMP3に",
       "featuresAudio": [
         {
-          "title": "High-Quality MP3 & FLAC",
-          "desc": "Extract Vimeo audio as MP3 320kbps, FLAC lossless, AAC, WAV or OGG — choose the format that fits your needs."
+          "title": "高品質MP3＆FLAC",
+          "desc": "Vimeoの音声をMP3 320kbps、ロスレスFLAC、AAC、WAV、OGGで抽出。"
         },
         {
-          "title": "No App, No Login",
-          "desc": "Convert Vimeo to MP3 directly in your browser. Paste any public link and download instantly — no software or sign-up required."
+          "title": "アプリ不要、登録不要",
+          "desc": "ブラウザで直接VimeoをMP3に変換。公開リンクを貼り付けて即ダウンロード。"
         },
         {
-          "title": "Works on Any Device",
-          "desc": "Save audio on Android, iPhone, iPad, Windows, Mac or Linux. Standard MP3/FLAC files play everywhere — VLC, QuickTime, Spotify local, any editor."
+          "title": "どのデバイスでも動作",
+          "desc": "Android、iPhone、iPad、Windows、Mac、Linuxで保存。標準MP3/FLACはどこでも再生。"
         },
         {
-          "title": "Batch & Playlists (Pro)",
-          "desc": "Download multiple Vimeo tracks or entire channels at once with Pro. No waiting per file."
+          "title": "一括＆プレイリスト（Pro）",
+          "desc": "ProでVimeoの複数トラックを一度にダウンロード。"
         },
         {
-          "title": "AI Transcripts Available",
-          "desc": "Want captions too? Switch to Vimeo Transcript mode for SRT, VTT, TXT or JSON with timestamps."
+          "title": "AI文字起こしも利用可",
+          "desc": "字幕も必要？ Vimeoの文字起こしモードに切り替え。"
         }
       ],
       "faqsAudio": [
@@ -1216,10 +1248,12 @@
       ],
       "headingAll": "Vimeoからダウンロード",
       "headingAccentAll": "動画、音声など",
-      "subheadingAll": "オールインワン Vimeoダウンローダー。動画をHD、音声をMP3/FLAC、HDサムネイル＆AI文字起こしでダウンロード。リンク貼り付け — アプリ不要、登録不要。"
+      "subheadingAll": "オールインワン Vimeoダウンローダー。動画をHD、音声をMP3/FLAC、HDサムネイル＆AI文字起こしでダウンロード。リンク貼り付け — アプリ不要、登録不要。",
+      "metaTitleVideo": "Vimeo動画ダウンローダー — HDで保存 | DownForge",
+      "metaDescriptionVideo": "無料のVimeo動画ダウンローダー。Vimeo動画をHD＆4K MP4で保存。アプリ不要、登録不要 — リンクを貼り付け。"
     },
     "dailymotion": {
-      "badge": "Dailymotion Downloader",
+      "badge": "Dailymotionダウンローダー",
       "heading": "Dailymotion動画をダウンロード",
       "headingAccent": "HDで",
       "subheading": "Dailymotion動画、ニュースクリップ、ユーザーコンテンツを保存。HDでダウンロード、音声抽出、サムネイル取得、AI文字起こしも — 手軽で無料。",
@@ -1271,15 +1305,14 @@
       "metaTitle": "Dailymotion Video Downloader — Dailymotion動画をダウンロード | DownForge",
       "metaDescription": "無料のDailymotion動画ダウンローダー。Dailymotion動画をHDでダウンロード。MP3、AACで音声抽出。サムネイル保存。サインアップ不要。",
       "keywords": [
-        "dailymotion video downloader",
-        "download dailymotion videos",
-        "dailymotion to mp4",
-        "dailymotion video saver",
-        "dm downloader",
-        "dailymotion to mp3",
-        "save dailymotion video",
-        "dailymotion hd downloader",
-        "dailymotion download free"
+        "dailymotion動画ダウンロード",
+        "dailymotion 保存",
+        "dailymotion video downloader ja",
+        "dailymotion video downloader ja",
+        "dailymotion video downloader ja",
+        "dailymotion video downloader ja",
+        "dailymotion video downloader ja",
+        "dailymotion video downloader ja"
       ],
       "metaTitleAudio": "DailymotionをMP3に変換 — Dailymotion動画をMP3に変換 | DownForge",
       "metaDescriptionAudio": "無料のDailymotion MP3変換。Dailymotion動画から音声をMP3、AAC、FLACで抽出。登録不要。",
@@ -1295,24 +1328,24 @@
       "badgeAudio": "Dailymotion をMP3に",
       "featuresAudio": [
         {
-          "title": "High-Quality MP3 & FLAC",
-          "desc": "Extract Dailymotion audio as MP3 320kbps, FLAC lossless, AAC, WAV or OGG — choose the format that fits your needs."
+          "title": "高品質MP3＆FLAC",
+          "desc": "Dailymotionの音声をMP3 320kbps、ロスレスFLAC、AAC、WAV、OGGで抽出。"
         },
         {
-          "title": "No App, No Login",
-          "desc": "Convert Dailymotion to MP3 directly in your browser. Paste any public link and download instantly — no software or sign-up required."
+          "title": "アプリ不要、登録不要",
+          "desc": "ブラウザで直接DailymotionをMP3に変換。公開リンクを貼り付けて即ダウンロード。"
         },
         {
-          "title": "Works on Any Device",
-          "desc": "Save audio on Android, iPhone, iPad, Windows, Mac or Linux. Standard MP3/FLAC files play everywhere — VLC, QuickTime, Spotify local, any editor."
+          "title": "どのデバイスでも動作",
+          "desc": "Android、iPhone、iPad、Windows、Mac、Linuxで保存。標準MP3/FLACはどこでも再生。"
         },
         {
-          "title": "Batch & Playlists (Pro)",
-          "desc": "Download multiple Dailymotion tracks or entire channels at once with Pro. No waiting per file."
+          "title": "一括＆プレイリスト（Pro）",
+          "desc": "ProでDailymotionの複数トラックを一度にダウンロード。"
         },
         {
-          "title": "AI Transcripts Available",
-          "desc": "Want captions too? Switch to Dailymotion Transcript mode for SRT, VTT, TXT or JSON with timestamps."
+          "title": "AI文字起こしも利用可",
+          "desc": "字幕も必要？ Dailymotionの文字起こしモードに切り替え。"
         }
       ],
       "faqsAudio": [
@@ -1348,10 +1381,12 @@
       ],
       "headingAll": "Dailymotionからダウンロード",
       "headingAccentAll": "動画、音声など",
-      "subheadingAll": "オールインワン Dailymotionダウンローダー。動画をHD、音声をMP3/FLAC、HDサムネイル＆AI文字起こしでダウンロード。リンク貼り付け — アプリ不要、登録不要。"
+      "subheadingAll": "オールインワン Dailymotionダウンローダー。動画をHD、音声をMP3/FLAC、HDサムネイル＆AI文字起こしでダウンロード。リンク貼り付け — アプリ不要、登録不要。",
+      "metaTitleVideo": "Dailymotion動画ダウンローダー — HDで保存 | DownForge",
+      "metaDescriptionVideo": "無料のDailymotion動画ダウンローダー。Dailymotion動画をHD＆4K MP4で保存。アプリ不要、登録不要 — リンクを貼り付け。"
     },
     "twitch": {
-      "badge": "Twitch Downloader",
+      "badge": "Twitchダウンローダー",
       "heading": "Twitchクリップをダウンロード",
       "headingAccent": "＆VOD",
       "subheading": "Twitchクリップ、VOD、ハイライトを保存。HDでダウンロード、ポッドキャスト用に音声抽出、サムネイル取得、AI文字起こしも — ログイン不要。",
@@ -1403,16 +1438,14 @@
       "metaTitle": "Twitch Video Downloader — Twitchクリップ＆VODをダウンロード | DownForge",
       "metaDescription": "無料のTwitchダウンローダー。Twitchクリップ、VOD、ハイライトをHDでダウンロード。MP3で音声抽出。サムネイル保存。サインアップ不要。",
       "keywords": [
-        "twitch video downloader",
-        "download twitch clips",
-        "twitch vod downloader",
-        "twitch clip saver",
-        "twitch to mp4",
-        "download twitch streams",
-        "twitch vod to mp3",
-        "save twitch clips",
-        "twitch downloader free",
-        "twitch highlight downloader"
+        "twitch動画ダウンロード",
+        "twitch vods 保存",
+        "twitch クリップ 保存",
+        "twitch video downloader ja",
+        "twitch video downloader ja",
+        "twitch video downloader ja",
+        "twitch video downloader ja",
+        "twitch video downloader ja"
       ],
       "metaTitleAudio": "TwitchをMP3に変換 — Twitch動画をMP3に変換 | DownForge",
       "metaDescriptionAudio": "無料のTwitch MP3変換。Twitch動画から音声をMP3、AAC、FLACで抽出。登録不要。",
@@ -1430,24 +1463,24 @@
       "badgeAudio": "Twitch をMP3に",
       "featuresAudio": [
         {
-          "title": "High-Quality MP3 & FLAC",
-          "desc": "Extract Twitch audio as MP3 320kbps, FLAC lossless, AAC, WAV or OGG — choose the format that fits your needs."
+          "title": "高品質MP3＆FLAC",
+          "desc": "Twitchの音声をMP3 320kbps、ロスレスFLAC、AAC、WAV、OGGで抽出。"
         },
         {
-          "title": "No App, No Login",
-          "desc": "Convert Twitch to MP3 directly in your browser. Paste any public link and download instantly — no software or sign-up required."
+          "title": "アプリ不要、登録不要",
+          "desc": "ブラウザで直接TwitchをMP3に変換。公開リンクを貼り付けて即ダウンロード。"
         },
         {
-          "title": "Works on Any Device",
-          "desc": "Save audio on Android, iPhone, iPad, Windows, Mac or Linux. Standard MP3/FLAC files play everywhere — VLC, QuickTime, Spotify local, any editor."
+          "title": "どのデバイスでも動作",
+          "desc": "Android、iPhone、iPad、Windows、Mac、Linuxで保存。標準MP3/FLACはどこでも再生。"
         },
         {
-          "title": "Batch & Playlists (Pro)",
-          "desc": "Download multiple Twitch tracks or entire channels at once with Pro. No waiting per file."
+          "title": "一括＆プレイリスト（Pro）",
+          "desc": "ProでTwitchの複数トラックを一度にダウンロード。"
         },
         {
-          "title": "AI Transcripts Available",
-          "desc": "Want captions too? Switch to Twitch Transcript mode for SRT, VTT, TXT or JSON with timestamps."
+          "title": "AI文字起こしも利用可",
+          "desc": "字幕も必要？ Twitchの文字起こしモードに切り替え。"
         }
       ],
       "faqsAudio": [
@@ -1483,10 +1516,12 @@
       ],
       "headingAll": "Twitchからダウンロード",
       "headingAccentAll": "動画、音声など",
-      "subheadingAll": "オールインワン Twitchダウンローダー。動画をHD、音声をMP3/FLAC、HDサムネイル＆AI文字起こしでダウンロード。リンク貼り付け — アプリ不要、登録不要。"
+      "subheadingAll": "オールインワン Twitchダウンローダー。動画をHD、音声をMP3/FLAC、HDサムネイル＆AI文字起こしでダウンロード。リンク貼り付け — アプリ不要、登録不要。",
+      "metaTitleVideo": "Twitch動画ダウンローダー — HDで保存 | DownForge",
+      "metaDescriptionVideo": "無料のTwitch動画ダウンローダー。Twitch動画をHD＆4K MP4で保存。アプリ不要、登録不要 — リンクを貼り付け。"
     },
     "reddit": {
-      "badge": "Reddit Downloader",
+      "badge": "Redditダウンローダー",
       "heading": "Reddit動画をダウンロード",
       "headingAccent": "＆GIF",
       "subheading": "Reddit投稿から動画、GIF、メディアを保存。HD品質でダウンロード、音声抽出、サムネイル取得、AI文字起こしも — 手軽で無料。",
@@ -1538,16 +1573,14 @@
       "metaTitle": "Reddit Video Downloader — Reddit動画＆GIFをダウンロード | DownForge",
       "metaDescription": "無料のReddit動画ダウンローダー。Reddit投稿から動画、GIF、メディアをHDでダウンロード。MP3で音声抽出。サインアップ不要。",
       "keywords": [
-        "reddit video downloader",
-        "download reddit videos",
-        "reddit video saver",
-        "reddit to mp4",
-        "reddit gif downloader",
-        "reddit downloader",
-        "save reddit video",
-        "v.redd.it downloader",
-        "reddit mp3",
-        "reddit media downloader"
+        "reddit動画ダウンロード",
+        "reddit 保存",
+        "reddit video downloader ja",
+        "reddit video downloader ja",
+        "reddit video downloader ja",
+        "reddit video downloader ja",
+        "reddit video downloader ja",
+        "reddit video downloader ja"
       ],
       "metaTitleAudio": "RedditをMP3に変換 — Reddit動画をMP3に変換 | DownForge",
       "metaDescriptionAudio": "無料のReddit MP3変換。Reddit動画から音声をMP3、AAC、FLACで抽出。登録不要。",
@@ -1563,24 +1596,24 @@
       "badgeAudio": "Reddit をMP3に",
       "featuresAudio": [
         {
-          "title": "High-Quality MP3 & FLAC",
-          "desc": "Extract Reddit audio as MP3 320kbps, FLAC lossless, AAC, WAV or OGG — choose the format that fits your needs."
+          "title": "高品質MP3＆FLAC",
+          "desc": "Redditの音声をMP3 320kbps、ロスレスFLAC、AAC、WAV、OGGで抽出。"
         },
         {
-          "title": "No App, No Login",
-          "desc": "Convert Reddit to MP3 directly in your browser. Paste any public link and download instantly — no software or sign-up required."
+          "title": "アプリ不要、登録不要",
+          "desc": "ブラウザで直接RedditをMP3に変換。公開リンクを貼り付けて即ダウンロード。"
         },
         {
-          "title": "Works on Any Device",
-          "desc": "Save audio on Android, iPhone, iPad, Windows, Mac or Linux. Standard MP3/FLAC files play everywhere — VLC, QuickTime, Spotify local, any editor."
+          "title": "どのデバイスでも動作",
+          "desc": "Android、iPhone、iPad、Windows、Mac、Linuxで保存。標準MP3/FLACはどこでも再生。"
         },
         {
-          "title": "Batch & Playlists (Pro)",
-          "desc": "Download multiple Reddit tracks or entire channels at once with Pro. No waiting per file."
+          "title": "一括＆プレイリスト（Pro）",
+          "desc": "ProでRedditの複数トラックを一度にダウンロード。"
         },
         {
-          "title": "AI Transcripts Available",
-          "desc": "Want captions too? Switch to Reddit Transcript mode for SRT, VTT, TXT or JSON with timestamps."
+          "title": "AI文字起こしも利用可",
+          "desc": "字幕も必要？ Redditの文字起こしモードに切り替え。"
         }
       ],
       "faqsAudio": [
@@ -1616,10 +1649,12 @@
       ],
       "headingAll": "Redditからダウンロード",
       "headingAccentAll": "動画、音声など",
-      "subheadingAll": "オールインワン Redditダウンローダー。動画をHD、音声をMP3/FLAC、HDサムネイル＆AI文字起こしでダウンロード。リンク貼り付け — アプリ不要、登録不要。"
+      "subheadingAll": "オールインワン Redditダウンローダー。動画をHD、音声をMP3/FLAC、HDサムネイル＆AI文字起こしでダウンロード。リンク貼り付け — アプリ不要、登録不要。",
+      "metaTitleVideo": "Reddit動画ダウンローダー — HDで保存 | DownForge",
+      "metaDescriptionVideo": "無料のReddit動画ダウンローダー。Reddit動画をHD＆4K MP4で保存。アプリ不要、登録不要 — リンクを貼り付け。"
     },
     "pinterest": {
-      "badge": "Pinterest Downloader",
+      "badge": "Pinterestダウンローダー",
       "heading": "Pinterest動画をダウンロード",
       "headingAccent": "＆ピン",
       "subheading": "Pinterest動画、Idea Pin、動画ピンを保存。HDでダウンロード、音声抽出、サムネイル保存、AI文字起こしも — 即座に、アカウント不要。",
@@ -1671,16 +1706,14 @@
       "metaTitle": "Pinterest Video Downloader — Pinterest動画＆ピンをダウンロード | DownForge",
       "metaDescription": "無料のPinterest動画ダウンローダー。Pinterest動画、Idea Pin、画像をHDでダウンロード。MP3で音声抽出。サムネイル保存。サインアップ不要。",
       "keywords": [
-        "pinterest video downloader",
-        "download pinterest videos",
-        "pinterest pin downloader",
-        "pinterest video saver",
-        "pinterest to mp4",
-        "idea pin downloader",
-        "save pinterest video",
-        "pinterest image downloader",
-        "pinterest hd downloader",
-        "pinterest mp3"
+        "pinterest動画ダウンロード",
+        "pinterest 保存",
+        "pinterest idea pins",
+        "pinterest video downloader ja",
+        "pinterest video downloader ja",
+        "pinterest video downloader ja",
+        "pinterest video downloader ja",
+        "pinterest video downloader ja"
       ],
       "metaTitleAudio": "PinterestをMP3に変換 — Pinterest動画をMP3に変換 | DownForge",
       "metaDescriptionAudio": "無料のPinterest MP3変換。Pinterest動画から音声をMP3、AAC、FLACで抽出。登録不要。",
@@ -1695,24 +1728,24 @@
       "badgeAudio": "Pinterest をMP3に",
       "featuresAudio": [
         {
-          "title": "High-Quality MP3 & FLAC",
-          "desc": "Extract Pinterest audio as MP3 320kbps, FLAC lossless, AAC, WAV or OGG — choose the format that fits your needs."
+          "title": "高品質MP3＆FLAC",
+          "desc": "Pinterestの音声をMP3 320kbps、ロスレスFLAC、AAC、WAV、OGGで抽出。"
         },
         {
-          "title": "No App, No Login",
-          "desc": "Convert Pinterest to MP3 directly in your browser. Paste any public link and download instantly — no software or sign-up required."
+          "title": "アプリ不要、登録不要",
+          "desc": "ブラウザで直接PinterestをMP3に変換。公開リンクを貼り付けて即ダウンロード。"
         },
         {
-          "title": "Works on Any Device",
-          "desc": "Save audio on Android, iPhone, iPad, Windows, Mac or Linux. Standard MP3/FLAC files play everywhere — VLC, QuickTime, Spotify local, any editor."
+          "title": "どのデバイスでも動作",
+          "desc": "Android、iPhone、iPad、Windows、Mac、Linuxで保存。標準MP3/FLACはどこでも再生。"
         },
         {
-          "title": "Batch & Playlists (Pro)",
-          "desc": "Download multiple Pinterest tracks or entire channels at once with Pro. No waiting per file."
+          "title": "一括＆プレイリスト（Pro）",
+          "desc": "ProでPinterestの複数トラックを一度にダウンロード。"
         },
         {
-          "title": "AI Transcripts Available",
-          "desc": "Want captions too? Switch to Pinterest Transcript mode for SRT, VTT, TXT or JSON with timestamps."
+          "title": "AI文字起こしも利用可",
+          "desc": "字幕も必要？ Pinterestの文字起こしモードに切り替え。"
         }
       ],
       "faqsAudio": [
@@ -1748,10 +1781,12 @@
       ],
       "headingAll": "Pinterestからダウンロード",
       "headingAccentAll": "動画、音声など",
-      "subheadingAll": "オールインワン Pinterestダウンローダー。動画をHD、音声をMP3/FLAC、HDサムネイル＆AI文字起こしでダウンロード。リンク貼り付け — アプリ不要、登録不要。"
+      "subheadingAll": "オールインワン Pinterestダウンローダー。動画をHD、音声をMP3/FLAC、HDサムネイル＆AI文字起こしでダウンロード。リンク貼り付け — アプリ不要、登録不要。",
+      "metaTitleVideo": "Pinterest動画ダウンローダー — HDで保存 | DownForge",
+      "metaDescriptionVideo": "無料のPinterest動画ダウンローダー。Pinterest動画をHD＆4K MP4で保存。アプリ不要、登録不要 — リンクを貼り付け。"
     },
     "linkedin": {
-      "badge": "LinkedIn Downloader",
+      "badge": "LinkedInダウンローダー",
       "heading": "LinkedIn動画をダウンロード",
       "headingAccent": "＆Learning",
       "subheading": "LinkedIn動画、企業コンテンツ、Learningコースを保存。HDでダウンロード、音声抽出、サムネイル取得、AI文字起こしも — 高速かつ無料。",
@@ -1803,15 +1838,14 @@
       "metaTitle": "LinkedIn Video Downloader — LinkedIn動画をダウンロード | DownForge",
       "metaDescription": "無料のLinkedIn動画ダウンローダー。LinkedIn動画、企業コンテンツ、Learning動画をHDでダウンロード。MP3で音声抽出。サインアップ不要。",
       "keywords": [
-        "linkedin video downloader",
-        "download linkedin videos",
-        "linkedin video saver",
-        "linkedin to mp4",
-        "linkedin learning downloader",
-        "linkedin post video download",
-        "save linkedin video",
-        "linkedin mp3",
-        "linkedin hd video downloader"
+        "linkedin動画ダウンロード",
+        "linkedin 保存",
+        "linkedin video downloader ja",
+        "linkedin video downloader ja",
+        "linkedin video downloader ja",
+        "linkedin video downloader ja",
+        "linkedin video downloader ja",
+        "linkedin video downloader ja"
       ],
       "metaTitleAudio": "LinkedInをMP3に変換 — LinkedIn動画をMP3に変換 | DownForge",
       "metaDescriptionAudio": "無料のLinkedIn MP3変換。LinkedIn動画から音声をMP3、AAC、FLACで抽出。登録不要。",
@@ -1826,24 +1860,24 @@
       "badgeAudio": "LinkedIn をMP3に",
       "featuresAudio": [
         {
-          "title": "High-Quality MP3 & FLAC",
-          "desc": "Extract LinkedIn audio as MP3 320kbps, FLAC lossless, AAC, WAV or OGG — choose the format that fits your needs."
+          "title": "高品質MP3＆FLAC",
+          "desc": "LinkedInの音声をMP3 320kbps、ロスレスFLAC、AAC、WAV、OGGで抽出。"
         },
         {
-          "title": "No App, No Login",
-          "desc": "Convert LinkedIn to MP3 directly in your browser. Paste any public link and download instantly — no software or sign-up required."
+          "title": "アプリ不要、登録不要",
+          "desc": "ブラウザで直接LinkedInをMP3に変換。公開リンクを貼り付けて即ダウンロード。"
         },
         {
-          "title": "Works on Any Device",
-          "desc": "Save audio on Android, iPhone, iPad, Windows, Mac or Linux. Standard MP3/FLAC files play everywhere — VLC, QuickTime, Spotify local, any editor."
+          "title": "どのデバイスでも動作",
+          "desc": "Android、iPhone、iPad、Windows、Mac、Linuxで保存。標準MP3/FLACはどこでも再生。"
         },
         {
-          "title": "Batch & Playlists (Pro)",
-          "desc": "Download multiple LinkedIn tracks or entire channels at once with Pro. No waiting per file."
+          "title": "一括＆プレイリスト（Pro）",
+          "desc": "ProでLinkedInの複数トラックを一度にダウンロード。"
         },
         {
-          "title": "AI Transcripts Available",
-          "desc": "Want captions too? Switch to LinkedIn Transcript mode for SRT, VTT, TXT or JSON with timestamps."
+          "title": "AI文字起こしも利用可",
+          "desc": "字幕も必要？ LinkedInの文字起こしモードに切り替え。"
         }
       ],
       "faqsAudio": [
@@ -1879,10 +1913,12 @@
       ],
       "headingAll": "LinkedInからダウンロード",
       "headingAccentAll": "動画、音声など",
-      "subheadingAll": "オールインワン LinkedInダウンローダー。動画をHD、音声をMP3/FLAC、HDサムネイル＆AI文字起こしでダウンロード。リンク貼り付け — アプリ不要、登録不要。"
+      "subheadingAll": "オールインワン LinkedInダウンローダー。動画をHD、音声をMP3/FLAC、HDサムネイル＆AI文字起こしでダウンロード。リンク貼り付け — アプリ不要、登録不要。",
+      "metaTitleVideo": "LinkedIn動画ダウンローダー — HDで保存 | DownForge",
+      "metaDescriptionVideo": "無料のLinkedIn動画ダウンローダー。LinkedIn動画をHD＆4K MP4で保存。アプリ不要、登録不要 — リンクを貼り付け。"
     },
     "snapchat": {
-      "badge": "Snapchat Downloader",
+      "badge": "Snapchatダウンローダー",
       "heading": "Snapchat動画をダウンロード",
       "headingAccent": "＆Spotlight",
       "subheading": "Snapchat Spotlight動画と公開ストーリーを保存。元の品質でダウンロード、音声抽出、サムネイル取得、AI文字起こしも — 高速かつ無料。",
@@ -1934,15 +1970,14 @@
       "metaTitle": "Snapchat Video Downloader — Snapchat Spotlight動画をダウンロード | DownForge",
       "metaDescription": "無料のSnapchat動画ダウンローダー。Snapchat Spotlight動画と公開ストーリーをダウンロード。MP3で音声抽出。サインアップ不要。",
       "keywords": [
-        "snapchat video downloader",
-        "download snapchat videos",
-        "snapchat spotlight downloader",
-        "snapchat video saver",
-        "snapchat to mp4",
-        "snap story downloader",
-        "save snapchat video",
-        "snapchat mp3",
-        "spotlight video downloader"
+        "snapchat動画ダウンロード",
+        "snapchat 保存",
+        "snapchat spotlight",
+        "snapchat video downloader ja",
+        "snapchat video downloader ja",
+        "snapchat video downloader ja",
+        "snapchat video downloader ja",
+        "snapchat video downloader ja"
       ],
       "metaTitleAudio": "SnapchatをMP3に変換 — Snapchat動画をMP3に変換 | DownForge",
       "metaDescriptionAudio": "無料のSnapchat MP3変換。Snapchat動画から音声をMP3、AAC、FLACで抽出。登録不要。",
@@ -1957,24 +1992,24 @@
       "badgeAudio": "Snapchat をMP3に",
       "featuresAudio": [
         {
-          "title": "High-Quality MP3 & FLAC",
-          "desc": "Extract Snapchat audio as MP3 320kbps, FLAC lossless, AAC, WAV or OGG — choose the format that fits your needs."
+          "title": "高品質MP3＆FLAC",
+          "desc": "Snapchatの音声をMP3 320kbps、ロスレスFLAC、AAC、WAV、OGGで抽出。"
         },
         {
-          "title": "No App, No Login",
-          "desc": "Convert Snapchat to MP3 directly in your browser. Paste any public link and download instantly — no software or sign-up required."
+          "title": "アプリ不要、登録不要",
+          "desc": "ブラウザで直接SnapchatをMP3に変換。公開リンクを貼り付けて即ダウンロード。"
         },
         {
-          "title": "Works on Any Device",
-          "desc": "Save audio on Android, iPhone, iPad, Windows, Mac or Linux. Standard MP3/FLAC files play everywhere — VLC, QuickTime, Spotify local, any editor."
+          "title": "どのデバイスでも動作",
+          "desc": "Android、iPhone、iPad、Windows、Mac、Linuxで保存。標準MP3/FLACはどこでも再生。"
         },
         {
-          "title": "Batch & Playlists (Pro)",
-          "desc": "Download multiple Snapchat tracks or entire channels at once with Pro. No waiting per file."
+          "title": "一括＆プレイリスト（Pro）",
+          "desc": "ProでSnapchatの複数トラックを一度にダウンロード。"
         },
         {
-          "title": "AI Transcripts Available",
-          "desc": "Want captions too? Switch to Snapchat Transcript mode for SRT, VTT, TXT or JSON with timestamps."
+          "title": "AI文字起こしも利用可",
+          "desc": "字幕も必要？ Snapchatの文字起こしモードに切り替え。"
         }
       ],
       "faqsAudio": [
@@ -2010,10 +2045,12 @@
       ],
       "headingAll": "Snapchatからダウンロード",
       "headingAccentAll": "動画、音声など",
-      "subheadingAll": "オールインワン Snapchatダウンローダー。動画をHD、音声をMP3/FLAC、HDサムネイル＆AI文字起こしでダウンロード。リンク貼り付け — アプリ不要、登録不要。"
+      "subheadingAll": "オールインワン Snapchatダウンローダー。動画をHD、音声をMP3/FLAC、HDサムネイル＆AI文字起こしでダウンロード。リンク貼り付け — アプリ不要、登録不要。",
+      "metaTitleVideo": "Snapchat動画ダウンローダー — HDで保存 | DownForge",
+      "metaDescriptionVideo": "無料のSnapchat動画ダウンローダー。Snapchat動画をHD＆4K MP4で保存。アプリ不要、登録不要 — リンクを貼り付け。"
     },
     "soundcloud": {
-      "badge": "SoundCloud Downloader",
+      "badge": "SoundCloudダウンローダー",
       "heading": "SoundCloudトラックをダウンロード",
       "headingAccent": "MP3＆FLACで",
       "subheading": "SoundCloudのトラック、プレイリスト、リミックスを保存。高品質MP3、FLAC、AAC、WAVでダウンロード、またはAI文字起こしも — アカウント不要。",
@@ -2065,16 +2102,14 @@
       "metaTitle": "SoundCloud Downloader — SoundCloudトラックをMP3、FLACでダウンロード | DownForge",
       "metaDescription": "無料のSoundCloudダウンローダー。SoundCloudトラックを高品質MP3、FLAC、AAC、WAVでダウンロード。プレイリスト保存。サインアップ不要。",
       "keywords": [
-        "soundcloud downloader",
-        "download soundcloud tracks",
-        "soundcloud to mp3",
-        "soundcloud mp3 downloader",
-        "soundcloud to flac",
-        "soundcloud music downloader",
-        "save soundcloud tracks",
-        "soundcloud audio downloader",
-        "soundcloud playlist downloader",
-        "soundcloud wav"
+        "soundcloudダウンロード",
+        "soundcloud mp3",
+        "soundcloud 保存",
+        "soundcloud video downloader ja",
+        "soundcloud video downloader ja",
+        "soundcloud video downloader ja",
+        "soundcloud video downloader ja",
+        "soundcloud video downloader ja"
       ],
       "metaTitleAudio": "SoundCloudをMP3に変換 — トラックをMP3、FLAC、WAVでダウンロード | DownForge",
       "metaDescriptionAudio": "無料のSoundCloud MP3ダウンローダー。トラックやプレイリストをMP3 320kbps、FLAC、AAC、WAVでダウンロード。高音質 — 登録不要。",
@@ -2094,24 +2129,24 @@
       "badgeAudio": "SoundCloudをMP3に",
       "featuresAudio": [
         {
-          "title": "SoundCloud Native Audio",
-          "desc": "Download SoundCloud tracks as source-quality MP3 320kbps, FLAC, AAC or WAV. Keep every waveform detail."
+          "title": "高品質MP3＆FLAC",
+          "desc": "SoundCloudの音声をMP3 320kbps、ロスレスFLAC、AAC、WAV、OGGで抽出。"
         },
         {
-          "title": "Playlists & Sets",
-          "desc": "Save entire SoundCloud playlists or DJ sets in one flow (Pro). One link per track or full set URL."
+          "title": "アプリ不要、登録不要",
+          "desc": "ブラウザで直接SoundCloudをMP3に変換。公開リンクを貼り付けて即ダウンロード。"
         },
         {
-          "title": "No App, No Login",
-          "desc": "Convert SoundCloud to MP3 in your browser — paste any public track link and download instantly."
+          "title": "どのデバイスでも動作",
+          "desc": "Android、iPhone、iPad、Windows、Mac、Linuxで保存。標準MP3/FLACはどこでも再生。"
         },
         {
-          "title": "Any Device",
-          "desc": "MP3/FLAC files play everywhere — phones, laptops, DJ software, audio editors."
+          "title": "一括＆プレイリスト（Pro）",
+          "desc": "ProでSoundCloudの複数トラックを一度にダウンロード。"
         },
         {
-          "title": "AI Transcripts",
-          "desc": "Need lyrics? Use Transcript mode for timestamped SRT/VTT/JSON."
+          "title": "AI文字起こしも利用可",
+          "desc": "字幕も必要？ SoundCloudの文字起こしモードに切り替え。"
         }
       ],
       "faqsAudio": [
@@ -2149,10 +2184,12 @@
       ],
       "headingAll": "SoundCloudからダウンロード",
       "headingAccentAll": "動画、音声など",
-      "subheadingAll": "オールインワン SoundCloudダウンローダー。トラックをMP3 320kbps＆FLAC、動画、HDサムネイル＆文字起こしで保存。リンク貼り付け — 登録不要。"
+      "subheadingAll": "オールインワン SoundCloudダウンローダー。トラックをMP3 320kbps＆FLAC、動画、HDサムネイル＆文字起こしで保存。リンク貼り付け — 登録不要。",
+      "metaTitleVideo": "SoundCloud動画ダウンローダー — HDで保存 | DownForge",
+      "metaDescriptionVideo": "無料のSoundCloud動画ダウンローダー。SoundCloud動画をHD＆4K MP4で保存。アプリ不要、登録不要 — リンクを貼り付け。"
     },
     "kick": {
-      "badge": "Kick Downloader",
+      "badge": "Kickダウンローダー",
       "heading": "Kick動画をダウンロード",
       "headingAccent": "＆配信",
       "subheading": "KickのVOD、クリップ、ハイライトをダウンロード。HDで保存、音声抽出、サムネイル取得、AI文字起こしも — 高速、無料、サインアップ不要。",
@@ -2204,16 +2241,14 @@
       "metaTitle": "Kick Video Downloader — Kick VOD＆クリップをダウンロード | DownForge",
       "metaDescription": "無料のKickダウンローダー。Kick VOD、クリップ、配信ハイライトをHDでダウンロード。MP3、AACで音声抽出。サムネイル保存。サインアップ不要。",
       "keywords": [
-        "kick video downloader",
-        "download kick streams",
-        "kick vod downloader",
-        "kick clip downloader",
-        "kick to mp4",
-        "download kick videos",
-        "kick stream saver",
-        "kick vod to mp3",
-        "kick downloader free",
-        "kick highlight downloader"
+        "kick動画ダウンロード",
+        "kick 保存",
+        "kick video downloader ja",
+        "kick video downloader ja",
+        "kick video downloader ja",
+        "kick video downloader ja",
+        "kick video downloader ja",
+        "kick video downloader ja"
       ],
       "metaTitleAudio": "KickをMP3に変換 — Kick動画をMP3に変換 | DownForge",
       "metaDescriptionAudio": "無料のKick MP3変換。Kick動画から音声をMP3、AAC、FLACで抽出。登録不要。",
@@ -2228,24 +2263,24 @@
       "badgeAudio": "Kick をMP3に",
       "featuresAudio": [
         {
-          "title": "High-Quality MP3 & FLAC",
-          "desc": "Extract Kick audio as MP3 320kbps, FLAC lossless, AAC, WAV or OGG — choose the format that fits your needs."
+          "title": "高品質MP3＆FLAC",
+          "desc": "Kickの音声をMP3 320kbps、ロスレスFLAC、AAC、WAV、OGGで抽出。"
         },
         {
-          "title": "No App, No Login",
-          "desc": "Convert Kick to MP3 directly in your browser. Paste any public link and download instantly — no software or sign-up required."
+          "title": "アプリ不要、登録不要",
+          "desc": "ブラウザで直接KickをMP3に変換。公開リンクを貼り付けて即ダウンロード。"
         },
         {
-          "title": "Works on Any Device",
-          "desc": "Save audio on Android, iPhone, iPad, Windows, Mac or Linux. Standard MP3/FLAC files play everywhere — VLC, QuickTime, Spotify local, any editor."
+          "title": "どのデバイスでも動作",
+          "desc": "Android、iPhone、iPad、Windows、Mac、Linuxで保存。標準MP3/FLACはどこでも再生。"
         },
         {
-          "title": "Batch & Playlists (Pro)",
-          "desc": "Download multiple Kick tracks or entire channels at once with Pro. No waiting per file."
+          "title": "一括＆プレイリスト（Pro）",
+          "desc": "ProでKickの複数トラックを一度にダウンロード。"
         },
         {
-          "title": "AI Transcripts Available",
-          "desc": "Want captions too? Switch to Kick Transcript mode for SRT, VTT, TXT or JSON with timestamps."
+          "title": "AI文字起こしも利用可",
+          "desc": "字幕も必要？ Kickの文字起こしモードに切り替え。"
         }
       ],
       "faqsAudio": [
@@ -2281,10 +2316,12 @@
       ],
       "headingAll": "Kickからダウンロード",
       "headingAccentAll": "動画、音声など",
-      "subheadingAll": "オールインワン Kickダウンローダー。動画をHD、音声をMP3/FLAC、HDサムネイル＆AI文字起こしでダウンロード。リンク貼り付け — アプリ不要、登録不要。"
+      "subheadingAll": "オールインワン Kickダウンローダー。動画をHD、音声をMP3/FLAC、HDサムネイル＆AI文字起こしでダウンロード。リンク貼り付け — アプリ不要、登録不要。",
+      "metaTitleVideo": "Kick動画ダウンローダー — HDで保存 | DownForge",
+      "metaDescriptionVideo": "無料のKick動画ダウンローダー。Kick動画をHD＆4K MP4で保存。アプリ不要、登録不要 — リンクを貼り付け。"
     },
     "youtube": {
-      "badge": "YouTube Downloader",
+      "badge": "YouTubeダウンローダー",
       "heading": "YouTube動画をダウンロード",
       "headingAccent": "4Kで",
       "subheading": "YouTubeの動画リンクを貼り付けて数秒でダウンロード。4Kで動画保存、MP3 320kbpsで音声抽出、AI文字起こし取得、HDサムネイル保存 — アカウント不要。",
@@ -2370,24 +2407,24 @@
       "badgeAudio": "YouTubeをMP3に",
       "featuresAudio": [
         {
-          "title": "High-Quality MP3 & FLAC",
-          "desc": "Extract YouTube audio as MP3 320kbps, FLAC lossless, AAC, WAV or OGG — choose the format that fits your needs."
+          "title": "高品質MP3＆FLAC",
+          "desc": "YouTubeの音声をMP3 320kbps、ロスレスFLAC、AAC、WAV、OGGで抽出。"
         },
         {
-          "title": "No App, No Login",
-          "desc": "Convert YouTube to MP3 directly in your browser. Paste any public link and download instantly — no software or sign-up required."
+          "title": "アプリ不要、登録不要",
+          "desc": "ブラウザで直接YouTubeをMP3に変換。公開リンクを貼り付けて即ダウンロード。"
         },
         {
-          "title": "Works on Any Device",
-          "desc": "Save audio on Android, iPhone, iPad, Windows, Mac or Linux. Standard MP3/FLAC files play everywhere — VLC, QuickTime, Spotify local, any editor."
+          "title": "どのデバイスでも動作",
+          "desc": "Android、iPhone、iPad、Windows、Mac、Linuxで保存。標準MP3/FLACはどこでも再生。"
         },
         {
-          "title": "Batch & Playlists (Pro)",
-          "desc": "Download multiple YouTube tracks or entire channels at once with Pro. No waiting per file."
+          "title": "一括＆プレイリスト（Pro）",
+          "desc": "ProでYouTubeの複数トラックを一度にダウンロード。"
         },
         {
-          "title": "AI Transcripts Available",
-          "desc": "Want captions too? Switch to YouTube Transcript mode for SRT, VTT, TXT or JSON with timestamps."
+          "title": "AI文字起こしも利用可",
+          "desc": "字幕も必要？ YouTubeの文字起こしモードに切り替え。"
         }
       ],
       "faqsAudio": [
@@ -2435,7 +2472,7 @@
       "subheadingAll": "オールインワン YouTubeダウンローダー。動画を4K＆1080p、音声をMP3 320kbps＆FLAC、HDサムネイル＆AI文字起こし（SRT/VTT/TXT/JSON）で保存。リンク貼り付け — アプリ不要、登録不要。Android、iPhone＆PC対応。"
     },
     "niconico": {
-      "badge": "Niconico Downloader",
+      "badge": "Niconicoダウンローダー",
       "heading": "ニコニコ動画をダウンロード",
       "headingAccent": "HDで",
       "subheading": "ニコニコ動画、ライブ録画、ユーザーコンテンツを保存。HDでダウンロード、音声抽出、サムネイル取得、AI文字起こしも — 手軽で無料。",
@@ -2487,16 +2524,14 @@
       "metaTitle": "ニコニコ動画 Downloader — ニコニコ動画をダウンロード | DownForge",
       "metaDescription": "無料のニコニコ動画ダウンローダー。ニコニコ動画をHDでダウンロード。MP3、AACで音声抽出。サムネイル保存。サインアップ不要。",
       "keywords": [
-        "niconico video downloader",
-        "download niconico videos",
-        "nicovideo downloader",
-        "niconico to mp4",
-        "niconico douga downloader",
-        "nico video saver",
-        "download nicovideo",
-        "niconico mp3",
-        "niconico video saver",
-        "niconico download free"
+        "ニコニコ動画ダウンロード",
+        "ニコニコ 保存",
+        "niconico ダウンローダー",
+        "niconico video downloader ja",
+        "niconico video downloader ja",
+        "niconico video downloader ja",
+        "niconico video downloader ja",
+        "niconico video downloader ja"
       ],
       "metaTitleAudio": "NiconicoをMP3に変換 — Niconico動画をMP3に変換 | DownForge",
       "metaDescriptionAudio": "無料のNiconico MP3変換。Niconico動画から音声をMP3、AAC、FLACで抽出。登録不要。",
@@ -2512,24 +2547,24 @@
       "badgeAudio": "Niconico をMP3に",
       "featuresAudio": [
         {
-          "title": "High-Quality MP3 & FLAC",
-          "desc": "Extract Niconico audio as MP3 320kbps, FLAC lossless, AAC, WAV or OGG — choose the format that fits your needs."
+          "title": "高品質MP3＆FLAC",
+          "desc": "Niconicoの音声をMP3 320kbps、ロスレスFLAC、AAC、WAV、OGGで抽出。"
         },
         {
-          "title": "No App, No Login",
-          "desc": "Convert Niconico to MP3 directly in your browser. Paste any public link and download instantly — no software or sign-up required."
+          "title": "アプリ不要、登録不要",
+          "desc": "ブラウザで直接NiconicoをMP3に変換。公開リンクを貼り付けて即ダウンロード。"
         },
         {
-          "title": "Works on Any Device",
-          "desc": "Save audio on Android, iPhone, iPad, Windows, Mac or Linux. Standard MP3/FLAC files play everywhere — VLC, QuickTime, Spotify local, any editor."
+          "title": "どのデバイスでも動作",
+          "desc": "Android、iPhone、iPad、Windows、Mac、Linuxで保存。標準MP3/FLACはどこでも再生。"
         },
         {
-          "title": "Batch & Playlists (Pro)",
-          "desc": "Download multiple Niconico tracks or entire channels at once with Pro. No waiting per file."
+          "title": "一括＆プレイリスト（Pro）",
+          "desc": "ProでNiconicoの複数トラックを一度にダウンロード。"
         },
         {
-          "title": "AI Transcripts Available",
-          "desc": "Want captions too? Switch to Niconico Transcript mode for SRT, VTT, TXT or JSON with timestamps."
+          "title": "AI文字起こしも利用可",
+          "desc": "字幕も必要？ Niconicoの文字起こしモードに切り替え。"
         }
       ],
       "faqsAudio": [
@@ -2565,7 +2600,9 @@
       ],
       "headingAll": "Niconicoからダウンロード",
       "headingAccentAll": "動画、音声など",
-      "subheadingAll": "オールインワン Niconicoダウンローダー。動画をHD、音声をMP3/FLAC、HDサムネイル＆AI文字起こしでダウンロード。リンク貼り付け — アプリ不要、登録不要。"
+      "subheadingAll": "オールインワン Niconicoダウンローダー。動画をHD、音声をMP3/FLAC、HDサムネイル＆AI文字起こしでダウンロード。リンク貼り付け — アプリ不要、登録不要。",
+      "metaTitleVideo": "Niconico動画ダウンローダー — HDで保存 | DownForge",
+      "metaDescriptionVideo": "無料のNiconico動画ダウンローダー。Niconico動画をHD＆4K MP4で保存。アプリ不要、登録不要 — リンクを貼り付け。"
     }
   },
   "YoutubeHero": {

@@ -268,56 +268,56 @@
       "step3Title": "选择格式并下载",
       "step3Desc": "选择您偏好的画质和格式，然后点击下载开始转换。您的文件将在数秒内准备就绪。"
     },
-    "toolFeaturesBadge": "Why DownForge",
-    "toolFeaturesHeading": "The Best {name} Download Tool",
-    "toolFeaturesSubheading": "Built for speed, privacy, and quality. Download {name} content the way it was meant to be saved.",
+    "toolFeaturesBadge": "为什么选择 DownForge",
+    "toolFeaturesHeading": "最佳 {name} 下载工具",
+    "toolFeaturesSubheading": "为速度、隐私和质量而生。以应有的方式保存 {name} 内容。",
     "toolFeaturesStats": [
       {
-        "title": "Blazing Fast",
-        "value": "< 3 seconds",
-        "desc": "Server-side processing with instant CDN delivery"
+        "title": "极速处理",
+        "value": "< 3 秒",
+        "desc": "服务端处理，CDN 即时分发"
       },
       {
-        "title": "Private & Secure",
-        "value": "Zero Storage",
-        "desc": "Files processed ephemerally and deleted immediately"
+        "title": "私密安全",
+        "value": "零存储",
+        "desc": "文件临时处理，下载后立即删除"
       },
       {
-        "title": "Formats & Qualities",
+        "title": "格式与画质",
         "value": "4K · FLAC · SRT",
-        "desc": "Video, audio, thumbnails & AI transcripts in any format"
+        "desc": "任意格式的视频、音频、缩略图和 AI 转录"
       },
       {
-        "title": "Platform Support",
-        "value": "200+ Sites",
-        "desc": "From major platforms to the most obscure"
+        "title": "平台支持",
+        "value": "200+ 网站",
+        "desc": "从主流到小众平台全覆盖"
       },
       {
-        "title": "No Account Required",
-        "value": "Free Forever",
-        "desc": "Start downloading instantly — no sign-up needed"
+        "title": "无需注册",
+        "value": "永久免费",
+        "desc": "立即开始下载 — 无需注册"
       },
       {
-        "title": "Batch Processing",
-        "value": "Playlists",
-        "desc": "Download entire channels in one click (Pro)"
+        "title": "批量处理",
+        "value": "播放列表",
+        "desc": "一键下载整个频道（Pro）"
       }
     ],
-    "tipsBadge": "Tips & Tricks",
-    "tipsHeading": "Get the Most from {name} Downloads",
-    "tipsSubheading": "Whether you need video for editing, audio for podcasts, thumbnails for projects, or AI transcripts for accessibility — we have you covered.",
-    "faqBadge": "FAQ",
-    "faqHeading": "{name} Download Questions",
-    "faqSubheading": "Everything you need to know about downloading from {name}.",
-    "howItWorksBadge": "How It Works",
-    "howItWorksHeading": "Download {name} in 3 Steps",
-    "howItWorksSubheading": "No software, no sign-up, no hassle. Just paste, pick, and download.",
-    "howItWorksStep1Title": "Paste the Link",
-    "howItWorksStep1Desc": "Copy any {name} video URL and paste it into the input above. We support all public video types including shorts, streams, and highlights.",
-    "howItWorksStep2Title": "Pick Your Format",
-    "howItWorksStep2Desc": "Choose from 4K video, 1080p HD, MP3 audio up to 320kbps, FLAC lossless, HD thumbnails, or AI transcripts in SRT, VTT, TXT & JSON. Whatever you need.",
-    "howItWorksStep3Title": "Download Instantly",
-    "howItWorksStep3Desc": "Hit download and your file is ready in seconds. No queues, no waiting, no account required. Just a fast, clean download."
+    "tipsBadge": "技巧与窍门",
+    "tipsHeading": "充分利用 {name} 下载",
+    "tipsSubheading": "无论您需要用于剪辑的视频、播客的音频、项目的缩略图还是用于无障碍的 AI 转录 — 我们都能满足。",
+    "faqBadge": "常见问题",
+    "faqHeading": "{name} 下载问题",
+    "faqSubheading": "关于从 {name} 下载您需要知道的一切。",
+    "howItWorksBadge": "工作原理",
+    "howItWorksHeading": "3 步下载 {name}",
+    "howItWorksSubheading": "无需软件，无需注册，无烦恼。粘贴、选择、下载即可。",
+    "howItWorksStep1Title": "粘贴链接",
+    "howItWorksStep1Desc": "复制任意 {name} 视频链接并粘贴到上方。支持所有公开视频类型，包括短视频、直播和精选。",
+    "howItWorksStep2Title": "选择格式",
+    "howItWorksStep2Desc": "从 4K 视频、1080p HD、高达 320kbps 的 MP3 音频、无损 FLAC、高清缩略图或 SRT、VTT、TXT 和 JSON 的 AI 转录中选择。",
+    "howItWorksStep3Title": "立即下载",
+    "howItWorksStep3Desc": "点击下载，文件数秒内就绪。无需排队，无需等待，无需账户。快速、干净的下载。"
   },
   "DownloadOnly": {
     "audioBadge": "音频下载器",
@@ -357,7 +357,41 @@
     "trustFree": "完全免费",
     "trustNoSignup": "无需注册",
     "trustQuality": "最高4K画质",
-    "trustPrivate": "隐私安全"
+    "trustPrivate": "隐私安全",
+    "featuresTitle": "功能",
+    "faqTitle": "常见问题",
+    "stats": [
+      {
+        "label": "视频质量",
+        "value": "高达 4K",
+        "desc": "以惊艳的画质下载视频 — 从 4K 超高清到标准清晰度。"
+      },
+      {
+        "label": "极速处理",
+        "value": "< 3 秒",
+        "desc": "服务端处理，CDN 即时分发。数秒内开始下载。"
+      },
+      {
+        "label": "私密安全",
+        "value": "零存储",
+        "desc": "文件临时处理，下载后立即删除。"
+      },
+      {
+        "label": "格式选择",
+        "value": "MP4 · WebM · MKV",
+        "desc": "选择最适合您设备和用途的容器格式。"
+      },
+      {
+        "label": "无需注册",
+        "value": "永久免费",
+        "desc": "立即开始下载 — 无需注册。"
+      },
+      {
+        "label": "批量处理",
+        "value": "播放列表",
+        "desc": "使用 Pro 一键下载整个频道和播放列表。"
+      }
+    ]
   },
   "Formats": {
     "mp4": "MP4",
@@ -617,24 +651,24 @@
       "badgeAudio": "Facebook 转 MP3",
       "featuresAudio": [
         {
-          "title": "High-Quality MP3 & FLAC",
-          "desc": "Extract Facebook audio as MP3 320kbps, FLAC lossless, AAC, WAV or OGG — choose the format that fits your needs."
+          "title": "高品质 MP3 与 FLAC",
+          "desc": "将Facebook音频提取为 MP3 320kbps、无损 FLAC、AAC、WAV 或 OGG。"
         },
         {
-          "title": "No App, No Login",
-          "desc": "Convert Facebook to MP3 directly in your browser. Paste any public link and download instantly — no software or sign-up required."
+          "title": "无需应用，无需登录",
+          "desc": "直接在浏览器中将Facebook转换为 MP3。"
         },
         {
-          "title": "Works on Any Device",
-          "desc": "Save audio on Android, iPhone, iPad, Windows, Mac or Linux. Standard MP3/FLAC files play everywhere — VLC, QuickTime, Spotify local, any editor."
+          "title": "适用于任何设备",
+          "desc": "在 Android、iPhone、iPad、Windows、Mac 或 Linux 上保存。"
         },
         {
-          "title": "Batch & Playlists (Pro)",
-          "desc": "Download multiple Facebook tracks or entire channels at once with Pro. No waiting per file."
+          "title": "批量与播放列表（Pro）",
+          "desc": "使用 Pro 一次下载多个Facebook音轨。"
         },
         {
-          "title": "AI Transcripts Available",
-          "desc": "Want captions too? Switch to Facebook Transcript mode for SRT, VTT, TXT or JSON with timestamps."
+          "title": "AI 转录可用",
+          "desc": "还需要字幕？切换到Facebook转录模式。"
         }
       ],
       "faqsAudio": [
@@ -671,7 +705,9 @@
       ],
       "headingAll": "从 Facebook 下载",
       "headingAccentAll": "视频、音频等",
-      "subheadingAll": "Facebook 全能下载器。以 HD 下载视频，MP3/FLAC 音频，HD 缩略图和 AI 转录。粘贴链接 — 无需应用，无需注册。"
+      "subheadingAll": "Facebook 全能下载器。以 HD 下载视频，MP3/FLAC 音频，HD 缩略图和 AI 转录。粘贴链接 — 无需应用，无需注册。",
+      "metaTitleVideo": "Facebook视频下载器 — 高清下载 | DownForge",
+      "metaDescriptionVideo": "免费的Facebook视频下载器。以HD和4K MP4保存Facebook视频。无需应用，无需注册 — 粘贴链接即可。"
     },
     "instagram": {
       "badge": "Instagram下载器",
@@ -754,24 +790,24 @@
       "badgeAudio": "Instagram 转 MP3",
       "featuresAudio": [
         {
-          "title": "High-Quality MP3 & FLAC",
-          "desc": "Extract Instagram audio as MP3 320kbps, FLAC lossless, AAC, WAV or OGG — choose the format that fits your needs."
+          "title": "高品质 MP3 与 FLAC",
+          "desc": "将Instagram音频提取为 MP3 320kbps、无损 FLAC、AAC、WAV 或 OGG。"
         },
         {
-          "title": "No App, No Login",
-          "desc": "Convert Instagram to MP3 directly in your browser. Paste any public link and download instantly — no software or sign-up required."
+          "title": "无需应用，无需登录",
+          "desc": "直接在浏览器中将Instagram转换为 MP3。"
         },
         {
-          "title": "Works on Any Device",
-          "desc": "Save audio on Android, iPhone, iPad, Windows, Mac or Linux. Standard MP3/FLAC files play everywhere — VLC, QuickTime, Spotify local, any editor."
+          "title": "适用于任何设备",
+          "desc": "在 Android、iPhone、iPad、Windows、Mac 或 Linux 上保存。"
         },
         {
-          "title": "Batch & Playlists (Pro)",
-          "desc": "Download multiple Instagram tracks or entire channels at once with Pro. No waiting per file."
+          "title": "批量与播放列表（Pro）",
+          "desc": "使用 Pro 一次下载多个Instagram音轨。"
         },
         {
-          "title": "AI Transcripts Available",
-          "desc": "Want captions too? Switch to Instagram Transcript mode for SRT, VTT, TXT or JSON with timestamps."
+          "title": "AI 转录可用",
+          "desc": "还需要字幕？切换到Instagram转录模式。"
         }
       ],
       "faqsAudio": [
@@ -808,7 +844,9 @@
       ],
       "headingAll": "从 Instagram 下载",
       "headingAccentAll": "视频、音频等",
-      "subheadingAll": "Instagram 全能下载器。以 HD 下载视频，MP3/FLAC 音频，HD 缩略图和 AI 转录。粘贴链接 — 无需应用，无需注册。"
+      "subheadingAll": "Instagram 全能下载器。以 HD 下载视频，MP3/FLAC 音频，HD 缩略图和 AI 转录。粘贴链接 — 无需应用，无需注册。",
+      "metaTitleVideo": "Instagram视频下载器 — 下载 Reels 和 Stories 高清 | DownForge",
+      "metaDescriptionVideo": "免费的Instagram下载器。以HD MP4保存Reels和Stories。无需应用。"
     },
     "tiktok": {
       "badge": "TikTok下载器",
@@ -891,24 +929,24 @@
       "badgeAudio": "TikTok to MP3",
       "featuresAudio": [
         {
-          "title": "High-Quality MP3 & FLAC",
-          "desc": "Extract TikTok audio as MP3 320kbps, FLAC lossless, AAC, WAV or OGG — choose the format that fits your needs."
+          "title": "高品质 MP3 与 FLAC",
+          "desc": "将TikTok音频提取为 MP3 320kbps、无损 FLAC、AAC、WAV 或 OGG。"
         },
         {
-          "title": "No App, No Login",
-          "desc": "Convert TikTok to MP3 directly in your browser. Paste any public link and download instantly — no software or sign-up required."
+          "title": "无需应用，无需登录",
+          "desc": "直接在浏览器中将TikTok转换为 MP3。"
         },
         {
-          "title": "Works on Any Device",
-          "desc": "Save audio on Android, iPhone, iPad, Windows, Mac or Linux. Standard MP3/FLAC files play everywhere — VLC, QuickTime, Spotify local, any editor."
+          "title": "适用于任何设备",
+          "desc": "在 Android、iPhone、iPad、Windows、Mac 或 Linux 上保存。"
         },
         {
-          "title": "Batch & Playlists (Pro)",
-          "desc": "Download multiple TikTok tracks or entire channels at once with Pro. No waiting per file."
+          "title": "批量与播放列表（Pro）",
+          "desc": "使用 Pro 一次下载多个TikTok音轨。"
         },
         {
-          "title": "AI Transcripts Available",
-          "desc": "Want captions too? Switch to TikTok Transcript mode for SRT, VTT, TXT or JSON with timestamps."
+          "title": "AI 转录可用",
+          "desc": "还需要字幕？切换到TikTok转录模式。"
         }
       ],
       "faqsAudio": [
@@ -945,7 +983,9 @@
       ],
       "headingAll": "从 TikTok 下载",
       "headingAccentAll": "视频、音频等",
-      "subheadingAll": "TikTok 全能下载器。以 HD 下载视频，MP3/FLAC 音频，HD 缩略图和 AI 转录。粘贴链接 — 无需应用，无需注册。"
+      "subheadingAll": "TikTok 全能下载器。以 HD 下载视频，MP3/FLAC 音频，HD 缩略图和 AI 转录。粘贴链接 — 无需应用，无需注册。",
+      "metaTitleVideo": "TikTok视频下载器 — 无水印下载 | DownForge",
+      "metaDescriptionVideo": "免费的TikTok下载器。无水印下载TikTok视频，支持HD。无需应用。"
     },
     "twitter": {
       "badge": "Twitter下载器",
@@ -1027,24 +1067,24 @@
       "badgeAudio": "Twitter / X 转 MP3",
       "featuresAudio": [
         {
-          "title": "High-Quality MP3 & FLAC",
-          "desc": "Extract Twitter / X audio as MP3 320kbps, FLAC lossless, AAC, WAV or OGG — choose the format that fits your needs."
+          "title": "高品质 MP3 与 FLAC",
+          "desc": "将Twitter音频提取为 MP3 320kbps、无损 FLAC、AAC、WAV 或 OGG。"
         },
         {
-          "title": "No App, No Login",
-          "desc": "Convert Twitter / X to MP3 directly in your browser. Paste any public link and download instantly — no software or sign-up required."
+          "title": "无需应用，无需登录",
+          "desc": "直接在浏览器中将Twitter转换为 MP3。"
         },
         {
-          "title": "Works on Any Device",
-          "desc": "Save audio on Android, iPhone, iPad, Windows, Mac or Linux. Standard MP3/FLAC files play everywhere — VLC, QuickTime, Spotify local, any editor."
+          "title": "适用于任何设备",
+          "desc": "在 Android、iPhone、iPad、Windows、Mac 或 Linux 上保存。"
         },
         {
-          "title": "Batch & Playlists (Pro)",
-          "desc": "Download multiple Twitter / X tracks or entire channels at once with Pro. No waiting per file."
+          "title": "批量与播放列表（Pro）",
+          "desc": "使用 Pro 一次下载多个Twitter音轨。"
         },
         {
-          "title": "AI Transcripts Available",
-          "desc": "Want captions too? Switch to Twitter / X Transcript mode for SRT, VTT, TXT or JSON with timestamps."
+          "title": "AI 转录可用",
+          "desc": "还需要字幕？切换到Twitter转录模式。"
         }
       ],
       "faqsAudio": [
@@ -1081,7 +1121,9 @@
       ],
       "headingAll": "从 Twitter / X 下载",
       "headingAccentAll": "视频、音频等",
-      "subheadingAll": "Twitter / X 全能下载器。以 HD 下载视频，MP3/FLAC 音频，HD 缩略图和 AI 转录。粘贴链接 — 无需应用，无需注册。"
+      "subheadingAll": "Twitter / X 全能下载器。以 HD 下载视频，MP3/FLAC 音频，HD 缩略图和 AI 转录。粘贴链接 — 无需应用，无需注册。",
+      "metaTitleVideo": "Twitter视频下载器 — 下载视频和 GIF | DownForge",
+      "metaDescriptionVideo": "免费的Twitter视频下载器。以HD和4K MP4保存Twitter视频。无需应用，无需注册 — 粘贴链接即可。"
     },
     "vimeo": {
       "badge": "Vimeo下载器",
@@ -1163,24 +1205,24 @@
       "badgeAudio": "Vimeo 转 MP3",
       "featuresAudio": [
         {
-          "title": "High-Quality MP3 & FLAC",
-          "desc": "Extract Vimeo audio as MP3 320kbps, FLAC lossless, AAC, WAV or OGG — choose the format that fits your needs."
+          "title": "高品质 MP3 与 FLAC",
+          "desc": "将Vimeo音频提取为 MP3 320kbps、无损 FLAC、AAC、WAV 或 OGG。"
         },
         {
-          "title": "No App, No Login",
-          "desc": "Convert Vimeo to MP3 directly in your browser. Paste any public link and download instantly — no software or sign-up required."
+          "title": "无需应用，无需登录",
+          "desc": "直接在浏览器中将Vimeo转换为 MP3。"
         },
         {
-          "title": "Works on Any Device",
-          "desc": "Save audio on Android, iPhone, iPad, Windows, Mac or Linux. Standard MP3/FLAC files play everywhere — VLC, QuickTime, Spotify local, any editor."
+          "title": "适用于任何设备",
+          "desc": "在 Android、iPhone、iPad、Windows、Mac 或 Linux 上保存。"
         },
         {
-          "title": "Batch & Playlists (Pro)",
-          "desc": "Download multiple Vimeo tracks or entire channels at once with Pro. No waiting per file."
+          "title": "批量与播放列表（Pro）",
+          "desc": "使用 Pro 一次下载多个Vimeo音轨。"
         },
         {
-          "title": "AI Transcripts Available",
-          "desc": "Want captions too? Switch to Vimeo Transcript mode for SRT, VTT, TXT or JSON with timestamps."
+          "title": "AI 转录可用",
+          "desc": "还需要字幕？切换到Vimeo转录模式。"
         }
       ],
       "faqsAudio": [
@@ -1216,7 +1258,9 @@
       ],
       "headingAll": "从 Vimeo 下载",
       "headingAccentAll": "视频、音频等",
-      "subheadingAll": "Vimeo 全能下载器。以 HD 下载视频，MP3/FLAC 音频，HD 缩略图和 AI 转录。粘贴链接 — 无需应用，无需注册。"
+      "subheadingAll": "Vimeo 全能下载器。以 HD 下载视频，MP3/FLAC 音频，HD 缩略图和 AI 转录。粘贴链接 — 无需应用，无需注册。",
+      "metaTitleVideo": "Vimeo视频下载器 — 高清下载 | DownForge",
+      "metaDescriptionVideo": "免费的Vimeo视频下载器。以HD和4K MP4保存Vimeo视频。无需应用，无需注册 — 粘贴链接即可。"
     },
     "dailymotion": {
       "badge": "Dailymotion下载器",
@@ -1295,24 +1339,24 @@
       "badgeAudio": "Dailymotion 转 MP3",
       "featuresAudio": [
         {
-          "title": "High-Quality MP3 & FLAC",
-          "desc": "Extract Dailymotion audio as MP3 320kbps, FLAC lossless, AAC, WAV or OGG — choose the format that fits your needs."
+          "title": "高品质 MP3 与 FLAC",
+          "desc": "将Dailymotion音频提取为 MP3 320kbps、无损 FLAC、AAC、WAV 或 OGG。"
         },
         {
-          "title": "No App, No Login",
-          "desc": "Convert Dailymotion to MP3 directly in your browser. Paste any public link and download instantly — no software or sign-up required."
+          "title": "无需应用，无需登录",
+          "desc": "直接在浏览器中将Dailymotion转换为 MP3。"
         },
         {
-          "title": "Works on Any Device",
-          "desc": "Save audio on Android, iPhone, iPad, Windows, Mac or Linux. Standard MP3/FLAC files play everywhere — VLC, QuickTime, Spotify local, any editor."
+          "title": "适用于任何设备",
+          "desc": "在 Android、iPhone、iPad、Windows、Mac 或 Linux 上保存。"
         },
         {
-          "title": "Batch & Playlists (Pro)",
-          "desc": "Download multiple Dailymotion tracks or entire channels at once with Pro. No waiting per file."
+          "title": "批量与播放列表（Pro）",
+          "desc": "使用 Pro 一次下载多个Dailymotion音轨。"
         },
         {
-          "title": "AI Transcripts Available",
-          "desc": "Want captions too? Switch to Dailymotion Transcript mode for SRT, VTT, TXT or JSON with timestamps."
+          "title": "AI 转录可用",
+          "desc": "还需要字幕？切换到Dailymotion转录模式。"
         }
       ],
       "faqsAudio": [
@@ -1348,7 +1392,9 @@
       ],
       "headingAll": "从 Dailymotion 下载",
       "headingAccentAll": "视频、音频等",
-      "subheadingAll": "Dailymotion 全能下载器。以 HD 下载视频，MP3/FLAC 音频，HD 缩略图和 AI 转录。粘贴链接 — 无需应用，无需注册。"
+      "subheadingAll": "Dailymotion 全能下载器。以 HD 下载视频，MP3/FLAC 音频，HD 缩略图和 AI 转录。粘贴链接 — 无需应用，无需注册。",
+      "metaTitleVideo": "Dailymotion视频下载器 — 高清下载 | DownForge",
+      "metaDescriptionVideo": "免费的Dailymotion视频下载器。以HD和4K MP4保存Dailymotion视频。无需应用，无需注册 — 粘贴链接即可。"
     },
     "twitch": {
       "badge": "Twitch下载器",
@@ -1430,24 +1476,24 @@
       "badgeAudio": "Twitch 转 MP3",
       "featuresAudio": [
         {
-          "title": "High-Quality MP3 & FLAC",
-          "desc": "Extract Twitch audio as MP3 320kbps, FLAC lossless, AAC, WAV or OGG — choose the format that fits your needs."
+          "title": "高品质 MP3 与 FLAC",
+          "desc": "将Twitch音频提取为 MP3 320kbps、无损 FLAC、AAC、WAV 或 OGG。"
         },
         {
-          "title": "No App, No Login",
-          "desc": "Convert Twitch to MP3 directly in your browser. Paste any public link and download instantly — no software or sign-up required."
+          "title": "无需应用，无需登录",
+          "desc": "直接在浏览器中将Twitch转换为 MP3。"
         },
         {
-          "title": "Works on Any Device",
-          "desc": "Save audio on Android, iPhone, iPad, Windows, Mac or Linux. Standard MP3/FLAC files play everywhere — VLC, QuickTime, Spotify local, any editor."
+          "title": "适用于任何设备",
+          "desc": "在 Android、iPhone、iPad、Windows、Mac 或 Linux 上保存。"
         },
         {
-          "title": "Batch & Playlists (Pro)",
-          "desc": "Download multiple Twitch tracks or entire channels at once with Pro. No waiting per file."
+          "title": "批量与播放列表（Pro）",
+          "desc": "使用 Pro 一次下载多个Twitch音轨。"
         },
         {
-          "title": "AI Transcripts Available",
-          "desc": "Want captions too? Switch to Twitch Transcript mode for SRT, VTT, TXT or JSON with timestamps."
+          "title": "AI 转录可用",
+          "desc": "还需要字幕？切换到Twitch转录模式。"
         }
       ],
       "faqsAudio": [
@@ -1483,7 +1529,9 @@
       ],
       "headingAll": "从 Twitch 下载",
       "headingAccentAll": "视频、音频等",
-      "subheadingAll": "Twitch 全能下载器。以 HD 下载视频，MP3/FLAC 音频，HD 缩略图和 AI 转录。粘贴链接 — 无需应用，无需注册。"
+      "subheadingAll": "Twitch 全能下载器。以 HD 下载视频，MP3/FLAC 音频，HD 缩略图和 AI 转录。粘贴链接 — 无需应用，无需注册。",
+      "metaTitleVideo": "Twitch视频下载器 — 高清下载 | DownForge",
+      "metaDescriptionVideo": "免费的Twitch视频下载器。以HD和4K MP4保存Twitch视频。无需应用，无需注册 — 粘贴链接即可。"
     },
     "reddit": {
       "badge": "Reddit下载器",
@@ -1563,24 +1611,24 @@
       "badgeAudio": "Reddit 转 MP3",
       "featuresAudio": [
         {
-          "title": "High-Quality MP3 & FLAC",
-          "desc": "Extract Reddit audio as MP3 320kbps, FLAC lossless, AAC, WAV or OGG — choose the format that fits your needs."
+          "title": "高品质 MP3 与 FLAC",
+          "desc": "将Reddit音频提取为 MP3 320kbps、无损 FLAC、AAC、WAV 或 OGG。"
         },
         {
-          "title": "No App, No Login",
-          "desc": "Convert Reddit to MP3 directly in your browser. Paste any public link and download instantly — no software or sign-up required."
+          "title": "无需应用，无需登录",
+          "desc": "直接在浏览器中将Reddit转换为 MP3。"
         },
         {
-          "title": "Works on Any Device",
-          "desc": "Save audio on Android, iPhone, iPad, Windows, Mac or Linux. Standard MP3/FLAC files play everywhere — VLC, QuickTime, Spotify local, any editor."
+          "title": "适用于任何设备",
+          "desc": "在 Android、iPhone、iPad、Windows、Mac 或 Linux 上保存。"
         },
         {
-          "title": "Batch & Playlists (Pro)",
-          "desc": "Download multiple Reddit tracks or entire channels at once with Pro. No waiting per file."
+          "title": "批量与播放列表（Pro）",
+          "desc": "使用 Pro 一次下载多个Reddit音轨。"
         },
         {
-          "title": "AI Transcripts Available",
-          "desc": "Want captions too? Switch to Reddit Transcript mode for SRT, VTT, TXT or JSON with timestamps."
+          "title": "AI 转录可用",
+          "desc": "还需要字幕？切换到Reddit转录模式。"
         }
       ],
       "faqsAudio": [
@@ -1616,7 +1664,9 @@
       ],
       "headingAll": "从 Reddit 下载",
       "headingAccentAll": "视频、音频等",
-      "subheadingAll": "Reddit 全能下载器。以 HD 下载视频，MP3/FLAC 音频，HD 缩略图和 AI 转录。粘贴链接 — 无需应用，无需注册。"
+      "subheadingAll": "Reddit 全能下载器。以 HD 下载视频，MP3/FLAC 音频，HD 缩略图和 AI 转录。粘贴链接 — 无需应用，无需注册。",
+      "metaTitleVideo": "Reddit视频下载器 — 高清下载 | DownForge",
+      "metaDescriptionVideo": "免费的Reddit视频下载器。以HD和4K MP4保存Reddit视频。无需应用，无需注册 — 粘贴链接即可。"
     },
     "pinterest": {
       "badge": "Pinterest下载器",
@@ -1695,24 +1745,24 @@
       "badgeAudio": "Pinterest 转 MP3",
       "featuresAudio": [
         {
-          "title": "High-Quality MP3 & FLAC",
-          "desc": "Extract Pinterest audio as MP3 320kbps, FLAC lossless, AAC, WAV or OGG — choose the format that fits your needs."
+          "title": "高品质 MP3 与 FLAC",
+          "desc": "将Pinterest音频提取为 MP3 320kbps、无损 FLAC、AAC、WAV 或 OGG。"
         },
         {
-          "title": "No App, No Login",
-          "desc": "Convert Pinterest to MP3 directly in your browser. Paste any public link and download instantly — no software or sign-up required."
+          "title": "无需应用，无需登录",
+          "desc": "直接在浏览器中将Pinterest转换为 MP3。"
         },
         {
-          "title": "Works on Any Device",
-          "desc": "Save audio on Android, iPhone, iPad, Windows, Mac or Linux. Standard MP3/FLAC files play everywhere — VLC, QuickTime, Spotify local, any editor."
+          "title": "适用于任何设备",
+          "desc": "在 Android、iPhone、iPad、Windows、Mac 或 Linux 上保存。"
         },
         {
-          "title": "Batch & Playlists (Pro)",
-          "desc": "Download multiple Pinterest tracks or entire channels at once with Pro. No waiting per file."
+          "title": "批量与播放列表（Pro）",
+          "desc": "使用 Pro 一次下载多个Pinterest音轨。"
         },
         {
-          "title": "AI Transcripts Available",
-          "desc": "Want captions too? Switch to Pinterest Transcript mode for SRT, VTT, TXT or JSON with timestamps."
+          "title": "AI 转录可用",
+          "desc": "还需要字幕？切换到Pinterest转录模式。"
         }
       ],
       "faqsAudio": [
@@ -1748,7 +1798,9 @@
       ],
       "headingAll": "从 Pinterest 下载",
       "headingAccentAll": "视频、音频等",
-      "subheadingAll": "Pinterest 全能下载器。以 HD 下载视频，MP3/FLAC 音频，HD 缩略图和 AI 转录。粘贴链接 — 无需应用，无需注册。"
+      "subheadingAll": "Pinterest 全能下载器。以 HD 下载视频，MP3/FLAC 音频，HD 缩略图和 AI 转录。粘贴链接 — 无需应用，无需注册。",
+      "metaTitleVideo": "Pinterest视频下载器 — 高清下载 | DownForge",
+      "metaDescriptionVideo": "免费的Pinterest视频下载器。以HD和4K MP4保存Pinterest视频。无需应用，无需注册 — 粘贴链接即可。"
     },
     "linkedin": {
       "badge": "LinkedIn下载器",
@@ -1826,24 +1878,24 @@
       "badgeAudio": "LinkedIn 转 MP3",
       "featuresAudio": [
         {
-          "title": "High-Quality MP3 & FLAC",
-          "desc": "Extract LinkedIn audio as MP3 320kbps, FLAC lossless, AAC, WAV or OGG — choose the format that fits your needs."
+          "title": "高品质 MP3 与 FLAC",
+          "desc": "将LinkedIn音频提取为 MP3 320kbps、无损 FLAC、AAC、WAV 或 OGG。"
         },
         {
-          "title": "No App, No Login",
-          "desc": "Convert LinkedIn to MP3 directly in your browser. Paste any public link and download instantly — no software or sign-up required."
+          "title": "无需应用，无需登录",
+          "desc": "直接在浏览器中将LinkedIn转换为 MP3。"
         },
         {
-          "title": "Works on Any Device",
-          "desc": "Save audio on Android, iPhone, iPad, Windows, Mac or Linux. Standard MP3/FLAC files play everywhere — VLC, QuickTime, Spotify local, any editor."
+          "title": "适用于任何设备",
+          "desc": "在 Android、iPhone、iPad、Windows、Mac 或 Linux 上保存。"
         },
         {
-          "title": "Batch & Playlists (Pro)",
-          "desc": "Download multiple LinkedIn tracks or entire channels at once with Pro. No waiting per file."
+          "title": "批量与播放列表（Pro）",
+          "desc": "使用 Pro 一次下载多个LinkedIn音轨。"
         },
         {
-          "title": "AI Transcripts Available",
-          "desc": "Want captions too? Switch to LinkedIn Transcript mode for SRT, VTT, TXT or JSON with timestamps."
+          "title": "AI 转录可用",
+          "desc": "还需要字幕？切换到LinkedIn转录模式。"
         }
       ],
       "faqsAudio": [
@@ -1879,7 +1931,9 @@
       ],
       "headingAll": "从 LinkedIn 下载",
       "headingAccentAll": "视频、音频等",
-      "subheadingAll": "LinkedIn 全能下载器。以 HD 下载视频，MP3/FLAC 音频，HD 缩略图和 AI 转录。粘贴链接 — 无需应用，无需注册。"
+      "subheadingAll": "LinkedIn 全能下载器。以 HD 下载视频，MP3/FLAC 音频，HD 缩略图和 AI 转录。粘贴链接 — 无需应用，无需注册。",
+      "metaTitleVideo": "LinkedIn视频下载器 — 高清下载 | DownForge",
+      "metaDescriptionVideo": "免费的LinkedIn视频下载器。以HD和4K MP4保存LinkedIn视频。无需应用，无需注册 — 粘贴链接即可。"
     },
     "snapchat": {
       "badge": "Snapchat下载器",
@@ -1957,24 +2011,24 @@
       "badgeAudio": "Snapchat 转 MP3",
       "featuresAudio": [
         {
-          "title": "High-Quality MP3 & FLAC",
-          "desc": "Extract Snapchat audio as MP3 320kbps, FLAC lossless, AAC, WAV or OGG — choose the format that fits your needs."
+          "title": "高品质 MP3 与 FLAC",
+          "desc": "将Snapchat音频提取为 MP3 320kbps、无损 FLAC、AAC、WAV 或 OGG。"
         },
         {
-          "title": "No App, No Login",
-          "desc": "Convert Snapchat to MP3 directly in your browser. Paste any public link and download instantly — no software or sign-up required."
+          "title": "无需应用，无需登录",
+          "desc": "直接在浏览器中将Snapchat转换为 MP3。"
         },
         {
-          "title": "Works on Any Device",
-          "desc": "Save audio on Android, iPhone, iPad, Windows, Mac or Linux. Standard MP3/FLAC files play everywhere — VLC, QuickTime, Spotify local, any editor."
+          "title": "适用于任何设备",
+          "desc": "在 Android、iPhone、iPad、Windows、Mac 或 Linux 上保存。"
         },
         {
-          "title": "Batch & Playlists (Pro)",
-          "desc": "Download multiple Snapchat tracks or entire channels at once with Pro. No waiting per file."
+          "title": "批量与播放列表（Pro）",
+          "desc": "使用 Pro 一次下载多个Snapchat音轨。"
         },
         {
-          "title": "AI Transcripts Available",
-          "desc": "Want captions too? Switch to Snapchat Transcript mode for SRT, VTT, TXT or JSON with timestamps."
+          "title": "AI 转录可用",
+          "desc": "还需要字幕？切换到Snapchat转录模式。"
         }
       ],
       "faqsAudio": [
@@ -2010,7 +2064,9 @@
       ],
       "headingAll": "从 Snapchat 下载",
       "headingAccentAll": "视频、音频等",
-      "subheadingAll": "Snapchat 全能下载器。以 HD 下载视频，MP3/FLAC 音频，HD 缩略图和 AI 转录。粘贴链接 — 无需应用，无需注册。"
+      "subheadingAll": "Snapchat 全能下载器。以 HD 下载视频，MP3/FLAC 音频，HD 缩略图和 AI 转录。粘贴链接 — 无需应用，无需注册。",
+      "metaTitleVideo": "Snapchat视频下载器 — 高清下载 | DownForge",
+      "metaDescriptionVideo": "免费的Snapchat视频下载器。以HD和4K MP4保存Snapchat视频。无需应用，无需注册 — 粘贴链接即可。"
     },
     "soundcloud": {
       "badge": "SoundCloud下载器",
@@ -2094,24 +2150,24 @@
       "badgeAudio": "SoundCloud to MP3",
       "featuresAudio": [
         {
-          "title": "SoundCloud Native Audio",
-          "desc": "Download SoundCloud tracks as source-quality MP3 320kbps, FLAC, AAC or WAV. Keep every waveform detail."
+          "title": "高品质 MP3 与 FLAC",
+          "desc": "将SoundCloud音频提取为 MP3 320kbps、无损 FLAC、AAC、WAV 或 OGG。"
         },
         {
-          "title": "Playlists & Sets",
-          "desc": "Save entire SoundCloud playlists or DJ sets in one flow (Pro). One link per track or full set URL."
+          "title": "无需应用，无需登录",
+          "desc": "直接在浏览器中将SoundCloud转换为 MP3。"
         },
         {
-          "title": "No App, No Login",
-          "desc": "Convert SoundCloud to MP3 in your browser — paste any public track link and download instantly."
+          "title": "适用于任何设备",
+          "desc": "在 Android、iPhone、iPad、Windows、Mac 或 Linux 上保存。"
         },
         {
-          "title": "Any Device",
-          "desc": "MP3/FLAC files play everywhere — phones, laptops, DJ software, audio editors."
+          "title": "批量与播放列表（Pro）",
+          "desc": "使用 Pro 一次下载多个SoundCloud音轨。"
         },
         {
-          "title": "AI Transcripts",
-          "desc": "Need lyrics? Use Transcript mode for timestamped SRT/VTT/JSON."
+          "title": "AI 转录可用",
+          "desc": "还需要字幕？切换到SoundCloud转录模式。"
         }
       ],
       "faqsAudio": [
@@ -2149,7 +2205,9 @@
       ],
       "headingAll": "从 SoundCloud 下载",
       "headingAccentAll": "视频、音频等",
-      "subheadingAll": "SoundCloud 全能下载器。以 MP3 320kbps 和 FLAC、视频、HD 缩略图和转录保存音轨。粘贴链接 — 无需注册。"
+      "subheadingAll": "SoundCloud 全能下载器。以 MP3 320kbps 和 FLAC、视频、HD 缩略图和转录保存音轨。粘贴链接 — 无需注册。",
+      "metaTitleVideo": "SoundCloud视频下载器 — 高清下载 | DownForge",
+      "metaDescriptionVideo": "免费的SoundCloud视频下载器。以HD和4K MP4保存SoundCloud视频。无需应用，无需注册 — 粘贴链接即可。"
     },
     "kick": {
       "badge": "Kick下载器",
@@ -2228,24 +2286,24 @@
       "badgeAudio": "Kick 转 MP3",
       "featuresAudio": [
         {
-          "title": "High-Quality MP3 & FLAC",
-          "desc": "Extract Kick audio as MP3 320kbps, FLAC lossless, AAC, WAV or OGG — choose the format that fits your needs."
+          "title": "高品质 MP3 与 FLAC",
+          "desc": "将Kick音频提取为 MP3 320kbps、无损 FLAC、AAC、WAV 或 OGG。"
         },
         {
-          "title": "No App, No Login",
-          "desc": "Convert Kick to MP3 directly in your browser. Paste any public link and download instantly — no software or sign-up required."
+          "title": "无需应用，无需登录",
+          "desc": "直接在浏览器中将Kick转换为 MP3。"
         },
         {
-          "title": "Works on Any Device",
-          "desc": "Save audio on Android, iPhone, iPad, Windows, Mac or Linux. Standard MP3/FLAC files play everywhere — VLC, QuickTime, Spotify local, any editor."
+          "title": "适用于任何设备",
+          "desc": "在 Android、iPhone、iPad、Windows、Mac 或 Linux 上保存。"
         },
         {
-          "title": "Batch & Playlists (Pro)",
-          "desc": "Download multiple Kick tracks or entire channels at once with Pro. No waiting per file."
+          "title": "批量与播放列表（Pro）",
+          "desc": "使用 Pro 一次下载多个Kick音轨。"
         },
         {
-          "title": "AI Transcripts Available",
-          "desc": "Want captions too? Switch to Kick Transcript mode for SRT, VTT, TXT or JSON with timestamps."
+          "title": "AI 转录可用",
+          "desc": "还需要字幕？切换到Kick转录模式。"
         }
       ],
       "faqsAudio": [
@@ -2281,7 +2339,9 @@
       ],
       "headingAll": "从 Kick 下载",
       "headingAccentAll": "视频、音频等",
-      "subheadingAll": "Kick 全能下载器。以 HD 下载视频，MP3/FLAC 音频，HD 缩略图和 AI 转录。粘贴链接 — 无需应用，无需注册。"
+      "subheadingAll": "Kick 全能下载器。以 HD 下载视频，MP3/FLAC 音频，HD 缩略图和 AI 转录。粘贴链接 — 无需应用，无需注册。",
+      "metaTitleVideo": "Kick视频下载器 — 高清下载 | DownForge",
+      "metaDescriptionVideo": "免费的Kick视频下载器。以HD和4K MP4保存Kick视频。无需应用，无需注册 — 粘贴链接即可。"
     },
     "youtube": {
       "badge": "YouTube下载器",
@@ -2370,24 +2430,24 @@
       "badgeAudio": "YouTube to MP3",
       "featuresAudio": [
         {
-          "title": "High-Quality MP3 & FLAC",
-          "desc": "Extract YouTube audio as MP3 320kbps, FLAC lossless, AAC, WAV or OGG — choose the format that fits your needs."
+          "title": "高品质 MP3 与 FLAC",
+          "desc": "将YouTube音频提取为 MP3 320kbps、无损 FLAC、AAC、WAV 或 OGG。"
         },
         {
-          "title": "No App, No Login",
-          "desc": "Convert YouTube to MP3 directly in your browser. Paste any public link and download instantly — no software or sign-up required."
+          "title": "无需应用，无需登录",
+          "desc": "直接在浏览器中将YouTube转换为 MP3。"
         },
         {
-          "title": "Works on Any Device",
-          "desc": "Save audio on Android, iPhone, iPad, Windows, Mac or Linux. Standard MP3/FLAC files play everywhere — VLC, QuickTime, Spotify local, any editor."
+          "title": "适用于任何设备",
+          "desc": "在 Android、iPhone、iPad、Windows、Mac 或 Linux 上保存。"
         },
         {
-          "title": "Batch & Playlists (Pro)",
-          "desc": "Download multiple YouTube tracks or entire channels at once with Pro. No waiting per file."
+          "title": "批量与播放列表（Pro）",
+          "desc": "使用 Pro 一次下载多个YouTube音轨。"
         },
         {
-          "title": "AI Transcripts Available",
-          "desc": "Want captions too? Switch to YouTube Transcript mode for SRT, VTT, TXT or JSON with timestamps."
+          "title": "AI 转录可用",
+          "desc": "还需要字幕？切换到YouTube转录模式。"
         }
       ],
       "faqsAudio": [
@@ -2512,24 +2572,24 @@
       "badgeAudio": "Niconico 转 MP3",
       "featuresAudio": [
         {
-          "title": "High-Quality MP3 & FLAC",
-          "desc": "Extract Niconico audio as MP3 320kbps, FLAC lossless, AAC, WAV or OGG — choose the format that fits your needs."
+          "title": "高品质 MP3 与 FLAC",
+          "desc": "将Niconico音频提取为 MP3 320kbps、无损 FLAC、AAC、WAV 或 OGG。"
         },
         {
-          "title": "No App, No Login",
-          "desc": "Convert Niconico to MP3 directly in your browser. Paste any public link and download instantly — no software or sign-up required."
+          "title": "无需应用，无需登录",
+          "desc": "直接在浏览器中将Niconico转换为 MP3。"
         },
         {
-          "title": "Works on Any Device",
-          "desc": "Save audio on Android, iPhone, iPad, Windows, Mac or Linux. Standard MP3/FLAC files play everywhere — VLC, QuickTime, Spotify local, any editor."
+          "title": "适用于任何设备",
+          "desc": "在 Android、iPhone、iPad、Windows、Mac 或 Linux 上保存。"
         },
         {
-          "title": "Batch & Playlists (Pro)",
-          "desc": "Download multiple Niconico tracks or entire channels at once with Pro. No waiting per file."
+          "title": "批量与播放列表（Pro）",
+          "desc": "使用 Pro 一次下载多个Niconico音轨。"
         },
         {
-          "title": "AI Transcripts Available",
-          "desc": "Want captions too? Switch to Niconico Transcript mode for SRT, VTT, TXT or JSON with timestamps."
+          "title": "AI 转录可用",
+          "desc": "还需要字幕？切换到Niconico转录模式。"
         }
       ],
       "faqsAudio": [
@@ -2565,7 +2625,9 @@
       ],
       "headingAll": "从 Niconico 下载",
       "headingAccentAll": "视频、音频等",
-      "subheadingAll": "Niconico 全能下载器。以 HD 下载视频，MP3/FLAC 音频，HD 缩略图和 AI 转录。粘贴链接 — 无需应用，无需注册。"
+      "subheadingAll": "Niconico 全能下载器。以 HD 下载视频，MP3/FLAC 音频，HD 缩略图和 AI 转录。粘贴链接 — 无需应用，无需注册。",
+      "metaTitleVideo": "Niconico视频下载器 — 高清下载 | DownForge",
+      "metaDescriptionVideo": "免费的Niconico视频下载器。以HD和4K MP4保存Niconico视频。无需应用，无需注册 — 粘贴链接即可。"
     }
   },
   "YoutubeHero": {
