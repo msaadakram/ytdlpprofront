@@ -373,7 +373,121 @@
       "fast": "< 3s",
       "free": "100% Free",
       "private": "Private & Secure"
-    }
+    },
+    "thumbnailHeading": "Download {platform} Thumbnails",
+    "transcriptHeading": "Generate {platform} Transcripts",
+    "thumbnailPreview": "Thumbnail Preview",
+    "transcriptLanguageLabel": "Language:",
+    "featuresAudioLabel": "Audio Formats",
+    "featuresAudioTitle": "The Best Audio Extraction Tool",
+    "featuresAudioSubtitle": "Extract high-quality audio from {platform} videos in every format you need.",
+    "featuresThumbnailLabel": "Image Formats",
+    "featuresThumbnailTitle": "The Best Thumbnail Download Tool",
+    "featuresThumbnailSubtitle": "Save {platform} video thumbnails in every format and resolution.",
+    "featuresTranscriptLabel": "Transcript Formats",
+    "featuresTranscriptTitle": "The Best Transcript Generator",
+    "featuresTranscriptSubtitle": "Generate accurate {platform} transcripts with AI in every format.",
+    "faqLabel": "FAQ",
+    "faqTitleAudio": "Audio Download Questions",
+    "faqTitleThumbnail": "Thumbnail Download Questions",
+    "faqTitleTranscript": "Transcript Download Questions",
+    "faqSubtitle": "Everything you need to know about downloading from {platform}.",
+    "featuresAudioItems": [
+      {
+        "label": "MP3 320 kbps",
+        "value": "High Quality",
+        "desc": "Download audio in pristine MP3 format at the highest bitrate for superior listening on any device."
+      },
+      {
+        "label": "FLAC Lossless",
+        "value": "Archive Quality",
+        "desc": "Perfect for music archivists. FLAC preserves every detail of the original audio with no quality loss."
+      },
+      {
+        "label": "AAC 256 kbps",
+        "value": "Efficient",
+        "desc": "Advanced Audio Coding delivers excellent quality at smaller file sizes. Ideal for Apple devices."
+      },
+      {
+        "label": "WAV Uncompressed",
+        "value": "Studio Grade",
+        "desc": "Uncompressed audio for professional editing, production, and mastering workflows."
+      },
+      {
+        "label": "OGG 192 kbps",
+        "value": "Open Format",
+        "desc": "Free and open audio format with efficient compression and broad compatibility across platforms."
+      },
+      {
+        "label": "Fast Processing",
+        "value": "< 3 Seconds",
+        "desc": "Server-side conversion delivers your audio file in seconds, not minutes."
+      }
+    ],
+    "featuresThumbnailItems": [
+      {
+        "label": "Maximum Resolution",
+        "value": "Full HD",
+        "desc": "Download thumbnails at their original resolution, up to 1920×1080 pixels or higher."
+      },
+      {
+        "label": "JPG Format",
+        "value": "Compact",
+        "desc": "Universal image format with great compression. Ideal for most use cases and sharing."
+      },
+      {
+        "label": "PNG Format",
+        "value": "Lossless",
+        "desc": "Perfect for screenshots and images requiring transparency and lossless quality."
+      },
+      {
+        "label": "WebP Format",
+        "value": "Optimized",
+        "desc": "Modern image format with superior compression and quality. Best for web use."
+      },
+      {
+        "label": "Instant Download",
+        "value": "No Waiting",
+        "desc": "Thumbnails are downloaded instantly — no processing or queue time needed."
+      },
+      {
+        "label": "Zero Storage",
+        "value": "Private",
+        "desc": "We don't store any files. Thumbnails are served directly from the source."
+      }
+    ],
+    "featuresTranscriptItems": [
+      {
+        "label": "SRT Subtitles",
+        "value": "Timestamps",
+        "desc": "Industry-standard subtitle format with precise timestamps. Works with all video players."
+      },
+      {
+        "label": "VTT WebVTT",
+        "value": "Web Format",
+        "desc": "Native web subtitle format. Perfect for HTML5 video players and online platforms."
+      },
+      {
+        "label": "TXT Plain Text",
+        "value": "Simple",
+        "desc": "Clean, readable text output without timestamps. Great for notes and reference."
+      },
+      {
+        "label": "JSON Structured",
+        "value": "Data Ready",
+        "desc": "Structured data with timestamps. Ideal for developers, analysis, and API integration."
+      },
+      {
+        "label": "AI Accuracy",
+        "value": "99%+",
+        "desc": "Powered by advanced AI speech recognition for highly accurate, human-quality transcripts."
+      },
+      {
+        "label": "Batch Process",
+        "value": "Playlists",
+        "desc": "Generate transcripts for entire playlists and channels in one click with a Pro plan."
+      }
+    ]
   },
   "VideoOnly": {
     "badge": "Video Downloader",
@@ -1034,7 +1148,27 @@
       ],
       "headingAll": "Download from Facebook",
       "headingAccentAll": "Video, Audio & More",
-      "subheadingAll": "All-in-one Facebook downloader. Save videos, Reels & live streams in HD, audio as MP3, HD thumbnails & AI transcripts. Paste any link — no app, no sign-up."
+      "subheadingAll": "All-in-one Facebook downloader. Save videos, Reels & live streams in HD, audio as MP3, HD thumbnails & AI transcripts. Paste any link — no app, no sign-up.",
+      "metaTitleThumbnail": "Facebook Thumbnail Downloader — Download Facebook Thumbnails in HD | DownForge",
+      "metaDescriptionThumbnail": "Free Facebook thumbnail downloader. Save Facebook video thumbnails in HD, JPG, PNG & WebP. No app, no sign-up.",
+      "keywordsThumbnail": [
+        "facebook thumbnail downloader",
+        "download facebook thumbnails",
+        "facebook thumbnail saver",
+        "facebook profile picture downloader",
+        "save facebook thumbnails",
+        "facebook hd thumbnail"
+      ],
+      "metaTitleTranscript": "Facebook Transcript Generator — Download Facebook Transcripts with AI | DownForge",
+      "metaDescriptionTranscript": "Free Facebook transcript generator. Get accurate AI transcripts with timestamps. Download as SRT, VTT, TXT or JSON. No sign-up.",
+      "keywordsTranscript": [
+        "facebook transcript generator",
+        "download facebook transcripts",
+        "facebook subtitles downloader",
+        "facebook srt downloader",
+        "facebook transcript ai",
+        "save facebook transcript"
+      ]
     },
     "instagram": {
       "badge": "Instagram Downloader",
@@ -1173,7 +1307,27 @@
       ],
       "headingAll": "Download from Instagram",
       "headingAccentAll": "Reels, Video & More",
-      "subheadingAll": "All-in-one Instagram downloader. Save Reels, Stories & posts in HD, audio as MP3, HD thumbnails & AI transcripts. Paste any link — no sign-up."
+      "subheadingAll": "All-in-one Instagram downloader. Save Reels, Stories & posts in HD, audio as MP3, HD thumbnails & AI transcripts. Paste any link — no sign-up.",
+      "metaTitleThumbnail": "Instagram Thumbnail Downloader — Download Instagram Thumbnails in HD | DownForge",
+      "metaDescriptionThumbnail": "Free Instagram thumbnail downloader. Save Instagram video thumbnails in HD, JPG, PNG & WebP. No app, no sign-up.",
+      "keywordsThumbnail": [
+        "instagram thumbnail downloader",
+        "download instagram thumbnails",
+        "instagram thumbnail saver",
+        "instagram profile picture downloader",
+        "save instagram thumbnails",
+        "instagram hd thumbnail"
+      ],
+      "metaTitleTranscript": "Instagram Transcript Generator — Download Instagram Transcripts with AI | DownForge",
+      "metaDescriptionTranscript": "Free Instagram transcript generator. Get accurate AI transcripts with timestamps. Download as SRT, VTT, TXT or JSON. No sign-up.",
+      "keywordsTranscript": [
+        "instagram transcript generator",
+        "download instagram transcripts",
+        "instagram subtitles downloader",
+        "instagram srt downloader",
+        "instagram transcript ai",
+        "save instagram transcript"
+      ]
     },
     "tiktok": {
       "badge": "TikTok Downloader",
@@ -1312,7 +1466,27 @@
       ],
       "headingAll": "Download from TikTok",
       "headingAccentAll": "No Watermark & MP3",
-      "subheadingAll": "All-in-one TikTok downloader. Save videos without watermark in HD, audio as MP3, HD thumbnails & AI transcripts. Paste any link — no sign-up."
+      "subheadingAll": "All-in-one TikTok downloader. Save videos without watermark in HD, audio as MP3, HD thumbnails & AI transcripts. Paste any link — no sign-up.",
+      "metaTitleThumbnail": "TikTok Thumbnail Downloader — Download TikTok Thumbnails in HD | DownForge",
+      "metaDescriptionThumbnail": "Free TikTok thumbnail downloader. Save TikTok video thumbnails in HD, JPG, PNG & WebP. No app, no sign-up.",
+      "keywordsThumbnail": [
+        "tiktok thumbnail downloader",
+        "download tiktok thumbnails",
+        "tiktok thumbnail saver",
+        "tiktok profile picture downloader",
+        "save tiktok thumbnails",
+        "tiktok hd thumbnail"
+      ],
+      "metaTitleTranscript": "TikTok Transcript Generator — Download TikTok Transcripts with AI | DownForge",
+      "metaDescriptionTranscript": "Free TikTok transcript generator. Get accurate AI transcripts with timestamps. Download as SRT, VTT, TXT or JSON. No sign-up.",
+      "keywordsTranscript": [
+        "tiktok transcript generator",
+        "download tiktok transcripts",
+        "tiktok subtitles downloader",
+        "tiktok srt downloader",
+        "tiktok transcript ai",
+        "save tiktok transcript"
+      ]
     },
     "twitter": {
       "badge": "Twitter Downloader",
@@ -1450,7 +1624,27 @@
       ],
       "headingAll": "Download from Twitter / X",
       "headingAccentAll": "Video, Audio & More",
-      "subheadingAll": "All-in-one Twitter/X downloader. Save videos & GIFs in HD, audio as MP3, HD thumbnails & AI transcripts. Paste any link — no app, no sign-up."
+      "subheadingAll": "All-in-one Twitter/X downloader. Save videos & GIFs in HD, audio as MP3, HD thumbnails & AI transcripts. Paste any link — no app, no sign-up.",
+      "metaTitleThumbnail": "Twitter Thumbnail Downloader — Download Twitter Thumbnails in HD | DownForge",
+      "metaDescriptionThumbnail": "Free Twitter thumbnail downloader. Save Twitter video thumbnails in HD, JPG, PNG & WebP. No app, no sign-up.",
+      "keywordsThumbnail": [
+        "twitter thumbnail downloader",
+        "download twitter thumbnails",
+        "twitter thumbnail saver",
+        "twitter profile picture downloader",
+        "save twitter thumbnails",
+        "twitter hd thumbnail"
+      ],
+      "metaTitleTranscript": "Twitter Transcript Generator — Download Twitter Transcripts with AI | DownForge",
+      "metaDescriptionTranscript": "Free Twitter transcript generator. Get accurate AI transcripts with timestamps. Download as SRT, VTT, TXT or JSON. No sign-up.",
+      "keywordsTranscript": [
+        "twitter transcript generator",
+        "download twitter transcripts",
+        "twitter subtitles downloader",
+        "twitter srt downloader",
+        "twitter transcript ai",
+        "save twitter transcript"
+      ]
     },
     "vimeo": {
       "badge": "Vimeo Downloader",
@@ -1587,7 +1781,27 @@
       ],
       "headingAll": "Download from Vimeo",
       "headingAccentAll": "Video, Audio & More",
-      "subheadingAll": "All-in-one Vimeo downloader. Download videos in HD, audio as MP3/FLAC, HD thumbnails & AI transcripts. Paste a link — no app, no sign-up."
+      "subheadingAll": "All-in-one Vimeo downloader. Download videos in HD, audio as MP3/FLAC, HD thumbnails & AI transcripts. Paste a link — no app, no sign-up.",
+      "metaTitleThumbnail": "Vimeo Thumbnail Downloader — Download Vimeo Thumbnails in HD | DownForge",
+      "metaDescriptionThumbnail": "Free Vimeo thumbnail downloader. Save Vimeo video thumbnails in HD, JPG, PNG & WebP. No app, no sign-up.",
+      "keywordsThumbnail": [
+        "vimeo thumbnail downloader",
+        "download vimeo thumbnails",
+        "vimeo thumbnail saver",
+        "vimeo profile picture downloader",
+        "save vimeo thumbnails",
+        "vimeo hd thumbnail"
+      ],
+      "metaTitleTranscript": "Vimeo Transcript Generator — Download Vimeo Transcripts with AI | DownForge",
+      "metaDescriptionTranscript": "Free Vimeo transcript generator. Get accurate AI transcripts with timestamps. Download as SRT, VTT, TXT or JSON. No sign-up.",
+      "keywordsTranscript": [
+        "vimeo transcript generator",
+        "download vimeo transcripts",
+        "vimeo subtitles downloader",
+        "vimeo srt downloader",
+        "vimeo transcript ai",
+        "save vimeo transcript"
+      ]
     },
     "dailymotion": {
       "badge": "Dailymotion Downloader",
@@ -1721,7 +1935,27 @@
       ],
       "headingAll": "Download from Dailymotion",
       "headingAccentAll": "Video, Audio & More",
-      "subheadingAll": "All-in-one Dailymotion downloader. Download videos in HD, audio as MP3/FLAC, HD thumbnails & AI transcripts. Paste a link — no app, no sign-up."
+      "subheadingAll": "All-in-one Dailymotion downloader. Download videos in HD, audio as MP3/FLAC, HD thumbnails & AI transcripts. Paste a link — no app, no sign-up.",
+      "metaTitleThumbnail": "Dailymotion Thumbnail Downloader — Download Dailymotion Thumbnails in HD | DownForge",
+      "metaDescriptionThumbnail": "Free Dailymotion thumbnail downloader. Save Dailymotion video thumbnails in HD, JPG, PNG & WebP. No app, no sign-up.",
+      "keywordsThumbnail": [
+        "dailymotion thumbnail downloader",
+        "download dailymotion thumbnails",
+        "dailymotion thumbnail saver",
+        "dailymotion profile picture downloader",
+        "save dailymotion thumbnails",
+        "dailymotion hd thumbnail"
+      ],
+      "metaTitleTranscript": "Dailymotion Transcript Generator — Download Dailymotion Transcripts with AI | DownForge",
+      "metaDescriptionTranscript": "Free Dailymotion transcript generator. Get accurate AI transcripts with timestamps. Download as SRT, VTT, TXT or JSON. No sign-up.",
+      "keywordsTranscript": [
+        "dailymotion transcript generator",
+        "download dailymotion transcripts",
+        "dailymotion subtitles downloader",
+        "dailymotion srt downloader",
+        "dailymotion transcript ai",
+        "save dailymotion transcript"
+      ]
     },
     "twitch": {
       "badge": "Twitch Downloader",
@@ -1858,7 +2092,27 @@
       ],
       "headingAll": "Download from Twitch",
       "headingAccentAll": "Video, Audio & More",
-      "subheadingAll": "All-in-one Twitch downloader. Download videos in HD, audio as MP3/FLAC, HD thumbnails & AI transcripts. Paste a link — no app, no sign-up."
+      "subheadingAll": "All-in-one Twitch downloader. Download videos in HD, audio as MP3/FLAC, HD thumbnails & AI transcripts. Paste a link — no app, no sign-up.",
+      "metaTitleThumbnail": "Twitch Thumbnail Downloader — Download Twitch Thumbnails in HD | DownForge",
+      "metaDescriptionThumbnail": "Free Twitch thumbnail downloader. Save Twitch video thumbnails in HD, JPG, PNG & WebP. No app, no sign-up.",
+      "keywordsThumbnail": [
+        "twitch thumbnail downloader",
+        "download twitch thumbnails",
+        "twitch thumbnail saver",
+        "twitch profile picture downloader",
+        "save twitch thumbnails",
+        "twitch hd thumbnail"
+      ],
+      "metaTitleTranscript": "Twitch Transcript Generator — Download Twitch Transcripts with AI | DownForge",
+      "metaDescriptionTranscript": "Free Twitch transcript generator. Get accurate AI transcripts with timestamps. Download as SRT, VTT, TXT or JSON. No sign-up.",
+      "keywordsTranscript": [
+        "twitch transcript generator",
+        "download twitch transcripts",
+        "twitch subtitles downloader",
+        "twitch srt downloader",
+        "twitch transcript ai",
+        "save twitch transcript"
+      ]
     },
     "reddit": {
       "badge": "Reddit Downloader",
@@ -1993,7 +2247,27 @@
       ],
       "headingAll": "Download from Reddit",
       "headingAccentAll": "Video, Audio & More",
-      "subheadingAll": "All-in-one Reddit downloader. Download videos in HD, audio as MP3/FLAC, HD thumbnails & AI transcripts. Paste a link — no app, no sign-up."
+      "subheadingAll": "All-in-one Reddit downloader. Download videos in HD, audio as MP3/FLAC, HD thumbnails & AI transcripts. Paste a link — no app, no sign-up.",
+      "metaTitleThumbnail": "Reddit Thumbnail Downloader — Download Reddit Thumbnails in HD | DownForge",
+      "metaDescriptionThumbnail": "Free Reddit thumbnail downloader. Save Reddit video thumbnails in HD, JPG, PNG & WebP. No app, no sign-up.",
+      "keywordsThumbnail": [
+        "reddit thumbnail downloader",
+        "download reddit thumbnails",
+        "reddit thumbnail saver",
+        "reddit profile picture downloader",
+        "save reddit thumbnails",
+        "reddit hd thumbnail"
+      ],
+      "metaTitleTranscript": "Reddit Transcript Generator — Download Reddit Transcripts with AI | DownForge",
+      "metaDescriptionTranscript": "Free Reddit transcript generator. Get accurate AI transcripts with timestamps. Download as SRT, VTT, TXT or JSON. No sign-up.",
+      "keywordsTranscript": [
+        "reddit transcript generator",
+        "download reddit transcripts",
+        "reddit subtitles downloader",
+        "reddit srt downloader",
+        "reddit transcript ai",
+        "save reddit transcript"
+      ]
     },
     "pinterest": {
       "badge": "Pinterest Downloader",
@@ -2127,7 +2401,27 @@
       ],
       "headingAll": "Download from Pinterest",
       "headingAccentAll": "Video, Audio & More",
-      "subheadingAll": "All-in-one Pinterest downloader. Download videos in HD, audio as MP3/FLAC, HD thumbnails & AI transcripts. Paste a link — no app, no sign-up."
+      "subheadingAll": "All-in-one Pinterest downloader. Download videos in HD, audio as MP3/FLAC, HD thumbnails & AI transcripts. Paste a link — no app, no sign-up.",
+      "metaTitleThumbnail": "Pinterest Thumbnail Downloader — Download Pinterest Thumbnails in HD | DownForge",
+      "metaDescriptionThumbnail": "Free Pinterest thumbnail downloader. Save Pinterest video thumbnails in HD, JPG, PNG & WebP. No app, no sign-up.",
+      "keywordsThumbnail": [
+        "pinterest thumbnail downloader",
+        "download pinterest thumbnails",
+        "pinterest thumbnail saver",
+        "pinterest profile picture downloader",
+        "save pinterest thumbnails",
+        "pinterest hd thumbnail"
+      ],
+      "metaTitleTranscript": "Pinterest Transcript Generator — Download Pinterest Transcripts with AI | DownForge",
+      "metaDescriptionTranscript": "Free Pinterest transcript generator. Get accurate AI transcripts with timestamps. Download as SRT, VTT, TXT or JSON. No sign-up.",
+      "keywordsTranscript": [
+        "pinterest transcript generator",
+        "download pinterest transcripts",
+        "pinterest subtitles downloader",
+        "pinterest srt downloader",
+        "pinterest transcript ai",
+        "save pinterest transcript"
+      ]
     },
     "linkedin": {
       "badge": "LinkedIn Downloader",
@@ -2260,7 +2554,27 @@
       ],
       "headingAll": "Download from LinkedIn",
       "headingAccentAll": "Video, Audio & More",
-      "subheadingAll": "All-in-one LinkedIn downloader. Download videos in HD, audio as MP3/FLAC, HD thumbnails & AI transcripts. Paste a link — no app, no sign-up."
+      "subheadingAll": "All-in-one LinkedIn downloader. Download videos in HD, audio as MP3/FLAC, HD thumbnails & AI transcripts. Paste a link — no app, no sign-up.",
+      "metaTitleThumbnail": "LinkedIn Thumbnail Downloader — Download LinkedIn Thumbnails in HD | DownForge",
+      "metaDescriptionThumbnail": "Free LinkedIn thumbnail downloader. Save LinkedIn video thumbnails in HD, JPG, PNG & WebP. No app, no sign-up.",
+      "keywordsThumbnail": [
+        "linkedin thumbnail downloader",
+        "download linkedin thumbnails",
+        "linkedin thumbnail saver",
+        "linkedin profile picture downloader",
+        "save linkedin thumbnails",
+        "linkedin hd thumbnail"
+      ],
+      "metaTitleTranscript": "LinkedIn Transcript Generator — Download LinkedIn Transcripts with AI | DownForge",
+      "metaDescriptionTranscript": "Free LinkedIn transcript generator. Get accurate AI transcripts with timestamps. Download as SRT, VTT, TXT or JSON. No sign-up.",
+      "keywordsTranscript": [
+        "linkedin transcript generator",
+        "download linkedin transcripts",
+        "linkedin subtitles downloader",
+        "linkedin srt downloader",
+        "linkedin transcript ai",
+        "save linkedin transcript"
+      ]
     },
     "snapchat": {
       "badge": "Snapchat Downloader",
@@ -2393,7 +2707,27 @@
       ],
       "headingAll": "Download from Snapchat",
       "headingAccentAll": "Video, Audio & More",
-      "subheadingAll": "All-in-one Snapchat downloader. Download videos in HD, audio as MP3/FLAC, HD thumbnails & AI transcripts. Paste a link — no app, no sign-up."
+      "subheadingAll": "All-in-one Snapchat downloader. Download videos in HD, audio as MP3/FLAC, HD thumbnails & AI transcripts. Paste a link — no app, no sign-up.",
+      "metaTitleThumbnail": "Snapchat Thumbnail Downloader — Download Snapchat Thumbnails in HD | DownForge",
+      "metaDescriptionThumbnail": "Free Snapchat thumbnail downloader. Save Snapchat video thumbnails in HD, JPG, PNG & WebP. No app, no sign-up.",
+      "keywordsThumbnail": [
+        "snapchat thumbnail downloader",
+        "download snapchat thumbnails",
+        "snapchat thumbnail saver",
+        "snapchat profile picture downloader",
+        "save snapchat thumbnails",
+        "snapchat hd thumbnail"
+      ],
+      "metaTitleTranscript": "Snapchat Transcript Generator — Download Snapchat Transcripts with AI | DownForge",
+      "metaDescriptionTranscript": "Free Snapchat transcript generator. Get accurate AI transcripts with timestamps. Download as SRT, VTT, TXT or JSON. No sign-up.",
+      "keywordsTranscript": [
+        "snapchat transcript generator",
+        "download snapchat transcripts",
+        "snapchat subtitles downloader",
+        "snapchat srt downloader",
+        "snapchat transcript ai",
+        "save snapchat transcript"
+      ]
     },
     "soundcloud": {
       "badge": "SoundCloud Downloader",
@@ -2534,7 +2868,27 @@
       ],
       "headingAll": "Download from SoundCloud",
       "headingAccentAll": "MP3, Video & More",
-      "subheadingAll": "All-in-one SoundCloud downloader. Save tracks as MP3 320kbps & FLAC, videos, HD thumbnails & AI transcripts. No app, no sign-up — works on any device."
+      "subheadingAll": "All-in-one SoundCloud downloader. Save tracks as MP3 320kbps & FLAC, videos, HD thumbnails & AI transcripts. No app, no sign-up — works on any device.",
+      "metaTitleThumbnail": "SoundCloud Thumbnail Downloader — Download SoundCloud Thumbnails in HD | DownForge",
+      "metaDescriptionThumbnail": "Free SoundCloud thumbnail downloader. Save SoundCloud video thumbnails in HD, JPG, PNG & WebP. No app, no sign-up.",
+      "keywordsThumbnail": [
+        "soundcloud thumbnail downloader",
+        "download soundcloud thumbnails",
+        "soundcloud thumbnail saver",
+        "soundcloud profile picture downloader",
+        "save soundcloud thumbnails",
+        "soundcloud hd thumbnail"
+      ],
+      "metaTitleTranscript": "SoundCloud Transcript Generator — Download SoundCloud Transcripts with AI | DownForge",
+      "metaDescriptionTranscript": "Free SoundCloud transcript generator. Get accurate AI transcripts with timestamps. Download as SRT, VTT, TXT or JSON. No sign-up.",
+      "keywordsTranscript": [
+        "soundcloud transcript generator",
+        "download soundcloud transcripts",
+        "soundcloud subtitles downloader",
+        "soundcloud srt downloader",
+        "soundcloud transcript ai",
+        "save soundcloud transcript"
+      ]
     },
     "kick": {
       "badge": "Kick Downloader",
@@ -2668,7 +3022,27 @@
       ],
       "headingAll": "Download from Kick",
       "headingAccentAll": "Video, Audio & More",
-      "subheadingAll": "All-in-one Kick downloader. Download videos in HD, audio as MP3/FLAC, HD thumbnails & AI transcripts. Paste a link — no app, no sign-up."
+      "subheadingAll": "All-in-one Kick downloader. Download videos in HD, audio as MP3/FLAC, HD thumbnails & AI transcripts. Paste a link — no app, no sign-up.",
+      "metaTitleThumbnail": "Kick Thumbnail Downloader — Download Kick Thumbnails in HD | DownForge",
+      "metaDescriptionThumbnail": "Free Kick thumbnail downloader. Save Kick video thumbnails in HD, JPG, PNG & WebP. No app, no sign-up.",
+      "keywordsThumbnail": [
+        "kick thumbnail downloader",
+        "download kick thumbnails",
+        "kick thumbnail saver",
+        "kick profile picture downloader",
+        "save kick thumbnails",
+        "kick hd thumbnail"
+      ],
+      "metaTitleTranscript": "Kick Transcript Generator — Download Kick Transcripts with AI | DownForge",
+      "metaDescriptionTranscript": "Free Kick transcript generator. Get accurate AI transcripts with timestamps. Download as SRT, VTT, TXT or JSON. No sign-up.",
+      "keywordsTranscript": [
+        "kick transcript generator",
+        "download kick transcripts",
+        "kick subtitles downloader",
+        "kick srt downloader",
+        "kick transcript ai",
+        "save kick transcript"
+      ]
     },
     "youtube": {
       "badge": "YouTube Downloader",
@@ -2841,7 +3215,27 @@
       ],
       "headingAll": "Download from YouTube",
       "headingAccentAll": "Video, MP3 & More",
-      "subheadingAll": "All-in-one YouTube downloader. Save videos in 4K & 1080p, audio as MP3 320kbps & FLAC, HD thumbnails & AI transcripts (SRT/VTT/TXT/JSON). Paste any link — no app, no sign-up. Works on Android, iPhone & PC."
+      "subheadingAll": "All-in-one YouTube downloader. Save videos in 4K & 1080p, audio as MP3 320kbps & FLAC, HD thumbnails & AI transcripts (SRT/VTT/TXT/JSON). Paste any link — no app, no sign-up. Works on Android, iPhone & PC.",
+      "metaTitleThumbnail": "YouTube Thumbnail Downloader — Download YouTube Thumbnails in HD | DownForge",
+      "metaDescriptionThumbnail": "Free YouTube thumbnail downloader. Save YouTube video thumbnails in HD, JPG, PNG & WebP. No app, no sign-up.",
+      "keywordsThumbnail": [
+        "youtube thumbnail downloader",
+        "download youtube thumbnails",
+        "youtube thumbnail saver",
+        "youtube profile picture downloader",
+        "save youtube thumbnails",
+        "youtube hd thumbnail"
+      ],
+      "metaTitleTranscript": "YouTube Transcript Generator — Download YouTube Transcripts with AI | DownForge",
+      "metaDescriptionTranscript": "Free YouTube transcript generator. Get accurate AI transcripts with timestamps. Download as SRT, VTT, TXT or JSON. No sign-up.",
+      "keywordsTranscript": [
+        "youtube transcript generator",
+        "download youtube transcripts",
+        "youtube subtitles downloader",
+        "youtube srt downloader",
+        "youtube transcript ai",
+        "save youtube transcript"
+      ]
     },
     "niconico": {
       "badge": "Niconico Downloader",
@@ -2976,7 +3370,27 @@
       ],
       "headingAll": "Download from Niconico",
       "headingAccentAll": "Video, Audio & More",
-      "subheadingAll": "All-in-one Niconico downloader. Download videos in HD, audio as MP3/FLAC, HD thumbnails & AI transcripts. Paste a link — no app, no sign-up."
+      "subheadingAll": "All-in-one Niconico downloader. Download videos in HD, audio as MP3/FLAC, HD thumbnails & AI transcripts. Paste a link — no app, no sign-up.",
+      "metaTitleThumbnail": "Niconico Thumbnail Downloader — Download Niconico Thumbnails in HD | DownForge",
+      "metaDescriptionThumbnail": "Free Niconico thumbnail downloader. Save Niconico video thumbnails in HD, JPG, PNG & WebP. No app, no sign-up.",
+      "keywordsThumbnail": [
+        "niconico thumbnail downloader",
+        "download niconico thumbnails",
+        "niconico thumbnail saver",
+        "niconico profile picture downloader",
+        "save niconico thumbnails",
+        "niconico hd thumbnail"
+      ],
+      "metaTitleTranscript": "Niconico Transcript Generator — Download Niconico Transcripts with AI | DownForge",
+      "metaDescriptionTranscript": "Free Niconico transcript generator. Get accurate AI transcripts with timestamps. Download as SRT, VTT, TXT or JSON. No sign-up.",
+      "keywordsTranscript": [
+        "niconico transcript generator",
+        "download niconico transcripts",
+        "niconico subtitles downloader",
+        "niconico srt downloader",
+        "niconico transcript ai",
+        "save niconico transcript"
+      ]
     }
   },
   "TranscriptLanguage": {

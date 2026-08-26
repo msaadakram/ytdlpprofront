@@ -341,7 +341,121 @@
       "fast": "< 3s",
       "free": "100% Kostenlos",
       "private": "Privat & sicher"
-    }
+    },
+    "thumbnailHeading": "{platform} Thumbnails herunterladen",
+    "transcriptHeading": "{platform} Transkripte generieren",
+    "thumbnailPreview": "Thumbnail-Vorschau",
+    "transcriptLanguageLabel": "Sprache:",
+    "featuresAudioLabel": "Audioformate",
+    "featuresAudioTitle": "Das Beste Audio-Extraktionstool",
+    "featuresAudioSubtitle": "Extrahiere hochwertiges Audio aus {platform}-Videos in jedem Format.",
+    "featuresThumbnailLabel": "Bildformate",
+    "featuresThumbnailTitle": "Das Beste Thumbnail-Downloadtool",
+    "featuresThumbnailSubtitle": "Speichere {platform} Thumbnails in jedem Format und Auflösung.",
+    "featuresTranscriptLabel": "Transkriptformate",
+    "featuresTranscriptTitle": "Der Beste Transkript-Generator",
+    "featuresTranscriptSubtitle": "Erzeuge präzise {platform}-Transkripte mit KI in jedem Format.",
+    "faqLabel": "FAQ",
+    "faqTitleAudio": "Fragen zum Audio-Download",
+    "faqTitleThumbnail": "Fragen zum Thumbnail-Download",
+    "faqTitleTranscript": "Fragen zur Transkript-Generierung",
+    "faqSubtitle": "Alles, was du über das Herunterladen von {platform} wissen musst.",
+    "featuresAudioItems": [
+      {
+        "label": "MP3 320 kbps",
+        "value": "Hohe Qualität",
+        "desc": "Lade Audio als MP3 in höchster Bitrate."
+      },
+      {
+        "label": "FLAC Verlustfrei",
+        "value": "Archivqualität",
+        "desc": "FLAC bewahrt jedes Detail ohne Verlust."
+      },
+      {
+        "label": "AAC 256 kbps",
+        "value": "Effizient",
+        "desc": "Effizienter Codec kleiner Größe ideal Apple."
+      },
+      {
+        "label": "WAV Unkomprimiert",
+        "value": "Studio",
+        "desc": "Unkomprimiert für professionelle Bearbeitung."
+      },
+      {
+        "label": "OGG 192 kbps",
+        "value": "Offenes Format",
+        "desc": "Freies Format effiziente Kompression breite Kompatibilität."
+      },
+      {
+        "label": "Schnelle Verarbeitung",
+        "value": "< 3 Sekunden",
+        "desc": "Serverseitige Konvertierung in Sekunden."
+      }
+    ],
+    "featuresThumbnailItems": [
+      {
+        "label": "Maximale Auflösung",
+        "value": "Full HD",
+        "desc": "Lade Thumbnails in Originalauflösung bis 1920×1080."
+      },
+      {
+        "label": "JPG Format",
+        "value": "Kompakt",
+        "desc": "Universelles Format große Kompression ideal Teilen."
+      },
+      {
+        "label": "PNG Format",
+        "value": "Verlustfrei",
+        "desc": "Perfekt für Screenshots Transparenz verlustfrei."
+      },
+      {
+        "label": "WebP Format",
+        "value": "Optimiert",
+        "desc": "Modernes Format überlegene Kompression bestes Web."
+      },
+      {
+        "label": "Sofort-Download",
+        "value": "Kein Warten",
+        "desc": "Thumbnails sofort — keine Warteschlange."
+      },
+      {
+        "label": "Kein Speicher",
+        "value": "Privat",
+        "desc": "Wir speichern keine Dateien."
+      }
+    ],
+    "featuresTranscriptItems": [
+      {
+        "label": "SRT Untertitel",
+        "value": "Zeitstempel",
+        "desc": "Standard Untertitelformat mit präzisen Zeitstempeln."
+      },
+      {
+        "label": "VTT WebVTT",
+        "value": "Web",
+        "desc": "Natives Web-Untertitelformat HTML5."
+      },
+      {
+        "label": "TXT Klartext",
+        "value": "Einfach",
+        "desc": "Sauberer Text ohne Zeitstempel für Notizen."
+      },
+      {
+        "label": "JSON Strukturiert",
+        "value": "Daten",
+        "desc": "Strukturierte Daten mit Zeitstempeln für API."
+      },
+      {
+        "label": "KI-Genauigkeit",
+        "value": "99%+",
+        "desc": "Fortschrittliche KI für menschliche Qualität."
+      },
+      {
+        "label": "Batch-Verarbeitung",
+        "value": "Playlists",
+        "desc": "Erzeuge Transkripte für ganze Playlists (Pro)."
+      }
+    ]
   },
   "VideoOnly": {
     "badge": "Video-Downloader",
@@ -707,7 +821,27 @@
       "headingAccentAll": "Video, Audio & Mehr",
       "subheadingAll": "All-in-One Facebook Downloader. Videos in HD, Audio MP3/FLAC, Thumbnails & Transkripte. Link einfügen — ohne App, ohne Anmeldung.",
       "metaTitleVideo": "Facebook Video Downloader — Facebook Videos in HD | DownForge",
-      "metaDescriptionVideo": "Kostenloser Facebook Video Downloader. Facebook-Videos in HD und 4K MP4 speichern. Ohne App, ohne Anmeldung — Link einfügen."
+      "metaDescriptionVideo": "Kostenloser Facebook Video Downloader. Facebook-Videos in HD und 4K MP4 speichern. Ohne App, ohne Anmeldung — Link einfügen.",
+      "metaTitleThumbnail": "Facebook Thumbnail Downloader — Thumbnails in HD herunterladen | DownForge",
+      "metaDescriptionThumbnail": "Kostenloser Facebook Thumbnail Downloader. Facebook-Thumbnails in HD, JPG, PNG & WebP speichern. Ohne App.",
+      "keywordsThumbnail": [
+        "facebook thumbnail downloader",
+        "facebook thumbnails herunterladen",
+        "facebook vorschaubild speichern",
+        "facebook thumbnail hd",
+        "facebook thumbnail de",
+        "facebook thumbnail de"
+      ],
+      "metaTitleTranscript": "Facebook Transkript Generator — Facebook Transkripte mit KI | DownForge",
+      "metaDescriptionTranscript": "Kostenloser Facebook Transkript Generator. Erhalte präzise KI-Transkripte mit Zeitstempeln. Download als SRT, VTT, TXT oder JSON.",
+      "keywordsTranscript": [
+        "facebook transkript generator",
+        "facebook transkripte herunterladen",
+        "facebook untertitel downloader",
+        "facebook transcript de",
+        "facebook transcript de",
+        "facebook transcript de"
+      ]
     },
     "instagram": {
       "badge": "Instagram Downloader",
@@ -846,7 +980,27 @@
       "headingAccentAll": "Video, Audio & Mehr",
       "subheadingAll": "All-in-One Instagram Downloader. Videos in HD, Audio MP3/FLAC, Thumbnails & Transkripte. Link einfügen — ohne App, ohne Anmeldung.",
       "metaTitleVideo": "Instagram Video Downloader — Reels & Stories in HD | DownForge",
-      "metaDescriptionVideo": "Kostenloser Instagram Downloader. Reels und Stories in HD MP4 speichern. Ohne App."
+      "metaDescriptionVideo": "Kostenloser Instagram Downloader. Reels und Stories in HD MP4 speichern. Ohne App.",
+      "metaTitleThumbnail": "Instagram Thumbnail Downloader — Thumbnails in HD herunterladen | DownForge",
+      "metaDescriptionThumbnail": "Kostenloser Instagram Thumbnail Downloader. Instagram-Thumbnails in HD, JPG, PNG & WebP speichern. Ohne App.",
+      "keywordsThumbnail": [
+        "instagram thumbnail downloader",
+        "instagram thumbnails herunterladen",
+        "instagram vorschaubild speichern",
+        "instagram thumbnail hd",
+        "instagram thumbnail de",
+        "instagram thumbnail de"
+      ],
+      "metaTitleTranscript": "Instagram Transkript Generator — Instagram Transkripte mit KI | DownForge",
+      "metaDescriptionTranscript": "Kostenloser Instagram Transkript Generator. Erhalte präzise KI-Transkripte mit Zeitstempeln. Download als SRT, VTT, TXT oder JSON.",
+      "keywordsTranscript": [
+        "instagram transkript generator",
+        "instagram transkripte herunterladen",
+        "instagram untertitel downloader",
+        "instagram transcript de",
+        "instagram transcript de",
+        "instagram transcript de"
+      ]
     },
     "tiktok": {
       "badge": "TikTok Downloader",
@@ -985,7 +1139,27 @@
       "headingAccentAll": "Video, Audio & Mehr",
       "subheadingAll": "All-in-One TikTok Downloader. Videos in HD, Audio MP3/FLAC, Thumbnails & Transkripte. Link einfügen — ohne App, ohne Anmeldung.",
       "metaTitleVideo": "TikTok Video Downloader — Ohne Wasserzeichen | DownForge",
-      "metaDescriptionVideo": "Kostenloser TikTok Downloader. TikTok Videos ohne Wasserzeichen in HD speichern. Ohne App."
+      "metaDescriptionVideo": "Kostenloser TikTok Downloader. TikTok Videos ohne Wasserzeichen in HD speichern. Ohne App.",
+      "metaTitleThumbnail": "TikTok Thumbnail Downloader — Thumbnails in HD herunterladen | DownForge",
+      "metaDescriptionThumbnail": "Kostenloser TikTok Thumbnail Downloader. TikTok-Thumbnails in HD, JPG, PNG & WebP speichern. Ohne App.",
+      "keywordsThumbnail": [
+        "tiktok thumbnail downloader",
+        "tiktok thumbnails herunterladen",
+        "tiktok vorschaubild speichern",
+        "tiktok thumbnail hd",
+        "tiktok thumbnail de",
+        "tiktok thumbnail de"
+      ],
+      "metaTitleTranscript": "TikTok Transkript Generator — TikTok Transkripte mit KI | DownForge",
+      "metaDescriptionTranscript": "Kostenloser TikTok Transkript Generator. Erhalte präzise KI-Transkripte mit Zeitstempeln. Download als SRT, VTT, TXT oder JSON.",
+      "keywordsTranscript": [
+        "tiktok transkript generator",
+        "tiktok transkripte herunterladen",
+        "tiktok untertitel downloader",
+        "tiktok transcript de",
+        "tiktok transcript de",
+        "tiktok transcript de"
+      ]
     },
     "twitter": {
       "badge": "Twitter Downloader",
@@ -1123,7 +1297,27 @@
       "headingAccentAll": "Video, Audio & Mehr",
       "subheadingAll": "All-in-One Twitter / X Downloader. Videos in HD, Audio MP3/FLAC, Thumbnails & Transkripte. Link einfügen — ohne App, ohne Anmeldung.",
       "metaTitleVideo": "Twitter Video Downloader — Videos & GIFs | DownForge",
-      "metaDescriptionVideo": "Kostenloser Twitter Video Downloader. Twitter-Videos in HD und 4K MP4 speichern. Ohne App, ohne Anmeldung — Link einfügen."
+      "metaDescriptionVideo": "Kostenloser Twitter Video Downloader. Twitter-Videos in HD und 4K MP4 speichern. Ohne App, ohne Anmeldung — Link einfügen.",
+      "metaTitleThumbnail": "Twitter Thumbnail Downloader — Thumbnails in HD herunterladen | DownForge",
+      "metaDescriptionThumbnail": "Kostenloser Twitter Thumbnail Downloader. Twitter-Thumbnails in HD, JPG, PNG & WebP speichern. Ohne App.",
+      "keywordsThumbnail": [
+        "twitter thumbnail downloader",
+        "twitter thumbnails herunterladen",
+        "twitter vorschaubild speichern",
+        "twitter thumbnail hd",
+        "twitter thumbnail de",
+        "twitter thumbnail de"
+      ],
+      "metaTitleTranscript": "Twitter Transkript Generator — Twitter Transkripte mit KI | DownForge",
+      "metaDescriptionTranscript": "Kostenloser Twitter Transkript Generator. Erhalte präzise KI-Transkripte mit Zeitstempeln. Download als SRT, VTT, TXT oder JSON.",
+      "keywordsTranscript": [
+        "twitter transkript generator",
+        "twitter transkripte herunterladen",
+        "twitter untertitel downloader",
+        "twitter transcript de",
+        "twitter transcript de",
+        "twitter transcript de"
+      ]
     },
     "vimeo": {
       "badge": "Vimeo Downloader",
@@ -1260,7 +1454,27 @@
       "headingAccentAll": "Video, Audio & Mehr",
       "subheadingAll": "All-in-One Vimeo Downloader. Videos in HD, Audio MP3/FLAC, Thumbnails & Transkripte. Link einfügen — ohne App, ohne Anmeldung.",
       "metaTitleVideo": "Vimeo Video Downloader — Vimeo Videos in HD | DownForge",
-      "metaDescriptionVideo": "Kostenloser Vimeo Video Downloader. Vimeo-Videos in HD und 4K MP4 speichern. Ohne App, ohne Anmeldung — Link einfügen."
+      "metaDescriptionVideo": "Kostenloser Vimeo Video Downloader. Vimeo-Videos in HD und 4K MP4 speichern. Ohne App, ohne Anmeldung — Link einfügen.",
+      "metaTitleThumbnail": "Vimeo Thumbnail Downloader — Thumbnails in HD herunterladen | DownForge",
+      "metaDescriptionThumbnail": "Kostenloser Vimeo Thumbnail Downloader. Vimeo-Thumbnails in HD, JPG, PNG & WebP speichern. Ohne App.",
+      "keywordsThumbnail": [
+        "vimeo thumbnail downloader",
+        "vimeo thumbnails herunterladen",
+        "vimeo vorschaubild speichern",
+        "vimeo thumbnail hd",
+        "vimeo thumbnail de",
+        "vimeo thumbnail de"
+      ],
+      "metaTitleTranscript": "Vimeo Transkript Generator — Vimeo Transkripte mit KI | DownForge",
+      "metaDescriptionTranscript": "Kostenloser Vimeo Transkript Generator. Erhalte präzise KI-Transkripte mit Zeitstempeln. Download als SRT, VTT, TXT oder JSON.",
+      "keywordsTranscript": [
+        "vimeo transkript generator",
+        "vimeo transkripte herunterladen",
+        "vimeo untertitel downloader",
+        "vimeo transcript de",
+        "vimeo transcript de",
+        "vimeo transcript de"
+      ]
     },
     "dailymotion": {
       "badge": "Dailymotion Downloader",
@@ -1394,7 +1608,27 @@
       "headingAccentAll": "Video, Audio & Mehr",
       "subheadingAll": "All-in-One Dailymotion Downloader. Videos in HD, Audio MP3/FLAC, Thumbnails & Transkripte. Link einfügen — ohne App, ohne Anmeldung.",
       "metaTitleVideo": "Dailymotion Video Downloader — Dailymotion Videos in HD | DownForge",
-      "metaDescriptionVideo": "Kostenloser Dailymotion Video Downloader. Dailymotion-Videos in HD und 4K MP4 speichern. Ohne App, ohne Anmeldung — Link einfügen."
+      "metaDescriptionVideo": "Kostenloser Dailymotion Video Downloader. Dailymotion-Videos in HD und 4K MP4 speichern. Ohne App, ohne Anmeldung — Link einfügen.",
+      "metaTitleThumbnail": "Dailymotion Thumbnail Downloader — Thumbnails in HD herunterladen | DownForge",
+      "metaDescriptionThumbnail": "Kostenloser Dailymotion Thumbnail Downloader. Dailymotion-Thumbnails in HD, JPG, PNG & WebP speichern. Ohne App.",
+      "keywordsThumbnail": [
+        "dailymotion thumbnail downloader",
+        "dailymotion thumbnails herunterladen",
+        "dailymotion vorschaubild speichern",
+        "dailymotion thumbnail hd",
+        "dailymotion thumbnail de",
+        "dailymotion thumbnail de"
+      ],
+      "metaTitleTranscript": "Dailymotion Transkript Generator — Dailymotion Transkripte mit KI | DownForge",
+      "metaDescriptionTranscript": "Kostenloser Dailymotion Transkript Generator. Erhalte präzise KI-Transkripte mit Zeitstempeln. Download als SRT, VTT, TXT oder JSON.",
+      "keywordsTranscript": [
+        "dailymotion transkript generator",
+        "dailymotion transkripte herunterladen",
+        "dailymotion untertitel downloader",
+        "dailymotion transcript de",
+        "dailymotion transcript de",
+        "dailymotion transcript de"
+      ]
     },
     "twitch": {
       "badge": "Twitch Downloader",
@@ -1531,7 +1765,27 @@
       "headingAccentAll": "Video, Audio & Mehr",
       "subheadingAll": "All-in-One Twitch Downloader. Videos in HD, Audio MP3/FLAC, Thumbnails & Transkripte. Link einfügen — ohne App, ohne Anmeldung.",
       "metaTitleVideo": "Twitch Video Downloader — Twitch Videos in HD | DownForge",
-      "metaDescriptionVideo": "Kostenloser Twitch Video Downloader. Twitch-Videos in HD und 4K MP4 speichern. Ohne App, ohne Anmeldung — Link einfügen."
+      "metaDescriptionVideo": "Kostenloser Twitch Video Downloader. Twitch-Videos in HD und 4K MP4 speichern. Ohne App, ohne Anmeldung — Link einfügen.",
+      "metaTitleThumbnail": "Twitch Thumbnail Downloader — Thumbnails in HD herunterladen | DownForge",
+      "metaDescriptionThumbnail": "Kostenloser Twitch Thumbnail Downloader. Twitch-Thumbnails in HD, JPG, PNG & WebP speichern. Ohne App.",
+      "keywordsThumbnail": [
+        "twitch thumbnail downloader",
+        "twitch thumbnails herunterladen",
+        "twitch vorschaubild speichern",
+        "twitch thumbnail hd",
+        "twitch thumbnail de",
+        "twitch thumbnail de"
+      ],
+      "metaTitleTranscript": "Twitch Transkript Generator — Twitch Transkripte mit KI | DownForge",
+      "metaDescriptionTranscript": "Kostenloser Twitch Transkript Generator. Erhalte präzise KI-Transkripte mit Zeitstempeln. Download als SRT, VTT, TXT oder JSON.",
+      "keywordsTranscript": [
+        "twitch transkript generator",
+        "twitch transkripte herunterladen",
+        "twitch untertitel downloader",
+        "twitch transcript de",
+        "twitch transcript de",
+        "twitch transcript de"
+      ]
     },
     "reddit": {
       "badge": "Reddit Downloader",
@@ -1666,7 +1920,27 @@
       "headingAccentAll": "Video, Audio & Mehr",
       "subheadingAll": "All-in-One Reddit Downloader. Videos in HD, Audio MP3/FLAC, Thumbnails & Transkripte. Link einfügen — ohne App, ohne Anmeldung.",
       "metaTitleVideo": "Reddit Video Downloader — Reddit Videos in HD | DownForge",
-      "metaDescriptionVideo": "Kostenloser Reddit Video Downloader. Reddit-Videos in HD und 4K MP4 speichern. Ohne App, ohne Anmeldung — Link einfügen."
+      "metaDescriptionVideo": "Kostenloser Reddit Video Downloader. Reddit-Videos in HD und 4K MP4 speichern. Ohne App, ohne Anmeldung — Link einfügen.",
+      "metaTitleThumbnail": "Reddit Thumbnail Downloader — Thumbnails in HD herunterladen | DownForge",
+      "metaDescriptionThumbnail": "Kostenloser Reddit Thumbnail Downloader. Reddit-Thumbnails in HD, JPG, PNG & WebP speichern. Ohne App.",
+      "keywordsThumbnail": [
+        "reddit thumbnail downloader",
+        "reddit thumbnails herunterladen",
+        "reddit vorschaubild speichern",
+        "reddit thumbnail hd",
+        "reddit thumbnail de",
+        "reddit thumbnail de"
+      ],
+      "metaTitleTranscript": "Reddit Transkript Generator — Reddit Transkripte mit KI | DownForge",
+      "metaDescriptionTranscript": "Kostenloser Reddit Transkript Generator. Erhalte präzise KI-Transkripte mit Zeitstempeln. Download als SRT, VTT, TXT oder JSON.",
+      "keywordsTranscript": [
+        "reddit transkript generator",
+        "reddit transkripte herunterladen",
+        "reddit untertitel downloader",
+        "reddit transcript de",
+        "reddit transcript de",
+        "reddit transcript de"
+      ]
     },
     "pinterest": {
       "badge": "Pinterest Downloader",
@@ -1800,7 +2074,27 @@
       "headingAccentAll": "Video, Audio & Mehr",
       "subheadingAll": "All-in-One Pinterest Downloader. Videos in HD, Audio MP3/FLAC, Thumbnails & Transkripte. Link einfügen — ohne App, ohne Anmeldung.",
       "metaTitleVideo": "Pinterest Video Downloader — Pinterest Videos in HD | DownForge",
-      "metaDescriptionVideo": "Kostenloser Pinterest Video Downloader. Pinterest-Videos in HD und 4K MP4 speichern. Ohne App, ohne Anmeldung — Link einfügen."
+      "metaDescriptionVideo": "Kostenloser Pinterest Video Downloader. Pinterest-Videos in HD und 4K MP4 speichern. Ohne App, ohne Anmeldung — Link einfügen.",
+      "metaTitleThumbnail": "Pinterest Thumbnail Downloader — Thumbnails in HD herunterladen | DownForge",
+      "metaDescriptionThumbnail": "Kostenloser Pinterest Thumbnail Downloader. Pinterest-Thumbnails in HD, JPG, PNG & WebP speichern. Ohne App.",
+      "keywordsThumbnail": [
+        "pinterest thumbnail downloader",
+        "pinterest thumbnails herunterladen",
+        "pinterest vorschaubild speichern",
+        "pinterest thumbnail hd",
+        "pinterest thumbnail de",
+        "pinterest thumbnail de"
+      ],
+      "metaTitleTranscript": "Pinterest Transkript Generator — Pinterest Transkripte mit KI | DownForge",
+      "metaDescriptionTranscript": "Kostenloser Pinterest Transkript Generator. Erhalte präzise KI-Transkripte mit Zeitstempeln. Download als SRT, VTT, TXT oder JSON.",
+      "keywordsTranscript": [
+        "pinterest transkript generator",
+        "pinterest transkripte herunterladen",
+        "pinterest untertitel downloader",
+        "pinterest transcript de",
+        "pinterest transcript de",
+        "pinterest transcript de"
+      ]
     },
     "linkedin": {
       "badge": "LinkedIn Downloader",
@@ -1933,7 +2227,27 @@
       "headingAccentAll": "Video, Audio & Mehr",
       "subheadingAll": "All-in-One LinkedIn Downloader. Videos in HD, Audio MP3/FLAC, Thumbnails & Transkripte. Link einfügen — ohne App, ohne Anmeldung.",
       "metaTitleVideo": "LinkedIn Video Downloader — LinkedIn Videos in HD | DownForge",
-      "metaDescriptionVideo": "Kostenloser LinkedIn Video Downloader. LinkedIn-Videos in HD und 4K MP4 speichern. Ohne App, ohne Anmeldung — Link einfügen."
+      "metaDescriptionVideo": "Kostenloser LinkedIn Video Downloader. LinkedIn-Videos in HD und 4K MP4 speichern. Ohne App, ohne Anmeldung — Link einfügen.",
+      "metaTitleThumbnail": "LinkedIn Thumbnail Downloader — Thumbnails in HD herunterladen | DownForge",
+      "metaDescriptionThumbnail": "Kostenloser LinkedIn Thumbnail Downloader. LinkedIn-Thumbnails in HD, JPG, PNG & WebP speichern. Ohne App.",
+      "keywordsThumbnail": [
+        "linkedin thumbnail downloader",
+        "linkedin thumbnails herunterladen",
+        "linkedin vorschaubild speichern",
+        "linkedin thumbnail hd",
+        "linkedin thumbnail de",
+        "linkedin thumbnail de"
+      ],
+      "metaTitleTranscript": "LinkedIn Transkript Generator — LinkedIn Transkripte mit KI | DownForge",
+      "metaDescriptionTranscript": "Kostenloser LinkedIn Transkript Generator. Erhalte präzise KI-Transkripte mit Zeitstempeln. Download als SRT, VTT, TXT oder JSON.",
+      "keywordsTranscript": [
+        "linkedin transkript generator",
+        "linkedin transkripte herunterladen",
+        "linkedin untertitel downloader",
+        "linkedin transcript de",
+        "linkedin transcript de",
+        "linkedin transcript de"
+      ]
     },
     "snapchat": {
       "badge": "Snapchat Downloader",
@@ -2066,7 +2380,27 @@
       "headingAccentAll": "Video, Audio & Mehr",
       "subheadingAll": "All-in-One Snapchat Downloader. Videos in HD, Audio MP3/FLAC, Thumbnails & Transkripte. Link einfügen — ohne App, ohne Anmeldung.",
       "metaTitleVideo": "Snapchat Video Downloader — Snapchat Videos in HD | DownForge",
-      "metaDescriptionVideo": "Kostenloser Snapchat Video Downloader. Snapchat-Videos in HD und 4K MP4 speichern. Ohne App, ohne Anmeldung — Link einfügen."
+      "metaDescriptionVideo": "Kostenloser Snapchat Video Downloader. Snapchat-Videos in HD und 4K MP4 speichern. Ohne App, ohne Anmeldung — Link einfügen.",
+      "metaTitleThumbnail": "Snapchat Thumbnail Downloader — Thumbnails in HD herunterladen | DownForge",
+      "metaDescriptionThumbnail": "Kostenloser Snapchat Thumbnail Downloader. Snapchat-Thumbnails in HD, JPG, PNG & WebP speichern. Ohne App.",
+      "keywordsThumbnail": [
+        "snapchat thumbnail downloader",
+        "snapchat thumbnails herunterladen",
+        "snapchat vorschaubild speichern",
+        "snapchat thumbnail hd",
+        "snapchat thumbnail de",
+        "snapchat thumbnail de"
+      ],
+      "metaTitleTranscript": "Snapchat Transkript Generator — Snapchat Transkripte mit KI | DownForge",
+      "metaDescriptionTranscript": "Kostenloser Snapchat Transkript Generator. Erhalte präzise KI-Transkripte mit Zeitstempeln. Download als SRT, VTT, TXT oder JSON.",
+      "keywordsTranscript": [
+        "snapchat transkript generator",
+        "snapchat transkripte herunterladen",
+        "snapchat untertitel downloader",
+        "snapchat transcript de",
+        "snapchat transcript de",
+        "snapchat transcript de"
+      ]
     },
     "soundcloud": {
       "badge": "SoundCloud Downloader",
@@ -2207,7 +2541,27 @@
       "headingAccentAll": "Video, Audio & Mehr",
       "subheadingAll": "All-in-One SoundCloud Downloader. Tracks als MP3 320kbps & FLAC, Videos, Thumbnails & Transkripte. Link einfügen — ohne Anmeldung.",
       "metaTitleVideo": "SoundCloud Video Downloader — SoundCloud Videos in HD | DownForge",
-      "metaDescriptionVideo": "Kostenloser SoundCloud Video Downloader. SoundCloud-Videos in HD und 4K MP4 speichern. Ohne App, ohne Anmeldung — Link einfügen."
+      "metaDescriptionVideo": "Kostenloser SoundCloud Video Downloader. SoundCloud-Videos in HD und 4K MP4 speichern. Ohne App, ohne Anmeldung — Link einfügen.",
+      "metaTitleThumbnail": "SoundCloud Thumbnail Downloader — Thumbnails in HD herunterladen | DownForge",
+      "metaDescriptionThumbnail": "Kostenloser SoundCloud Thumbnail Downloader. SoundCloud-Thumbnails in HD, JPG, PNG & WebP speichern. Ohne App.",
+      "keywordsThumbnail": [
+        "soundcloud thumbnail downloader",
+        "soundcloud thumbnails herunterladen",
+        "soundcloud vorschaubild speichern",
+        "soundcloud thumbnail hd",
+        "soundcloud thumbnail de",
+        "soundcloud thumbnail de"
+      ],
+      "metaTitleTranscript": "SoundCloud Transkript Generator — SoundCloud Transkripte mit KI | DownForge",
+      "metaDescriptionTranscript": "Kostenloser SoundCloud Transkript Generator. Erhalte präzise KI-Transkripte mit Zeitstempeln. Download als SRT, VTT, TXT oder JSON.",
+      "keywordsTranscript": [
+        "soundcloud transkript generator",
+        "soundcloud transkripte herunterladen",
+        "soundcloud untertitel downloader",
+        "soundcloud transcript de",
+        "soundcloud transcript de",
+        "soundcloud transcript de"
+      ]
     },
     "kick": {
       "badge": "Kick Downloader",
@@ -2341,7 +2695,27 @@
       "headingAccentAll": "Video, Audio & Mehr",
       "subheadingAll": "All-in-One Kick Downloader. Videos in HD, Audio MP3/FLAC, Thumbnails & Transkripte. Link einfügen — ohne App, ohne Anmeldung.",
       "metaTitleVideo": "Kick Video Downloader — Kick Videos in HD | DownForge",
-      "metaDescriptionVideo": "Kostenloser Kick Video Downloader. Kick-Videos in HD und 4K MP4 speichern. Ohne App, ohne Anmeldung — Link einfügen."
+      "metaDescriptionVideo": "Kostenloser Kick Video Downloader. Kick-Videos in HD und 4K MP4 speichern. Ohne App, ohne Anmeldung — Link einfügen.",
+      "metaTitleThumbnail": "Kick Thumbnail Downloader — Thumbnails in HD herunterladen | DownForge",
+      "metaDescriptionThumbnail": "Kostenloser Kick Thumbnail Downloader. Kick-Thumbnails in HD, JPG, PNG & WebP speichern. Ohne App.",
+      "keywordsThumbnail": [
+        "kick thumbnail downloader",
+        "kick thumbnails herunterladen",
+        "kick vorschaubild speichern",
+        "kick thumbnail hd",
+        "kick thumbnail de",
+        "kick thumbnail de"
+      ],
+      "metaTitleTranscript": "Kick Transkript Generator — Kick Transkripte mit KI | DownForge",
+      "metaDescriptionTranscript": "Kostenloser Kick Transkript Generator. Erhalte präzise KI-Transkripte mit Zeitstempeln. Download als SRT, VTT, TXT oder JSON.",
+      "keywordsTranscript": [
+        "kick transkript generator",
+        "kick transkripte herunterladen",
+        "kick untertitel downloader",
+        "kick transcript de",
+        "kick transcript de",
+        "kick transcript de"
+      ]
     },
     "youtube": {
       "badge": "YouTube Downloader",
@@ -2492,7 +2866,27 @@
       ],
       "headingAll": "Von YouTube herunterladen",
       "headingAccentAll": "Video, Audio & Mehr",
-      "subheadingAll": "All-in-One YouTube Downloader. Videos in 4K & 1080p, Audio MP3 320kbps & FLAC, HD-Thumbnails & KI-Transkripte (SRT/VTT/TXT/JSON). Link einfügen — ohne App, ohne Anmeldung. Android, iPhone & PC."
+      "subheadingAll": "All-in-One YouTube Downloader. Videos in 4K & 1080p, Audio MP3 320kbps & FLAC, HD-Thumbnails & KI-Transkripte (SRT/VTT/TXT/JSON). Link einfügen — ohne App, ohne Anmeldung. Android, iPhone & PC.",
+      "metaTitleThumbnail": "YouTube Thumbnail Downloader — Thumbnails in HD herunterladen | DownForge",
+      "metaDescriptionThumbnail": "Kostenloser YouTube Thumbnail Downloader. YouTube-Thumbnails in HD, JPG, PNG & WebP speichern. Ohne App.",
+      "keywordsThumbnail": [
+        "youtube thumbnail downloader",
+        "youtube thumbnails herunterladen",
+        "youtube vorschaubild speichern",
+        "youtube thumbnail hd",
+        "youtube thumbnail de",
+        "youtube thumbnail de"
+      ],
+      "metaTitleTranscript": "YouTube Transkript Generator — YouTube Transkripte mit KI | DownForge",
+      "metaDescriptionTranscript": "Kostenloser YouTube Transkript Generator. Erhalte präzise KI-Transkripte mit Zeitstempeln. Download als SRT, VTT, TXT oder JSON.",
+      "keywordsTranscript": [
+        "youtube transkript generator",
+        "youtube transkripte herunterladen",
+        "youtube untertitel downloader",
+        "youtube transcript de",
+        "youtube transcript de",
+        "youtube transcript de"
+      ]
     },
     "niconico": {
       "badge": "Niconico Downloader",
@@ -2627,7 +3021,27 @@
       "headingAccentAll": "Video, Audio & Mehr",
       "subheadingAll": "All-in-One Niconico Downloader. Videos in HD, Audio MP3/FLAC, Thumbnails & Transkripte. Link einfügen — ohne App, ohne Anmeldung.",
       "metaTitleVideo": "Niconico Video Downloader — Niconico Videos in HD | DownForge",
-      "metaDescriptionVideo": "Kostenloser Niconico Video Downloader. Niconico-Videos in HD und 4K MP4 speichern. Ohne App, ohne Anmeldung — Link einfügen."
+      "metaDescriptionVideo": "Kostenloser Niconico Video Downloader. Niconico-Videos in HD und 4K MP4 speichern. Ohne App, ohne Anmeldung — Link einfügen.",
+      "metaTitleThumbnail": "Niconico Thumbnail Downloader — Thumbnails in HD herunterladen | DownForge",
+      "metaDescriptionThumbnail": "Kostenloser Niconico Thumbnail Downloader. Niconico-Thumbnails in HD, JPG, PNG & WebP speichern. Ohne App.",
+      "keywordsThumbnail": [
+        "niconico thumbnail downloader",
+        "niconico thumbnails herunterladen",
+        "niconico vorschaubild speichern",
+        "niconico thumbnail hd",
+        "niconico thumbnail de",
+        "niconico thumbnail de"
+      ],
+      "metaTitleTranscript": "Niconico Transkript Generator — Niconico Transkripte mit KI | DownForge",
+      "metaDescriptionTranscript": "Kostenloser Niconico Transkript Generator. Erhalte präzise KI-Transkripte mit Zeitstempeln. Download als SRT, VTT, TXT oder JSON.",
+      "keywordsTranscript": [
+        "niconico transkript generator",
+        "niconico transkripte herunterladen",
+        "niconico untertitel downloader",
+        "niconico transcript de",
+        "niconico transcript de",
+        "niconico transcript de"
+      ]
     }
   },
   "YoutubeHero": {

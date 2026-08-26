@@ -341,7 +341,121 @@
       "fast": "< 3ث",
       "free": "مجاني 100%",
       "private": "آمن وخاص"
-    }
+    },
+    "thumbnailHeading": "تحميل الصور المصغرة من {platform}",
+    "transcriptHeading": "إنشاء نصوص {platform}",
+    "thumbnailPreview": "معاينة الصورة المصغرة",
+    "transcriptLanguageLabel": "اللغة:",
+    "featuresAudioLabel": "صيغ الصوت",
+    "featuresAudioTitle": "أفضل أداة استخراج الصوت",
+    "featuresAudioSubtitle": "استخرج صوت عالي الجودة من فيديوهات {platform} بكل صيغة تحتاجها.",
+    "featuresThumbnailLabel": "صيغ الصور",
+    "featuresThumbnailTitle": "أفضل أداة تحميل الصور المصغرة",
+    "featuresThumbnailSubtitle": "احفظ الصور المصغرة لفيديوهات {platform} بكل صيغة ودقة.",
+    "featuresTranscriptLabel": "صيغ النصوص",
+    "featuresTranscriptTitle": "أفضل مولد النصوص",
+    "featuresTranscriptSubtitle": "أنشئ نصوص {platform} دقيقة بالذكاء الاصطناعي بكل صيغة.",
+    "faqLabel": "الأسئلة الشائعة",
+    "faqTitleAudio": "أسئلة تحميل الصوت",
+    "faqTitleThumbnail": "أسئلة تحميل الصور المصغرة",
+    "faqTitleTranscript": "أسئلة إنشاء النصوص",
+    "faqSubtitle": "كل ما تحتاج معرفته حول التحميل من {platform}.",
+    "featuresAudioItems": [
+      {
+        "label": "MP3 320 kbps",
+        "value": "جودة عالية",
+        "desc": "حمّل صوت MP3 نقي بأعلى معدل."
+      },
+      {
+        "label": "FLAC بدون فقدان",
+        "value": "جودة أرشيف",
+        "desc": "FLAC يحفظ كل تفاصيل الصوت الأصلي."
+      },
+      {
+        "label": "AAC 256 kbps",
+        "value": "فعال",
+        "desc": "ترميز متقدم جودة ممتازة حجم أصغر مثالي Apple."
+      },
+      {
+        "label": "WAV غير مضغوط",
+        "value": "درجة استوديو",
+        "desc": "صوت غير مضغوط للتحرير الاحترافي."
+      },
+      {
+        "label": "OGG 192 kbps",
+        "value": "صيغة مفتوحة",
+        "desc": "صيغة حرة ضغط فعال توافق واسع."
+      },
+      {
+        "label": "معالجة سريعة",
+        "value": "< 3 ثوانٍ",
+        "desc": "تحويل من جانب الخادم يسلم الملف في ثوانٍ."
+      }
+    ],
+    "featuresThumbnailItems": [
+      {
+        "label": "الدقة القصوى",
+        "value": "Full HD",
+        "desc": "حمّل الصور المصغرة بدقتها الأصلية حتى 1920×1080."
+      },
+      {
+        "label": "صيغة JPG",
+        "value": "مدمج",
+        "desc": "صيغة صور عالمية ضغط رائع مثالي للمشاركة."
+      },
+      {
+        "label": "صيغة PNG",
+        "value": "بدون فقدان",
+        "desc": "مثالي للقطات والشفافية بدون فقدان."
+      },
+      {
+        "label": "صيغة WebP",
+        "value": "محسن",
+        "desc": "صيغة صور حديثة ضغط ممتاز أفضل للويب."
+      },
+      {
+        "label": "تحميل فوري",
+        "value": "بدون انتظار",
+        "desc": "الصور المصغرة تحمل فوراً بدون طابور."
+      },
+      {
+        "label": "صفر تخزين",
+        "value": "خاص",
+        "desc": "لا نخزن أي ملفات."
+      }
+    ],
+    "featuresTranscriptItems": [
+      {
+        "label": "ترجمات SRT",
+        "value": "طوابع زمنية",
+        "desc": "صيغة ترجمة قياسية بطوابع دقيقة."
+      },
+      {
+        "label": "VTT WebVTT",
+        "value": "صيغة ويب",
+        "desc": "صيغة ترجمة ويب أصلية HTML5."
+      },
+      {
+        "label": "نص TXT",
+        "value": "بسيط",
+        "desc": "نص نظيف بدون طوابع للملاحظات."
+      },
+      {
+        "label": "JSON منظم",
+        "value": "جاهز للبيانات",
+        "desc": "بيانات منظمة بطوابع للمطورين و API."
+      },
+      {
+        "label": "دقة AI",
+        "value": "99%+",
+        "desc": "تعرف صوتي AI متقدم لدقة بشرية."
+      },
+      {
+        "label": "معالجة دفعات",
+        "value": "قوائم",
+        "desc": "أنشئ نصوص لقوائم كاملة بنقرة (Pro)."
+      }
+    ]
   },
   "VideoOnly": {
     "badge": "أداة تحميل الفيديو",
@@ -707,7 +821,27 @@
       "headingAccentAll": "فيديو، صوت والمزيد",
       "subheadingAll": "محمّل Facebook شامل. حمّل فيديوهات HD، صوت MP3/FLAC، مصغّرات HD ونصوص ذكية. الصق رابطًا — بدون تطبيق، بدون تسجيل.",
       "metaTitleVideo": "أداة تحميل فيديو Facebook — حمّل بجودة HD | DownForge",
-      "metaDescriptionVideo": "أداة تحميل فيديو Facebook المجانية. احفظ فيديوهات Facebook بجودة HD و4K MP4. بدون تطبيق، بدون تسجيل — الصق الرابط."
+      "metaDescriptionVideo": "أداة تحميل فيديو Facebook المجانية. احفظ فيديوهات Facebook بجودة HD و4K MP4. بدون تطبيق، بدون تسجيل — الصق الرابط.",
+      "metaTitleThumbnail": "أداة تحميل الصور المصغرة Facebook — تحميل بدقة HD | DownForge",
+      "metaDescriptionThumbnail": "أداة تحميل الصور المصغرة Facebook المجانية. احفظ صور Facebook المصغرة بجودة HD وJPG وPNG وWebP. بدون تطبيق.",
+      "keywordsThumbnail": [
+        "تحميل الصور المصغرة facebook",
+        "تنزيل مصغرات facebook",
+        "حفظ صور facebook",
+        "facebook thumbnail hd",
+        "facebook thumbnail ar",
+        "facebook thumbnail ar"
+      ],
+      "metaTitleTranscript": "مولد النصوص Facebook — إنشاء نصوص بالذكاء الاصطناعي | DownForge",
+      "metaDescriptionTranscript": "مولد النصوص Facebook المجاني. احصل على نصوص AI دقيقة مع طوابع زمنية. حمّل بصيغ SRT وVTT وTXT وJSON.",
+      "keywordsTranscript": [
+        "مولد النصوص facebook",
+        "تحميل نصوص facebook",
+        "facebook ترجمة نصية",
+        "facebook srt",
+        "facebook transcript ar",
+        "facebook transcript ar"
+      ]
     },
     "instagram": {
       "badge": "أداة تحميل Instagram",
@@ -846,7 +980,27 @@
       "headingAccentAll": "فيديو، صوت والمزيد",
       "subheadingAll": "محمّل Instagram شامل. حمّل فيديوهات HD، صوت MP3/FLAC، مصغّرات HD ونصوص ذكية. الصق رابطًا — بدون تطبيق، بدون تسجيل.",
       "metaTitleVideo": "تحميل فيديو Instagram — Reels و Stories بجودة HD | DownForge",
-      "metaDescriptionVideo": "أداة تحميل Instagram المجانية. احفظ Reels وStories بجودة HD MP4. بدون تطبيق."
+      "metaDescriptionVideo": "أداة تحميل Instagram المجانية. احفظ Reels وStories بجودة HD MP4. بدون تطبيق.",
+      "metaTitleThumbnail": "أداة تحميل الصور المصغرة Instagram — تحميل بدقة HD | DownForge",
+      "metaDescriptionThumbnail": "أداة تحميل الصور المصغرة Instagram المجانية. احفظ صور Instagram المصغرة بجودة HD وJPG وPNG وWebP. بدون تطبيق.",
+      "keywordsThumbnail": [
+        "تحميل الصور المصغرة instagram",
+        "تنزيل مصغرات instagram",
+        "حفظ صور instagram",
+        "instagram thumbnail hd",
+        "instagram thumbnail ar",
+        "instagram thumbnail ar"
+      ],
+      "metaTitleTranscript": "مولد النصوص Instagram — إنشاء نصوص بالذكاء الاصطناعي | DownForge",
+      "metaDescriptionTranscript": "مولد النصوص Instagram المجاني. احصل على نصوص AI دقيقة مع طوابع زمنية. حمّل بصيغ SRT وVTT وTXT وJSON.",
+      "keywordsTranscript": [
+        "مولد النصوص instagram",
+        "تحميل نصوص instagram",
+        "instagram ترجمة نصية",
+        "instagram srt",
+        "instagram transcript ar",
+        "instagram transcript ar"
+      ]
     },
     "tiktok": {
       "badge": "أداة تحميل TikTok",
@@ -985,7 +1139,27 @@
       "headingAccentAll": "فيديو، صوت والمزيد",
       "subheadingAll": "محمّل TikTok شامل. حمّل فيديوهات HD، صوت MP3/FLAC، مصغّرات HD ونصوص ذكية. الصق رابطًا — بدون تطبيق، بدون تسجيل.",
       "metaTitleVideo": "تحميل فيديو TikTok — بدون علامة مائية | DownForge",
-      "metaDescriptionVideo": "أداة تحميل TikTok المجانية. حمّل فيديوهات TikTok بدون علامة مائية بجودة HD. بدون تطبيق."
+      "metaDescriptionVideo": "أداة تحميل TikTok المجانية. حمّل فيديوهات TikTok بدون علامة مائية بجودة HD. بدون تطبيق.",
+      "metaTitleThumbnail": "أداة تحميل الصور المصغرة TikTok — تحميل بدقة HD | DownForge",
+      "metaDescriptionThumbnail": "أداة تحميل الصور المصغرة TikTok المجانية. احفظ صور TikTok المصغرة بجودة HD وJPG وPNG وWebP. بدون تطبيق.",
+      "keywordsThumbnail": [
+        "تحميل الصور المصغرة tiktok",
+        "تنزيل مصغرات tiktok",
+        "حفظ صور tiktok",
+        "tiktok thumbnail hd",
+        "tiktok thumbnail ar",
+        "tiktok thumbnail ar"
+      ],
+      "metaTitleTranscript": "مولد النصوص TikTok — إنشاء نصوص بالذكاء الاصطناعي | DownForge",
+      "metaDescriptionTranscript": "مولد النصوص TikTok المجاني. احصل على نصوص AI دقيقة مع طوابع زمنية. حمّل بصيغ SRT وVTT وTXT وJSON.",
+      "keywordsTranscript": [
+        "مولد النصوص tiktok",
+        "تحميل نصوص tiktok",
+        "tiktok ترجمة نصية",
+        "tiktok srt",
+        "tiktok transcript ar",
+        "tiktok transcript ar"
+      ]
     },
     "twitter": {
       "badge": "أداة تحميل Twitter",
@@ -1123,7 +1297,27 @@
       "headingAccentAll": "فيديو، صوت والمزيد",
       "subheadingAll": "محمّل Twitter / X شامل. حمّل فيديوهات HD، صوت MP3/FLAC، مصغّرات HD ونصوص ذكية. الصق رابطًا — بدون تطبيق، بدون تسجيل.",
       "metaTitleVideo": "تحميل فيديو Twitter — فيديوهات و GIF | DownForge",
-      "metaDescriptionVideo": "أداة تحميل فيديو Twitter المجانية. احفظ فيديوهات Twitter بجودة HD و4K MP4. بدون تطبيق، بدون تسجيل — الصق الرابط."
+      "metaDescriptionVideo": "أداة تحميل فيديو Twitter المجانية. احفظ فيديوهات Twitter بجودة HD و4K MP4. بدون تطبيق، بدون تسجيل — الصق الرابط.",
+      "metaTitleThumbnail": "أداة تحميل الصور المصغرة Twitter — تحميل بدقة HD | DownForge",
+      "metaDescriptionThumbnail": "أداة تحميل الصور المصغرة Twitter المجانية. احفظ صور Twitter المصغرة بجودة HD وJPG وPNG وWebP. بدون تطبيق.",
+      "keywordsThumbnail": [
+        "تحميل الصور المصغرة twitter",
+        "تنزيل مصغرات twitter",
+        "حفظ صور twitter",
+        "twitter thumbnail hd",
+        "twitter thumbnail ar",
+        "twitter thumbnail ar"
+      ],
+      "metaTitleTranscript": "مولد النصوص Twitter — إنشاء نصوص بالذكاء الاصطناعي | DownForge",
+      "metaDescriptionTranscript": "مولد النصوص Twitter المجاني. احصل على نصوص AI دقيقة مع طوابع زمنية. حمّل بصيغ SRT وVTT وTXT وJSON.",
+      "keywordsTranscript": [
+        "مولد النصوص twitter",
+        "تحميل نصوص twitter",
+        "twitter ترجمة نصية",
+        "twitter srt",
+        "twitter transcript ar",
+        "twitter transcript ar"
+      ]
     },
     "vimeo": {
       "badge": "أداة تحميل Vimeo",
@@ -1260,7 +1454,27 @@
       "headingAccentAll": "فيديو، صوت والمزيد",
       "subheadingAll": "محمّل Vimeo شامل. حمّل فيديوهات HD، صوت MP3/FLAC، مصغّرات HD ونصوص ذكية. الصق رابطًا — بدون تطبيق، بدون تسجيل.",
       "metaTitleVideo": "أداة تحميل فيديو Vimeo — حمّل بجودة HD | DownForge",
-      "metaDescriptionVideo": "أداة تحميل فيديو Vimeo المجانية. احفظ فيديوهات Vimeo بجودة HD و4K MP4. بدون تطبيق، بدون تسجيل — الصق الرابط."
+      "metaDescriptionVideo": "أداة تحميل فيديو Vimeo المجانية. احفظ فيديوهات Vimeo بجودة HD و4K MP4. بدون تطبيق، بدون تسجيل — الصق الرابط.",
+      "metaTitleThumbnail": "أداة تحميل الصور المصغرة Vimeo — تحميل بدقة HD | DownForge",
+      "metaDescriptionThumbnail": "أداة تحميل الصور المصغرة Vimeo المجانية. احفظ صور Vimeo المصغرة بجودة HD وJPG وPNG وWebP. بدون تطبيق.",
+      "keywordsThumbnail": [
+        "تحميل الصور المصغرة vimeo",
+        "تنزيل مصغرات vimeo",
+        "حفظ صور vimeo",
+        "vimeo thumbnail hd",
+        "vimeo thumbnail ar",
+        "vimeo thumbnail ar"
+      ],
+      "metaTitleTranscript": "مولد النصوص Vimeo — إنشاء نصوص بالذكاء الاصطناعي | DownForge",
+      "metaDescriptionTranscript": "مولد النصوص Vimeo المجاني. احصل على نصوص AI دقيقة مع طوابع زمنية. حمّل بصيغ SRT وVTT وTXT وJSON.",
+      "keywordsTranscript": [
+        "مولد النصوص vimeo",
+        "تحميل نصوص vimeo",
+        "vimeo ترجمة نصية",
+        "vimeo srt",
+        "vimeo transcript ar",
+        "vimeo transcript ar"
+      ]
     },
     "dailymotion": {
       "badge": "أداة تحميل Dailymotion",
@@ -1394,7 +1608,27 @@
       "headingAccentAll": "فيديو، صوت والمزيد",
       "subheadingAll": "محمّل Dailymotion شامل. حمّل فيديوهات HD، صوت MP3/FLAC، مصغّرات HD ونصوص ذكية. الصق رابطًا — بدون تطبيق، بدون تسجيل.",
       "metaTitleVideo": "أداة تحميل فيديو Dailymotion — حمّل بجودة HD | DownForge",
-      "metaDescriptionVideo": "أداة تحميل فيديو Dailymotion المجانية. احفظ فيديوهات Dailymotion بجودة HD و4K MP4. بدون تطبيق، بدون تسجيل — الصق الرابط."
+      "metaDescriptionVideo": "أداة تحميل فيديو Dailymotion المجانية. احفظ فيديوهات Dailymotion بجودة HD و4K MP4. بدون تطبيق، بدون تسجيل — الصق الرابط.",
+      "metaTitleThumbnail": "أداة تحميل الصور المصغرة Dailymotion — تحميل بدقة HD | DownForge",
+      "metaDescriptionThumbnail": "أداة تحميل الصور المصغرة Dailymotion المجانية. احفظ صور Dailymotion المصغرة بجودة HD وJPG وPNG وWebP. بدون تطبيق.",
+      "keywordsThumbnail": [
+        "تحميل الصور المصغرة dailymotion",
+        "تنزيل مصغرات dailymotion",
+        "حفظ صور dailymotion",
+        "dailymotion thumbnail hd",
+        "dailymotion thumbnail ar",
+        "dailymotion thumbnail ar"
+      ],
+      "metaTitleTranscript": "مولد النصوص Dailymotion — إنشاء نصوص بالذكاء الاصطناعي | DownForge",
+      "metaDescriptionTranscript": "مولد النصوص Dailymotion المجاني. احصل على نصوص AI دقيقة مع طوابع زمنية. حمّل بصيغ SRT وVTT وTXT وJSON.",
+      "keywordsTranscript": [
+        "مولد النصوص dailymotion",
+        "تحميل نصوص dailymotion",
+        "dailymotion ترجمة نصية",
+        "dailymotion srt",
+        "dailymotion transcript ar",
+        "dailymotion transcript ar"
+      ]
     },
     "twitch": {
       "badge": "أداة تحميل Twitch",
@@ -1531,7 +1765,27 @@
       "headingAccentAll": "فيديو، صوت والمزيد",
       "subheadingAll": "محمّل Twitch شامل. حمّل فيديوهات HD، صوت MP3/FLAC، مصغّرات HD ونصوص ذكية. الصق رابطًا — بدون تطبيق، بدون تسجيل.",
       "metaTitleVideo": "أداة تحميل فيديو Twitch — حمّل بجودة HD | DownForge",
-      "metaDescriptionVideo": "أداة تحميل فيديو Twitch المجانية. احفظ فيديوهات Twitch بجودة HD و4K MP4. بدون تطبيق، بدون تسجيل — الصق الرابط."
+      "metaDescriptionVideo": "أداة تحميل فيديو Twitch المجانية. احفظ فيديوهات Twitch بجودة HD و4K MP4. بدون تطبيق، بدون تسجيل — الصق الرابط.",
+      "metaTitleThumbnail": "أداة تحميل الصور المصغرة Twitch — تحميل بدقة HD | DownForge",
+      "metaDescriptionThumbnail": "أداة تحميل الصور المصغرة Twitch المجانية. احفظ صور Twitch المصغرة بجودة HD وJPG وPNG وWebP. بدون تطبيق.",
+      "keywordsThumbnail": [
+        "تحميل الصور المصغرة twitch",
+        "تنزيل مصغرات twitch",
+        "حفظ صور twitch",
+        "twitch thumbnail hd",
+        "twitch thumbnail ar",
+        "twitch thumbnail ar"
+      ],
+      "metaTitleTranscript": "مولد النصوص Twitch — إنشاء نصوص بالذكاء الاصطناعي | DownForge",
+      "metaDescriptionTranscript": "مولد النصوص Twitch المجاني. احصل على نصوص AI دقيقة مع طوابع زمنية. حمّل بصيغ SRT وVTT وTXT وJSON.",
+      "keywordsTranscript": [
+        "مولد النصوص twitch",
+        "تحميل نصوص twitch",
+        "twitch ترجمة نصية",
+        "twitch srt",
+        "twitch transcript ar",
+        "twitch transcript ar"
+      ]
     },
     "reddit": {
       "badge": "أداة تحميل Reddit",
@@ -1666,7 +1920,27 @@
       "headingAccentAll": "فيديو، صوت والمزيد",
       "subheadingAll": "محمّل Reddit شامل. حمّل فيديوهات HD، صوت MP3/FLAC، مصغّرات HD ونصوص ذكية. الصق رابطًا — بدون تطبيق، بدون تسجيل.",
       "metaTitleVideo": "أداة تحميل فيديو Reddit — حمّل بجودة HD | DownForge",
-      "metaDescriptionVideo": "أداة تحميل فيديو Reddit المجانية. احفظ فيديوهات Reddit بجودة HD و4K MP4. بدون تطبيق، بدون تسجيل — الصق الرابط."
+      "metaDescriptionVideo": "أداة تحميل فيديو Reddit المجانية. احفظ فيديوهات Reddit بجودة HD و4K MP4. بدون تطبيق، بدون تسجيل — الصق الرابط.",
+      "metaTitleThumbnail": "أداة تحميل الصور المصغرة Reddit — تحميل بدقة HD | DownForge",
+      "metaDescriptionThumbnail": "أداة تحميل الصور المصغرة Reddit المجانية. احفظ صور Reddit المصغرة بجودة HD وJPG وPNG وWebP. بدون تطبيق.",
+      "keywordsThumbnail": [
+        "تحميل الصور المصغرة reddit",
+        "تنزيل مصغرات reddit",
+        "حفظ صور reddit",
+        "reddit thumbnail hd",
+        "reddit thumbnail ar",
+        "reddit thumbnail ar"
+      ],
+      "metaTitleTranscript": "مولد النصوص Reddit — إنشاء نصوص بالذكاء الاصطناعي | DownForge",
+      "metaDescriptionTranscript": "مولد النصوص Reddit المجاني. احصل على نصوص AI دقيقة مع طوابع زمنية. حمّل بصيغ SRT وVTT وTXT وJSON.",
+      "keywordsTranscript": [
+        "مولد النصوص reddit",
+        "تحميل نصوص reddit",
+        "reddit ترجمة نصية",
+        "reddit srt",
+        "reddit transcript ar",
+        "reddit transcript ar"
+      ]
     },
     "pinterest": {
       "badge": "أداة تحميل Pinterest",
@@ -1800,7 +2074,27 @@
       "headingAccentAll": "فيديو، صوت والمزيد",
       "subheadingAll": "محمّل Pinterest شامل. حمّل فيديوهات HD، صوت MP3/FLAC، مصغّرات HD ونصوص ذكية. الصق رابطًا — بدون تطبيق، بدون تسجيل.",
       "metaTitleVideo": "أداة تحميل فيديو Pinterest — حمّل بجودة HD | DownForge",
-      "metaDescriptionVideo": "أداة تحميل فيديو Pinterest المجانية. احفظ فيديوهات Pinterest بجودة HD و4K MP4. بدون تطبيق، بدون تسجيل — الصق الرابط."
+      "metaDescriptionVideo": "أداة تحميل فيديو Pinterest المجانية. احفظ فيديوهات Pinterest بجودة HD و4K MP4. بدون تطبيق، بدون تسجيل — الصق الرابط.",
+      "metaTitleThumbnail": "أداة تحميل الصور المصغرة Pinterest — تحميل بدقة HD | DownForge",
+      "metaDescriptionThumbnail": "أداة تحميل الصور المصغرة Pinterest المجانية. احفظ صور Pinterest المصغرة بجودة HD وJPG وPNG وWebP. بدون تطبيق.",
+      "keywordsThumbnail": [
+        "تحميل الصور المصغرة pinterest",
+        "تنزيل مصغرات pinterest",
+        "حفظ صور pinterest",
+        "pinterest thumbnail hd",
+        "pinterest thumbnail ar",
+        "pinterest thumbnail ar"
+      ],
+      "metaTitleTranscript": "مولد النصوص Pinterest — إنشاء نصوص بالذكاء الاصطناعي | DownForge",
+      "metaDescriptionTranscript": "مولد النصوص Pinterest المجاني. احصل على نصوص AI دقيقة مع طوابع زمنية. حمّل بصيغ SRT وVTT وTXT وJSON.",
+      "keywordsTranscript": [
+        "مولد النصوص pinterest",
+        "تحميل نصوص pinterest",
+        "pinterest ترجمة نصية",
+        "pinterest srt",
+        "pinterest transcript ar",
+        "pinterest transcript ar"
+      ]
     },
     "linkedin": {
       "badge": "أداة تحميل LinkedIn",
@@ -1933,7 +2227,27 @@
       "headingAccentAll": "فيديو، صوت والمزيد",
       "subheadingAll": "محمّل LinkedIn شامل. حمّل فيديوهات HD، صوت MP3/FLAC، مصغّرات HD ونصوص ذكية. الصق رابطًا — بدون تطبيق، بدون تسجيل.",
       "metaTitleVideo": "أداة تحميل فيديو LinkedIn — حمّل بجودة HD | DownForge",
-      "metaDescriptionVideo": "أداة تحميل فيديو LinkedIn المجانية. احفظ فيديوهات LinkedIn بجودة HD و4K MP4. بدون تطبيق، بدون تسجيل — الصق الرابط."
+      "metaDescriptionVideo": "أداة تحميل فيديو LinkedIn المجانية. احفظ فيديوهات LinkedIn بجودة HD و4K MP4. بدون تطبيق، بدون تسجيل — الصق الرابط.",
+      "metaTitleThumbnail": "أداة تحميل الصور المصغرة LinkedIn — تحميل بدقة HD | DownForge",
+      "metaDescriptionThumbnail": "أداة تحميل الصور المصغرة LinkedIn المجانية. احفظ صور LinkedIn المصغرة بجودة HD وJPG وPNG وWebP. بدون تطبيق.",
+      "keywordsThumbnail": [
+        "تحميل الصور المصغرة linkedin",
+        "تنزيل مصغرات linkedin",
+        "حفظ صور linkedin",
+        "linkedin thumbnail hd",
+        "linkedin thumbnail ar",
+        "linkedin thumbnail ar"
+      ],
+      "metaTitleTranscript": "مولد النصوص LinkedIn — إنشاء نصوص بالذكاء الاصطناعي | DownForge",
+      "metaDescriptionTranscript": "مولد النصوص LinkedIn المجاني. احصل على نصوص AI دقيقة مع طوابع زمنية. حمّل بصيغ SRT وVTT وTXT وJSON.",
+      "keywordsTranscript": [
+        "مولد النصوص linkedin",
+        "تحميل نصوص linkedin",
+        "linkedin ترجمة نصية",
+        "linkedin srt",
+        "linkedin transcript ar",
+        "linkedin transcript ar"
+      ]
     },
     "snapchat": {
       "badge": "أداة تحميل Snapchat",
@@ -2066,7 +2380,27 @@
       "headingAccentAll": "فيديو، صوت والمزيد",
       "subheadingAll": "محمّل Snapchat شامل. حمّل فيديوهات HD، صوت MP3/FLAC، مصغّرات HD ونصوص ذكية. الصق رابطًا — بدون تطبيق، بدون تسجيل.",
       "metaTitleVideo": "أداة تحميل فيديو Snapchat — حمّل بجودة HD | DownForge",
-      "metaDescriptionVideo": "أداة تحميل فيديو Snapchat المجانية. احفظ فيديوهات Snapchat بجودة HD و4K MP4. بدون تطبيق، بدون تسجيل — الصق الرابط."
+      "metaDescriptionVideo": "أداة تحميل فيديو Snapchat المجانية. احفظ فيديوهات Snapchat بجودة HD و4K MP4. بدون تطبيق، بدون تسجيل — الصق الرابط.",
+      "metaTitleThumbnail": "أداة تحميل الصور المصغرة Snapchat — تحميل بدقة HD | DownForge",
+      "metaDescriptionThumbnail": "أداة تحميل الصور المصغرة Snapchat المجانية. احفظ صور Snapchat المصغرة بجودة HD وJPG وPNG وWebP. بدون تطبيق.",
+      "keywordsThumbnail": [
+        "تحميل الصور المصغرة snapchat",
+        "تنزيل مصغرات snapchat",
+        "حفظ صور snapchat",
+        "snapchat thumbnail hd",
+        "snapchat thumbnail ar",
+        "snapchat thumbnail ar"
+      ],
+      "metaTitleTranscript": "مولد النصوص Snapchat — إنشاء نصوص بالذكاء الاصطناعي | DownForge",
+      "metaDescriptionTranscript": "مولد النصوص Snapchat المجاني. احصل على نصوص AI دقيقة مع طوابع زمنية. حمّل بصيغ SRT وVTT وTXT وJSON.",
+      "keywordsTranscript": [
+        "مولد النصوص snapchat",
+        "تحميل نصوص snapchat",
+        "snapchat ترجمة نصية",
+        "snapchat srt",
+        "snapchat transcript ar",
+        "snapchat transcript ar"
+      ]
     },
     "soundcloud": {
       "badge": "أداة تحميل SoundCloud",
@@ -2207,7 +2541,27 @@
       "headingAccentAll": "فيديو، صوت والمزيد",
       "subheadingAll": "محمّل SoundCloud شامل. احفظ مقاطع MP3 320kbps وFLAC، فيديوهات ومصغّرات ونصوص. الصق رابطًا — بدون تسجيل.",
       "metaTitleVideo": "أداة تحميل فيديو SoundCloud — حمّل بجودة HD | DownForge",
-      "metaDescriptionVideo": "أداة تحميل فيديو SoundCloud المجانية. احفظ فيديوهات SoundCloud بجودة HD و4K MP4. بدون تطبيق، بدون تسجيل — الصق الرابط."
+      "metaDescriptionVideo": "أداة تحميل فيديو SoundCloud المجانية. احفظ فيديوهات SoundCloud بجودة HD و4K MP4. بدون تطبيق، بدون تسجيل — الصق الرابط.",
+      "metaTitleThumbnail": "أداة تحميل الصور المصغرة SoundCloud — تحميل بدقة HD | DownForge",
+      "metaDescriptionThumbnail": "أداة تحميل الصور المصغرة SoundCloud المجانية. احفظ صور SoundCloud المصغرة بجودة HD وJPG وPNG وWebP. بدون تطبيق.",
+      "keywordsThumbnail": [
+        "تحميل الصور المصغرة soundcloud",
+        "تنزيل مصغرات soundcloud",
+        "حفظ صور soundcloud",
+        "soundcloud thumbnail hd",
+        "soundcloud thumbnail ar",
+        "soundcloud thumbnail ar"
+      ],
+      "metaTitleTranscript": "مولد النصوص SoundCloud — إنشاء نصوص بالذكاء الاصطناعي | DownForge",
+      "metaDescriptionTranscript": "مولد النصوص SoundCloud المجاني. احصل على نصوص AI دقيقة مع طوابع زمنية. حمّل بصيغ SRT وVTT وTXT وJSON.",
+      "keywordsTranscript": [
+        "مولد النصوص soundcloud",
+        "تحميل نصوص soundcloud",
+        "soundcloud ترجمة نصية",
+        "soundcloud srt",
+        "soundcloud transcript ar",
+        "soundcloud transcript ar"
+      ]
     },
     "kick": {
       "badge": "أداة تحميل Kick",
@@ -2341,7 +2695,27 @@
       "headingAccentAll": "فيديو، صوت والمزيد",
       "subheadingAll": "محمّل Kick شامل. حمّل فيديوهات HD، صوت MP3/FLAC، مصغّرات HD ونصوص ذكية. الصق رابطًا — بدون تطبيق، بدون تسجيل.",
       "metaTitleVideo": "أداة تحميل فيديو Kick — حمّل بجودة HD | DownForge",
-      "metaDescriptionVideo": "أداة تحميل فيديو Kick المجانية. احفظ فيديوهات Kick بجودة HD و4K MP4. بدون تطبيق، بدون تسجيل — الصق الرابط."
+      "metaDescriptionVideo": "أداة تحميل فيديو Kick المجانية. احفظ فيديوهات Kick بجودة HD و4K MP4. بدون تطبيق، بدون تسجيل — الصق الرابط.",
+      "metaTitleThumbnail": "أداة تحميل الصور المصغرة Kick — تحميل بدقة HD | DownForge",
+      "metaDescriptionThumbnail": "أداة تحميل الصور المصغرة Kick المجانية. احفظ صور Kick المصغرة بجودة HD وJPG وPNG وWebP. بدون تطبيق.",
+      "keywordsThumbnail": [
+        "تحميل الصور المصغرة kick",
+        "تنزيل مصغرات kick",
+        "حفظ صور kick",
+        "kick thumbnail hd",
+        "kick thumbnail ar",
+        "kick thumbnail ar"
+      ],
+      "metaTitleTranscript": "مولد النصوص Kick — إنشاء نصوص بالذكاء الاصطناعي | DownForge",
+      "metaDescriptionTranscript": "مولد النصوص Kick المجاني. احصل على نصوص AI دقيقة مع طوابع زمنية. حمّل بصيغ SRT وVTT وTXT وJSON.",
+      "keywordsTranscript": [
+        "مولد النصوص kick",
+        "تحميل نصوص kick",
+        "kick ترجمة نصية",
+        "kick srt",
+        "kick transcript ar",
+        "kick transcript ar"
+      ]
     },
     "youtube": {
       "badge": "أداة تحميل YouTube",
@@ -2492,7 +2866,27 @@
       ],
       "headingAll": "التحميل من YouTube",
       "headingAccentAll": "فيديو، صوت والمزيد",
-      "subheadingAll": "محمّل YouTube شامل. احفظ فيديوهات 4K و1080p، صوت MP3 320kbps وFLAC، مصغّرات HD ونصوص ذكية (SRT/VTT/TXT/JSON). الصق أي رابط — بدون تطبيق، بدون تسجيل."
+      "subheadingAll": "محمّل YouTube شامل. احفظ فيديوهات 4K و1080p، صوت MP3 320kbps وFLAC، مصغّرات HD ونصوص ذكية (SRT/VTT/TXT/JSON). الصق أي رابط — بدون تطبيق، بدون تسجيل.",
+      "metaTitleThumbnail": "أداة تحميل الصور المصغرة YouTube — تحميل بدقة HD | DownForge",
+      "metaDescriptionThumbnail": "أداة تحميل الصور المصغرة YouTube المجانية. احفظ صور YouTube المصغرة بجودة HD وJPG وPNG وWebP. بدون تطبيق.",
+      "keywordsThumbnail": [
+        "تحميل الصور المصغرة youtube",
+        "تنزيل مصغرات youtube",
+        "حفظ صور youtube",
+        "youtube thumbnail hd",
+        "youtube thumbnail ar",
+        "youtube thumbnail ar"
+      ],
+      "metaTitleTranscript": "مولد النصوص YouTube — إنشاء نصوص بالذكاء الاصطناعي | DownForge",
+      "metaDescriptionTranscript": "مولد النصوص YouTube المجاني. احصل على نصوص AI دقيقة مع طوابع زمنية. حمّل بصيغ SRT وVTT وTXT وJSON.",
+      "keywordsTranscript": [
+        "مولد النصوص youtube",
+        "تحميل نصوص youtube",
+        "youtube ترجمة نصية",
+        "youtube srt",
+        "youtube transcript ar",
+        "youtube transcript ar"
+      ]
     },
     "niconico": {
       "badge": "أداة تحميل Niconico",
@@ -2627,7 +3021,27 @@
       "headingAccentAll": "فيديو، صوت والمزيد",
       "subheadingAll": "محمّل Niconico شامل. حمّل فيديوهات HD، صوت MP3/FLAC، مصغّرات HD ونصوص ذكية. الصق رابطًا — بدون تطبيق، بدون تسجيل.",
       "metaTitleVideo": "أداة تحميل فيديو Niconico — حمّل بجودة HD | DownForge",
-      "metaDescriptionVideo": "أداة تحميل فيديو Niconico المجانية. احفظ فيديوهات Niconico بجودة HD و4K MP4. بدون تطبيق، بدون تسجيل — الصق الرابط."
+      "metaDescriptionVideo": "أداة تحميل فيديو Niconico المجانية. احفظ فيديوهات Niconico بجودة HD و4K MP4. بدون تطبيق، بدون تسجيل — الصق الرابط.",
+      "metaTitleThumbnail": "أداة تحميل الصور المصغرة Niconico — تحميل بدقة HD | DownForge",
+      "metaDescriptionThumbnail": "أداة تحميل الصور المصغرة Niconico المجانية. احفظ صور Niconico المصغرة بجودة HD وJPG وPNG وWebP. بدون تطبيق.",
+      "keywordsThumbnail": [
+        "تحميل الصور المصغرة niconico",
+        "تنزيل مصغرات niconico",
+        "حفظ صور niconico",
+        "niconico thumbnail hd",
+        "niconico thumbnail ar",
+        "niconico thumbnail ar"
+      ],
+      "metaTitleTranscript": "مولد النصوص Niconico — إنشاء نصوص بالذكاء الاصطناعي | DownForge",
+      "metaDescriptionTranscript": "مولد النصوص Niconico المجاني. احصل على نصوص AI دقيقة مع طوابع زمنية. حمّل بصيغ SRT وVTT وTXT وJSON.",
+      "keywordsTranscript": [
+        "مولد النصوص niconico",
+        "تحميل نصوص niconico",
+        "niconico ترجمة نصية",
+        "niconico srt",
+        "niconico transcript ar",
+        "niconico transcript ar"
+      ]
     }
   },
   "YoutubeHero": {

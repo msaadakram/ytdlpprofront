@@ -341,7 +341,121 @@
       "fast": "< 3s",
       "free": "100% Grátis",
       "private": "Privado e seguro"
-    }
+    },
+    "thumbnailHeading": "Baixar Miniaturas do {platform}",
+    "transcriptHeading": "Gerar Transcrições do {platform}",
+    "thumbnailPreview": "Pré-visualização da miniatura",
+    "transcriptLanguageLabel": "Idioma:",
+    "featuresAudioLabel": "Formatos de Áudio",
+    "featuresAudioTitle": "A Melhor Ferramenta de Extração de Áudio",
+    "featuresAudioSubtitle": "Extraia áudio de alta qualidade de vídeos {platform} em cada formato necessário.",
+    "featuresThumbnailLabel": "Formatos de Imagem",
+    "featuresThumbnailTitle": "O Melhor Baixador de Miniaturas",
+    "featuresThumbnailSubtitle": "Salve miniaturas de vídeo {platform} em todos formatos e resoluções.",
+    "featuresTranscriptLabel": "Formatos de Transcrição",
+    "featuresTranscriptTitle": "O Melhor Gerador de Transcrições",
+    "featuresTranscriptSubtitle": "Gere transcrições precisas de {platform} com IA em cada formato.",
+    "faqLabel": "Perguntas frequentes",
+    "faqTitleAudio": "Perguntas sobre Download de Áudio",
+    "faqTitleThumbnail": "Perguntas sobre Download de Miniaturas",
+    "faqTitleTranscript": "Perguntas sobre Geração de Transcrições",
+    "faqSubtitle": "Tudo que você precisa saber para baixar de {platform}.",
+    "featuresAudioItems": [
+      {
+        "label": "MP3 320 kbps",
+        "value": "Alta Qualidade",
+        "desc": "Baixe áudio MP3 prístino na máxima taxa."
+      },
+      {
+        "label": "FLAC Sem Perdas",
+        "value": "Arquivo",
+        "desc": "FLAC preserva cada detalhe sem perda."
+      },
+      {
+        "label": "AAC 256 kbps",
+        "value": "Eficiente",
+        "desc": "Codificação avançada excelente qualidade tamanho menor Apple."
+      },
+      {
+        "label": "WAV Não Comprimido",
+        "value": "Estúdio",
+        "desc": "Áudio não comprimido para edição pro."
+      },
+      {
+        "label": "OGG 192 kbps",
+        "value": "Aberto",
+        "desc": "Formato livre compressão eficiente compatível."
+      },
+      {
+        "label": "Processamento Rápido",
+        "value": "< 3 Segundos",
+        "desc": "Conversão servidor entrega arquivo em segundos."
+      }
+    ],
+    "featuresThumbnailItems": [
+      {
+        "label": "Resolução Máxima",
+        "value": "Full HD",
+        "desc": "Baixe miniaturas em resolução original até 1920×1080."
+      },
+      {
+        "label": "JPG",
+        "value": "Compacto",
+        "desc": "Formato universal grande compressão ideal compartilhar."
+      },
+      {
+        "label": "PNG",
+        "value": "Sem Perdas",
+        "desc": "Perfeito capturas transparência sem perda."
+      },
+      {
+        "label": "WebP",
+        "value": "Otimizado",
+        "desc": "Formato moderno compressão superior melhor web."
+      },
+      {
+        "label": "Download Instantâneo",
+        "value": "Sem Espera",
+        "desc": "Miniaturas instantâneas sem fila."
+      },
+      {
+        "label": "Zero Armazenamento",
+        "value": "Privado",
+        "desc": "Não armazenamos arquivos."
+      }
+    ],
+    "featuresTranscriptItems": [
+      {
+        "label": "Legendas SRT",
+        "value": "Marcas",
+        "desc": "Formato padrão com marcas precisas."
+      },
+      {
+        "label": "VTT WebVTT",
+        "value": "Web",
+        "desc": "Formato legenda web nativo HTML5."
+      },
+      {
+        "label": "TXT",
+        "value": "Simples",
+        "desc": "Texto limpo sem marcas para notas."
+      },
+      {
+        "label": "JSON",
+        "value": "Dados",
+        "desc": "Dados estruturados com marcas para API."
+      },
+      {
+        "label": "Precisão IA",
+        "value": "99%+",
+        "desc": "IA avançada qualidade humana."
+      },
+      {
+        "label": "Lote",
+        "value": "Playlists",
+        "desc": "Gere transcrições para playlists completas (Pro)."
+      }
+    ]
   },
   "VideoOnly": {
     "badge": "Downloader de Vídeo",
@@ -707,7 +821,27 @@
       "headingAccentAll": "Vídeo, Áudio e Mais",
       "subheadingAll": "Baixador Facebook tudo em um. Baixe vídeos em HD, áudio MP3/FLAC, miniaturas HD e transcrições IA. Cole um link — sem cadastro.",
       "metaTitleVideo": "Baixador de Vídeos do Facebook — Baixar em HD | DownForge",
-      "metaDescriptionVideo": "Baixador gratuito de vídeos do Facebook. Salve vídeos do Facebook em HD e MP4 4K. Sem app, sem cadastro — cole um link."
+      "metaDescriptionVideo": "Baixador gratuito de vídeos do Facebook. Salve vídeos do Facebook em HD e MP4 4K. Sem app, sem cadastro — cole um link.",
+      "metaTitleThumbnail": "Baixador de Miniaturas do Facebook — Baixar em HD | DownForge",
+      "metaDescriptionThumbnail": "Baixador gratuito de miniaturas do Facebook. Salve miniaturas do Facebook em HD, JPG, PNG e WebP. Sem app.",
+      "keywordsThumbnail": [
+        "baixador de miniaturas do facebook",
+        "baixar miniaturas do facebook",
+        "salvar miniaturas facebook",
+        "facebook miniatura hd",
+        "facebook thumbnail pt",
+        "facebook thumbnail pt"
+      ],
+      "metaTitleTranscript": "Gerador de Transcrições do Facebook — Transcrições com IA | DownForge",
+      "metaDescriptionTranscript": "Gerador gratuito de transcrições do Facebook. Obtenha transcrições IA precisas com timestamps. Baixe em SRT, VTT, TXT ou JSON.",
+      "keywordsTranscript": [
+        "gerador de transcrições do facebook",
+        "baixar transcrições do facebook",
+        "facebook legendas",
+        "facebook transcript pt",
+        "facebook transcript pt",
+        "facebook transcript pt"
+      ]
     },
     "instagram": {
       "badge": "Downloader do Instagram",
@@ -846,7 +980,27 @@
       "headingAccentAll": "Vídeo, Áudio e Mais",
       "subheadingAll": "Baixador Instagram tudo em um. Baixe vídeos em HD, áudio MP3/FLAC, miniaturas HD e transcrições IA. Cole um link — sem cadastro.",
       "metaTitleVideo": "Baixador de Instagram — Reels e Stories em HD | DownForge",
-      "metaDescriptionVideo": "Baixador gratuito de Instagram. Salve Reels e Stories em HD MP4. Sem app."
+      "metaDescriptionVideo": "Baixador gratuito de Instagram. Salve Reels e Stories em HD MP4. Sem app.",
+      "metaTitleThumbnail": "Baixador de Miniaturas do Instagram — Baixar em HD | DownForge",
+      "metaDescriptionThumbnail": "Baixador gratuito de miniaturas do Instagram. Salve miniaturas do Instagram em HD, JPG, PNG e WebP. Sem app.",
+      "keywordsThumbnail": [
+        "baixador de miniaturas do instagram",
+        "baixar miniaturas do instagram",
+        "salvar miniaturas instagram",
+        "instagram miniatura hd",
+        "instagram thumbnail pt",
+        "instagram thumbnail pt"
+      ],
+      "metaTitleTranscript": "Gerador de Transcrições do Instagram — Transcrições com IA | DownForge",
+      "metaDescriptionTranscript": "Gerador gratuito de transcrições do Instagram. Obtenha transcrições IA precisas com timestamps. Baixe em SRT, VTT, TXT ou JSON.",
+      "keywordsTranscript": [
+        "gerador de transcrições do instagram",
+        "baixar transcrições do instagram",
+        "instagram legendas",
+        "instagram transcript pt",
+        "instagram transcript pt",
+        "instagram transcript pt"
+      ]
     },
     "tiktok": {
       "badge": "Downloader do TikTok",
@@ -985,7 +1139,27 @@
       "headingAccentAll": "Vídeo, Áudio e Mais",
       "subheadingAll": "Baixador TikTok tudo em um. Baixe vídeos em HD, áudio MP3/FLAC, miniaturas HD e transcrições IA. Cole um link — sem cadastro.",
       "metaTitleVideo": "Baixador de TikTok — Sem Marca D'água | DownForge",
-      "metaDescriptionVideo": "Baixador gratuito de TikTok. Salve vídeos do TikTok sem marca d'água em HD. Sem app."
+      "metaDescriptionVideo": "Baixador gratuito de TikTok. Salve vídeos do TikTok sem marca d'água em HD. Sem app.",
+      "metaTitleThumbnail": "Baixador de Miniaturas do TikTok — Baixar em HD | DownForge",
+      "metaDescriptionThumbnail": "Baixador gratuito de miniaturas do TikTok. Salve miniaturas do TikTok em HD, JPG, PNG e WebP. Sem app.",
+      "keywordsThumbnail": [
+        "baixador de miniaturas do tiktok",
+        "baixar miniaturas do tiktok",
+        "salvar miniaturas tiktok",
+        "tiktok miniatura hd",
+        "tiktok thumbnail pt",
+        "tiktok thumbnail pt"
+      ],
+      "metaTitleTranscript": "Gerador de Transcrições do TikTok — Transcrições com IA | DownForge",
+      "metaDescriptionTranscript": "Gerador gratuito de transcrições do TikTok. Obtenha transcrições IA precisas com timestamps. Baixe em SRT, VTT, TXT ou JSON.",
+      "keywordsTranscript": [
+        "gerador de transcrições do tiktok",
+        "baixar transcrições do tiktok",
+        "tiktok legendas",
+        "tiktok transcript pt",
+        "tiktok transcript pt",
+        "tiktok transcript pt"
+      ]
     },
     "twitter": {
       "badge": "Downloader do Twitter",
@@ -1123,7 +1297,27 @@
       "headingAccentAll": "Vídeo, Áudio e Mais",
       "subheadingAll": "Baixador Twitter / X tudo em um. Baixe vídeos em HD, áudio MP3/FLAC, miniaturas HD e transcrições IA. Cole um link — sem cadastro.",
       "metaTitleVideo": "Baixador de Twitter — Vídeos e GIFs | DownForge",
-      "metaDescriptionVideo": "Baixador gratuito de vídeos do Twitter. Salve vídeos do Twitter em HD e MP4 4K. Sem app, sem cadastro — cole um link."
+      "metaDescriptionVideo": "Baixador gratuito de vídeos do Twitter. Salve vídeos do Twitter em HD e MP4 4K. Sem app, sem cadastro — cole um link.",
+      "metaTitleThumbnail": "Baixador de Miniaturas do Twitter — Baixar em HD | DownForge",
+      "metaDescriptionThumbnail": "Baixador gratuito de miniaturas do Twitter. Salve miniaturas do Twitter em HD, JPG, PNG e WebP. Sem app.",
+      "keywordsThumbnail": [
+        "baixador de miniaturas do twitter",
+        "baixar miniaturas do twitter",
+        "salvar miniaturas twitter",
+        "twitter miniatura hd",
+        "twitter thumbnail pt",
+        "twitter thumbnail pt"
+      ],
+      "metaTitleTranscript": "Gerador de Transcrições do Twitter — Transcrições com IA | DownForge",
+      "metaDescriptionTranscript": "Gerador gratuito de transcrições do Twitter. Obtenha transcrições IA precisas com timestamps. Baixe em SRT, VTT, TXT ou JSON.",
+      "keywordsTranscript": [
+        "gerador de transcrições do twitter",
+        "baixar transcrições do twitter",
+        "twitter legendas",
+        "twitter transcript pt",
+        "twitter transcript pt",
+        "twitter transcript pt"
+      ]
     },
     "vimeo": {
       "badge": "Downloader do Vimeo",
@@ -1260,7 +1454,27 @@
       "headingAccentAll": "Vídeo, Áudio e Mais",
       "subheadingAll": "Baixador Vimeo tudo em um. Baixe vídeos em HD, áudio MP3/FLAC, miniaturas HD e transcrições IA. Cole um link — sem cadastro.",
       "metaTitleVideo": "Baixador de Vídeos do Vimeo — Baixar em HD | DownForge",
-      "metaDescriptionVideo": "Baixador gratuito de vídeos do Vimeo. Salve vídeos do Vimeo em HD e MP4 4K. Sem app, sem cadastro — cole um link."
+      "metaDescriptionVideo": "Baixador gratuito de vídeos do Vimeo. Salve vídeos do Vimeo em HD e MP4 4K. Sem app, sem cadastro — cole um link.",
+      "metaTitleThumbnail": "Baixador de Miniaturas do Vimeo — Baixar em HD | DownForge",
+      "metaDescriptionThumbnail": "Baixador gratuito de miniaturas do Vimeo. Salve miniaturas do Vimeo em HD, JPG, PNG e WebP. Sem app.",
+      "keywordsThumbnail": [
+        "baixador de miniaturas do vimeo",
+        "baixar miniaturas do vimeo",
+        "salvar miniaturas vimeo",
+        "vimeo miniatura hd",
+        "vimeo thumbnail pt",
+        "vimeo thumbnail pt"
+      ],
+      "metaTitleTranscript": "Gerador de Transcrições do Vimeo — Transcrições com IA | DownForge",
+      "metaDescriptionTranscript": "Gerador gratuito de transcrições do Vimeo. Obtenha transcrições IA precisas com timestamps. Baixe em SRT, VTT, TXT ou JSON.",
+      "keywordsTranscript": [
+        "gerador de transcrições do vimeo",
+        "baixar transcrições do vimeo",
+        "vimeo legendas",
+        "vimeo transcript pt",
+        "vimeo transcript pt",
+        "vimeo transcript pt"
+      ]
     },
     "dailymotion": {
       "badge": "Downloader do Dailymotion",
@@ -1394,7 +1608,27 @@
       "headingAccentAll": "Vídeo, Áudio e Mais",
       "subheadingAll": "Baixador Dailymotion tudo em um. Baixe vídeos em HD, áudio MP3/FLAC, miniaturas HD e transcrições IA. Cole um link — sem cadastro.",
       "metaTitleVideo": "Baixador de Vídeos do Dailymotion — Baixar em HD | DownForge",
-      "metaDescriptionVideo": "Baixador gratuito de vídeos do Dailymotion. Salve vídeos do Dailymotion em HD e MP4 4K. Sem app, sem cadastro — cole um link."
+      "metaDescriptionVideo": "Baixador gratuito de vídeos do Dailymotion. Salve vídeos do Dailymotion em HD e MP4 4K. Sem app, sem cadastro — cole um link.",
+      "metaTitleThumbnail": "Baixador de Miniaturas do Dailymotion — Baixar em HD | DownForge",
+      "metaDescriptionThumbnail": "Baixador gratuito de miniaturas do Dailymotion. Salve miniaturas do Dailymotion em HD, JPG, PNG e WebP. Sem app.",
+      "keywordsThumbnail": [
+        "baixador de miniaturas do dailymotion",
+        "baixar miniaturas do dailymotion",
+        "salvar miniaturas dailymotion",
+        "dailymotion miniatura hd",
+        "dailymotion thumbnail pt",
+        "dailymotion thumbnail pt"
+      ],
+      "metaTitleTranscript": "Gerador de Transcrições do Dailymotion — Transcrições com IA | DownForge",
+      "metaDescriptionTranscript": "Gerador gratuito de transcrições do Dailymotion. Obtenha transcrições IA precisas com timestamps. Baixe em SRT, VTT, TXT ou JSON.",
+      "keywordsTranscript": [
+        "gerador de transcrições do dailymotion",
+        "baixar transcrições do dailymotion",
+        "dailymotion legendas",
+        "dailymotion transcript pt",
+        "dailymotion transcript pt",
+        "dailymotion transcript pt"
+      ]
     },
     "twitch": {
       "badge": "Downloader do Twitch",
@@ -1531,7 +1765,27 @@
       "headingAccentAll": "Vídeo, Áudio e Mais",
       "subheadingAll": "Baixador Twitch tudo em um. Baixe vídeos em HD, áudio MP3/FLAC, miniaturas HD e transcrições IA. Cole um link — sem cadastro.",
       "metaTitleVideo": "Baixador de Vídeos do Twitch — Baixar em HD | DownForge",
-      "metaDescriptionVideo": "Baixador gratuito de vídeos do Twitch. Salve vídeos do Twitch em HD e MP4 4K. Sem app, sem cadastro — cole um link."
+      "metaDescriptionVideo": "Baixador gratuito de vídeos do Twitch. Salve vídeos do Twitch em HD e MP4 4K. Sem app, sem cadastro — cole um link.",
+      "metaTitleThumbnail": "Baixador de Miniaturas do Twitch — Baixar em HD | DownForge",
+      "metaDescriptionThumbnail": "Baixador gratuito de miniaturas do Twitch. Salve miniaturas do Twitch em HD, JPG, PNG e WebP. Sem app.",
+      "keywordsThumbnail": [
+        "baixador de miniaturas do twitch",
+        "baixar miniaturas do twitch",
+        "salvar miniaturas twitch",
+        "twitch miniatura hd",
+        "twitch thumbnail pt",
+        "twitch thumbnail pt"
+      ],
+      "metaTitleTranscript": "Gerador de Transcrições do Twitch — Transcrições com IA | DownForge",
+      "metaDescriptionTranscript": "Gerador gratuito de transcrições do Twitch. Obtenha transcrições IA precisas com timestamps. Baixe em SRT, VTT, TXT ou JSON.",
+      "keywordsTranscript": [
+        "gerador de transcrições do twitch",
+        "baixar transcrições do twitch",
+        "twitch legendas",
+        "twitch transcript pt",
+        "twitch transcript pt",
+        "twitch transcript pt"
+      ]
     },
     "reddit": {
       "badge": "Downloader do Reddit",
@@ -1666,7 +1920,27 @@
       "headingAccentAll": "Vídeo, Áudio e Mais",
       "subheadingAll": "Baixador Reddit tudo em um. Baixe vídeos em HD, áudio MP3/FLAC, miniaturas HD e transcrições IA. Cole um link — sem cadastro.",
       "metaTitleVideo": "Baixador de Vídeos do Reddit — Baixar em HD | DownForge",
-      "metaDescriptionVideo": "Baixador gratuito de vídeos do Reddit. Salve vídeos do Reddit em HD e MP4 4K. Sem app, sem cadastro — cole um link."
+      "metaDescriptionVideo": "Baixador gratuito de vídeos do Reddit. Salve vídeos do Reddit em HD e MP4 4K. Sem app, sem cadastro — cole um link.",
+      "metaTitleThumbnail": "Baixador de Miniaturas do Reddit — Baixar em HD | DownForge",
+      "metaDescriptionThumbnail": "Baixador gratuito de miniaturas do Reddit. Salve miniaturas do Reddit em HD, JPG, PNG e WebP. Sem app.",
+      "keywordsThumbnail": [
+        "baixador de miniaturas do reddit",
+        "baixar miniaturas do reddit",
+        "salvar miniaturas reddit",
+        "reddit miniatura hd",
+        "reddit thumbnail pt",
+        "reddit thumbnail pt"
+      ],
+      "metaTitleTranscript": "Gerador de Transcrições do Reddit — Transcrições com IA | DownForge",
+      "metaDescriptionTranscript": "Gerador gratuito de transcrições do Reddit. Obtenha transcrições IA precisas com timestamps. Baixe em SRT, VTT, TXT ou JSON.",
+      "keywordsTranscript": [
+        "gerador de transcrições do reddit",
+        "baixar transcrições do reddit",
+        "reddit legendas",
+        "reddit transcript pt",
+        "reddit transcript pt",
+        "reddit transcript pt"
+      ]
     },
     "pinterest": {
       "badge": "Downloader do Pinterest",
@@ -1800,7 +2074,27 @@
       "headingAccentAll": "Vídeo, Áudio e Mais",
       "subheadingAll": "Baixador Pinterest tudo em um. Baixe vídeos em HD, áudio MP3/FLAC, miniaturas HD e transcrições IA. Cole um link — sem cadastro.",
       "metaTitleVideo": "Baixador de Vídeos do Pinterest — Baixar em HD | DownForge",
-      "metaDescriptionVideo": "Baixador gratuito de vídeos do Pinterest. Salve vídeos do Pinterest em HD e MP4 4K. Sem app, sem cadastro — cole um link."
+      "metaDescriptionVideo": "Baixador gratuito de vídeos do Pinterest. Salve vídeos do Pinterest em HD e MP4 4K. Sem app, sem cadastro — cole um link.",
+      "metaTitleThumbnail": "Baixador de Miniaturas do Pinterest — Baixar em HD | DownForge",
+      "metaDescriptionThumbnail": "Baixador gratuito de miniaturas do Pinterest. Salve miniaturas do Pinterest em HD, JPG, PNG e WebP. Sem app.",
+      "keywordsThumbnail": [
+        "baixador de miniaturas do pinterest",
+        "baixar miniaturas do pinterest",
+        "salvar miniaturas pinterest",
+        "pinterest miniatura hd",
+        "pinterest thumbnail pt",
+        "pinterest thumbnail pt"
+      ],
+      "metaTitleTranscript": "Gerador de Transcrições do Pinterest — Transcrições com IA | DownForge",
+      "metaDescriptionTranscript": "Gerador gratuito de transcrições do Pinterest. Obtenha transcrições IA precisas com timestamps. Baixe em SRT, VTT, TXT ou JSON.",
+      "keywordsTranscript": [
+        "gerador de transcrições do pinterest",
+        "baixar transcrições do pinterest",
+        "pinterest legendas",
+        "pinterest transcript pt",
+        "pinterest transcript pt",
+        "pinterest transcript pt"
+      ]
     },
     "linkedin": {
       "badge": "Downloader do LinkedIn",
@@ -1933,7 +2227,27 @@
       "headingAccentAll": "Vídeo, Áudio e Mais",
       "subheadingAll": "Baixador LinkedIn tudo em um. Baixe vídeos em HD, áudio MP3/FLAC, miniaturas HD e transcrições IA. Cole um link — sem cadastro.",
       "metaTitleVideo": "Baixador de Vídeos do LinkedIn — Baixar em HD | DownForge",
-      "metaDescriptionVideo": "Baixador gratuito de vídeos do LinkedIn. Salve vídeos do LinkedIn em HD e MP4 4K. Sem app, sem cadastro — cole um link."
+      "metaDescriptionVideo": "Baixador gratuito de vídeos do LinkedIn. Salve vídeos do LinkedIn em HD e MP4 4K. Sem app, sem cadastro — cole um link.",
+      "metaTitleThumbnail": "Baixador de Miniaturas do LinkedIn — Baixar em HD | DownForge",
+      "metaDescriptionThumbnail": "Baixador gratuito de miniaturas do LinkedIn. Salve miniaturas do LinkedIn em HD, JPG, PNG e WebP. Sem app.",
+      "keywordsThumbnail": [
+        "baixador de miniaturas do linkedin",
+        "baixar miniaturas do linkedin",
+        "salvar miniaturas linkedin",
+        "linkedin miniatura hd",
+        "linkedin thumbnail pt",
+        "linkedin thumbnail pt"
+      ],
+      "metaTitleTranscript": "Gerador de Transcrições do LinkedIn — Transcrições com IA | DownForge",
+      "metaDescriptionTranscript": "Gerador gratuito de transcrições do LinkedIn. Obtenha transcrições IA precisas com timestamps. Baixe em SRT, VTT, TXT ou JSON.",
+      "keywordsTranscript": [
+        "gerador de transcrições do linkedin",
+        "baixar transcrições do linkedin",
+        "linkedin legendas",
+        "linkedin transcript pt",
+        "linkedin transcript pt",
+        "linkedin transcript pt"
+      ]
     },
     "snapchat": {
       "badge": "Downloader do Snapchat",
@@ -2066,7 +2380,27 @@
       "headingAccentAll": "Vídeo, Áudio e Mais",
       "subheadingAll": "Baixador Snapchat tudo em um. Baixe vídeos em HD, áudio MP3/FLAC, miniaturas HD e transcrições IA. Cole um link — sem cadastro.",
       "metaTitleVideo": "Baixador de Vídeos do Snapchat — Baixar em HD | DownForge",
-      "metaDescriptionVideo": "Baixador gratuito de vídeos do Snapchat. Salve vídeos do Snapchat em HD e MP4 4K. Sem app, sem cadastro — cole um link."
+      "metaDescriptionVideo": "Baixador gratuito de vídeos do Snapchat. Salve vídeos do Snapchat em HD e MP4 4K. Sem app, sem cadastro — cole um link.",
+      "metaTitleThumbnail": "Baixador de Miniaturas do Snapchat — Baixar em HD | DownForge",
+      "metaDescriptionThumbnail": "Baixador gratuito de miniaturas do Snapchat. Salve miniaturas do Snapchat em HD, JPG, PNG e WebP. Sem app.",
+      "keywordsThumbnail": [
+        "baixador de miniaturas do snapchat",
+        "baixar miniaturas do snapchat",
+        "salvar miniaturas snapchat",
+        "snapchat miniatura hd",
+        "snapchat thumbnail pt",
+        "snapchat thumbnail pt"
+      ],
+      "metaTitleTranscript": "Gerador de Transcrições do Snapchat — Transcrições com IA | DownForge",
+      "metaDescriptionTranscript": "Gerador gratuito de transcrições do Snapchat. Obtenha transcrições IA precisas com timestamps. Baixe em SRT, VTT, TXT ou JSON.",
+      "keywordsTranscript": [
+        "gerador de transcrições do snapchat",
+        "baixar transcrições do snapchat",
+        "snapchat legendas",
+        "snapchat transcript pt",
+        "snapchat transcript pt",
+        "snapchat transcript pt"
+      ]
     },
     "soundcloud": {
       "badge": "Downloader do SoundCloud",
@@ -2207,7 +2541,27 @@
       "headingAccentAll": "Vídeo, Áudio e Mais",
       "subheadingAll": "Baixador SoundCloud tudo em um. Salve faixas como MP3 320kbps e FLAC, vídeos, miniaturas HD e transcrições. Cole um link — sem cadastro.",
       "metaTitleVideo": "Baixador de Vídeos do SoundCloud — Baixar em HD | DownForge",
-      "metaDescriptionVideo": "Baixador gratuito de vídeos do SoundCloud. Salve vídeos do SoundCloud em HD e MP4 4K. Sem app, sem cadastro — cole um link."
+      "metaDescriptionVideo": "Baixador gratuito de vídeos do SoundCloud. Salve vídeos do SoundCloud em HD e MP4 4K. Sem app, sem cadastro — cole um link.",
+      "metaTitleThumbnail": "Baixador de Miniaturas do SoundCloud — Baixar em HD | DownForge",
+      "metaDescriptionThumbnail": "Baixador gratuito de miniaturas do SoundCloud. Salve miniaturas do SoundCloud em HD, JPG, PNG e WebP. Sem app.",
+      "keywordsThumbnail": [
+        "baixador de miniaturas do soundcloud",
+        "baixar miniaturas do soundcloud",
+        "salvar miniaturas soundcloud",
+        "soundcloud miniatura hd",
+        "soundcloud thumbnail pt",
+        "soundcloud thumbnail pt"
+      ],
+      "metaTitleTranscript": "Gerador de Transcrições do SoundCloud — Transcrições com IA | DownForge",
+      "metaDescriptionTranscript": "Gerador gratuito de transcrições do SoundCloud. Obtenha transcrições IA precisas com timestamps. Baixe em SRT, VTT, TXT ou JSON.",
+      "keywordsTranscript": [
+        "gerador de transcrições do soundcloud",
+        "baixar transcrições do soundcloud",
+        "soundcloud legendas",
+        "soundcloud transcript pt",
+        "soundcloud transcript pt",
+        "soundcloud transcript pt"
+      ]
     },
     "kick": {
       "badge": "Downloader do Kick",
@@ -2341,7 +2695,27 @@
       "headingAccentAll": "Vídeo, Áudio e Mais",
       "subheadingAll": "Baixador Kick tudo em um. Baixe vídeos em HD, áudio MP3/FLAC, miniaturas HD e transcrições IA. Cole um link — sem cadastro.",
       "metaTitleVideo": "Baixador de Vídeos do Kick — Baixar em HD | DownForge",
-      "metaDescriptionVideo": "Baixador gratuito de vídeos do Kick. Salve vídeos do Kick em HD e MP4 4K. Sem app, sem cadastro — cole um link."
+      "metaDescriptionVideo": "Baixador gratuito de vídeos do Kick. Salve vídeos do Kick em HD e MP4 4K. Sem app, sem cadastro — cole um link.",
+      "metaTitleThumbnail": "Baixador de Miniaturas do Kick — Baixar em HD | DownForge",
+      "metaDescriptionThumbnail": "Baixador gratuito de miniaturas do Kick. Salve miniaturas do Kick em HD, JPG, PNG e WebP. Sem app.",
+      "keywordsThumbnail": [
+        "baixador de miniaturas do kick",
+        "baixar miniaturas do kick",
+        "salvar miniaturas kick",
+        "kick miniatura hd",
+        "kick thumbnail pt",
+        "kick thumbnail pt"
+      ],
+      "metaTitleTranscript": "Gerador de Transcrições do Kick — Transcrições com IA | DownForge",
+      "metaDescriptionTranscript": "Gerador gratuito de transcrições do Kick. Obtenha transcrições IA precisas com timestamps. Baixe em SRT, VTT, TXT ou JSON.",
+      "keywordsTranscript": [
+        "gerador de transcrições do kick",
+        "baixar transcrições do kick",
+        "kick legendas",
+        "kick transcript pt",
+        "kick transcript pt",
+        "kick transcript pt"
+      ]
     },
     "youtube": {
       "badge": "Downloader do YouTube",
@@ -2492,7 +2866,27 @@
       ],
       "headingAll": "Baixar de YouTube",
       "headingAccentAll": "Vídeo, Áudio e Mais",
-      "subheadingAll": "Baixador YouTube tudo em um. Salve vídeos em 4K e 1080p, áudio MP3 320kbps e FLAC, miniaturas HD e transcrições IA (SRT/VTT/TXT/JSON). Cole qualquer link — sem app, sem cadastro."
+      "subheadingAll": "Baixador YouTube tudo em um. Salve vídeos em 4K e 1080p, áudio MP3 320kbps e FLAC, miniaturas HD e transcrições IA (SRT/VTT/TXT/JSON). Cole qualquer link — sem app, sem cadastro.",
+      "metaTitleThumbnail": "Baixador de Miniaturas do YouTube — Baixar em HD | DownForge",
+      "metaDescriptionThumbnail": "Baixador gratuito de miniaturas do YouTube. Salve miniaturas do YouTube em HD, JPG, PNG e WebP. Sem app.",
+      "keywordsThumbnail": [
+        "baixador de miniaturas do youtube",
+        "baixar miniaturas do youtube",
+        "salvar miniaturas youtube",
+        "youtube miniatura hd",
+        "youtube thumbnail pt",
+        "youtube thumbnail pt"
+      ],
+      "metaTitleTranscript": "Gerador de Transcrições do YouTube — Transcrições com IA | DownForge",
+      "metaDescriptionTranscript": "Gerador gratuito de transcrições do YouTube. Obtenha transcrições IA precisas com timestamps. Baixe em SRT, VTT, TXT ou JSON.",
+      "keywordsTranscript": [
+        "gerador de transcrições do youtube",
+        "baixar transcrições do youtube",
+        "youtube legendas",
+        "youtube transcript pt",
+        "youtube transcript pt",
+        "youtube transcript pt"
+      ]
     },
     "niconico": {
       "badge": "Downloader do Niconico",
@@ -2627,7 +3021,27 @@
       "headingAccentAll": "Vídeo, Áudio e Mais",
       "subheadingAll": "Baixador Niconico tudo em um. Baixe vídeos em HD, áudio MP3/FLAC, miniaturas HD e transcrições IA. Cole um link — sem cadastro.",
       "metaTitleVideo": "Baixador de Vídeos do Niconico — Baixar em HD | DownForge",
-      "metaDescriptionVideo": "Baixador gratuito de vídeos do Niconico. Salve vídeos do Niconico em HD e MP4 4K. Sem app, sem cadastro — cole um link."
+      "metaDescriptionVideo": "Baixador gratuito de vídeos do Niconico. Salve vídeos do Niconico em HD e MP4 4K. Sem app, sem cadastro — cole um link.",
+      "metaTitleThumbnail": "Baixador de Miniaturas do Niconico — Baixar em HD | DownForge",
+      "metaDescriptionThumbnail": "Baixador gratuito de miniaturas do Niconico. Salve miniaturas do Niconico em HD, JPG, PNG e WebP. Sem app.",
+      "keywordsThumbnail": [
+        "baixador de miniaturas do niconico",
+        "baixar miniaturas do niconico",
+        "salvar miniaturas niconico",
+        "niconico miniatura hd",
+        "niconico thumbnail pt",
+        "niconico thumbnail pt"
+      ],
+      "metaTitleTranscript": "Gerador de Transcrições do Niconico — Transcrições com IA | DownForge",
+      "metaDescriptionTranscript": "Gerador gratuito de transcrições do Niconico. Obtenha transcrições IA precisas com timestamps. Baixe em SRT, VTT, TXT ou JSON.",
+      "keywordsTranscript": [
+        "gerador de transcrições do niconico",
+        "baixar transcrições do niconico",
+        "niconico legendas",
+        "niconico transcript pt",
+        "niconico transcript pt",
+        "niconico transcript pt"
+      ]
     }
   },
   "YoutubeHero": {

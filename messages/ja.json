@@ -341,7 +341,121 @@
       "fast": "< 3秒",
       "free": "完全無料",
       "private": "安全・プライベート"
-    }
+    },
+    "thumbnailHeading": "{platform}のサムネイルをダウンロード",
+    "transcriptHeading": "{platform}の文字起こしを生成",
+    "thumbnailPreview": "サムネイルプレビュー",
+    "transcriptLanguageLabel": "言語:",
+    "featuresAudioLabel": "音声フォーマット",
+    "featuresAudioTitle": "最高の音声抽出ツール",
+    "featuresAudioSubtitle": "{platform}動画からあらゆる形式で高品質音声を抽出。",
+    "featuresThumbnailLabel": "画像フォーマット",
+    "featuresThumbnailTitle": "最高のサムネイルダウンロードツール",
+    "featuresThumbnailSubtitle": "{platform}動画のサムネイルをあらゆる形式と解像度で保存。",
+    "featuresTranscriptLabel": "文字起こしフォーマット",
+    "featuresTranscriptTitle": "最高の文字起こしジェネレーター",
+    "featuresTranscriptSubtitle": "AIで{platform}の正確な文字起こしをあらゆる形式で生成。",
+    "faqLabel": "よくある質問",
+    "faqTitleAudio": "音声ダウンロードに関する質問",
+    "faqTitleThumbnail": "サムネイルダウンロードに関する質問",
+    "faqTitleTranscript": "文字起こし生成に関する質問",
+    "faqSubtitle": "{platform}からのダウンロードについて知っておくべきすべて。",
+    "featuresAudioItems": [
+      {
+        "label": "MP3 320 kbps",
+        "value": "高品質",
+        "desc": "最高ビットレートの pristine MP3でダウンロード。"
+      },
+      {
+        "label": "FLAC ロスレス",
+        "value": "アーカイブ品質",
+        "desc": "FLACは元の音声のすべての詳細を保持。"
+      },
+      {
+        "label": "AAC 256 kbps",
+        "value": "効率的",
+        "desc": "小さなファイルサイズで優れた品質。Appleに最適。"
+      },
+      {
+        "label": "WAV 無圧縮",
+        "value": "スタジオ品質",
+        "desc": "プロの編集、マスタリング用の無圧縮音声。"
+      },
+      {
+        "label": "OGG 192 kbps",
+        "value": "オープン形式",
+        "desc": "効率的な圧縮と幅広い互換性のフリー形式。"
+      },
+      {
+        "label": "高速処理",
+        "value": "< 3秒",
+        "desc": "サーバー側変換で数秒でファイルを配信。"
+      }
+    ],
+    "featuresThumbnailItems": [
+      {
+        "label": "最大解像度",
+        "value": "フルHD",
+        "desc": "最大1920×1080の元の解像度でサムネイルをダウンロード。"
+      },
+      {
+        "label": "JPG形式",
+        "value": "コンパクト",
+        "desc": "優れた圧縮の汎用画像形式。共有に最適。"
+      },
+      {
+        "label": "PNG形式",
+        "value": "ロスレス",
+        "desc": "スクリーンショットや透明度が必要な画像に最適。"
+      },
+      {
+        "label": "WebP形式",
+        "value": "最適化",
+        "desc": "優れた圧縮と品質のモダンな画像形式。Webに最適。"
+      },
+      {
+        "label": "即時ダウンロード",
+        "value": "待ち時間なし",
+        "desc": "サムネイルは即時ダウンロード — 待ち時間なし。"
+      },
+      {
+        "label": "ゼロストレージ",
+        "value": "プライベート",
+        "desc": "ファイルを保存しません。サムネイルはソースから直接提供。"
+      }
+    ],
+    "featuresTranscriptItems": [
+      {
+        "label": "SRT字幕",
+        "value": "タイムスタンプ",
+        "desc": "正確なタイムスタンプ付きの業界標準字幕形式。"
+      },
+      {
+        "label": "VTT WebVTT",
+        "value": "Web形式",
+        "desc": "HTML5ビデオプレーヤー用のネイティブWeb字幕形式。"
+      },
+      {
+        "label": "TXTプレーンテキスト",
+        "value": "シンプル",
+        "desc": "タイムスタンプなしのクリーンなテキスト。メモや参照に最適。"
+      },
+      {
+        "label": "JSON構造化",
+        "value": "データ対応",
+        "desc": "タイムスタンプ付き構造化データ。開発者やAPIに最適。"
+      },
+      {
+        "label": "AI精度",
+        "value": "99%+",
+        "desc": "高度なAI音声認識による高精度な人間品質の文字起こし。"
+      },
+      {
+        "label": "バッチ処理",
+        "value": "プレイリスト",
+        "desc": "Proでプレイリストやチャンネル全体の文字起こしをワンクリックで生成。"
+      }
+    ]
   },
   "VideoOnly": {
     "badge": "動画ダウンローダー",
@@ -705,7 +819,27 @@
       "headingAccentAll": "動画、音声など",
       "subheadingAll": "オールインワン Facebookダウンローダー。動画をHD、音声をMP3/FLAC、HDサムネイル＆AI文字起こしでダウンロード。リンク貼り付け — アプリ不要、登録不要。",
       "metaTitleVideo": "Facebook動画ダウンローダー — HDで保存 | DownForge",
-      "metaDescriptionVideo": "無料のFacebook動画ダウンローダー。Facebook動画をHD＆4K MP4で保存。アプリ不要、登録不要 — リンクを貼り付け。"
+      "metaDescriptionVideo": "無料のFacebook動画ダウンローダー。Facebook動画をHD＆4K MP4で保存。アプリ不要、登録不要 — リンクを貼り付け。",
+      "metaTitleThumbnail": "Facebookサムネイルダウンローダー — HDで保存 | DownForge",
+      "metaDescriptionThumbnail": "無料のFacebookサムネイルダウンローダー。FacebookのサムネイルをHD・JPG・PNG・WebPで保存。アプリ不要。",
+      "keywordsThumbnail": [
+        "facebookサムネイルダウンロード",
+        "facebook サムネイル 保存",
+        "facebookサムネイル hd",
+        "facebook 画像 保存",
+        "facebook thumbnail ja",
+        "facebook thumbnail ja"
+      ],
+      "metaTitleTranscript": "Facebook文字起こしジェネレーター — AIで文字起こし | DownForge",
+      "metaDescriptionTranscript": "無料のFacebook文字起こしジェネレーター。タイムスタンプ付きの高精度AI文字起こしを取得。SRT、VTT、TXT、JSONでダウンロード。",
+      "keywordsTranscript": [
+        "facebook文字起こし",
+        "facebook トランスクリプト ダウンロード",
+        "facebook 字幕 ダウンロード",
+        "facebook srt",
+        "facebook transcript ja",
+        "facebook transcript ja"
+      ]
     },
     "instagram": {
       "badge": "Instagramダウンローダー",
@@ -842,7 +976,27 @@
       "headingAccentAll": "動画、音声など",
       "subheadingAll": "オールインワン Instagramダウンローダー。動画をHD、音声をMP3/FLAC、HDサムネイル＆AI文字起こしでダウンロード。リンク貼り付け — アプリ不要、登録不要。",
       "metaTitleVideo": "Instagram動画ダウンローダー — リール＆ストーリーをHD保存 | DownForge",
-      "metaDescriptionVideo": "無料のInstagramダウンローダー。ReelsとストーリーをHD MP4で保存。アプリ不要。"
+      "metaDescriptionVideo": "無料のInstagramダウンローダー。ReelsとストーリーをHD MP4で保存。アプリ不要。",
+      "metaTitleThumbnail": "Instagramサムネイルダウンローダー — HDで保存 | DownForge",
+      "metaDescriptionThumbnail": "無料のInstagramサムネイルダウンローダー。InstagramのサムネイルをHD・JPG・PNG・WebPで保存。アプリ不要。",
+      "keywordsThumbnail": [
+        "instagramサムネイルダウンロード",
+        "instagram サムネイル 保存",
+        "instagramサムネイル hd",
+        "instagram 画像 保存",
+        "instagram thumbnail ja",
+        "instagram thumbnail ja"
+      ],
+      "metaTitleTranscript": "Instagram文字起こしジェネレーター — AIで文字起こし | DownForge",
+      "metaDescriptionTranscript": "無料のInstagram文字起こしジェネレーター。タイムスタンプ付きの高精度AI文字起こしを取得。SRT、VTT、TXT、JSONでダウンロード。",
+      "keywordsTranscript": [
+        "instagram文字起こし",
+        "instagram トランスクリプト ダウンロード",
+        "instagram 字幕 ダウンロード",
+        "instagram srt",
+        "instagram transcript ja",
+        "instagram transcript ja"
+      ]
     },
     "tiktok": {
       "badge": "TikTokダウンローダー",
@@ -979,7 +1133,27 @@
       "headingAccentAll": "動画、音声など",
       "subheadingAll": "オールインワン TikTokダウンローダー。動画をHD、音声をMP3/FLAC、HDサムネイル＆AI文字起こしでダウンロード。リンク貼り付け — アプリ不要、登録不要。",
       "metaTitleVideo": "TikTok動画ダウンローダー — 透かしなし保存 | DownForge",
-      "metaDescriptionVideo": "無料のTikTokダウンローダー。透かしなしでTikTok動画をHD保存。アプリ不要。"
+      "metaDescriptionVideo": "無料のTikTokダウンローダー。透かしなしでTikTok動画をHD保存。アプリ不要。",
+      "metaTitleThumbnail": "TikTokサムネイルダウンローダー — HDで保存 | DownForge",
+      "metaDescriptionThumbnail": "無料のTikTokサムネイルダウンローダー。TikTokのサムネイルをHD・JPG・PNG・WebPで保存。アプリ不要。",
+      "keywordsThumbnail": [
+        "tiktokサムネイルダウンロード",
+        "tiktok サムネイル 保存",
+        "tiktokサムネイル hd",
+        "tiktok 画像 保存",
+        "tiktok thumbnail ja",
+        "tiktok thumbnail ja"
+      ],
+      "metaTitleTranscript": "TikTok文字起こしジェネレーター — AIで文字起こし | DownForge",
+      "metaDescriptionTranscript": "無料のTikTok文字起こしジェネレーター。タイムスタンプ付きの高精度AI文字起こしを取得。SRT、VTT、TXT、JSONでダウンロード。",
+      "keywordsTranscript": [
+        "tiktok文字起こし",
+        "tiktok トランスクリプト ダウンロード",
+        "tiktok 字幕 ダウンロード",
+        "tiktok srt",
+        "tiktok transcript ja",
+        "tiktok transcript ja"
+      ]
     },
     "twitter": {
       "badge": "Twitterダウンローダー",
@@ -1115,7 +1289,27 @@
       "headingAccentAll": "動画、音声など",
       "subheadingAll": "オールインワン Twitter / Xダウンローダー。動画をHD、音声をMP3/FLAC、HDサムネイル＆AI文字起こしでダウンロード。リンク貼り付け — アプリ不要、登録不要。",
       "metaTitleVideo": "Twitter動画ダウンローダー — 動画＆GIF保存 | DownForge",
-      "metaDescriptionVideo": "無料のTwitter動画ダウンローダー。Twitter動画をHD＆4K MP4で保存。アプリ不要、登録不要 — リンクを貼り付け。"
+      "metaDescriptionVideo": "無料のTwitter動画ダウンローダー。Twitter動画をHD＆4K MP4で保存。アプリ不要、登録不要 — リンクを貼り付け。",
+      "metaTitleThumbnail": "Twitterサムネイルダウンローダー — HDで保存 | DownForge",
+      "metaDescriptionThumbnail": "無料のTwitterサムネイルダウンローダー。TwitterのサムネイルをHD・JPG・PNG・WebPで保存。アプリ不要。",
+      "keywordsThumbnail": [
+        "twitterサムネイルダウンロード",
+        "twitter サムネイル 保存",
+        "twitterサムネイル hd",
+        "twitter 画像 保存",
+        "twitter thumbnail ja",
+        "twitter thumbnail ja"
+      ],
+      "metaTitleTranscript": "Twitter文字起こしジェネレーター — AIで文字起こし | DownForge",
+      "metaDescriptionTranscript": "無料のTwitter文字起こしジェネレーター。タイムスタンプ付きの高精度AI文字起こしを取得。SRT、VTT、TXT、JSONでダウンロード。",
+      "keywordsTranscript": [
+        "twitter文字起こし",
+        "twitter トランスクリプト ダウンロード",
+        "twitter 字幕 ダウンロード",
+        "twitter srt",
+        "twitter transcript ja",
+        "twitter transcript ja"
+      ]
     },
     "vimeo": {
       "badge": "Vimeoダウンローダー",
@@ -1250,7 +1444,27 @@
       "headingAccentAll": "動画、音声など",
       "subheadingAll": "オールインワン Vimeoダウンローダー。動画をHD、音声をMP3/FLAC、HDサムネイル＆AI文字起こしでダウンロード。リンク貼り付け — アプリ不要、登録不要。",
       "metaTitleVideo": "Vimeo動画ダウンローダー — HDで保存 | DownForge",
-      "metaDescriptionVideo": "無料のVimeo動画ダウンローダー。Vimeo動画をHD＆4K MP4で保存。アプリ不要、登録不要 — リンクを貼り付け。"
+      "metaDescriptionVideo": "無料のVimeo動画ダウンローダー。Vimeo動画をHD＆4K MP4で保存。アプリ不要、登録不要 — リンクを貼り付け。",
+      "metaTitleThumbnail": "Vimeoサムネイルダウンローダー — HDで保存 | DownForge",
+      "metaDescriptionThumbnail": "無料のVimeoサムネイルダウンローダー。VimeoのサムネイルをHD・JPG・PNG・WebPで保存。アプリ不要。",
+      "keywordsThumbnail": [
+        "vimeoサムネイルダウンロード",
+        "vimeo サムネイル 保存",
+        "vimeoサムネイル hd",
+        "vimeo 画像 保存",
+        "vimeo thumbnail ja",
+        "vimeo thumbnail ja"
+      ],
+      "metaTitleTranscript": "Vimeo文字起こしジェネレーター — AIで文字起こし | DownForge",
+      "metaDescriptionTranscript": "無料のVimeo文字起こしジェネレーター。タイムスタンプ付きの高精度AI文字起こしを取得。SRT、VTT、TXT、JSONでダウンロード。",
+      "keywordsTranscript": [
+        "vimeo文字起こし",
+        "vimeo トランスクリプト ダウンロード",
+        "vimeo 字幕 ダウンロード",
+        "vimeo srt",
+        "vimeo transcript ja",
+        "vimeo transcript ja"
+      ]
     },
     "dailymotion": {
       "badge": "Dailymotionダウンローダー",
@@ -1383,7 +1597,27 @@
       "headingAccentAll": "動画、音声など",
       "subheadingAll": "オールインワン Dailymotionダウンローダー。動画をHD、音声をMP3/FLAC、HDサムネイル＆AI文字起こしでダウンロード。リンク貼り付け — アプリ不要、登録不要。",
       "metaTitleVideo": "Dailymotion動画ダウンローダー — HDで保存 | DownForge",
-      "metaDescriptionVideo": "無料のDailymotion動画ダウンローダー。Dailymotion動画をHD＆4K MP4で保存。アプリ不要、登録不要 — リンクを貼り付け。"
+      "metaDescriptionVideo": "無料のDailymotion動画ダウンローダー。Dailymotion動画をHD＆4K MP4で保存。アプリ不要、登録不要 — リンクを貼り付け。",
+      "metaTitleThumbnail": "Dailymotionサムネイルダウンローダー — HDで保存 | DownForge",
+      "metaDescriptionThumbnail": "無料のDailymotionサムネイルダウンローダー。DailymotionのサムネイルをHD・JPG・PNG・WebPで保存。アプリ不要。",
+      "keywordsThumbnail": [
+        "dailymotionサムネイルダウンロード",
+        "dailymotion サムネイル 保存",
+        "dailymotionサムネイル hd",
+        "dailymotion 画像 保存",
+        "dailymotion thumbnail ja",
+        "dailymotion thumbnail ja"
+      ],
+      "metaTitleTranscript": "Dailymotion文字起こしジェネレーター — AIで文字起こし | DownForge",
+      "metaDescriptionTranscript": "無料のDailymotion文字起こしジェネレーター。タイムスタンプ付きの高精度AI文字起こしを取得。SRT、VTT、TXT、JSONでダウンロード。",
+      "keywordsTranscript": [
+        "dailymotion文字起こし",
+        "dailymotion トランスクリプト ダウンロード",
+        "dailymotion 字幕 ダウンロード",
+        "dailymotion srt",
+        "dailymotion transcript ja",
+        "dailymotion transcript ja"
+      ]
     },
     "twitch": {
       "badge": "Twitchダウンローダー",
@@ -1518,7 +1752,27 @@
       "headingAccentAll": "動画、音声など",
       "subheadingAll": "オールインワン Twitchダウンローダー。動画をHD、音声をMP3/FLAC、HDサムネイル＆AI文字起こしでダウンロード。リンク貼り付け — アプリ不要、登録不要。",
       "metaTitleVideo": "Twitch動画ダウンローダー — HDで保存 | DownForge",
-      "metaDescriptionVideo": "無料のTwitch動画ダウンローダー。Twitch動画をHD＆4K MP4で保存。アプリ不要、登録不要 — リンクを貼り付け。"
+      "metaDescriptionVideo": "無料のTwitch動画ダウンローダー。Twitch動画をHD＆4K MP4で保存。アプリ不要、登録不要 — リンクを貼り付け。",
+      "metaTitleThumbnail": "Twitchサムネイルダウンローダー — HDで保存 | DownForge",
+      "metaDescriptionThumbnail": "無料のTwitchサムネイルダウンローダー。TwitchのサムネイルをHD・JPG・PNG・WebPで保存。アプリ不要。",
+      "keywordsThumbnail": [
+        "twitchサムネイルダウンロード",
+        "twitch サムネイル 保存",
+        "twitchサムネイル hd",
+        "twitch 画像 保存",
+        "twitch thumbnail ja",
+        "twitch thumbnail ja"
+      ],
+      "metaTitleTranscript": "Twitch文字起こしジェネレーター — AIで文字起こし | DownForge",
+      "metaDescriptionTranscript": "無料のTwitch文字起こしジェネレーター。タイムスタンプ付きの高精度AI文字起こしを取得。SRT、VTT、TXT、JSONでダウンロード。",
+      "keywordsTranscript": [
+        "twitch文字起こし",
+        "twitch トランスクリプト ダウンロード",
+        "twitch 字幕 ダウンロード",
+        "twitch srt",
+        "twitch transcript ja",
+        "twitch transcript ja"
+      ]
     },
     "reddit": {
       "badge": "Redditダウンローダー",
@@ -1651,7 +1905,27 @@
       "headingAccentAll": "動画、音声など",
       "subheadingAll": "オールインワン Redditダウンローダー。動画をHD、音声をMP3/FLAC、HDサムネイル＆AI文字起こしでダウンロード。リンク貼り付け — アプリ不要、登録不要。",
       "metaTitleVideo": "Reddit動画ダウンローダー — HDで保存 | DownForge",
-      "metaDescriptionVideo": "無料のReddit動画ダウンローダー。Reddit動画をHD＆4K MP4で保存。アプリ不要、登録不要 — リンクを貼り付け。"
+      "metaDescriptionVideo": "無料のReddit動画ダウンローダー。Reddit動画をHD＆4K MP4で保存。アプリ不要、登録不要 — リンクを貼り付け。",
+      "metaTitleThumbnail": "Redditサムネイルダウンローダー — HDで保存 | DownForge",
+      "metaDescriptionThumbnail": "無料のRedditサムネイルダウンローダー。RedditのサムネイルをHD・JPG・PNG・WebPで保存。アプリ不要。",
+      "keywordsThumbnail": [
+        "redditサムネイルダウンロード",
+        "reddit サムネイル 保存",
+        "redditサムネイル hd",
+        "reddit 画像 保存",
+        "reddit thumbnail ja",
+        "reddit thumbnail ja"
+      ],
+      "metaTitleTranscript": "Reddit文字起こしジェネレーター — AIで文字起こし | DownForge",
+      "metaDescriptionTranscript": "無料のReddit文字起こしジェネレーター。タイムスタンプ付きの高精度AI文字起こしを取得。SRT、VTT、TXT、JSONでダウンロード。",
+      "keywordsTranscript": [
+        "reddit文字起こし",
+        "reddit トランスクリプト ダウンロード",
+        "reddit 字幕 ダウンロード",
+        "reddit srt",
+        "reddit transcript ja",
+        "reddit transcript ja"
+      ]
     },
     "pinterest": {
       "badge": "Pinterestダウンローダー",
@@ -1783,7 +2057,27 @@
       "headingAccentAll": "動画、音声など",
       "subheadingAll": "オールインワン Pinterestダウンローダー。動画をHD、音声をMP3/FLAC、HDサムネイル＆AI文字起こしでダウンロード。リンク貼り付け — アプリ不要、登録不要。",
       "metaTitleVideo": "Pinterest動画ダウンローダー — HDで保存 | DownForge",
-      "metaDescriptionVideo": "無料のPinterest動画ダウンローダー。Pinterest動画をHD＆4K MP4で保存。アプリ不要、登録不要 — リンクを貼り付け。"
+      "metaDescriptionVideo": "無料のPinterest動画ダウンローダー。Pinterest動画をHD＆4K MP4で保存。アプリ不要、登録不要 — リンクを貼り付け。",
+      "metaTitleThumbnail": "Pinterestサムネイルダウンローダー — HDで保存 | DownForge",
+      "metaDescriptionThumbnail": "無料のPinterestサムネイルダウンローダー。PinterestのサムネイルをHD・JPG・PNG・WebPで保存。アプリ不要。",
+      "keywordsThumbnail": [
+        "pinterestサムネイルダウンロード",
+        "pinterest サムネイル 保存",
+        "pinterestサムネイル hd",
+        "pinterest 画像 保存",
+        "pinterest thumbnail ja",
+        "pinterest thumbnail ja"
+      ],
+      "metaTitleTranscript": "Pinterest文字起こしジェネレーター — AIで文字起こし | DownForge",
+      "metaDescriptionTranscript": "無料のPinterest文字起こしジェネレーター。タイムスタンプ付きの高精度AI文字起こしを取得。SRT、VTT、TXT、JSONでダウンロード。",
+      "keywordsTranscript": [
+        "pinterest文字起こし",
+        "pinterest トランスクリプト ダウンロード",
+        "pinterest 字幕 ダウンロード",
+        "pinterest srt",
+        "pinterest transcript ja",
+        "pinterest transcript ja"
+      ]
     },
     "linkedin": {
       "badge": "LinkedInダウンローダー",
@@ -1915,7 +2209,27 @@
       "headingAccentAll": "動画、音声など",
       "subheadingAll": "オールインワン LinkedInダウンローダー。動画をHD、音声をMP3/FLAC、HDサムネイル＆AI文字起こしでダウンロード。リンク貼り付け — アプリ不要、登録不要。",
       "metaTitleVideo": "LinkedIn動画ダウンローダー — HDで保存 | DownForge",
-      "metaDescriptionVideo": "無料のLinkedIn動画ダウンローダー。LinkedIn動画をHD＆4K MP4で保存。アプリ不要、登録不要 — リンクを貼り付け。"
+      "metaDescriptionVideo": "無料のLinkedIn動画ダウンローダー。LinkedIn動画をHD＆4K MP4で保存。アプリ不要、登録不要 — リンクを貼り付け。",
+      "metaTitleThumbnail": "LinkedInサムネイルダウンローダー — HDで保存 | DownForge",
+      "metaDescriptionThumbnail": "無料のLinkedInサムネイルダウンローダー。LinkedInのサムネイルをHD・JPG・PNG・WebPで保存。アプリ不要。",
+      "keywordsThumbnail": [
+        "linkedinサムネイルダウンロード",
+        "linkedin サムネイル 保存",
+        "linkedinサムネイル hd",
+        "linkedin 画像 保存",
+        "linkedin thumbnail ja",
+        "linkedin thumbnail ja"
+      ],
+      "metaTitleTranscript": "LinkedIn文字起こしジェネレーター — AIで文字起こし | DownForge",
+      "metaDescriptionTranscript": "無料のLinkedIn文字起こしジェネレーター。タイムスタンプ付きの高精度AI文字起こしを取得。SRT、VTT、TXT、JSONでダウンロード。",
+      "keywordsTranscript": [
+        "linkedin文字起こし",
+        "linkedin トランスクリプト ダウンロード",
+        "linkedin 字幕 ダウンロード",
+        "linkedin srt",
+        "linkedin transcript ja",
+        "linkedin transcript ja"
+      ]
     },
     "snapchat": {
       "badge": "Snapchatダウンローダー",
@@ -2047,7 +2361,27 @@
       "headingAccentAll": "動画、音声など",
       "subheadingAll": "オールインワン Snapchatダウンローダー。動画をHD、音声をMP3/FLAC、HDサムネイル＆AI文字起こしでダウンロード。リンク貼り付け — アプリ不要、登録不要。",
       "metaTitleVideo": "Snapchat動画ダウンローダー — HDで保存 | DownForge",
-      "metaDescriptionVideo": "無料のSnapchat動画ダウンローダー。Snapchat動画をHD＆4K MP4で保存。アプリ不要、登録不要 — リンクを貼り付け。"
+      "metaDescriptionVideo": "無料のSnapchat動画ダウンローダー。Snapchat動画をHD＆4K MP4で保存。アプリ不要、登録不要 — リンクを貼り付け。",
+      "metaTitleThumbnail": "Snapchatサムネイルダウンローダー — HDで保存 | DownForge",
+      "metaDescriptionThumbnail": "無料のSnapchatサムネイルダウンローダー。SnapchatのサムネイルをHD・JPG・PNG・WebPで保存。アプリ不要。",
+      "keywordsThumbnail": [
+        "snapchatサムネイルダウンロード",
+        "snapchat サムネイル 保存",
+        "snapchatサムネイル hd",
+        "snapchat 画像 保存",
+        "snapchat thumbnail ja",
+        "snapchat thumbnail ja"
+      ],
+      "metaTitleTranscript": "Snapchat文字起こしジェネレーター — AIで文字起こし | DownForge",
+      "metaDescriptionTranscript": "無料のSnapchat文字起こしジェネレーター。タイムスタンプ付きの高精度AI文字起こしを取得。SRT、VTT、TXT、JSONでダウンロード。",
+      "keywordsTranscript": [
+        "snapchat文字起こし",
+        "snapchat トランスクリプト ダウンロード",
+        "snapchat 字幕 ダウンロード",
+        "snapchat srt",
+        "snapchat transcript ja",
+        "snapchat transcript ja"
+      ]
     },
     "soundcloud": {
       "badge": "SoundCloudダウンローダー",
@@ -2186,7 +2520,27 @@
       "headingAccentAll": "動画、音声など",
       "subheadingAll": "オールインワン SoundCloudダウンローダー。トラックをMP3 320kbps＆FLAC、動画、HDサムネイル＆文字起こしで保存。リンク貼り付け — 登録不要。",
       "metaTitleVideo": "SoundCloud動画ダウンローダー — HDで保存 | DownForge",
-      "metaDescriptionVideo": "無料のSoundCloud動画ダウンローダー。SoundCloud動画をHD＆4K MP4で保存。アプリ不要、登録不要 — リンクを貼り付け。"
+      "metaDescriptionVideo": "無料のSoundCloud動画ダウンローダー。SoundCloud動画をHD＆4K MP4で保存。アプリ不要、登録不要 — リンクを貼り付け。",
+      "metaTitleThumbnail": "SoundCloudサムネイルダウンローダー — HDで保存 | DownForge",
+      "metaDescriptionThumbnail": "無料のSoundCloudサムネイルダウンローダー。SoundCloudのサムネイルをHD・JPG・PNG・WebPで保存。アプリ不要。",
+      "keywordsThumbnail": [
+        "soundcloudサムネイルダウンロード",
+        "soundcloud サムネイル 保存",
+        "soundcloudサムネイル hd",
+        "soundcloud 画像 保存",
+        "soundcloud thumbnail ja",
+        "soundcloud thumbnail ja"
+      ],
+      "metaTitleTranscript": "SoundCloud文字起こしジェネレーター — AIで文字起こし | DownForge",
+      "metaDescriptionTranscript": "無料のSoundCloud文字起こしジェネレーター。タイムスタンプ付きの高精度AI文字起こしを取得。SRT、VTT、TXT、JSONでダウンロード。",
+      "keywordsTranscript": [
+        "soundcloud文字起こし",
+        "soundcloud トランスクリプト ダウンロード",
+        "soundcloud 字幕 ダウンロード",
+        "soundcloud srt",
+        "soundcloud transcript ja",
+        "soundcloud transcript ja"
+      ]
     },
     "kick": {
       "badge": "Kickダウンローダー",
@@ -2318,7 +2672,27 @@
       "headingAccentAll": "動画、音声など",
       "subheadingAll": "オールインワン Kickダウンローダー。動画をHD、音声をMP3/FLAC、HDサムネイル＆AI文字起こしでダウンロード。リンク貼り付け — アプリ不要、登録不要。",
       "metaTitleVideo": "Kick動画ダウンローダー — HDで保存 | DownForge",
-      "metaDescriptionVideo": "無料のKick動画ダウンローダー。Kick動画をHD＆4K MP4で保存。アプリ不要、登録不要 — リンクを貼り付け。"
+      "metaDescriptionVideo": "無料のKick動画ダウンローダー。Kick動画をHD＆4K MP4で保存。アプリ不要、登録不要 — リンクを貼り付け。",
+      "metaTitleThumbnail": "Kickサムネイルダウンローダー — HDで保存 | DownForge",
+      "metaDescriptionThumbnail": "無料のKickサムネイルダウンローダー。KickのサムネイルをHD・JPG・PNG・WebPで保存。アプリ不要。",
+      "keywordsThumbnail": [
+        "kickサムネイルダウンロード",
+        "kick サムネイル 保存",
+        "kickサムネイル hd",
+        "kick 画像 保存",
+        "kick thumbnail ja",
+        "kick thumbnail ja"
+      ],
+      "metaTitleTranscript": "Kick文字起こしジェネレーター — AIで文字起こし | DownForge",
+      "metaDescriptionTranscript": "無料のKick文字起こしジェネレーター。タイムスタンプ付きの高精度AI文字起こしを取得。SRT、VTT、TXT、JSONでダウンロード。",
+      "keywordsTranscript": [
+        "kick文字起こし",
+        "kick トランスクリプト ダウンロード",
+        "kick 字幕 ダウンロード",
+        "kick srt",
+        "kick transcript ja",
+        "kick transcript ja"
+      ]
     },
     "youtube": {
       "badge": "YouTubeダウンローダー",
@@ -2469,7 +2843,27 @@
       ],
       "headingAll": "YouTubeからダウンロード",
       "headingAccentAll": "動画、音声など",
-      "subheadingAll": "オールインワン YouTubeダウンローダー。動画を4K＆1080p、音声をMP3 320kbps＆FLAC、HDサムネイル＆AI文字起こし（SRT/VTT/TXT/JSON）で保存。リンク貼り付け — アプリ不要、登録不要。Android、iPhone＆PC対応。"
+      "subheadingAll": "オールインワン YouTubeダウンローダー。動画を4K＆1080p、音声をMP3 320kbps＆FLAC、HDサムネイル＆AI文字起こし（SRT/VTT/TXT/JSON）で保存。リンク貼り付け — アプリ不要、登録不要。Android、iPhone＆PC対応。",
+      "metaTitleThumbnail": "YouTubeサムネイルダウンローダー — HDで保存 | DownForge",
+      "metaDescriptionThumbnail": "無料のYouTubeサムネイルダウンローダー。YouTubeのサムネイルをHD・JPG・PNG・WebPで保存。アプリ不要。",
+      "keywordsThumbnail": [
+        "youtubeサムネイルダウンロード",
+        "youtube サムネイル 保存",
+        "youtubeサムネイル hd",
+        "youtube 画像 保存",
+        "youtube thumbnail ja",
+        "youtube thumbnail ja"
+      ],
+      "metaTitleTranscript": "YouTube文字起こしジェネレーター — AIで文字起こし | DownForge",
+      "metaDescriptionTranscript": "無料のYouTube文字起こしジェネレーター。タイムスタンプ付きの高精度AI文字起こしを取得。SRT、VTT、TXT、JSONでダウンロード。",
+      "keywordsTranscript": [
+        "youtube文字起こし",
+        "youtube トランスクリプト ダウンロード",
+        "youtube 字幕 ダウンロード",
+        "youtube srt",
+        "youtube transcript ja",
+        "youtube transcript ja"
+      ]
     },
     "niconico": {
       "badge": "Niconicoダウンローダー",
@@ -2602,7 +2996,27 @@
       "headingAccentAll": "動画、音声など",
       "subheadingAll": "オールインワン Niconicoダウンローダー。動画をHD、音声をMP3/FLAC、HDサムネイル＆AI文字起こしでダウンロード。リンク貼り付け — アプリ不要、登録不要。",
       "metaTitleVideo": "Niconico動画ダウンローダー — HDで保存 | DownForge",
-      "metaDescriptionVideo": "無料のNiconico動画ダウンローダー。Niconico動画をHD＆4K MP4で保存。アプリ不要、登録不要 — リンクを貼り付け。"
+      "metaDescriptionVideo": "無料のNiconico動画ダウンローダー。Niconico動画をHD＆4K MP4で保存。アプリ不要、登録不要 — リンクを貼り付け。",
+      "metaTitleThumbnail": "Niconicoサムネイルダウンローダー — HDで保存 | DownForge",
+      "metaDescriptionThumbnail": "無料のNiconicoサムネイルダウンローダー。NiconicoのサムネイルをHD・JPG・PNG・WebPで保存。アプリ不要。",
+      "keywordsThumbnail": [
+        "niconicoサムネイルダウンロード",
+        "niconico サムネイル 保存",
+        "niconicoサムネイル hd",
+        "niconico 画像 保存",
+        "niconico thumbnail ja",
+        "niconico thumbnail ja"
+      ],
+      "metaTitleTranscript": "Niconico文字起こしジェネレーター — AIで文字起こし | DownForge",
+      "metaDescriptionTranscript": "無料のNiconico文字起こしジェネレーター。タイムスタンプ付きの高精度AI文字起こしを取得。SRT、VTT、TXT、JSONでダウンロード。",
+      "keywordsTranscript": [
+        "niconico文字起こし",
+        "niconico トランスクリプト ダウンロード",
+        "niconico 字幕 ダウンロード",
+        "niconico srt",
+        "niconico transcript ja",
+        "niconico transcript ja"
+      ]
     }
   },
   "YoutubeHero": {

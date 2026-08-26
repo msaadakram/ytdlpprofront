@@ -341,7 +341,121 @@
       "fast": "< 3с",
       "free": "100% Бесплатно",
       "private": "Приватно и безопасно"
-    }
+    },
+    "thumbnailHeading": "Скачать превью {platform}",
+    "transcriptHeading": "Создать транскрипты {platform}",
+    "thumbnailPreview": "Предпросмотр превью",
+    "transcriptLanguageLabel": "Язык:",
+    "featuresAudioLabel": "Аудиоформаты",
+    "featuresAudioTitle": "Лучший инструмент извлечения аудио",
+    "featuresAudioSubtitle": "Извлекайте высококачественный звук из видео {platform} в каждом формате.",
+    "featuresThumbnailLabel": "Форматы изображений",
+    "featuresThumbnailTitle": "Лучший загрузчик превью",
+    "featuresThumbnailSubtitle": "Сохраняйте превью видео {platform} в каждом формате и разрешении.",
+    "featuresTranscriptLabel": "Форматы транскриптов",
+    "featuresTranscriptTitle": "Лучший генератор транскриптов",
+    "featuresTranscriptSubtitle": "Создавайте точные транскрипты {platform} с ИИ в каждом формате.",
+    "faqLabel": "Частые вопросы",
+    "faqTitleAudio": "Вопросы о загрузке аудио",
+    "faqTitleThumbnail": "Вопросы о загрузке превью",
+    "faqTitleTranscript": "Вопросы о создании транскриптов",
+    "faqSubtitle": "Всё, что нужно знать о загрузке с {platform}.",
+    "featuresAudioItems": [
+      {
+        "label": "MP3 320 kbps",
+        "value": "Высокое качество",
+        "desc": "Скачивайте аудио MP3 pristine на максимальной скорости."
+      },
+      {
+        "label": "FLAC без потерь",
+        "value": "Архив",
+        "desc": "FLAC сохраняет каждую деталь без потерь."
+      },
+      {
+        "label": "AAC 256 kbps",
+        "value": "Эффективно",
+        "desc": "Продвинутое кодирование отличное качество малый размер Apple."
+      },
+      {
+        "label": "WAV без сжатия",
+        "value": "Студия",
+        "desc": "Несжатое аудио для про монтажа."
+      },
+      {
+        "label": "OGG 192 kbps",
+        "value": "Открытый",
+        "desc": "Свободный формат эффективное сжатие совместимость."
+      },
+      {
+        "label": "Быстрая обработка",
+        "value": "< 3 секунд",
+        "desc": "Серверная конвертация за секунды."
+      }
+    ],
+    "featuresThumbnailItems": [
+      {
+        "label": "Максимальное разрешение",
+        "value": "Full HD",
+        "desc": "Скачивайте превью в оригинальном разрешении до 1920×1080."
+      },
+      {
+        "label": "JPG",
+        "value": "Компакт",
+        "desc": "Универсальный формат большая компрессия идеально делиться."
+      },
+      {
+        "label": "PNG",
+        "value": "Без потерь",
+        "desc": "Идеально скриншоты прозрачность без потерь."
+      },
+      {
+        "label": "WebP",
+        "value": "Оптимизирован",
+        "desc": "Современный формат превосходное сжатие лучше для веб."
+      },
+      {
+        "label": "Мгновенная загрузка",
+        "value": "Без ожидания",
+        "desc": "Превью мгновенно без очереди."
+      },
+      {
+        "label": "Ноль хранения",
+        "value": "Приватно",
+        "desc": "Мы не храним файлы."
+      }
+    ],
+    "featuresTranscriptItems": [
+      {
+        "label": "Субтитры SRT",
+        "value": "Таймкоды",
+        "desc": "Стандарт с точными таймкодами."
+      },
+      {
+        "label": "VTT WebVTT",
+        "value": "Веб",
+        "desc": "Нативный веб-формат HTML5."
+      },
+      {
+        "label": "TXT",
+        "value": "Просто",
+        "desc": "Чистый текст без таймкодов для заметок."
+      },
+      {
+        "label": "JSON",
+        "value": "Данные",
+        "desc": "Структурированные данные с таймкодами для API."
+      },
+      {
+        "label": "Точность ИИ",
+        "value": "99%+",
+        "desc": "Продвинутый ИИ человеческое качество."
+      },
+      {
+        "label": "Пакетная",
+        "value": "Плейлисты",
+        "desc": "Генерируйте транскрипты для плейлистов (Pro)."
+      }
+    ]
   },
   "VideoOnly": {
     "badge": "Загрузчик видео",
@@ -707,7 +821,27 @@
       "headingAccentAll": "Видео, Аудио и Ещё",
       "subheadingAll": "Универсальный загрузчик Facebook. Видео HD, аудио MP3/FLAC, миниатюры HD и ИИ-транскрипты. Вставьте ссылку — без приложения, без регистрации.",
       "metaTitleVideo": "Загрузчик видео Facebook — Скачать в HD | DownForge",
-      "metaDescriptionVideo": "Бесплатный загрузчик видео Facebook. Сохраняйте видео с Facebook в HD и 4K MP4. Без приложения, без регистрации — вставьте ссылку."
+      "metaDescriptionVideo": "Бесплатный загрузчик видео Facebook. Сохраняйте видео с Facebook в HD и 4K MP4. Без приложения, без регистрации — вставьте ссылку.",
+      "metaTitleThumbnail": "Загрузчик превью Facebook — Скачать превью в HD | DownForge",
+      "metaDescriptionThumbnail": "Бесплатный загрузчик превью Facebook. Сохраняйте превью Facebook в HD, JPG, PNG и WebP. Без приложения.",
+      "keywordsThumbnail": [
+        "скачать превью facebook",
+        "загрузчик превью facebook",
+        "сохранить миниатюры facebook",
+        "facebook превью hd",
+        "facebook thumbnail ru",
+        "facebook thumbnail ru"
+      ],
+      "metaTitleTranscript": "Генератор транскриптов Facebook — Транскрипты с ИИ | DownForge",
+      "metaDescriptionTranscript": "Бесплатный генератор транскриптов Facebook. Получайте точные ИИ-транскрипты с таймкодами. Скачивайте в SRT, VTT, TXT или JSON.",
+      "keywordsTranscript": [
+        "генератор транскриптов facebook",
+        "скачать транскрипт facebook",
+        "facebook субтитры",
+        "facebook transcript ru",
+        "facebook transcript ru",
+        "facebook transcript ru"
+      ]
     },
     "instagram": {
       "badge": "Загрузчик Instagram",
@@ -846,7 +980,27 @@
       "headingAccentAll": "Видео, Аудио и Ещё",
       "subheadingAll": "Универсальный загрузчик Instagram. Видео HD, аудио MP3/FLAC, миниатюры HD и ИИ-транскрипты. Вставьте ссылку — без приложения, без регистрации.",
       "metaTitleVideo": "Загрузчик Instagram — Reels и Stories в HD | DownForge",
-      "metaDescriptionVideo": "Бесплатный загрузчик Instagram. Сохраняйте Reels и Stories в HD MP4. Без приложения."
+      "metaDescriptionVideo": "Бесплатный загрузчик Instagram. Сохраняйте Reels и Stories в HD MP4. Без приложения.",
+      "metaTitleThumbnail": "Загрузчик превью Instagram — Скачать превью в HD | DownForge",
+      "metaDescriptionThumbnail": "Бесплатный загрузчик превью Instagram. Сохраняйте превью Instagram в HD, JPG, PNG и WebP. Без приложения.",
+      "keywordsThumbnail": [
+        "скачать превью instagram",
+        "загрузчик превью instagram",
+        "сохранить миниатюры instagram",
+        "instagram превью hd",
+        "instagram thumbnail ru",
+        "instagram thumbnail ru"
+      ],
+      "metaTitleTranscript": "Генератор транскриптов Instagram — Транскрипты с ИИ | DownForge",
+      "metaDescriptionTranscript": "Бесплатный генератор транскриптов Instagram. Получайте точные ИИ-транскрипты с таймкодами. Скачивайте в SRT, VTT, TXT или JSON.",
+      "keywordsTranscript": [
+        "генератор транскриптов instagram",
+        "скачать транскрипт instagram",
+        "instagram субтитры",
+        "instagram transcript ru",
+        "instagram transcript ru",
+        "instagram transcript ru"
+      ]
     },
     "tiktok": {
       "badge": "Загрузчик TikTok",
@@ -985,7 +1139,27 @@
       "headingAccentAll": "Видео, Аудио и Ещё",
       "subheadingAll": "Универсальный загрузчик TikTok. Видео HD, аудио MP3/FLAC, миниатюры HD и ИИ-транскрипты. Вставьте ссылку — без приложения, без регистрации.",
       "metaTitleVideo": "Загрузчик TikTok — Без водяного знака | DownForge",
-      "metaDescriptionVideo": "Бесплатный загрузчик TikTok. Сохраняйте видео TikTok без водяного знака в HD. Без приложения."
+      "metaDescriptionVideo": "Бесплатный загрузчик TikTok. Сохраняйте видео TikTok без водяного знака в HD. Без приложения.",
+      "metaTitleThumbnail": "Загрузчик превью TikTok — Скачать превью в HD | DownForge",
+      "metaDescriptionThumbnail": "Бесплатный загрузчик превью TikTok. Сохраняйте превью TikTok в HD, JPG, PNG и WebP. Без приложения.",
+      "keywordsThumbnail": [
+        "скачать превью tiktok",
+        "загрузчик превью tiktok",
+        "сохранить миниатюры tiktok",
+        "tiktok превью hd",
+        "tiktok thumbnail ru",
+        "tiktok thumbnail ru"
+      ],
+      "metaTitleTranscript": "Генератор транскриптов TikTok — Транскрипты с ИИ | DownForge",
+      "metaDescriptionTranscript": "Бесплатный генератор транскриптов TikTok. Получайте точные ИИ-транскрипты с таймкодами. Скачивайте в SRT, VTT, TXT или JSON.",
+      "keywordsTranscript": [
+        "генератор транскриптов tiktok",
+        "скачать транскрипт tiktok",
+        "tiktok субтитры",
+        "tiktok transcript ru",
+        "tiktok transcript ru",
+        "tiktok transcript ru"
+      ]
     },
     "twitter": {
       "badge": "Загрузчик Twitter",
@@ -1123,7 +1297,27 @@
       "headingAccentAll": "Видео, Аудио и Ещё",
       "subheadingAll": "Универсальный загрузчик Twitter / X. Видео HD, аудио MP3/FLAC, миниатюры HD и ИИ-транскрипты. Вставьте ссылку — без приложения, без регистрации.",
       "metaTitleVideo": "Загрузчик Twitter — Видео и GIF | DownForge",
-      "metaDescriptionVideo": "Бесплатный загрузчик видео Twitter. Сохраняйте видео с Twitter в HD и 4K MP4. Без приложения, без регистрации — вставьте ссылку."
+      "metaDescriptionVideo": "Бесплатный загрузчик видео Twitter. Сохраняйте видео с Twitter в HD и 4K MP4. Без приложения, без регистрации — вставьте ссылку.",
+      "metaTitleThumbnail": "Загрузчик превью Twitter — Скачать превью в HD | DownForge",
+      "metaDescriptionThumbnail": "Бесплатный загрузчик превью Twitter. Сохраняйте превью Twitter в HD, JPG, PNG и WebP. Без приложения.",
+      "keywordsThumbnail": [
+        "скачать превью twitter",
+        "загрузчик превью twitter",
+        "сохранить миниатюры twitter",
+        "twitter превью hd",
+        "twitter thumbnail ru",
+        "twitter thumbnail ru"
+      ],
+      "metaTitleTranscript": "Генератор транскриптов Twitter — Транскрипты с ИИ | DownForge",
+      "metaDescriptionTranscript": "Бесплатный генератор транскриптов Twitter. Получайте точные ИИ-транскрипты с таймкодами. Скачивайте в SRT, VTT, TXT или JSON.",
+      "keywordsTranscript": [
+        "генератор транскриптов twitter",
+        "скачать транскрипт twitter",
+        "twitter субтитры",
+        "twitter transcript ru",
+        "twitter transcript ru",
+        "twitter transcript ru"
+      ]
     },
     "vimeo": {
       "badge": "Загрузчик Vimeo",
@@ -1260,7 +1454,27 @@
       "headingAccentAll": "Видео, Аудио и Ещё",
       "subheadingAll": "Универсальный загрузчик Vimeo. Видео HD, аудио MP3/FLAC, миниатюры HD и ИИ-транскрипты. Вставьте ссылку — без приложения, без регистрации.",
       "metaTitleVideo": "Загрузчик видео Vimeo — Скачать в HD | DownForge",
-      "metaDescriptionVideo": "Бесплатный загрузчик видео Vimeo. Сохраняйте видео с Vimeo в HD и 4K MP4. Без приложения, без регистрации — вставьте ссылку."
+      "metaDescriptionVideo": "Бесплатный загрузчик видео Vimeo. Сохраняйте видео с Vimeo в HD и 4K MP4. Без приложения, без регистрации — вставьте ссылку.",
+      "metaTitleThumbnail": "Загрузчик превью Vimeo — Скачать превью в HD | DownForge",
+      "metaDescriptionThumbnail": "Бесплатный загрузчик превью Vimeo. Сохраняйте превью Vimeo в HD, JPG, PNG и WebP. Без приложения.",
+      "keywordsThumbnail": [
+        "скачать превью vimeo",
+        "загрузчик превью vimeo",
+        "сохранить миниатюры vimeo",
+        "vimeo превью hd",
+        "vimeo thumbnail ru",
+        "vimeo thumbnail ru"
+      ],
+      "metaTitleTranscript": "Генератор транскриптов Vimeo — Транскрипты с ИИ | DownForge",
+      "metaDescriptionTranscript": "Бесплатный генератор транскриптов Vimeo. Получайте точные ИИ-транскрипты с таймкодами. Скачивайте в SRT, VTT, TXT или JSON.",
+      "keywordsTranscript": [
+        "генератор транскриптов vimeo",
+        "скачать транскрипт vimeo",
+        "vimeo субтитры",
+        "vimeo transcript ru",
+        "vimeo transcript ru",
+        "vimeo transcript ru"
+      ]
     },
     "dailymotion": {
       "badge": "Загрузчик Dailymotion",
@@ -1394,7 +1608,27 @@
       "headingAccentAll": "Видео, Аудио и Ещё",
       "subheadingAll": "Универсальный загрузчик Dailymotion. Видео HD, аудио MP3/FLAC, миниатюры HD и ИИ-транскрипты. Вставьте ссылку — без приложения, без регистрации.",
       "metaTitleVideo": "Загрузчик видео Dailymotion — Скачать в HD | DownForge",
-      "metaDescriptionVideo": "Бесплатный загрузчик видео Dailymotion. Сохраняйте видео с Dailymotion в HD и 4K MP4. Без приложения, без регистрации — вставьте ссылку."
+      "metaDescriptionVideo": "Бесплатный загрузчик видео Dailymotion. Сохраняйте видео с Dailymotion в HD и 4K MP4. Без приложения, без регистрации — вставьте ссылку.",
+      "metaTitleThumbnail": "Загрузчик превью Dailymotion — Скачать превью в HD | DownForge",
+      "metaDescriptionThumbnail": "Бесплатный загрузчик превью Dailymotion. Сохраняйте превью Dailymotion в HD, JPG, PNG и WebP. Без приложения.",
+      "keywordsThumbnail": [
+        "скачать превью dailymotion",
+        "загрузчик превью dailymotion",
+        "сохранить миниатюры dailymotion",
+        "dailymotion превью hd",
+        "dailymotion thumbnail ru",
+        "dailymotion thumbnail ru"
+      ],
+      "metaTitleTranscript": "Генератор транскриптов Dailymotion — Транскрипты с ИИ | DownForge",
+      "metaDescriptionTranscript": "Бесплатный генератор транскриптов Dailymotion. Получайте точные ИИ-транскрипты с таймкодами. Скачивайте в SRT, VTT, TXT или JSON.",
+      "keywordsTranscript": [
+        "генератор транскриптов dailymotion",
+        "скачать транскрипт dailymotion",
+        "dailymotion субтитры",
+        "dailymotion transcript ru",
+        "dailymotion transcript ru",
+        "dailymotion transcript ru"
+      ]
     },
     "twitch": {
       "badge": "Загрузчик Twitch",
@@ -1531,7 +1765,27 @@
       "headingAccentAll": "Видео, Аудио и Ещё",
       "subheadingAll": "Универсальный загрузчик Twitch. Видео HD, аудио MP3/FLAC, миниатюры HD и ИИ-транскрипты. Вставьте ссылку — без приложения, без регистрации.",
       "metaTitleVideo": "Загрузчик видео Twitch — Скачать в HD | DownForge",
-      "metaDescriptionVideo": "Бесплатный загрузчик видео Twitch. Сохраняйте видео с Twitch в HD и 4K MP4. Без приложения, без регистрации — вставьте ссылку."
+      "metaDescriptionVideo": "Бесплатный загрузчик видео Twitch. Сохраняйте видео с Twitch в HD и 4K MP4. Без приложения, без регистрации — вставьте ссылку.",
+      "metaTitleThumbnail": "Загрузчик превью Twitch — Скачать превью в HD | DownForge",
+      "metaDescriptionThumbnail": "Бесплатный загрузчик превью Twitch. Сохраняйте превью Twitch в HD, JPG, PNG и WebP. Без приложения.",
+      "keywordsThumbnail": [
+        "скачать превью twitch",
+        "загрузчик превью twitch",
+        "сохранить миниатюры twitch",
+        "twitch превью hd",
+        "twitch thumbnail ru",
+        "twitch thumbnail ru"
+      ],
+      "metaTitleTranscript": "Генератор транскриптов Twitch — Транскрипты с ИИ | DownForge",
+      "metaDescriptionTranscript": "Бесплатный генератор транскриптов Twitch. Получайте точные ИИ-транскрипты с таймкодами. Скачивайте в SRT, VTT, TXT или JSON.",
+      "keywordsTranscript": [
+        "генератор транскриптов twitch",
+        "скачать транскрипт twitch",
+        "twitch субтитры",
+        "twitch transcript ru",
+        "twitch transcript ru",
+        "twitch transcript ru"
+      ]
     },
     "reddit": {
       "badge": "Загрузчик Reddit",
@@ -1666,7 +1920,27 @@
       "headingAccentAll": "Видео, Аудио и Ещё",
       "subheadingAll": "Универсальный загрузчик Reddit. Видео HD, аудио MP3/FLAC, миниатюры HD и ИИ-транскрипты. Вставьте ссылку — без приложения, без регистрации.",
       "metaTitleVideo": "Загрузчик видео Reddit — Скачать в HD | DownForge",
-      "metaDescriptionVideo": "Бесплатный загрузчик видео Reddit. Сохраняйте видео с Reddit в HD и 4K MP4. Без приложения, без регистрации — вставьте ссылку."
+      "metaDescriptionVideo": "Бесплатный загрузчик видео Reddit. Сохраняйте видео с Reddit в HD и 4K MP4. Без приложения, без регистрации — вставьте ссылку.",
+      "metaTitleThumbnail": "Загрузчик превью Reddit — Скачать превью в HD | DownForge",
+      "metaDescriptionThumbnail": "Бесплатный загрузчик превью Reddit. Сохраняйте превью Reddit в HD, JPG, PNG и WebP. Без приложения.",
+      "keywordsThumbnail": [
+        "скачать превью reddit",
+        "загрузчик превью reddit",
+        "сохранить миниатюры reddit",
+        "reddit превью hd",
+        "reddit thumbnail ru",
+        "reddit thumbnail ru"
+      ],
+      "metaTitleTranscript": "Генератор транскриптов Reddit — Транскрипты с ИИ | DownForge",
+      "metaDescriptionTranscript": "Бесплатный генератор транскриптов Reddit. Получайте точные ИИ-транскрипты с таймкодами. Скачивайте в SRT, VTT, TXT или JSON.",
+      "keywordsTranscript": [
+        "генератор транскриптов reddit",
+        "скачать транскрипт reddit",
+        "reddit субтитры",
+        "reddit transcript ru",
+        "reddit transcript ru",
+        "reddit transcript ru"
+      ]
     },
     "pinterest": {
       "badge": "Загрузчик Pinterest",
@@ -1800,7 +2074,27 @@
       "headingAccentAll": "Видео, Аудио и Ещё",
       "subheadingAll": "Универсальный загрузчик Pinterest. Видео HD, аудио MP3/FLAC, миниатюры HD и ИИ-транскрипты. Вставьте ссылку — без приложения, без регистрации.",
       "metaTitleVideo": "Загрузчик видео Pinterest — Скачать в HD | DownForge",
-      "metaDescriptionVideo": "Бесплатный загрузчик видео Pinterest. Сохраняйте видео с Pinterest в HD и 4K MP4. Без приложения, без регистрации — вставьте ссылку."
+      "metaDescriptionVideo": "Бесплатный загрузчик видео Pinterest. Сохраняйте видео с Pinterest в HD и 4K MP4. Без приложения, без регистрации — вставьте ссылку.",
+      "metaTitleThumbnail": "Загрузчик превью Pinterest — Скачать превью в HD | DownForge",
+      "metaDescriptionThumbnail": "Бесплатный загрузчик превью Pinterest. Сохраняйте превью Pinterest в HD, JPG, PNG и WebP. Без приложения.",
+      "keywordsThumbnail": [
+        "скачать превью pinterest",
+        "загрузчик превью pinterest",
+        "сохранить миниатюры pinterest",
+        "pinterest превью hd",
+        "pinterest thumbnail ru",
+        "pinterest thumbnail ru"
+      ],
+      "metaTitleTranscript": "Генератор транскриптов Pinterest — Транскрипты с ИИ | DownForge",
+      "metaDescriptionTranscript": "Бесплатный генератор транскриптов Pinterest. Получайте точные ИИ-транскрипты с таймкодами. Скачивайте в SRT, VTT, TXT или JSON.",
+      "keywordsTranscript": [
+        "генератор транскриптов pinterest",
+        "скачать транскрипт pinterest",
+        "pinterest субтитры",
+        "pinterest transcript ru",
+        "pinterest transcript ru",
+        "pinterest transcript ru"
+      ]
     },
     "linkedin": {
       "badge": "Загрузчик LinkedIn",
@@ -1933,7 +2227,27 @@
       "headingAccentAll": "Видео, Аудио и Ещё",
       "subheadingAll": "Универсальный загрузчик LinkedIn. Видео HD, аудио MP3/FLAC, миниатюры HD и ИИ-транскрипты. Вставьте ссылку — без приложения, без регистрации.",
       "metaTitleVideo": "Загрузчик видео LinkedIn — Скачать в HD | DownForge",
-      "metaDescriptionVideo": "Бесплатный загрузчик видео LinkedIn. Сохраняйте видео с LinkedIn в HD и 4K MP4. Без приложения, без регистрации — вставьте ссылку."
+      "metaDescriptionVideo": "Бесплатный загрузчик видео LinkedIn. Сохраняйте видео с LinkedIn в HD и 4K MP4. Без приложения, без регистрации — вставьте ссылку.",
+      "metaTitleThumbnail": "Загрузчик превью LinkedIn — Скачать превью в HD | DownForge",
+      "metaDescriptionThumbnail": "Бесплатный загрузчик превью LinkedIn. Сохраняйте превью LinkedIn в HD, JPG, PNG и WebP. Без приложения.",
+      "keywordsThumbnail": [
+        "скачать превью linkedin",
+        "загрузчик превью linkedin",
+        "сохранить миниатюры linkedin",
+        "linkedin превью hd",
+        "linkedin thumbnail ru",
+        "linkedin thumbnail ru"
+      ],
+      "metaTitleTranscript": "Генератор транскриптов LinkedIn — Транскрипты с ИИ | DownForge",
+      "metaDescriptionTranscript": "Бесплатный генератор транскриптов LinkedIn. Получайте точные ИИ-транскрипты с таймкодами. Скачивайте в SRT, VTT, TXT или JSON.",
+      "keywordsTranscript": [
+        "генератор транскриптов linkedin",
+        "скачать транскрипт linkedin",
+        "linkedin субтитры",
+        "linkedin transcript ru",
+        "linkedin transcript ru",
+        "linkedin transcript ru"
+      ]
     },
     "snapchat": {
       "badge": "Загрузчик Snapchat",
@@ -2066,7 +2380,27 @@
       "headingAccentAll": "Видео, Аудио и Ещё",
       "subheadingAll": "Универсальный загрузчик Snapchat. Видео HD, аудио MP3/FLAC, миниатюры HD и ИИ-транскрипты. Вставьте ссылку — без приложения, без регистрации.",
       "metaTitleVideo": "Загрузчик видео Snapchat — Скачать в HD | DownForge",
-      "metaDescriptionVideo": "Бесплатный загрузчик видео Snapchat. Сохраняйте видео с Snapchat в HD и 4K MP4. Без приложения, без регистрации — вставьте ссылку."
+      "metaDescriptionVideo": "Бесплатный загрузчик видео Snapchat. Сохраняйте видео с Snapchat в HD и 4K MP4. Без приложения, без регистрации — вставьте ссылку.",
+      "metaTitleThumbnail": "Загрузчик превью Snapchat — Скачать превью в HD | DownForge",
+      "metaDescriptionThumbnail": "Бесплатный загрузчик превью Snapchat. Сохраняйте превью Snapchat в HD, JPG, PNG и WebP. Без приложения.",
+      "keywordsThumbnail": [
+        "скачать превью snapchat",
+        "загрузчик превью snapchat",
+        "сохранить миниатюры snapchat",
+        "snapchat превью hd",
+        "snapchat thumbnail ru",
+        "snapchat thumbnail ru"
+      ],
+      "metaTitleTranscript": "Генератор транскриптов Snapchat — Транскрипты с ИИ | DownForge",
+      "metaDescriptionTranscript": "Бесплатный генератор транскриптов Snapchat. Получайте точные ИИ-транскрипты с таймкодами. Скачивайте в SRT, VTT, TXT или JSON.",
+      "keywordsTranscript": [
+        "генератор транскриптов snapchat",
+        "скачать транскрипт snapchat",
+        "snapchat субтитры",
+        "snapchat transcript ru",
+        "snapchat transcript ru",
+        "snapchat transcript ru"
+      ]
     },
     "soundcloud": {
       "badge": "Загрузчик SoundCloud",
@@ -2207,7 +2541,27 @@
       "headingAccentAll": "Видео, Аудио и Ещё",
       "subheadingAll": "Универсальный загрузчик SoundCloud. Треки MP3 320kbps и FLAC, видео, миниатюры HD и транскрипты. Вставьте ссылку — без регистрации.",
       "metaTitleVideo": "Загрузчик видео SoundCloud — Скачать в HD | DownForge",
-      "metaDescriptionVideo": "Бесплатный загрузчик видео SoundCloud. Сохраняйте видео с SoundCloud в HD и 4K MP4. Без приложения, без регистрации — вставьте ссылку."
+      "metaDescriptionVideo": "Бесплатный загрузчик видео SoundCloud. Сохраняйте видео с SoundCloud в HD и 4K MP4. Без приложения, без регистрации — вставьте ссылку.",
+      "metaTitleThumbnail": "Загрузчик превью SoundCloud — Скачать превью в HD | DownForge",
+      "metaDescriptionThumbnail": "Бесплатный загрузчик превью SoundCloud. Сохраняйте превью SoundCloud в HD, JPG, PNG и WebP. Без приложения.",
+      "keywordsThumbnail": [
+        "скачать превью soundcloud",
+        "загрузчик превью soundcloud",
+        "сохранить миниатюры soundcloud",
+        "soundcloud превью hd",
+        "soundcloud thumbnail ru",
+        "soundcloud thumbnail ru"
+      ],
+      "metaTitleTranscript": "Генератор транскриптов SoundCloud — Транскрипты с ИИ | DownForge",
+      "metaDescriptionTranscript": "Бесплатный генератор транскриптов SoundCloud. Получайте точные ИИ-транскрипты с таймкодами. Скачивайте в SRT, VTT, TXT или JSON.",
+      "keywordsTranscript": [
+        "генератор транскриптов soundcloud",
+        "скачать транскрипт soundcloud",
+        "soundcloud субтитры",
+        "soundcloud transcript ru",
+        "soundcloud transcript ru",
+        "soundcloud transcript ru"
+      ]
     },
     "kick": {
       "badge": "Загрузчик Kick",
@@ -2341,7 +2695,27 @@
       "headingAccentAll": "Видео, Аудио и Ещё",
       "subheadingAll": "Универсальный загрузчик Kick. Видео HD, аудио MP3/FLAC, миниатюры HD и ИИ-транскрипты. Вставьте ссылку — без приложения, без регистрации.",
       "metaTitleVideo": "Загрузчик видео Kick — Скачать в HD | DownForge",
-      "metaDescriptionVideo": "Бесплатный загрузчик видео Kick. Сохраняйте видео с Kick в HD и 4K MP4. Без приложения, без регистрации — вставьте ссылку."
+      "metaDescriptionVideo": "Бесплатный загрузчик видео Kick. Сохраняйте видео с Kick в HD и 4K MP4. Без приложения, без регистрации — вставьте ссылку.",
+      "metaTitleThumbnail": "Загрузчик превью Kick — Скачать превью в HD | DownForge",
+      "metaDescriptionThumbnail": "Бесплатный загрузчик превью Kick. Сохраняйте превью Kick в HD, JPG, PNG и WebP. Без приложения.",
+      "keywordsThumbnail": [
+        "скачать превью kick",
+        "загрузчик превью kick",
+        "сохранить миниатюры kick",
+        "kick превью hd",
+        "kick thumbnail ru",
+        "kick thumbnail ru"
+      ],
+      "metaTitleTranscript": "Генератор транскриптов Kick — Транскрипты с ИИ | DownForge",
+      "metaDescriptionTranscript": "Бесплатный генератор транскриптов Kick. Получайте точные ИИ-транскрипты с таймкодами. Скачивайте в SRT, VTT, TXT или JSON.",
+      "keywordsTranscript": [
+        "генератор транскриптов kick",
+        "скачать транскрипт kick",
+        "kick субтитры",
+        "kick transcript ru",
+        "kick transcript ru",
+        "kick transcript ru"
+      ]
     },
     "youtube": {
       "badge": "Загрузчик YouTube",
@@ -2492,7 +2866,27 @@
       ],
       "headingAll": "Скачать с YouTube",
       "headingAccentAll": "Видео, Аудио и Ещё",
-      "subheadingAll": "Универсальный загрузчик YouTube. Сохраняйте видео 4K и 1080p, аудио MP3 320kbps и FLAC, миниатюры HD и ИИ-транскрипты (SRT/VTT/TXT/JSON). Вставьте любую ссылку — без приложения, без регистрации."
+      "subheadingAll": "Универсальный загрузчик YouTube. Сохраняйте видео 4K и 1080p, аудио MP3 320kbps и FLAC, миниатюры HD и ИИ-транскрипты (SRT/VTT/TXT/JSON). Вставьте любую ссылку — без приложения, без регистрации.",
+      "metaTitleThumbnail": "Загрузчик превью YouTube — Скачать превью в HD | DownForge",
+      "metaDescriptionThumbnail": "Бесплатный загрузчик превью YouTube. Сохраняйте превью YouTube в HD, JPG, PNG и WebP. Без приложения.",
+      "keywordsThumbnail": [
+        "скачать превью youtube",
+        "загрузчик превью youtube",
+        "сохранить миниатюры youtube",
+        "youtube превью hd",
+        "youtube thumbnail ru",
+        "youtube thumbnail ru"
+      ],
+      "metaTitleTranscript": "Генератор транскриптов YouTube — Транскрипты с ИИ | DownForge",
+      "metaDescriptionTranscript": "Бесплатный генератор транскриптов YouTube. Получайте точные ИИ-транскрипты с таймкодами. Скачивайте в SRT, VTT, TXT или JSON.",
+      "keywordsTranscript": [
+        "генератор транскриптов youtube",
+        "скачать транскрипт youtube",
+        "youtube субтитры",
+        "youtube transcript ru",
+        "youtube transcript ru",
+        "youtube transcript ru"
+      ]
     },
     "niconico": {
       "badge": "Загрузчик Niconico",
@@ -2627,7 +3021,27 @@
       "headingAccentAll": "Видео, Аудио и Ещё",
       "subheadingAll": "Универсальный загрузчик Niconico. Видео HD, аудио MP3/FLAC, миниатюры HD и ИИ-транскрипты. Вставьте ссылку — без приложения, без регистрации.",
       "metaTitleVideo": "Загрузчик видео Niconico — Скачать в HD | DownForge",
-      "metaDescriptionVideo": "Бесплатный загрузчик видео Niconico. Сохраняйте видео с Niconico в HD и 4K MP4. Без приложения, без регистрации — вставьте ссылку."
+      "metaDescriptionVideo": "Бесплатный загрузчик видео Niconico. Сохраняйте видео с Niconico в HD и 4K MP4. Без приложения, без регистрации — вставьте ссылку.",
+      "metaTitleThumbnail": "Загрузчик превью Niconico — Скачать превью в HD | DownForge",
+      "metaDescriptionThumbnail": "Бесплатный загрузчик превью Niconico. Сохраняйте превью Niconico в HD, JPG, PNG и WebP. Без приложения.",
+      "keywordsThumbnail": [
+        "скачать превью niconico",
+        "загрузчик превью niconico",
+        "сохранить миниатюры niconico",
+        "niconico превью hd",
+        "niconico thumbnail ru",
+        "niconico thumbnail ru"
+      ],
+      "metaTitleTranscript": "Генератор транскриптов Niconico — Транскрипты с ИИ | DownForge",
+      "metaDescriptionTranscript": "Бесплатный генератор транскриптов Niconico. Получайте точные ИИ-транскрипты с таймкодами. Скачивайте в SRT, VTT, TXT или JSON.",
+      "keywordsTranscript": [
+        "генератор транскриптов niconico",
+        "скачать транскрипт niconico",
+        "niconico субтитры",
+        "niconico transcript ru",
+        "niconico transcript ru",
+        "niconico transcript ru"
+      ]
     }
   },
   "YoutubeHero": {

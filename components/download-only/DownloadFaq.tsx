@@ -5,19 +5,50 @@ import { motion, AnimatePresence } from "motion/react";
 import { ChevronDown } from "lucide-react";
 import { usePlatformTranslations } from "@/lib/usePlatformTranslations";
 import type { DownloadType } from "@/lib/constants";
-
-const titles: Record<DownloadType, string> = {
-  video: "Video Download Questions",
-  audio: "Audio Download Questions",
-  thumbnail: "Thumbnail Download Questions",
-  transcript: "Transcript Download Questions",
-};
+import { useTranslations } from "next-intl";
 
 export function DownloadFaq({ platform, type }: { platform: string; type: DownloadType }) {
   const config = usePlatformTranslations(platform);
   const faqs = config.faqs;
   const brandColor = config.brandColor;
+  const t = useTranslations("DownloadOnly");
   const [openIndex, setOpenIndex] = useState<number | null>(null);
+
+  const getTitle = () => {
+    try {
+      const key =
+        type === "audio"
+          ? "faqTitleAudio"
+          : type === "thumbnail"
+          ? "faqTitleThumbnail"
+          : type === "transcript"
+          ? "faqTitleTranscript"
+          : "faqTitleAudio";
+      return t(key as any);
+    } catch {
+      return type === "audio"
+        ? "Audio Download Questions"
+        : type === "thumbnail"
+        ? "Thumbnail Download Questions"
+        : type === "transcript"
+        ? "Transcript Download Questions"
+        : "Audio Download Questions";
+    }
+  };
+  const getLabel = () => {
+    try {
+      return t("faqLabel");
+    } catch {
+      return "FAQ";
+    }
+  };
+  const getSubtitle = () => {
+    try {
+      return t("faqSubtitle", { platform: config.name } as any);
+    } catch {
+      return `Everything you need to know about downloading from ${config.name}.`;
+    }
+  };
 
   if (faqs.length === 0) return null;
 
@@ -33,13 +64,13 @@ export function DownloadFaq({ platform, type }: { platform: string; type: Downlo
           className="text-center mb-12"
         >
           <span className="text-xs font-bold tracking-widest uppercase font-mono" style={{ color: brandColor }}>
-            FAQ
+            {getLabel()}
           </span>
           <h2 className="text-2xl sm:text-3xl md:text-4xl font-extrabold text-foreground mt-3 mb-4 font-heading">
-            {titles[type]}
+            {getTitle()}
           </h2>
           <p className="text-muted-foreground text-sm font-sans">
-            Everything you need to know about downloading from {config.name}.
+            {getSubtitle()}
           </p>
         </motion.div>
 

@@ -341,7 +341,121 @@
       "fast": "< 3秒",
       "free": "100% 免费",
       "private": "私密安全"
-    }
+    },
+    "thumbnailHeading": "下载 {platform} 缩略图",
+    "transcriptHeading": "生成 {platform} 转录",
+    "thumbnailPreview": "缩略图预览",
+    "transcriptLanguageLabel": "语言：",
+    "featuresAudioLabel": "音频格式",
+    "featuresAudioTitle": "最佳音频提取工具",
+    "featuresAudioSubtitle": "以每种所需格式从 {platform} 视频中提取高质量音频。",
+    "featuresThumbnailLabel": "图像格式",
+    "featuresThumbnailTitle": "最佳缩略图下载工具",
+    "featuresThumbnailSubtitle": "以每种格式和分辨率保存 {platform} 视频缩略图。",
+    "featuresTranscriptLabel": "转录格式",
+    "featuresTranscriptTitle": "最佳转录生成器",
+    "featuresTranscriptSubtitle": "以每种格式使用 AI 生成准确的 {platform} 转录。",
+    "faqLabel": "常见问题",
+    "faqTitleAudio": "音频下载问题",
+    "faqTitleThumbnail": "缩略图下载问题",
+    "faqTitleTranscript": "转录生成问题",
+    "faqSubtitle": "关于从 {platform} 下载您需要知道的一切。",
+    "featuresAudioItems": [
+      {
+        "label": "MP3 320 kbps",
+        "value": "高品质",
+        "desc": "以最高码率下载 pristine MP3 音频。"
+      },
+      {
+        "label": "FLAC 无损",
+        "value": "存档品质",
+        "desc": "FLAC 保留原始音频每个细节无损。"
+      },
+      {
+        "label": "AAC 256 kbps",
+        "value": "高效",
+        "desc": "先进编码小尺寸优秀品质 适合Apple。"
+      },
+      {
+        "label": "WAV 无压缩",
+        "value": "工作室级",
+        "desc": "未压缩音频适合专业编辑。"
+      },
+      {
+        "label": "OGG 192 kbps",
+        "value": "开放格式",
+        "desc": "自由格式 高效压缩 广泛兼容。"
+      },
+      {
+        "label": "快速处理",
+        "value": "< 3 秒",
+        "desc": "服务端转换数秒内交付文件。"
+      }
+    ],
+    "featuresThumbnailItems": [
+      {
+        "label": "最高分辨率",
+        "value": "全高清",
+        "desc": "以原始分辨率下载缩略图 高达1920×1080。"
+      },
+      {
+        "label": "JPG 格式",
+        "value": "紧凑",
+        "desc": "通用图像格式 优秀压缩 适合分享。"
+      },
+      {
+        "label": "PNG 格式",
+        "value": "无损",
+        "desc": "适合截图和透明度无损。"
+      },
+      {
+        "label": "WebP 格式",
+        "value": "优化",
+        "desc": "现代图像格式 卓越压缩 最适合网页。"
+      },
+      {
+        "label": "即时下载",
+        "value": "无需等待",
+        "desc": "缩略图即时下载 无需排队。"
+      },
+      {
+        "label": "零存储",
+        "value": "私密",
+        "desc": "我们不存储任何文件。"
+      }
+    ],
+    "featuresTranscriptItems": [
+      {
+        "label": "SRT 字幕",
+        "value": "时间戳",
+        "desc": "带精确时间戳的行业标准字幕格式。"
+      },
+      {
+        "label": "VTT WebVTT",
+        "value": "网页格式",
+        "desc": "HTML5播放器原生网页字幕格式。"
+      },
+      {
+        "label": "TXT 纯文本",
+        "value": "简单",
+        "desc": "无时间戳的干净文本 适合笔记。"
+      },
+      {
+        "label": "JSON 结构化",
+        "value": "数据就绪",
+        "desc": "带时间戳的结构化数据 适合开发和API。"
+      },
+      {
+        "label": "AI 准确率",
+        "value": "99%+",
+        "desc": "先进AI语音识别 人类质量转录。"
+      },
+      {
+        "label": "批量处理",
+        "value": "播放列表",
+        "desc": "一键为整个播放列表生成转录 (Pro)。"
+      }
+    ]
   },
   "VideoOnly": {
     "badge": "视频下载器",
@@ -707,7 +821,27 @@
       "headingAccentAll": "视频、音频等",
       "subheadingAll": "Facebook 全能下载器。以 HD 下载视频，MP3/FLAC 音频，HD 缩略图和 AI 转录。粘贴链接 — 无需应用，无需注册。",
       "metaTitleVideo": "Facebook视频下载器 — 高清下载 | DownForge",
-      "metaDescriptionVideo": "免费的Facebook视频下载器。以HD和4K MP4保存Facebook视频。无需应用，无需注册 — 粘贴链接即可。"
+      "metaDescriptionVideo": "免费的Facebook视频下载器。以HD和4K MP4保存Facebook视频。无需应用，无需注册 — 粘贴链接即可。",
+      "metaTitleThumbnail": "Facebook缩略图下载器 — 高清下载 | DownForge",
+      "metaDescriptionThumbnail": "免费的Facebook缩略图下载器。以HD、JPG、PNG和WebP保存Facebook缩略图。无需应用。",
+      "keywordsThumbnail": [
+        "facebook缩略图下载",
+        "下载facebook缩略图",
+        "保存facebook缩略图",
+        "facebook高清缩略图",
+        "facebook thumbnail zh",
+        "facebook thumbnail zh"
+      ],
+      "metaTitleTranscript": "Facebook转录生成器 — AI 转录 | DownForge",
+      "metaDescriptionTranscript": "免费的Facebook转录生成器。获取带时间戳的准确AI转录。以SRT、VTT、TXT或JSON下载。",
+      "keywordsTranscript": [
+        "facebook转录生成器",
+        "下载facebook转录",
+        "facebook字幕下载",
+        "facebook srt",
+        "facebook transcript zh",
+        "facebook transcript zh"
+      ]
     },
     "instagram": {
       "badge": "Instagram下载器",
@@ -846,7 +980,27 @@
       "headingAccentAll": "视频、音频等",
       "subheadingAll": "Instagram 全能下载器。以 HD 下载视频，MP3/FLAC 音频，HD 缩略图和 AI 转录。粘贴链接 — 无需应用，无需注册。",
       "metaTitleVideo": "Instagram视频下载器 — 下载 Reels 和 Stories 高清 | DownForge",
-      "metaDescriptionVideo": "免费的Instagram下载器。以HD MP4保存Reels和Stories。无需应用。"
+      "metaDescriptionVideo": "免费的Instagram下载器。以HD MP4保存Reels和Stories。无需应用。",
+      "metaTitleThumbnail": "Instagram缩略图下载器 — 高清下载 | DownForge",
+      "metaDescriptionThumbnail": "免费的Instagram缩略图下载器。以HD、JPG、PNG和WebP保存Instagram缩略图。无需应用。",
+      "keywordsThumbnail": [
+        "instagram缩略图下载",
+        "下载instagram缩略图",
+        "保存instagram缩略图",
+        "instagram高清缩略图",
+        "instagram thumbnail zh",
+        "instagram thumbnail zh"
+      ],
+      "metaTitleTranscript": "Instagram转录生成器 — AI 转录 | DownForge",
+      "metaDescriptionTranscript": "免费的Instagram转录生成器。获取带时间戳的准确AI转录。以SRT、VTT、TXT或JSON下载。",
+      "keywordsTranscript": [
+        "instagram转录生成器",
+        "下载instagram转录",
+        "instagram字幕下载",
+        "instagram srt",
+        "instagram transcript zh",
+        "instagram transcript zh"
+      ]
     },
     "tiktok": {
       "badge": "TikTok下载器",
@@ -985,7 +1139,27 @@
       "headingAccentAll": "视频、音频等",
       "subheadingAll": "TikTok 全能下载器。以 HD 下载视频，MP3/FLAC 音频，HD 缩略图和 AI 转录。粘贴链接 — 无需应用，无需注册。",
       "metaTitleVideo": "TikTok视频下载器 — 无水印下载 | DownForge",
-      "metaDescriptionVideo": "免费的TikTok下载器。无水印下载TikTok视频，支持HD。无需应用。"
+      "metaDescriptionVideo": "免费的TikTok下载器。无水印下载TikTok视频，支持HD。无需应用。",
+      "metaTitleThumbnail": "TikTok缩略图下载器 — 高清下载 | DownForge",
+      "metaDescriptionThumbnail": "免费的TikTok缩略图下载器。以HD、JPG、PNG和WebP保存TikTok缩略图。无需应用。",
+      "keywordsThumbnail": [
+        "tiktok缩略图下载",
+        "下载tiktok缩略图",
+        "保存tiktok缩略图",
+        "tiktok高清缩略图",
+        "tiktok thumbnail zh",
+        "tiktok thumbnail zh"
+      ],
+      "metaTitleTranscript": "TikTok转录生成器 — AI 转录 | DownForge",
+      "metaDescriptionTranscript": "免费的TikTok转录生成器。获取带时间戳的准确AI转录。以SRT、VTT、TXT或JSON下载。",
+      "keywordsTranscript": [
+        "tiktok转录生成器",
+        "下载tiktok转录",
+        "tiktok字幕下载",
+        "tiktok srt",
+        "tiktok transcript zh",
+        "tiktok transcript zh"
+      ]
     },
     "twitter": {
       "badge": "Twitter下载器",
@@ -1123,7 +1297,27 @@
       "headingAccentAll": "视频、音频等",
       "subheadingAll": "Twitter / X 全能下载器。以 HD 下载视频，MP3/FLAC 音频，HD 缩略图和 AI 转录。粘贴链接 — 无需应用，无需注册。",
       "metaTitleVideo": "Twitter视频下载器 — 下载视频和 GIF | DownForge",
-      "metaDescriptionVideo": "免费的Twitter视频下载器。以HD和4K MP4保存Twitter视频。无需应用，无需注册 — 粘贴链接即可。"
+      "metaDescriptionVideo": "免费的Twitter视频下载器。以HD和4K MP4保存Twitter视频。无需应用，无需注册 — 粘贴链接即可。",
+      "metaTitleThumbnail": "Twitter缩略图下载器 — 高清下载 | DownForge",
+      "metaDescriptionThumbnail": "免费的Twitter缩略图下载器。以HD、JPG、PNG和WebP保存Twitter缩略图。无需应用。",
+      "keywordsThumbnail": [
+        "twitter缩略图下载",
+        "下载twitter缩略图",
+        "保存twitter缩略图",
+        "twitter高清缩略图",
+        "twitter thumbnail zh",
+        "twitter thumbnail zh"
+      ],
+      "metaTitleTranscript": "Twitter转录生成器 — AI 转录 | DownForge",
+      "metaDescriptionTranscript": "免费的Twitter转录生成器。获取带时间戳的准确AI转录。以SRT、VTT、TXT或JSON下载。",
+      "keywordsTranscript": [
+        "twitter转录生成器",
+        "下载twitter转录",
+        "twitter字幕下载",
+        "twitter srt",
+        "twitter transcript zh",
+        "twitter transcript zh"
+      ]
     },
     "vimeo": {
       "badge": "Vimeo下载器",
@@ -1260,7 +1454,27 @@
       "headingAccentAll": "视频、音频等",
       "subheadingAll": "Vimeo 全能下载器。以 HD 下载视频，MP3/FLAC 音频，HD 缩略图和 AI 转录。粘贴链接 — 无需应用，无需注册。",
       "metaTitleVideo": "Vimeo视频下载器 — 高清下载 | DownForge",
-      "metaDescriptionVideo": "免费的Vimeo视频下载器。以HD和4K MP4保存Vimeo视频。无需应用，无需注册 — 粘贴链接即可。"
+      "metaDescriptionVideo": "免费的Vimeo视频下载器。以HD和4K MP4保存Vimeo视频。无需应用，无需注册 — 粘贴链接即可。",
+      "metaTitleThumbnail": "Vimeo缩略图下载器 — 高清下载 | DownForge",
+      "metaDescriptionThumbnail": "免费的Vimeo缩略图下载器。以HD、JPG、PNG和WebP保存Vimeo缩略图。无需应用。",
+      "keywordsThumbnail": [
+        "vimeo缩略图下载",
+        "下载vimeo缩略图",
+        "保存vimeo缩略图",
+        "vimeo高清缩略图",
+        "vimeo thumbnail zh",
+        "vimeo thumbnail zh"
+      ],
+      "metaTitleTranscript": "Vimeo转录生成器 — AI 转录 | DownForge",
+      "metaDescriptionTranscript": "免费的Vimeo转录生成器。获取带时间戳的准确AI转录。以SRT、VTT、TXT或JSON下载。",
+      "keywordsTranscript": [
+        "vimeo转录生成器",
+        "下载vimeo转录",
+        "vimeo字幕下载",
+        "vimeo srt",
+        "vimeo transcript zh",
+        "vimeo transcript zh"
+      ]
     },
     "dailymotion": {
       "badge": "Dailymotion下载器",
@@ -1394,7 +1608,27 @@
       "headingAccentAll": "视频、音频等",
       "subheadingAll": "Dailymotion 全能下载器。以 HD 下载视频，MP3/FLAC 音频，HD 缩略图和 AI 转录。粘贴链接 — 无需应用，无需注册。",
       "metaTitleVideo": "Dailymotion视频下载器 — 高清下载 | DownForge",
-      "metaDescriptionVideo": "免费的Dailymotion视频下载器。以HD和4K MP4保存Dailymotion视频。无需应用，无需注册 — 粘贴链接即可。"
+      "metaDescriptionVideo": "免费的Dailymotion视频下载器。以HD和4K MP4保存Dailymotion视频。无需应用，无需注册 — 粘贴链接即可。",
+      "metaTitleThumbnail": "Dailymotion缩略图下载器 — 高清下载 | DownForge",
+      "metaDescriptionThumbnail": "免费的Dailymotion缩略图下载器。以HD、JPG、PNG和WebP保存Dailymotion缩略图。无需应用。",
+      "keywordsThumbnail": [
+        "dailymotion缩略图下载",
+        "下载dailymotion缩略图",
+        "保存dailymotion缩略图",
+        "dailymotion高清缩略图",
+        "dailymotion thumbnail zh",
+        "dailymotion thumbnail zh"
+      ],
+      "metaTitleTranscript": "Dailymotion转录生成器 — AI 转录 | DownForge",
+      "metaDescriptionTranscript": "免费的Dailymotion转录生成器。获取带时间戳的准确AI转录。以SRT、VTT、TXT或JSON下载。",
+      "keywordsTranscript": [
+        "dailymotion转录生成器",
+        "下载dailymotion转录",
+        "dailymotion字幕下载",
+        "dailymotion srt",
+        "dailymotion transcript zh",
+        "dailymotion transcript zh"
+      ]
     },
     "twitch": {
       "badge": "Twitch下载器",
@@ -1531,7 +1765,27 @@
       "headingAccentAll": "视频、音频等",
       "subheadingAll": "Twitch 全能下载器。以 HD 下载视频，MP3/FLAC 音频，HD 缩略图和 AI 转录。粘贴链接 — 无需应用，无需注册。",
       "metaTitleVideo": "Twitch视频下载器 — 高清下载 | DownForge",
-      "metaDescriptionVideo": "免费的Twitch视频下载器。以HD和4K MP4保存Twitch视频。无需应用，无需注册 — 粘贴链接即可。"
+      "metaDescriptionVideo": "免费的Twitch视频下载器。以HD和4K MP4保存Twitch视频。无需应用，无需注册 — 粘贴链接即可。",
+      "metaTitleThumbnail": "Twitch缩略图下载器 — 高清下载 | DownForge",
+      "metaDescriptionThumbnail": "免费的Twitch缩略图下载器。以HD、JPG、PNG和WebP保存Twitch缩略图。无需应用。",
+      "keywordsThumbnail": [
+        "twitch缩略图下载",
+        "下载twitch缩略图",
+        "保存twitch缩略图",
+        "twitch高清缩略图",
+        "twitch thumbnail zh",
+        "twitch thumbnail zh"
+      ],
+      "metaTitleTranscript": "Twitch转录生成器 — AI 转录 | DownForge",
+      "metaDescriptionTranscript": "免费的Twitch转录生成器。获取带时间戳的准确AI转录。以SRT、VTT、TXT或JSON下载。",
+      "keywordsTranscript": [
+        "twitch转录生成器",
+        "下载twitch转录",
+        "twitch字幕下载",
+        "twitch srt",
+        "twitch transcript zh",
+        "twitch transcript zh"
+      ]
     },
     "reddit": {
       "badge": "Reddit下载器",
@@ -1666,7 +1920,27 @@
       "headingAccentAll": "视频、音频等",
       "subheadingAll": "Reddit 全能下载器。以 HD 下载视频，MP3/FLAC 音频，HD 缩略图和 AI 转录。粘贴链接 — 无需应用，无需注册。",
       "metaTitleVideo": "Reddit视频下载器 — 高清下载 | DownForge",
-      "metaDescriptionVideo": "免费的Reddit视频下载器。以HD和4K MP4保存Reddit视频。无需应用，无需注册 — 粘贴链接即可。"
+      "metaDescriptionVideo": "免费的Reddit视频下载器。以HD和4K MP4保存Reddit视频。无需应用，无需注册 — 粘贴链接即可。",
+      "metaTitleThumbnail": "Reddit缩略图下载器 — 高清下载 | DownForge",
+      "metaDescriptionThumbnail": "免费的Reddit缩略图下载器。以HD、JPG、PNG和WebP保存Reddit缩略图。无需应用。",
+      "keywordsThumbnail": [
+        "reddit缩略图下载",
+        "下载reddit缩略图",
+        "保存reddit缩略图",
+        "reddit高清缩略图",
+        "reddit thumbnail zh",
+        "reddit thumbnail zh"
+      ],
+      "metaTitleTranscript": "Reddit转录生成器 — AI 转录 | DownForge",
+      "metaDescriptionTranscript": "免费的Reddit转录生成器。获取带时间戳的准确AI转录。以SRT、VTT、TXT或JSON下载。",
+      "keywordsTranscript": [
+        "reddit转录生成器",
+        "下载reddit转录",
+        "reddit字幕下载",
+        "reddit srt",
+        "reddit transcript zh",
+        "reddit transcript zh"
+      ]
     },
     "pinterest": {
       "badge": "Pinterest下载器",
@@ -1800,7 +2074,27 @@
       "headingAccentAll": "视频、音频等",
       "subheadingAll": "Pinterest 全能下载器。以 HD 下载视频，MP3/FLAC 音频，HD 缩略图和 AI 转录。粘贴链接 — 无需应用，无需注册。",
       "metaTitleVideo": "Pinterest视频下载器 — 高清下载 | DownForge",
-      "metaDescriptionVideo": "免费的Pinterest视频下载器。以HD和4K MP4保存Pinterest视频。无需应用，无需注册 — 粘贴链接即可。"
+      "metaDescriptionVideo": "免费的Pinterest视频下载器。以HD和4K MP4保存Pinterest视频。无需应用，无需注册 — 粘贴链接即可。",
+      "metaTitleThumbnail": "Pinterest缩略图下载器 — 高清下载 | DownForge",
+      "metaDescriptionThumbnail": "免费的Pinterest缩略图下载器。以HD、JPG、PNG和WebP保存Pinterest缩略图。无需应用。",
+      "keywordsThumbnail": [
+        "pinterest缩略图下载",
+        "下载pinterest缩略图",
+        "保存pinterest缩略图",
+        "pinterest高清缩略图",
+        "pinterest thumbnail zh",
+        "pinterest thumbnail zh"
+      ],
+      "metaTitleTranscript": "Pinterest转录生成器 — AI 转录 | DownForge",
+      "metaDescriptionTranscript": "免费的Pinterest转录生成器。获取带时间戳的准确AI转录。以SRT、VTT、TXT或JSON下载。",
+      "keywordsTranscript": [
+        "pinterest转录生成器",
+        "下载pinterest转录",
+        "pinterest字幕下载",
+        "pinterest srt",
+        "pinterest transcript zh",
+        "pinterest transcript zh"
+      ]
     },
     "linkedin": {
       "badge": "LinkedIn下载器",
@@ -1933,7 +2227,27 @@
       "headingAccentAll": "视频、音频等",
       "subheadingAll": "LinkedIn 全能下载器。以 HD 下载视频，MP3/FLAC 音频，HD 缩略图和 AI 转录。粘贴链接 — 无需应用，无需注册。",
       "metaTitleVideo": "LinkedIn视频下载器 — 高清下载 | DownForge",
-      "metaDescriptionVideo": "免费的LinkedIn视频下载器。以HD和4K MP4保存LinkedIn视频。无需应用，无需注册 — 粘贴链接即可。"
+      "metaDescriptionVideo": "免费的LinkedIn视频下载器。以HD和4K MP4保存LinkedIn视频。无需应用，无需注册 — 粘贴链接即可。",
+      "metaTitleThumbnail": "LinkedIn缩略图下载器 — 高清下载 | DownForge",
+      "metaDescriptionThumbnail": "免费的LinkedIn缩略图下载器。以HD、JPG、PNG和WebP保存LinkedIn缩略图。无需应用。",
+      "keywordsThumbnail": [
+        "linkedin缩略图下载",
+        "下载linkedin缩略图",
+        "保存linkedin缩略图",
+        "linkedin高清缩略图",
+        "linkedin thumbnail zh",
+        "linkedin thumbnail zh"
+      ],
+      "metaTitleTranscript": "LinkedIn转录生成器 — AI 转录 | DownForge",
+      "metaDescriptionTranscript": "免费的LinkedIn转录生成器。获取带时间戳的准确AI转录。以SRT、VTT、TXT或JSON下载。",
+      "keywordsTranscript": [
+        "linkedin转录生成器",
+        "下载linkedin转录",
+        "linkedin字幕下载",
+        "linkedin srt",
+        "linkedin transcript zh",
+        "linkedin transcript zh"
+      ]
     },
     "snapchat": {
       "badge": "Snapchat下载器",
@@ -2066,7 +2380,27 @@
       "headingAccentAll": "视频、音频等",
       "subheadingAll": "Snapchat 全能下载器。以 HD 下载视频，MP3/FLAC 音频，HD 缩略图和 AI 转录。粘贴链接 — 无需应用，无需注册。",
       "metaTitleVideo": "Snapchat视频下载器 — 高清下载 | DownForge",
-      "metaDescriptionVideo": "免费的Snapchat视频下载器。以HD和4K MP4保存Snapchat视频。无需应用，无需注册 — 粘贴链接即可。"
+      "metaDescriptionVideo": "免费的Snapchat视频下载器。以HD和4K MP4保存Snapchat视频。无需应用，无需注册 — 粘贴链接即可。",
+      "metaTitleThumbnail": "Snapchat缩略图下载器 — 高清下载 | DownForge",
+      "metaDescriptionThumbnail": "免费的Snapchat缩略图下载器。以HD、JPG、PNG和WebP保存Snapchat缩略图。无需应用。",
+      "keywordsThumbnail": [
+        "snapchat缩略图下载",
+        "下载snapchat缩略图",
+        "保存snapchat缩略图",
+        "snapchat高清缩略图",
+        "snapchat thumbnail zh",
+        "snapchat thumbnail zh"
+      ],
+      "metaTitleTranscript": "Snapchat转录生成器 — AI 转录 | DownForge",
+      "metaDescriptionTranscript": "免费的Snapchat转录生成器。获取带时间戳的准确AI转录。以SRT、VTT、TXT或JSON下载。",
+      "keywordsTranscript": [
+        "snapchat转录生成器",
+        "下载snapchat转录",
+        "snapchat字幕下载",
+        "snapchat srt",
+        "snapchat transcript zh",
+        "snapchat transcript zh"
+      ]
     },
     "soundcloud": {
       "badge": "SoundCloud下载器",
@@ -2207,7 +2541,27 @@
       "headingAccentAll": "视频、音频等",
       "subheadingAll": "SoundCloud 全能下载器。以 MP3 320kbps 和 FLAC、视频、HD 缩略图和转录保存音轨。粘贴链接 — 无需注册。",
       "metaTitleVideo": "SoundCloud视频下载器 — 高清下载 | DownForge",
-      "metaDescriptionVideo": "免费的SoundCloud视频下载器。以HD和4K MP4保存SoundCloud视频。无需应用，无需注册 — 粘贴链接即可。"
+      "metaDescriptionVideo": "免费的SoundCloud视频下载器。以HD和4K MP4保存SoundCloud视频。无需应用，无需注册 — 粘贴链接即可。",
+      "metaTitleThumbnail": "SoundCloud缩略图下载器 — 高清下载 | DownForge",
+      "metaDescriptionThumbnail": "免费的SoundCloud缩略图下载器。以HD、JPG、PNG和WebP保存SoundCloud缩略图。无需应用。",
+      "keywordsThumbnail": [
+        "soundcloud缩略图下载",
+        "下载soundcloud缩略图",
+        "保存soundcloud缩略图",
+        "soundcloud高清缩略图",
+        "soundcloud thumbnail zh",
+        "soundcloud thumbnail zh"
+      ],
+      "metaTitleTranscript": "SoundCloud转录生成器 — AI 转录 | DownForge",
+      "metaDescriptionTranscript": "免费的SoundCloud转录生成器。获取带时间戳的准确AI转录。以SRT、VTT、TXT或JSON下载。",
+      "keywordsTranscript": [
+        "soundcloud转录生成器",
+        "下载soundcloud转录",
+        "soundcloud字幕下载",
+        "soundcloud srt",
+        "soundcloud transcript zh",
+        "soundcloud transcript zh"
+      ]
     },
     "kick": {
       "badge": "Kick下载器",
@@ -2341,7 +2695,27 @@
       "headingAccentAll": "视频、音频等",
       "subheadingAll": "Kick 全能下载器。以 HD 下载视频，MP3/FLAC 音频，HD 缩略图和 AI 转录。粘贴链接 — 无需应用，无需注册。",
       "metaTitleVideo": "Kick视频下载器 — 高清下载 | DownForge",
-      "metaDescriptionVideo": "免费的Kick视频下载器。以HD和4K MP4保存Kick视频。无需应用，无需注册 — 粘贴链接即可。"
+      "metaDescriptionVideo": "免费的Kick视频下载器。以HD和4K MP4保存Kick视频。无需应用，无需注册 — 粘贴链接即可。",
+      "metaTitleThumbnail": "Kick缩略图下载器 — 高清下载 | DownForge",
+      "metaDescriptionThumbnail": "免费的Kick缩略图下载器。以HD、JPG、PNG和WebP保存Kick缩略图。无需应用。",
+      "keywordsThumbnail": [
+        "kick缩略图下载",
+        "下载kick缩略图",
+        "保存kick缩略图",
+        "kick高清缩略图",
+        "kick thumbnail zh",
+        "kick thumbnail zh"
+      ],
+      "metaTitleTranscript": "Kick转录生成器 — AI 转录 | DownForge",
+      "metaDescriptionTranscript": "免费的Kick转录生成器。获取带时间戳的准确AI转录。以SRT、VTT、TXT或JSON下载。",
+      "keywordsTranscript": [
+        "kick转录生成器",
+        "下载kick转录",
+        "kick字幕下载",
+        "kick srt",
+        "kick transcript zh",
+        "kick transcript zh"
+      ]
     },
     "youtube": {
       "badge": "YouTube下载器",
@@ -2492,7 +2866,27 @@
       ],
       "headingAll": "从 YouTube 下载",
       "headingAccentAll": "视频、音频等",
-      "subheadingAll": "YouTube 全能下载器。以 4K 和 1080p 保存视频，MP3 320kbps 和 FLAC、HD 缩略图和 AI 转录（SRT/VTT/TXT/JSON）。粘贴任意链接 — 无需应用，无需注册。支持 Android、iPhone 和 PC。"
+      "subheadingAll": "YouTube 全能下载器。以 4K 和 1080p 保存视频，MP3 320kbps 和 FLAC、HD 缩略图和 AI 转录（SRT/VTT/TXT/JSON）。粘贴任意链接 — 无需应用，无需注册。支持 Android、iPhone 和 PC。",
+      "metaTitleThumbnail": "YouTube缩略图下载器 — 高清下载 | DownForge",
+      "metaDescriptionThumbnail": "免费的YouTube缩略图下载器。以HD、JPG、PNG和WebP保存YouTube缩略图。无需应用。",
+      "keywordsThumbnail": [
+        "youtube缩略图下载",
+        "下载youtube缩略图",
+        "保存youtube缩略图",
+        "youtube高清缩略图",
+        "youtube thumbnail zh",
+        "youtube thumbnail zh"
+      ],
+      "metaTitleTranscript": "YouTube转录生成器 — AI 转录 | DownForge",
+      "metaDescriptionTranscript": "免费的YouTube转录生成器。获取带时间戳的准确AI转录。以SRT、VTT、TXT或JSON下载。",
+      "keywordsTranscript": [
+        "youtube转录生成器",
+        "下载youtube转录",
+        "youtube字幕下载",
+        "youtube srt",
+        "youtube transcript zh",
+        "youtube transcript zh"
+      ]
     },
     "niconico": {
       "badge": "Niconico下载器",
@@ -2627,7 +3021,27 @@
       "headingAccentAll": "视频、音频等",
       "subheadingAll": "Niconico 全能下载器。以 HD 下载视频，MP3/FLAC 音频，HD 缩略图和 AI 转录。粘贴链接 — 无需应用，无需注册。",
       "metaTitleVideo": "Niconico视频下载器 — 高清下载 | DownForge",
-      "metaDescriptionVideo": "免费的Niconico视频下载器。以HD和4K MP4保存Niconico视频。无需应用，无需注册 — 粘贴链接即可。"
+      "metaDescriptionVideo": "免费的Niconico视频下载器。以HD和4K MP4保存Niconico视频。无需应用，无需注册 — 粘贴链接即可。",
+      "metaTitleThumbnail": "Niconico缩略图下载器 — 高清下载 | DownForge",
+      "metaDescriptionThumbnail": "免费的Niconico缩略图下载器。以HD、JPG、PNG和WebP保存Niconico缩略图。无需应用。",
+      "keywordsThumbnail": [
+        "niconico缩略图下载",
+        "下载niconico缩略图",
+        "保存niconico缩略图",
+        "niconico高清缩略图",
+        "niconico thumbnail zh",
+        "niconico thumbnail zh"
+      ],
+      "metaTitleTranscript": "Niconico转录生成器 — AI 转录 | DownForge",
+      "metaDescriptionTranscript": "免费的Niconico转录生成器。获取带时间戳的准确AI转录。以SRT、VTT、TXT或JSON下载。",
+      "keywordsTranscript": [
+        "niconico转录生成器",
+        "下载niconico转录",
+        "niconico字幕下载",
+        "niconico srt",
+        "niconico transcript zh",
+        "niconico transcript zh"
+      ]
     }
   },
   "YoutubeHero": {

@@ -171,7 +171,13 @@ export function ThumbnailHero({ platform }: { platform: string }) {
           animate={{ opacity: 1, y: 0 }}
           transition={{ delay: 0.15, duration: 0.7, ease: "easeOut" }}
         >
-          Download {config.name} Thumbnails
+          {(() => {
+            try {
+              return t("thumbnailHeading", { platform: config.name } as any);
+            } catch {
+              return `Download ${config.name} Thumbnails`;
+            }
+          })()}
           <br />
           <span style={{ background: getBrandGradient(), WebkitBackgroundClip: "text", WebkitTextFillColor: "transparent", backgroundClip: "text" }}>
             {t("thumbnailHeadingSuffix")}

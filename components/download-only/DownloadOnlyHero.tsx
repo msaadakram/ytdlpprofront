@@ -403,8 +403,20 @@ export function DownloadOnlyHero({ platform, type }: { platform: string; type: D
           {type === "audio"
             ? getAudioKey("headingAudio", `Extract Audio from ${config.name} Videos`)
             : type === "thumbnail"
-            ? `Download ${config.name} Thumbnails`
-            : `Generate ${config.name} Transcripts`}
+            ? (() => {
+                try {
+                  return t("thumbnailHeading", { platform: config.name } as any);
+                } catch {
+                  return `Download ${config.name} Thumbnails`;
+                }
+              })()
+            : (() => {
+                try {
+                  return t("transcriptHeading", { platform: config.name } as any);
+                } catch {
+                  return `Generate ${config.name} Transcripts`;
+                }
+              })()}
           <br />
           <span style={{ color: brandColor }}>{type === "audio" ? getAudioKey("headingAccentAudio", t(typeHeadingKey)) : t(typeHeadingKey)}</span>
         </motion.h1>

@@ -19,6 +19,18 @@ export function generateStaticParams() {
   );
 }
 
+const ogLocaleMap: Record<string, string> = {
+  en: "en_US",
+  es: "es_ES",
+  fr: "fr_FR",
+  de: "de_DE",
+  pt: "pt_BR",
+  ja: "ja_JP",
+  ar: "ar_SA",
+  ru: "ru_RU",
+  zh: "zh_CN",
+};
+
 export async function generateMetadata({ params }: Props): Promise<Metadata> {
   const { platform, locale } = await params;
   const config = platformConfigs[platform];
@@ -56,7 +68,7 @@ export async function generateMetadata({ params }: Props): Promise<Metadata> {
       description,
       url: `https://www.downforge.me/${locale}/audio-downloader/${config.slug}`,
       siteName: "DownForge",
-      locale,
+      locale: ogLocaleMap[locale] ?? locale,
       type: "website",
       images: [
         {
@@ -107,9 +119,10 @@ export default async function AudioDownloaderPage({ params }: Props) {
   const config = platformConfigs[platform];
   if (!config) notFound();
 
-  const content = getContent(platform, "audio");
+  const content = locale === "en" ? getContent(platform, "audio") : null;
 
   const t = await getTranslations({ locale, namespace: `Platform.${platform}` });
+  const pt = await getTranslations({ locale, namespace: "PlatformPage" });
 
   // Prefer audio-specific FAQs/descriptions with fallback
   const audioFaqs = (() => {
@@ -136,6 +149,14 @@ export default async function AudioDownloaderPage({ params }: Props) {
     }
   })();
 
+  const breadcrumbHome = (() => {
+    try {
+      return pt("breadcrumbHome");
+    } catch {
+      return "Home";
+    }
+  })();
+
   // Build HowTo steps from audio content for rich results
   const howToSteps = content?.stepByStepGuide?.steps?.map((s, i) => ({
     "@type": "HowToStep",
@@ -151,7 +172,7 @@ export default async function AudioDownloaderPage({ params }: Props) {
         "@type": "BreadcrumbList",
         "@id": `https://www.downforge.me/${locale}/audio-downloader/${config.slug}#breadcrumb`,
         "itemListElement": [
-          { "@type": "ListItem", position: 1, name: "Home", item: `https://www.downforge.me/${locale}` },
+          { "@type": "ListItem", position: 1, name: breadcrumbHome, item: `https://www.downforge.me/${locale}` },
           { "@type": "ListItem", position: 2, name: `${config.name} to MP3 — Audio Downloader`, item: `https://www.downforge.me/${locale}/audio-downloader/${config.slug}` },
         ],
       },
