@@ -88,20 +88,35 @@ export function OverviewTab() {
     let cancelled = false;
     setLoading(true);
 
-    Promise.all([
-      getOverview(),
-      getTimeseries(7),
-      getRecentDownloads(5),
-    ]).then(([ovRes, tsRes, rcRes]) => {
-      if (cancelled) return;
-      if (ovRes.success && ovRes.data) setOverview(ovRes.data);
-      if (tsRes.success && tsRes.data) setTimeseries(tsRes.data.buckets);
-      if (rcRes.success && rcRes.data) setRecent(rcRes.data.recent);
-    }).finally(() => {
+    // Safety: never leave loading stuck if backend hangs — force resolve after 8s
+    const safety = setTimeout(() => {
       if (!cancelled) setLoading(false);
+    }, 8000);
+
+    const withTimeout = <T,>(p: Promise<T>, ms = 7000): Promise<T> =>
+      Promise.race([
+        p,
+        new Promise<T>((_, reject) => setTimeout(() => reject(new Error("timeout")), ms)),
+      ]) as Promise<T>;
+
+    Promise.allSettled([
+      withTimeout(getOverview()),
+      withTimeout(getTimeseries(7)),
+      withTimeout(getRecentDownloads(5)),
+    ]).then((results) => {
+      if (cancelled) return;
+      const [ovRes, tsRes, rcRes] = results;
+      if (ovRes.status === "fulfilled" && (ovRes.value as any)?.success && (ovRes.value as any)?.data) setOverview((ovRes.value as any).data);
+      if (tsRes.status === "fulfilled" && (tsRes.value as any)?.success && (tsRes.value as any)?.data) setTimeseries((tsRes.value as any).data.buckets);
+      if (rcRes.status === "fulfilled" && (rcRes.value as any)?.success && (rcRes.value as any)?.data) setRecent((rcRes.value as any).data.recent);
+    }).finally(() => {
+      if (!cancelled) {
+        clearTimeout(safety);
+        setLoading(false);
+      }
     });
 
-    return () => { cancelled = true; };
+    return () => { cancelled = true; clearTimeout(safety); };
   }, []);
 
   if (loading) {
