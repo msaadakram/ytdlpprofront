@@ -1,9 +1,10 @@
 import type { Metadata } from "next";
 import { Nav } from "@/components/layout/Nav";
 import { Footer } from "@/components/layout/Footer";
-import { Link } from "@/lib/i18n/navigation";
+import Link from "next/link";
 import { ArrowLeft } from "lucide-react";
-import { redirect } from "next/navigation";
+import { NextIntlClientProvider } from "next-intl";
+import enMessages from "@/messages/en.json";
 
 const slugs = [
   "how-to-download-youtube-4k",
@@ -15,19 +16,13 @@ const slugs = [
 ] as const;
 
 export function generateStaticParams() {
-  return slugs.map((slug) => ({ locale: "en", slug }));
+  return slugs.map((slug) => ({ slug }));
 }
 
-type Props = { params: Promise<{ locale: string; slug: string }> };
+type Props = { params: Promise<{ slug: string }> };
 
 export async function generateMetadata({ params }: Props): Promise<Metadata> {
-  const { locale, slug } = await params;
-  if (locale !== "en") {
-    return {
-      alternates: { canonical: `https://www.downforge.me/blog/${slug}` },
-      robots: { index: false, follow: false },
-    };
-  }
+  const { slug } = await params;
   const title = slug.replace(/-/g, " ");
   return {
     title: `${title} — DownForge Blog`,
@@ -48,10 +43,10 @@ export async function generateMetadata({ params }: Props): Promise<Metadata> {
 }
 
 export default async function BlogPostPage({ params }: Props) {
-  const { locale, slug } = await params;
-  redirect(`/blog/${slug}`);
+  const { slug } = await params;
   return (
-    <>
+    <NextIntlClientProvider messages={enMessages} locale="en">
+<>
       <Nav />
       <main className="pt-20 sm:pt-24 pb-16 px-4 sm:px-6">
         <div className="max-w-3xl mx-auto text-center">
@@ -64,5 +59,6 @@ export default async function BlogPostPage({ params }: Props) {
       </main>
       <Footer />
     </>
+    </NextIntlClientProvider>
   );
 }

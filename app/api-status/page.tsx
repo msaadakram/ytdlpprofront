@@ -1,25 +1,13 @@
 import type { Metadata } from "next";
 import { getTranslations } from "next-intl/server";
-import { redirect } from "next/navigation";
+import { NextIntlClientProvider } from "next-intl";
+import enMessages from "@/messages/en.json";
 import { Nav } from "@/components/layout/Nav";
 import { Footer } from "@/components/layout/Footer";
 import { StatusClient } from "@/components/status/StatusClient";
 import { AlertTriangle } from "lucide-react";
 
-export function generateStaticParams() {
-  return [{ locale: "en" }];
-}
-
-type Props = { params: Promise<{ locale: string }> };
-
-export async function generateMetadata({ params }: Props): Promise<Metadata> {
-  const { locale } = await params;
-  if (locale !== "en") {
-    return {
-      alternates: { canonical: `https://www.downforge.me/api-status` },
-      robots: { index: false, follow: false },
-    };
-  }
+export async function generateMetadata(): Promise<Metadata> {
   const t = await getTranslations({ locale: "en", namespace: "ApiStatus" });
   const languages = { en: `https://www.downforge.me/api-status`, "x-default": `https://www.downforge.me/api-status` };
   return {
@@ -36,9 +24,7 @@ const incidents = [
   { date: "2025-07-12", title: "Scheduled maintenance — 2 min", status: "Completed", color: "bg-slate-400" },
 ];
 
-export default async function ApiStatusPage({ params }: Props) {
-  const { locale } = await params;
-  redirect("/api-status");
+export default async function ApiStatusPage() {
   const t = await getTranslations({ locale: "en", namespace: "ApiStatus" });
 
   const jsonLd = {
@@ -50,7 +36,8 @@ export default async function ApiStatusPage({ params }: Props) {
   };
 
   return (
-    <>
+    <NextIntlClientProvider messages={enMessages} locale="en">
+<>
       <Nav />
       <main className="pt-16 sm:pt-20">
         <section className="bg-[#0d1f26] text-white relative overflow-hidden">
@@ -93,5 +80,6 @@ export default async function ApiStatusPage({ params }: Props) {
       <Footer />
       <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(jsonLd) }} />
     </>
+    </NextIntlClientProvider>
   );
 }

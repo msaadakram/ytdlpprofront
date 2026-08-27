@@ -1,24 +1,12 @@
 import type { Metadata } from "next";
 import { getTranslations } from "next-intl/server";
-import { redirect } from "next/navigation";
+import { NextIntlClientProvider } from "next-intl";
+import enMessages from "@/messages/en.json";
 import { Nav } from "@/components/layout/Nav";
 import { Footer } from "@/components/layout/Footer";
 import { Clock, Tag, Sparkles, Wrench, Bug } from "lucide-react";
 
-export function generateStaticParams() {
-  return [{ locale: "en" }];
-}
-
-type Props = { params: Promise<{ locale: string }> };
-
-export async function generateMetadata({ params }: Props): Promise<Metadata> {
-  const { locale } = await params;
-  if (locale !== "en") {
-    return {
-      alternates: { canonical: `https://www.downforge.me/changelog` },
-      robots: { index: false, follow: false },
-    };
-  }
+export async function generateMetadata(): Promise<Metadata> {
   const t = await getTranslations({ locale: "en", namespace: "Changelog" });
   const languages = { en: `https://www.downforge.me/changelog`, "x-default": `https://www.downforge.me/changelog` };
   return {
@@ -36,9 +24,7 @@ const entries = [
   { version: "1.9.0", date: "2025-07-12", type: "Major", color: "bg-emerald-500 text-white", icon: Wrench, changes: ["Universal auto-detect for all platforms", "Batch playlist support for Pro"] },
 ];
 
-export default async function ChangelogPage({ params }: Props) {
-  const { locale } = await params;
-  redirect("/changelog");
+export default async function ChangelogPage() {
   const t = await getTranslations({ locale: "en", namespace: "Changelog" });
 
   const jsonLd = {
@@ -49,7 +35,8 @@ export default async function ChangelogPage({ params }: Props) {
   };
 
   return (
-    <>
+    <NextIntlClientProvider messages={enMessages} locale="en">
+<>
       <Nav />
       <main className="pt-16 sm:pt-20">
         <section className="bg-[#0d1f26] text-white relative overflow-hidden">
@@ -118,5 +105,6 @@ export default async function ChangelogPage({ params }: Props) {
       <Footer />
       <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(jsonLd) }} />
     </>
+    </NextIntlClientProvider>
   );
 }

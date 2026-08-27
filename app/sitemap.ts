@@ -102,21 +102,21 @@ export default function sitemap(): MetadataRoute.Sitemap {
     }
   }
 
-  // 1b. English-only static pages — only /en/*, no hreflang (or single en)
+  // 1b. English-only static pages — top-level without locale prefix (e.g., /about not /en/about)
   // These pages are not translated; only English canonical exists to avoid thin duplicates.
   for (const route of englishOnlyStaticRoutes) {
-    const url = `${BASE_URL}/en${route}`;
+    const url = `${BASE_URL}${route}`;
     entries.push({
       url,
       lastModified: now,
-      // No alternates — English only. Could add x-default -> en if needed.
+      // No alternates — English only, no hreflang.
     });
   }
 
-  // 1c. Blog posts — English-only (blog content is English-only)
+  // 1c. Blog posts — English-only top-level (e.g., /blog/slug not /en/blog/slug)
   for (const { slug, lastmod } of blogPosts) {
     const path = `/blog/${slug}`;
-    const url = `${BASE_URL}/en${path}`;
+    const url = `${BASE_URL}${path}`;
     entries.push({
       url,
       lastModified: new Date(lastmod),

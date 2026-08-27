@@ -1,27 +1,14 @@
 import type { Metadata } from "next";
 import { getTranslations } from "next-intl/server";
-import { redirect } from "next/navigation";
+import { NextIntlClientProvider } from "next-intl";
+import enMessages from "@/messages/en.json";
 import { Nav } from "@/components/layout/Nav";
 import { Footer } from "@/components/layout/Footer";
-import { Link } from "@/lib/i18n/navigation";
+import Link from "next/link";
 import { ShieldCheck, Zap, Globe, Users, Clock, Star, Sparkles, ArrowRight, Award, Lock, Download } from "lucide-react";
 
-export function generateStaticParams() {
-  return [{ locale: "en" }];
-}
-
-type Props = { params: Promise<{ locale: string }> };
-
-export async function generateMetadata({ params }: Props): Promise<Metadata> {
-  const { locale } = await params;
-  if (locale !== "en") {
-    return {
-      alternates: { canonical: `https://www.downforge.me/about` },
-      robots: { index: false, follow: false },
-    };
-  }
+export async function generateMetadata(): Promise<Metadata> {
   const t = await getTranslations({ locale: "en", namespace: "About" });
-
   return {
     title: t("metaTitle"),
     description: t("metaDescription"),
@@ -39,9 +26,7 @@ export async function generateMetadata({ params }: Props): Promise<Metadata> {
   };
 }
 
-export default async function AboutPage({ params }: Props) {
-  const { locale } = await params;
-  redirect("/about");
+export default async function AboutPage() {
   const t = await getTranslations({ locale: "en", namespace: "About" });
 
   const stats: { value: string; label: string; sub: string }[] = [
@@ -90,7 +75,8 @@ export default async function AboutPage({ params }: Props) {
   };
 
   return (
-    <>
+    <NextIntlClientProvider messages={enMessages} locale="en">
+<>
       <Nav />
       <main className="pt-16 sm:pt-20">
         {/* Hero */}
@@ -215,5 +201,6 @@ export default async function AboutPage({ params }: Props) {
       <Footer />
       <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(jsonLd) }} />
     </>
+    </NextIntlClientProvider>
   );
 }

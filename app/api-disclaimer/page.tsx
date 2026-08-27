@@ -2,6 +2,8 @@ import type { Metadata } from "next";
 import { Nav } from "@/components/layout/Nav";
 import { Footer } from "@/components/layout/Footer";
 import Link from "next/link";
+import { NextIntlClientProvider } from "next-intl";
+import enMessages from "@/messages/en.json";
 import { ShieldCheck, ArrowLeft } from "lucide-react";
 
 export const metadata: Metadata = {
@@ -11,7 +13,8 @@ export const metadata: Metadata = {
 
 export default function ApiDisclaimerPage() {
   return (
-    <>
+    <NextIntlClientProvider messages={enMessages} locale="en">
+<>
       <Nav />
       <main className="pt-28 pb-20 px-6">
         <div className="max-w-4xl mx-auto">
@@ -65,5 +68,6 @@ export default function ApiDisclaimerPage() {
       </main>
       <Footer />
     </>
+    </NextIntlClientProvider>
   );
 }

@@ -16,7 +16,7 @@ export async function generateMetadata({ params }: Props): Promise<Metadata> {
   const { locale } = await params;
   if (locale !== "en") {
     return {
-      alternates: { canonical: `https://www.downforge.me/en/api-disclaimer` },
+      alternates: { canonical: `https://www.downforge.me/api-disclaimer` },
       robots: { index: false, follow: false },
     };
   }
@@ -25,13 +25,13 @@ export async function generateMetadata({ params }: Props): Promise<Metadata> {
   return {
     title: `${t("title")} — DownForge`,
     description: t("subtitle"),
-    alternates: { canonical: `https://www.downforge.me/en/api-disclaimer` },
+    alternates: { canonical: `https://www.downforge.me/api-disclaimer` },
   };
 }
 
 export default async function ApiDisclaimerPage({ params }: Props) {
   const { locale } = await params;
-  if (locale !== "en") redirect(`/en/api-disclaimer`);
+  redirect("/api-disclaimer");
   const t = await getTranslations({ locale: "en", namespace: "ApiDisclaimer" });
 
   return (

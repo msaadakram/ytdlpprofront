@@ -1,25 +1,13 @@
 import type { Metadata } from "next";
 import { getTranslations } from "next-intl/server";
-import { redirect } from "next/navigation";
+import { NextIntlClientProvider } from "next-intl";
+import enMessages from "@/messages/en.json";
 import { Nav } from "@/components/layout/Nav";
 import { Footer } from "@/components/layout/Footer";
-import { Link } from "@/lib/i18n/navigation";
+import Link from "next/link";
 import { Sparkles, ShieldCheck, Zap, Globe, MonitorPlay, Clock, Star, ArrowRight } from "lucide-react";
 
-export function generateStaticParams() {
-  return [{ locale: "en" }];
-}
-
-type Props = { params: Promise<{ locale: string }> };
-
-export async function generateMetadata({ params }: Props): Promise<Metadata> {
-  const { locale } = await params;
-  if (locale !== "en") {
-    return {
-      alternates: { canonical: `https://www.downforge.me/features` },
-      robots: { index: false, follow: false },
-    };
-  }
+export async function generateMetadata(): Promise<Metadata> {
   const t = await getTranslations({ locale: "en", namespace: "Features" });
   const languages = { en: `https://www.downforge.me/features`, "x-default": `https://www.downforge.me/features` };
   return {
@@ -39,9 +27,7 @@ const features = [
   { icon: Star, titleKey: "batch", descKey: "batch" },
 ];
 
-export default async function FeaturesPage({ params }: Props) {
-  const { locale } = await params;
-  redirect("/features");
+export default async function FeaturesPage() {
   const t = await getTranslations({ locale: "en", namespace: "Features" });
   const th = await getTranslations({ locale: "en", namespace: "HomePage.features" });
 
@@ -55,7 +41,8 @@ export default async function FeaturesPage({ params }: Props) {
   };
 
   return (
-    <>
+    <NextIntlClientProvider messages={enMessages} locale="en">
+<>
       <Nav />
       <main className="pt-16 sm:pt-20">
         <section className="bg-[#0d1f26] text-white relative overflow-hidden">
@@ -106,5 +93,6 @@ export default async function FeaturesPage({ params }: Props) {
       <Footer />
       <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(jsonLd) }} />
     </>
+    </NextIntlClientProvider>
   );
 }
