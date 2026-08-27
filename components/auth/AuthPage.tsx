@@ -1,6 +1,6 @@
 "use client";
 
-import { useState, useRef, type FormEvent } from "react";
+import { useState, useRef, type FormEvent, useEffect } from "react";
 import Link from "next/link";
 import { useRouter } from "next/navigation";
 import { motion } from "motion/react";
@@ -40,8 +40,8 @@ function AuthAside() {
 
       <div className="relative z-10">
         <div className="flex items-center gap-3 mb-10">
-          <div className="w-10 h-10 rounded-2xl bg-white flex items-center justify-center shadow-lg">
-            <img src="/logo.png" alt="DownForge" className="w-7 h-7 object-contain" />
+          <div className="w-12 h-12 rounded-2xl bg-white flex items-center justify-center shadow-lg">
+            <img src="/logo.png" alt="DownForge" className="w-9 h-9 object-contain scale-110" />
           </div>
           <span className="text-[11px] font-bold tracking-[0.18em] uppercase text-white/60 font-sans">DownForge</span>
         </div>
@@ -148,13 +148,32 @@ export function AuthPage({ mode }: { mode: AuthMode }) {
   const [agree, setAgree] = useState(false);
   const [password, setPassword] = useState("");
   const [pwFocused, setPwFocused] = useState(false);
-  const { login, signup } = useAuth();
+  const { login, signup, isAuthenticated, loading: authLoading } = useAuth();
   const router = useRouter();
   const isSignIn = mode === "signin";
   const t = useTranslations("Auth");
 
+  // If already signed in, redirect to dashboard — don't allow visiting sign-in/up pages
+  useEffect(() => {
+    if (!authLoading && isAuthenticated) {
+      router.replace("/dashboard");
+    }
+  }, [authLoading, isAuthenticated, router]);
+
   // Live strength - updates as you type (reactive via state)
   const pwStrength = password.length === 0 ? 0 : password.length < 6 ? 1 : password.length < 10 ? 2 : 3;
+
+  // While auth state is loading, show spinner; if already authenticated, redirecting state
+  if (authLoading || isAuthenticated) {
+    return (
+      <div className="min-h-screen w-full bg-[#f8fafc] dark:bg-[#070d12] flex items-center justify-center">
+        <div className="flex flex-col items-center gap-3">
+          <div className="w-8 h-8 border-2 border-[#5baab8] border-t-transparent rounded-full animate-spin" />
+          <p className="text-sm text-muted-foreground font-sans">{authLoading ? "Loading…" : "Redirecting to dashboard…"}</p>
+        </div>
+      </div>
+    );
+  }
 
   async function handleSubmit(e: FormEvent) {
     e.preventDefault();

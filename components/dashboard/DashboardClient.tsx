@@ -50,12 +50,26 @@ export function DashboardClient() {
     router.replace("/");
   }
 
-  if (loading || !isAuthenticated) {
+  if (loading) {
     return (
       <div className="min-h-screen bg-background flex items-center justify-center">
         <div className="flex flex-col items-center gap-3">
           <div className="w-8 h-8 border-2 border-[#5baab8] border-t-transparent rounded-full animate-spin" />
           <p className="text-sm text-muted-foreground font-sans">Loading…</p>
+        </div>
+      </div>
+    );
+  }
+
+  if (!isAuthenticated) {
+    return (
+      <div className="min-h-screen bg-background flex items-center justify-center p-4">
+        <div className="flex flex-col items-center gap-3 text-center">
+          <div className="w-8 h-8 border-2 border-[#5baab8] border-t-transparent rounded-full animate-spin" />
+          <p className="text-sm text-muted-foreground font-sans">Redirecting to sign in…</p>
+          <Link href="/sign-in" className="text-sm font-semibold text-[#5baab8] hover:underline">
+            Go to Sign In
+          </Link>
         </div>
       </div>
     );
@@ -72,7 +86,7 @@ export function DashboardClient() {
           <Menu className="w-5 h-5" />
         </button>
         <Link href="/" className="flex items-center gap-2" aria-label="DownForge home">
-          <img src="/logo.png" alt="DownForge" className="w-8 h-8 object-contain" />
+          <img src="/logo.png" alt="DownForge" className="w-10 h-10 object-contain scale-110" />
           <span className="font-bold text-lg tracking-tight text-foreground font-heading">DownForge</span>
         </Link>
         <HeaderActions onNavigate={setActiveTab} />

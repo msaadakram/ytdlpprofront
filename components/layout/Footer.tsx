@@ -217,8 +217,8 @@ export function Footer() {
               href="/"
               className="group inline-flex items-center gap-3 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-[#5baab8]/50 focus-visible:rounded-xl"
             >
-              <div className="w-10 h-10 rounded-2xl bg-white flex items-center justify-center shadow-[0_8px_24px_-12px_rgba(255,255,255,0.4)] group-hover:shadow-[0_12px_32px_-12px_rgba(91,170,184,0.5)] transition-shadow">
-                <img src="/logo.png" alt="DownForge" className="h-6 w-6 object-contain" />
+              <div className="w-12 h-12 rounded-2xl bg-white flex items-center justify-center shadow-[0_8px_24px_-12px_rgba(255,255,255,0.4)] group-hover:shadow-[0_12px_32px_-12px_rgba(91,170,184,0.5)] transition-shadow">
+                <img src="/logo.png" alt="DownForge" className="h-8 w-8 object-contain scale-110" />
               </div>
               <div className="flex flex-col gap-0.5">
                 <span className="block font-heading text-[22px] font-black tracking-[-0.02em] leading-none bg-gradient-to-r from-white via-white to-[#8fd3df] bg-clip-text text-transparent">

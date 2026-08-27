@@ -52,7 +52,7 @@ export function Nav() {
   const locale = useLocale();
   const pathname = usePathname();
   const router = useRouter();
-  const { isAuthenticated: isLoggedIn } = useAuth();
+  const { isAuthenticated: isLoggedIn, loading: authLoading } = useAuth();
   const [menuOpen, setMenuOpen] = useState(false);
   const [openDropdown, setOpenDropdown] = useState<number | null>(null);
   const [langOpen, setLangOpen] = useState(false);
@@ -157,8 +157,8 @@ export function Nav() {
     >
       <div className="mx-auto max-w-[1280px] px-3 lg:px-3 xl:px-6 h-[60px] sm:h-16 flex items-center justify-between gap-1.5 lg:gap-2 xl:gap-4 min-w-0">
         <Link href="/" className="flex items-center gap-2 sm:gap-2.5 shrink-0 group min-w-0" aria-label="DownForge home">
-          <div className="w-8 h-8 sm:w-9 sm:h-9 rounded-xl bg-white border border-border/60 shadow-sm group-hover:shadow-md transition-shadow flex items-center justify-center">
-            <img src="/logo.png" alt="DownForge" className="w-5 h-5 sm:w-6 sm:h-6 object-contain" />
+          <div className="w-10 h-10 sm:w-11 sm:h-11 rounded-xl bg-white border border-border/60 shadow-sm group-hover:shadow-md transition-shadow flex items-center justify-center">
+            <img src="/logo.png" alt="DownForge" className="w-7 h-7 sm:w-8 sm:h-8 object-contain scale-110" />
           </div>
           <span className="font-bold text-[17px] sm:text-lg tracking-tight text-foreground font-heading">
             DownForge
@@ -396,7 +396,9 @@ export function Nav() {
             </AnimatePresence>
           </div>
 
-          {isLoggedIn ? (
+          {authLoading ? (
+            <span className="hidden lg:inline-flex w-24 h-9 rounded-full bg-muted animate-pulse shrink-0" aria-hidden />
+          ) : isLoggedIn ? (
             <Link
               href="/dashboard"
               className="hidden lg:inline-flex items-center gap-1.5 text-sm font-semibold bg-[#0d1f26] dark:bg-white text-white dark:text-[#0d1f26] px-4 xl:px-5 py-2 xl:py-2.5 rounded-full hover:bg-[#1a3545] dark:hover:bg-slate-100 transition-all font-sans shadow-md hover:shadow-lg shrink-0"
@@ -455,8 +457,8 @@ export function Nav() {
           >
               <div className="flex items-center justify-between px-4 sm:px-5 h-[56px] sm:h-16 border-b border-border/50 dark:border-white/5 shrink-0 bg-gradient-to-r from-white to-slate-50/50 dark:from-[#0a1218] dark:to-[#0f1e26]/50">
                 <Link href="/" onClick={closeAll} className="flex items-center gap-2.5" aria-label="DownForge home">
-                  <div className="w-8 h-8 rounded-xl bg-white border border-border/60 shadow-sm flex items-center justify-center">
-                    <img src="/logo.png" alt="DownForge" className="w-5 h-5 object-contain" />
+                  <div className="w-10 h-10 rounded-xl bg-white border border-border/60 shadow-sm flex items-center justify-center">
+                    <img src="/logo.png" alt="DownForge" className="w-7 h-7 object-contain scale-110" />
                   </div>
                   <span className="font-bold text-base tracking-tight text-foreground font-heading">DownForge</span>
                 </Link>
@@ -589,7 +591,12 @@ export function Nav() {
               </div>
 
               <div className="shrink-0 border-t border-border/50 dark:border-white/5 bg-gradient-to-t from-slate-50/80 to-white dark:from-[#0f1e26]/50 dark:to-[#0a1218] px-3 sm:px-4 lg:px-5 py-3 sm:py-4 lg:py-5 pb-[calc(0.75rem+env(safe-area-inset-bottom))] sm:pb-[calc(1rem+env(safe-area-inset-bottom))]">
-                {isLoggedIn ? (
+                {authLoading ? (
+                  <div className="space-y-3">
+                    <div className="h-11 rounded-full bg-muted animate-pulse" />
+                    <div className="h-11 rounded-full bg-muted/60 animate-pulse" />
+                  </div>
+                ) : isLoggedIn ? (
                   <div className="space-y-3">
                     <Link href="/dashboard" onClick={closeAll} className="flex items-center justify-center gap-2 text-sm font-bold bg-[#0d1f26] dark:bg-white text-white dark:text-[#0d1f26] px-5 py-3.5 rounded-full hover:bg-[#1a3545] dark:hover:bg-slate-100 transition-all font-sans shadow-md active:scale-[0.98]">
                       <BarChart2 className="w-4 h-4" /> {t("dashboard")}

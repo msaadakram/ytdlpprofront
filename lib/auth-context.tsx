@@ -118,24 +118,50 @@ export function AuthProvider({ children }: { children: ReactNode }) {
     setToken(stored.token);
     setUserState(stored.user);
 
-    apiCall<{ user: AuthUser }>("/api/proxy/auth/me", {
-      headers: { Authorization: `Bearer ${stored.token}` },
-    }).then((result) => {
-      if (cancelled) return;
-      if (result.ok && result.data?.user) {
-        setUserState(result.data.user);
-        writeStored({ token: stored.token, user: result.data.user });
-      } else if (result.status === 401) {
-        // Token expired/invalid — clear and let the user log in again.
-        writeStored(null);
-        setToken(null);
-        setUserState(null);
-      }
-      setLoading(false);
-    });
+    // Safety fallback: never leave loading stuck if network hangs
+    const safetyId = setTimeout(() => {
+      if (!cancelled) setLoading(false);
+    }, 6000);
+
+    // Race the auth check against a timeout so a hung backend doesn't freeze the app
+    const timeoutPromise = new Promise<{ ok: boolean; status: number; error?: string }>((resolve) =>
+      setTimeout(() => resolve({ ok: false, status: 0, error: "Auth check timeout" }), 5000),
+    );
+
+    Promise.race([
+      apiCall<{ user: AuthUser }>("/api/proxy/auth/me", {
+        headers: { Authorization: `Bearer ${stored.token}` },
+      }),
+      timeoutPromise,
+    ])
+      .then((result) => {
+        if (cancelled) return;
+        if (result.ok && (result as any).data?.user) {
+          setUserState((result as any).data.user);
+          writeStored({ token: stored.token, user: (result as any).data.user });
+        } else if (result.status === 401) {
+          // Token expired/invalid — clear and let the user log in again.
+          writeStored(null);
+          setToken(null);
+          setUserState(null);
+        } else if (result.status === 0) {
+          // Network/timeout: keep optimistic session so dashboard can still render
+          // but don't block loading forever
+        }
+      })
+      .catch(() => {
+        // Swallow network errors — keep optimistic session
+      })
+      .finally(() => {
+        if (!cancelled) {
+          clearTimeout(safetyId);
+          setLoading(false);
+        }
+      });
 
     return () => {
       cancelled = true;
+      clearTimeout(safetyId);
     };
   }, []);
 
