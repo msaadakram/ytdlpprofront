@@ -1,41 +1,38 @@
 import type { Metadata } from "next";
 import { getTranslations } from "next-intl/server";
+import { redirect } from "next/navigation";
 import { Nav } from "@/components/layout/Nav";
 import { Footer } from "@/components/layout/Footer";
 import { Link } from "@/lib/i18n/navigation";
 import { ShieldCheck, Zap, Globe, Users, Clock, Star, Sparkles, ArrowRight, Award, Lock, Download } from "lucide-react";
-import { routing } from "@/lib/i18n/routing";
 
-const ogLocaleMap: Record<string, string> = {
-  en: "en_US",
-  es: "es_ES",
-  fr: "fr_FR",
-  de: "de_DE",
-  pt: "pt_BR",
-  ja: "ja_JP",
-  ar: "ar_SA",
-  ru: "ru_RU",
-  zh: "zh_CN",
-};
+export function generateStaticParams() {
+  return [{ locale: "en" }];
+}
 
 type Props = { params: Promise<{ locale: string }> };
 
 export async function generateMetadata({ params }: Props): Promise<Metadata> {
   const { locale } = await params;
-  const t = await getTranslations({ locale, namespace: "About" });
-
-  const languages = Object.fromEntries(routing.locales.map((l) => [l, `https://www.downforge.me/${l}/about`]));
+  if (locale !== "en") {
+    return {
+      alternates: { canonical: `https://www.downforge.me/en/about` },
+      robots: { index: false, follow: false },
+    };
+  }
+  const t = await getTranslations({ locale: "en", namespace: "About" });
 
   return {
     title: t("metaTitle"),
     description: t("metaDescription"),
-    alternates: { canonical: `https://www.downforge.me/${locale}/about`, languages },
+    alternates: { canonical: `https://www.downforge.me/en/about`, languages: { en: `https://www.downforge.me/en/about`, "x-default": `https://www.downforge.me/en/about` } },
     openGraph: {
       title: t("metaTitle"),
       description: t("metaDescription"),
       type: "website",
       siteName: "DownForge",
-      locale: ogLocaleMap[locale] ?? locale,
+      locale: "en_US",
+      url: `https://www.downforge.me/en/about`,
       images: [{ url: "/og-about.png", width: 1200, height: 630, alt: "About DownForge" }],
     },
     twitter: { card: "summary_large_image", title: t("metaTitle"), description: t("metaDescription"), images: ["/og-about.png"] },
@@ -44,7 +41,8 @@ export async function generateMetadata({ params }: Props): Promise<Metadata> {
 
 export default async function AboutPage({ params }: Props) {
   const { locale } = await params;
-  const t = await getTranslations({ locale, namespace: "About" });
+  if (locale !== "en") redirect(`/en/about`);
+  const t = await getTranslations({ locale: "en", namespace: "About" });
 
   const stats: { value: string; label: string; sub: string }[] = [
     { value: "200+", label: "Platforms supported", sub: "YouTube to niche sites" },
@@ -85,7 +83,8 @@ export default async function AboutPage({ params }: Props) {
     "@type": "AboutPage",
     name: t("metaTitle"),
     description: t("metaDescription"),
-    url: `https://www.downforge.me/${locale}/about`,
+    url: `https://www.downforge.me/en/about`,
+    inLanguage: "en",
     isPartOf: { "@type": "WebSite", name: "DownForge", url: "https://www.downforge.me" },
     about: { "@type": "Organization", name: "DownForge", url: "https://www.downforge.me", logo: "https://www.downforge.me/logo.png", foundingDate: "2024" },
   };

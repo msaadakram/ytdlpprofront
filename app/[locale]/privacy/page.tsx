@@ -1,29 +1,27 @@
 import type { Metadata } from "next";
 import { getTranslations } from "next-intl/server";
+import { redirect } from "next/navigation";
 import { Nav } from "@/components/layout/Nav";
 import { Footer } from "@/components/layout/Footer";
 import { Link } from "@/lib/i18n/navigation";
 import { ShieldCheck, Lock, FileText, Clock, Eye, Cookie, UserCheck, ArrowRight } from "lucide-react";
-import { routing } from "@/lib/i18n/routing";
 
-const ogLocaleMap: Record<string, string> = {
-  en: "en_US",
-  es: "es_ES",
-  fr: "fr_FR",
-  de: "de_DE",
-  pt: "pt_BR",
-  ja: "ja_JP",
-  ar: "ar_SA",
-  ru: "ru_RU",
-  zh: "zh_CN",
-};
+export function generateStaticParams() {
+  return [{ locale: "en" }];
+}
 
 type Props = { params: Promise<{ locale: string }> };
 
 export async function generateMetadata({ params }: Props): Promise<Metadata> {
   const { locale } = await params;
-  const t = await getTranslations({ locale, namespace: "Privacy" });
-  const languages = Object.fromEntries(routing.locales.map((l) => [l, `https://www.downforge.me/${l}/privacy`]));
+  if (locale !== "en") {
+    return {
+      alternates: { canonical: `https://www.downforge.me/en/privacy` },
+      robots: { index: false, follow: false },
+    };
+  }
+  const t = await getTranslations({ locale: "en", namespace: "Privacy" });
+  const languages = { en: `https://www.downforge.me/en/privacy`, "x-default": `https://www.downforge.me/en/privacy` };
   const title = `${t("title")} — DownForge`;
   const description = (() => {
     try {
@@ -35,20 +33,22 @@ export async function generateMetadata({ params }: Props): Promise<Metadata> {
   return {
     title,
     description,
-    alternates: { canonical: `https://www.downforge.me/${locale}/privacy`, languages },
+    alternates: { canonical: `https://www.downforge.me/en/privacy`, languages },
     openGraph: {
       title,
       description,
       type: "website",
       siteName: "DownForge",
-      locale: ogLocaleMap[locale] ?? locale,
+      locale: "en_US",
+      url: `https://www.downforge.me/en/privacy`,
     },
   };
 }
 
 export default async function PrivacyPolicyPage({ params }: Props) {
   const { locale } = await params;
-  const t = await getTranslations({ locale, namespace: "Privacy" });
+  if (locale !== "en") redirect(`/en/privacy`);
+  const t = await getTranslations({ locale: "en", namespace: "Privacy" });
 
   const sections = [
     { id: "collect", title: t("section1Title", { defaultValue: "1. Information We Collect" }), body: t("section1Body", { defaultValue: "We collect only the information necessary to provide our service: the URLs you submit for download, your IP address for rate limiting, and account information (email, name) if you create an account. We do not collect or store the actual content of your downloads beyond the processing period." }), icon: FileText },
@@ -69,7 +69,7 @@ export default async function PrivacyPolicyPage({ params }: Props) {
         return "DownForge privacy policy. Learn how we handle your data.";
       }
     })(),
-    url: `https://www.downforge.me/${locale}/privacy`,
+    url: `https://www.downforge.me/en/privacy`,
     dateModified: "2025-01-01",
     isPartOf: { "@type": "WebSite", name: "DownForge", url: "https://www.downforge.me" },
   };

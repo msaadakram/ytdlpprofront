@@ -1,34 +1,32 @@
 import type { Metadata } from "next";
 import { getTranslations } from "next-intl/server";
+import { redirect } from "next/navigation";
 import { Nav } from "@/components/layout/Nav";
 import { Footer } from "@/components/layout/Footer";
 import { Link } from "@/lib/i18n/navigation";
 import { Sparkles, ShieldCheck, Zap, Globe, MonitorPlay, Clock, Star, ArrowRight } from "lucide-react";
-import { routing } from "@/lib/i18n/routing";
 
-const ogLocaleMap: Record<string, string> = {
-  en: "en_US",
-  es: "es_ES",
-  fr: "fr_FR",
-  de: "de_DE",
-  pt: "pt_BR",
-  ja: "ja_JP",
-  ar: "ar_SA",
-  ru: "ru_RU",
-  zh: "zh_CN",
-};
+export function generateStaticParams() {
+  return [{ locale: "en" }];
+}
 
 type Props = { params: Promise<{ locale: string }> };
 
 export async function generateMetadata({ params }: Props): Promise<Metadata> {
   const { locale } = await params;
-  const t = await getTranslations({ locale, namespace: "Features" });
-  const languages = Object.fromEntries(routing.locales.map((l) => [l, `https://www.downforge.me/${l}/features`]));
+  if (locale !== "en") {
+    return {
+      alternates: { canonical: `https://www.downforge.me/en/features` },
+      robots: { index: false, follow: false },
+    };
+  }
+  const t = await getTranslations({ locale: "en", namespace: "Features" });
+  const languages = { en: `https://www.downforge.me/en/features`, "x-default": `https://www.downforge.me/en/features` };
   return {
     title: t("metaTitle"),
     description: t("metaDescription"),
-    alternates: { canonical: `https://www.downforge.me/${locale}/features`, languages },
-    openGraph: { title: t("metaTitle"), description: t("metaDescription"), type: "website", siteName: "DownForge", locale },
+    alternates: { canonical: `https://www.downforge.me/en/features`, languages },
+    openGraph: { title: t("metaTitle"), description: t("metaDescription"), type: "website", siteName: "DownForge", locale: "en_US", url: `https://www.downforge.me/en/features` },
   };
 }
 
@@ -43,15 +41,16 @@ const features = [
 
 export default async function FeaturesPage({ params }: Props) {
   const { locale } = await params;
-  const t = await getTranslations({ locale, namespace: "Features" });
-  const th = await getTranslations({ locale, namespace: "HomePage.features" });
+  if (locale !== "en") redirect(`/en/features`);
+  const t = await getTranslations({ locale: "en", namespace: "Features" });
+  const th = await getTranslations({ locale: "en", namespace: "HomePage.features" });
 
   const jsonLd = {
     "@context": "https://schema.org",
     "@type": "CollectionPage",
     name: t("title"),
     description: t("subtitle"),
-    url: `https://www.downforge.me/${locale}/features`,
+    url: `https://www.downforge.me/en/features`,
     isPartOf: { "@type": "WebSite", name: "DownForge", url: "https://www.downforge.me" },
   };
 

@@ -9,6 +9,9 @@ import { DownloadFaq } from "@/components/download-only/DownloadFaq";
 import { platformConfigs, platformSlugs } from "@/lib/platform-config";
 import { getContent } from "@/lib/content/registry";
 import { BlogContent } from "@/components/content/BlogContent";
+import { RelatedLinks } from "@/components/content/RelatedLinks";
+import { relatedLinksFor } from "@/lib/content/related-links";
+import { ExploreOtherTools } from "@/components/content/ExploreOtherTools";
 
 type Props = { params: Promise<{ platform: string; locale: string }> };
 
@@ -148,6 +151,8 @@ export default async function ThumbnailDownloaderPage({ params }: Props) {
         <DownloadFeatures platform={platform} type="thumbnail" />
         <DownloadFaq platform={platform} type="thumbnail" />
         {content && <BlogContent content={content} />}
+        <RelatedLinks links={relatedLinksFor("thumbnail-downloader", platform)} />
+        <ExploreOtherTools platform={platform} currentTool="thumbnail" />
       </main>
       <Footer />
     </>

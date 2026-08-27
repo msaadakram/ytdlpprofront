@@ -13,6 +13,7 @@ import { getUniversalContent } from "@/lib/content/registry";
 import { relatedLinksFor } from "@/lib/content/related-links";
 import { BlogContent } from "@/components/content/BlogContent";
 import { RelatedLinks } from "@/components/content/RelatedLinks";
+import { ExploreOtherTools } from "@/components/content/ExploreOtherTools";
 
 type Props = { params: Promise<{ platform: string; locale: string }> };
 
@@ -212,6 +213,7 @@ export default async function PlatformDownloadPage({ params }: Props) {
         <PlatformFaq platform={config.id} />
         {content && <BlogContent content={content} />}
         <RelatedLinks links={relatedLinksFor("download", platform)} />
+        <ExploreOtherTools platform={platform} currentTool="all" />
       </main>
       <Footer />
     </>

@@ -1,21 +1,55 @@
+import type { Metadata } from "next";
 import { Nav } from "@/components/layout/Nav";
 import { Footer } from "@/components/layout/Footer";
 import { Link } from "@/lib/i18n/navigation";
 import { ArrowLeft } from "lucide-react";
+import { redirect } from "next/navigation";
+
+const slugs = [
+  "how-to-download-youtube-4k",
+  "tiktok-without-watermark",
+  "flac-vs-mp3",
+  "batch-playlists",
+  "privacy-first",
+  "transcripts-ai",
+] as const;
 
 export function generateStaticParams() {
-  return [
-    { slug: "how-to-download-youtube-4k" },
-    { slug: "tiktok-without-watermark" },
-    { slug: "flac-vs-mp3" },
-    { slug: "batch-playlists" },
-    { slug: "privacy-first" },
-    { slug: "transcripts-ai" },
-  ];
+  return slugs.map((slug) => ({ locale: "en", slug }));
 }
 
-export default async function BlogPostPage({ params }: { params: Promise<{ locale: string; slug: string }> }) {
-  const { slug } = await params;
+type Props = { params: Promise<{ locale: string; slug: string }> };
+
+export async function generateMetadata({ params }: Props): Promise<Metadata> {
+  const { locale, slug } = await params;
+  if (locale !== "en") {
+    return {
+      alternates: { canonical: `https://www.downforge.me/en/blog/${slug}` },
+      robots: { index: false, follow: false },
+    };
+  }
+  const title = slug.replace(/-/g, " ");
+  return {
+    title: `${title} — DownForge Blog`,
+    description: `DownForge blog: ${title}`,
+    alternates: {
+      canonical: `https://www.downforge.me/en/blog/${slug}`,
+      languages: { en: `https://www.downforge.me/en/blog/${slug}`, "x-default": `https://www.downforge.me/en/blog/${slug}` },
+    },
+    openGraph: {
+      title: `${title} — DownForge Blog`,
+      description: `DownForge blog: ${title}`,
+      type: "article",
+      siteName: "DownForge",
+      locale: "en_US",
+      url: `https://www.downforge.me/en/blog/${slug}`,
+    },
+  };
+}
+
+export default async function BlogPostPage({ params }: Props) {
+  const { locale, slug } = await params;
+  if (locale !== "en") redirect(`/en/blog/${slug}`);
   return (
     <>
       <Nav />

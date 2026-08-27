@@ -1,47 +1,47 @@
 import type { Metadata } from "next";
 import { getTranslations } from "next-intl/server";
+import { redirect } from "next/navigation";
 import { Nav } from "@/components/layout/Nav";
 import { Footer } from "@/components/layout/Footer";
 import { ContactForm } from "@/components/contact/ContactForm";
 import { Mail, ShieldCheck, Clock, MessageCircle, HelpCircle, ArrowRight } from "lucide-react";
-import { routing } from "@/lib/i18n/routing";
 import { Link } from "@/lib/i18n/navigation";
 
-const ogLocaleMap: Record<string, string> = {
-  en: "en_US",
-  es: "es_ES",
-  fr: "fr_FR",
-  de: "de_DE",
-  pt: "pt_BR",
-  ja: "ja_JP",
-  ar: "ar_SA",
-  ru: "ru_RU",
-  zh: "zh_CN",
-};
+export function generateStaticParams() {
+  return [{ locale: "en" }];
+}
 
 type Props = { params: Promise<{ locale: string }> };
 
 export async function generateMetadata({ params }: Props): Promise<Metadata> {
   const { locale } = await params;
-  const t = await getTranslations({ locale, namespace: "Contact" });
-  const languages = Object.fromEntries(routing.locales.map((l) => [l, `https://www.downforge.me/${l}/contact`]));
+  if (locale !== "en") {
+    return {
+      alternates: { canonical: `https://www.downforge.me/en/contact` },
+      robots: { index: false, follow: false },
+    };
+  }
+  const t = await getTranslations({ locale: "en", namespace: "Contact" });
+  const languages = { en: `https://www.downforge.me/en/contact`, "x-default": `https://www.downforge.me/en/contact` };
   return {
     title: t("metaTitle"),
     description: t("metaDescription"),
-    alternates: { canonical: `https://www.downforge.me/${locale}/contact`, languages },
+    alternates: { canonical: `https://www.downforge.me/en/contact`, languages },
     openGraph: {
       title: t("metaTitle"),
       description: t("metaDescription"),
       type: "website",
       siteName: "DownForge",
-      locale: ogLocaleMap[locale] ?? locale,
+      locale: "en_US",
+      url: `https://www.downforge.me/en/contact`,
     },
   };
 }
 
 export default async function ContactPage({ params }: Props) {
   const { locale } = await params;
-  const t = await getTranslations({ locale, namespace: "Contact" });
+  if (locale !== "en") redirect(`/en/contact`);
+  const t = await getTranslations({ locale: "en", namespace: "Contact" });
 
   let faqs: { q: string; a: string }[] = [];
   try {
@@ -54,14 +54,14 @@ export default async function ContactPage({ params }: Props) {
     "@type": "ContactPage",
     name: t("title"),
     description: t("metaDescription"),
-    url: `https://www.downforge.me/${locale}/contact`,
+    url: `https://www.downforge.me/en/contact`,
     isPartOf: { "@type": "WebSite", name: "DownForge", url: "https://www.downforge.me" },
     mainEntity: {
       "@type": "Organization",
       name: "DownForge",
       url: "https://www.downforge.me",
       contactPoint: [
-        { "@type": "ContactPoint", contactType: "customer support", email: "support@downforge.me", availableLanguage: routing.locales },
+        { "@type": "ContactPoint", contactType: "customer support", email: "support@downforge.me", availableLanguage: ["en"] },
         { "@type": "ContactPoint", contactType: "legal", email: "legal@downforge.me" },
       ],
     },

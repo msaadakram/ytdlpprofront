@@ -9,6 +9,7 @@ import { getYouTubeVideoContent } from "@/lib/content/registry";
 import { relatedLinksFor } from "@/lib/content/related-links";
 import { BlogContent } from "@/components/content/BlogContent";
 import { RelatedLinks } from "@/components/content/RelatedLinks";
+import { ExploreOtherTools } from "@/components/content/ExploreOtherTools";
 
 type Props = { params: Promise<{ locale: string }> };
 
@@ -130,6 +131,7 @@ export default async function YoutubeVideoDownloaderPage({ params }: Props) {
         <VideoFaq platform="youtube" />
         {content && <BlogContent content={content} />}
         <RelatedLinks links={relatedLinksFor("youtube-video-downloader")} />
+        <ExploreOtherTools platform="youtube" currentTool="video" />
       </main>
       <Footer />
     </>

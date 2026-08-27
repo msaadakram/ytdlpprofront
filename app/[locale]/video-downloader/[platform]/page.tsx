@@ -11,6 +11,7 @@ import { getContent } from "@/lib/content/registry";
 import { relatedLinksFor } from "@/lib/content/related-links";
 import { BlogContent } from "@/components/content/BlogContent";
 import { RelatedLinks } from "@/components/content/RelatedLinks";
+import { ExploreOtherTools } from "@/components/content/ExploreOtherTools";
 
 type Props = { params: Promise<{ platform: string; locale: string }> };
 
@@ -152,6 +153,7 @@ export default async function VideoDownloaderPage({ params }: Props) {
         <VideoFaq platform={platform} />
         {content && <BlogContent content={content} />}
         <RelatedLinks links={related} />
+        <ExploreOtherTools platform={platform} currentTool="video" />
       </main>
       <Footer />
     </>

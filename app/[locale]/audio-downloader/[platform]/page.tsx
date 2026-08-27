@@ -9,6 +9,9 @@ import { DownloadFaq } from "@/components/download-only/DownloadFaq";
 import { platformConfigs, platformSlugs } from "@/lib/platform-config";
 import { getContent } from "@/lib/content/registry";
 import { BlogContent } from "@/components/content/BlogContent";
+import { RelatedLinks } from "@/components/content/RelatedLinks";
+import { relatedLinksFor } from "@/lib/content/related-links";
+import { ExploreOtherTools } from "@/components/content/ExploreOtherTools";
 
 type Props = { params: Promise<{ platform: string; locale: string }> };
 
@@ -232,6 +235,8 @@ export default async function AudioDownloaderPage({ params }: Props) {
         <DownloadFeatures platform={platform} type="audio" />
         <DownloadFaq platform={platform} type="audio" />
         {content && <BlogContent content={content} />}
+        <RelatedLinks links={relatedLinksFor("audio-downloader", platform)} />
+        <ExploreOtherTools platform={platform} currentTool="audio" />
       </main>
       <Footer />
     </>

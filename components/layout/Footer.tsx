@@ -320,67 +320,6 @@ export function Footer() {
           </nav>
         </div>
 
-        {/* Large beautiful DownForge watermark */}
-        <div className="relative mt-8 sm:mt-10 lg:mt-12 border-t border-white/[0.06] pt-6 sm:pt-8 lg:pt-10 overflow-hidden">
-          <div className="pointer-events-none absolute inset-x-0 -top-10 h-40 bg-gradient-to-b from-[#5baab8]/5 to-transparent blur-2xl" />
-          <div className="flex flex-col items-center gap-4 sm:gap-6 lg:flex-row lg:justify-between">
-            <div className="text-center lg:text-start min-w-0">
-              <div className="inline-flex items-center gap-2 flex-wrap justify-center lg:justify-start">
-                <span className="w-1.5 h-1.5 rounded-full bg-emerald-400 animate-pulse shadow-[0_0_8px_rgba(16,185,129,0.6)] shrink-0" />
-                <span className="font-mono text-[10px] sm:text-[11px] font-bold tracking-[0.16em] sm:tracking-[0.18em] uppercase text-white/40 text-center">All systems operational • 200+ sites live</span>
-              </div>
-              <p className="mt-1.5 sm:mt-2 font-sans text-[11px] sm:text-xs text-white/40 break-words">{f("copyright")}</p>
-            </div>
-
-            <div className="flex flex-wrap items-center justify-center gap-2 sm:gap-3">
-              <Link href="/privacy" className="rounded-full bg-white/5 border border-white/10 px-2.5 sm:px-3 py-1 sm:py-1.5 font-sans text-[11px] sm:text-xs font-semibold text-white/60 hover:text-white hover:bg-white/10 transition-colors whitespace-nowrap">
-                {t("privacy")}
-              </Link>
-              <Link href="/terms" className="rounded-full bg-white/5 border border-white/10 px-2.5 sm:px-3 py-1 sm:py-1.5 font-sans text-[11px] sm:text-xs font-semibold text-white/60 hover:text-white hover:bg-white/10 transition-colors whitespace-nowrap">
-                Terms
-              </Link>
-              <Link href="/api-disclaimer" className="rounded-full bg-white/5 border border-white/10 px-2.5 sm:px-3 py-1 sm:py-1.5 font-sans text-[11px] sm:text-xs font-semibold text-white/60 hover:text-white hover:bg-white/10 transition-colors whitespace-nowrap">
-                API Disclaimer
-              </Link>
-            </div>
-
-            <p className="hidden lg:block font-mono text-xs tracking-wide text-white/25 shrink-0">{f("poweredBy")}</p>
-          </div>
-
-          {/* Beautiful DownForge large text */}
-          <div className="mt-6 lg:mt-8 xl:mt-10 relative select-none overflow-hidden rounded-[1.5rem] lg:rounded-[1.75rem] xl:rounded-[2rem] bg-gradient-to-br from-white/[0.06] via-white/[0.02] to-transparent border border-white/[0.06] backdrop-blur-sm px-4 lg:px-5 xl:px-6 pt-5 lg:pt-6 xl:pt-8 pb-5 sm:pb-[4rem] lg:pb-[4.5rem] xl:pb-[5.5rem] 2xl:pb-[6rem]">
-            <div className="absolute inset-0 bg-gradient-to-r from-[#5baab8]/10 via-transparent to-transparent opacity-60" />
-            <div className="relative z-10 flex flex-col lg:flex-row items-center justify-between gap-4 lg:gap-6 xl:gap-8">
-              <div className="flex items-center gap-2.5 sm:gap-3">
-                <div className="w-10 h-10 sm:w-12 sm:h-12 rounded-2xl bg-white flex items-center justify-center shadow-lg shrink-0">
-                  <img src="/logo.png" alt="DownForge" className="w-6 h-6 sm:w-7 sm:h-7 object-contain" />
-                </div>
-                <div className="min-w-0 flex flex-col gap-1 sm:gap-1.5">
-                  <div className="font-heading text-xl sm:text-2xl lg:text-3xl font-black tracking-[-0.03em] leading-none bg-gradient-to-r from-white via-white to-[#8fd3df] bg-clip-text text-transparent">
-                    DownForge
-                  </div>
-                  <div className="flex flex-wrap items-center gap-x-1.5 gap-y-1 font-mono text-[10px] sm:text-[10px] font-bold tracking-[0.14em] sm:tracking-[0.18em] uppercase text-[#5baab8]">
-                    <span>Download</span> <span className="w-1 h-1 rounded-full bg-[#5baab8]/70 shrink-0" /> <span>Convert</span> <span className="w-1 h-1 rounded-full bg-[#5baab8]/70 shrink-0" /> <span>Create</span> <Sparkles className="w-3 h-3 sm:w-3.5 sm:h-3.5 text-[#5baab8] ml-0.5 shrink-0" />
-                  </div>
-                </div>
-              </div>
-              <div className="text-center lg:text-end min-w-0">
-                <div className="font-heading text-[13px] sm:text-sm font-bold text-white/90 flex items-center justify-center lg:justify-end gap-1.5 sm:gap-2">
-                  <Sparkles className="w-3.5 h-3.5 sm:w-4 sm:h-4 text-[#8fd3df] shrink-0" /> Crafted for creators
-                </div>
-                <div className="font-sans text-[11px] lg:text-[11px] xl:text-xs text-white/40 mt-1 leading-relaxed">Fast <span className="hidden xs:inline">•</span> <span className="xs:hidden">·</span> Private <span className="hidden xs:inline">•</span> <span className="xs:hidden">·</span> Any format <span className="hidden xs:inline">•</span> <span className="xs:hidden">·</span> 200+ platforms</div>
-              </div>
-            </div>
-            {/* Watermark — desktop/tablet only; hidden on phones where it read as dead space */}
-            <div aria-hidden className="pointer-events-none absolute inset-x-0 bottom-2 sm:bottom-3 lg:bottom-4 hidden sm:flex h-[3.25rem] lg:h-[3.75rem] xl:h-[4.75rem] 2xl:h-[5.25rem] items-start justify-center overflow-hidden select-none">
-              <span className="font-heading sm:text-[56px] lg:text-[64px] xl:text-[84px] 2xl:text-[96px] font-black tracking-[-0.05em] leading-none text-white/[0.05] sm:text-white/[0.06] lg:text-white/[0.07] whitespace-nowrap">
-                DownForge
-              </span>
-            </div>
-          </div>
-
-          <p className="mt-3 sm:mt-4 text-center font-mono text-[10px] sm:text-[11px] tracking-wide text-white/20 lg:hidden px-4 break-words">{f("poweredBy")}</p>
-        </div>
       </div>
     </footer>
   );

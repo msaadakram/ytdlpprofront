@@ -11,6 +11,7 @@ import { getYouTubeUniversalContent } from "@/lib/content/registry";
 import { relatedLinksFor } from "@/lib/content/related-links";
 import { BlogContent } from "@/components/content/BlogContent";
 import { RelatedLinks } from "@/components/content/RelatedLinks";
+import { ExploreOtherTools } from "@/components/content/ExploreOtherTools";
 
 type Props = { params: Promise<{ locale: string }> };
 
@@ -210,6 +211,7 @@ export default async function YoutubeDownloadPage({ params }: Props) {
         <FaqSection />
         {content && <BlogContent content={content} />}
         <RelatedLinks links={relatedLinksFor("youtube-download")} />
+        <ExploreOtherTools platform="youtube" currentTool="all" />
       </main>
       <Footer />
     </>

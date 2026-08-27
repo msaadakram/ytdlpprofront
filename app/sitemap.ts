@@ -6,8 +6,14 @@ const BASE_URL = (process.env.NEXT_PUBLIC_SITE_URL || "https://www.downforge.me"
 
 // Static routes under [locale] — maps to app/[locale]/*
 // Excludes noindex routes: dashboard, sign-in, sign-up, admin
-const staticRoutes = [
+// Split: multilingual (home + downloader) vs English-only (informational)
+const localizedStaticRoutes = [
   "", // home -> /{locale}
+  "/youtube-download",
+  "/youtube-video-downloader",
+] as const;
+
+const englishOnlyStaticRoutes = [
   "/about",
   "/features",
   "/pricing",
@@ -18,8 +24,6 @@ const staticRoutes = [
   "/blog",
   "/api-status",
   "/api-disclaimer",
-  "/youtube-download",
-  "/youtube-video-downloader",
 ] as const;
 
 // Dynamic platform routes — 5 templates × 15 platforms
@@ -69,10 +73,9 @@ export default function sitemap(): MetadataRoute.Sitemap {
 
   const entries: MetadataRoute.Sitemap = [];
 
-  // 1. Locale-prefixed pages: static + platform dynamic + blog
+  // 1a. Localized static pages — 9 locales with hreflang
   for (const locale of routing.locales) {
-    // Static
-    for (const route of staticRoutes) {
+    for (const route of localizedStaticRoutes) {
       const url = `${BASE_URL}/${locale}${route}`;
       entries.push({
         url,
@@ -83,7 +86,7 @@ export default function sitemap(): MetadataRoute.Sitemap {
       });
     }
 
-    // Platform dynamic — 5 × 15 = 75 per locale
+    // Platform dynamic — 5 × 15 = 75 per locale (multilingual: home + downloaders)
     for (const prefix of platformRoutePrefixes) {
       for (const slug of platformSlugs) {
         const path = `${prefix}/${slug}`;
@@ -97,19 +100,27 @@ export default function sitemap(): MetadataRoute.Sitemap {
         });
       }
     }
+  }
 
-    // Blog posts — individual dates
-    for (const { slug, lastmod } of blogPosts) {
-      const path = `/blog/${slug}`;
-      const url = `${BASE_URL}/${locale}${path}`;
-      entries.push({
-        url,
-        lastModified: new Date(lastmod),
-        alternates: {
-          languages: buildLanguageAlternates(path),
-        },
-      });
-    }
+  // 1b. English-only static pages — only /en/*, no hreflang (or single en)
+  // These pages are not translated; only English canonical exists to avoid thin duplicates.
+  for (const route of englishOnlyStaticRoutes) {
+    const url = `${BASE_URL}/en${route}`;
+    entries.push({
+      url,
+      lastModified: now,
+      // No alternates — English only. Could add x-default -> en if needed.
+    });
+  }
+
+  // 1c. Blog posts — English-only (blog content is English-only)
+  for (const { slug, lastmod } of blogPosts) {
+    const path = `/blog/${slug}`;
+    const url = `${BASE_URL}/en${path}`;
+    entries.push({
+      url,
+      lastModified: new Date(lastmod),
+    });
   }
 
   // 2. Top-level non-localized routes (no hreflang, single canonical)

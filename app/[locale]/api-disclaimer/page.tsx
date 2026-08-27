@@ -1,38 +1,38 @@
 import type { Metadata } from "next";
 import { getTranslations } from "next-intl/server";
+import { redirect } from "next/navigation";
 import { Nav } from "@/components/layout/Nav";
 import { Footer } from "@/components/layout/Footer";
 import { Link } from "@/lib/i18n/navigation";
 import { ShieldCheck, ArrowLeft } from "lucide-react";
 
-const ogLocaleMap: Record<string, string> = {
-  en: "en_US",
-  es: "es_ES",
-  fr: "fr_FR",
-  de: "de_DE",
-  pt: "pt_BR",
-  ja: "ja_JP",
-  ar: "ar_SA",
-  ru: "ru_RU",
-  zh: "zh_CN",
-};
+export function generateStaticParams() {
+  return [{ locale: "en" }];
+}
 
 type Props = { params: Promise<{ locale: string }> };
 
 export async function generateMetadata({ params }: Props): Promise<Metadata> {
   const { locale } = await params;
-  const t = await getTranslations({ locale, namespace: "ApiDisclaimer" });
+  if (locale !== "en") {
+    return {
+      alternates: { canonical: `https://www.downforge.me/en/api-disclaimer` },
+      robots: { index: false, follow: false },
+    };
+  }
+  const t = await getTranslations({ locale: "en", namespace: "ApiDisclaimer" });
 
   return {
     title: `${t("title")} — DownForge`,
     description: t("subtitle"),
-    alternates: { canonical: `https://www.downforge.me/${locale}/api-disclaimer` },
+    alternates: { canonical: `https://www.downforge.me/en/api-disclaimer` },
   };
 }
 
 export default async function ApiDisclaimerPage({ params }: Props) {
   const { locale } = await params;
-  const t = await getTranslations({ locale, namespace: "ApiDisclaimer" });
+  if (locale !== "en") redirect(`/en/api-disclaimer`);
+  const t = await getTranslations({ locale: "en", namespace: "ApiDisclaimer" });
 
   return (
     <>
