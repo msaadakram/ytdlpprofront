@@ -1,22 +1,17 @@
 import type { Metadata } from "next";
 import { getTranslations } from "next-intl/server";
 import { redirect } from "next/navigation";
+import { routing } from "@/lib/i18n/routing";
 
 export function generateStaticParams() {
-  return [{ locale: "en" }];
+  return routing.locales.map((locale) => ({ locale }));
 }
 
 type Props = { params: Promise<{ locale: string }> };
 
 export async function generateMetadata({ params }: Props): Promise<Metadata> {
   const { locale } = await params;
-  if (locale !== "en") {
-    return {
-      alternates: { canonical: `https://www.downforge.me/api-docs` },
-      robots: { index: false, follow: false },
-    };
-  }
-  const t = await getTranslations({ locale: "en", namespace: "ApiDocs" }).catch(() => null);
+  const t = await getTranslations({ locale, namespace: "ApiDocs" }).catch(() => null);
   // Fallback if namespace missing
   const title = t ? `${t("metaTitle" as any)} — DownForge` : "API Documentation — DownForge";
   const description = t ? (t as any)("metaDescription") : "DownForge API documentation. Download videos, audio, and thumbnails programmatically.";
@@ -37,6 +32,5 @@ export async function generateMetadata({ params }: Props): Promise<Metadata> {
 
 export default async function ApiDocsLocalePage({ params }: Props) {
   const { locale } = await params;
-  redirect("/api-docs");
   return null;
 }

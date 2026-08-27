@@ -1,26 +1,21 @@
 import type { Metadata } from "next";
 import { getTranslations } from "next-intl/server";
 import { redirect } from "next/navigation";
+import { routing } from "@/lib/i18n/routing";
 import { Nav } from "@/components/layout/Nav";
 import { Footer } from "@/components/layout/Footer";
 import { Link } from "@/lib/i18n/navigation";
 import { Sparkles, ShieldCheck, Zap, Globe, MonitorPlay, Clock, Star, ArrowRight } from "lucide-react";
 
 export function generateStaticParams() {
-  return [{ locale: "en" }];
+  return routing.locales.map((locale) => ({ locale }));
 }
 
 type Props = { params: Promise<{ locale: string }> };
 
 export async function generateMetadata({ params }: Props): Promise<Metadata> {
   const { locale } = await params;
-  if (locale !== "en") {
-    return {
-      alternates: { canonical: `https://www.downforge.me/features` },
-      robots: { index: false, follow: false },
-    };
-  }
-  const t = await getTranslations({ locale: "en", namespace: "Features" });
+  const t = await getTranslations({ locale, namespace: "Features" });
   const languages = { en: `https://www.downforge.me/features`, "x-default": `https://www.downforge.me/features` };
   return {
     title: t("metaTitle"),
@@ -41,9 +36,8 @@ const features = [
 
 export default async function FeaturesPage({ params }: Props) {
   const { locale } = await params;
-  redirect("/features");
-  const t = await getTranslations({ locale: "en", namespace: "Features" });
-  const th = await getTranslations({ locale: "en", namespace: "HomePage.features" });
+  const t = await getTranslations({ locale, namespace: "Features" });
+  const th = await getTranslations({ locale, namespace: "HomePage.features" });
 
   const jsonLd = {
     "@context": "https://schema.org",

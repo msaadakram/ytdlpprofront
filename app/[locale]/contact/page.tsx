@@ -1,6 +1,7 @@
 import type { Metadata } from "next";
 import { getTranslations } from "next-intl/server";
 import { redirect } from "next/navigation";
+import { routing } from "@/lib/i18n/routing";
 import { Nav } from "@/components/layout/Nav";
 import { Footer } from "@/components/layout/Footer";
 import { ContactForm } from "@/components/contact/ContactForm";
@@ -8,20 +9,14 @@ import { Mail, ShieldCheck, Clock, MessageCircle, HelpCircle, ArrowRight } from 
 import { Link } from "@/lib/i18n/navigation";
 
 export function generateStaticParams() {
-  return [{ locale: "en" }];
+  return routing.locales.map((locale) => ({ locale }));
 }
 
 type Props = { params: Promise<{ locale: string }> };
 
 export async function generateMetadata({ params }: Props): Promise<Metadata> {
   const { locale } = await params;
-  if (locale !== "en") {
-    return {
-      alternates: { canonical: `https://www.downforge.me/contact` },
-      robots: { index: false, follow: false },
-    };
-  }
-  const t = await getTranslations({ locale: "en", namespace: "Contact" });
+  const t = await getTranslations({ locale, namespace: "Contact" });
   const languages = { en: `https://www.downforge.me/contact`, "x-default": `https://www.downforge.me/contact` };
   return {
     title: t("metaTitle"),
@@ -40,8 +35,7 @@ export async function generateMetadata({ params }: Props): Promise<Metadata> {
 
 export default async function ContactPage({ params }: Props) {
   const { locale } = await params;
-  redirect("/contact");
-  const t = await getTranslations({ locale: "en", namespace: "Contact" });
+  const t = await getTranslations({ locale, namespace: "Contact" });
 
   let faqs: { q: string; a: string }[] = [];
   try {

@@ -1,25 +1,20 @@
 import type { Metadata } from "next";
 import { getTranslations } from "next-intl/server";
 import { redirect } from "next/navigation";
+import { routing } from "@/lib/i18n/routing";
 import { Nav } from "@/components/layout/Nav";
 import { Footer } from "@/components/layout/Footer";
 import { Clock, Tag, Sparkles, Wrench, Bug } from "lucide-react";
 
 export function generateStaticParams() {
-  return [{ locale: "en" }];
+  return routing.locales.map((locale) => ({ locale }));
 }
 
 type Props = { params: Promise<{ locale: string }> };
 
 export async function generateMetadata({ params }: Props): Promise<Metadata> {
   const { locale } = await params;
-  if (locale !== "en") {
-    return {
-      alternates: { canonical: `https://www.downforge.me/changelog` },
-      robots: { index: false, follow: false },
-    };
-  }
-  const t = await getTranslations({ locale: "en", namespace: "Changelog" });
+  const t = await getTranslations({ locale, namespace: "Changelog" });
   const languages = { en: `https://www.downforge.me/changelog`, "x-default": `https://www.downforge.me/changelog` };
   return {
     title: t("metaTitle"),
@@ -38,8 +33,7 @@ const entries = [
 
 export default async function ChangelogPage({ params }: Props) {
   const { locale } = await params;
-  redirect("/changelog");
-  const t = await getTranslations({ locale: "en", namespace: "Changelog" });
+  const t = await getTranslations({ locale, namespace: "Changelog" });
 
   const jsonLd = {
     "@context": "https://schema.org",

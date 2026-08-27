@@ -1,6 +1,7 @@
 import type { Metadata } from "next";
 import { getTranslations } from "next-intl/server";
 import { redirect } from "next/navigation";
+import { routing } from "@/lib/i18n/routing";
 import { Nav } from "@/components/layout/Nav";
 import { Footer } from "@/components/layout/Footer";
 import { PricingSection } from "@/components/home/PricingSection";
@@ -9,20 +10,14 @@ import { Link } from "@/lib/i18n/navigation";
 import { Sparkles, ShieldCheck, Zap, Clock, ArrowRight } from "lucide-react";
 
 export function generateStaticParams() {
-  return [{ locale: "en" }];
+  return routing.locales.map((locale) => ({ locale }));
 }
 
 type Props = { params: Promise<{ locale: string }> };
 
 export async function generateMetadata({ params }: Props): Promise<Metadata> {
   const { locale } = await params;
-  if (locale !== "en") {
-    return {
-      alternates: { canonical: `https://www.downforge.me/pricing` },
-      robots: { index: false, follow: false },
-    };
-  }
-  const t = await getTranslations({ locale: "en", namespace: "Pricing" });
+  const t = await getTranslations({ locale, namespace: "Pricing" });
 
   const languages = { en: `https://www.downforge.me/pricing`, "x-default": `https://www.downforge.me/pricing` };
   return {
@@ -42,8 +37,7 @@ export async function generateMetadata({ params }: Props): Promise<Metadata> {
 
 export default async function PricingPage({ params }: Props) {
   const { locale } = await params;
-  redirect("/pricing");
-  const t = await getTranslations({ locale: "en", namespace: "Pricing" });
+  const t = await getTranslations({ locale, namespace: "Pricing" });
 
   const jsonLd = {
     "@context": "https://schema.org",

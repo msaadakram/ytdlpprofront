@@ -1,26 +1,21 @@
 import type { Metadata } from "next";
 import { getTranslations } from "next-intl/server";
 import { redirect } from "next/navigation";
+import { routing } from "@/lib/i18n/routing";
 import { Nav } from "@/components/layout/Nav";
 import { Footer } from "@/components/layout/Footer";
 import { StatusClient } from "@/components/status/StatusClient";
 import { AlertTriangle } from "lucide-react";
 
 export function generateStaticParams() {
-  return [{ locale: "en" }];
+  return routing.locales.map((locale) => ({ locale }));
 }
 
 type Props = { params: Promise<{ locale: string }> };
 
 export async function generateMetadata({ params }: Props): Promise<Metadata> {
   const { locale } = await params;
-  if (locale !== "en") {
-    return {
-      alternates: { canonical: `https://www.downforge.me/api-status` },
-      robots: { index: false, follow: false },
-    };
-  }
-  const t = await getTranslations({ locale: "en", namespace: "ApiStatus" });
+  const t = await getTranslations({ locale, namespace: "ApiStatus" });
   const languages = { en: `https://www.downforge.me/api-status`, "x-default": `https://www.downforge.me/api-status` };
   return {
     title: t("metaTitle"),
@@ -38,8 +33,7 @@ const incidents = [
 
 export default async function ApiStatusPage({ params }: Props) {
   const { locale } = await params;
-  redirect("/api-status");
-  const t = await getTranslations({ locale: "en", namespace: "ApiStatus" });
+  const t = await getTranslations({ locale, namespace: "ApiStatus" });
 
   const jsonLd = {
     "@context": "https://schema.org",

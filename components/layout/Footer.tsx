@@ -1,33 +1,8 @@
 "use client";
 
 import { useTranslations } from "next-intl";
-import { Link as I18nLink } from "@/lib/i18n/navigation";
-import NextLink from "next/link";
+import { Link } from "@/lib/i18n/navigation";
 import { motion } from "motion/react";
-
-// English-only top-level pages are served at /about, /features, etc. without locale prefix.
-// They have a locale redirect (e.g. /en/about -> /about) but the canonical working URL is top-level.
-// Footer should link directly to the real working URL without locale prefix to avoid redirect/404.
-const ENGLISH_ONLY_HREFS = new Set([
-  "/features",
-  "/pricing",
-  "/api-docs",
-  "/dashboard",
-  "/api-status",
-  "/changelog",
-  "/blog",
-  "/about",
-  "/privacy",
-  "/terms",
-  "/contact",
-]);
-
-function isEnglishOnlyHref(href: string): boolean {
-  if (ENGLISH_ONLY_HREFS.has(href)) return true;
-  // Blog posts are also English-only top-level
-  if (href.startsWith("/blog/")) return true;
-  return false;
-}
 import {
   Github,
   Twitter,
@@ -121,29 +96,25 @@ function FooterColumn({ title, links, moreLabel, className }: FooterColumnData &
     <div className={`max-md:hidden ${className || ""}`}>
       <ColumnHeading>{title}</ColumnHeading>
       <ul className="mt-4 lg:mt-5 flex flex-col gap-1.5 lg:gap-2.5">
-        {links.map(([label, href]) => {
-          const englishOnly = isEnglishOnlyHref(href);
-          const LinkComp = englishOnly ? NextLink : I18nLink;
-          return (
-            <li key={label}>
-              <LinkComp
-                href={href as any}
-                className="group inline-flex items-center gap-1.5 py-1 text-[13px] lg:text-sm text-white/60 transition-colors hover:text-white font-sans break-words"
-              >
-                <span className="h-px w-0 bg-[#5baab8] transition-all group-hover:w-3 shrink-0" />
-                <span className="min-w-0">{label}</span>
-              </LinkComp>
-            </li>
-          );
-        })}
+        {links.map(([label, href]) => (
+          <li key={label}>
+            <Link
+              href={href as any}
+              className="group inline-flex items-center gap-1.5 py-1 text-[13px] lg:text-sm text-white/60 transition-colors hover:text-white font-sans break-words"
+            >
+              <span className="h-px w-0 bg-[#5baab8] transition-all group-hover:w-3 shrink-0" />
+              <span className="min-w-0">{label}</span>
+            </Link>
+          </li>
+        ))}
         {moreLabel && (
           <li className="pt-1.5 lg:pt-2">
-            <I18nLink
+            <Link
               href="/youtube-download"
               className="inline-flex items-center gap-1.5 text-xs font-bold tracking-wide text-[#8fd3df] hover:text-white transition-colors"
             >
               {moreLabel} <span className="text-[10px]">→</span>
-            </I18nLink>
+            </Link>
           </li>
         )}
       </ul>
@@ -183,20 +154,16 @@ function FooterAccordion({ title, links }: FooterColumnData) {
         className="overflow-hidden"
       >
         <ul className="grid grid-cols-1 gap-x-6 pb-4 sm:grid-cols-2">
-          {links.map(([label, href]) => {
-            const englishOnly = isEnglishOnlyHref(href);
-            const LinkComp = englishOnly ? NextLink : I18nLink;
-            return (
-              <li key={label}>
-                <LinkComp
-                  href={href as any}
-                  className="inline-block py-2 text-sm text-white/60 transition-colors hover:text-white"
-                >
-                  {label}
-                </LinkComp>
-              </li>
-            );
-          })}
+          {links.map(([label, href]) => (
+            <li key={label}>
+              <Link
+                href={href as any}
+                className="inline-block py-2 text-sm text-white/60 transition-colors hover:text-white"
+              >
+                {label}
+              </Link>
+            </li>
+          ))}
         </ul>
       </motion.div>
     </div>
@@ -246,7 +213,7 @@ export function Footer() {
         <div className="grid items-start gap-8 sm:gap-8 gap-y-10 md:grid-cols-2 lg:grid-cols-7 xl:grid-cols-6 lg:gap-x-6 xl:gap-x-8 2xl:gap-x-12">
           {/* Brand + newsletter — modern glass */}
           <div className="md:col-span-2 lg:col-span-2 min-w-0">
-            <I18nLink
+            <Link
               href="/"
               className="group inline-flex items-center gap-3 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-[#5baab8]/50 focus-visible:rounded-xl"
             >
@@ -261,7 +228,7 @@ export function Footer() {
                   Download <span className="w-1 h-1 rounded-full bg-[#5baab8]/60" /> Convert <span className="w-1 h-1 rounded-full bg-[#5baab8]/60" /> Create
                 </span>
               </div>
-            </I18nLink>
+            </Link>
 
             <p className="mt-4 max-w-sm font-sans text-sm leading-relaxed text-white/60">
               {f("tagline")}

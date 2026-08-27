@@ -1,26 +1,21 @@
 import type { Metadata } from "next";
 import { getTranslations } from "next-intl/server";
 import { redirect } from "next/navigation";
+import { routing } from "@/lib/i18n/routing";
 import { Nav } from "@/components/layout/Nav";
 import { Footer } from "@/components/layout/Footer";
 import { Link } from "@/lib/i18n/navigation";
 import { Scale, ShieldCheck, FileText, Clock, ArrowRight } from "lucide-react";
 
 export function generateStaticParams() {
-  return [{ locale: "en" }];
+  return routing.locales.map((locale) => ({ locale }));
 }
 
 type Props = { params: Promise<{ locale: string }> };
 
 export async function generateMetadata({ params }: Props): Promise<Metadata> {
   const { locale } = await params;
-  if (locale !== "en") {
-    return {
-      alternates: { canonical: `https://www.downforge.me/terms` },
-      robots: { index: false, follow: false },
-    };
-  }
-  const t = await getTranslations({ locale: "en", namespace: "Terms" });
+  const t = await getTranslations({ locale, namespace: "Terms" });
   const languages = { en: `https://www.downforge.me/terms`, "x-default": `https://www.downforge.me/terms` };
   return {
     title: t("metaTitle"),
@@ -40,8 +35,7 @@ export async function generateMetadata({ params }: Props): Promise<Metadata> {
 
 export default async function TermsPage({ params }: Props) {
   const { locale } = await params;
-  redirect("/terms");
-  const t = await getTranslations({ locale: "en", namespace: "Terms" });
+  const t = await getTranslations({ locale, namespace: "Terms" });
 
   let sections: { id: string; title: string; body: string }[] = [];
   try {
