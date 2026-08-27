@@ -76,7 +76,9 @@
       "step2Title": "形式と画質を選ぶ",
       "step2Desc": "MP4、MP3、FLAC、SRTなど好みの形式と画質を選択。動画、音声、サムネイル、文字起こしに対応。",
       "step3Title": "すぐにダウンロード",
-      "step3Desc": "ダウンロードをクリックすれば、ファイルは数秒で処理・配信されます。アカウントは不要です。"
+      "step3Desc": "ダウンロードをクリックすれば、ファイルは数秒で処理・配信されます。アカウントは不要です。",
+      "heading": "3つの簡単なステップ",
+      "subheading": "アカウント不要、ソフト不要、手間なし。貼り付けて、選んで、ダウンロード。"
     },
     "features": {
       "title": "DownForge を選ぶ理由",
@@ -103,7 +105,9 @@
       "batch": {
         "title": "一括ダウンロード",
         "desc": "ProおよびTeamプランで、プレイリストやチャンネル全体をワンクリックでダウンロード。"
-      }
+      },
+      "heading": "必要なものすべて",
+      "subheading": "スピード、信頼性、品質のために構築。妥協なし。"
     },
     "testimonials": {
       "title": "何千人ものユーザーに信頼されています",
@@ -169,7 +173,25 @@
         ],
         "cta": "営業に問い合わせ"
       },
-      "popular": "最も人気"
+      "popular": "最も人気",
+      "heading": "シンプルで透明性",
+      "headingAccent": "料金",
+      "subheading": "無料で始めて、必要な時にアップグレード。いつでもキャンセル可能。",
+      "monthly": "月払い",
+      "annual": "年払い",
+      "save20": "20%お得",
+      "annualSave": "年払い — 20%お得",
+      "forPowerUsers": "パワーユーザー向け",
+      "perfectToTry": "お試しに最適",
+      "forCollaborators": "コラボレーター向け",
+      "perYear": "年",
+      "saveYearly": "年間{amount}お得",
+      "noCreditCard": "クレジットカード不要",
+      "cancelAnytime": "いつでもキャンセル",
+      "contactSales": "営業にお問い合わせ",
+      "noSetupFee": "初期費用なし",
+      "moneyBack": "30日間返金保証",
+      "downgrade": "いつでもダウングレード"
     },
     "cta": {
       "title": "さっそくダウンロードを始めませんか？",
@@ -186,7 +208,10 @@
       "audio": "音声",
       "thumbnail": "サムネイル",
       "transcript": "文字起こし"
-    }
+    },
+    "placeholder": "動画のURLをここに貼り付け...",
+    "pasteFromClipboardAria": "クリップボードから貼り付け",
+    "clearUrlAria": "URLをクリア"
   },
   "PlatformShared": {
     "chooseVideoQuality": "動画の画質を選択",

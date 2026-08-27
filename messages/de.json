@@ -76,7 +76,9 @@
       "step2Title": "Format & Qualität wählen",
       "step2Desc": "Wähle dein bevorzugtes Format — MP4, MP3, FLAC, SRT — und die Qualitätsstufe, die deinen Bedürfnissen entspricht. Video, Audio, Vorschaubilder und Transkripte verfügbar.",
       "step3Title": "Sofort herunterladen",
-      "step3Desc": "Klicke auf Download und deine Datei wird in Sekunden verarbeitet und bereitgestellt. Kein Konto erforderlich."
+      "step3Desc": "Klicke auf Download und deine Datei wird in Sekunden verarbeitet und bereitgestellt. Kein Konto erforderlich.",
+      "heading": "Drei einfache Schritte",
+      "subheading": "Kein Konto, keine Software, kein Aufwand. Einfügen, auswählen, herunterladen."
     },
     "features": {
       "title": "Warum DownForge?",
@@ -103,7 +105,9 @@
       "batch": {
         "title": "Batch-Downloads",
         "desc": "Lade ganze Playlists oder Kanäle mit einem Klick mit unseren Pro- und Team-Tarifen herunter."
-      }
+      },
+      "heading": "Alles was du brauchst",
+      "subheading": "Gebaut für Geschwindigkeit, Zuverlässigkeit und Qualität. Keine Kompromisse."
     },
     "testimonials": {
       "title": "Von Tausenden vertraut",
@@ -169,7 +173,25 @@
         ],
         "cta": "Vertrieb kontaktieren"
       },
-      "popular": "Am beliebtesten"
+      "popular": "Am beliebtesten",
+      "heading": "Einfach und transparent",
+      "headingAccent": "Preise",
+      "subheading": "Kostenlos starten, upgraden wenn nötig. Jederzeit kündbar.",
+      "monthly": "Monatlich",
+      "annual": "Jährlich",
+      "save20": "20% sparen",
+      "annualSave": "Jährlich — 20% sparen",
+      "forPowerUsers": "Für Power-User",
+      "perfectToTry": "Perfekt zum Testen",
+      "forCollaborators": "Für Teams",
+      "perYear": "Jahr",
+      "saveYearly": "Spare {amount} jährlich",
+      "noCreditCard": "Keine Kreditkarte",
+      "cancelAnytime": "Jederzeit kündbar",
+      "contactSales": "Vertrieb kontaktieren",
+      "noSetupFee": "Keine Einrichtungsgebühr",
+      "moneyBack": "30 Tage Geld zurück",
+      "downgrade": "Jederzeit downgraden"
     },
     "cta": {
       "title": "Bereit zum Herunterladen?",
@@ -186,7 +208,10 @@
       "audio": "Audio",
       "thumbnail": "Thumbnail",
       "transcript": "Transkript"
-    }
+    },
+    "placeholder": "Fügen Sie hier Ihre Video-URL ein...",
+    "pasteFromClipboardAria": "Aus Zwischenablage einfügen",
+    "clearUrlAria": "URL löschen"
   },
   "PlatformShared": {
     "chooseVideoQuality": "Videoqualität wählen",

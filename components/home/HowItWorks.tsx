@@ -22,8 +22,8 @@ export function HowItWorks() {
       <div className="max-w-6xl mx-auto relative">
         <SectionHeading
           eyebrow={t("title", { defaultValue: "How it works" })}
-          title="Three simple steps"
-          description="No account, no software, no hassle. Just paste, pick, and download."
+          title={t("heading", { defaultValue: "Three simple steps" })}
+          description={t("subheading", { defaultValue: "No account, no software, no hassle. Just paste, pick, and download." })}
         />
 
         <div className="relative">

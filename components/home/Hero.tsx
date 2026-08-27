@@ -174,7 +174,7 @@ export function Hero() {
                       value={url}
                       onChange={(e) => handleUrlChange(e.target.value)}
                       onKeyDown={(e) => e.key === "Enter" && handleDownloadClick()}
-                      placeholder="Paste your video URL here..."
+                      placeholder={t("placeholder", { defaultValue: "Paste your video URL here..." })}
                       className="w-full bg-transparent text-base sm:text-[15px] text-foreground placeholder:text-muted-foreground/60 outline-none font-sans tracking-wide"
                     />
                     {fetchingInfo && (
@@ -188,15 +188,15 @@ export function Hero() {
                   </div>
                   <button
                     onClick={handlePaste}
-                    aria-label="Paste from clipboard"
-                    title="Paste from clipboard"
+                    aria-label={t("pasteFromClipboardAria", { defaultValue: "Paste from clipboard" })}
+                    title={t("pasteFromClipboardAria", { defaultValue: "Paste from clipboard" })}
                     className="flex items-center gap-1.5 text-[11px] font-semibold text-muted-foreground hover:text-[#5baab8] border border-border/60 hover:border-[#5baab8]/40 rounded-full px-2.5 py-1.5 transition-colors flex-shrink-0"
                   >
                     <ClipboardPaste className="w-3.5 h-3.5" />
                     <span className="hidden sm:inline">{st("paste", { defaultValue: "Paste" })}</span>
                   </button>
                   {url && (
-                    <button onClick={() => handleUrlChange("")} aria-label="Clear URL" className="text-muted-foreground hover:text-foreground transition-colors flex-shrink-0 p-1">
+                    <button onClick={() => handleUrlChange("")} aria-label={t("clearUrlAria", { defaultValue: "Clear URL" })} className="text-muted-foreground hover:text-foreground transition-colors flex-shrink-0 p-1">
                       <X className="w-3.5 h-3.5" />
                     </button>
                   )}

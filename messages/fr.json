@@ -76,7 +76,9 @@
       "step2Title": "Choisissez le format et la qualité",
       "step2Desc": "Sélectionnez votre format préféré — MP4, MP3, FLAC, SRT — et le niveau de qualité qui vous convient. Vidéo, audio, vignettes et transcriptions disponibles.",
       "step3Title": "Téléchargez instantanément",
-      "step3Desc": "Cliquez sur Télécharger et votre fichier est traité et livré en quelques secondes. Aucun compte requis."
+      "step3Desc": "Cliquez sur Télécharger et votre fichier est traité et livré en quelques secondes. Aucun compte requis.",
+      "heading": "Trois étapes simples",
+      "subheading": "Pas de compte, pas de logiciel, pas de tracas. Collez, choisissez et téléchargez."
     },
     "features": {
       "title": "Pourquoi choisir DownForge ?",
@@ -103,7 +105,9 @@
       "batch": {
         "title": "Téléchargements par lot",
         "desc": "Téléchargez des listes de lecture ou des chaînes entières en un clic avec nos offres Pro et Team."
-      }
+      },
+      "heading": "Tout ce dont vous avez besoin",
+      "subheading": "Conçu pour la vitesse, la fiabilité et la qualité. Sans compromis."
     },
     "testimonials": {
       "title": "Ils nous font confiance",
@@ -169,7 +173,25 @@
         ],
         "cta": "Contacter les ventes"
       },
-      "popular": "Le plus populaire"
+      "popular": "Le plus populaire",
+      "heading": "Simple et transparent",
+      "headingAccent": "tarifs",
+      "subheading": "Commencez gratuitement, évoluez quand vous voulez. Annulez à tout moment.",
+      "monthly": "Mensuel",
+      "annual": "Annuel",
+      "save20": "Économisez 20%",
+      "annualSave": "Annuel — Économisez 20%",
+      "forPowerUsers": "Pour utilisateurs avancés",
+      "perfectToTry": "Parfait pour essayer",
+      "forCollaborators": "Pour collaborateurs",
+      "perYear": "an",
+      "saveYearly": "Économisez {amount} par an",
+      "noCreditCard": "Sans carte bancaire",
+      "cancelAnytime": "Annulez à tout moment",
+      "contactSales": "Contacter les ventes",
+      "noSetupFee": "Sans frais d'installation",
+      "moneyBack": "Remboursé 30 jours",
+      "downgrade": "Rétrogradez à tout moment"
     },
     "cta": {
       "title": "Prêt à télécharger ?",
@@ -186,7 +208,10 @@
       "audio": "Audio",
       "thumbnail": "Miniature",
       "transcript": "Transcription"
-    }
+    },
+    "placeholder": "Collez l'URL de votre vidéo ici...",
+    "pasteFromClipboardAria": "Coller depuis le presse-papiers",
+    "clearUrlAria": "Effacer l'URL"
   },
   "PlatformShared": {
     "chooseVideoQuality": "Choisissez la qualité vidéo",

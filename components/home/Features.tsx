@@ -19,8 +19,8 @@ export function FeaturesSection() {
       <div className="max-w-6xl mx-auto relative">
         <SectionHeading
           eyebrow={t("title", { defaultValue: "Features" })}
-          title="Everything you need"
-          description="Built for speed, reliability, and quality. No compromises."
+          title={t("heading", { defaultValue: "Everything you need" })}
+          description={t("subheading", { defaultValue: "Built for speed, reliability, and quality. No compromises." })}
         />
 
         <div className="grid sm:grid-cols-2 lg:grid-cols-3 gap-4 sm:gap-6">

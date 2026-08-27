@@ -76,7 +76,9 @@
       "step2Title": "Elige formato y calidad",
       "step2Desc": "Selecciona tu formato preferido — MP4, MP3, FLAC, SRT — y el nivel de calidad que se ajuste a tus necesidades. Video, audio, miniaturas y transcripciones disponibles.",
       "step3Title": "Descarga al instante",
-      "step3Desc": "Haz clic en Descargar y tu archivo se procesará y entregará en segundos. Sin necesidad de cuenta."
+      "step3Desc": "Haz clic en Descargar y tu archivo se procesará y entregará en segundos. Sin necesidad de cuenta.",
+      "heading": "Tres simples pasos",
+      "subheading": "Sin cuenta, sin software, sin complicaciones. Solo pega, elige y descarga."
     },
     "features": {
       "title": "¿Por qué elegir DownForge?",
@@ -103,7 +105,9 @@
       "batch": {
         "title": "Descargas por lotes",
         "desc": "Descarga listas de reproducción o canales completos con un solo clic con nuestros planes Pro y Team."
-      }
+      },
+      "heading": "Todo lo que necesitas",
+      "subheading": "Construido para velocidad, fiabilidad y calidad. Sin compromisos."
     },
     "testimonials": {
       "title": "Confiado por miles",
@@ -169,7 +173,25 @@
         ],
         "cta": "Contactar a ventas"
       },
-      "popular": "Más popular"
+      "popular": "Más popular",
+      "heading": "Simple y transparente",
+      "headingAccent": "precios",
+      "subheading": "Empieza gratis, mejora cuando lo necesites. Cancela en cualquier momento.",
+      "monthly": "Mensual",
+      "annual": "Anual",
+      "save20": "Ahorra 20%",
+      "annualSave": "Anual — Ahorra 20%",
+      "forPowerUsers": "Para usuarios avanzados",
+      "perfectToTry": "Perfecto para probar",
+      "forCollaborators": "Para colaboradores",
+      "perYear": "año",
+      "saveYearly": "Ahorra {amount} al año",
+      "noCreditCard": "Sin tarjeta de crédito",
+      "cancelAnytime": "Cancela cuando quieras",
+      "contactSales": "Contactar ventas",
+      "noSetupFee": "Sin coste de configuración",
+      "moneyBack": "Garantía de 30 días",
+      "downgrade": "Cambia cuando quieras"
     },
     "cta": {
       "title": "¿Listo para empezar a descargar?",
@@ -186,7 +208,10 @@
       "audio": "Audio",
       "thumbnail": "Miniatura",
       "transcript": "Transcripción"
-    }
+    },
+    "placeholder": "Pega la URL de tu video aquí...",
+    "pasteFromClipboardAria": "Pegar desde el portapapeles",
+    "clearUrlAria": "Borrar URL"
   },
   "PlatformShared": {
     "chooseVideoQuality": "Elige calidad de video",

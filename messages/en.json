@@ -77,7 +77,9 @@
       "step2Title": "Choose format & quality",
       "step2Desc": "Select your preferred format — MP4, MP3, FLAC, SRT — and the quality level that suits your needs. Video, audio, thumbnails, and transcripts available.",
       "step3Title": "Download instantly",
-      "step3Desc": "Click Download and your file is processed and delivered in seconds. No account required."
+      "step3Desc": "Click Download and your file is processed and delivered in seconds. No account required.",
+      "heading": "Three simple steps",
+      "subheading": "No account, no software, no hassle. Just paste, pick, and download."
     },
     "features": {
       "title": "Why Choose DownForge?",
@@ -104,7 +106,9 @@
       "batch": {
         "title": "Batch Downloads",
         "desc": "Download entire playlists or channels in one click with our Pro and Team plans."
-      }
+      },
+      "heading": "Everything you need",
+      "subheading": "Built for speed, reliability, and quality. No compromises."
     },
     "testimonials": {
       "title": "Trusted by Thousands",
@@ -170,7 +174,25 @@
         ],
         "cta": "Contact Sales"
       },
-      "popular": "Most Popular"
+      "popular": "Most Popular",
+      "heading": "Simple, transparent",
+      "headingAccent": "pricing",
+      "subheading": "Start free, upgrade when you need more. Cancel anytime.",
+      "monthly": "Monthly",
+      "annual": "Annual",
+      "save20": "Save 20%",
+      "annualSave": "Annual — Save 20%",
+      "forPowerUsers": "For power users",
+      "perfectToTry": "Perfect to try",
+      "forCollaborators": "For collaborators",
+      "perYear": "year",
+      "saveYearly": "Save {amount} yearly",
+      "noCreditCard": "No credit card",
+      "cancelAnytime": "Cancel anytime",
+      "contactSales": "Contact sales",
+      "noSetupFee": "No setup fee",
+      "moneyBack": "30-day money back",
+      "downgrade": "Downgrade anytime"
     },
     "cta": {
       "title": "Ready to Start Downloading?",
@@ -189,7 +211,10 @@
       "audio": "Audio",
       "thumbnail": "Thumbnail",
       "transcript": "Transcript"
-    }
+    },
+    "placeholder": "Paste your video URL here...",
+    "pasteFromClipboardAria": "Paste from clipboard",
+    "clearUrlAria": "Clear URL"
   },
   "PlatformShared": {
     "chooseVideoQuality": "Choose video quality",

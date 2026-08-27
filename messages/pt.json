@@ -76,7 +76,9 @@
       "step2Title": "Escolha formato e qualidade",
       "step2Desc": "Selecione o formato desejado — MP4, MP3, FLAC, SRT — e o nível de qualidade ideal para você. Vídeo, áudio, miniaturas e transcrições disponíveis.",
       "step3Title": "Baixe instantaneamente",
-      "step3Desc": "Clique em Baixar e seu arquivo será processado e entregue em segundos. Sem necessidade de cadastro."
+      "step3Desc": "Clique em Baixar e seu arquivo será processado e entregue em segundos. Sem necessidade de cadastro.",
+      "heading": "Três passos simples",
+      "subheading": "Sem conta, sem software, sem complicação. Cole, escolha e baixe."
     },
     "features": {
       "title": "Por que Escolher o DownForge?",
@@ -103,7 +105,9 @@
       "batch": {
         "title": "Downloads em Lote",
         "desc": "Baixe playlists ou canais inteiros com um clique com nossos planos Pro e Team."
-      }
+      },
+      "heading": "Tudo que você precisa",
+      "subheading": "Feito para velocidade, confiabilidade e qualidade. Sem compromissos."
     },
     "testimonials": {
       "title": "Confiado por Milhares",
@@ -169,7 +173,25 @@
         ],
         "cta": "Falar com Vendas"
       },
-      "popular": "Mais Popular"
+      "popular": "Mais Popular",
+      "heading": "Simples e transparente",
+      "headingAccent": "preços",
+      "subheading": "Comece grátis, faça upgrade quando precisar. Cancele quando quiser.",
+      "monthly": "Mensal",
+      "annual": "Anual",
+      "save20": "Economize 20%",
+      "annualSave": "Anual — Economize 20%",
+      "forPowerUsers": "Para usuários avançados",
+      "perfectToTry": "Perfeito para testar",
+      "forCollaborators": "Para colaboradores",
+      "perYear": "ano",
+      "saveYearly": "Economize {amount} por ano",
+      "noCreditCard": "Sem cartão de crédito",
+      "cancelAnytime": "Cancele quando quiser",
+      "contactSales": "Falar com vendas",
+      "noSetupFee": "Sem taxa de configuração",
+      "moneyBack": "Garantia de 30 dias",
+      "downgrade": "Mude quando quiser"
     },
     "cta": {
       "title": "Pronto para Começar a Baixar?",
@@ -186,7 +208,10 @@
       "audio": "Áudio",
       "thumbnail": "Miniatura",
       "transcript": "Transcrição"
-    }
+    },
+    "placeholder": "Cole o URL do seu vídeo aqui...",
+    "pasteFromClipboardAria": "Colar da área de transferência",
+    "clearUrlAria": "Limpar URL"
   },
   "PlatformShared": {
     "chooseVideoQuality": "Escolha a qualidade do vídeo",

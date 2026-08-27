@@ -37,10 +37,10 @@ export function PricingSection() {
             <Zap className="w-3 h-3" /> {t("title", { defaultValue: "Pricing" })}
           </span>
           <h2 className="mt-3 text-2xl xs:text-3xl sm:text-4xl lg:text-[2.5rem] font-black tracking-tight text-foreground font-heading leading-[0.95]">
-            Simple, transparent <span className="bg-gradient-to-r from-[#5baab8] to-[#0d1f26] bg-clip-text text-transparent">pricing</span>
+            {t("heading", { defaultValue: "Simple, transparent" })} <span className="bg-gradient-to-r from-[#5baab8] to-[#0d1f26] bg-clip-text text-transparent">{t("headingAccent", { defaultValue: "pricing" })}</span>
           </h2>
           <p className="mt-3 text-sm sm:text-base text-muted-foreground max-w-xl mx-auto font-sans">
-            Start free, upgrade when you need more. Cancel anytime.
+            {t("subheading", { defaultValue: "Start free, upgrade when you need more. Cancel anytime." })}
           </p>
 
           <motion.div
@@ -54,16 +54,16 @@ export function PricingSection() {
               onClick={() => setAnnual(false)}
               className={`px-4 sm:px-5 py-2 rounded-full text-xs sm:text-sm font-bold transition-all ${!annual ? "bg-[#0d1f26] dark:bg-white text-white dark:text-[#0d1f26] shadow" : "text-muted-foreground hover:text-foreground"}`}
             >
-              Monthly
+              {t("monthly", { defaultValue: "Monthly" })}
             </button>
             <button
               onClick={() => setAnnual(true)}
               className={`px-4 sm:px-5 py-2 rounded-full text-xs sm:text-sm font-bold transition-all flex items-center gap-1.5 ${annual ? "bg-[#0d1f26] dark:bg-white text-white dark:text-[#0d1f26] shadow" : "text-muted-foreground hover:text-foreground"}`}
             >
-              Annual <span className="hidden sm:inline-flex text-[10px] font-bold tracking-wide bg-[#5baab8] text-white px-2 py-0.5 rounded-full">Save 20%</span>
+              {t("annual", { defaultValue: "Annual" })} <span className="hidden sm:inline-flex text-[10px] font-bold tracking-wide bg-[#5baab8] text-white px-2 py-0.5 rounded-full">{t("save20", { defaultValue: "Save 20%" })}</span>
             </button>
           </motion.div>
-          <p className="sm:hidden mt-2 text-xs font-semibold text-[#5baab8]">Annual — Save 20%</p>
+          <p className="sm:hidden mt-2 text-xs font-semibold text-[#5baab8]">{t("annualSave", { defaultValue: "Annual — Save 20%" })}</p>
         </motion.div>
 
         <div className="grid md:grid-cols-3 gap-4 sm:gap-6 lg:gap-6 xl:gap-8 max-w-5xl mx-auto items-stretch">
@@ -108,15 +108,15 @@ export function PricingSection() {
                       <Icon className="w-5 h-5" />
                     </div>
                     <h3 className={`text-lg font-black font-heading ${isPro ? "text-white" : "text-foreground"}`}>{p.name}</h3>
-                    <p className={`text-xs font-medium mt-1 ${isPro ? "text-white/60" : "text-muted-foreground"} font-sans`}>{isPro ? "For power users" : plan.key === "free" ? "Perfect to try" : "For collaborators"}</p>
+                    <p className={`text-xs font-medium mt-1 ${isPro ? "text-white/60" : "text-muted-foreground"} font-sans`}>{isPro ? t("forPowerUsers", { defaultValue: "For power users" }) : plan.key === "free" ? t("perfectToTry", { defaultValue: "Perfect to try" }) : t("forCollaborators", { defaultValue: "For collaborators" })}</p>
                     <div className="mt-5 flex items-baseline gap-1">
                       <span className={`text-4xl sm:text-[2.5rem] font-black tracking-tight font-heading ${isPro ? "text-white" : "text-foreground"}`}>
                         {annual && p.price !== "$0" ? `$${parseInt(p.price.slice(1)) * 10}` : p.price}
                       </span>
-                      <span className={`text-sm font-medium ${isPro ? "text-white/50" : "text-muted-foreground"} font-sans`}>/{annual ? "year" : p.period}</span>
+                      <span className={`text-sm font-medium ${isPro ? "text-white/50" : "text-muted-foreground"} font-sans`}>/{annual ? t("perYear", { defaultValue: "year" }) : p.period}</span>
                     </div>
                     {annual && p.price !== "$0" && (
-                      <p className="mt-1 text-xs font-semibold text-emerald-500 dark:text-emerald-400">Save ${(parseInt(p.price.slice(1)) * 12 - parseInt(p.price.slice(1)) * 10)} yearly</p>
+                      <p className="mt-1 text-xs font-semibold text-emerald-500 dark:text-emerald-400">{t("saveYearly", { amount: (parseInt(p.price.slice(1)) * 12 - parseInt(p.price.slice(1)) * 10), defaultValue: "Save {amount} yearly" })}</p>
                     )}
                     <ul className="mt-6 space-y-3 flex-1">
                       {p.features.map((f: string) => (
@@ -138,7 +138,7 @@ export function PricingSection() {
                     >
                       {p.cta} <ArrowRight className="w-4 h-4 group-hover:translate-x-0.5 transition-transform" />
                     </Link>
-                    <p className={`mt-3 text-center text-xs ${isPro ? "text-white/40" : "text-muted-foreground"} font-sans`}>{plan.key === "free" ? "No credit card" : plan.key === "pro" ? "Cancel anytime" : "Contact sales"}</p>
+                    <p className={`mt-3 text-center text-xs ${isPro ? "text-white/40" : "text-muted-foreground"} font-sans`}>{plan.key === "free" ? t("noCreditCard", { defaultValue: "No credit card" }) : plan.key === "pro" ? t("cancelAnytime", { defaultValue: "Cancel anytime" }) : t("contactSales", { defaultValue: "Contact sales" })}</p>
                   </div>
                 </div>
               </motion.div>
@@ -148,13 +148,13 @@ export function PricingSection() {
 
         <motion.div initial={{ opacity: 0 }} whileInView={{ opacity: 1 }} viewport={{ once: true }} transition={{ delay: 0.4 }} className="mt-8 lg:mt-10 flex flex-wrap items-center justify-center gap-3 sm:gap-4 text-xs font-medium text-muted-foreground font-sans">
           <span className="inline-flex items-center gap-1.5 bg-white dark:bg-white/5 border border-border/60 dark:border-white/10 rounded-full px-3 py-1.5 shadow-sm">
-            <span className="w-1.5 h-1.5 rounded-full bg-emerald-500 animate-pulse" /> No setup fee
+            <span className="w-1.5 h-1.5 rounded-full bg-emerald-500 animate-pulse" /> {t("noSetupFee", { defaultValue: "No setup fee" })}
           </span>
           <span className="hidden sm:inline-flex items-center gap-1.5">
-            <Check className="w-3.5 h-3.5 text-emerald-500" /> 30-day money back
+            <Check className="w-3.5 h-3.5 text-emerald-500" /> {t("moneyBack", { defaultValue: "30-day money back" })}
           </span>
           <span className="hidden sm:inline-flex items-center gap-1.5">
-            <Check className="w-3.5 h-3.5 text-emerald-500" /> Downgrade anytime
+            <Check className="w-3.5 h-3.5 text-emerald-500" /> {t("downgrade", { defaultValue: "Downgrade anytime" })}
           </span>
         </motion.div>
       </div>

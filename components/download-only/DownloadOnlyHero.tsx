@@ -445,7 +445,7 @@ export function DownloadOnlyHero({ platform, type }: { platform: string; type: D
             {/* Language Selector - only show for transcript mode */}
             {type === "transcript" && (
               <div className="flex items-center gap-2 w-full sm:w-auto">
-                <label htmlFor="language" className="text-xs font-semibold text-muted-foreground whitespace-nowrap">Language:</label>
+                <label htmlFor="language" className="text-xs font-semibold text-muted-foreground whitespace-nowrap">{t("transcriptLanguageLabel", { defaultValue: "Language:" })}</label>
                 <select
                   id="language"
                   value={selectedLanguage}
