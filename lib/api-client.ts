@@ -628,3 +628,29 @@ export const getSystemStatus = () =>
 export const getCapabilities = () =>
   request<Capabilities>("/api/proxy/capabilities", { method: "GET", cache: "no-store" });
 
+/* ─── Newsletter (footer subscribe) ─── */
+
+export const subscribeNewsletter = (email: string, source = "footer") =>
+  request<{ subscribed: boolean; message: string }>("/api/proxy/newsletter/subscribe", {
+    method: "POST",
+    body: JSON.stringify({ email, source }),
+  });
+
+/* ─── Contact form ("Send us a message") ─── */
+
+export interface ContactMessagePayload {
+  name: string;
+  email: string;
+  subject: string;
+  message: string;
+  /** Honeypot field — must stay empty for real users. */
+  website?: string;
+}
+
+export const sendContactMessage = (payload: ContactMessagePayload) =>
+  request<{ id: string; message: string }>("/api/proxy/contact", {
+    method: "POST",
+    body: JSON.stringify(payload),
+  });
+
+

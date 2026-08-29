@@ -4,6 +4,7 @@ import { useState } from "react";
 import { useTranslations } from "next-intl";
 import { Send, Loader2, CheckCircle2, Mail, User, MessageSquare, Tag } from "lucide-react";
 import { toast } from "sonner";
+import { sendContactMessage } from "@/lib/api-client";
 
 export function ContactForm() {
   const t = useTranslations("Contact");
@@ -11,6 +12,7 @@ export function ContactForm() {
   const [email, setEmail] = useState("");
   const [subject, setSubject] = useState("");
   const [message, setMessage] = useState("");
+  const [honeypot, setHoneypot] = useState("");
   const [submitting, setSubmitting] = useState(false);
   const [success, setSuccess] = useState(false);
 
@@ -29,17 +31,29 @@ export function ContactForm() {
       return;
     }
     setSubmitting(true);
-    // Honeypot + rate limit would be handled server side; simulate network
-    await new Promise((r) => setTimeout(r, 900));
+    // Rate limiting, spam filtering (honeypot) and persistence happen server side.
+    const res = await sendContactMessage({
+      name: name.trim(),
+      email: email.trim(),
+      subject,
+      message: message.trim(),
+      website: honeypot,
+    });
     setSubmitting(false);
-    setSuccess(true);
-    toast.success(t("successTitle"));
-    // reset
-    setName("");
-    setEmail("");
-    setSubject("");
-    setMessage("");
-    setTimeout(() => setSuccess(false), 4000);
+
+    if (res.success) {
+      setSuccess(true);
+      toast.success(t("successTitle"));
+      // reset
+      setName("");
+      setEmail("");
+      setSubject("");
+      setMessage("");
+      setHoneypot("");
+      setTimeout(() => setSuccess(false), 6000);
+    } else {
+      toast.error(res.error?.message || t("errorSubmit"));
+    }
   }
 
   if (success) {
@@ -104,7 +118,7 @@ export function ContactForm() {
         <div className="rounded-xl bg-slate-50 dark:bg-white/[0.06] border border-border/60 dark:border-white/10 focus-within:bg-white dark:focus-within:bg-white/[0.08] focus-within:border-[#5baab8]/40 focus-within:ring-4 focus-within:ring-[#5baab8]/10 transition-all">
           <div className="flex gap-2.5 px-3.5 pt-3">
             <MessageSquare className="w-4 h-4 text-muted-foreground shrink-0 mt-0.5" />
-            <textarea value={message} onChange={(e) => setMessage(e.target.value)} placeholder={t("messagePlaceholder")} rows={5} className="flex-1 bg-transparent text-sm font-medium placeholder:text-muted-foreground outline-none font-sans min-w-0 resize-none" required />
+            <textarea value={message} onChange={(e) => setMessage(e.target.value)} placeholder={t("messagePlaceholder")} rows={5} maxLength={1000} className="flex-1 bg-transparent text-sm font-medium placeholder:text-muted-foreground outline-none font-sans min-w-0 resize-none" required />
           </div>
           <div className="flex items-center justify-between px-3.5 pb-3 pt-2">
             <span className="text-xs text-muted-foreground font-mono">{message.length}/1000</span>
@@ -113,8 +127,17 @@ export function ContactForm() {
         </div>
       </label>
 
-      {/* Honeypot - hidden */}
-      <input type="text" name="website" tabIndex={-1} autoComplete="off" className="hidden" aria-hidden />
+      {/* Honeypot - hidden (bots fill this; real users never see it) */}
+      <input
+        type="text"
+        name="website"
+        value={honeypot}
+        onChange={(e) => setHoneypot(e.target.value)}
+        tabIndex={-1}
+        autoComplete="off"
+        className="hidden"
+        aria-hidden
+      />
 
       <button
         type="submit"

@@ -13,11 +13,13 @@ import {
   Send,
   ChevronDown,
   Check,
+  Loader2,
   Sparkles,
   ShieldCheck,
   Zap,
 } from "lucide-react";
 import { useId, useState } from "react";
+import { subscribeNewsletter } from "@/lib/api-client";
 
 const platformLinks: [string, string][] = [
   ["YouTube Download", "/youtube-download"],
@@ -175,7 +177,8 @@ export function Footer() {
   const f = useTranslations("Footer");
   const newsletterId = useId();
   const [email, setEmail] = useState("");
-  const [subscribed, setSubscribed] = useState(false);
+  const [subscribeState, setSubscribeState] = useState<"idle" | "loading" | "success" | "error">("idle");
+  const subscribed = subscribeState === "success";
 
   const columns: FooterColumnData[] = [
     {
@@ -190,12 +193,19 @@ export function Footer() {
     })),
   ];
 
-  const handleSubscribe = (e: React.FormEvent) => {
+  const handleSubscribe = async (e: React.FormEvent) => {
     e.preventDefault();
-    if (email) {
-      setSubscribed(true);
-      setTimeout(() => setSubscribed(false), 3000);
+    const value = email.trim();
+    if (!value || subscribeState === "loading") return;
+    setSubscribeState("loading");
+    const res = await subscribeNewsletter(value);
+    if (res.success) {
+      setSubscribeState("success");
       setEmail("");
+      setTimeout(() => setSubscribeState("idle"), 8000);
+    } else {
+      setSubscribeState("error");
+      setTimeout(() => setSubscribeState("idle"), 8000);
     }
   };
 
@@ -289,15 +299,27 @@ export function Footer() {
                   />
                   <button
                     type="submit"
-                    disabled={subscribed}
+                    disabled={subscribeState === "loading" || subscribed}
                     aria-label={f("subscribe")}
-                    className="inline-flex h-7 sm:h-8 shrink-0 items-center gap-1 sm:gap-1.5 rounded-full bg-white px-3 sm:px-4 text-[11px] sm:text-xs font-bold tracking-wide text-[#0d1f26] shadow hover:bg-slate-100 disabled:opacity-60 transition-colors whitespace-nowrap"
+                    className="inline-flex h-7 sm:h-8 shrink-0 items-center gap-1 sm:gap-1.5 rounded-full bg-white px-3 sm:px-4 text-[11px] sm:text-xs font-bold tracking-wide text-[#0d1f26] shadow hover:bg-slate-100 disabled:opacity-60 disabled:cursor-not-allowed transition-colors whitespace-nowrap"
                   >
-                    {subscribed ? <><Check className="h-3 w-3 sm:h-3.5 sm:w-3.5" /> {f("subscribed")}</> : <><Send className="h-3 w-3 sm:h-3.5 sm:w-3.5" /> {f("subscribe")}</>}
+                    {subscribeState === "loading" ? (
+                      <Loader2 className="h-3 w-3 sm:h-3.5 sm:w-3.5 animate-spin" />
+                    ) : subscribed ? (
+                      <><Check className="h-3 w-3 sm:h-3.5 sm:w-3.5" /> {f("subscribed")}</>
+                    ) : (
+                      <><Send className="h-3 w-3 sm:h-3.5 sm:w-3.5" /> {f("subscribe")}</>
+                    )}
                   </button>
                 </div>
-                <p aria-live="polite" className="mt-2 min-h-4 font-sans text-xs text-[#8fd3df]">
-                  {subscribed ? `✓ ${f("subscribed")}` : <span className="text-white/30">{f("newsletterNote")}</span>}
+                <p aria-live="polite" className="mt-2 min-h-4 font-sans text-xs">
+                  {subscribed ? (
+                    <span className="text-[#8fd3df]">✓ {f("subscribed")}</span>
+                  ) : subscribeState === "error" ? (
+                    <span className="text-red-400">{f("newsletterError")}</span>
+                  ) : (
+                    <span className="text-white/30">{f("newsletterNote")}</span>
+                  )}
                 </p>
               </form>
             </div>
