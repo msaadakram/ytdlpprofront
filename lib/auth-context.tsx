@@ -31,20 +31,26 @@ interface StoredSession {
   user: AuthUser;
 }
 
+type AuthResult = { success: boolean; error?: string; code?: string };
+
 type AuthContextType = {
   user: AuthUser | null;
   token: string | null;
   isAuthenticated: boolean;
   loading: boolean;
   setUser: (user: AuthUser | null) => void;
-  login: (email: string, password: string) => Promise<{ success: boolean; error?: string }>;
+  login: (email: string, password: string) => Promise<AuthResult>;
   signup: (data: {
     first_name: string;
     last_name: string;
     email: string;
     password: string;
-  }) => Promise<{ success: boolean; error?: string }>;
-  googleLogin: (id_token: string) => Promise<{ success: boolean; error?: string }>;
+  }) => Promise<AuthResult>;
+  googleLogin: (id_token: string) => Promise<AuthResult>;
+  verifyEmail: (email: string, code: string) => Promise<AuthResult>;
+  resendVerification: (email: string) => Promise<AuthResult>;
+  requestPasswordReset: (email: string) => Promise<AuthResult>;
+  resetPassword: (email: string, code: string, newPassword: string) => Promise<AuthResult>;
   logout: () => Promise<void>;
 };
 
@@ -57,6 +63,10 @@ const AuthContext = createContext<AuthContextType>({
   login: async () => ({ success: false }),
   signup: async () => ({ success: false }),
   googleLogin: async () => ({ success: false }),
+  verifyEmail: async () => ({ success: false }),
+  resendVerification: async () => ({ success: false }),
+  requestPasswordReset: async () => ({ success: false }),
+  resetPassword: async () => ({ success: false }),
   logout: async () => {},
 });
 
@@ -85,7 +95,7 @@ function writeStored(session: StoredSession | null) {
 async function apiCall<T>(
   endpoint: string,
   options: RequestInit = {},
-): Promise<{ ok: boolean; status: number; data?: T; error?: string }> {
+): Promise<{ ok: boolean; status: number; data?: T; error?: string; code?: string }> {
   try {
     const res = await fetch(endpoint, {
       headers: { "Content-Type": "application/json", ...options.headers },
@@ -93,7 +103,12 @@ async function apiCall<T>(
     });
     const json = await res.json().catch(() => ({}));
     if (!res.ok || json.success === false) {
-      return { ok: false, status: res.status, error: json?.error?.message || `HTTP ${res.status}` };
+      return {
+        ok: false,
+        status: res.status,
+        error: json?.error?.message || `HTTP ${res.status}`,
+        code: json?.error?.code,
+      };
     }
     return { ok: true, status: res.status, data: json.data as T };
   } catch (err) {
@@ -179,7 +194,7 @@ export function AuthProvider({ children }: { children: ReactNode }) {
       },
     );
     if (!result.ok || !result.data) {
-      return { success: false, error: result.error };
+      return { success: false, error: result.error, code: result.code };
     }
     const { token: newToken, user: newUser } = result.data;
     writeStored({ token: newToken, user: newUser });
@@ -202,7 +217,7 @@ export function AuthProvider({ children }: { children: ReactNode }) {
       },
     );
     if (!result.ok || !result.data) {
-      return { success: false, error: result.error };
+      return { success: false, error: result.error, code: result.code };
     }
     const { token: newToken, user: newUser } = result.data;
     writeStored({ token: newToken, user: newUser });
@@ -226,6 +241,42 @@ export function AuthProvider({ children }: { children: ReactNode }) {
     writeStored({ token: newToken, user: newUser });
     setToken(newToken);
     setUserState(newUser);
+    return { success: true };
+  }, []);
+
+  const verifyEmail = useCallback(async (email: string, code: string) => {
+    const result = await apiCall<{ message: string }>("/api/proxy/auth/verify-email", {
+      method: "POST",
+      body: JSON.stringify({ email, code }),
+    });
+    if (!result.ok) return { success: false, error: result.error, code: result.code };
+    return { success: true };
+  }, []);
+
+  const resendVerification = useCallback(async (email: string) => {
+    const result = await apiCall<{ message: string }>("/api/proxy/auth/resend-verification", {
+      method: "POST",
+      body: JSON.stringify({ email }),
+    });
+    if (!result.ok) return { success: false, error: result.error, code: result.code };
+    return { success: true };
+  }, []);
+
+  const requestPasswordReset = useCallback(async (email: string) => {
+    const result = await apiCall<{ message: string }>("/api/proxy/auth/forgot-password", {
+      method: "POST",
+      body: JSON.stringify({ email }),
+    });
+    if (!result.ok) return { success: false, error: result.error, code: result.code };
+    return { success: true };
+  }, []);
+
+  const resetPassword = useCallback(async (email: string, code: string, newPassword: string) => {
+    const result = await apiCall<{ message: string }>("/api/proxy/auth/reset-password", {
+      method: "POST",
+      body: JSON.stringify({ email, code, newPassword }),
+    });
+    if (!result.ok) return { success: false, error: result.error, code: result.code };
     return { success: true };
   }, []);
 
@@ -253,6 +304,10 @@ export function AuthProvider({ children }: { children: ReactNode }) {
         login,
         signup,
         googleLogin,
+        verifyEmail,
+        resendVerification,
+        requestPasswordReset,
+        resetPassword,
         logout,
       }}
     >

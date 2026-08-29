@@ -148,7 +148,7 @@ export function AuthPage({ mode }: { mode: AuthMode }) {
   const [agree, setAgree] = useState(false);
   const [password, setPassword] = useState("");
   const [pwFocused, setPwFocused] = useState(false);
-  const { login, signup, isAuthenticated, loading: authLoading } = useAuth();
+  const { login, signup, logout, isAuthenticated, loading: authLoading } = useAuth();
   const router = useRouter();
   const isSignIn = mode === "signin";
   const t = useTranslations("Auth");
@@ -197,6 +197,11 @@ export function AuthPage({ mode }: { mode: AuthMode }) {
       if (isSignIn) {
         const result = await login(email, pwd);
         if (!result.success) {
+          if (result.code === "EMAIL_NOT_VERIFIED") {
+            // Route the user into the email verification flow.
+            router.push(`/verify-email?email=${encodeURIComponent(email)}`);
+            return;
+          }
           setError(result.error || t("errorSignIn"));
           return;
         }
@@ -217,7 +222,10 @@ export function AuthPage({ mode }: { mode: AuthMode }) {
           setError(result.error || t("errorSignUp"));
           return;
         }
-        router.push("/dashboard");
+        // The account is created unverified — drop the auto-issued session and
+        // send the user through email verification before they can sign in.
+        await logout();
+        router.push(`/verify-email?email=${encodeURIComponent(email)}`);
       }
     } finally {
       setSubmitting(false);
@@ -320,7 +328,7 @@ export function AuthPage({ mode }: { mode: AuthMode }) {
                 <label htmlFor="password" className="group block">
                   <div className="flex items-center justify-between gap-2 mb-1.5">
                     <span className="text-xs font-bold tracking-wide text-[#0d1f26]/70 dark:text-white/70 font-sans">{t("passwordLabel")}</span>
-                    {isSignIn && <a href="#" className="text-xs font-semibold text-[#5baab8] hover:text-[#0d1f26] dark:hover:text-white transition-colors font-sans shrink-0">Forgot?</a>}
+                    {isSignIn && <Link href="/forgot-password" className="text-xs font-semibold text-[#5baab8] hover:text-[#0d1f26] dark:hover:text-white transition-colors font-sans shrink-0">{t("forgotPassword")}</Link>}
                   </div>
                   <div className="flex items-center gap-2 sm:gap-2.5 rounded-xl sm:rounded-2xl bg-[#f8fafc] dark:bg-white/[0.06] border border-[#0d1f26]/5 dark:border-white/10 px-3 sm:px-3.5 py-3 sm:py-3.5 focus-within:bg-white dark:focus-within:bg-white/[0.08] focus-within:border-[#5baab8]/40 focus-within:ring-4 focus-within:ring-[#5baab8]/10 transition-all">
                     <LockKeyhole className="w-4 h-4 text-[#0d1f26]/30 dark:text-white/30 group-focus-within:text-[#5baab8] transition-colors shrink-0" />
