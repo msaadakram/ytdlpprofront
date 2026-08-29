@@ -2,7 +2,8 @@
 
 import { useState, useRef, useEffect } from "react";
 import { useTranslations, useLocale } from "next-intl";
-import { Link, usePathname, useRouter } from "@/lib/i18n/navigation";
+import { AppLink as Link } from "@/components/shared/AppLink";
+import { usePathname, useRouter } from "@/lib/i18n/navigation";
 import { motion, AnimatePresence } from "motion/react";
 import {
   Download, X, BarChart2, Play, Music, Image,

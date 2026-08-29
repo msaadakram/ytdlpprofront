@@ -7,6 +7,23 @@ const nextConfig: NextConfig = {
   experimental: {
     optimizePackageImports: ["lucide-react", "recharts", "motion"],
   },
+  async redirects() {
+    return [
+      // English-only informational pages exist only at the top level.
+      // Locale-prefixed variants were removed — send any legacy/stray URLs
+      // (bookmarks, old sitemap entries, internal links) to the canonical page.
+      {
+        source: "/:locale(en|es|fr|de|pt|ja|ar|ru|zh)/:path(about|features|pricing|contact|changelog|privacy|terms|blog|api-status|api-disclaimer|api-docs|dashboard)",
+        destination: "/:path",
+        permanent: false,
+      },
+      {
+        source: "/:locale(en|es|fr|de|pt|ja|ar|ru|zh)/blog/:slug",
+        destination: "/blog/:slug",
+        permanent: false,
+      },
+    ];
+  },
   async headers() {
     return [
       {

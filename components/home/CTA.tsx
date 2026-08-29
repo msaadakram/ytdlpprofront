@@ -1,7 +1,7 @@
 "use client";
 
 import { useTranslations } from "next-intl";
-import { Link } from "@/lib/i18n/navigation";
+import { AppLink as Link } from "@/components/shared/AppLink";
 import { motion } from "motion/react";
 import { ArrowRight } from "lucide-react";
 

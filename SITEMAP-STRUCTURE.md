@@ -47,6 +47,8 @@
 
 **Excluded (noindex, not in sitemap):** `dashboard`, `sign-in`, `sign-up` (`app/[locale]/*` + top-level), `admin/*`, `api/*` — enforced via `app/robots.ts` Disallow + sitemap omission.
 
+**English-only consolidation (2026-08-29):** The locale-prefixed duplicate pages (`/{locale}/about`, `/{locale}/pricing`, `/{locale}/blog/…`, `/{locale}/api-docs`, `/{locale}/dashboard`, etc.) were **deleted** — the top-level `(en)` route group is the single source of truth. `next.config.ts` `redirects()` 307s any locale-prefixed URL for these slugs to the canonical top-level page. Footer/Nav render these links through `components/shared/AppLink.tsx`, which skips locale-prefixing for English-only paths (via `lib/i18n/english-only.ts`), so users go straight to `/features`, `/pricing`, `/blog`, … regardless of the active locale. Sitemap totals are unchanged (the locale variants were never listed).
+
 ## 3. Technical Implementation
 
 ```

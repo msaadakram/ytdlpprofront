@@ -2,7 +2,7 @@
 
 import { useState } from "react";
 import { useTranslations } from "next-intl";
-import { Link } from "@/lib/i18n/navigation";
+import { AppLink as Link } from "@/components/shared/AppLink";
 import { motion, AnimatePresence } from "motion/react";
 import { Check, Crown, Users, Sparkles, Zap, ArrowRight } from "lucide-react";
 

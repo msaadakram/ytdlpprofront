@@ -15,6 +15,8 @@ export const ENGLISH_ONLY_ROUTES = [
   "/blog",
   "/api-status",
   "/api-disclaimer",
+  "/api-docs",
+  "/dashboard",
 ] as const;
 
 export type EnglishOnlyRoute = (typeof ENGLISH_ONLY_ROUTES)[number];
