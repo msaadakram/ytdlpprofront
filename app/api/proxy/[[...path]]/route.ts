@@ -13,11 +13,17 @@ async function forward(
   pathStr: string,
   hasBody: boolean,
 ) {
+  // Normalize base: strip trailing slashes and avoid double /api if API_BASE
+  // already ends with /api (common misconfiguration in env).
+  const normalizedBase = API_BASE.replace(/\/+$/, '');
+  const hasApiSuffix = normalizedBase.endsWith('/api');
   // Special handling for file downloads - they are served from /download/ not /api/download/
   const isFileDownload = pathStr.startsWith('download/');
-  const url = isFileDownload 
-    ? `${API_BASE}/${pathStr}` 
-    : `${API_BASE}/api/${pathStr}`;
+  const url = isFileDownload
+    ? `${normalizedBase}/${pathStr}`
+    : hasApiSuffix
+      ? `${normalizedBase}/${pathStr}`
+      : `${normalizedBase}/api/${pathStr}`;
   const token = req.headers.get("authorization");
   const range = req.headers.get("range");
 
