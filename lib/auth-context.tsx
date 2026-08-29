@@ -210,7 +210,7 @@ export function AuthProvider({ children }: { children: ReactNode }) {
     email: string;
     password: string;
   }) => {
-    const result = await apiCall<{ token: string; user: AuthUser }>(
+    const result = await apiCall<{ token?: string; user: AuthUser; email_delivered?: boolean; verification_required?: boolean }>(
       "/api/proxy/auth/register",
       {
         method: "POST",
@@ -220,10 +220,19 @@ export function AuthProvider({ children }: { children: ReactNode }) {
     if (!result.ok || !result.data) {
       return { success: false, error: result.error, code: result.code };
     }
-    const { token: newToken, user: newUser } = result.data as any;
-    writeStored({ token: newToken, user: newUser });
-    setToken(newToken);
-    setUserState(newUser);
+    // New flow: register does NOT issue a session token for unverified
+    // accounts (closes loophole where unverified token could access
+    // protected routes). Only store session if a token was actually
+    // returned (legacy path).
+    const dataAny = result.data as any;
+    if (dataAny.token && dataAny.user) {
+      writeStored({ token: dataAny.token, user: dataAny.user });
+      setToken(dataAny.token);
+      setUserState(dataAny.user);
+    }
+    // If email was not delivered (provider failure), the caller can
+    // surface a warning and the user can use "Resend code" on the
+    // verify page (which now allows immediate retry).
     return { success: true };
   }, []);
 

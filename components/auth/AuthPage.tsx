@@ -222,9 +222,9 @@ export function AuthPage({ mode }: { mode: AuthMode }) {
           setError(result.error || t("errorSignUp"));
           return;
         }
-        // The account is created unverified — drop the auto-issued session and
-        // send the user through email verification before they can sign in.
-        await logout();
+        // Account created unverified — no session is issued (backend no longer
+        // creates a token for unverified users, closing the loophole). Go
+        // straight to verification; no logout needed.
         router.push(`/verify-email?email=${encodeURIComponent(email)}`);
       }
     } finally {
