@@ -11,6 +11,8 @@ import {
   getJobStatus,
   getJobResult,
   triggerDownload,
+  downloadThumbnail,
+  downloadTextFile,
 } from "@/lib/api-client";
 import type { ApiFormatInfo, UniversalMediaInfo } from "@/lib/api-client";
 import { FormatGrid } from "@/components/youtube-download/FormatGrid";
@@ -205,13 +207,10 @@ export function DownloadOnlyHero({ platform, type }: { platform: string; type: D
           throw new Error(st("errorDownloadFailed"));
         }
         const fmt = formats[selectedFormat];
-        const a = document.createElement("a");
-        a.href = mediaInfo.thumbnail;
-        a.download = `${mediaInfo.title || "thumbnail"}.${fmt.ext}`;
-        a.target = "_blank";
-        document.body.appendChild(a);
-        a.click();
-        document.body.removeChild(a);
+        // Route through the same-origin thumbnail proxy — the CDN image is
+        // cross-origin, so a direct link would open a tab instead of saving.
+        const safeTitle = (mediaInfo.title || "thumbnail").replace(/[^\w\s.-]+/g, "").trim() || "thumbnail";
+        downloadThumbnail(mediaInfo.thumbnail, `${safeTitle}.${fmt.ext || "jpg"}`);
         setProcessing(false);
         setDone(true);
         setTimeout(() => setDone(false), 3000);
@@ -280,9 +279,18 @@ export function DownloadOnlyHero({ platform, type }: { platform: string; type: D
             if (finalRes.success && finalRes.data) {
               const data = finalRes.data;
 
-              // For transcript type, store the transcript content for display
-              if (type === "transcript" && data.transcript) {
-                setTranscript(data.transcript);
+              // For transcript type, trigger the file download and store
+              // the content for the in-page viewer
+              if (type === "transcript" && (data.transcript || data.downloadUrl)) {
+                if (data.downloadUrl) {
+                  triggerDownload(data.downloadUrl, data.filename || undefined);
+                } else if (data.transcript) {
+                  const fmt = formats[selectedFormat];
+                  const ext = fmt?.ext || "srt";
+                  const safeTitle = (mediaInfo?.title || "transcript").replace(/[^\w\s.-]+/g, "").trim() || "transcript";
+                  downloadTextFile(data.transcript, data.filename || `${safeTitle}.${ext}`);
+                }
+                setTranscript(data.transcript ?? null);
                 setTranscriptSegments(data.segments || null);
                 setTranscriptFilename(data.filename || null);
                 setTranscriptJsonUrl(data.jsonDownloadUrl || null);
@@ -382,7 +390,7 @@ export function DownloadOnlyHero({ platform, type }: { platform: string; type: D
             {[
               t("trustPills.noSignup", { defaultValue: "No Sign-Up" }),
               "320kbps",
-              "FLAC Lossless",
+              t("trustPills.lossless", { defaultValue: "FLAC Lossless" }),
               t("trustPills.fast", { defaultValue: "< 3s" }),
               t("trustPills.free", { defaultValue: "100% Free" }),
             ].map((pill) => (
@@ -401,7 +409,9 @@ export function DownloadOnlyHero({ platform, type }: { platform: string; type: D
           transition={{ delay: 0.15, duration: 0.6 }}
         >
           {type === "audio"
-            ? getAudioKey("headingAudio", `Extract Audio from ${config.name} Videos`)
+            ? t.has("audioHeading")
+              ? t("audioHeading", { platform: config.name } as any)
+              : getAudioKey("headingAudio", `Extract Audio from ${config.name} Videos`)
             : type === "thumbnail"
             ? (() => {
                 try {

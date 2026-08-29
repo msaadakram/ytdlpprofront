@@ -43,6 +43,12 @@ export type PageContent = {
 };
 
 export type RelatedLink = {
+  /** Stable id used to resolve the localized title/desc from messages
+   *  (`RelatedLinks.{id}Title` / `RelatedLinks.{id}Desc`). The English
+   *  `title`/`desc` fields act as the fallback copy. */
+  id?: string;
+  /** ICU parameters (e.g. {platform}) passed to the translated string. */
+  params?: Record<string, string>;
   title: string;
   href: string;
   desc: string;

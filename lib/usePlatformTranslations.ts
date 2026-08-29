@@ -32,7 +32,10 @@ export type RichPlatformConfig = {
   keywords: string[];
 };
 
-export function usePlatformTranslations(platform: string): RichPlatformConfig {
+export function usePlatformTranslations(
+  platform: string,
+  variant: "all" | "video" = "all"
+): RichPlatformConfig {
   const config = platformConfigs[platform];
   const t = useTranslations(`Platform.${platform}`);
 
@@ -46,11 +49,53 @@ export function usePlatformTranslations(platform: string): RichPlatformConfig {
   };
   const tryGet = (key: string, fallback: string) => {
     try {
-      return t(key as any);
+      // This app's intl config renders missing keys as the key path instead of
+      // throwing, so t.has() (not try/catch) drives the fallback decision.
+      return t.has(key as any) ? t(key as any) : t(fallback as any);
     } catch {
       return t(fallback as any);
     }
   };
+
+  // Video-only pages (video-downloader/*) must never pick up the all-tools
+  // (headingAll) or audio (featuresAudio/faqsAudio) copy — they always use the
+  // video-worded base keys so the page describes video downloading only.
+  if (variant === "video") {
+    // t.raw() may resolve missing keys to a non-array error marker, so every
+    // raw lookup is validated before use.
+    const asArray = <T,>(value: unknown): T[] | null =>
+      Array.isArray(value) ? (value as T[]) : null;
+    const ftVideo =
+      asArray<{ title: string; desc: string }>(tryRaw("featuresVideo")) ??
+      asArray<{ title: string; desc: string }>(tryRaw("features")) ??
+      [];
+    const faqsVideo =
+      asArray<{ q: string; a: string }>(tryRaw("faqsVideo")) ??
+      asArray<{ q: string; a: string }>(tryRaw("faqs")) ??
+      [];
+    const kwVideo =
+      asArray<string>(tryRaw("keywordsVideo")) ??
+      asArray<string>(tryRaw("keywords")) ??
+      [];
+    return {
+      ...config,
+      defaultType: config.defaultType,
+      badge: tryGet("badgeVideo", "badge"),
+      heading: tryGet("headingVideo", "heading"),
+      headingAccent: tryGet("headingAccentVideo", "headingAccent"),
+      subheading: tryGet("subheadingVideo", "subheading"),
+      placeholder: t("placeholder"),
+      features: config.features.map((f, i) => ({
+        icon: f.icon,
+        title: (ftVideo as any)?.[i]?.title ?? "",
+        desc: (ftVideo as any)?.[i]?.desc ?? "",
+      })),
+      faqs: faqsVideo.map((f) => ({ q: f.q, a: f.a })),
+      metaTitle: tryGet("metaTitleVideo", "metaTitle"),
+      metaDescription: tryGet("metaDescriptionVideo", "metaDescription"),
+      keywords: kwVideo,
+    };
+  }
 
   // Detect available key sets
   const hasAudio = tryRaw("featuresAudio") !== null;

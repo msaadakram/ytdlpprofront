@@ -69,8 +69,8 @@ const footerGroups = [
 
 const socialLinks = [
   { name: "GitHub", icon: Github, href: "https://github.com/downforge" },
-  { name: "Twitter", icon: Twitter, href: "https://twitter.com/downforge" },
-  { name: "YouTube", icon: Youtube, href: "https://youtube.com/downforge" },
+  { name: "Twitter", icon: Twitter, href: "https://x.com/downforge" },
+  { name: "YouTube", icon: Youtube, href: "https://www.youtube.com/@downforge" },
   { name: "Facebook", icon: Facebook, href: "https://facebook.com/downforge" },
   { name: "Instagram", icon: Instagram, href: "https://instagram.com/downforge" },
   { name: "LinkedIn", icon: Linkedin, href: "https://linkedin.com/company/downforge" },
@@ -297,7 +297,7 @@ export function Footer() {
                   </button>
                 </div>
                 <p aria-live="polite" className="mt-2 min-h-4 font-sans text-xs text-[#8fd3df]">
-                  {subscribed ? `✓ ${f("subscribed")}` : <span className="text-white/30">No spam, unsubscribe anytime.</span>}
+                  {subscribed ? `✓ ${f("subscribed")}` : <span className="text-white/30">{f("newsletterNote")}</span>}
                 </p>
               </form>
             </div>

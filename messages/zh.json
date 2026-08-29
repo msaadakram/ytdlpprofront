@@ -12,6 +12,16 @@
     "zh": "中文"
   },
   "Nav": {
+    "exploreMore": "探索更多",
+    "aboutUs": "关于我们",
+    "otherDescs": {
+      "about": "我们的故事与使命",
+      "pricing": "套餐与账单",
+      "terms": "服务条款",
+      "privacy": "数据与隐私",
+      "contact": "帮助与支持",
+      "api": "API 文档"
+    },
     "home": "DownForge",
     "downloadVideo": "视频",
     "downloadAudio": "音频",
@@ -42,6 +52,7 @@
     "openMenu": "打开菜单"
   },
   "Footer": {
+    "newsletterNote": "无垃圾邮件，可随时取消订阅。",
     "tagline": "从 200+ 平台下载任何视频、音频或缩略图。快速、免费、安全。",
     "copyright": "© 2025 DownForge. 保留所有权利。",
     "poweredBy": "由 yt-dlp & ffmpeg 提供技术支持",
@@ -258,7 +269,8 @@
     "showSegments": "显示分段",
     "transcribeBtn": "转录",
     "paste": "粘贴",
-    "fileSize": "文件大小：{size}"
+    "fileSize": "文件大小：{size}",
+    "clearInput": "清除链接"
   },
   "PlatformPage": {
     "breadcrumbHome": "首页",
@@ -365,7 +377,8 @@
       "flac": "FLAC 无损",
       "fast": "< 3秒",
       "free": "100% 免费",
-      "private": "私密安全"
+      "private": "私密安全",
+      "lossless": "无损 FLAC"
     },
     "thumbnailHeading": "下载 {platform} 缩略图",
     "transcriptHeading": "生成 {platform} 转录",
@@ -480,6 +493,97 @@
         "value": "播放列表",
         "desc": "一键为整个播放列表生成转录 (Pro)。"
       }
+    ],
+    "audioHeading": "{platform}转MP3转换器 — 提取高品质音频",
+    "howToAudioName": "如何将{platform}视频转换为MP3",
+    "howToAudioDesc": "三步将{platform}视频转换为MP3、FLAC、AAC、WAV或OGG。粘贴链接、选择音质、下载 — 支持 Android、iPhone 和 PC。",
+    "faqAudioItems": [
+      {
+        "q": "如何将{platform}视频转换为MP3？",
+        "a": "从浏览器或分享菜单复制{platform}链接，粘贴到上方，选择 MP3 320kbps 或 FLAC，然后点击“转换为MP3”。音频几秒内即可完成 — 无需应用，无需注册。"
+      },
+      {
+        "q": "320kbps 和 FLAC 哪种音质更好？",
+        "a": "MP3 320kbps 是最佳通用选择：高音质、文件小（约2.4 MB/分钟）、处处可播放。用于存档、DJ 或音乐制作等需要每个细节的场景，请选择无损 FLAC（约8 MB/分钟）。"
+      },
+      {
+        "q": "可以在 iPhone 或 Android 上将{platform}转换为MP3吗？",
+        "a": "可以。在 Safari（iPhone）或 Chrome（Android）中打开本页，粘贴链接，选择 MP3 或 FLAC 并下载。iPhone 上文件保存到“文件”应用，Android 保存到“下载”— 然后用任意播放器打开。"
+      },
+      {
+        "q": "将{platform}转换为MP3安全合法吗？",
+        "a": "将公开可访问的{platform}内容转换为个人离线收听通常是被允许的。未经创作者许可，请勿重新上传受版权保护的曲目。DownForge 以临时方式处理文件，并在下载后立即删除 — 不存储、不追踪。"
+      },
+      {
+        "q": "{platform}转MP3需要多长时间？",
+        "a": "大多数曲目在10秒内完成。较长的视频或播放列表可能需要30–60秒。Pro 用户在高峰时段享受优先处理。"
+      }
+    ],
+    "faqThumbnailItems": [
+      {
+        "q": "如何下载{platform}封面？",
+        "a": "在上方粘贴{platform}视频或帖子链接，点击“获取封面”。图片会以原始分辨率获取 — 无需应用，无需注册，不做存储。"
+      },
+      {
+        "q": "{platform}封面的分辨率是多少？",
+        "a": "您将获得可用的最高分辨率 — 最高 Full HD 1920×1080 或源原始画质，适合做封面、预览和参考。"
+      },
+      {
+        "q": "应该选择哪种格式 — JPG、PNG 还是 WebP？",
+        "a": "JPG 最适合分享和更小的文件，PNG 适合无损画质和透明背景，WebP 则提供网页端最佳压缩。"
+      },
+      {
+        "q": "支持 iPhone、Android 和 PC 吗？",
+        "a": "支持。可在任何现代浏览器中使用 — 无需安装。iPhone 保存到“照片”，Android 保存到“下载”，PC 保存到您选择的文件夹。"
+      },
+      {
+        "q": "{platform}封面下载器免费吗？",
+        "a": "免费，完全免费且无每日限制。封面直接从来源获取，绝不会存储在我们的服务器上。"
+      }
+    ],
+    "faqTranscriptItems": [
+      {
+        "q": "如何获取{platform}转录？",
+        "a": "在上方粘贴{platform}视频链接，选择语言（或使用自动检测），点击“转录”。AI 转录几秒内即可完成。"
+      },
+      {
+        "q": "支持哪些转录格式？",
+        "a": "SRT 和 VTT 用于带时间戳的字幕，纯文本 TXT 用于笔记和阅读，结构化 JSON 用于开发者、分析和 API 集成。"
+      },
+      {
+        "q": "AI 转录的准确度如何？",
+        "a": "转录由先进的 AI 语音识别驱动，在支持的语言中，清晰音频的准确度可达 99% 以上。"
+      },
+      {
+        "q": "转录中包含时间戳吗？",
+        "a": "包含 — SRT 和 VTT 提供精确的时间戳，JSON 输出提供分段级时间信息，便于同步字幕或分析语音。"
+      },
+      {
+        "q": "支持哪些语言？",
+        "a": "支持 50 多种语言，从英语、西班牙语、阿拉伯语到日语、印地语和斯瓦希里语 — 可从音频自动检测或手动选择。"
+      }
+    ],
+    "faqAllItems": [
+      {
+        "q": "可以下载{platform}的私密视频吗？",
+        "a": "本服务仅可下载公开可访问的{platform}内容。由于隐私限制，无法获取私密或仅好友可见的视频。"
+      },
+      {
+        "q": "支持哪些格式和画质？",
+        "a": "视频最高 4K（MP4、WebM、MKV）；音频为 MP3 320kbps、FLAC、AAC、WAV 或 OGG；封面为 JPG、PNG 和 WebP；AI 转录为 SRT、VTT、TXT 和 JSON。"
+      },
+      {
+        "q": "支持 iPhone、Android 和 PC 吗？",
+        "a": "支持 — 所有工具都在浏览器中运行。无需安装，无需注册，文件在下载后立即删除。"
+      },
+      {
+        "q": "可以免费使用吗？",
+        "a": "可以，所有工具均免费且无每日限制。Pro 计划增加批量处理、更高画质上限和 API 访问。"
+      },
+      {
+        "q": "安全合法吗？",
+        "a": "下载公开可访问的内容用于个人离线观看通常是被允许的。未经创作者许可，请勿重新上传受版权保护的材料 — DownForge 绝不存储您的文件，也不追踪您。"
+      }
     ]
   },
   "VideoOnly": {
@@ -530,7 +634,8 @@
         "value": "播放列表",
         "desc": "使用 Pro 一键下载整个频道和播放列表。"
       }
-    ]
+    ],
+    "benefitsLabel": "主要优势"
   },
   "Formats": {
     "mp4": "MP4",
@@ -3428,5 +3533,111 @@
     "jobsQueued": "{count} 个排队中",
     "monitoringNote": "服务器重启后指标将重置。",
     "allSystemsOperational": "所有系统运行正常"
+  },
+  "RelatedLinks": {
+    "heading": "更多免费下载器",
+    "subline": "所有 DownForge 工具均免费、基于浏览器运行，无需注册。",
+    "navLabel": "相关下载页面",
+    "variantVideoTitle": "{platform}视频下载器",
+    "variantVideoDesc": "以 MP4 4K、1080p 和 720p 下载 {platform} 视频。",
+    "variantAudioTitle": "{platform}转MP3 — 音频",
+    "variantAudioDesc": "将 {platform} 音频提取为 MP3 320kbps、FLAC 或 AAC。",
+    "variantThumbnailTitle": "{platform}封面下载器",
+    "variantThumbnailDesc": "以 JPG、PNG 和 WebP 高清保存 {platform} 封面。",
+    "variantTranscriptTitle": "{platform}AI字幕转录",
+    "variantTranscriptDesc": "使用 AI 生成 SRT、VTT 和 TXT 格式的 {platform} 转录。",
+    "allInOneTitle": "{platform}下载器 — 视频、音频及更多",
+    "allInOneDesc": "{platform} 一站式页面：视频、音频、封面和 AI 转录。",
+    "ytVideoHeroTitle": "YouTube视频下载器",
+    "ytVideoHeroDesc": "粘贴任意 YouTube 链接，以 4K、1080p 或 720p 保存视频 — 免费，无需注册。",
+    "ytAllTitle": "YouTube 一站式下载器",
+    "ytAllDesc": "一个页面搞定视频、MP3 音频、高清封面和 AI 转录。",
+    "ytAllShortDesc": "一个页面搞定视频、MP3、封面和转录。",
+    "ytAllNeedDesc": "还需要 MP3、封面或转录？YouTube 全能工具箱。",
+    "fbVideoTitle": "Facebook视频下载器",
+    "fbVideoDesc": "以高清保存 Facebook 视频、Reels 和直播。",
+    "igVideoTitle": "Instagram视频下载器",
+    "igVideoDesc": "以原始画质下载 Reels、快拍和 IGTV 帖子。",
+    "ttVideoTitle": "TikTok视频下载器",
+    "ttVideoDesc": "以高清无水印保存 TikTok 视频。",
+    "ttVideoNoWmTitle": "TikTok下载器 — 无水印",
+    "ttVideoNoWmDesc": "以高清无水印保存 TikTok 视频。",
+    "twVideoTitle": "Twitter / X视频下载器",
+    "twVideoDesc": "以高清保存 X 视频和 GIF。",
+    "ytMp3Title": "YouTube转MP3 — 320kbps",
+    "ytMp3Desc": "即时将 YouTube 视频转换为 MP3、FLAC 或 AAC。",
+    "ytMp3LongDesc": "将 YouTube 转换为 MP3 320kbps、FLAC 和 AAC — 粘贴链接即可。",
+    "ytMp3MediumDesc": "将 YouTube 转换为 MP3 320kbps、FLAC 和 AAC。",
+    "scMp3Title": "SoundCloud转MP3",
+    "scMp3Desc": "以 MP3 或无损 FLAC 下载 SoundCloud 曲目。",
+    "ttMp3Title": "TikTok转MP3",
+    "ttMp3Desc": "从 TikTok 视频中提取高质量音频。",
+    "ytThumbTitle": "YouTube高清封面",
+    "ytThumbDesc": "以最高分辨率 JPG/PNG/WebP 保存 YouTube 封面。",
+    "ytThumbShortDesc": "以最高分辨率保存 YouTube 封面。",
+    "igThumbTitle": "Instagram封面",
+    "igThumbDesc": "以高清下载 Instagram 帖子封面。",
+    "ttThumbTitle": "TikTok封面",
+    "ttThumbDesc": "以完整画质保存 TikTok 视频封面。",
+    "ytTranscriptTitle": "YouTube AI转录",
+    "ytTranscriptDesc": "为任意 YouTube 视频生成 SRT、VTT、TXT 和 JSON 转录。",
+    "ytTranscriptShortDesc": "带时间戳的 SRT、VTT、TXT 和 JSON 转录。",
+    "ytTranscriptSrtDesc": "AI 生成 SRT 和 VTT 转录。",
+    "vimeoTranscriptTitle": "Vimeo转录",
+    "vimeoTranscriptDesc": "为 Vimeo 视频生成精准的 AI 转录。",
+    "twitchTranscriptTitle": "Twitch转录",
+    "twitchTranscriptDesc": "带时间戳转录 Twitch 直播。",
+    "ytVideo4kTitle": "YouTube视频下载器 — 4K和高清",
+    "ytVideo4kDesc": "YouTube 专用视频下载器。Shorts、长视频和剪辑，最高支持 4K。",
+    "ytVideo4kShortDesc": "Shorts、长视频和剪辑，最高支持 4K。",
+    "fbMp3Title": "Facebook转MP3",
+    "fbMp3Desc": "从 Facebook 视频中提取 MP3 320kbps 和 FLAC。"
+  },
+  "ExploreTools": {
+    "kicker": "其他工具",
+    "stats": "5 种工具 • 15 个平台",
+    "heading": "探索其他 {platform} 工具",
+    "subheading": "您正在查看 {platform} 的{tool}。试试 {platform} 的其他工具，或在其他平台上使用同一工具 — 全部免费，无需注册。",
+    "moreToolsHeading": "更多 {platform} 工具",
+    "chipSamePlatform": "同一平台，不同工具",
+    "chipSameTool": "同一工具，其他平台",
+    "otherPlatformsHeading": "其他平台的{tool}",
+    "popularHeading": "热门工具",
+    "chipPopular": "搜索最多",
+    "youAreHere": "当前所在",
+    "currentPage": "当前页面",
+    "open": "打开 →",
+    "footnote": "所有工具均免费、在浏览器中运行，无需登录。粘贴公开视频链接即可 — 支持 Android、iPhone 和 PC。",
+    "specVideo": "4K / HD · MP4",
+    "specAudio": "MP3 · FLAC · AAC",
+    "specThumbnail": "JPG · PNG · WebP",
+    "specTranscript": "SRT · VTT · AI",
+    "tools": {
+      "all": {
+        "label": "一站式下载器",
+        "shortLabel": "全部",
+        "desc": "视频、音频、封面和转录"
+      },
+      "video": {
+        "label": "视频下载器",
+        "shortLabel": "视频",
+        "desc": "MP4 · 4K / 1080p / 720p"
+      },
+      "audio": {
+        "label": "音频下载器",
+        "shortLabel": "音频",
+        "desc": "MP3 320kbps · FLAC · AAC"
+      },
+      "thumbnail": {
+        "label": "封面下载器",
+        "shortLabel": "封面",
+        "desc": "JPG · PNG · WebP 高清"
+      },
+      "transcript": {
+        "label": "转录下载器",
+        "shortLabel": "转录",
+        "desc": "SRT · VTT · TXT · JSON AI"
+      }
+    }
   }
 }

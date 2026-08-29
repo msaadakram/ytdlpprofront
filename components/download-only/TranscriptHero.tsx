@@ -9,6 +9,8 @@ import {
   universalDownloadTranscript,
   getJobStatus,
   getJobResult,
+  triggerDownload,
+  downloadTextFile,
 } from "@/lib/api-client";
 import type { ApiFormatInfo, UniversalMediaInfo, TranscriptSegment } from "@/lib/api-client";
 import { FormatGrid } from "@/components/youtube-download/FormatGrid";
@@ -253,8 +255,18 @@ export function TranscriptHero({ platform }: { platform: string }) {
             if (finalRes.success && finalRes.data) {
               const data = finalRes.data;
 
-              if (data.transcript) {
-                setTranscript(data.transcript);
+              if (data.transcript || data.downloadUrl) {
+                // Trigger the actual transcript file download
+                if (data.downloadUrl) {
+                  triggerDownload(data.downloadUrl, data.filename || undefined);
+                } else if (data.transcript) {
+                  const fmt = formats[selectedFormat];
+                  const ext = fmt?.ext || "srt";
+                  const safeTitle = (mediaInfo?.title || "transcript").replace(/[^\w\s.-]+/g, "").trim() || "transcript";
+                  downloadTextFile(data.transcript, data.filename || `${safeTitle}.${ext}`);
+                }
+                // Keep content for the in-page viewer (copy / search / format switch)
+                setTranscript(data.transcript ?? null);
                 setTranscriptSegments(data.segments || null);
                 setTranscriptFilename(data.filename || null);
                 setTranscriptJsonUrl(data.jsonDownloadUrl || null);

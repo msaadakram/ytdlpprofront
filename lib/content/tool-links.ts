@@ -98,14 +98,15 @@ export function sameToolOtherPlatforms(currentPlatform: string, tool: ToolType, 
   });
 }
 
-// Popular cross-links for SEO — static popular combos
+// Popular cross-links for SEO — static popular combos.
+// `id` resolves localized copy from the `RelatedLinks` message namespace.
 export const popularCrossLinks = [
-  { title: "YouTube Video Downloader — 4K & HD", desc: "Shorts, long videos and clips in up to 4K.", href: "/video-downloader/youtube" as const },
-  { title: "TikTok Video Downloader — No Watermark", desc: "Save TikTok videos in HD without watermark.", href: "/video-downloader/tiktok" as const },
-  { title: "Instagram Video Downloader", desc: "Reels, Stories and IGTV posts in original quality.", href: "/video-downloader/instagram" as const },
-  { title: "Facebook to MP3", desc: "Extract MP3 320kbps and FLAC from Facebook videos.", href: "/audio-downloader/facebook" as const },
-  { title: "SoundCloud to MP3", desc: "Download SoundCloud tracks as MP3 or FLAC.", href: "/audio-downloader/soundcloud" as const },
-  { title: "YouTube Thumbnail HD", desc: "Grab max-resolution JPG/PNG/WebP thumbnails.", href: "/thumbnail-downloader/youtube" as const },
-  { title: "YouTube Transcript AI", desc: "SRT, VTT, TXT & JSON transcripts with timestamps.", href: "/transcript-downloader/youtube" as const },
-  { title: "Twitter / X Video Downloader", desc: "Save X videos and GIFs in HD.", href: "/video-downloader/twitter" as const },
+  { id: "ytVideo4kShort", title: "YouTube Video Downloader — 4K & HD", desc: "Shorts, long videos and clips in up to 4K.", href: "/video-downloader/youtube" as const },
+  { id: "ttVideoNoWm", title: "TikTok Video Downloader — No Watermark", desc: "Save TikTok videos in HD without watermark.", href: "/video-downloader/tiktok" as const },
+  { id: "igVideo", title: "Instagram Video Downloader", desc: "Reels, Stories and IGTV posts in original quality.", href: "/video-downloader/instagram" as const },
+  { id: "fbMp3", title: "Facebook to MP3", desc: "Extract MP3 320kbps and FLAC from Facebook videos.", href: "/audio-downloader/facebook" as const },
+  { id: "scMp3", title: "SoundCloud to MP3", desc: "Download SoundCloud tracks as MP3 or FLAC.", href: "/audio-downloader/soundcloud" as const },
+  { id: "ytThumb", title: "YouTube Thumbnail HD", desc: "Grab max-resolution JPG/PNG/WebP thumbnails.", href: "/thumbnail-downloader/youtube" as const },
+  { id: "ytTranscriptShort", title: "YouTube Transcript AI", desc: "SRT, VTT, TXT & JSON transcripts with timestamps.", href: "/transcript-downloader/youtube" as const },
+  { id: "twVideo", title: "Twitter / X Video Downloader", desc: "Save X videos and GIFs in HD.", href: "/video-downloader/twitter" as const },
 ];

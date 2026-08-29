@@ -10,6 +10,29 @@ export function PlatformFaq({ platform }: { platform: string }) {
   const config = usePlatformTranslations(platform);
   const [openIndex, setOpenIndex] = useState<number | null>(null);
   const t = useTranslations("PlatformPage");
+  const dl = useTranslations("DownloadOnly");
+
+  // All-in-one pages use the templated `faqAllItems` set (translated in every
+  // locale) instead of the per-platform faqsAudio array, which is English-only
+  // outside EN and mixes audio-intent questions into the all-tools page.
+  const rawFaqs = (() => {
+    try {
+      return dl.raw("faqAllItems");
+    } catch {
+      return null;
+    }
+  })();
+  const faqs: { q: string; a: string }[] = (() => {
+    const fromTemplate = Array.isArray(rawFaqs)
+      ? (rawFaqs as Array<{ q?: unknown; a?: unknown }>)
+          .map((f) => ({
+            q: String(f?.q ?? "").replace(/\{platform\}/g, config.name),
+            a: String(f?.a ?? "").replace(/\{platform\}/g, config.name),
+          }))
+          .filter((f) => f.q && f.a)
+      : [];
+    return fromTemplate.length > 0 ? fromTemplate : config.faqs;
+  })();
 
   return (
     <section className="py-14 md:py-20 px-4 sm:px-6">
@@ -37,7 +60,7 @@ export function PlatformFaq({ platform }: { platform: string }) {
         </motion.div>
 
         <dl className="space-y-3">
-          {config.faqs.map((faq, i) => {
+          {faqs.map((faq, i) => {
             const isOpen = openIndex === i;
             return (
               <motion.div

@@ -1,4 +1,5 @@
 import { Link } from "@/lib/i18n/navigation";
+import { useTranslations } from "next-intl";
 import { ArrowRight, Sparkles, Compass, Layers } from "lucide-react";
 import { platformConfigs } from "@/lib/platform-config";
 import { otherToolsForPlatform, sameToolOtherPlatforms, toolDefs, popularCrossLinks, type ToolType } from "@/lib/content/tool-links";
@@ -15,12 +16,50 @@ export function ExploreOtherTools({ platform, currentTool, heading, subheading }
   const platformName = config?.name ?? platform;
   const brandColor = config?.brandColor ?? "#0d1f26";
 
+  const et = useTranslations("ExploreTools");
+  const rt = useTranslations("RelatedLinks");
+
   const otherTools = otherToolsForPlatform(platform, currentTool);
   const sameToolPeers = sameToolOtherPlatforms(platform, currentTool, 8);
   const currentDef = toolDefs.find((t) => t.id === currentTool);
 
-  const defaultHeading = `Explore Other ${platformName} Tools`;
-  const defaultSub = `You are viewing ${currentDef?.label ?? "Downloader"} for ${platformName}. Try the other ${platformName} tools or the same tool for other platforms — all free, no sign-up.`;
+  // Localized tool label/desc with English fallback from tool-links data.
+  const toolLabel = (id: string, fallback: string) => {
+    const key = `tools.${id}.label`;
+    return et.has(key) ? et(key) : fallback;
+  };
+  const toolShortLabel = (id: string, fallback: string) => {
+    const key = `tools.${id}.shortLabel`;
+    return et.has(key) ? et(key) : fallback;
+  };
+  const toolDesc = (id: string, fallback: string) => {
+    const key = `tools.${id}.desc`;
+    return et.has(key) ? et(key) : fallback;
+  };
+
+  const currentToolLabel = currentDef ? toolLabel(currentDef.id, currentDef.label) : "Downloader";
+
+  const defaultHeading = et("heading", { platform: platformName });
+  const defaultSub = et("subheading", { tool: currentToolLabel, platform: platformName });
+
+  // Localize popular cross-links via their stable ids (RelatedLinks namespace).
+  const localizePopular = (link: { id?: string; title: string; desc: string; params?: Record<string, string> }) => {
+    if (!link.id) return { title: link.title, desc: link.desc };
+    const titleKey = `${link.id}Title`;
+    const descKey = `${link.id}Desc`;
+    const title = rt.has(titleKey) ? (link.params ? rt(titleKey, link.params) : rt(titleKey)) : link.title;
+    const desc = rt.has(descKey) ? (link.params ? rt(descKey, link.params) : rt(descKey)) : link.desc;
+    return { title, desc };
+  };
+
+  const peerSpec =
+    currentDef?.id === "audio"
+      ? et("specAudio")
+      : currentDef?.id === "thumbnail"
+        ? et("specThumbnail")
+        : currentDef?.id === "transcript"
+          ? et("specTranscript")
+          : et("specVideo");
 
   return (
     <section className="w-full border-t border-border/40 bg-gradient-to-b from-muted/20 via-background to-background">
@@ -29,9 +68,9 @@ export function ExploreOtherTools({ platform, currentTool, heading, subheading }
         <div className="flex flex-col gap-3 mb-8 md:mb-10">
           <span className="inline-flex items-center gap-2 w-fit rounded-full border border-border/60 bg-card px-3 py-1 text-[11px] font-bold tracking-[0.14em] uppercase text-muted-foreground font-mono">
             <Compass className="w-3.5 h-3.5" style={{ color: brandColor }} />
-            Other Tools
+            {et("kicker")}
             <span className="hidden sm:inline-flex items-center gap-1 text-accent">
-              <Sparkles className="w-3 h-3" /> 5 tools • 15 platforms
+              <Sparkles className="w-3 h-3" /> {et("stats")}
             </span>
           </span>
           <h2 className="text-2xl sm:text-3xl font-bold tracking-tight text-foreground font-heading text-balance">
@@ -48,8 +87,8 @@ export function ExploreOtherTools({ platform, currentTool, heading, subheading }
             <span className="w-7 h-7 rounded-xl flex items-center justify-center border border-border/60 bg-card shadow-sm">
               <Layers className="w-4 h-4" style={{ color: brandColor }} />
             </span>
-            More {platformName} tools
-            <span className="text-xs font-mono font-normal text-muted-foreground px-2 py-1 rounded-full bg-muted border border-border/40">same platform, different tool</span>
+            {et("moreToolsHeading", { platform: platformName })}
+            <span className="text-xs font-mono font-normal text-muted-foreground px-2 py-1 rounded-full bg-muted border border-border/40">{et("chipSamePlatform")}</span>
           </h3>
           <div className="grid gap-3 sm:grid-cols-2 lg:grid-cols-5">
             {otherTools.map((tool) => {
@@ -81,14 +120,14 @@ export function ExploreOtherTools({ platform, currentTool, heading, subheading }
                       <Icon className="w-4 h-4" style={{ color: isActive ? "#fff" : tool.accent }} />
                     </span>
                     {isActive ? (
-                      <span className="text-[10px] font-bold tracking-widest uppercase rounded-full bg-white text-[#0d1f26] dark:bg-[#0d1f26] dark:text-white px-2 py-1 font-mono">You are here</span>
+                      <span className="text-[10px] font-bold tracking-widest uppercase rounded-full bg-white text-[#0d1f26] dark:bg-[#0d1f26] dark:text-white px-2 py-1 font-mono">{et("youAreHere")}</span>
                     ) : (
                       <ArrowRight className="w-4 h-4 text-muted-foreground group-hover:text-accent group-hover:translate-x-0.5 transition-all shrink-0" />
                     )}
                   </div>
-                  <span className={`text-sm font-bold leading-tight font-heading ${isActive ? "text-white dark:text-[#0d1f26]" : "text-foreground"}`}>{tool.label}</span>
-                  <span className={`text-xs mt-1 font-sans leading-relaxed ${isActive ? "text-white/70 dark:text-[#0d1f26]/60" : "text-muted-foreground"}`}>{tool.desc}</span>
-                  <span className={`mt-3 inline-flex text-xs font-semibold ${isActive ? "text-white/90 dark:text-[#0d1f26]/80" : "text-accent group-hover:text-foreground"}`}>{isActive ? "Current page" : "Open →"}</span>
+                  <span className={`text-sm font-bold leading-tight font-heading ${isActive ? "text-white dark:text-[#0d1f26]" : "text-foreground"}`}>{toolLabel(tool.id, tool.label)}</span>
+                  <span className={`text-xs mt-1 font-sans leading-relaxed ${isActive ? "text-white/70 dark:text-[#0d1f26]/60" : "text-muted-foreground"}`}>{toolDesc(tool.id, tool.desc)}</span>
+                  <span className={`mt-3 inline-flex text-xs font-semibold ${isActive ? "text-white/90 dark:text-[#0d1f26]/80" : "text-accent group-hover:text-foreground"}`}>{isActive ? et("currentPage") : et("open")}</span>
                 </Link>
               );
             })}
@@ -104,8 +143,8 @@ export function ExploreOtherTools({ platform, currentTool, heading, subheading }
                 <span className="w-1.5 h-1.5 rounded-full bg-white/90" />
               </span>
             </span>
-            {currentDef?.label ?? "Downloader"} for other platforms
-            <span className="text-xs font-mono font-normal text-muted-foreground px-2 py-1 rounded-full bg-muted border border-border/40">same tool, other platforms</span>
+            {et("otherPlatformsHeading", { tool: currentToolLabel })}
+            <span className="text-xs font-mono font-normal text-muted-foreground px-2 py-1 rounded-full bg-muted border border-border/40">{et("chipSameTool")}</span>
           </h3>
           <div className="grid gap-3 sm:grid-cols-2 lg:grid-cols-4">
             {sameToolPeers.map((p) => {
@@ -127,7 +166,7 @@ export function ExploreOtherTools({ platform, currentTool, heading, subheading }
                       {p.name} {currentDef?.shortLabel ?? ""}
                     </div>
                     <div className="text-xs text-muted-foreground font-sans truncate">
-                      {currentDef?.id === "audio" ? "MP3 · FLAC · AAC" : currentDef?.id === "thumbnail" ? "JPG · PNG · WebP" : currentDef?.id === "transcript" ? "SRT · VTT · AI" : "4K / HD · MP4"}
+                      {peerSpec}
                     </div>
                   </div>
                   <ArrowRight className="w-4 h-4 text-muted-foreground group-hover:text-accent group-hover:translate-x-0.5 transition-all shrink-0" />
@@ -143,29 +182,32 @@ export function ExploreOtherTools({ platform, currentTool, heading, subheading }
             <span className="w-7 h-7 rounded-xl flex items-center justify-center border border-amber-200 bg-amber-50 dark:bg-amber-500/10 dark:border-amber-500/20 shadow-sm">
               <Sparkles className="w-4 h-4 text-amber-600 dark:text-amber-400" />
             </span>
-            Popular tools
-            <span className="text-xs font-mono font-normal text-muted-foreground px-2 py-1 rounded-full bg-muted border border-border/40">most searched</span>
+            {et("popularHeading")}
+            <span className="text-xs font-mono font-normal text-muted-foreground px-2 py-1 rounded-full bg-muted border border-border/40">{et("chipPopular")}</span>
           </h3>
           <div className="grid gap-3 sm:grid-cols-2 lg:grid-cols-4">
             {popularCrossLinks
               .filter((l) => l.href !== toolDefs.find((d) => d.id === currentTool)?.hrefFor(platform))
               .slice(0, 8)
-              .map((link) => (
+              .map((link) => {
+                const { title, desc } = localizePopular(link);
+                return (
                 <Link
                   key={link.href}
                   href={link.href}
                   className="group flex flex-col rounded-2xl border border-border/60 bg-card p-4 hover:border-accent/40 hover:shadow-md transition-all duration-200"
                 >
                   <span className="flex items-center justify-between gap-2 mb-1.5">
-                    <span className="text-sm font-bold text-foreground font-heading leading-tight line-clamp-2 flex-1">{link.title}</span>
+                    <span className="text-sm font-bold text-foreground font-heading leading-tight line-clamp-2 flex-1">{title}</span>
                     <ArrowRight className="w-4 h-4 text-muted-foreground group-hover:text-accent group-hover:translate-x-0.5 transition-all shrink-0" />
                   </span>
-                  <span className="text-xs text-muted-foreground font-sans leading-relaxed">{link.desc}</span>
+                  <span className="text-xs text-muted-foreground font-sans leading-relaxed">{desc}</span>
                 </Link>
-              ))}
+                );
+              })}
           </div>
           <p className="mt-4 text-xs text-muted-foreground font-sans">
-            All tools are free, work in your browser, and require no login. Paste a public video URL — works on Android, iPhone & PC.
+            {et("footnote")}
           </p>
         </div>
       </div>

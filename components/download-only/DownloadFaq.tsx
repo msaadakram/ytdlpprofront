@@ -9,10 +9,39 @@ import { useTranslations } from "next-intl";
 
 export function DownloadFaq({ platform, type }: { platform: string; type: DownloadType }) {
   const config = usePlatformTranslations(platform);
-  const faqs = config.faqs;
   const brandColor = config.brandColor;
   const t = useTranslations("DownloadOnly");
   const [openIndex, setOpenIndex] = useState<number | null>(null);
+
+  // Use the type-specific templated FAQ set (faqAudioItems / faqThumbnailItems
+  // / faqTranscriptItems) — fully translated in every locale — instead of the
+  // per-platform arrays, which are English-only and mix intents (e.g. audio
+  // FAQs were shown on thumbnail/transcript pages). {platform} is interpolated
+  // manually because ICU params on t.raw() arrays cannot be resolved via t().
+  const faqKey =
+    type === "audio"
+      ? "faqAudioItems"
+      : type === "thumbnail"
+      ? "faqThumbnailItems"
+      : "faqTranscriptItems";
+  const rawFaqs = (() => {
+    try {
+      return t.raw(faqKey as any);
+    } catch {
+      return null;
+    }
+  })();
+  const faqs: { q: string; a: string }[] = (() => {
+    const fromTemplate = Array.isArray(rawFaqs)
+      ? (rawFaqs as Array<{ q?: unknown; a?: unknown }>)
+          .map((f) => ({
+            q: String(f?.q ?? "").replace(/\{platform\}/g, config.name),
+            a: String(f?.a ?? "").replace(/\{platform\}/g, config.name),
+          }))
+          .filter((f) => f.q && f.a)
+      : [];
+    return fromTemplate.length > 0 ? fromTemplate : config.faqs;
+  })();
 
   const getTitle = () => {
     try {

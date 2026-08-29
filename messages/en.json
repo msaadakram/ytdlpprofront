@@ -12,6 +12,16 @@
     "zh": "中文"
   },
   "Nav": {
+    "exploreMore": "Explore more",
+    "aboutUs": "About us",
+    "otherDescs": {
+      "about": "Our story & mission",
+      "pricing": "Plans & billing",
+      "terms": "Terms of service",
+      "privacy": "Data & privacy",
+      "contact": "Help & support",
+      "api": "API documentation"
+    },
     "home": "DownForge",
     "downloadVideo": "Video",
     "downloadAudio": "Audio",
@@ -43,6 +53,7 @@
     "download": "Download"
   },
   "Footer": {
+    "newsletterNote": "No spam, unsubscribe anytime.",
     "tagline": "Download any video, audio or thumbnail from 200+ platforms. Fast, free, and secure.",
     "copyright": "© 2025 DownForge. All rights reserved.",
     "poweredBy": "Powered by yt-dlp & ffmpeg",
@@ -261,7 +272,8 @@
     "showSegments": "Show segments",
     "transcribeBtn": "Transcribe",
     "paste": "Paste",
-    "fileSize": "File size: {size}"
+    "fileSize": "File size: {size}",
+    "clearInput": "Clear URL"
   },
   "PlatformPage": {
     "breadcrumbHome": "Home",
@@ -397,7 +409,8 @@
       "flac": "FLAC Lossless",
       "fast": "< 3s",
       "free": "100% Free",
-      "private": "Private & Secure"
+      "private": "Private & Secure",
+      "lossless": "FLAC Lossless"
     },
     "thumbnailHeading": "Download {platform} Thumbnails",
     "transcriptHeading": "Generate {platform} Transcripts",
@@ -512,6 +525,97 @@
         "value": "Playlists",
         "desc": "Generate transcripts for entire playlists and channels in one click with a Pro plan."
       }
+    ],
+    "audioHeading": "{platform} to MP3 Converter — Extract High-Quality Audio",
+    "howToAudioName": "How to Convert {platform} Video to MP3",
+    "howToAudioDesc": "Convert {platform} videos to MP3, FLAC, AAC, WAV or OGG in 3 steps. Paste a link, choose quality, and download — works on Android, iPhone & PC.",
+    "faqAudioItems": [
+      {
+        "q": "How do I convert {platform} video to MP3?",
+        "a": "Copy the {platform} link from your browser or share menu, paste it above, choose MP3 320kbps or FLAC, and click Convert to MP3. Your audio is ready in seconds — no app or sign-up required."
+      },
+      {
+        "q": "What audio quality is best — 320kbps or FLAC?",
+        "a": "MP3 320kbps is the best universal choice: high quality, small file (~2.4 MB/min), plays everywhere. Choose FLAC lossless (~8 MB/min) for archiving, DJ use or music production where every detail matters."
+      },
+      {
+        "q": "Can I convert {platform} to MP3 on iPhone or Android?",
+        "a": "Yes. Open this page in Safari (iPhone) or Chrome (Android), paste the link, pick MP3 or FLAC, and download. On iPhone files save to the Files app; on Android to Downloads — then open in any player."
+      },
+      {
+        "q": "Is converting {platform} to MP3 safe and legal?",
+        "a": "Converting publicly accessible {platform} content for personal offline listening is generally permitted. Do not re-upload copyrighted tracks without the creator's permission. DownForge processes files ephemerally and deletes them after your download — no storage, no tracking."
+      },
+      {
+        "q": "How long does {platform} to MP3 conversion take?",
+        "a": "Most tracks complete in under 10 seconds. Longer VODs or playlists may take 30–60 seconds. Pro users get priority processing during peak times."
+      }
+    ],
+    "faqThumbnailItems": [
+      {
+        "q": "How do I download a {platform} thumbnail?",
+        "a": "Paste the {platform} video or post link above and click Get Thumbnail. The image is fetched in its original resolution — no app, no sign-up, nothing stored."
+      },
+      {
+        "q": "What resolution are {platform} thumbnails?",
+        "a": "You get the highest resolution available — up to Full HD 1920×1080 or the original source quality, ready for covers, previews and references."
+      },
+      {
+        "q": "Which format should I choose — JPG, PNG or WebP?",
+        "a": "JPG is best for sharing and smaller files, PNG for lossless quality and transparency, and WebP for the best compression on the web."
+      },
+      {
+        "q": "Does it work on iPhone, Android and PC?",
+        "a": "Yes. It works in any modern browser — nothing to install. On iPhone images save to Photos, on Android to Downloads, and on PC to your chosen folder."
+      },
+      {
+        "q": "Is the {platform} thumbnail downloader free?",
+        "a": "Yes, completely free with no daily limits. Thumbnails are served directly from the source and never stored on our servers."
+      }
+    ],
+    "faqTranscriptItems": [
+      {
+        "q": "How do I get a {platform} transcript?",
+        "a": "Paste the {platform} video link above, choose a language (or leave auto-detect), and click Transcribe. Your AI transcript is ready in seconds."
+      },
+      {
+        "q": "Which transcript formats are supported?",
+        "a": "SRT and VTT for subtitles with timestamps, plain TXT for notes and reading, and structured JSON for developers, analysis and API integration."
+      },
+      {
+        "q": "How accurate is the AI transcription?",
+        "a": "Transcripts are powered by advanced AI speech recognition and reach 99%+ accuracy for clear audio in supported languages."
+      },
+      {
+        "q": "Can I get timestamps in the transcript?",
+        "a": "Yes — SRT and VTT include precise timestamps, and JSON output includes segment-level timing so you can sync subtitles or analyze speech."
+      },
+      {
+        "q": "Which languages are supported?",
+        "a": "50+ languages, from English, Spanish and Arabic to Japanese, Hindi and Swahili — auto-detected from the audio or selected manually."
+      }
+    ],
+    "faqAllItems": [
+      {
+        "q": "Can I download private {platform} videos?",
+        "a": "Our service can only download publicly accessible {platform} content. Private or friends-only videos cannot be accessed due to privacy restrictions."
+      },
+      {
+        "q": "What formats and quality are supported?",
+        "a": "Videos up to 4K as MP4, WebM or MKV; audio as MP3 320kbps, FLAC, AAC, WAV or OGG; thumbnails in JPG, PNG and WebP; and AI transcripts in SRT, VTT, TXT and JSON."
+      },
+      {
+        "q": "Does it work on iPhone, Android and PC?",
+        "a": "Yes — everything runs in your browser. Nothing to install, no sign-up, and files are deleted right after your download."
+      },
+      {
+        "q": "Is it free to use?",
+        "a": "Yes, all tools are free with no daily limits. Pro plans add batch processing, higher quality caps and API access."
+      },
+      {
+        "q": "Is it safe and legal?",
+        "a": "Downloading publicly accessible content for personal offline use is generally permitted. Don't re-upload copyrighted material without the creator's permission — DownForge never stores your files or tracks you."
+      }
     ]
   },
   "VideoOnly": {
@@ -562,7 +666,8 @@
         "value": "Playlists",
         "desc": "Download entire channels and playlists in one click with a Pro plan."
       }
-    ]
+    ],
+    "benefitsLabel": "Key benefits"
   },
   "Formats": {
     "mp4": "MP4",
@@ -3504,5 +3609,111 @@
     "et": "Estonian",
     "lv": "Latvian",
     "lt": "Lithuanian"
+  },
+  "RelatedLinks": {
+    "heading": "More Free Downloaders",
+    "subline": "Every DownForge tool is free, browser-based, and needs no sign-up.",
+    "navLabel": "Related downloader pages",
+    "variantVideoTitle": "{platform} Video Downloader",
+    "variantVideoDesc": "Download {platform} videos in 4K, 1080p & 720p MP4.",
+    "variantAudioTitle": "{platform} to MP3 — Audio",
+    "variantAudioDesc": "Extract {platform} audio as MP3 320kbps, FLAC or AAC.",
+    "variantThumbnailTitle": "{platform} Thumbnail Downloader",
+    "variantThumbnailDesc": "Save {platform} thumbnails in JPG, PNG & WebP HD.",
+    "variantTranscriptTitle": "{platform} Transcript AI",
+    "variantTranscriptDesc": "Generate {platform} transcripts as SRT, VTT & TXT with AI.",
+    "allInOneTitle": "{platform} Downloader — Video, Audio & More",
+    "allInOneDesc": "The all-in-one {platform} page: video, audio, thumbnails and AI transcripts.",
+    "ytVideoHeroTitle": "YouTube Video Downloader",
+    "ytVideoHeroDesc": "Paste any YouTube link and save videos in 4K, 1080p or 720p — free, no sign-up.",
+    "ytAllTitle": "All-in-One YouTube Downloader",
+    "ytAllDesc": "Video, MP3 audio, HD thumbnails and AI transcripts from a single page.",
+    "ytAllShortDesc": "Video, MP3, thumbnails & transcripts from one page.",
+    "ytAllNeedDesc": "Need MP3, thumbnails or transcripts too? The full toolbox for YouTube.",
+    "fbVideoTitle": "Facebook Video Downloader",
+    "fbVideoDesc": "Save Facebook videos, Reels and live streams in HD.",
+    "igVideoTitle": "Instagram Video Downloader",
+    "igVideoDesc": "Download Reels, Stories and IGTV posts in original quality.",
+    "ttVideoTitle": "TikTok Video Downloader",
+    "ttVideoDesc": "Save TikTok videos in HD without the watermark.",
+    "ttVideoNoWmTitle": "TikTok Video Downloader — No Watermark",
+    "ttVideoNoWmDesc": "Save TikTok videos in HD without watermark.",
+    "twVideoTitle": "Twitter / X Video Downloader",
+    "twVideoDesc": "Save X videos and GIFs in HD.",
+    "ytMp3Title": "YouTube to MP3 — 320kbps",
+    "ytMp3Desc": "Convert YouTube videos to MP3, FLAC or AAC instantly.",
+    "ytMp3LongDesc": "Convert YouTube to MP3 320kbps, FLAC & AAC — paste a link.",
+    "ytMp3MediumDesc": "Convert YouTube to MP3 320kbps, FLAC & AAC.",
+    "scMp3Title": "SoundCloud to MP3",
+    "scMp3Desc": "Download SoundCloud tracks as MP3 or FLAC lossless.",
+    "ttMp3Title": "TikTok to MP3",
+    "ttMp3Desc": "Extract audio from TikTok videos in high quality.",
+    "ytThumbTitle": "YouTube Thumbnail HD",
+    "ytThumbDesc": "Save YouTube thumbnails in max resolution JPG/PNG/WebP.",
+    "ytThumbShortDesc": "Save YouTube thumbnails in max resolution.",
+    "igThumbTitle": "Instagram Thumbnail",
+    "igThumbDesc": "Download Instagram post thumbnails in HD.",
+    "ttThumbTitle": "TikTok Thumbnail",
+    "ttThumbDesc": "Save TikTok video covers in full quality.",
+    "ytTranscriptTitle": "YouTube Transcript AI",
+    "ytTranscriptDesc": "SRT, VTT, TXT & JSON transcripts from any YouTube video.",
+    "ytTranscriptShortDesc": "SRT, VTT, TXT & JSON transcripts with timestamps.",
+    "ytTranscriptSrtDesc": "SRT & VTT transcripts with AI.",
+    "vimeoTranscriptTitle": "Vimeo Transcript",
+    "vimeoTranscriptDesc": "Generate accurate AI transcripts for Vimeo videos.",
+    "twitchTranscriptTitle": "Twitch Transcript",
+    "twitchTranscriptDesc": "Transcribe Twitch streams with timestamps.",
+    "ytVideo4kTitle": "YouTube Video Downloader — 4K & HD",
+    "ytVideo4kDesc": "The dedicated video-only downloader for YouTube. Shorts, long videos and clips in up to 4K.",
+    "ytVideo4kShortDesc": "Shorts, long videos and clips in up to 4K.",
+    "fbMp3Title": "Facebook to MP3",
+    "fbMp3Desc": "Extract MP3 320kbps and FLAC from Facebook videos."
+  },
+  "ExploreTools": {
+    "kicker": "Other Tools",
+    "stats": "5 tools • 15 platforms",
+    "heading": "Explore Other {platform} Tools",
+    "subheading": "You are viewing {tool} for {platform}. Try the other {platform} tools or the same tool for other platforms — all free, no sign-up.",
+    "moreToolsHeading": "More {platform} tools",
+    "chipSamePlatform": "same platform, different tool",
+    "chipSameTool": "same tool, other platforms",
+    "otherPlatformsHeading": "{tool} for other platforms",
+    "popularHeading": "Popular tools",
+    "chipPopular": "most searched",
+    "youAreHere": "You are here",
+    "currentPage": "Current page",
+    "open": "Open →",
+    "footnote": "All tools are free, work in your browser, and require no login. Paste a public video URL — works on Android, iPhone & PC.",
+    "specVideo": "4K / HD · MP4",
+    "specAudio": "MP3 · FLAC · AAC",
+    "specThumbnail": "JPG · PNG · WebP",
+    "specTranscript": "SRT · VTT · AI",
+    "tools": {
+      "all": {
+        "label": "All-in-One Downloader",
+        "shortLabel": "All Tools",
+        "desc": "Video, Audio, Thumbnail & Transcript"
+      },
+      "video": {
+        "label": "Video Downloader",
+        "shortLabel": "Video",
+        "desc": "MP4 · 4K / 1080p / 720p"
+      },
+      "audio": {
+        "label": "Audio Downloader",
+        "shortLabel": "Audio",
+        "desc": "MP3 320kbps · FLAC · AAC"
+      },
+      "thumbnail": {
+        "label": "Thumbnail Downloader",
+        "shortLabel": "Thumbnail",
+        "desc": "JPG · PNG · WebP HD"
+      },
+      "transcript": {
+        "label": "Transcript Downloader",
+        "shortLabel": "Transcript",
+        "desc": "SRT · VTT · TXT · JSON AI"
+      }
+    }
   }
 }

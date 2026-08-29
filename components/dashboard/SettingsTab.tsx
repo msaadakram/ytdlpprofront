@@ -1,7 +1,7 @@
 "use client";
 
 import { useState, useEffect } from "react";
-import { User, Lock, Bell, Eye, EyeOff, Loader2, ShieldCheck, Mail } from "lucide-react";
+import { User, Lock, Bell, Eye, EyeOff, Loader2, ShieldCheck, Mail, Settings as SettingsIcon } from "lucide-react";
 import { toast } from "sonner";
 import { useAuth } from "@/lib/auth-context";
 import {
@@ -118,7 +118,7 @@ export function SettingsTab() {
     return (
       <div className="space-y-6 max-w-2xl">
         {[1, 2, 3].map((i) => (
-          <div key={i} className="bg-card rounded-xl border border-border p-4 sm:p-6 animate-pulse"><div className="h-32" /></div>
+          <div key={i} className="bg-card rounded-2xl border border-border/70 p-4 sm:p-6 shadow-[0_1px_2px_rgba(13,31,38,0.04)] animate-pulse"><div className="h-32" /></div>
         ))}
       </div>
     );
@@ -132,10 +132,21 @@ export function SettingsTab() {
   ];
 
   return (
-    <div className="space-y-6 max-w-2xl">
+    <div className="space-y-5 sm:space-y-6 max-w-2xl">
+      {/* Page header */}
+      <div className="flex items-center gap-3 sm:gap-4">
+        <span className="w-11 h-11 rounded-2xl bg-gradient-to-br from-[#5baab8] to-[#3d8896] text-white flex items-center justify-center shadow-[0_10px_24px_-10px_rgba(91,170,184,0.8)] shrink-0">
+          <SettingsIcon className="w-5 h-5" />
+        </span>
+        <div>
+          <h2 className="text-lg sm:text-xl font-extrabold text-foreground font-heading tracking-tight">Settings</h2>
+          <p className="text-xs sm:text-sm text-muted-foreground font-sans">Manage your profile, security and notifications.</p>
+        </div>
+      </div>
+
       {/* Connected Accounts — shows Google linkage status */}
       {profile && (
-        <div className="bg-card rounded-xl border border-border p-4 sm:p-6">
+        <div className="bg-card rounded-2xl border border-border/70 p-4 sm:p-6 shadow-[0_1px_2px_rgba(13,31,38,0.04)]">
           <h3 className="text-sm font-bold text-foreground mb-4 font-heading flex items-center gap-2">
             <ShieldCheck className="w-4 h-4 text-[#5baab8]" /> Connected Accounts
           </h3>
@@ -192,7 +203,7 @@ export function SettingsTab() {
         </div>
       )}
 
-      <div className="bg-card rounded-xl border border-border p-4 sm:p-6">
+      <div className="bg-card rounded-2xl border border-border/70 p-4 sm:p-6 shadow-[0_1px_2px_rgba(13,31,38,0.04)]">
         <h3 className="text-sm font-bold text-foreground mb-4 font-heading flex items-center gap-2">
           <User className="w-4 h-4 text-[#5baab8]" /> Profile
         </h3>
@@ -235,7 +246,7 @@ export function SettingsTab() {
           <button
             onClick={handleSaveProfile}
             disabled={savingProfile}
-            className="flex items-center gap-2 bg-[#0d1f26] text-white text-sm font-semibold px-5 py-2.5 rounded-xl hover:bg-[#1a3545] dark:bg-white dark:text-[#0d1f26] dark:hover:bg-white/90 transition-colors font-sans disabled:opacity-60"
+            className="flex items-center gap-2 bg-gradient-to-br from-[#5baab8] to-[#3d8896] text-white text-sm font-bold px-5 py-2.5 rounded-xl hover:shadow-[0_10px_24px_-10px_rgba(91,170,184,0.9)] active:scale-[0.98] transition-all font-sans disabled:opacity-60"
           >
             {savingProfile && <Loader2 className="w-4 h-4 animate-spin" />}
             Save Changes
@@ -243,7 +254,7 @@ export function SettingsTab() {
         </div>
       </div>
 
-      <div className="bg-card rounded-xl border border-border p-4 sm:p-6">
+      <div className="bg-card rounded-2xl border border-border/70 p-4 sm:p-6 shadow-[0_1px_2px_rgba(13,31,38,0.04)]">
         <h3 className="text-sm font-bold text-foreground mb-4 font-heading flex items-center gap-2">
           <Lock className="w-4 h-4 text-[#5baab8]" /> Security
         </h3>
@@ -290,7 +301,7 @@ export function SettingsTab() {
           <button
             onClick={handleUpdatePassword}
             disabled={savingPw}
-            className="flex items-center gap-2 bg-[#0d1f26] text-white text-sm font-semibold px-5 py-2.5 rounded-xl hover:bg-[#1a3545] dark:bg-white dark:text-[#0d1f26] dark:hover:bg-white/90 transition-colors font-sans disabled:opacity-60"
+            className="flex items-center gap-2 bg-gradient-to-br from-[#5baab8] to-[#3d8896] text-white text-sm font-bold px-5 py-2.5 rounded-xl hover:shadow-[0_10px_24px_-10px_rgba(91,170,184,0.9)] active:scale-[0.98] transition-all font-sans disabled:opacity-60"
           >
             {savingPw && <Loader2 className="w-4 h-4 animate-spin" />}
             {hasPassword ? "Update Password" : "Set Password"}
@@ -298,7 +309,7 @@ export function SettingsTab() {
         </div>
       </div>
 
-      <div className="bg-card rounded-xl border border-border p-4 sm:p-6">
+      <div className="bg-card rounded-2xl border border-border/70 p-4 sm:p-6 shadow-[0_1px_2px_rgba(13,31,38,0.04)]">
         <h3 className="text-sm font-bold text-foreground mb-4 font-heading flex items-center gap-2">
           <Bell className="w-4 h-4 text-[#5baab8]" /> Notifications
         </h3>

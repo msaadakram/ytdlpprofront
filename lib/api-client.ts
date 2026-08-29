@@ -253,6 +253,37 @@ export function triggerDownload(downloadUrl: string, filename?: string) {
   document.body.removeChild(a);
 }
 
+/**
+ * Download a media thumbnail as a file (not open in a new tab).
+ * Thumbnail CDNs are cross-origin, so the `download` attribute on a direct
+ * link is ignored — we route through the same-origin /api/thumbnail proxy,
+ * which streams the image with `Content-Disposition: attachment`.
+ */
+export function downloadThumbnail(thumbnailUrl: string, filename: string) {
+  const safeName = filename.replace(/[^a-zA-Z0-9._-]+/g, "_").slice(0, 120) || "thumbnail.jpg";
+  const a = document.createElement("a");
+  a.href = `/api/thumbnail?url=${encodeURIComponent(thumbnailUrl)}&filename=${encodeURIComponent(safeName)}`;
+  a.download = safeName;
+  document.body.appendChild(a);
+  a.click();
+  document.body.removeChild(a);
+}
+
+/**
+ * Download in-memory text content (e.g. a finished transcript) as a file.
+ */
+export function downloadTextFile(content: string, filename: string, mime = "text/plain;charset=utf-8") {
+  const blob = new Blob([content], { type: mime });
+  const blobUrl = URL.createObjectURL(blob);
+  const a = document.createElement("a");
+  a.href = blobUrl;
+  a.download = filename;
+  document.body.appendChild(a);
+  a.click();
+  document.body.removeChild(a);
+  setTimeout(() => URL.revokeObjectURL(blobUrl), 10_000);
+}
+
 /* ────────────────────────────────────────────────────────────────────────── */
 /* ─── Authenticated dashboard / user / billing API client ────────────────── */
 /* ────────────────────────────────────────────────────────────────────────── */

@@ -12,6 +12,16 @@
     "zh": "中文"
   },
   "Nav": {
+    "exploreMore": "もっと見る",
+    "aboutUs": "私たちについて",
+    "otherDescs": {
+      "about": "私たちのストーリーとミッション",
+      "pricing": "プランと請求",
+      "terms": "利用規約",
+      "privacy": "データとプライバシー",
+      "contact": "ヘルプとサポート",
+      "api": "APIドキュメント"
+    },
     "home": "DownForge",
     "downloadVideo": "動画",
     "downloadAudio": "音声",
@@ -42,6 +52,7 @@
     "openMenu": "メニューを開く"
   },
   "Footer": {
+    "newsletterNote": "スパムなし。いつでも解除できます。",
     "tagline": "200以上のプラットフォームから動画、音声、サムネイルをダウンロード。高速・無料・安全。",
     "copyright": "© 2025 DownForge. All rights reserved.",
     "poweredBy": "Powered by yt-dlp & ffmpeg",
@@ -258,7 +269,8 @@
     "showSegments": "セグメントを表示",
     "transcribeBtn": "文字起こし",
     "paste": "貼り付け",
-    "fileSize": "ファイルサイズ: {size}"
+    "fileSize": "ファイルサイズ: {size}",
+    "clearInput": "URLをクリア"
   },
   "PlatformPage": {
     "breadcrumbHome": "ホーム",
@@ -365,7 +377,8 @@
       "flac": "FLACロスレス",
       "fast": "< 3秒",
       "free": "完全無料",
-      "private": "安全・プライベート"
+      "private": "安全・プライベート",
+      "lossless": "ロスレスFLAC"
     },
     "thumbnailHeading": "{platform}のサムネイルをダウンロード",
     "transcriptHeading": "{platform}の文字起こしを生成",
@@ -480,6 +493,97 @@
         "value": "プレイリスト",
         "desc": "Proでプレイリストやチャンネル全体の文字起こしをワンクリックで生成。"
       }
+    ],
+    "audioHeading": "{platform}をMP3に変換 — 高音質で音声を抽出",
+    "howToAudioName": "{platform}の動画をMP3に変換する方法",
+    "howToAudioDesc": "{platform}の動画を3ステップでMP3・FLAC・AAC・WAV・OGGに変換。リンクを貼り付けて、品質を選んで、ダウンロード — Android・iPhone・PC対応。",
+    "faqAudioItems": [
+      {
+        "q": "{platform}の動画をMP3に変換するには？",
+        "a": "ブラウザや共有メニューから{platform}のリンクをコピーし、上記に貼り付けて、MP3 320kbpsまたはFLACを選び、「MP3に変換」をクリック。数秒で音声が完成します — アプリも登録も不要。"
+      },
+      {
+        "q": "320kbpsとFLAC、どちらの音質が最適？",
+        "a": "MP3 320kbpsが万能な選択：高音質・小サイズ（約2.4MB/分）でどこでも再生可能。アーカイブ、DJ、音楽制作など細部が重要な用途にはロスレスFLAC（約8MB/分）を。"
+      },
+      {
+        "q": "iPhoneやAndroidで{platform}をMP3に変換できますか？",
+        "a": "はい。このページをSafari（iPhone）またはChrome（Android）で開き、リンクを貼り付けてMP3またはFLACを選んでダウンロード。iPhoneは「ファイル」アプリ、Androidは「ダウンロード」に保存され、任意のプレーヤーで再生できます。"
+      },
+      {
+        "q": "{platform}をMP3に変換するのは安全・合法ですか？",
+        "a": "公開されている{platform}のコンテンツを個人的なオフライン視聴用に変換するのは一般に認められています。クリエイターの許可なく著作権で保護された楽曲を再アップロードしないでください。DownForgeはファイルを一時的に処理し、ダウンロード後すぐに削除 — 保存も追跡もありません。"
+      },
+      {
+        "q": "{platform}からMP3への変換にはどのくらいかかりますか？",
+        "a": "ほとんどの楽曲は10秒以内に完了します。長いVODやプレイリストは30〜60秒かかる場合があります。Proユーザーは混雑時も優先処理されます。"
+      }
+    ],
+    "faqThumbnailItems": [
+      {
+        "q": "{platform}のサムネイルをダウンロードするには？",
+        "a": "上記に{platform}の動画または投稿のリンクを貼り付けて「サムネイルを取得」をクリック。元の解像度のまま画像を取得 — アプリ不要・登録不要・保存なし。"
+      },
+      {
+        "q": "{platform}サムネイルの解像度は？",
+        "a": "利用可能な最高解像度 — フルHD 1920×1080またはソース元のオリジナル品質で取得。カバー・プレビュー・参考資料に最適。"
+      },
+      {
+        "q": "JPG・PNG・WebP、どの形式を選ぶべき？",
+        "a": "共有や小サイズにはJPG、ロスレス品質や透明性にはPNG、Webでの最高圧縮にはWebPが最適です。"
+      },
+      {
+        "q": "iPhone・Android・PCで使えますか？",
+        "a": "はい。最新のブラウザがあれば動作します — インストール不要。iPhoneは「写真」、Androidは「ダウンロード」、PCは任意のフォルダに保存されます。"
+      },
+      {
+        "q": "{platform}サムネイルダウンローダーは無料ですか？",
+        "a": "はい、完全無料で1日の制限もありません。サムネイルはソース元から直接取得され、当社のサーバーには保存されません。"
+      }
+    ],
+    "faqTranscriptItems": [
+      {
+        "q": "{platform}の文字起こしを取得するには？",
+        "a": "上記に{platform}の動画リンクを貼り付け、言語を選択（または自動検出）して「文字起こし」をクリック。AI文字起こしは数秒で完成します。"
+      },
+      {
+        "q": "対応する文字起こし形式は？",
+        "a": "タイムスタンプ付き字幕のSRT・VTT、メモや閲覧用のプレーンTXT、開発者・分析・API連携用の構造化JSON。"
+      },
+      {
+        "q": "AI文字起こしの精度は？",
+        "a": "高度なAI音声認識を使用し、対応言語のクリアな音声で99%+の精度を達成します。"
+      },
+      {
+        "q": "文字起こしにタイムスタンプは付きますか？",
+        "a": "はい — SRTとVTTには正確なタイムスタンプが含まれ、JSON出力にはセグメント単位のタイミングが含まれるため、字幕の同期や発話の分析が可能です。"
+      },
+      {
+        "q": "対応言語は？",
+        "a": "英語・スペイン語・アラビア語から日本語・ヒンディー語・スワヒリ語まで50以上の言語に対応 — 音声から自動検出または手動選択できます。"
+      }
+    ],
+    "faqAllItems": [
+      {
+        "q": "{platform}の非公開動画はダウンロードできますか？",
+        "a": "本サービスでダウンロードできるのは公開されている{platform}のコンテンツのみです。非公開・友達限定の動画はプライバシー設定により取得できません。"
+      },
+      {
+        "q": "対応する形式と画質は？",
+        "a": "動画は最大4K（MP4・WebM・MKV）、音声はMP3 320kbps・FLAC・AAC・WAV・OGG、サムネイルはJPG・PNG・WebP、AI文字起こしはSRT・VTT・TXT・JSONに対応。"
+      },
+      {
+        "q": "iPhone・Android・PCで使えますか？",
+        "a": "はい — すべてブラウザで動作します。インストール不要・登録不要で、ダウンロード後すぐにファイルは削除されます。"
+      },
+      {
+        "q": "無料で使えますか？",
+        "a": "はい、すべてのツールが無料で1日の制限もありません。Proプランでは一括処理、より高い品質、APIアクセスが追加されます。"
+      },
+      {
+        "q": "安全・合法ですか？",
+        "a": "公開されているコンテンツを個人的なオフライン利用のためにダウンロードするのは一般に認められています。クリエイターの許可なく著作権で保護された素材を再アップロードしないでください — DownForgeはファイルを保存せず、追跡も行いません。"
+      }
     ]
   },
   "VideoOnly": {
@@ -530,7 +634,8 @@
         "value": "プレイリスト",
         "desc": "Proでチャンネルやプレイリスト全体をワンクリックでダウンロード。"
       }
-    ]
+    ],
+    "benefitsLabel": "主なメリット"
   },
   "Formats": {
     "mp4": "MP4",
@@ -3403,5 +3508,111 @@
     "jobsQueued": "待機 {count}",
     "monitoringNote": "メトリクスはサーバーの再起動でリセットされます。",
     "allSystemsOperational": "すべてのシステムが正常に稼働中"
+  },
+  "RelatedLinks": {
+    "heading": "その他の無料ダウンローダー",
+    "subline": "DownForgeのツールはすべて無料・ブラウザで動作・登録不要です。",
+    "navLabel": "関連ダウンロードページ",
+    "variantVideoTitle": "{platform}動画ダウンローダー",
+    "variantVideoDesc": "{platform}の動画をMP4で4K・1080p・720pにダウンロード。",
+    "variantAudioTitle": "{platform}をMP3に — 音声",
+    "variantAudioDesc": "{platform}の音声をMP3 320kbps・FLAC・AACで抽出。",
+    "variantThumbnailTitle": "{platform}サムネイルダウンローダー",
+    "variantThumbnailDesc": "{platform}のサムネイルをJPG・PNG・WebP HDで保存。",
+    "variantTranscriptTitle": "{platform}文字起こしAI",
+    "variantTranscriptDesc": "{platform}の文字起こしをSRT・VTT・TXTでAIが生成。",
+    "allInOneTitle": "{platform}オールインワンダウンローダー",
+    "allInOneDesc": "{platform}のオールインワンページ：動画・音声・サムネイル・AI文字起こし。",
+    "ytVideoHeroTitle": "YouTube動画ダウンローダー",
+    "ytVideoHeroDesc": "YouTubeのリンクを貼り付けるだけで、動画を4K・1080p・720pで保存。無料・登録不要。",
+    "ytAllTitle": "YouTubeオールインワンダウンローダー",
+    "ytAllDesc": "動画・MP3音声・HDサムネイル・AI文字起こしを1ページで。",
+    "ytAllShortDesc": "動画・MP3・サムネイル・文字起こしを1ページで。",
+    "ytAllNeedDesc": "MP3・サムネイル・文字起こしも必要ですか？YouTubeの完全ツールボックス。",
+    "fbVideoTitle": "Facebook動画ダウンローダー",
+    "fbVideoDesc": "Facebookの動画・リール・ライブ配信をHDで保存。",
+    "igVideoTitle": "Instagram動画ダウンローダー",
+    "igVideoDesc": "リール・ストーリーズ・IGTV投稿を元の品質でダウンロード。",
+    "ttVideoTitle": "TikTok動画ダウンローダー",
+    "ttVideoDesc": "TikTokの動画をHD・透かしなしで保存。",
+    "ttVideoNoWmTitle": "TikTokダウンローダー — 透かしなし",
+    "ttVideoNoWmDesc": "TikTokの動画をHD・透かしなしで保存。",
+    "twVideoTitle": "Twitter / X動画ダウンローダー",
+    "twVideoDesc": "Xの動画やGIFをHDで保存。",
+    "ytMp3Title": "YouTubeをMP3に — 320kbps",
+    "ytMp3Desc": "YouTubeの動画をMP3・FLAC・AACに即変換。",
+    "ytMp3LongDesc": "YouTubeをMP3 320kbps・FLAC・AACに変換 — リンクを貼り付けるだけ。",
+    "ytMp3MediumDesc": "YouTubeをMP3 320kbps・FLAC・AACに変換。",
+    "scMp3Title": "SoundCloudをMP3に",
+    "scMp3Desc": "SoundCloudの楽曲をMP3またはロスレスFLACでダウンロード。",
+    "ttMp3Title": "TikTokをMP3に",
+    "ttMp3Desc": "TikTok動画から高音質で音声を抽出。",
+    "ytThumbTitle": "YouTubeサムネイルHD",
+    "ytThumbDesc": "YouTubeのサムネイルを最高解像度（JPG/PNG/WebP）で保存。",
+    "ytThumbShortDesc": "YouTubeのサムネイルを最高解像度で保存。",
+    "igThumbTitle": "Instagramサムネイル",
+    "igThumbDesc": "Instagram投稿のサムネイルをHDでダウンロード。",
+    "ttThumbTitle": "TikTokサムネイル",
+    "ttThumbDesc": "TikTok動画のカバーをフル品質で保存。",
+    "ytTranscriptTitle": "YouTube文字起こしAI",
+    "ytTranscriptDesc": "あらゆるYouTube動画からSRT・VTT・TXT・JSONの文字起こし。",
+    "ytTranscriptShortDesc": "タイムスタンプ付きSRT・VTT・TXT・JSON文字起こし。",
+    "ytTranscriptSrtDesc": "AIによるSRT・VTT文字起こし。",
+    "vimeoTranscriptTitle": "Vimeo文字起こし",
+    "vimeoTranscriptDesc": "Vimeo動画の高精度AI文字起こしを生成。",
+    "twitchTranscriptTitle": "Twitch文字起こし",
+    "twitchTranscriptDesc": "Twitch配信をタイムスタンプ付きで文字起こし。",
+    "ytVideo4kTitle": "YouTube動画ダウンローダー — 4K・HD",
+    "ytVideo4kDesc": "YouTube専用の動画ダウンローダー。ショート・長編動画・クリップを最大4Kで。",
+    "ytVideo4kShortDesc": "ショート・長編動画・クリップを最大4Kで。",
+    "fbMp3Title": "FacebookをMP3に",
+    "fbMp3Desc": "Facebook動画からMP3 320kbpsとFLACを抽出。"
+  },
+  "ExploreTools": {
+    "kicker": "その他のツール",
+    "stats": "5ツール • 15プラットフォーム",
+    "heading": "その他の{platform}ツール",
+    "subheading": "{platform}の{tool}を表示中。他の{platform}ツールや、同じツールの他プラットフォーム版もお試しください — すべて無料・登録不要。",
+    "moreToolsHeading": "他の{platform}ツール",
+    "chipSamePlatform": "同じプラットフォーム、別のツール",
+    "chipSameTool": "同じツール、別のプラットフォーム",
+    "otherPlatformsHeading": "他プラットフォームの{tool}",
+    "popularHeading": "人気のツール",
+    "chipPopular": "検索回数最多",
+    "youAreHere": "現在位置",
+    "currentPage": "現在のページ",
+    "open": "開く →",
+    "footnote": "すべてのツールは無料でブラウザで動作し、ログイン不要。公開動画のURLを貼り付けるだけ — Android・iPhone・PC対応。",
+    "specVideo": "4K / HD · MP4",
+    "specAudio": "MP3 · FLAC · AAC",
+    "specThumbnail": "JPG · PNG · WebP",
+    "specTranscript": "SRT · VTT · AI",
+    "tools": {
+      "all": {
+        "label": "オールインワンダウンローダー",
+        "shortLabel": "すべて",
+        "desc": "動画・音声・サムネイル・文字起こし"
+      },
+      "video": {
+        "label": "動画ダウンローダー",
+        "shortLabel": "動画",
+        "desc": "MP4 · 4K / 1080p / 720p"
+      },
+      "audio": {
+        "label": "音声ダウンローダー",
+        "shortLabel": "音声",
+        "desc": "MP3 320kbps · FLAC · AAC"
+      },
+      "thumbnail": {
+        "label": "サムネイルダウンローダー",
+        "shortLabel": "サムネ",
+        "desc": "JPG · PNG · WebP HD"
+      },
+      "transcript": {
+        "label": "文字起こしダウンローダー",
+        "shortLabel": "文字起こし",
+        "desc": "SRT · VTT · TXT · JSON AI"
+      }
+    }
   }
 }

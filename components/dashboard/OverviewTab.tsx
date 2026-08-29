@@ -4,7 +4,7 @@ import { useState, useEffect } from "react";
 import {
   AreaChart, Area, XAxis, YAxis, CartesianGrid, Tooltip, ResponsiveContainer,
 } from "recharts";
-import { Download, Zap, Shield, Globe, ArrowUpRight, ArrowDownRight, Tablet, Smartphone, Monitor } from "lucide-react";
+import { Download, Zap, Shield, Globe, ArrowUpRight, ArrowDownRight, Tablet, Smartphone, Monitor, BarChart2, Activity } from "lucide-react";
 import { getOverview, getTimeseries, getRecentDownloads } from "@/lib/api-client";
 import type { DashboardOverview, TimeseriesBucket, DownloadRow } from "@/lib/api-client";
 import { formatBytes } from "@/lib/constants";
@@ -14,18 +14,23 @@ function StatCard({ icon: Icon, label, value, trend, positive }: {
   icon: typeof Download; label: string; value: string; trend: string; positive: boolean;
 }) {
   return (
-    <div className="bg-card rounded-xl border border-border p-3.5 sm:p-5">
-      <div className="flex items-center justify-between mb-3">
-        <div className="w-9 h-9 sm:w-10 sm:h-10 rounded-lg bg-[#5baab8]/15 flex items-center justify-center">
-          <Icon className="w-4 h-4 sm:w-5 sm:h-5 text-[#5baab8]" />
-        </div>
-        <span className={`flex items-center gap-1 text-xs font-medium ${positive ? "text-green-600 dark:text-green-400" : "text-red-500 dark:text-red-400"}`}>
+    <div className="group relative overflow-hidden bg-card rounded-2xl border border-border/70 p-3.5 sm:p-5 shadow-[0_1px_2px_rgba(13,31,38,0.04)] transition-all duration-300 hover:-translate-y-0.5 hover:shadow-[0_16px_36px_-20px_rgba(13,31,38,0.28)] hover:border-[#5baab8]/30">
+      <div aria-hidden className="absolute -right-8 -top-8 w-24 h-24 rounded-full bg-[#5baab8]/[0.07] blur-2xl opacity-0 group-hover:opacity-100 transition-opacity duration-500" />
+      <div className="relative flex items-center justify-between mb-3">
+        <span className="w-9 h-9 sm:w-10 sm:h-10 rounded-xl bg-gradient-to-br from-[#5baab8]/20 to-[#5baab8]/5 ring-1 ring-[#5baab8]/25 flex items-center justify-center">
+          <Icon className="w-4 h-4 sm:w-[18px] sm:h-[18px] text-[#5baab8]" />
+        </span>
+        <span className={`flex items-center gap-1 text-[11px] font-bold px-2 py-0.5 rounded-full ${
+          positive
+            ? "text-green-700 bg-green-500/10 dark:text-green-400"
+            : "text-red-600 bg-red-500/10 dark:text-red-400"
+        }`}>
           {positive ? <ArrowUpRight className="w-3 h-3" /> : <ArrowDownRight className="w-3 h-3" />}
           {trend}
         </span>
       </div>
-      <p className="text-xl sm:text-2xl font-extrabold text-foreground font-heading truncate">{value}</p>
-      <p className="text-xs text-muted-foreground font-sans truncate">{label}</p>
+      <p className="relative text-xl sm:text-[26px] sm:leading-tight font-extrabold text-foreground font-heading truncate">{value}</p>
+      <p className="relative text-xs text-muted-foreground font-sans truncate">{label}</p>
     </div>
   );
 }
@@ -124,13 +129,13 @@ export function OverviewTab() {
       <div className="space-y-6">
         <div className="grid grid-cols-2 lg:grid-cols-4 gap-3 sm:gap-4">
           {[1, 2, 3, 4].map((i) => (
-            <div key={i} className="bg-card rounded-xl border border-border p-4 sm:p-5 animate-pulse">
+            <div key={i} className="bg-card rounded-2xl border border-border/70 p-4 sm:p-5 animate-pulse shadow-[0_1px_2px_rgba(13,31,38,0.04)]">
               <div className="h-20" />
             </div>
           ))}
         </div>
         {[1, 2].map((i) => (
-          <div key={i} className="bg-card rounded-xl border border-border p-5 sm:p-6 animate-pulse">
+          <div key={i} className="bg-card rounded-2xl border border-border/70 p-5 sm:p-6 animate-pulse shadow-[0_1px_2px_rgba(13,31,38,0.04)]">
             <div className="h-48" />
           </div>
         ))}
@@ -142,7 +147,18 @@ export function OverviewTab() {
   const totalCalls = timeseries.reduce((sum, b) => sum + b.calls, 0);
 
   return (
-    <div className="space-y-6">
+    <div className="space-y-5 sm:space-y-6">
+      {/* Page header */}
+      <div className="flex items-center gap-3 sm:gap-4">
+        <span className="w-11 h-11 rounded-2xl bg-gradient-to-br from-[#5baab8] to-[#3d8896] text-white flex items-center justify-center shadow-[0_10px_24px_-10px_rgba(91,170,184,0.8)]">
+          <Activity className="w-5 h-5" />
+        </span>
+        <div>
+          <h2 className="text-lg sm:text-xl font-extrabold text-foreground font-heading tracking-tight">Overview</h2>
+          <p className="text-xs sm:text-sm text-muted-foreground font-sans">Your download activity and API usage at a glance.</p>
+        </div>
+      </div>
+
       <div className="grid grid-cols-2 lg:grid-cols-4 gap-3 sm:gap-4">
         <StatCard
           icon={Download}
@@ -174,9 +190,12 @@ export function OverviewTab() {
         />
       </div>
 
-      <div className="bg-card rounded-xl border border-border p-3.5 sm:p-6 min-w-0">
+      <div className="bg-card rounded-2xl border border-border/70 p-4 sm:p-6 min-w-0 shadow-[0_1px_2px_rgba(13,31,38,0.04)]">
         <div className="flex flex-wrap items-center justify-between gap-x-3 gap-y-2 mb-4 sm:mb-6">
           <div className="flex items-center gap-2.5 min-w-0">
+            <span className="w-8 h-8 rounded-xl bg-gradient-to-br from-[#5baab8]/20 to-[#5baab8]/5 ring-1 ring-[#5baab8]/25 hidden sm:flex items-center justify-center">
+              <BarChart2 className="w-4 h-4 text-[#5baab8]" />
+            </span>
             <span className="relative flex w-2 h-2 shrink-0" aria-hidden>
               <span className="absolute inline-flex w-full h-full rounded-full bg-[#5baab8] opacity-60 animate-ping" />
               <span className="relative inline-flex w-2 h-2 rounded-full bg-[#5baab8]" />
@@ -252,10 +271,10 @@ export function OverviewTab() {
         )}
       </div>
 
-      <div className="bg-card rounded-xl border border-border p-4 sm:p-6">
+      <div className="bg-card rounded-2xl border border-border/70 p-4 sm:p-6 shadow-[0_1px_2px_rgba(13,31,38,0.04)]">
         <div className="flex items-center justify-between mb-4">
           <h3 className="text-sm font-bold text-foreground font-heading">Recent Downloads</h3>
-          <span className="text-xs text-muted-foreground font-sans">Last 24 hours</span>
+          <span className="text-xs font-medium text-muted-foreground font-sans px-2.5 py-1 rounded-full bg-muted/70">Last 24 hours</span>
         </div>
         {recent.length === 0 ? (
           <EmptyState />
@@ -264,12 +283,15 @@ export function OverviewTab() {
             {/* Mobile card layout */}
             <div className="block sm:hidden">
               {recent.map((dl) => (
-                <div key={dl.id} className="bg-muted/30 rounded-xl p-4 border border-border/50">
-                  <div className="flex items-center justify-between mb-2">
-                    <p className="text-sm font-medium text-foreground font-sans truncate pr-2">{dl.title || dl.filename || "Untitled"}</p>
-                    <span className={`text-xs font-medium px-2 py-0.5 rounded-full font-sans shrink-0 ${
-                      dl.status === "completed" ? "bg-green-100 text-green-700 dark:bg-green-500/15 dark:text-green-400" : "bg-red-100 text-red-700 dark:bg-red-500/15 dark:text-red-400"
-                    }`}>{dl.status === "completed" ? "Completed" : "Failed"}</span>
+                <div key={dl.id} className="bg-muted/30 rounded-xl p-4 border border-border/50 transition-colors hover:border-[#5baab8]/30">
+                  <div className="flex items-center justify-between mb-2.5 gap-2">
+                    <p className="text-sm font-semibold text-foreground font-sans truncate pr-2">{dl.title || dl.filename || "Untitled"}</p>
+                    <span className={`flex items-center gap-1.5 text-[11px] font-semibold px-2 py-0.5 rounded-full font-sans shrink-0 ${
+                      dl.status === "completed" ? "bg-green-500/10 text-green-700 dark:text-green-400" : "bg-red-500/10 text-red-700 dark:text-red-400"
+                    }`}>
+                      <span className={`w-1.5 h-1.5 rounded-full ${dl.status === "completed" ? "bg-green-500" : "bg-red-500"}`} />
+                      {dl.status === "completed" ? "Completed" : "Failed"}
+                    </span>
                   </div>
                   <div className="grid grid-cols-2 gap-2 text-xs text-muted-foreground font-sans">
                     <div><span className="font-medium">Platform:</span> <span className="capitalize">{dl.platform}</span></div>
@@ -284,23 +306,25 @@ export function OverviewTab() {
               <table className="w-full min-w-[480px] text-sm">
                 <thead>
                   <tr className="border-b border-border">
-                    <th className="text-left pb-3 text-xs font-semibold text-muted-foreground font-mono">File</th>
-                    <th className="text-left pb-3 text-xs font-semibold text-muted-foreground font-mono">Platform</th>
-                    <th className="text-left pb-3 text-xs font-semibold text-muted-foreground font-mono">Status</th>
-                    <th className="text-left pb-3 text-xs font-semibold text-muted-foreground font-mono">Size</th>
-                    <th className="text-right pb-3 text-xs font-semibold text-muted-foreground font-mono">Time</th>
+                    <th className="text-left pb-3 text-[11px] font-bold text-muted-foreground/80 font-mono uppercase tracking-wider">File</th>
+                    <th className="text-left pb-3 text-[11px] font-bold text-muted-foreground/80 font-mono uppercase tracking-wider">Platform</th>
+                    <th className="text-left pb-3 text-[11px] font-bold text-muted-foreground/80 font-mono uppercase tracking-wider">Status</th>
+                    <th className="text-left pb-3 text-[11px] font-bold text-muted-foreground/80 font-mono uppercase tracking-wider">Size</th>
+                    <th className="text-right pb-3 text-[11px] font-bold text-muted-foreground/80 font-mono uppercase tracking-wider">Time</th>
                   </tr>
                 </thead>
                 <tbody>
                   {recent.map((dl) => (
-                    <tr key={dl.id} className="border-b border-border/50 last:border-0">
-                      <td className="py-3 text-sm text-foreground font-sans">{dl.title || dl.filename || "Untitled"}</td>
+                    <tr key={dl.id} className="border-b border-border/50 last:border-0 transition-colors hover:bg-muted/40">
+                      <td className="py-3 text-sm text-foreground font-sans font-medium">{dl.title || dl.filename || "Untitled"}</td>
                       <td className="py-3 text-sm text-muted-foreground font-sans capitalize">{dl.platform}</td>
                       <td className="py-3">
-                        <span className={`text-xs font-medium px-2 py-0.5 rounded-full font-sans ${
-                          dl.status === "completed" ? "bg-green-100 text-green-700 dark:bg-green-500/15 dark:text-green-400" :
-                          "bg-red-100 text-red-700 dark:bg-red-500/15 dark:text-red-400"
-                        }`}>{dl.status === "completed" ? "Completed" : "Failed"}</span>
+                        <span className={`inline-flex items-center gap-1.5 text-xs font-semibold px-2 py-0.5 rounded-full font-sans ${
+                          dl.status === "completed" ? "bg-green-500/10 text-green-700 dark:text-green-400" : "bg-red-500/10 text-red-700 dark:text-red-400"
+                        }`}>
+                          <span className={`w-1.5 h-1.5 rounded-full ${dl.status === "completed" ? "bg-green-500" : "bg-red-500"}`} />
+                          {dl.status === "completed" ? "Completed" : "Failed"}
+                        </span>
                       </td>
                       <td className="py-3 text-sm text-muted-foreground font-sans">{dl.size > 0 ? formatBytes(dl.size) : "—"}</td>
                       <td className="py-3 text-sm text-muted-foreground text-right font-sans">{formatRelativeTime(dl.created_at)}</td>

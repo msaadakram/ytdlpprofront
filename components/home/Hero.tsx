@@ -10,6 +10,7 @@ import {
 import type { DownloadType } from "@/lib/constants";
 import { platforms } from "@/lib/constants";
 import { useDownloader } from "@/lib/useDownloader";
+import { VideoPreview } from "@/components/youtube-download/VideoPreview";
 
 function formatBytes(bytes: number): string {
   if (!bytes || bytes <= 0) return "";
@@ -283,6 +284,22 @@ export function Hero() {
                   </AnimatePresence>
                 </motion.button>
               </div>
+
+              {/* Link details — video card (thumbnail, title, channel, stats) */}
+              <AnimatePresence mode="wait">
+                {mediaInfo && !processing && !done && (
+                  <motion.div
+                    key="preview"
+                    initial={{ opacity: 0, y: 12 }}
+                    animate={{ opacity: 1, y: 0 }}
+                    exit={{ opacity: 0, y: -8 }}
+                    transition={{ duration: 0.35 }}
+                  >
+                    <div className="h-px bg-border my-4" />
+                    <VideoPreview info={mediaInfo} />
+                  </motion.div>
+                )}
+              </AnimatePresence>
 
               {infoError && !mediaInfo && !fetchingInfo && url.trim() && (
                 <motion.p

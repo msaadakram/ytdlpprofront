@@ -8,7 +8,7 @@ import { useTranslations } from "next-intl";
 const iconMap = [MonitorPlay, Zap, Shield, Globe, Star, Copy] as const;
 
 export function VideoFeatures({ platform }: { platform: string }) {
-  const config = usePlatformTranslations(platform);
+  const config = usePlatformTranslations(platform, "video");
   const brandColor = config.brandColor;
   const t = useTranslations("VideoOnly");
   const rawStats = (() => {

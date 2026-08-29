@@ -11,7 +11,7 @@ import { useDownloader } from "@/lib/useDownloader";
 import { useTranslations } from "next-intl";
 
 export function VideoOnlyHero({ platform = "youtube" }: { platform?: string }) {
-  const config = usePlatformTranslations(platform);
+  const config = usePlatformTranslations(platform, "video");
   const brandColor = config.brandColor;
   const Logo = config.Logo;
   const InputIcon = config.inputIcon;
@@ -55,6 +55,13 @@ export function VideoOnlyHero({ platform = "youtube" }: { platform?: string }) {
     { icon: MonitorPlay, label: t("trustQuality") },
     { icon: Lock, label: t("trustPrivate") },
   ];
+
+  // Video-only subheading — VideoOnly.subheading is purpose-written for the
+  // video downloader page and translated in every locale; fall back to the
+  // per-platform copy only if the namespace key is ever removed.
+  const subheading = t.has("subheading")
+    ? t("subheading")
+    : config.subheading;
 
   return (
     <section className="pt-24 pb-16 md:pt-32 md:pb-20 px-4 sm:px-6 relative overflow-hidden">
@@ -116,7 +123,7 @@ export function VideoOnlyHero({ platform = "youtube" }: { platform?: string }) {
           animate={{ opacity: 1, y: 0 }}
           transition={{ delay: 0.25, duration: 0.6 }}
         >
-          {config.subheading}
+          {subheading}
         </motion.p>
 
         <motion.div
@@ -155,7 +162,7 @@ export function VideoOnlyHero({ platform = "youtube" }: { platform?: string }) {
                 />
               </div>
               {url && (
-                <button onClick={() => handleUrlChange("")} aria-label="Clear URL" className="text-muted-foreground hover:text-foreground transition-colors shrink-0">
+                <button onClick={() => handleUrlChange("")} aria-label={st("clearInput")} className="text-muted-foreground hover:text-foreground transition-colors shrink-0">
                   <X className="w-3.5 h-3.5" />
                 </button>
               )}
@@ -205,7 +212,7 @@ export function VideoOnlyHero({ platform = "youtube" }: { platform?: string }) {
             </motion.button>
           </div>
 
-          <ul className="flex flex-wrap items-center justify-center gap-x-5 gap-y-2 mt-4" aria-label="Key benefits">
+          <ul className="flex flex-wrap items-center justify-center gap-x-5 gap-y-2 mt-4" aria-label={t("benefitsLabel")}>
             {trustChips.map(({ icon: Icon, label }) => (
               <li key={label} className="inline-flex items-center gap-1.5 text-[11px] sm:text-xs font-medium text-muted-foreground font-sans">
                 <Icon className="w-3.5 h-3.5" style={{ color: brandColor }} aria-hidden />

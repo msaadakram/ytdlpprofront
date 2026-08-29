@@ -12,6 +12,16 @@
     "zh": "中文"
   },
   "Nav": {
+    "exploreMore": "Explorar más",
+    "aboutUs": "Sobre nosotros",
+    "otherDescs": {
+      "about": "Nuestra historia y misión",
+      "pricing": "Planes y facturación",
+      "terms": "Términos del servicio",
+      "privacy": "Datos y privacidad",
+      "contact": "Ayuda y soporte",
+      "api": "Documentación de la API"
+    },
     "home": "DownForge",
     "downloadVideo": "Video",
     "downloadAudio": "Audio",
@@ -42,6 +52,7 @@
     "openMenu": "Abrir menú"
   },
   "Footer": {
+    "newsletterNote": "Sin spam, date de baja cuando quieras.",
     "tagline": "Descarga cualquier video, audio o miniatura de más de 200 plataformas. Rápido, gratis y seguro.",
     "copyright": "© 2025 DownForge. Todos los derechos reservados.",
     "poweredBy": "Desarrollado con yt-dlp y ffmpeg",
@@ -258,7 +269,8 @@
     "showSegments": "Mostrar segmentos",
     "transcribeBtn": "Transcribir",
     "paste": "Pegar",
-    "fileSize": "Tamaño del archivo: {size}"
+    "fileSize": "Tamaño del archivo: {size}",
+    "clearInput": "Borrar URL"
   },
   "PlatformPage": {
     "breadcrumbHome": "Inicio",
@@ -365,7 +377,8 @@
       "flac": "FLAC sin pérdida",
       "fast": "< 3s",
       "free": "100% Gratis",
-      "private": "Privado y seguro"
+      "private": "Privado y seguro",
+      "lossless": "FLAC Sin Pérdida"
     },
     "thumbnailHeading": "Descargar Miniaturas de {platform}",
     "transcriptHeading": "Generar Transcripciones de {platform}",
@@ -480,6 +493,97 @@
         "value": "Listas",
         "desc": "Genera transcripciones para listas completas con un clic (Pro)."
       }
+    ],
+    "audioHeading": "Convertidor de {platform} a MP3 — Extrae Audio de Alta Calidad",
+    "howToAudioName": "Cómo convertir video de {platform} a MP3",
+    "howToAudioDesc": "Convierte videos de {platform} a MP3, FLAC, AAC, WAV u OGG en 3 pasos. Pega un enlace, elige la calidad y descarga — funciona en Android, iPhone y PC.",
+    "faqAudioItems": [
+      {
+        "q": "¿Cómo convierto un video de {platform} a MP3?",
+        "a": "Copia el enlace de {platform} desde tu navegador o menú compartir, pégalo arriba, elige MP3 320kbps o FLAC y haz clic en Convertir a MP3. Tu audio estará listo en segundos — sin app ni registro."
+      },
+      {
+        "q": "¿Qué calidad de audio es mejor — 320kbps o FLAC?",
+        "a": "MP3 320kbps es la mejor opción universal: alta calidad, archivo pequeño (~2,4 MB/min) y compatible con todo. Elige FLAC sin pérdida (~8 MB/min) para archivar, hacer DJ o producir música, donde cada detalle importa."
+      },
+      {
+        "q": "¿Puedo convertir {platform} a MP3 en iPhone o Android?",
+        "a": "Sí. Abre esta página en Safari (iPhone) o Chrome (Android), pega el enlace, elige MP3 o FLAC y descarga. En iPhone los archivos se guardan en la app Archivos; en Android en Descargas — luego ábrelos en cualquier reproductor."
+      },
+      {
+        "q": "¿Es seguro y legal convertir {platform} a MP3?",
+        "a": "Convertir contenido de {platform} de acceso público para escucharlo sin conexión generalmente está permitido. No vuelvas a subir pistas con derechos de autor sin permiso del creador. DownForge procesa los archivos de forma efímera y los elimina tras tu descarga — sin almacenamiento ni rastreo."
+      },
+      {
+        "q": "¿Cuánto tarda la conversión de {platform} a MP3?",
+        "a": "La mayoría de las pistas se completan en menos de 10 segundos. Los VOD largos o las listas pueden tardar 30–60 segundos. Los usuarios Pro obtienen procesamiento prioritario en horas pico."
+      }
+    ],
+    "faqThumbnailItems": [
+      {
+        "q": "¿Cómo descargo una miniatura de {platform}?",
+        "a": "Pega el enlace del video o publicación de {platform} arriba y haz clic en Obtener miniatura. La imagen se obtiene en su resolución original — sin app, sin registro, sin almacenamiento."
+      },
+      {
+        "q": "¿Qué resolución tienen las miniaturas de {platform}?",
+        "a": "Obtienes la resolución más alta disponible — hasta Full HD 1920×1080 o la calidad original de la fuente, listas para portadas, vistas previas y referencias."
+      },
+      {
+        "q": "¿Qué formato debo elegir — JPG, PNG o WebP?",
+        "a": "JPG es ideal para compartir y archivos más pequeños, PNG para calidad sin pérdida y transparencia, y WebP para la mejor compresión en la web."
+      },
+      {
+        "q": "¿Funciona en iPhone, Android y PC?",
+        "a": "Sí. Funciona en cualquier navegador moderno — nada que instalar. En iPhone las imágenes se guardan en Fotos, en Android en Descargas y en PC en la carpeta que elijas."
+      },
+      {
+        "q": "¿Es gratis el descargador de miniaturas de {platform}?",
+        "a": "Sí, completamente gratis y sin límites diarios. Las miniaturas se sirven directamente de la fuente y nunca se almacenan en nuestros servidores."
+      }
+    ],
+    "faqTranscriptItems": [
+      {
+        "q": "¿Cómo obtengo una transcripción de {platform}?",
+        "a": "Pega el enlace del video de {platform} arriba, elige un idioma (o deja la detección automática) y haz clic en Transcribir. Tu transcripción IA estará lista en segundos."
+      },
+      {
+        "q": "¿Qué formatos de transcripción son compatibles?",
+        "a": "SRT y VTT para subtítulos con marcas de tiempo, TXT plano para notas y lectura, y JSON estructurado para desarrolladores, análisis e integración con API."
+      },
+      {
+        "q": "¿Qué tan precisa es la transcripción IA?",
+        "a": "Las transcripciones usan reconocimiento de voz con IA avanzada y alcanzan una precisión del 99%+ para audio claro en los idiomas compatibles."
+      },
+      {
+        "q": "¿Puedo obtener marcas de tiempo en la transcripción?",
+        "a": "Sí — SRT y VTT incluyen marcas de tiempo precisas, y la salida JSON incluye tiempos por segmento para sincronizar subtítulos o analizar el discurso."
+      },
+      {
+        "q": "¿Qué idiomas son compatibles?",
+        "a": "Más de 50 idiomas, del inglés, español y árabe al japonés, hindi y suajili — detectados automáticamente del audio o seleccionados manualmente."
+      }
+    ],
+    "faqAllItems": [
+      {
+        "q": "¿Puedo descargar videos privados de {platform}?",
+        "a": "El servicio solo puede descargar contenido de {platform} de acceso público. Los videos privados o limitados a amigos no son accesibles debido a las restricciones de privacidad."
+      },
+      {
+        "q": "¿Qué formatos y calidades son compatibles?",
+        "a": "Videos hasta 4K en MP4, WebM o MKV; audio en MP3 320kbps, FLAC, AAC, WAV u OGG; miniaturas en JPG, PNG y WebP; y transcripciones con IA en SRT, VTT, TXT y JSON."
+      },
+      {
+        "q": "¿Funciona en iPhone, Android y PC?",
+        "a": "Sí — todo funciona en tu navegador. Nada que instalar, sin registro, y los archivos se eliminan justo después de tu descarga."
+      },
+      {
+        "q": "¿Es gratis?",
+        "a": "Sí, todas las herramientas son gratis y sin límites diarios. Los planes Pro añaden procesamiento por lotes, calidades más altas y acceso por API."
+      },
+      {
+        "q": "¿Es seguro y legal?",
+        "a": "Descargar contenido de acceso público para uso personal sin conexión generalmente está permitido. No vuelvas a subir material con derechos de autor sin permiso del creador — DownForge nunca almacena tus archivos ni te rastrea."
+      }
     ]
   },
   "VideoOnly": {
@@ -530,7 +634,8 @@
         "value": "Listas",
         "desc": "Descarga canales y listas completas en un clic con plan Pro."
       }
-    ]
+    ],
+    "benefitsLabel": "Beneficios clave"
   },
   "Formats": {
     "mp4": "MP4",
@@ -3428,5 +3533,111 @@
     "jobsQueued": "{count} en cola",
     "monitoringNote": "Las métricas se reinician al reiniciar el servidor.",
     "allSystemsOperational": "Todos los sistemas operativos"
+  },
+  "RelatedLinks": {
+    "heading": "Más descargadores gratuitos",
+    "subline": "Todas las herramientas de DownForge son gratuitas, funcionan en el navegador y no requieren registro.",
+    "navLabel": "Páginas de descarga relacionadas",
+    "variantVideoTitle": "Descargador de Videos de {platform}",
+    "variantVideoDesc": "Descarga videos de {platform} en MP4 4K, 1080p y 720p.",
+    "variantAudioTitle": "{platform} a MP3 — Audio",
+    "variantAudioDesc": "Extrae el audio de {platform} como MP3 320kbps, FLAC o AAC.",
+    "variantThumbnailTitle": "Descargador de Miniaturas de {platform}",
+    "variantThumbnailDesc": "Guarda miniaturas de {platform} en JPG, PNG y WebP HD.",
+    "variantTranscriptTitle": "Transcriptor IA de {platform}",
+    "variantTranscriptDesc": "Genera transcripciones de {platform} en SRT, VTT y TXT con IA.",
+    "allInOneTitle": "Descargador de {platform} — Video, Audio y Más",
+    "allInOneDesc": "La página todo en uno de {platform}: video, audio, miniaturas y transcripciones con IA.",
+    "ytVideoHeroTitle": "Descargador de Videos de YouTube",
+    "ytVideoHeroDesc": "Pega cualquier enlace de YouTube y guarda videos en 4K, 1080p o 720p — gratis, sin registro.",
+    "ytAllTitle": "Descargador Todo en Uno de YouTube",
+    "ytAllDesc": "Video, audio MP3, miniaturas HD y transcripciones con IA desde una sola página.",
+    "ytAllShortDesc": "Video, MP3, miniaturas y transcripciones desde una sola página.",
+    "ytAllNeedDesc": "¿También necesitas MP3, miniaturas o transcripciones? El kit completo para YouTube.",
+    "fbVideoTitle": "Descargador de Videos de Facebook",
+    "fbVideoDesc": "Guarda videos, Reels y transmisiones en vivo de Facebook en HD.",
+    "igVideoTitle": "Descargador de Videos de Instagram",
+    "igVideoDesc": "Descarga Reels, Stories y publicaciones IGTV en calidad original.",
+    "ttVideoTitle": "Descargador de Videos de TikTok",
+    "ttVideoDesc": "Guarda videos de TikTok en HD sin marca de agua.",
+    "ttVideoNoWmTitle": "Descargador de TikTok — Sin Marca de Agua",
+    "ttVideoNoWmDesc": "Guarda videos de TikTok en HD sin marca de agua.",
+    "twVideoTitle": "Descargador de Videos de Twitter / X",
+    "twVideoDesc": "Guarda videos y GIFs de X en HD.",
+    "ytMp3Title": "YouTube a MP3 — 320kbps",
+    "ytMp3Desc": "Convierte videos de YouTube a MP3, FLAC o AAC al instante.",
+    "ytMp3LongDesc": "Convierte YouTube a MP3 320kbps, FLAC y AAC — pega un enlace.",
+    "ytMp3MediumDesc": "Convierte YouTube a MP3 320kbps, FLAC y AAC.",
+    "scMp3Title": "SoundCloud a MP3",
+    "scMp3Desc": "Descarga pistas de SoundCloud como MP3 o FLAC sin pérdida.",
+    "ttMp3Title": "TikTok a MP3",
+    "ttMp3Desc": "Extrae audio de videos de TikTok en alta calidad.",
+    "ytThumbTitle": "Miniaturas de YouTube en HD",
+    "ytThumbDesc": "Guarda miniaturas de YouTube en máxima resolución JPG/PNG/WebP.",
+    "ytThumbShortDesc": "Guarda miniaturas de YouTube en máxima resolución.",
+    "igThumbTitle": "Miniatura de Instagram",
+    "igThumbDesc": "Descarga miniaturas de publicaciones de Instagram en HD.",
+    "ttThumbTitle": "Miniatura de TikTok",
+    "ttThumbDesc": "Guarda portadas de videos de TikTok en calidad completa.",
+    "ytTranscriptTitle": "Transcriptor IA de YouTube",
+    "ytTranscriptDesc": "Transcripciones SRT, VTT, TXT y JSON de cualquier video de YouTube.",
+    "ytTranscriptShortDesc": "Transcripciones SRT, VTT, TXT y JSON con marcas de tiempo.",
+    "ytTranscriptSrtDesc": "Transcripciones SRT y VTT con IA.",
+    "vimeoTranscriptTitle": "Transcripción de Vimeo",
+    "vimeoTranscriptDesc": "Genera transcripciones IA precisas para videos de Vimeo.",
+    "twitchTranscriptTitle": "Transcripción de Twitch",
+    "twitchTranscriptDesc": "Transcribe transmisiones de Twitch con marcas de tiempo.",
+    "ytVideo4kTitle": "Descargador de Videos de YouTube — 4K y HD",
+    "ytVideo4kDesc": "El descargador exclusivo de video para YouTube. Shorts, videos largos y clips en hasta 4K.",
+    "ytVideo4kShortDesc": "Shorts, videos largos y clips en hasta 4K.",
+    "fbMp3Title": "Facebook a MP3",
+    "fbMp3Desc": "Extrae MP3 320kbps y FLAC de videos de Facebook."
+  },
+  "ExploreTools": {
+    "kicker": "Otras Herramientas",
+    "stats": "5 herramientas • 15 plataformas",
+    "heading": "Explora Otras Herramientas de {platform}",
+    "subheading": "Estás viendo {tool} para {platform}. Prueba las otras herramientas de {platform} o la misma herramienta para otras plataformas — todo gratis, sin registro.",
+    "moreToolsHeading": "Más herramientas de {platform}",
+    "chipSamePlatform": "misma plataforma, otra herramienta",
+    "chipSameTool": "misma herramienta, otras plataformas",
+    "otherPlatformsHeading": "{tool} para otras plataformas",
+    "popularHeading": "Herramientas populares",
+    "chipPopular": "las más buscadas",
+    "youAreHere": "Estás aquí",
+    "currentPage": "Página actual",
+    "open": "Abrir →",
+    "footnote": "Todas las herramientas son gratuitas, funcionan en tu navegador y no requieren inicio de sesión. Pega la URL de un video público — funciona en Android, iPhone y PC.",
+    "specVideo": "4K / HD · MP4",
+    "specAudio": "MP3 · FLAC · AAC",
+    "specThumbnail": "JPG · PNG · WebP",
+    "specTranscript": "SRT · VTT · IA",
+    "tools": {
+      "all": {
+        "label": "Descargador Todo en Uno",
+        "shortLabel": "Todo",
+        "desc": "Video, Audio, Miniatura y Transcripción"
+      },
+      "video": {
+        "label": "Descargador de Video",
+        "shortLabel": "Video",
+        "desc": "MP4 · 4K / 1080p / 720p"
+      },
+      "audio": {
+        "label": "Descargador de Audio",
+        "shortLabel": "Audio",
+        "desc": "MP3 320kbps · FLAC · AAC"
+      },
+      "thumbnail": {
+        "label": "Descargador de Miniaturas",
+        "shortLabel": "Miniatura",
+        "desc": "JPG · PNG · WebP HD"
+      },
+      "transcript": {
+        "label": "Descargador de Transcripciones",
+        "shortLabel": "Transcripción",
+        "desc": "SRT · VTT · TXT · JSON IA"
+      }
+    }
   }
 }

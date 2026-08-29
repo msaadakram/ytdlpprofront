@@ -9,6 +9,8 @@ import {
   getJobStatus,
   getJobResult,
   triggerDownload,
+  downloadThumbnail,
+  downloadTextFile,
 } from "@/lib/api-client";
 import type { ApiFormatInfo, UniversalMediaInfo, TranscriptSegment } from "@/lib/api-client";
 import type { DownloadType } from "@/lib/constants";
@@ -142,9 +144,18 @@ export function useDownloader(): UseDownloaderState {
             if (finalRes.success && finalRes.data) {
               const data = finalRes.data;
 
-              // For transcript type, store the transcript content for display
-              if (activeType === "transcript" && data.transcript) {
-                setTranscript(data.transcript);
+              if (activeType === "transcript" && (data.transcript || data.downloadUrl)) {
+                // Trigger the actual transcript file download first
+                if (data.downloadUrl) {
+                  triggerDownload(data.downloadUrl, data.filename || undefined);
+                } else if (data.transcript) {
+                  const fmt = formats[selectedFormat];
+                  const ext = fmt?.ext || "srt";
+                  const safeTitle = (mediaInfo?.title || "transcript").replace(/[^\w\s.-]+/g, "").trim() || "transcript";
+                  downloadTextFile(data.transcript, data.filename || `${safeTitle}.${ext}`);
+                }
+                // Then keep the content for the in-page viewer (download pages)
+                setTranscript(data.transcript ?? null);
                 setTranscriptSegments(data.segments || null);
                 setTranscriptFilename(data.filename || null);
                 setTranscriptJsonUrl(data.jsonDownloadUrl || null);
@@ -217,20 +228,14 @@ export function useDownloader(): UseDownloaderState {
         setStatusText("Transcribing...");
         await pollUntilDone(res.data.job_id);
       } else {
-        const info = await universalGetInfo(url);
-        if (!info.success || !info.data) {
-          throw new Error(info.error?.message || "Could not fetch media info");
+        // Thumbnail — use the info we already fetched (no second API call)
+        const thumbUrl = mediaInfo?.thumbnail;
+        if (!thumbUrl) {
+          throw new Error("No thumbnail available for this URL");
         }
-        const thumbUrl = info.data.thumbnail;
-        if (thumbUrl) {
-          const a = document.createElement("a");
-          a.href = thumbUrl;
-          a.download = `${info.data.title || "thumbnail"}.jpg`;
-          a.target = "_blank";
-          document.body.appendChild(a);
-          a.click();
-          document.body.removeChild(a);
-        }
+        const ext = formats[selectedFormat]?.ext || "jpg";
+        const safeTitle = (mediaInfo?.title || "thumbnail").replace(/[^\w\s.-]+/g, "").trim() || "thumbnail";
+        downloadThumbnail(thumbUrl, `${safeTitle}.${ext}`);
         setProcessing(false);
         setDone(true);
         setTimeout(() => setDone(false), 3000);

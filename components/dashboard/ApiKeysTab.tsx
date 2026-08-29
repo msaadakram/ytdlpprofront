@@ -1,7 +1,7 @@
 "use client";
 
 import { useState, useEffect, useCallback } from "react";
-import { Copy, Plus, Trash2, CheckCircle2, Loader2 } from "lucide-react";
+import { Copy, Plus, Trash2, CheckCircle2, Loader2, KeyRound, Key, AlertTriangle } from "lucide-react";
 import { listApiKeys, createApiKey, deleteApiKey } from "@/lib/api-client";
 import type { ApiKey } from "@/lib/api-client";
 import { CreateApiKeyDialog } from "./CreateApiKeyDialog";
@@ -67,7 +67,7 @@ export function ApiKeysTab() {
   }
 
   return (
-    <div className="space-y-6">
+    <div className="space-y-5 sm:space-y-6">
       <CreateApiKeyDialog
         open={Boolean(dialogState)}
         onClose={() => setDialogState(null)}
@@ -75,15 +75,21 @@ export function ApiKeysTab() {
         plaintext={dialogState?.plaintext || ""}
       />
 
-      <div className="flex flex-col sm:flex-row sm:items-center justify-between gap-3">
-        <div>
-          <h3 className="text-sm font-bold text-foreground font-heading">API Keys</h3>
-          <p className="text-xs text-muted-foreground font-sans">Manage your API keys for programmatic access</p>
+      {/* Page header */}
+      <div className="flex flex-col sm:flex-row sm:items-center sm:justify-between gap-4">
+        <div className="flex items-center gap-3 sm:gap-4">
+          <span className="w-11 h-11 rounded-2xl bg-gradient-to-br from-[#5baab8] to-[#3d8896] text-white flex items-center justify-center shadow-[0_10px_24px_-10px_rgba(91,170,184,0.8)] shrink-0">
+            <KeyRound className="w-5 h-5" />
+          </span>
+          <div>
+            <h2 className="text-lg sm:text-xl font-extrabold text-foreground font-heading tracking-tight">API Keys</h2>
+            <p className="text-xs sm:text-sm text-muted-foreground font-sans">Manage your keys for programmatic access.</p>
+          </div>
         </div>
         {!showCreateInput ? (
           <button
             onClick={() => setShowCreateInput(true)}
-            className="flex items-center justify-center gap-2 bg-[#0d1f26] text-white text-sm font-semibold px-4 py-2.5 rounded-xl hover:bg-[#1a3545] dark:bg-white dark:text-[#0d1f26] dark:hover:bg-white/90 transition-colors font-sans w-full sm:w-auto"
+            className="flex items-center justify-center gap-2 bg-gradient-to-br from-[#5baab8] to-[#3d8896] text-white text-sm font-bold px-5 py-2.5 rounded-xl hover:shadow-[0_10px_24px_-10px_rgba(91,170,184,0.9)] active:scale-[0.98] transition-all font-sans w-full sm:w-auto"
           >
             <Plus className="w-4 h-4" /> Create Key
           </button>
@@ -118,7 +124,8 @@ export function ApiKeysTab() {
       </div>
 
       {error && (
-        <div className="text-xs text-red-600 dark:text-red-300 bg-red-50 dark:bg-red-950/40 border border-red-100 dark:border-red-900/50 rounded-lg px-3 py-2 font-sans">
+        <div className="flex items-center gap-2 text-xs text-red-600 dark:text-red-300 bg-red-500/[0.07] border border-red-500/20 rounded-xl px-3.5 py-2.5 font-sans">
+          <AlertTriangle className="w-3.5 h-3.5 shrink-0" />
           {error}
         </div>
       )}
@@ -126,42 +133,64 @@ export function ApiKeysTab() {
       {loading ? (
         <div className="space-y-3">
           {[1, 2].map((i) => (
-            <div key={i} className="bg-card rounded-xl border border-border p-4 sm:p-5 animate-pulse"><div className="h-16" /></div>
+            <div key={i} className="bg-card rounded-2xl border border-border/70 p-4 sm:p-5 animate-pulse shadow-[0_1px_2px_rgba(13,31,38,0.04)]"><div className="h-16" /></div>
           ))}
         </div>
       ) : keys.length === 0 ? (
-        <div className="bg-card rounded-xl border border-border p-8 sm:p-10 text-center">
-          <p className="text-sm text-muted-foreground font-sans">No API keys yet. Create one to get started.</p>
+        <div className="bg-card rounded-2xl border border-dashed border-border p-8 sm:p-10 text-center">
+          <div className="w-12 h-12 mx-auto rounded-2xl bg-gradient-to-br from-[#5baab8]/20 to-[#5baab8]/5 ring-1 ring-[#5baab8]/25 flex items-center justify-center mb-3">
+            <Key className="w-5 h-5 text-[#5baab8]" />
+          </div>
+          <p className="text-sm font-semibold text-foreground font-sans">No API keys yet</p>
+          <p className="text-xs text-muted-foreground font-sans mt-1">Create your first key to start making API calls.</p>
         </div>
       ) : (
         <div className="space-y-3">
           {keys.map((k) => (
-            <div key={k.id} className="bg-card rounded-xl border border-border p-4 sm:p-5">
-              <div className="flex items-center justify-between mb-3">
-                <h4 className="text-sm font-bold text-foreground font-heading truncate">{k.name}</h4>
-                <div className="flex items-center gap-2 shrink-0">
+            <div key={k.id} className="group bg-card rounded-2xl border border-border/70 p-4 sm:p-5 shadow-[0_1px_2px_rgba(13,31,38,0.04)] transition-all duration-300 hover:border-[#5baab8]/30 hover:shadow-[0_16px_36px_-20px_rgba(13,31,38,0.28)]">
+              <div className="flex items-center justify-between gap-3 mb-3">
+                <div className="flex items-center gap-3 min-w-0">
+                  <span className="w-9 h-9 rounded-xl bg-gradient-to-br from-[#5baab8]/20 to-[#5baab8]/5 ring-1 ring-[#5baab8]/25 flex items-center justify-center shrink-0">
+                    <KeyRound className="w-4 h-4 text-[#5baab8]" />
+                  </span>
+                  <h4 className="text-sm font-bold text-foreground font-heading truncate">{k.name}</h4>
+                </div>
+                <div className="flex items-center gap-1.5 shrink-0">
                   <button
                     onClick={() => copyMasked(k.id, k.masked)}
-                    className="p-1.5 rounded-lg hover:bg-muted transition-colors text-muted-foreground"
+                    className="p-2 rounded-lg hover:bg-muted transition-colors text-muted-foreground hover:text-[#5baab8]"
                     title="Copy masked key"
                   >
                     {copiedId === k.id ? <CheckCircle2 className="w-4 h-4 text-[#5baab8]" /> : <Copy className="w-4 h-4" />}
                   </button>
                   <button
                     onClick={() => handleDelete(k.id)}
-                    className="p-1.5 rounded-lg hover:bg-muted transition-colors text-muted-foreground hover:text-destructive"
+                    className="p-2 rounded-lg hover:bg-red-500/10 transition-colors text-muted-foreground hover:text-red-600 dark:hover:text-red-400"
                     title="Revoke key"
                   >
                     <Trash2 className="w-4 h-4" />
                   </button>
                 </div>
               </div>
-              <code className="block bg-muted/60 rounded-lg px-3 sm:px-4 py-2.5 text-xs font-mono text-foreground break-all">
-                {k.masked}
-              </code>
-              <div className="flex flex-wrap items-center gap-x-4 gap-y-1 mt-3 text-xs text-muted-foreground font-sans">
-                <span>Created: {formatDate(k.created_at)}</span>
-                <span>Last used: {k.last_used_at ? formatDate(k.last_used_at) : "Never"}</span>
+              <div className="relative">
+                <code className="block bg-muted/60 ring-1 ring-border/60 rounded-xl px-3 sm:px-4 py-2.5 pr-11 text-xs font-mono text-foreground break-all">
+                  {k.masked}
+                </code>
+                <button
+                  onClick={() => copyMasked(k.id, k.masked)}
+                  className="absolute right-2 top-1/2 -translate-y-1/2 p-1.5 rounded-lg hover:bg-background/80 transition-colors text-muted-foreground sm:hidden"
+                  title="Copy masked key"
+                >
+                  {copiedId === k.id ? <CheckCircle2 className="w-4 h-4 text-[#5baab8]" /> : <Copy className="w-4 h-4" />}
+                </button>
+              </div>
+              <div className="flex flex-wrap items-center gap-2 mt-3 text-xs font-sans">
+                <span className="inline-flex items-center gap-1.5 px-2.5 py-1 rounded-full bg-muted/70 text-muted-foreground">
+                  <span className="font-semibold text-foreground/80">Created</span> {formatDate(k.created_at)}
+                </span>
+                <span className="inline-flex items-center gap-1.5 px-2.5 py-1 rounded-full bg-muted/70 text-muted-foreground">
+                  <span className="font-semibold text-foreground/80">Last used</span> {k.last_used_at ? formatDate(k.last_used_at) : "Never"}
+                </span>
               </div>
             </div>
           ))}

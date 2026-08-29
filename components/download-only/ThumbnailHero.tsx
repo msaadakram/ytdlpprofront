@@ -6,7 +6,7 @@ import { Download, CheckCircle2, X, Sparkles, Loader2, Image } from "lucide-reac
 import { usePlatformTranslations } from "@/lib/usePlatformTranslations";
 import {
   universalGetInfo,
-  triggerDownload,
+  downloadThumbnail,
 } from "@/lib/api-client";
 import type { ApiFormatInfo, UniversalMediaInfo } from "@/lib/api-client";
 import { FormatGrid } from "@/components/youtube-download/FormatGrid";
@@ -87,14 +87,10 @@ export function ThumbnailHero({ platform }: { platform: string }) {
         throw new Error(st("errorDownloadFailed"));
       }
       const fmt = formats[selectedFormat];
-      // Direct download for thumbnails
-      const a = document.createElement("a");
-      a.href = mediaInfo.thumbnail;
-      a.download = `${mediaInfo.title || "thumbnail"}.${fmt.ext}`;
-      a.target = "_blank";
-      document.body.appendChild(a);
-      a.click();
-      document.body.removeChild(a);
+      // Route through the same-origin thumbnail proxy — the CDN image is
+      // cross-origin, so a direct link would open a tab instead of saving.
+      const safeTitle = (mediaInfo.title || "thumbnail").replace(/[^\w\s.-]+/g, "").trim() || "thumbnail";
+      downloadThumbnail(mediaInfo.thumbnail, `${safeTitle}.${fmt.ext || "jpg"}`);
       setProcessing(false);
       setDone(true);
       setTimeout(() => setDone(false), 3000);

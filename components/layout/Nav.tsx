@@ -38,12 +38,12 @@ const localeFlags: Record<Locale, string> = {
 };
 
 const otherLinks = [
-  { labelKey: "about" as const, href: "/about", icon: Users, desc: "Our story & mission" },
-  { labelKey: "pricing" as const, href: "/pricing", icon: Gem, desc: "Plans & billing" },
-  { labelKey: "terms" as const, href: "/terms", icon: Scale, desc: "Terms of service" },
-  { labelKey: "privacy" as const, href: "/privacy", icon: ShieldCheck, desc: "Data & privacy" },
-  { labelKey: "contact" as const, href: "/contact", icon: Mail, desc: "Help & support" },
-  { labelKey: "api" as const, href: "/api-docs", icon: Zap, desc: "API documentation" },
+  { labelKey: "about" as const, href: "/about", icon: Users, descKey: "otherDescs.about" },
+  { labelKey: "pricing" as const, href: "/pricing", icon: Gem, descKey: "otherDescs.pricing" },
+  { labelKey: "terms" as const, href: "/terms", icon: Scale, descKey: "otherDescs.terms" },
+  { labelKey: "privacy" as const, href: "/privacy", icon: ShieldCheck, descKey: "otherDescs.privacy" },
+  { labelKey: "contact" as const, href: "/contact", icon: Mail, descKey: "otherDescs.contact" },
+  { labelKey: "api" as const, href: "/api-docs", icon: Zap, descKey: "otherDescs.api" },
 ];
 
 export function Nav() {
@@ -309,7 +309,7 @@ export function Nav() {
                             </span>
                             <div className="min-w-0">
                               <div className="text-sm font-semibold text-foreground group-hover:text-[#0d1f26] dark:group-hover:text-white font-sans leading-none flex items-center gap-1.5">{t(item.labelKey as any, { defaultValue: item.labelKey.charAt(0).toUpperCase() + item.labelKey.slice(1) })} <ItemIcon className="w-3 h-3 opacity-40 group-hover:opacity-100 transition-opacity" /></div>
-                              <div className="text-xs text-muted-foreground font-sans">{item.desc}</div>
+                              <div className="text-xs text-muted-foreground font-sans">{t(item.descKey as any)}</div>
                             </div>
                             <ExternalLink className="w-3 h-3 text-muted-foreground opacity-0 group-hover:opacity-60 ml-auto transition-opacity" />
                           </Link>
@@ -318,9 +318,9 @@ export function Nav() {
                     </div>
                   </div>
                   <div className="bg-muted/30 dark:bg-white/[0.04] border-t border-border/50 px-4 py-2.5 flex items-center justify-between">
-                    <span className="text-xs text-muted-foreground font-sans">Explore more</span>
+                    <span className="text-xs text-muted-foreground font-sans">{t("exploreMore")}</span>
                     <Link href="/about" onClick={closeAll} className="text-xs font-semibold text-[#5baab8] hover:text-foreground flex items-center gap-1">
-                      About us <ArrowRight className="w-3 h-3" />
+                      {t("aboutUs")} <ArrowRight className="w-3 h-3" />
                     </Link>
                   </div>
                 </motion.div>
@@ -548,7 +548,7 @@ export function Nav() {
                                 </span>
                                 <div className="min-w-0">
                                   <div className="text-sm font-semibold text-foreground font-sans leading-none flex items-center gap-1.5">{t(item.labelKey as any, { defaultValue: item.labelKey.charAt(0).toUpperCase() + item.labelKey.slice(1) })} <ItemIcon className="w-3 h-3 opacity-40 group-hover:opacity-100 transition-opacity" /></div>
-                                  <div className="text-xs text-muted-foreground font-sans">{item.desc}</div>
+                                  <div className="text-xs text-muted-foreground font-sans">{t(item.descKey as any)}</div>
                                 </div>
                                 <ExternalLink className="w-3 h-3 text-muted-foreground opacity-0 group-hover:opacity-60 ml-auto transition-opacity" />
                               </Link>

@@ -7,7 +7,7 @@ import { usePlatformTranslations } from "@/lib/usePlatformTranslations";
 import { useTranslations } from "next-intl";
 
 export function VideoFaq({ platform }: { platform: string }) {
-  const config = usePlatformTranslations(platform);
+  const config = usePlatformTranslations(platform, "video");
   const faqs = config.faqs;
   const brandColor = config.brandColor;
   const t = useTranslations("VideoOnly");
