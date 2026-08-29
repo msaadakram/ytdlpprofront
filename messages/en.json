@@ -754,6 +754,8 @@
     "demoHint": "Demo account:"
   },
   "Dashboard": {
+    "loading": "Loading your workspace…",
+    "redirecting": "Redirecting to sign in…",
     "title": "Dashboard",
     "downloads": "Downloads",
     "usage": "Usage",

@@ -713,6 +713,8 @@
     "demoHint": "Demo-Konto:"
   },
   "Dashboard": {
+    "loading": "Arbeitsbereich wird geladen…",
+    "redirecting": "Weiterleitung zur Anmeldung…",
     "title": "Dashboard",
     "downloads": "Downloads",
     "usage": "Nutzung",

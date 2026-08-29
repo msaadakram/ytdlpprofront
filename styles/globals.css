@@ -222,8 +222,15 @@
   .animate-gradient-shift-fast,
   .text-shimmer,
   .animate-float-soft,
-  .animate-marquee {
+  .animate-marquee,
+  .df-orbit,
+  .df-halo,
+  .df-loading-bar,
+  .skeleton-shimmer::after {
     animation: none;
+  }
+  .skeleton-shimmer::after {
+    display: none;
   }
   .text-shimmer {
     background-image: none;
@@ -294,6 +301,59 @@
 @keyframes shimmer {
   0% { transform: translateX(-100%); }
   100% { transform: translateX(200%); }
+}
+
+/* ── Dashboard loading system ─────────────────────────────────────────── */
+
+/* Orbit ring spinner — conic brand gradient masked to a ring */
+.df-orbit {
+  background: conic-gradient(from 0deg, transparent 0%, #5baab8 25%, #3d8896 50%, transparent 85%);
+  -webkit-mask: radial-gradient(farthest-side, transparent calc(100% - 3px), black calc(100% - 3px));
+  mask: radial-gradient(farthest-side, transparent calc(100% - 3px), black calc(100% - 3px));
+  animation: df-spin 1.1s linear infinite;
+}
+@keyframes df-spin {
+  to { transform: rotate(360deg); }
+}
+
+/* Soft counter-rotating halo behind the orbit ring */
+.df-halo {
+  background: conic-gradient(from 180deg, transparent 0%, rgba(91, 170, 184, 0.35) 40%, transparent 90%);
+  -webkit-mask: radial-gradient(farthest-side, transparent calc(100% - 2px), black calc(100% - 2px));
+  mask: radial-gradient(farthest-side, transparent calc(100% - 2px), black calc(100% - 2px));
+  animation: df-spin 2.6s linear infinite reverse;
+  opacity: 0.6;
+}
+
+/* Indeterminate progress sweep */
+.df-loading-bar {
+  animation: df-slide 1.4s cubic-bezier(0.45, 0, 0.25, 1) infinite;
+}
+@keyframes df-slide {
+  0% { transform: translateX(-120%); }
+  100% { transform: translateX(320%); }
+}
+
+/* Skeleton shimmer sweep — replaces flat animate-pulse on loading cards */
+.skeleton-shimmer {
+  position: relative;
+  overflow: hidden;
+}
+.skeleton-shimmer::after {
+  content: "";
+  position: absolute;
+  inset: 0;
+  transform: translateX(-100%);
+  background: linear-gradient(
+    90deg,
+    transparent 20%,
+    color-mix(in srgb, var(--foreground) 6%, transparent) 50%,
+    transparent 80%
+  );
+  animation: df-shimmer 1.8s ease-in-out infinite;
+}
+@keyframes df-shimmer {
+  100% { transform: translateX(100%); }
 }
 
 .animate-gradient-shift {

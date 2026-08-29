@@ -4,7 +4,9 @@ import { useState, useEffect } from "react";
 import { useRouter } from "next/navigation";
 import Link from "next/link";
 import { Menu } from "lucide-react";
+import { useTranslations } from "next-intl";
 import { useAuth } from "@/lib/auth-context";
+import { DashboardLoader } from "@/components/dashboard/DashboardLoader";
 import { Sidebar, type DashboardTab } from "@/components/dashboard/Sidebar";
 import { HeaderActions } from "@/components/dashboard/Topbar";
 import { OverviewTab } from "@/components/dashboard/OverviewTab";
@@ -18,6 +20,7 @@ export function DashboardClient() {
   const [sidebarCollapsed, setSidebarCollapsed] = useState(false);
   const [mobileNavOpen, setMobileNavOpen] = useState(false);
   const { isAuthenticated, loading, logout } = useAuth();
+  const dt = useTranslations("Dashboard");
   const router = useRouter();
 
   // Auth guard: redirect to sign-in if not authenticated (after initial load completes).
@@ -51,33 +54,16 @@ export function DashboardClient() {
   }
 
   if (loading) {
-    return (
-      <div className="min-h-screen bg-gradient-to-b from-[#f4f9fa] via-background to-background dark:from-[#0a161c] dark:via-[#081218] dark:to-[#060c10] flex items-center justify-center">
-        <div className="flex flex-col items-center gap-4">
-          <div className="relative">
-            <div className="w-10 h-10 border-2 border-[#5baab8]/25 rounded-full" />
-            <div className="absolute inset-0 w-10 h-10 border-2 border-[#5baab8] border-t-transparent rounded-full animate-spin" />
-          </div>
-          <p className="text-sm text-muted-foreground font-sans">Loading your workspace…</p>
-        </div>
-      </div>
-    );
+    return <DashboardLoader message={dt("loading")} />;
   }
 
   if (!isAuthenticated) {
     return (
-      <div className="min-h-screen bg-gradient-to-b from-[#f4f9fa] via-background to-background dark:from-[#0a161c] dark:via-[#081218] dark:to-[#060c10] flex items-center justify-center p-4">
-        <div className="flex flex-col items-center gap-4 text-center">
-          <div className="relative">
-            <div className="w-10 h-10 border-2 border-[#5baab8]/25 rounded-full" />
-            <div className="absolute inset-0 w-10 h-10 border-2 border-[#5baab8] border-t-transparent rounded-full animate-spin" />
-          </div>
-          <p className="text-sm text-muted-foreground font-sans">Redirecting to sign in…</p>
-          <Link href="/sign-in" className="text-sm font-semibold text-[#5baab8] hover:underline">
-            Go to Sign In
-          </Link>
-        </div>
-      </div>
+      <DashboardLoader message={dt("redirecting")}>
+        <Link href="/sign-in" className="text-sm font-semibold text-[#5baab8] hover:underline">
+          Go to Sign In
+        </Link>
+      </DashboardLoader>
     );
   }
 

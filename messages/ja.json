@@ -713,6 +713,8 @@
     "demoHint": "デモアカウント："
   },
   "Dashboard": {
+    "loading": "ワークスペースを読み込み中…",
+    "redirecting": "サインインへ移動中…",
     "title": "ダッシュボード",
     "downloads": "ダウンロード",
     "usage": "使用状況",

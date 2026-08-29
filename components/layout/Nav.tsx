@@ -20,10 +20,10 @@ function platformSlug(name: string): string {
 }
 
 const downloadTypes = [
-  { label: "Video", type: "video" as const, route: "/video-downloader", icon: Play },
-  { label: "Audio", type: "audio" as const, route: "/audio-downloader", icon: Music },
-  { label: "Thumbnail", type: "thumbnail" as const, route: "/thumbnail-downloader", icon: Image },
-  { label: "Transcript", type: "transcript" as const, route: "/transcript-downloader", icon: ScrollText },
+  { label: "Video", type: "video" as const, route: "/video-downloader", icon: Play, typeKey: "typeVideo" as const },
+  { label: "Audio", type: "audio" as const, route: "/audio-downloader", icon: Music, typeKey: "typeAudio" as const },
+  { label: "Thumbnail", type: "thumbnail" as const, route: "/thumbnail-downloader", icon: Image, typeKey: "typeThumbnail" as const },
+  { label: "Transcript", type: "transcript" as const, route: "/transcript-downloader", icon: ScrollText, typeKey: "typeTranscript" as const },
 ];
 
 const localeFlags: Record<Locale, string> = {
@@ -49,6 +49,7 @@ const otherLinks = [
 
 export function Nav() {
   const t = useTranslations("Nav");
+  const st = useTranslations("PlatformShared");
   const lt = useTranslations("LocaleSwitcher");
   const locale = useLocale();
   const pathname = usePathname();
@@ -309,7 +310,7 @@ export function Nav() {
                               <ItemIcon className="w-[18px] h-[18px]" />
                             </span>
                             <div className="min-w-0">
-                              <div className="text-sm font-semibold text-foreground group-hover:text-[#0d1f26] dark:group-hover:text-white font-sans leading-none flex items-center gap-1.5">{t(item.labelKey as any, { defaultValue: item.labelKey.charAt(0).toUpperCase() + item.labelKey.slice(1) })} <ItemIcon className="w-3 h-3 opacity-40 group-hover:opacity-100 transition-opacity" /></div>
+                              <div className="text-sm font-semibold text-foreground group-hover:text-[#0d1f26] dark:group-hover:text-white font-sans leading-none flex items-center gap-1.5">{t(item.labelKey as any, { defaultValue: item.labelKey.charAt(0).toUpperCase() + item.labelKey.slice(1) })}</div>
                               <div className="text-xs text-muted-foreground font-sans">{t(item.descKey as any)}</div>
                             </div>
                             <ExternalLink className="w-3 h-3 text-muted-foreground opacity-0 group-hover:opacity-60 ml-auto transition-opacity" />
@@ -482,7 +483,7 @@ export function Nav() {
                           <Icon className="w-4 h-4 sm:w-[18px] sm:h-[18px]" />
                         </span>
                         <div className="min-w-0 flex-1">
-                          <div className="text-sm font-bold text-foreground font-sans leading-none flex items-center gap-1.5"><Icon className="w-3.5 h-3.5 text-muted-foreground" /> {dt.label}</div>
+                          <div className="text-sm font-bold text-foreground font-sans leading-none">{st(dt.typeKey)}</div>
                           <div className="text-xs text-muted-foreground font-sans">15 platforms • instant</div>
                         </div>
                         <span className={`w-7 h-7 rounded-full bg-white dark:bg-white/10 border border-border/50 dark:border-white/10 flex items-center justify-center transition-transform ${isExpanded ? "rotate-180" : ""}`}>
@@ -524,7 +525,7 @@ export function Nav() {
                       <Layers className="w-4 h-4 sm:w-[18px] sm:h-[18px]" />
                     </span>
                     <div className="min-w-0 flex-1">
-                      <div className="text-sm font-bold text-foreground font-sans leading-none flex items-center gap-1.5"><Layers className="w-3.5 h-3.5 text-muted-foreground" /> Other</div>
+                      <div className="text-sm font-bold text-foreground font-sans leading-none">Other</div>
                       <div className="text-xs text-muted-foreground font-sans">About • Pricing • Terms • Contact</div>
                     </div>
                     <span className={`w-7 h-7 rounded-full bg-white dark:bg-white/10 border border-border/50 dark:border-white/10 flex items-center justify-center transition-transform ${mobileOtherOpen ? "rotate-180" : ""}`}>
@@ -548,7 +549,7 @@ export function Nav() {
                                   <ItemIcon className="w-4 h-4 sm:w-[18px] sm:h-[18px]" />
                                 </span>
                                 <div className="min-w-0">
-                                  <div className="text-sm font-semibold text-foreground font-sans leading-none flex items-center gap-1.5">{t(item.labelKey as any, { defaultValue: item.labelKey.charAt(0).toUpperCase() + item.labelKey.slice(1) })} <ItemIcon className="w-3 h-3 opacity-40 group-hover:opacity-100 transition-opacity" /></div>
+                                  <div className="text-sm font-semibold text-foreground font-sans leading-none flex items-center gap-1.5">{t(item.labelKey as any, { defaultValue: item.labelKey.charAt(0).toUpperCase() + item.labelKey.slice(1) })}</div>
                                   <div className="text-xs text-muted-foreground font-sans">{t(item.descKey as any)}</div>
                                 </div>
                                 <ExternalLink className="w-3 h-3 text-muted-foreground opacity-0 group-hover:opacity-60 ml-auto transition-opacity" />

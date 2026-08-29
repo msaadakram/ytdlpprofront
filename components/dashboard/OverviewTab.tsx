@@ -129,13 +129,13 @@ export function OverviewTab() {
       <div className="space-y-6">
         <div className="grid grid-cols-2 lg:grid-cols-4 gap-3 sm:gap-4">
           {[1, 2, 3, 4].map((i) => (
-            <div key={i} className="bg-card rounded-2xl border border-border/70 p-4 sm:p-5 animate-pulse shadow-[0_1px_2px_rgba(13,31,38,0.04)]">
+            <div key={i} className="bg-card rounded-2xl border border-border/70 p-4 sm:p-5 skeleton-shimmer shadow-[0_1px_2px_rgba(13,31,38,0.04)]">
               <div className="h-20" />
             </div>
           ))}
         </div>
         {[1, 2].map((i) => (
-          <div key={i} className="bg-card rounded-2xl border border-border/70 p-5 sm:p-6 animate-pulse shadow-[0_1px_2px_rgba(13,31,38,0.04)]">
+          <div key={i} className="bg-card rounded-2xl border border-border/70 p-5 sm:p-6 skeleton-shimmer shadow-[0_1px_2px_rgba(13,31,38,0.04)]">
             <div className="h-48" />
           </div>
         ))}

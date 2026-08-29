@@ -713,6 +713,8 @@
     "demoHint": "Compte de démonstration :"
   },
   "Dashboard": {
+    "loading": "Chargement de votre espace de travail…",
+    "redirecting": "Redirection vers la connexion…",
     "title": "Tableau de bord",
     "downloads": "Téléchargements",
     "usage": "Utilisation",

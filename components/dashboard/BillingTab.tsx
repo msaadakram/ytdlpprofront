@@ -63,7 +63,7 @@ export function BillingTab() {
       return (
       <div className="space-y-5 sm:space-y-6">
         {[1, 2, 3].map((i) => (
-          <div key={i} className="bg-card rounded-2xl border border-border/70 p-4 sm:p-6 animate-pulse shadow-[0_1px_2px_rgba(13,31,38,0.04)]"><div className="h-24" /></div>
+          <div key={i} className="bg-card rounded-2xl border border-border/70 p-4 sm:p-6 skeleton-shimmer shadow-[0_1px_2px_rgba(13,31,38,0.04)]"><div className="h-24" /></div>
         ))}
       </div>
     );

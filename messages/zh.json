@@ -713,6 +713,8 @@
     "demoHint": "演示账户："
   },
   "Dashboard": {
+    "loading": "正在加载工作区…",
+    "redirecting": "正在跳转到登录页…",
     "title": "控制台",
     "downloads": "下载",
     "usage": "使用量",

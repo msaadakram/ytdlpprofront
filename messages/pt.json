@@ -713,6 +713,8 @@
     "demoHint": "Conta de demonstração:"
   },
   "Dashboard": {
+    "loading": "Carregando seu workspace…",
+    "redirecting": "Redirecionando para o login…",
     "title": "Painel",
     "downloads": "Downloads",
     "usage": "Uso",
