@@ -182,7 +182,8 @@ export function AuthProvider({ children }: { children: ReactNode }) {
 
   const setUser = useCallback((u: AuthUser | null) => {
     setUserState(u);
-    if (u && token) writeStored({ token, user: u });
+    const currentToken = token || readStored()?.token;
+    if (u && currentToken) writeStored({ token: currentToken, user: u });
   }, [token]);
 
   const login = useCallback(async (email: string, password: string) => {
@@ -219,7 +220,7 @@ export function AuthProvider({ children }: { children: ReactNode }) {
     if (!result.ok || !result.data) {
       return { success: false, error: result.error, code: result.code };
     }
-    const { token: newToken, user: newUser } = result.data;
+    const { token: newToken, user: newUser } = result.data as any;
     writeStored({ token: newToken, user: newUser });
     setToken(newToken);
     setUserState(newUser);
@@ -281,11 +282,17 @@ export function AuthProvider({ children }: { children: ReactNode }) {
   }, []);
 
   const logout = useCallback(async () => {
-    if (token) {
+    // Fix stale-closure race: after signup the state `token` may still be the
+    // previous value (often null) due to React's async state update. Fall back
+    // to the token persisted in localStorage so the just-created session is
+    // properly revoked on the server instead of being left orphaned.
+    const stored = readStored();
+    const currentToken = token || stored?.token;
+    if (currentToken) {
       // Best-effort; ignore failures so the client always clears state.
       await apiCall("/api/proxy/auth/logout", {
         method: "POST",
-        headers: { Authorization: `Bearer ${token}` },
+        headers: { Authorization: `Bearer ${currentToken}` },
       });
     }
     writeStored(null);

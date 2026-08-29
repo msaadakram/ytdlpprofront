@@ -67,7 +67,17 @@ export function VerifyEmailForm() {
     }
     const result = await resendVerification(email.trim());
     if (!result.success) {
-      setError(result.error || t("verifyFailed"));
+      // If the backend is throttling (cooldown or rate-limit), surface the
+      // wait time in the UI so the user understands and the button counts down.
+      const msg = result.error || t("verifyFailed");
+      const waitMatch = msg.match(/(\d+)\s*s/);
+      if (result.code === "RATE_LIMIT" || /wait/i.test(msg) || waitMatch) {
+        const secs = waitMatch ? parseInt(waitMatch[1], 10) : RESEND_COOLDOWN_SECONDS;
+        // Clamp to sensible range (5..300s) and show as cooldown
+        const cooldownSecs = Math.min(300, Math.max(5, secs));
+        setCooldown(cooldownSecs);
+      }
+      setError(msg);
       return;
     }
     setNotice(t("resentNotice"));
