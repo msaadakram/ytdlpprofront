@@ -152,8 +152,17 @@ export function AuthProvider({ children }: { children: ReactNode }) {
       .then((result) => {
         if (cancelled) return;
         if (result.ok && (result as any).data?.user) {
-          setUserState((result as any).data.user);
-          writeStored({ token: stored.token, user: (result as any).data.user });
+          const fetchedUser = (result as any).data.user as AuthUser;
+          // If fetched user is unverified, do not keep optimistic session —
+          // force verification flow instead of treating as authenticated.
+          if (fetchedUser.email_verified === false) {
+            writeStored(null);
+            setToken(null);
+            setUserState(null);
+          } else {
+            setUserState(fetchedUser);
+            writeStored({ token: stored.token, user: fetchedUser });
+          }
         } else if (result.status === 401) {
           // Token expired/invalid — clear and let the user log in again.
           writeStored(null);
@@ -162,6 +171,11 @@ export function AuthProvider({ children }: { children: ReactNode }) {
         } else if (result.status === 0) {
           // Network/timeout: keep optimistic session so dashboard can still render
           // but don't block loading forever
+        } else if ((result as any).code === "EMAIL_NOT_VERIFIED") {
+          // Backend explicitly says token belongs to unverified user
+          writeStored(null);
+          setToken(null);
+          setUserState(null);
         }
       })
       .catch(() => {
@@ -195,9 +209,23 @@ export function AuthProvider({ children }: { children: ReactNode }) {
       },
     );
     if (!result.ok || !result.data) {
+      // Ensure no stale session persists after failed login (e.g. EMAIL_NOT_VERIFIED)
+      if (result.code === "EMAIL_NOT_VERIFIED") {
+        writeStored(null);
+        setToken(null);
+        setUserState(null);
+      }
       return { success: false, error: result.error, code: result.code };
     }
     const { token: newToken, user: newUser } = result.data;
+    // Defense: if backend ever returns an unverified user with a token
+    // (stale deploy), do not treat as authenticated — force verification.
+    if ((newUser as any).email_verified === false) {
+      writeStored(null);
+      setToken(null);
+      setUserState(null);
+      return { success: false, error: "Please verify your email before signing in.", code: "EMAIL_NOT_VERIFIED" };
+    }
     writeStored({ token: newToken, user: newUser });
     setToken(newToken);
     setUserState(newUser);
@@ -210,6 +238,12 @@ export function AuthProvider({ children }: { children: ReactNode }) {
     email: string;
     password: string;
   }) => {
+    // Defense: clear any stale session before signup — never allow an
+    // existing authenticated session to persist through a new unverified signup.
+    writeStored(null);
+    setToken(null);
+    setUserState(null);
+
     const result = await apiCall<{ token?: string; user: AuthUser; email_delivered?: boolean; verification_required?: boolean }>(
       "/api/proxy/auth/register",
       {
@@ -220,19 +254,13 @@ export function AuthProvider({ children }: { children: ReactNode }) {
     if (!result.ok || !result.data) {
       return { success: false, error: result.error, code: result.code };
     }
-    // New flow: register does NOT issue a session token for unverified
-    // accounts (closes loophole where unverified token could access
-    // protected routes). Only store session if a token was actually
-    // returned (legacy path).
-    const dataAny = result.data as any;
-    if (dataAny.token && dataAny.user) {
-      writeStored({ token: dataAny.token, user: dataAny.user });
-      setToken(dataAny.token);
-      setUserState(dataAny.user);
-    }
-    // If email was not delivered (provider failure), the caller can
-    // surface a warning and the user can use "Resend code" on the
-    // verify page (which now allows immediate retry).
+    // SECURITY FIX: register MUST NOT issue a session token for unverified
+    // accounts. Even if a legacy/stale backend returns a token, we deliberately
+    // ignore it to close the loophole where an unverified token could access
+    // protected routes. The user must verify email then login.
+    // Do NOT store session — force verification flow.
+    // If email was not delivered (provider failure), caller can surface a
+    // warning and user can use "Resend code" on verify page.
     return { success: true };
   }, []);
 
@@ -309,12 +337,18 @@ export function AuthProvider({ children }: { children: ReactNode }) {
     setUserState(null);
   }, [token]);
 
+  // isAuthenticated is true only for verified users. Unverified accounts
+  // have no token after signup, and login is blocked with EMAIL_NOT_VERIFIED
+  // until they verify. Legacy accounts with no flag (null/undefined) are
+  // treated as verified to avoid locking out old users.
+  const isAuthenticated = Boolean(user && token && user.email_verified !== false);
+
   return (
     <AuthContext.Provider
       value={{
         user,
         token,
-        isAuthenticated: Boolean(user && token),
+        isAuthenticated,
         loading,
         setUser,
         login,

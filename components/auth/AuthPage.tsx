@@ -148,17 +148,24 @@ export function AuthPage({ mode }: { mode: AuthMode }) {
   const [agree, setAgree] = useState(false);
   const [password, setPassword] = useState("");
   const [pwFocused, setPwFocused] = useState(false);
-  const { login, signup, logout, isAuthenticated, loading: authLoading } = useAuth();
+  const { login, signup, logout, user, isAuthenticated, loading: authLoading } = useAuth();
   const router = useRouter();
   const isSignIn = mode === "signin";
   const t = useTranslations("Auth");
 
-  // If already signed in, redirect to dashboard — don't allow visiting sign-in/up pages
+  // If already signed in with a verified account, redirect to dashboard.
+  // If an unverified session somehow exists (stale token), force verification
+  // instead of allowing dashboard access — closes signup-without-verify loophole.
   useEffect(() => {
+    if (!authLoading && user && user.email_verified === false) {
+      const email = encodeURIComponent(user.email || emailRef.current?.value?.trim() || "");
+      router.replace(`/verify-email?email=${email}`);
+      return;
+    }
     if (!authLoading && isAuthenticated) {
       router.replace("/dashboard");
     }
-  }, [authLoading, isAuthenticated, router]);
+  }, [authLoading, isAuthenticated, user, router]);
 
   // Live strength - updates as you type (reactive via state)
   const pwStrength = password.length === 0 ? 0 : password.length < 6 ? 1 : password.length < 10 ? 2 : 3;
