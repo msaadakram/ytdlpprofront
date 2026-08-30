@@ -294,7 +294,13 @@ export function AuthProvider({ children }: { children: ReactNode }) {
         body: JSON.stringify({ email, code }),
       });
     }
-    if (!result.ok) return { success: false, error: result.error, code: result.code };
+    if (!result.ok) {
+      // Translate stale-backend 404 into user-friendly message
+      if (result.code === "NOT_FOUND" && /Route POST/.test(result.error || "")) {
+        return { success: false, error: "Verification service is temporarily unavailable. Please try again in 2-3 minutes (backend updating).", code: result.code };
+      }
+      return { success: false, error: result.error, code: result.code };
+    }
     return { success: true };
   }, []);
 
@@ -309,7 +315,12 @@ export function AuthProvider({ children }: { children: ReactNode }) {
         body: JSON.stringify({ email }),
       });
     }
-    if (!result.ok) return { success: false, error: result.error, code: result.code };
+    if (!result.ok) {
+      if (result.code === "NOT_FOUND" && /Route POST/.test(result.error || "")) {
+        return { success: false, error: "Verification service is temporarily unavailable. Please try again in 2-3 minutes (backend updating).", code: result.code };
+      }
+      return { success: false, error: result.error, code: result.code };
+    }
     return { success: true };
   }, []);
 
@@ -324,7 +335,12 @@ export function AuthProvider({ children }: { children: ReactNode }) {
         body: JSON.stringify({ email }),
       });
     }
-    if (!result.ok) return { success: false, error: result.error, code: result.code };
+    if (!result.ok) {
+      if (result.code === "NOT_FOUND" && /Route POST/.test(result.error || "")) {
+        return { success: false, error: "Password reset service is temporarily unavailable. Please try again in 2-3 minutes (backend updating).", code: result.code };
+      }
+      return { success: false, error: result.error, code: result.code };
+    }
     return { success: true };
   }, []);
 
@@ -339,7 +355,12 @@ export function AuthProvider({ children }: { children: ReactNode }) {
         body: JSON.stringify({ email, code, newPassword }),
       });
     }
-    if (!result.ok) return { success: false, error: result.error, code: result.code };
+    if (!result.ok) {
+      if (result.code === "NOT_FOUND" && /Route POST/.test(result.error || "")) {
+        return { success: false, error: "Password reset service is temporarily unavailable. Please try again in 2-3 minutes (backend updating).", code: result.code };
+      }
+      return { success: false, error: result.error, code: result.code };
+    }
     return { success: true };
   }, []);
 
