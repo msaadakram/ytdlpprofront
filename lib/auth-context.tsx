@@ -283,37 +283,62 @@ export function AuthProvider({ children }: { children: ReactNode }) {
   }, []);
 
   const verifyEmail = useCallback(async (email: string, code: string) => {
-    const result = await apiCall<{ message: string }>("/api/proxy/auth/verify-email", {
+    let result = await apiCall<{ message: string }>("/api/proxy/auth/verify-email", {
       method: "POST",
       body: JSON.stringify({ email, code }),
     });
+    // Fallback to non-/auth alias if backend is stale or proxy misconfigured (handles 404)
+    if (!result.ok && result.code === "NOT_FOUND") {
+      result = await apiCall<{ message: string }>("/api/proxy/verify-email", {
+        method: "POST",
+        body: JSON.stringify({ email, code }),
+      });
+    }
     if (!result.ok) return { success: false, error: result.error, code: result.code };
     return { success: true };
   }, []);
 
   const resendVerification = useCallback(async (email: string) => {
-    const result = await apiCall<{ message: string }>("/api/proxy/auth/resend-verification", {
+    let result = await apiCall<{ message: string }>("/api/proxy/auth/resend-verification", {
       method: "POST",
       body: JSON.stringify({ email }),
     });
+    if (!result.ok && result.code === "NOT_FOUND") {
+      result = await apiCall<{ message: string }>("/api/proxy/resend-verification", {
+        method: "POST",
+        body: JSON.stringify({ email }),
+      });
+    }
     if (!result.ok) return { success: false, error: result.error, code: result.code };
     return { success: true };
   }, []);
 
   const requestPasswordReset = useCallback(async (email: string) => {
-    const result = await apiCall<{ message: string }>("/api/proxy/auth/forgot-password", {
+    let result = await apiCall<{ message: string }>("/api/proxy/auth/forgot-password", {
       method: "POST",
       body: JSON.stringify({ email }),
     });
+    if (!result.ok && result.code === "NOT_FOUND") {
+      result = await apiCall<{ message: string }>("/api/proxy/forgot-password", {
+        method: "POST",
+        body: JSON.stringify({ email }),
+      });
+    }
     if (!result.ok) return { success: false, error: result.error, code: result.code };
     return { success: true };
   }, []);
 
   const resetPassword = useCallback(async (email: string, code: string, newPassword: string) => {
-    const result = await apiCall<{ message: string }>("/api/proxy/auth/reset-password", {
+    let result = await apiCall<{ message: string }>("/api/proxy/auth/reset-password", {
       method: "POST",
       body: JSON.stringify({ email, code, newPassword }),
     });
+    if (!result.ok && result.code === "NOT_FOUND") {
+      result = await apiCall<{ message: string }>("/api/proxy/reset-password", {
+        method: "POST",
+        body: JSON.stringify({ email, code, newPassword }),
+      });
+    }
     if (!result.ok) return { success: false, error: result.error, code: result.code };
     return { success: true };
   }, []);
