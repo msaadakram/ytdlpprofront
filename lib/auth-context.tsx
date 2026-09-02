@@ -31,7 +31,15 @@ interface StoredSession {
   user: AuthUser;
 }
 
-type AuthResult = { success: boolean; error?: string; code?: string };
+type AuthResult = {
+  success: boolean;
+  error?: string;
+  code?: string;
+  /** Server-provided warning (e.g. code email failed to deliver). */
+  warning?: string;
+  /** Whether the code email was actually delivered (signup flow). */
+  emailDelivered?: boolean;
+};
 
 type AuthContextType = {
   user: AuthUser | null;
@@ -244,7 +252,13 @@ export function AuthProvider({ children }: { children: ReactNode }) {
     setToken(null);
     setUserState(null);
 
-    const result = await apiCall<{ token?: string; user: AuthUser; email_delivered?: boolean; verification_required?: boolean }>(
+    const result = await apiCall<{
+      token?: string;
+      user: AuthUser;
+      email_delivered?: boolean;
+      email_warning?: string;
+      verification_required?: boolean;
+    }>(
       "/api/proxy/auth/register",
       {
         method: "POST",
@@ -259,9 +273,13 @@ export function AuthProvider({ children }: { children: ReactNode }) {
     // ignore it to close the loophole where an unverified token could access
     // protected routes. The user must verify email then login.
     // Do NOT store session — force verification flow.
-    // If email was not delivered (provider failure), caller can surface a
-    // warning and user can use "Resend code" on verify page.
-    return { success: true };
+    // If the code email was not delivered (provider failure), surface the
+    // warning so the UI can tell the user and they can use "Resend code".
+    return {
+      success: true,
+      emailDelivered: result.data.email_delivered,
+      warning: result.data.email_warning,
+    };
   }, []);
 
   const googleLogin = useCallback(async (id_token: string) => {

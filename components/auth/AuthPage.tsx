@@ -232,7 +232,12 @@ export function AuthPage({ mode }: { mode: AuthMode }) {
         // Account created unverified — no session is issued (backend no longer
         // creates a token for unverified users, closing the loophole). Go
         // straight to verification; no logout needed.
-        router.push(`/verify-email?email=${encodeURIComponent(email)}`);
+        // If the code email failed to deliver, flag it so the verify page can
+        // warn the user and prompt them to resend.
+        const mailFailed = result.emailDelivered === false;
+        router.push(
+          `/verify-email?email=${encodeURIComponent(email)}${mailFailed ? "&mail=failed" : ""}`,
+        );
       }
     } finally {
       setSubmitting(false);

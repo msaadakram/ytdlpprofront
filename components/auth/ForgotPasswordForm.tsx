@@ -1,8 +1,8 @@
 "use client";
 
-import { useState, type FormEvent } from "react";
+import { useState, useEffect, type FormEvent } from "react";
 import Link from "next/link";
-import { useRouter } from "next/navigation";
+import { useRouter, useSearchParams } from "next/navigation";
 import { motion } from "motion/react";
 import {
   Mail,
@@ -13,25 +13,42 @@ import {
   Eye,
   EyeOff,
   Check,
+  RefreshCw,
 } from "lucide-react";
 import { useAuth } from "@/lib/auth-context";
 import { useTranslations } from "next-intl";
 
 type Step = "email" | "reset" | "done";
 
+const RESEND_COOLDOWN_SECONDS = 60;
+
 export function ForgotPasswordForm() {
   const { requestPasswordReset, resetPassword } = useAuth();
   const router = useRouter();
+  const searchParams = useSearchParams();
   const t = useTranslations("Auth");
 
-  const [step, setStep] = useState<Step>("email");
-  const [email, setEmail] = useState("");
-  const [code, setCode] = useState("");
+  // Prefilled from the reset email's CTA link (?code=...). When a code arrives
+  // via the link we skip straight to the reset step (email field is there).
+  const emailParam = searchParams.get("email") || "";
+  const codeParam = searchParams.get("code") || "";
+  const [step, setStep] = useState<Step>(codeParam ? "reset" : "email");
+  const [email, setEmail] = useState(emailParam);
+  const [code, setCode] = useState(codeParam);
   const [newPassword, setNewPassword] = useState("");
   const [confirmPassword, setConfirmPassword] = useState("");
   const [showPassword, setShowPassword] = useState(false);
   const [submitting, setSubmitting] = useState(false);
   const [error, setError] = useState<string | null>(null);
+  const [resending, setResending] = useState(false);
+  const [resendNotice, setResendNotice] = useState<string | null>(null);
+  const [cooldown, setCooldown] = useState(0);
+
+  useEffect(() => {
+    if (cooldown <= 0) return;
+    const timer = setTimeout(() => setCooldown((s) => s - 1), 1000);
+    return () => clearTimeout(timer);
+  }, [cooldown]);
 
   async function handleEmailSubmit(e: FormEvent) {
     e.preventDefault();
@@ -56,6 +73,11 @@ export function ForgotPasswordForm() {
   async function handleResetSubmit(e: FormEvent) {
     e.preventDefault();
     setError(null);
+    setResendNotice(null);
+    if (!email.trim()) {
+      setError(t("emailRequired"));
+      return;
+    }
     if (!/^\d{6}$/.test(code.trim())) {
       setError(t("invalidCode"));
       return;
@@ -78,6 +100,34 @@ export function ForgotPasswordForm() {
       setStep("done");
     } finally {
       setSubmitting(false);
+    }
+  }
+
+  // Resend a fresh reset code (used when the first email didn't arrive or the
+  // code expired). Reuses the same rate-limited endpoint as the initial send.
+  async function handleResendCode() {
+    setError(null);
+    setResendNotice(null);
+    if (!email.trim()) return;
+    setResending(true);
+    try {
+      const result = await requestPasswordReset(email.trim());
+      if (!result.success) {
+        // Surface cooldown / rate-limit wait times so the button counts down
+        // instead of the user hammering the endpoint.
+        const msg = result.error || t("resetFailed");
+        const waitMatch = msg.match(/(\d+)\s*s/);
+        if (result.code === "RATE_LIMIT" || /wait/i.test(msg) || waitMatch) {
+          const secs = waitMatch ? parseInt(waitMatch[1], 10) : RESEND_COOLDOWN_SECONDS;
+          setCooldown(Math.min(300, Math.max(5, secs)));
+        }
+        setError(msg);
+        return;
+      }
+      setResendNotice(t("resetResentNotice"));
+      setCooldown(RESEND_COOLDOWN_SECONDS);
+    } finally {
+      setResending(false);
     }
   }
 
@@ -174,6 +224,25 @@ export function ForgotPasswordForm() {
           </form>
         ) : (
           <form className="space-y-3.5 sm:space-y-4 mt-6" onSubmit={handleResetSubmit} noValidate>
+            <label htmlFor="reset-email" className="group block">
+              <span className="block text-xs font-bold tracking-wide text-[#0d1f26]/70 dark:text-white/70 mb-1.5 font-sans">
+                {t("emailLabel")}
+              </span>
+              <div className="flex items-center gap-2.5 rounded-2xl bg-[#f8fafc] dark:bg-white/[0.06] border border-[#0d1f26]/5 dark:border-white/10 px-3.5 py-3.5 focus-within:bg-white dark:focus-within:bg-white/[0.08] focus-within:border-[#5baab8]/40 focus-within:ring-4 focus-within:ring-[#5baab8]/10 transition-all">
+                <Mail className="w-4 h-4 text-[#0d1f26]/30 dark:text-white/30 shrink-0" />
+                <input
+                  id="reset-email"
+                  type="email"
+                  value={email}
+                  onChange={(e) => setEmail(e.target.value)}
+                  placeholder={t("emailPlaceholder")}
+                  className="flex-1 bg-transparent text-sm font-medium text-[#0d1f26] dark:text-white placeholder:text-[#0d1f26]/30 dark:placeholder:text-white/30 outline-none font-sans min-w-0"
+                  autoComplete="email"
+                  inputMode="email"
+                />
+              </div>
+            </label>
+
             <label htmlFor="reset-code" className="group block">
               <span className="block text-xs font-bold tracking-wide text-[#0d1f26]/70 dark:text-white/70 mb-1.5 font-sans">
                 {t("codeLabel")}
@@ -193,6 +262,32 @@ export function ForgotPasswordForm() {
                 />
               </div>
             </label>
+
+            <div className="flex items-center justify-between gap-3">
+              <p className="text-xs text-[#0d1f26]/50 dark:text-white/40 font-sans">
+                {t("resetNoCode")}
+              </p>
+              <button
+                type="button"
+                onClick={handleResendCode}
+                disabled={cooldown > 0 || resending || submitting}
+                className="inline-flex items-center gap-1.5 text-sm font-bold text-[#5baab8] hover:text-[#0d1f26] dark:hover:text-white transition-colors disabled:opacity-50 disabled:cursor-not-allowed font-sans"
+              >
+                {resending ? (
+                  <span className="w-3.5 h-3.5 border-2 border-[#5baab8]/30 border-t-[#5baab8] rounded-full animate-spin" />
+                ) : (
+                  <RefreshCw className="w-3.5 h-3.5" />
+                )}
+                {cooldown > 0 ? t("resendIn", { seconds: cooldown }) : t("resendCode")}
+              </button>
+            </div>
+
+            {resendNotice && (
+              <motion.div initial={{ opacity: 0, y: -6 }} animate={{ opacity: 1, y: 0 }} className="text-sm text-emerald-700 dark:text-emerald-300 bg-emerald-50/90 dark:bg-emerald-950/20 border border-emerald-200/60 dark:border-emerald-900/30 rounded-2xl px-4 py-3 font-sans flex items-start gap-2.5">
+                <span className="mt-1.5 w-1.5 h-1.5 rounded-full bg-emerald-500 shrink-0" />
+                <span className="break-words">{resendNotice}</span>
+              </motion.div>
+            )}
 
             <label htmlFor="new-password" className="group block">
               <span className="block text-xs font-bold tracking-wide text-[#0d1f26]/70 dark:text-white/70 mb-1.5 font-sans">

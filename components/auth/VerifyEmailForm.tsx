@@ -17,13 +17,20 @@ export function VerifyEmailForm() {
   const t = useTranslations("Auth");
 
   const emailParam = searchParams.get("email") || "";
+  // Prefilled from the verification email's CTA link (?email=...&code=...),
+  // so clicking "Verify my email" lands on a one-click verify screen.
+  const codeParam = searchParams.get("code") || "";
+  // Set (?mail=failed) by AuthPage when the signup response reported that the
+  // verification email could not be delivered.
+  const mailDeliveryFailed = searchParams.get("mail") === "failed";
   const [email, setEmail] = useState(emailParam);
-  const [code, setCode] = useState("");
+  const [code, setCode] = useState(codeParam);
   const [submitting, setSubmitting] = useState(false);
   const [error, setError] = useState<string | null>(null);
   const [notice, setNotice] = useState<string | null>(null);
   const [verified, setVerified] = useState(false);
   const [cooldown, setCooldown] = useState(0);
+  const [mailWarning, setMailWarning] = useState(mailDeliveryFailed);
 
   useEffect(() => {
     if (cooldown <= 0) return;
@@ -82,6 +89,9 @@ export function VerifyEmailForm() {
     }
     setNotice(t("resentNotice"));
     setCooldown(RESEND_COOLDOWN_SECONDS);
+    // A fresh code was just sent successfully — the delivery warning no
+    // longer applies.
+    setMailWarning(false);
   }
 
   if (verified) {
@@ -162,6 +172,12 @@ export function VerifyEmailForm() {
             </div>
           </label>
 
+          {mailWarning && (
+            <motion.div initial={{ opacity: 0, y: -6 }} animate={{ opacity: 1, y: 0 }} className="text-sm text-amber-800 dark:text-amber-200 bg-amber-50/90 dark:bg-amber-950/20 border border-amber-300/60 dark:border-amber-900/30 rounded-2xl px-4 py-3 font-sans flex items-start gap-2.5">
+              <span className="mt-1.5 w-1.5 h-1.5 rounded-full bg-amber-500 shrink-0" />
+              <span className="break-words">{t("mailFailedNotice")}</span>
+            </motion.div>
+          )}
           {error && (
             <motion.div initial={{ opacity: 0, y: -6 }} animate={{ opacity: 1, y: 0 }} className="text-sm text-red-700 dark:text-red-300 bg-red-50/90 dark:bg-red-950/20 border border-red-200/60 dark:border-red-900/30 rounded-2xl px-4 py-3 font-sans flex items-start gap-2.5">
               <span className="mt-1.5 w-1.5 h-1.5 rounded-full bg-red-500 shrink-0" />
