@@ -1,4 +1,5 @@
 import type { Metadata } from "next";
+import { Suspense } from "react";
 import { getTranslations } from "next-intl/server";
 import { routing } from "@/lib/i18n/routing";
 import { Nav } from "@/components/layout/Nav";
@@ -29,7 +30,9 @@ export default function ForgotPasswordPage() {
       <Nav />
       <main className="pt-20 pb-20 min-h-screen flex items-center">
         <div className="w-full max-w-[1120px] mx-auto px-4 sm:px-6 lg:px-8">
-          <ForgotPasswordForm />
+          <Suspense fallback={<div className="w-full max-w-[520px] mx-auto h-96 animate-pulse rounded-[2rem] bg-white/60 dark:bg-white/[0.04]" />}>
+            <ForgotPasswordForm />
+          </Suspense>
         </div>
       </main>
       <Footer />
