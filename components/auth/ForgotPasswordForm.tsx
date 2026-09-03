@@ -18,8 +18,9 @@ import {
 import { useAuth } from "@/lib/auth-context";
 import { useTranslations } from "next-intl";
 
-type Step = "email" | "reset" | "done";
+type Step = "email" | "code" | "password" | "done";
 
+const STEP_ORDER: Exclude<Step, "done">[] = ["email", "code", "password"];
 const RESEND_COOLDOWN_SECONDS = 60;
 
 export function ForgotPasswordForm() {
@@ -29,10 +30,10 @@ export function ForgotPasswordForm() {
   const t = useTranslations("Auth");
 
   // Prefilled from the reset email's CTA link (?code=...). When a code arrives
-  // via the link we skip straight to the reset step (email field is there).
+  // via the link we skip the email step and go straight to the code step.
   const emailParam = searchParams.get("email") || "";
   const codeParam = searchParams.get("code") || "";
-  const [step, setStep] = useState<Step>(codeParam ? "reset" : "email");
+  const [step, setStep] = useState<Step>(codeParam ? "code" : "email");
   const [email, setEmail] = useState(emailParam);
   const [code, setCode] = useState(codeParam);
   const [newPassword, setNewPassword] = useState("");
@@ -50,6 +51,7 @@ export function ForgotPasswordForm() {
     return () => clearTimeout(timer);
   }, [cooldown]);
 
+  // Step 1 → 2: request the reset code by email.
   async function handleEmailSubmit(e: FormEvent) {
     e.preventDefault();
     setError(null);
@@ -64,16 +66,17 @@ export function ForgotPasswordForm() {
         setError(result.error || t("resetFailed"));
         return;
       }
-      setStep("reset");
+      setStep("code");
     } finally {
       setSubmitting(false);
     }
   }
 
-  async function handleResetSubmit(e: FormEvent) {
+  // Step 2 → 3: client-side gate only — the one-time code is verified by the
+  // API on the final submit, so no extra round-trip is needed here.
+  function handleCodeSubmit(e: FormEvent) {
     e.preventDefault();
     setError(null);
-    setResendNotice(null);
     if (!email.trim()) {
       setError(t("emailRequired"));
       return;
@@ -82,6 +85,13 @@ export function ForgotPasswordForm() {
       setError(t("invalidCode"));
       return;
     }
+    setStep("password");
+  }
+
+  // Step 3 → done: the only call that consumes the code.
+  async function handleResetSubmit(e: FormEvent) {
+    e.preventDefault();
+    setError(null);
     if (newPassword.length < 6) {
       setError(t("errorPasswordShort"));
       return;
@@ -94,6 +104,14 @@ export function ForgotPasswordForm() {
     try {
       const result = await resetPassword(email.trim(), code.trim(), newPassword);
       if (!result.success) {
+        // A dead code (wrong / expired / attempt-limited) means the user needs
+        // a fresh one — bounce back to the code step.
+        const codeRelated =
+          result.code === "RATE_LIMIT" || /code/i.test(result.error || "");
+        if (codeRelated) {
+          setStep("code");
+          setCode("");
+        }
         setError(result.error || t("resetFailed"));
         return;
       }
@@ -153,25 +171,61 @@ export function ForgotPasswordForm() {
     );
   }
 
+  const stepIndex = STEP_ORDER.indexOf(step as Exclude<Step, "done">);
+  const stepLabels: Record<Exclude<Step, "done">, string> = {
+    email: t("stepEmail"),
+    code: t("stepCode"),
+    password: t("stepPassword"),
+  };
+  const StepIcon = step === "email" ? Mail : step === "code" ? ShieldCheck : LockKeyhole;
+
+
   return (
     <Card>
       <div className="h-[3px] w-full bg-gradient-to-r from-[#5baab8] via-[#0d1f26] to-[#5baab8] opacity-90" />
       <div className="p-5 xs:p-6 sm:p-8 lg:p-9">
+        {/* Step progress: 1 email → 2 code → 3 password */}
+        <div className="flex items-start justify-center gap-1 sm:gap-2 mb-6" role="list" aria-label="Progress">
+          {STEP_ORDER.map((s, i) => {
+            const Icon = s === "email" ? Mail : s === "code" ? ShieldCheck : LockKeyhole;
+            const isDone = i < stepIndex;
+            const isActive = i === stepIndex;
+            return (
+              <div key={s} className="flex items-start gap-1 sm:gap-2" role="listitem">
+                {i > 0 && (
+                  <div className={`mt-[15px] sm:mt-[17px] h-[2px] w-5 sm:w-8 rounded-full transition-colors duration-300 ${i <= stepIndex ? "bg-[#5baab8]" : "bg-[#0d1f26]/10 dark:bg-white/10"}`} />
+                )}
+                <div className="flex flex-col items-center gap-1.5 w-11 sm:w-12">
+                  <div className={`w-[30px] h-[30px] sm:w-9 sm:h-9 rounded-full grid place-items-center border transition-all duration-300 ${
+                    isDone
+                      ? "bg-[#5baab8] border-[#5baab8] text-white"
+                      : isActive
+                        ? "bg-[#0d1f26] dark:bg-white border-[#0d1f26] dark:border-white text-white dark:text-[#0d1f26]"
+                        : "bg-[#f8fafc] dark:bg-white/[0.06] border-[#0d1f26]/10 dark:border-white/10 text-[#0d1f26]/30 dark:text-white/30"
+                  }`}>
+                    {isDone ? <Check className="w-3.5 h-3.5 sm:w-4 sm:h-4" /> : <Icon className="w-3.5 h-3.5 sm:w-4 sm:h-4" />}
+                  </div>
+                  <span className={`text-[10px] sm:text-[11px] font-bold font-sans transition-colors ${isActive ? "text-[#0d1f26] dark:text-white" : "text-[#0d1f26]/40 dark:text-white/40"}`}>
+                    {stepLabels[s]}
+                  </span>
+                </div>
+              </div>
+            );
+          })}
+        </div>
+
         <div className="mx-auto w-14 h-14 rounded-2xl bg-[#f8fafc] dark:bg-white/[0.06] border border-[#0d1f26]/5 dark:border-white/10 grid place-items-center mb-5">
-          {step === "email" ? (
-            <Mail className="w-7 h-7 text-[#5baab8]" />
-          ) : (
-            <ShieldCheck className="w-7 h-7 text-[#5baab8]" />
-          )}
+          <StepIcon className="w-7 h-7 text-[#5baab8]" />
         </div>
         <h1 className="text-[1.6rem] sm:text-[1.85rem] font-black tracking-[-0.03em] leading-tight text-[#0d1f26] dark:text-white font-heading text-center">
-          {step === "email" ? t("forgotTitle") : t("resetTitle")}
+          {step === "email" ? t("forgotTitle") : step === "code" ? t("codeStepTitle") : t("passwordStepTitle")}
         </h1>
         <p className="text-[13px] sm:text-[14px] leading-relaxed text-[#0d1f26]/60 dark:text-white/60 mt-2 font-sans text-center break-words">
-          {step === "email" ? t("forgotSubtitle") : t("resetSubtitle")}
+          {step === "email" ? t("forgotSubtitle") : step === "code" ? t("codeStepSubtitle") : t("passwordStepSubtitle")}
         </p>
 
-        {step === "email" ? (
+
+        {step === "email" && (
           <form className="space-y-3.5 sm:space-y-4 mt-6" onSubmit={handleEmailSubmit} noValidate>
             <label htmlFor="forgot-email" className="group block">
               <span className="block text-xs font-bold tracking-wide text-[#0d1f26]/70 dark:text-white/70 mb-1.5 font-sans">
@@ -222,11 +276,14 @@ export function ForgotPasswordForm() {
               </Link>
             </p>
           </form>
-        ) : (
-          <form className="space-y-3.5 sm:space-y-4 mt-6" onSubmit={handleResetSubmit} noValidate>
+        )}
+
+
+        {step === "code" && (
+          <form className="space-y-3.5 sm:space-y-4 mt-6" onSubmit={handleCodeSubmit} noValidate>
             <label htmlFor="reset-email" className="group block">
               <span className="block text-xs font-bold tracking-wide text-[#0d1f26]/70 dark:text-white/70 mb-1.5 font-sans">
-                {t("emailLabel")}
+                {t("codeSentTo")}
               </span>
               <div className="flex items-center gap-2.5 rounded-2xl bg-[#f8fafc] dark:bg-white/[0.06] border border-[#0d1f26]/5 dark:border-white/10 px-3.5 py-3.5 focus-within:bg-white dark:focus-within:bg-white/[0.08] focus-within:border-[#5baab8]/40 focus-within:ring-4 focus-within:ring-[#5baab8]/10 transition-all">
                 <Mail className="w-4 h-4 text-[#0d1f26]/30 dark:text-white/30 shrink-0" />
@@ -263,8 +320,8 @@ export function ForgotPasswordForm() {
               </div>
             </label>
 
-            <div className="flex items-center justify-between gap-3">
-              <p className="text-xs text-[#0d1f26]/50 dark:text-white/40 font-sans">
+            <div className="flex flex-col xs:flex-row items-center justify-between gap-2 sm:gap-3">
+              <p className="text-xs text-[#0d1f26]/50 dark:text-white/40 font-sans text-center xs:text-left">
                 {t("resetNoCode")}
               </p>
               <button
@@ -288,6 +345,57 @@ export function ForgotPasswordForm() {
                 <span className="break-words">{resendNotice}</span>
               </motion.div>
             )}
+
+            {error && (
+              <motion.div initial={{ opacity: 0, y: -6 }} animate={{ opacity: 1, y: 0 }} className="text-sm text-red-700 dark:text-red-300 bg-red-50/90 dark:bg-red-950/20 border border-red-200/60 dark:border-red-900/30 rounded-2xl px-4 py-3 font-sans flex items-start gap-2.5">
+                <span className="mt-1.5 w-1.5 h-1.5 rounded-full bg-red-500 shrink-0" />
+                <span className="break-words">{error}</span>
+              </motion.div>
+            )}
+
+            <button
+              type="submit"
+              disabled={submitting}
+              className="w-full bg-[#0d1f26] dark:bg-white text-white dark:text-[#0d1f26] font-bold text-sm sm:text-[15px] py-3.5 rounded-2xl hover:bg-[#122a35] dark:hover:bg-[#f1f5f9] transition-all shadow-[0_12px_32px_-12px_rgba(13,31,38,0.45)] disabled:opacity-60 disabled:cursor-not-allowed font-sans inline-flex items-center justify-center gap-2"
+            >
+              {t("continueButton")} <ArrowRight className="w-4 h-4" />
+            </button>
+
+            <p className="text-center text-sm text-[#0d1f26]/60 dark:text-white/50 font-sans pt-1">
+              <Link href="/sign-in" className="inline-flex items-center gap-1 font-bold text-[#0d1f26] dark:text-white hover:text-[#5baab8] dark:hover:text-[#8fd3df] transition-colors">
+                <ArrowLeft className="w-3.5 h-3.5" /> {t("backToSignIn")}
+              </Link>
+            </p>
+          </form>
+        )}
+
+
+        {step === "password" && (
+          <form className="space-y-3.5 sm:space-y-4 mt-6" onSubmit={handleResetSubmit} noValidate>
+            {/* Summary of what was confirmed in the previous step */}
+            <div className="flex items-center justify-between gap-3 rounded-2xl bg-[#f8fafc] dark:bg-white/[0.06] border border-[#0d1f26]/5 dark:border-white/10 px-3.5 py-3">
+              <div className="flex items-center gap-2.5 min-w-0">
+                <ShieldCheck className="w-4 h-4 text-emerald-600 shrink-0" />
+                <div className="min-w-0">
+                  <p className="text-[11px] font-bold tracking-wide text-[#0d1f26]/50 dark:text-white/40 font-sans truncate">
+                    {t("emailLabel")}
+                  </p>
+                  <p className="text-sm font-semibold text-[#0d1f26] dark:text-white font-sans truncate">
+                    {email || t("yourEmail")}
+                  </p>
+                </div>
+              </div>
+              <button
+                type="button"
+                onClick={() => {
+                  setError(null);
+                  setStep("code");
+                }}
+                className="shrink-0 inline-flex items-center gap-1 text-xs font-bold text-[#5baab8] hover:text-[#0d1f26] dark:hover:text-white transition-colors font-sans"
+              >
+                <ArrowLeft className="w-3 h-3" /> {t("change")}
+              </button>
+            </div>
 
             <label htmlFor="new-password" className="group block">
               <span className="block text-xs font-bold tracking-wide text-[#0d1f26]/70 dark:text-white/70 mb-1.5 font-sans">
@@ -372,3 +480,4 @@ function Card({ children }: { children: React.ReactNode }) {
     </div>
   );
 }
+
