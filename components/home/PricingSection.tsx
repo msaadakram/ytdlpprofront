@@ -130,11 +130,11 @@ export function PricingSection() {
                     <p className={`text-xs font-medium mt-1 ${isPro ? "text-white/60" : "text-muted-foreground"} font-sans`}>{isPro ? t("forPowerUsers", { defaultValue: "For power users" }) : plan.key === "free" ? t("perfectToTry", { defaultValue: "Perfect to try" }) : plan.key === "starter" ? t("forStarters", { defaultValue: "For regular downloaders" }) : t("forCollaborators", { defaultValue: "For collaborators" })}</p>
                     <div className="mt-5 flex items-baseline gap-1">
                       <span className={`text-4xl sm:text-[2.5rem] font-black tracking-tight font-heading ${isPro ? "text-white" : "text-foreground"}`}>
-                        {annual && p.price !== "$0" ? `$${priceNum(p.price) * 10}` : p.price}
+                        {annual && plan.key === "team" ? "Custom" : annual && p.price !== "$0" ? `$${priceNum(p.price) * 10}` : p.price}
                       </span>
                       <span className={`text-sm font-medium ${isPro ? "text-white/50" : "text-muted-foreground"} font-sans`}>/{annual ? t("perYear", { defaultValue: "year" }) : p.period}</span>
                     </div>
-                    {annual && p.price !== "$0" && (
+                    {annual && p.price !== "$0" && plan.key !== "team" && (
                       <p className="mt-1 text-xs font-semibold text-emerald-500 dark:text-emerald-400">{t("saveYearly", { amount: (priceNum(p.price) * 12 - priceNum(p.price) * 10), defaultValue: "Save {amount} yearly" })}</p>
                     )}
                     <ul className="mt-6 space-y-3 flex-1">

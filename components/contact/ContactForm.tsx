@@ -1,6 +1,7 @@
 "use client";
 
 import { useState } from "react";
+import Link from "next/link";
 import { useTranslations } from "next-intl";
 import { Send, Loader2, CheckCircle2, Mail, User, MessageSquare, Tag } from "lucide-react";
 import { toast } from "sonner";
@@ -147,7 +148,7 @@ export function ContactForm() {
         {submitting ? <Loader2 className="w-4 h-4 animate-spin" /> : <Send className="w-4 h-4" />}
         {submitting ? t("submitting") : t("submitButton")}
       </button>
-      <p className="text-center text-xs text-muted-foreground font-sans">By sending, you agree to our Terms and Privacy.</p>
+      <p className="text-center text-xs text-muted-foreground font-sans">By sending, you agree to our <Link href="/terms" className="underline underline-offset-2 hover:text-foreground">Terms</Link> and <Link href="/privacy" className="underline underline-offset-2 hover:text-foreground">Privacy</Link>.</p>
     </form>
   );
 }

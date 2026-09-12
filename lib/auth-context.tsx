@@ -171,8 +171,8 @@ export function AuthProvider({ children }: { children: ReactNode }) {
             setUserState(fetchedUser);
             writeStored({ token: stored.token, user: fetchedUser });
           }
-        } else if (result.status === 401) {
-          // Token expired/invalid — clear and let the user log in again.
+        } else if (result.status === 401 || (result as any).code === "ACCOUNT_DISABLED") {
+          // Token expired/invalid/disabled — clear and let the user log in again.
           writeStored(null);
           setToken(null);
           setUserState(null);
@@ -217,8 +217,8 @@ export function AuthProvider({ children }: { children: ReactNode }) {
       },
     );
     if (!result.ok || !result.data) {
-      // Ensure no stale session persists after failed login (e.g. EMAIL_NOT_VERIFIED)
-      if (result.code === "EMAIL_NOT_VERIFIED") {
+      // Ensure no stale session persists after failed login (e.g. EMAIL_NOT_VERIFIED, ACCOUNT_DISABLED)
+      if (result.code === "EMAIL_NOT_VERIFIED" || result.code === "ACCOUNT_DISABLED") {
         writeStored(null);
         setToken(null);
         setUserState(null);
