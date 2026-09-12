@@ -1,6 +1,7 @@
 import type { Metadata } from "next";
 import { Inter, Space_Grotesk, JetBrains_Mono } from "next/font/google";
 import { ThemeProvider } from "next-themes";
+import { Toaster } from "sonner";
 import { AuthProvider } from "@/lib/auth-context";
 import "@/styles/globals.css";
 
@@ -72,6 +73,7 @@ export default function EnglishRootLayout({ children }: { children: React.ReactN
             disableTransitionOnChange
           >
             {children}
+            <Toaster position="top-center" />
           </ThemeProvider>
         </AuthProvider>
       </body>

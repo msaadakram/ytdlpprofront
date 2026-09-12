@@ -3,6 +3,7 @@ import { Inter, Space_Grotesk, JetBrains_Mono } from "next/font/google";
 import { NextIntlClientProvider } from "next-intl";
 import { getMessages, getTranslations } from "next-intl/server";
 import { ThemeProvider } from "next-themes";
+import { Toaster } from "sonner";
 import { routing } from "@/lib/i18n/routing";
 import { AuthProvider } from "@/lib/auth-context";
 import "@/styles/globals.css";
@@ -199,6 +200,7 @@ export default async function LocaleLayout({ children, params }: Props) {
               disableTransitionOnChange
             >
                 {children}
+                <Toaster position="top-center" />
                 <script
                   type="application/ld+json"
                   dangerouslySetInnerHTML={{ __html: JSON.stringify(orgJsonLd) }}
