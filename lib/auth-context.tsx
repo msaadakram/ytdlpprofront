@@ -10,7 +10,7 @@ export interface AuthUser {
   name: string;
   first_name: string | null;
   last_name: string | null;
-  plan: "free" | "pro";
+  plan: "free" | "starter" | "pro";
   plan_expires_at: string | null;
   avatar_url?: string | null;
   provider?: "local" | "google" | "both" | null;

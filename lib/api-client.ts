@@ -396,7 +396,7 @@ export interface ApiKeyCreated {
 }
 
 export interface BillingPlan {
-  plan: "free" | "pro";
+  plan: "free" | "starter" | "pro";
   name: string;
   price: number;
   interval: string;
@@ -440,7 +440,7 @@ export interface BtcRate {
 export interface BtcInvoice {
   id: string;
   number: string;
-  plan: "free" | "pro";
+  plan: "free" | "starter" | "pro";
   period: "month" | "year";
   usd_amount: number;
   btc_amount: string;
@@ -462,7 +462,7 @@ export interface UserProfile {
   name: string;
   first_name: string | null;
   last_name: string | null;
-  plan: "free" | "pro";
+  plan: "free" | "starter" | "pro";
   plan_expires_at: string | null;
   avatar_url?: string | null;
   provider?: "local" | "google" | "both" | null;
@@ -530,7 +530,7 @@ export const createPortal = () =>
     method: "POST",
   });
 
-export const setPlan = (plan: "free" | "pro") =>
+export const setPlan = (plan: "free" | "starter" | "pro") =>
   authRequest<BillingPlan>("/api/proxy/billing/plan", {
     method: "PATCH",
     body: JSON.stringify({ plan }),
