@@ -724,6 +724,7 @@
     "signInSubtitle": "Sign in to access your dashboard and downloads.",
     "signUpTitle": "Create Your Account",
     "signUpSubtitle": "Start downloading from 200+ platforms instantly.",
+    "signUpVerifyHint": "We'll email you a 6-digit code — enter it on the next screen to activate your account.",
     "emailLabel": "Email",
     "emailPlaceholder": "you@example.com",
     "passwordLabel": "Password",

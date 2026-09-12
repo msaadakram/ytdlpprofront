@@ -290,6 +290,12 @@ export function AuthPage({ mode }: { mode: AuthMode }) {
               <p className="text-[13px] sm:text-[14px] leading-relaxed text-[#0d1f26]/60 dark:text-white/60 mt-2 sm:mt-2.5 font-sans break-words">
                 {isSignIn ? t("signInSubtitle") : t("signUpSubtitle")}
               </p>
+              {!isSignIn && (
+                <p className="mt-3 inline-flex items-start gap-2 rounded-2xl bg-[#5baab8]/10 dark:bg-[#5baab8]/10 border border-[#5baab8]/20 px-3.5 py-2.5 text-xs leading-relaxed text-[#0d1f26]/70 dark:text-white/70 font-sans">
+                  <ShieldCheck className="w-4 h-4 text-[#5baab8] shrink-0 mt-[1px]" />
+                  <span>{t("signUpVerifyHint")}</span>
+                </p>
+              )}
 
               {/* Google */}
               <div className="mt-5 sm:mt-7">
@@ -337,9 +343,11 @@ export function AuthPage({ mode }: { mode: AuthMode }) {
                   <div className="flex items-center gap-2 sm:gap-2.5 rounded-xl sm:rounded-2xl bg-[#f8fafc] dark:bg-white/[0.06] border border-[#0d1f26]/5 dark:border-white/10 px-3 sm:px-3.5 py-3 sm:py-3.5 focus-within:bg-white dark:focus-within:bg-white/[0.08] focus-within:border-[#5baab8]/40 focus-within:ring-4 focus-within:ring-[#5baab8]/10 transition-all">
                     <Mail className="w-4 h-4 text-[#0d1f26]/30 dark:text-white/30 group-focus-within:text-[#5baab8] transition-colors shrink-0" />
                     <input id="email" ref={emailRef} type="email" placeholder={t("emailPlaceholder")} className="flex-1 bg-transparent text-sm font-medium text-[#0d1f26] dark:text-white placeholder:text-[#0d1f26]/30 dark:placeholder:text-white/30 outline-none font-sans min-w-0" autoComplete="email" inputMode="email" />
-                    <span className="hidden sm:inline-flex items-center gap-1 text-[11px] font-semibold tracking-wide text-emerald-600 bg-emerald-50 border border-emerald-200/60 px-2 py-1 rounded-full shrink-0">
-                      <Check className="w-3 h-3" /> Verified
-                    </span>
+                    {isSignIn && (
+                      <span className="hidden sm:inline-flex items-center gap-1 text-[11px] font-semibold tracking-wide text-emerald-600 bg-emerald-50 border border-emerald-200/60 px-2 py-1 rounded-full shrink-0">
+                        <Check className="w-3 h-3" /> Verified
+                      </span>
+                    )}
                   </div>
                 </label>
 
@@ -383,7 +391,7 @@ export function AuthPage({ mode }: { mode: AuthMode }) {
                   <label className="flex items-start gap-2.5 sm:gap-3 rounded-xl sm:rounded-2xl bg-[#f8fafc]/70 dark:bg-white/[0.04] border border-[#0d1f26]/5 dark:border-white/5 px-3 sm:px-3.5 py-3 cursor-pointer">
                     <input type="checkbox" checked={agree} onChange={(e) => setAgree(e.target.checked)} className="mt-0.5 w-4 h-4 rounded-md border-[#0d1f26]/20 text-[#0d1f26] focus:ring-[#5baab8]/30 shrink-0" />
                     <span className="text-xs leading-relaxed text-[#0d1f26]/60 dark:text-white/50 font-sans break-words">
-                      I agree to the <Link href="/privacy" className="font-semibold text-[#0d1f26] dark:text-white underline decoration-1 underline-offset-2">Terms</Link> and <Link href="/privacy" className="font-semibold text-[#0d1f26] dark:text-white underline decoration-1 underline-offset-2">Privacy Policy</Link>.
+                      I agree to the <Link href="/terms" className="font-semibold text-[#0d1f26] dark:text-white underline decoration-1 underline-offset-2">Terms</Link> and <Link href="/privacy" className="font-semibold text-[#0d1f26] dark:text-white underline decoration-1 underline-offset-2">Privacy Policy</Link>.
                     </span>
                   </label>
                 )}
