@@ -3,7 +3,7 @@
 import Link from "next/link";
 import { usePathname, useRouter } from "next/navigation";
 import { motion, AnimatePresence } from "motion/react";
-import { Cookie, Home, LogOut, Settings, Shield, X, ChevronLeft } from "lucide-react";
+import { Cookie, Home, Inbox, LogOut, Settings, Shield, X, ChevronLeft } from "lucide-react";
 
 interface AdminUser {
   id: number;
@@ -13,6 +13,7 @@ interface AdminUser {
 
 const navItems = [
   { href: "/admin", label: "Dashboard", icon: Home },
+  { href: "/admin/inbox", label: "Inbox", icon: Inbox },
   { href: "/admin/cookies", label: "Platform Cookies", icon: Cookie },
   { href: "/admin/settings", label: "Settings", icon: Settings },
 ];
