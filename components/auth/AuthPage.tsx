@@ -32,9 +32,9 @@ function AuthAside() {
   return (
     <aside className="hidden lg:flex relative flex-col justify-between overflow-hidden rounded-[2.5rem] bg-[#0d1f26] p-10 text-white shadow-[0_32px_80px_-20px_rgba(13,31,38,0.45)] max-w-[440px] w-full shrink-0 min-h-[680px] lg:h-auto">
       {/* Mesh gradients */}
-      <div className="absolute inset-0">
-        <div className="absolute -top-32 -right-32 w-[420px] h-[420px] rounded-full bg-gradient-to-br from-[#5baab8]/30 via-[#3d8896]/20 to-transparent blur-[60px]" />
-        <div className="absolute -bottom-24 -left-24 w-[380px] h-[380px] rounded-full bg-gradient-to-tr from-[#0ea5b0]/20 via-[#5baab8]/15 to-transparent blur-[50px]" />
+      <div className="absolute inset-0 overflow-hidden">
+        <div className="absolute -top-20 -right-20 w-[240px] h-[240px] rounded-full bg-gradient-to-br from-[#5baab8]/30 via-[#3d8896]/20 to-transparent blur-[40px]" />
+        <div className="absolute -bottom-16 -left-16 w-[220px] h-[220px] rounded-full bg-gradient-to-tr from-[#0ea5b0]/20 via-[#5baab8]/15 to-transparent blur-[36px]" />
         <div className="absolute inset-0 opacity-[0.04]" style={{ backgroundImage: `radial-gradient(circle at 1px 1px, white 1px, transparent 0)`, backgroundSize: `22px 22px` }} />
       </div>
 
