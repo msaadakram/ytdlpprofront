@@ -290,12 +290,7 @@ export function AuthPage({ mode }: { mode: AuthMode }) {
               <p className="text-[13px] sm:text-[14px] leading-relaxed text-[#0d1f26]/60 dark:text-white/60 mt-2 sm:mt-2.5 font-sans break-words">
                 {isSignIn ? t("signInSubtitle") : t("signUpSubtitle")}
               </p>
-              {!isSignIn && (
-                <p className="mt-3 inline-flex items-start gap-2 rounded-2xl bg-[#5baab8]/10 dark:bg-[#5baab8]/10 border border-[#5baab8]/20 px-3.5 py-2.5 text-xs leading-relaxed text-[#0d1f26]/70 dark:text-white/70 font-sans">
-                  <ShieldCheck className="w-4 h-4 text-[#5baab8] shrink-0 mt-[1px]" />
-                  <span>{t("signUpVerifyHint")}</span>
-                </p>
-              )}
+
 
               {/* Google */}
               <div className="mt-5 sm:mt-7">
