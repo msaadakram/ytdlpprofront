@@ -3,6 +3,11 @@
   "buildCommand": "next build",
   "outputDirectory": ".next",
   "installCommand": "npm install",
+  "functions": {
+    "app/api/proxy/[[...path]]/route.ts": { "maxDuration": 60 },
+    "app/api/admin/proxy/[...path]/route.ts": { "maxDuration": 60 },
+    "app/api/thumbnail/route.ts": { "maxDuration": 30 }
+  },
   "env": {
     "NEXT_PUBLIC_API_URL": "https://ytback-production.up.railway.app"
   },

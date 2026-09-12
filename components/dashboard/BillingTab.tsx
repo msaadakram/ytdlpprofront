@@ -135,13 +135,52 @@ export function BillingTab() {
     return () => clearInterval(id);
   }, [btcInvoice?.id, btcInvoice?.status]);
 
+  function isRetryableInvoiceError(res: { success: boolean; error?: { code?: string; message?: string } } | null): boolean {
+    if (!res || res.success) return false;
+    const code = res.error?.code || "";
+    const msg = res.error?.message || "";
+    return code === "PROXY_ERROR" || code === "NETWORK_ERROR" || /502|504|timeout|timed out|network/i.test(msg);
+  }
+
+  function friendlyInvoiceError(res: { success: boolean; error?: { code?: string; message?: string } } | null): string {
+    const msg = res?.error?.message || "";
+    if (res && (res.error?.code === "PROXY_ERROR" || /502|504|timeout|timed out/i.test(msg))) {
+      return "The server took too long — your invoice may still have been created. Refreshed below; try again if nothing appears.";
+    }
+    return msg || "Failed to create BTC invoice.";
+  }
+
+  /** Create with one retry on proxy/timeout failures (slow upstream chain scans). */
+  async function issueInvoiceWithRetry(period: "month" | "year", plan: "starter" | "pro") {
+    const first = await createBtcInvoice(period, plan);
+    if (first.success && first.data) return first;
+    if (!isRetryableInvoiceError(first)) return first;
+    await new Promise((r) => setTimeout(r, 1500));
+    return createBtcInvoice(period, plan);
+  }
+
+  /** After a failed issue, resync from the server (a timed-out create may still have landed). */
+  async function resyncPending() {
+    const pending = await getPendingBtcInvoice();
+    const found = pending.success ? pending.data?.invoice || null : null;
+    setBtcInvoice(found);
+    if (found) {
+      prevStatus.current = found.status;
+      activeIdRef.current = found.id;
+      setBtcPlan(found.plan === "starter" ? "starter" : "pro");
+      setBtcPeriod(found.period === "year" ? "year" : "month");
+    }
+    return found;
+  }
+
   async function handleCreateInvoice() {
     setError(null);
     setBusy("invoice");
-    const res = await createBtcInvoice(btcPeriod, btcPlan);
+    const res = await issueInvoiceWithRetry(btcPeriod, btcPlan);
     setBusy(null);
     if (!res.success || !res.data) {
-      setError(res.error?.message || "Failed to create BTC invoice.");
+      setError(friendlyInvoiceError(res));
+      await resyncPending();
       return;
     }
     setQrFailed(false);
@@ -175,12 +214,11 @@ export function BillingTab() {
         setError(cancelRes.error?.message || "Could not switch — cancel the open invoice first.");
         return;
       }
-      const res = await createBtcInvoice(nextPeriod, nextPlan);
+      const res = await issueInvoiceWithRetry(nextPeriod, nextPlan);
       setBusy(null);
       if (!res.success || !res.data) {
-        setError(res.error?.message || "Switched selection, but creating the new invoice failed — try again.");
-        const pending = await getPendingBtcInvoice();
-        if (pending.success) setBtcInvoice(pending.data?.invoice || null);
+        setError(friendlyInvoiceError(res));
+        await resyncPending();
         return;
       }
       setQrFailed(false);
