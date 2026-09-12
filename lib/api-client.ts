@@ -612,6 +612,7 @@ export interface SystemStatus {
   };
   endpoints: StatusEndpoint[];
   platforms: Array<{ id: string; hasCookies: boolean }>;
+  mail?: { configured: boolean; fromDomain: string | null; testSender: boolean };
 }
 
 export interface Capabilities {
