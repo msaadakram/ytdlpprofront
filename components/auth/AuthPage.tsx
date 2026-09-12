@@ -30,7 +30,7 @@ type AuthMode = "signin" | "signup";
 function AuthAside() {
   const t = useTranslations("Auth");
   return (
-    <aside className="hidden lg:flex relative flex-col justify-between overflow-hidden rounded-[2rem] bg-[#0d1f26] p-7 text-white shadow-[0_32px_80px_-20px_rgba(13,31,38,0.45)] max-w-[360px] w-full shrink-0 min-h-[560px] lg:h-auto">
+    <aside className="hidden lg:flex relative flex-col justify-between overflow-hidden rounded-[2rem] bg-[#0d1f26] p-7 text-white shadow-[0_32px_80px_-20px_rgba(13,31,38,0.45)] max-w-[440px] w-full shrink-0 min-h-[480px] lg:h-auto">
       {/* Mesh gradients */}
       <div className="absolute inset-0 overflow-hidden">
         <div className="absolute -top-12 -right-12 w-[140px] h-[140px] rounded-full bg-gradient-to-br from-[#5baab8]/30 via-[#3d8896]/20 to-transparent blur-[28px]" />
@@ -39,26 +39,26 @@ function AuthAside() {
       </div>
 
       <div className="relative z-10">
-        <div className="flex items-center gap-3 mb-10">
+        <div className="flex items-center gap-3 mb-6">
           <div className="w-[68px] h-[68px] rounded-2xl bg-white flex items-center justify-center shadow-lg">
             <img src="/logo.png" alt="DownForge" className="w-[50px] h-[50px] object-contain scale-110" />
           </div>
           <span className="text-[11px] font-bold tracking-[0.18em] uppercase text-white/60 font-sans">DownForge</span>
         </div>
 
-        <div className="inline-flex items-center gap-2 rounded-full bg-white/10 backdrop-blur-md border border-white/10 px-3 py-1.5 mb-6">
+        <div className="inline-flex items-center gap-2 rounded-full bg-white/10 backdrop-blur-md border border-white/10 px-3 py-1.5 mb-4">
           <span className="w-2 h-2 rounded-full bg-emerald-400 animate-pulse" />
           <span className="text-xs font-semibold tracking-wide text-white/90 font-sans">200+ platforms live</span>
         </div>
 
-        <h2 className="text-[2.1rem] xl:text-[2.4rem] font-black leading-[0.95] tracking-[-0.03em] font-heading mb-4">
+        <h2 className="text-[1.7rem] xl:text-[2rem] font-black leading-[0.95] tracking-[-0.03em] font-heading mb-3">
           {t("asideTitle")}
           <span className="bg-gradient-to-r from-[#5baab8] to-[#8fd3df] bg-clip-text text-transparent">.</span>
         </h2>
         <p className="text-[15px] leading-relaxed text-white/65 font-sans max-w-[32ch]">{t("asideDesc")}</p>
 
         {/* Mock preview card */}
-        <div className="mt-8 rounded-[1.6rem] bg-white/[0.07] backdrop-blur-xl border border-white/10 p-4 shadow-xl">
+        <div className="mt-6 rounded-[1.6rem] bg-white/[0.07] backdrop-blur-xl border border-white/10 p-3 shadow-xl">
           <div className="flex items-center justify-between mb-4">
             <div className="flex items-center gap-2.5">
               <div className="w-9 h-9 rounded-xl bg-white flex items-center justify-center shadow">
@@ -98,13 +98,13 @@ function AuthAside() {
         </div>
       </div>
 
-      <div className="relative z-10 space-y-3 mt-8">
+      <div className="relative z-10 space-y-2.5 mt-6">
         {[
           { key: "asideCheck1", icon: ShieldCheck, sub: "AES-256 • No logs" },
           { key: "asideCheck2", icon: Zap, sub: "< 3s avg processing" },
           { key: "asideCheck3", icon: Globe, sub: "YouTube → 200+ sites" },
         ].map(({ key, icon: Icon, sub }) => (
-          <div key={key} className="flex items-center gap-3 rounded-2xl bg-white/[0.06] border border-white/10 px-4 py-3 backdrop-blur-sm">
+          <div key={key} className="flex items-center gap-3 rounded-2xl bg-white/[0.06] border border-white/10 px-3.5 py-2.5 backdrop-blur-sm">
             <span className="inline-flex items-center justify-center w-9 h-9 rounded-xl bg-white text-[#0d1f26] shadow-sm shrink-0">
               <Icon className="w-4 h-4" />
             </span>
@@ -116,7 +116,7 @@ function AuthAside() {
           </div>
         ))}
 
-        <div className="flex items-center gap-3 pt-4 border-t border-white/10 mt-4">
+        <div className="flex items-center gap-3 pt-3 border-t border-white/10 mt-3">
           <div className="flex -space-x-2">
             {[1, 2, 3].map((i) => (
               <img key={i} src={`https://i.pravatar.cc/100?img=${10 + i}`} alt="" className="w-8 h-8 rounded-full border-2 border-[#0d1f26] object-cover" />
