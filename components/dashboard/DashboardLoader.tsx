@@ -45,7 +45,7 @@ export function DashboardLoader({ message, children }: DashboardLoaderProps) {
               src="/logo.png"
               alt=""
               aria-hidden
-              className="w-8 h-8 sm:w-10 sm:h-10 object-contain scale-110 animate-float-soft"
+              className="w-11 h-11 sm:w-14 sm:h-14 object-contain scale-110 animate-float-soft"
             />
           </div>
         </motion.div>

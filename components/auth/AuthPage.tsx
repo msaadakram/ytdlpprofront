@@ -40,8 +40,8 @@ function AuthAside() {
 
       <div className="relative z-10">
         <div className="flex items-center gap-3 mb-10">
-          <div className="w-12 h-12 rounded-2xl bg-white flex items-center justify-center shadow-lg">
-            <img src="/logo.png" alt="DownForge" className="w-9 h-9 object-contain scale-110" />
+          <div className="w-[68px] h-[68px] rounded-2xl bg-white flex items-center justify-center shadow-lg">
+            <img src="/logo.png" alt="DownForge" className="w-[50px] h-[50px] object-contain scale-110" />
           </div>
           <span className="text-[11px] font-bold tracking-[0.18em] uppercase text-white/60 font-sans">DownForge</span>
         </div>

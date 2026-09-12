@@ -157,10 +157,10 @@ export function Nav() {
           : "bg-white/70 dark:bg-[#0a1218]/50 backdrop-blur-xl border-border/40 dark:border-white/5"
       }`}
     >
-      <div className="mx-auto max-w-[1280px] px-3 lg:px-3 xl:px-6 h-[60px] sm:h-16 flex items-center justify-between gap-1.5 lg:gap-2 xl:gap-4 min-w-0">
+      <div className="mx-auto max-w-[1280px] px-3 lg:px-3 xl:px-6 h-[68px] sm:h-20 flex items-center justify-between gap-1.5 lg:gap-2 xl:gap-4 min-w-0">
         <Link href="/" className="flex items-center gap-2 sm:gap-2.5 shrink-0 group min-w-0" aria-label="DownForge home">
-          <div className="w-10 h-10 sm:w-11 sm:h-11 rounded-xl bg-white border border-border/60 shadow-sm group-hover:shadow-md transition-shadow flex items-center justify-center">
-            <img src="/logo.png" alt="DownForge" className="w-7 h-7 sm:w-8 sm:h-8 object-contain scale-110" />
+          <div className="w-14 h-14 sm:w-16 sm:h-16 rounded-xl bg-white border border-border/60 shadow-sm group-hover:shadow-md transition-shadow flex items-center justify-center">
+            <img src="/logo.png" alt="DownForge" className="w-10 h-10 sm:w-11 sm:h-11 object-contain scale-110" />
           </div>
           <span className="font-bold text-[17px] sm:text-lg tracking-tight text-foreground font-heading">
             DownForge
@@ -457,10 +457,10 @@ export function Nav() {
             transition={{ type: "spring", stiffness: 360, damping: 32 }}
             className="fixed top-0 right-0 bottom-0 w-[88%] max-w-[360px] sm:max-w-[380px] bg-white dark:bg-[#0a1218] border-l border-border/50 dark:border-white/10 shadow-[0_0_80px_-16px_rgba(13,31,38,0.25)] z-[60] lg:hidden flex flex-col overflow-hidden"
           >
-              <div className="flex items-center justify-between px-4 sm:px-5 h-[56px] sm:h-16 border-b border-border/50 dark:border-white/5 shrink-0 bg-gradient-to-r from-white to-slate-50/50 dark:from-[#0a1218] dark:to-[#0f1e26]/50">
+              <div className="flex items-center justify-between px-4 sm:px-5 h-[68px] sm:h-20 border-b border-border/50 dark:border-white/5 shrink-0 bg-gradient-to-r from-white to-slate-50/50 dark:from-[#0a1218] dark:to-[#0f1e26]/50">
                 <Link href="/" onClick={closeAll} className="flex items-center gap-2.5" aria-label="DownForge home">
-                  <div className="w-10 h-10 rounded-xl bg-white border border-border/60 shadow-sm flex items-center justify-center">
-                    <img src="/logo.png" alt="DownForge" className="w-7 h-7 object-contain scale-110" />
+                  <div className="w-14 h-14 rounded-xl bg-white border border-border/60 shadow-sm flex items-center justify-center">
+                    <img src="/logo.png" alt="DownForge" className="w-10 h-10 object-contain scale-110" />
                   </div>
                   <span className="font-bold text-base tracking-tight text-foreground font-heading">DownForge</span>
                 </Link>

@@ -171,7 +171,7 @@ export function Sidebar({
             >
               <div className="flex items-center justify-between p-4 border-b border-border/70 h-16">
                 <span className="flex items-center gap-2">
-                  <img src="/logo.png" alt="" className="w-7 h-7 object-contain" />
+                  <img src="/logo.png" alt="" className="w-10 h-10 object-contain" />
                   <span className="font-extrabold text-foreground font-heading">DownForge</span>
                 </span>
                 <button

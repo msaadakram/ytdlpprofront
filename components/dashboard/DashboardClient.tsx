@@ -84,8 +84,8 @@ export function DashboardClient() {
           <Menu className="w-5 h-5" />
         </button>
         <Link href="/" className="flex items-center gap-2.5 group" aria-label="DownForge home">
-          <span className="w-9 h-9 rounded-xl bg-white dark:bg-white/95 shadow-[0_6px_16px_-8px_rgba(91,170,184,0.55)] ring-1 ring-border/60 flex items-center justify-center group-hover:shadow-[0_8px_20px_-8px_rgba(91,170,184,0.7)] transition-shadow">
-            <img src="/logo.png" alt="" className="w-7 h-7 object-contain scale-110" />
+          <span className="w-[50px] h-[50px] rounded-xl bg-white dark:bg-white/95 shadow-[0_6px_16px_-8px_rgba(91,170,184,0.55)] ring-1 ring-border/60 flex items-center justify-center group-hover:shadow-[0_8px_20px_-8px_rgba(91,170,184,0.7)] transition-shadow">
+            <img src="/logo.png" alt="" className="w-10 h-10 object-contain scale-110" />
           </span>
           <span className="font-extrabold text-lg tracking-tight text-foreground font-heading">DownForge</span>
         </Link>
