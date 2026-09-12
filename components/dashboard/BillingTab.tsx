@@ -145,6 +145,50 @@ export function BillingTab() {
     setNow(Date.now());
   }
 
+  /**
+   * Switching plan/period while a *pending, unpaid* invoice is open cancels
+   * it and immediately issues the newly selected one — one click, no trap.
+   * Invoices with a detected payment (confirming/underpaid) are locked:
+   * switching there could strand funds, so the user must wait or contact support.
+   */
+  async function handlePickChange(nextPlan: "starter" | "pro", nextPeriod: "month" | "year") {
+    if (busy !== null) return;
+    const live = btcInvoice && btcInvoice.status === "pending";
+    const changed = nextPlan !== btcPlan || nextPeriod !== btcPeriod || (live && (btcInvoice.plan !== nextPlan || btcInvoice.period !== nextPeriod));
+    if (!changed) {
+      setBtcPlan(nextPlan);
+      setBtcPeriod(nextPeriod);
+      return;
+    }
+    if (live && (btcInvoice.plan !== nextPlan || btcInvoice.period !== nextPeriod)) {
+      setError(null);
+      setBusy("invoice");
+      const cancelRes = await cancelBtcInvoice(btcInvoice.id);
+      if (!cancelRes.success) {
+        setBusy(null);
+        setError(cancelRes.error?.message || "Could not switch — cancel the open invoice first.");
+        return;
+      }
+      const res = await createBtcInvoice(nextPeriod, nextPlan);
+      setBusy(null);
+      if (!res.success || !res.data) {
+        setError(res.error?.message || "Switched selection, but creating the new invoice failed — try again.");
+        const pending = await getPendingBtcInvoice();
+        if (pending.success) setBtcInvoice(pending.data?.invoice || null);
+        return;
+      }
+      setQrFailed(false);
+      setBtcPlan(nextPlan);
+      setBtcPeriod(nextPeriod);
+      setBtcInvoice(res.data.invoice);
+      prevStatus.current = res.data.invoice.status;
+      setNow(Date.now());
+      return;
+    }
+    setBtcPlan(nextPlan);
+    setBtcPeriod(nextPeriod);
+  }
+
   async function handleCancel() {
     if (!btcInvoice) return;
     setError(null);
@@ -300,32 +344,41 @@ export function BillingTab() {
           Pay once, no card, no subscription. Pro activates automatically after 1 network confirmation (~10–30 min) and renews manually.
         </p>
 
+        {(!inv || inv.status === "pending" || inv.status === "expired") && (
+          <div className="flex flex-wrap items-center gap-2">
+            <div className="inline-flex items-center gap-1 bg-muted/60 border border-border/60 rounded-full p-1">
+              {(["starter", "pro"] as const).map((p) => (
+                <button
+                  key={p}
+                  onClick={() => handlePickChange(p, btcPeriod)}
+                  disabled={busy !== null}
+                  className={`px-4 py-1.5 rounded-full text-xs font-bold capitalize transition-all disabled:opacity-60 disabled:cursor-wait ${btcPlan === p ? "bg-[#F7931A] text-white shadow" : "text-muted-foreground hover:text-foreground"}`}
+                >
+                  {p} · ${PLAN_PRICES[p]}
+                </button>
+              ))}
+            </div>
+            <div className="inline-flex items-center gap-1 bg-muted/60 border border-border/60 rounded-full p-1">
+              {(["month", "year"] as const).map((p) => (
+                <button
+                  key={p}
+                  onClick={() => handlePickChange(btcPlan, p)}
+                  disabled={busy !== null}
+                  className={`px-4 py-1.5 rounded-full text-xs font-bold transition-all disabled:opacity-60 disabled:cursor-wait ${btcPeriod === p ? "bg-[#0d1f26] dark:bg-white text-white dark:text-[#0d1f26] shadow" : "text-muted-foreground hover:text-foreground"}`}
+                >
+                  {p === "month" ? `Monthly · $${monthlyUsd}` : `Annual · $${monthlyUsd * 10}`}
+                </button>
+              ))}
+            </div>
+            {inv?.status === "pending" && (
+              <p className="w-full text-[11px] text-muted-foreground font-sans">
+                {busy === "invoice" ? "Switching to your new selection…" : "Switching plan or period cancels this invoice and issues the new one automatically."}
+              </p>
+            )}
+          </div>
+        )}
         {!invActive && (
           <div className="space-y-4">
-            <div className="flex flex-wrap items-center gap-2">
-              <div className="inline-flex items-center gap-1 bg-muted/60 border border-border/60 rounded-full p-1">
-                {(["starter", "pro"] as const).map((p) => (
-                  <button
-                    key={p}
-                    onClick={() => setBtcPlan(p)}
-                    className={`px-4 py-1.5 rounded-full text-xs font-bold capitalize transition-all ${btcPlan === p ? "bg-[#F7931A] text-white shadow" : "text-muted-foreground hover:text-foreground"}`}
-                  >
-                    {p} · ${PLAN_PRICES[p]}
-                  </button>
-                ))}
-              </div>
-              <div className="inline-flex items-center gap-1 bg-muted/60 border border-border/60 rounded-full p-1">
-                {(["month", "year"] as const).map((p) => (
-                  <button
-                    key={p}
-                    onClick={() => setBtcPeriod(p)}
-                    className={`px-4 py-1.5 rounded-full text-xs font-bold transition-all ${btcPeriod === p ? "bg-[#0d1f26] dark:bg-white text-white dark:text-[#0d1f26] shadow" : "text-muted-foreground hover:text-foreground"}`}
-                  >
-                    {p === "month" ? `Monthly · $${monthlyUsd}` : `Annual · $${monthlyUsd * 10}`}
-                  </button>
-                ))}
-              </div>
-            </div>
             <div className="flex flex-col sm:flex-row sm:items-center gap-3">
               <button
                 onClick={handleCreateInvoice}
