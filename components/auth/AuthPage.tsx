@@ -30,7 +30,7 @@ type AuthMode = "signin" | "signup";
 function AuthAside() {
   const t = useTranslations("Auth");
   return (
-    <aside className="hidden lg:flex relative flex-col justify-between overflow-hidden rounded-[2.5rem] bg-[#0d1f26] p-10 text-white shadow-[0_32px_80px_-20px_rgba(13,31,38,0.45)] max-w-[440px] w-full shrink-0 min-h-[680px] lg:h-auto">
+    <aside className="hidden lg:flex relative flex-col justify-between overflow-hidden rounded-[2rem] bg-[#0d1f26] p-7 text-white shadow-[0_32px_80px_-20px_rgba(13,31,38,0.45)] max-w-[360px] w-full shrink-0 min-h-[560px] lg:h-auto">
       {/* Mesh gradients */}
       <div className="absolute inset-0 overflow-hidden">
         <div className="absolute -top-12 -right-12 w-[140px] h-[140px] rounded-full bg-gradient-to-br from-[#5baab8]/30 via-[#3d8896]/20 to-transparent blur-[28px]" />
