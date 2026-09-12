@@ -62,7 +62,9 @@ export default function AdminLayout({ children }: { children: React.ReactNode })
     return <>{children}</>;
   }
 
-  if (loading) {
+  if (loading || !admin) {
+    // !admin covers the redirect window after a failed session check —
+    // Sidebar reads admin.email and would crash on null.
     return (
       <div className="min-h-screen bg-background flex items-center justify-center">
         <div className="flex flex-col items-center gap-3">

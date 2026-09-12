@@ -37,8 +37,14 @@ export default function AdminBtcPage() {
     try {
       const qs = status === "all" ? "" : `?status=${status}`;
       const res = await fetch(`/api/admin/proxy/btc/invoices${qs}`, { headers: authHeaders() });
-      const json = await res.json();
-      if (json.success) setRows(json.data.invoices || []);
+      const json = await res.json().catch(() => null);
+      if (res.ok && json?.success) {
+        setRows(json.data.invoices || []);
+      } else {
+        setNotice({ type: "error", text: json?.error?.message || `Failed to load invoices (HTTP ${res.status}).` });
+      }
+    } catch {
+      setNotice({ type: "error", text: "Network error — is the backend reachable?" });
     } finally {
       setLoading(false);
     }
@@ -55,12 +61,12 @@ export default function AdminBtcPage() {
         method: "POST",
         headers: authHeaders(),
       });
-      const json = await res.json();
-      if (json.success) {
+      const json = await res.json().catch(() => null);
+      if (res.ok && json?.success) {
         setRows((rs) => rs.map((r) => (r.id === id ? json.data.invoice : r)));
         setNotice({ type: "success", text: `Invoice ${json.data.invoice.number} confirmed — plan activated.` });
       } else {
-        setNotice({ type: "error", text: json.error?.message || "Confirm failed." });
+        setNotice({ type: "error", text: json?.error?.message || "Confirm failed." });
       }
     } finally {
       setBusy(null);

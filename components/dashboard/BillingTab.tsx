@@ -50,6 +50,9 @@ async function copyText(text: string): Promise<boolean> {
     try {
       const ta = document.createElement("textarea");
       ta.value = text;
+      ta.readOnly = true;
+      ta.style.position = "fixed";
+      ta.style.opacity = "0";
       document.body.appendChild(ta);
       ta.select();
       document.execCommand("copy");
@@ -76,6 +79,9 @@ export function BillingTab() {
   const [copied, setCopied] = useState<"address" | "amount" | null>(null);
   const [qrFailed, setQrFailed] = useState(false);
   const prevStatus = useRef<string | null>(null);
+  // Generation guard: a poll started for an old invoice must never overwrite
+  // a newer one (cancel → recreate race).
+  const activeIdRef = useRef<string | null>(null);
 
   // Initial load: plan + quota + history + live BTC rate + resume any open invoice.
   useEffect(() => {
@@ -90,6 +96,7 @@ export function BillingTab() {
         if (pendingRes.success && pendingRes.data?.invoice) {
           setBtcInvoice(pendingRes.data.invoice);
           prevStatus.current = pendingRes.data.invoice.status;
+          activeIdRef.current = pendingRes.data.invoice.id;
         }
       },
     ).finally(() => { if (!cancelled) setLoading(false); });
@@ -104,12 +111,17 @@ export function BillingTab() {
   }, [btcInvoice?.id, btcInvoice?.status]);
 
   // Poll chain status while the invoice is open. On confirmation, refresh plan + history.
+  // Expired invoices stop polling (late payments still credit on the next
+  // invoice creation or manual refresh).
   useEffect(() => {
-    if (!btcInvoice || !ACTIVE_STATUSES.includes(btcInvoice.status) && btcInvoice.status !== "expired") return;
+    if (!btcInvoice || !ACTIVE_STATUSES.includes(btcInvoice.status)) return;
     if (btcInvoice.status === "confirmed" || btcInvoice.status === "cancelled") return;
+    const polledId = btcInvoice.id;
     const id = setInterval(async () => {
-      const res = await getBtcInvoice(btcInvoice.id);
+      if (activeIdRef.current !== polledId) return;
+      const res = await getBtcInvoice(polledId);
       if (!res.success || !res.data) return;
+      if (activeIdRef.current !== polledId) return;
       const fresh = res.data.invoice;
       setBtcInvoice(fresh);
       if (fresh.status === "confirmed" && prevStatus.current !== "confirmed") {
@@ -123,13 +135,6 @@ export function BillingTab() {
     return () => clearInterval(id);
   }, [btcInvoice?.id, btcInvoice?.status]);
 
-  async function refreshAll() {
-    const [planRes, invRes, quotaRes] = await Promise.all([getPlan(), listInvoices(), getQuota()]);
-    if (planRes.success && planRes.data) setPlanState(planRes.data);
-    if (invRes.success && invRes.data) setInvoices(invRes.data.invoices);
-    if (quotaRes.success && quotaRes.data) setQuota(quotaRes.data);
-  }
-
   async function handleCreateInvoice() {
     setError(null);
     setBusy("invoice");
@@ -142,6 +147,7 @@ export function BillingTab() {
     setQrFailed(false);
     setBtcInvoice(res.data.invoice);
     prevStatus.current = res.data.invoice.status;
+    activeIdRef.current = res.data.invoice.id;
     setNow(Date.now());
   }
 
@@ -182,6 +188,7 @@ export function BillingTab() {
       setBtcPeriod(nextPeriod);
       setBtcInvoice(res.data.invoice);
       prevStatus.current = res.data.invoice.status;
+      activeIdRef.current = res.data.invoice.id;
       setNow(Date.now());
       return;
     }
@@ -212,7 +219,8 @@ export function BillingTab() {
       setError(res.error?.message || "Failed to downgrade.");
       return;
     }
-    setPlanState(res.data);
+    // setPlan returns a partial plan shape — merge, never replace.
+    setPlanState((s) => (s ? { ...s, ...res.data } : (res.data as BillingPlan)));
   }
 
   async function handleCopy(text: string, which: "address" | "amount") {
@@ -220,6 +228,8 @@ export function BillingTab() {
     if (ok) {
       setCopied(which);
       setTimeout(() => setCopied((c) => (c === which ? null : c)), 2000);
+    } else {
+      setError("Copy failed in this browser — long-press the text to copy it manually.");
     }
   }
 
@@ -386,7 +396,7 @@ export function BillingTab() {
                 className="flex items-center justify-center gap-2 bg-gradient-to-br from-[#F7931A] to-[#c56f0a] text-white text-sm font-bold px-5 py-2.5 rounded-xl hover:shadow-[0_10px_24px_-10px_rgba(247,147,26,0.9)] active:scale-[0.98] transition-all font-sans disabled:opacity-60"
               >
                 {busy === "invoice" ? <Loader2 className="w-4 h-4 animate-spin" /> : <Bitcoin className="w-4 h-4" />}
-                {inv?.status === "confirmed" ? "Buy / Extend Again" : `Pay $${periodUsd} with Bitcoin`}
+                {inv?.status === "confirmed" ? "Buy / Extend Again" : `Pay ≈ $${periodUsd} with Bitcoin`}
               </button>
               {approxBtc && (
                 <p className="text-xs text-muted-foreground font-sans">
@@ -423,19 +433,29 @@ export function BillingTab() {
                 </p>
               </div>
               <div className="sm:ml-auto flex items-center gap-2 text-sm font-bold font-sans">
-                <Timer className={`w-4 h-4 ${inv.status === "expired" ? "text-red-500" : "text-[#F7931A]"}`} />
-                <span className={inv.status === "expired" ? "text-red-500" : "text-foreground"}>
-                  {inv.status === "expired" ? "Expired" : formatCountdown(inv.expires_at, now)}
+                <Timer className={`w-4 h-4 ${inv.status === "expired" || new Date(inv.expires_at).getTime() <= now ? "text-red-500" : "text-[#F7931A]"}`} />
+                <span className={inv.status === "expired" || new Date(inv.expires_at).getTime() <= now ? "text-red-500" : "text-foreground"}>
+                  {inv.status === "expired" || new Date(inv.expires_at).getTime() <= now ? "Expired" : formatCountdown(inv.expires_at, now)}
                 </span>
               </div>
             </div>
 
             {/* QR + address */}
             <div className="flex flex-col sm:flex-row gap-4">
-              {qrUrl && (
+              {qrUrl ? (
                 <div className="mx-auto sm:mx-0 bg-white rounded-2xl border border-border/60 p-3 shrink-0">
                   {/* eslint-disable-next-line @next/next/no-img-element */}
                   <img src={qrUrl} alt="Bitcoin payment QR code" width={180} height={180} className="w-[180px] h-[180px]" onError={() => setQrFailed(true)} />
+                </div>
+              ) : (
+                <div className="mx-auto sm:mx-0 rounded-2xl border border-border/60 bg-muted/40 p-4 shrink-0 w-[204px] text-center">
+                  <p className="text-xs text-muted-foreground font-sans mb-2">QR unavailable</p>
+                  <a href={bitcoinUri} className="inline-flex items-center justify-center gap-1.5 w-full rounded-xl bg-[#F7931A] text-white text-xs font-bold px-3 py-2 mb-2">
+                    Open in wallet
+                  </a>
+                  <button onClick={() => setQrFailed(false)} className="text-[11px] font-semibold text-[#F7931A] hover:underline">
+                    Retry QR
+                  </button>
                 </div>
               )}
               <div className="flex-1 min-w-0 space-y-3">

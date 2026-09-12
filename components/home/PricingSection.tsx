@@ -5,8 +5,23 @@ import { useTranslations } from "next-intl";
 import { AppLink as Link } from "@/components/shared/AppLink";
 import { motion, AnimatePresence } from "motion/react";
 import { Check, Crown, Users, Sparkles, Zap, ArrowRight } from "lucide-react";
+import enMessages from "@/messages/en.json";
 
 type PlanKey = "free" | "starter" | "pro" | "team";
+
+type PlanCopy = {
+  name: string; price: string; period: string;
+  features: string[]; cta: string;
+};
+
+/** Numeric value of a "$9"-style price string (robust to decimals/commas). */
+function priceNum(price: string): number {
+  return Number(price.replace(/[^0-9.]/g, "")) || 0;
+}
+
+// English fallback so a plan card never crashes locales whose messages
+// haven't been translated yet (e.g. newly added tiers).
+const enPricing = (enMessages as unknown as { HomePage: { pricing: Record<PlanKey, PlanCopy> } }).HomePage.pricing;
 
 export function PricingSection() {
   const t = useTranslations("HomePage.pricing");
@@ -61,18 +76,21 @@ export function PricingSection() {
               onClick={() => setAnnual(true)}
               className={`px-4 sm:px-5 py-2 rounded-full text-xs sm:text-sm font-bold transition-all flex items-center gap-1.5 ${annual ? "bg-[#0d1f26] dark:bg-white text-white dark:text-[#0d1f26] shadow" : "text-muted-foreground hover:text-foreground"}`}
             >
-              {t("annual", { defaultValue: "Annual" })} <span className="hidden sm:inline-flex text-[10px] font-bold tracking-wide bg-[#5baab8] text-white px-2 py-0.5 rounded-full">{t("save20", { defaultValue: "Save 20%" })}</span>
+              {t("annual", { defaultValue: "Annual" })} <span className="hidden sm:inline-flex text-[10px] font-bold tracking-wide bg-[#5baab8] text-white px-2 py-0.5 rounded-full">{t("save20", { defaultValue: "2 months free" })}</span>
             </button>
           </motion.div>
-          <p className="sm:hidden mt-2 text-xs font-semibold text-[#5baab8]">{t("annualSave", { defaultValue: "Annual — Save 20%" })}</p>
+          <p className="sm:hidden mt-2 text-xs font-semibold text-[#5baab8]">{t("annualSave", { defaultValue: "Annual — 2 months free" })}</p>
         </motion.div>
 
         <div className="grid md:grid-cols-2 xl:grid-cols-4 gap-4 sm:gap-6 lg:gap-6 xl:gap-6 max-w-6xl mx-auto items-stretch">
           {plans.map((plan, i) => {
-            const p = t.raw(plan.key) as {
-              name: string; price: string; period: string;
-              features: string[]; cta: string;
-            };
+            let p: PlanCopy;
+            try {
+              const raw = t.raw(plan.key) as Partial<PlanCopy> | undefined;
+              p = raw?.name && Array.isArray(raw?.features) ? (raw as PlanCopy) : enPricing[plan.key];
+            } catch {
+              p = enPricing[plan.key];
+            }
             const Icon = plan.icon;
             const isPro = plan.highlight;
             return (
@@ -112,12 +130,12 @@ export function PricingSection() {
                     <p className={`text-xs font-medium mt-1 ${isPro ? "text-white/60" : "text-muted-foreground"} font-sans`}>{isPro ? t("forPowerUsers", { defaultValue: "For power users" }) : plan.key === "free" ? t("perfectToTry", { defaultValue: "Perfect to try" }) : plan.key === "starter" ? t("forStarters", { defaultValue: "For regular downloaders" }) : t("forCollaborators", { defaultValue: "For collaborators" })}</p>
                     <div className="mt-5 flex items-baseline gap-1">
                       <span className={`text-4xl sm:text-[2.5rem] font-black tracking-tight font-heading ${isPro ? "text-white" : "text-foreground"}`}>
-                        {annual && p.price !== "$0" ? `$${parseInt(p.price.slice(1)) * 10}` : p.price}
+                        {annual && p.price !== "$0" ? `$${priceNum(p.price) * 10}` : p.price}
                       </span>
                       <span className={`text-sm font-medium ${isPro ? "text-white/50" : "text-muted-foreground"} font-sans`}>/{annual ? t("perYear", { defaultValue: "year" }) : p.period}</span>
                     </div>
                     {annual && p.price !== "$0" && (
-                      <p className="mt-1 text-xs font-semibold text-emerald-500 dark:text-emerald-400">{t("saveYearly", { amount: (parseInt(p.price.slice(1)) * 12 - parseInt(p.price.slice(1)) * 10), defaultValue: "Save {amount} yearly" })}</p>
+                      <p className="mt-1 text-xs font-semibold text-emerald-500 dark:text-emerald-400">{t("saveYearly", { amount: (priceNum(p.price) * 12 - priceNum(p.price) * 10), defaultValue: "Save {amount} yearly" })}</p>
                     )}
                     <ul className="mt-6 space-y-3 flex-1">
                       {p.features.map((f: string) => (

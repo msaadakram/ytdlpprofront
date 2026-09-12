@@ -114,11 +114,13 @@ async function request<T>(
       headers: { "Content-Type": "application/json", ...options.headers },
       ...options,
     });
-    const json = await res.json();
+    // Tolerate empty / non-JSON bodies (204, HTML error pages) instead of
+    // masking the real status as NETWORK_ERROR.
+    const json = await res.json().catch(() => null);
     if (!res.ok) {
       return {
         success: false,
-        error: json.error || {
+        error: (json && typeof json === "object" && "error" in json && (json as { error: { code: string; message: string } }).error) || {
           code: "UNKNOWN_ERROR",
           message: `HTTP ${res.status}: ${res.statusText}`,
         },
@@ -127,7 +129,7 @@ async function request<T>(
     if (typeof json === "object" && json !== null && "success" in json) {
       return json as ApiResponse<T>;
     }
-    return { success: true, data: json };
+    return { success: true, data: json as T };
   } catch (err) {
     return {
       success: false,
@@ -313,17 +315,17 @@ async function authRequest<T>(
 
   try {
     const res = await fetch(endpoint, { headers: { ...headers, ...options.headers }, ...options });
-    const json = await res.json();
+    const json = await res.json().catch(() => null);
     if (!res.ok) {
       return {
         success: false,
-        error: json.error || { code: "UNKNOWN_ERROR", message: `HTTP ${res.status}: ${res.statusText}` },
+        error: (json && typeof json === "object" && "error" in json && (json as { error: { code: string; message: string } }).error) || { code: "UNKNOWN_ERROR", message: `HTTP ${res.status}: ${res.statusText}` },
       };
     }
     if (typeof json === "object" && json !== null && "success" in json) {
       return json as ApiResponse<T>;
     }
-    return { success: true, data: json };
+    return { success: true, data: json as T };
   } catch (err) {
     return {
       success: false,

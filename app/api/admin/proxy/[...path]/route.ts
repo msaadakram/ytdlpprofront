@@ -18,7 +18,8 @@ export async function GET(
   const { path } = await params;
   const pathStr = path.join("/");
   const token = _req.headers.get("authorization");
-  const url = backendUrl(pathStr);
+  // Forward query strings — list pages depend on ?page&limit&search&status.
+  const url = backendUrl(pathStr) + (_req.nextUrl.search || "");
 
   try {
     const res = await fetch(url, {
@@ -41,17 +42,19 @@ export async function POST(
   const { path } = await params;
   const pathStr = path.join("/");
   const token = req.headers.get("authorization");
-  const url = backendUrl(pathStr);
+  const url = backendUrl(pathStr) + (req.nextUrl.search || "");
 
   try {
-    const body = await req.json();
+    // Some admin POSTs carry no body (e.g. reset-password, confirm) —
+    // never 502 on empty payloads.
+    const body = await req.json().catch(() => null);
     const res = await fetch(url, {
       method: "POST",
       headers: {
         "Content-Type": "application/json",
         ...(token ? { Authorization: token } : {}),
       },
-      body: JSON.stringify(body),
+      ...(body !== null ? { body: JSON.stringify(body) } : {}),
     });
     const data = await res.json();
     return NextResponse.json(data, { status: res.status });

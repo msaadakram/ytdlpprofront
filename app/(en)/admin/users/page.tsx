@@ -66,11 +66,16 @@ export default function AdminUsersPage() {
       if (q.trim()) qs.set("search", q.trim());
       if (plan) qs.set("plan", plan);
       const res = await fetch(`/api/admin/proxy/users?${qs}`, { headers: authHeaders() });
-      const json = await res.json();
-      if (json.success) {
-        setUsers(json.data.users);
-        setTotal(json.data.total);
+      // Guard: proxy/backend outages return HTML — never throw on .json().
+      const json = await res.json().catch(() => null);
+      if (res.ok && json?.success) {
+        setUsers(json.data.users || []);
+        setTotal(json.data.total || 0);
+      } else {
+        setNotice({ type: "error", text: json?.error?.message || `Failed to load users (HTTP ${res.status}).` });
       }
+    } catch {
+      setNotice({ type: "error", text: "Network error — is the backend reachable?" });
     } finally {
       setLoading(false);
     }
@@ -87,10 +92,17 @@ export default function AdminUsersPage() {
   async function openUser(id: string) {
     setDetailLoading(true);
     setSelected(null);
+    setNotice(null);
     try {
       const res = await fetch(`/api/admin/proxy/users/${id}`, { headers: authHeaders() });
-      const json = await res.json();
-      if (json.success) setSelected({ ...json.data.user, stats: json.data.stats });
+      const json = await res.json().catch(() => null);
+      if (res.ok && json?.success) {
+        setSelected({ ...json.data.user, stats: json.data.stats });
+      } else {
+        setNotice({ type: "error", text: json?.error?.message || "Failed to load user." });
+      }
+    } catch {
+      setNotice({ type: "error", text: "Network error — is the backend reachable?" });
     } finally {
       setDetailLoading(false);
     }
