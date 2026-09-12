@@ -24,6 +24,7 @@ export async function GET(
   try {
     const res = await fetch(url, {
       headers: token ? { Authorization: token } : {},
+      signal: AbortSignal.timeout(50_000),
     });
     const data = await res.json();
     return NextResponse.json(data, { status: res.status });
@@ -55,6 +56,7 @@ export async function POST(
         ...(token ? { Authorization: token } : {}),
       },
       ...(body !== null ? { body: JSON.stringify(body) } : {}),
+      signal: AbortSignal.timeout(50_000),
     });
     const data = await res.json();
     return NextResponse.json(data, { status: res.status });
@@ -79,6 +81,7 @@ export async function DELETE(
     const res = await fetch(url, {
       method: "DELETE",
       headers: token ? { Authorization: token } : {},
+      signal: AbortSignal.timeout(50_000),
     });
     const data = await res.json();
     return NextResponse.json(data, { status: res.status });

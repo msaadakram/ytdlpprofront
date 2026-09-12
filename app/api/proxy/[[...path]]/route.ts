@@ -32,6 +32,10 @@ async function forward(
     if (token) headers["Authorization"] = token;
     if (range && isFileDownload) headers["Range"] = range;
     const init: RequestInit = { method, headers };
+    // Bound API calls so a hung backend surfaces as a clean JSON 502 instead
+    // of a dead edge connection (Cloudflare HTML 502). File downloads stream
+    // unlocked — capping them would break large transfers.
+    if (!isFileDownload) init.signal = AbortSignal.timeout(50_000);
 
     if (hasBody) {
       headers["Content-Type"] = "application/json";
