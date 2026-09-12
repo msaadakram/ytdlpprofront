@@ -539,11 +539,24 @@ export const setPlan = (plan: "free" | "pro") =>
 export const getBtcRate = () =>
   request<BtcRate>("/api/proxy/billing/btc/rate");
 
-export const createBtcInvoice = (period: "month" | "year" = "month") =>
+export const createBtcInvoice = (period: "month" | "year" = "month", plan: "starter" | "pro" = "pro") =>
   authRequest<{ invoice: BtcInvoice }>("/api/proxy/billing/btc/invoice", {
     method: "POST",
-    body: JSON.stringify({ period }),
+    body: JSON.stringify({ period, plan }),
   });
+
+export interface Quota {
+  plan: string;
+  name: string;
+  per_minute: number;
+  monthly_quota: number;
+  used_this_month: number;
+  remaining: number;
+  resets_at: string;
+}
+
+export const getQuota = () =>
+  authRequest<Quota>("/api/proxy/billing/quota");
 
 export const getPendingBtcInvoice = () =>
   authRequest<{ invoice: BtcInvoice | null }>("/api/proxy/billing/btc/pending");

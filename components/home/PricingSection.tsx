@@ -6,7 +6,7 @@ import { AppLink as Link } from "@/components/shared/AppLink";
 import { motion, AnimatePresence } from "motion/react";
 import { Check, Crown, Users, Sparkles, Zap, ArrowRight } from "lucide-react";
 
-type PlanKey = "free" | "pro" | "team";
+type PlanKey = "free" | "starter" | "pro" | "team";
 
 export function PricingSection() {
   const t = useTranslations("HomePage.pricing");
@@ -14,6 +14,7 @@ export function PricingSection() {
 
   const plans: { key: PlanKey; highlight: boolean; href: string; icon: typeof Crown; gradient: string }[] = [
     { key: "free", highlight: false, href: "/sign-up", icon: Sparkles, gradient: "from-slate-50 to-white" },
+    { key: "starter", highlight: false, href: "/sign-up", icon: Zap, gradient: "from-slate-50 to-white" },
     { key: "pro", highlight: true, href: "/sign-up", icon: Crown, gradient: "from-[#0d1f26] via-[#123040] to-[#0d1f26]" },
     { key: "team", highlight: false, href: "/contact", icon: Users, gradient: "from-slate-50 to-white" },
   ];
@@ -66,7 +67,7 @@ export function PricingSection() {
           <p className="sm:hidden mt-2 text-xs font-semibold text-[#5baab8]">{t("annualSave", { defaultValue: "Annual — Save 20%" })}</p>
         </motion.div>
 
-        <div className="grid md:grid-cols-3 gap-4 sm:gap-6 lg:gap-6 xl:gap-8 max-w-5xl mx-auto items-stretch">
+        <div className="grid md:grid-cols-2 xl:grid-cols-4 gap-4 sm:gap-6 lg:gap-6 xl:gap-6 max-w-6xl mx-auto items-stretch">
           {plans.map((plan, i) => {
             const p = t.raw(plan.key) as {
               name: string; price: string; period: string;
@@ -108,7 +109,7 @@ export function PricingSection() {
                       <Icon className="w-5 h-5" />
                     </div>
                     <h3 className={`text-lg font-black font-heading ${isPro ? "text-white" : "text-foreground"}`}>{p.name}</h3>
-                    <p className={`text-xs font-medium mt-1 ${isPro ? "text-white/60" : "text-muted-foreground"} font-sans`}>{isPro ? t("forPowerUsers", { defaultValue: "For power users" }) : plan.key === "free" ? t("perfectToTry", { defaultValue: "Perfect to try" }) : t("forCollaborators", { defaultValue: "For collaborators" })}</p>
+                    <p className={`text-xs font-medium mt-1 ${isPro ? "text-white/60" : "text-muted-foreground"} font-sans`}>{isPro ? t("forPowerUsers", { defaultValue: "For power users" }) : plan.key === "free" ? t("perfectToTry", { defaultValue: "Perfect to try" }) : plan.key === "starter" ? t("forStarters", { defaultValue: "For regular downloaders" }) : t("forCollaborators", { defaultValue: "For collaborators" })}</p>
                     <div className="mt-5 flex items-baseline gap-1">
                       <span className={`text-4xl sm:text-[2.5rem] font-black tracking-tight font-heading ${isPro ? "text-white" : "text-foreground"}`}>
                         {annual && p.price !== "$0" ? `$${parseInt(p.price.slice(1)) * 10}` : p.price}
@@ -138,10 +139,10 @@ export function PricingSection() {
                     >
                       {p.cta} <ArrowRight className="w-4 h-4 group-hover:translate-x-0.5 transition-transform" />
                     </Link>
-                    {plan.key === "pro" && (
+                    {(plan.key === "pro" || plan.key === "starter") && (
                       <p className="mt-2.5 text-center text-xs font-bold text-[#F7931A] font-sans">{t("btcAccepted", { defaultValue: "₿ Bitcoin accepted" })}</p>
                     )}
-                    <p className={`mt-3 text-center text-xs ${isPro ? "text-white/40" : "text-muted-foreground"} font-sans`}>{plan.key === "free" ? t("noCreditCard", { defaultValue: "No credit card" }) : plan.key === "pro" ? t("btcManual", { defaultValue: "₿ Bitcoin · renews manually" }) : t("contactSales", { defaultValue: "Contact sales" })}</p>
+                    <p className={`mt-3 text-center text-xs ${isPro ? "text-white/40" : "text-muted-foreground"} font-sans`}>{plan.key === "free" ? t("noCreditCard", { defaultValue: "No credit card" }) : (plan.key === "pro" || plan.key === "starter") ? t("btcManual", { defaultValue: "₿ Bitcoin · renews manually" }) : t("contactSales", { defaultValue: "Contact sales" })}</p>
                   </div>
                 </div>
               </motion.div>

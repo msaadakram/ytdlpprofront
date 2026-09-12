@@ -172,6 +172,22 @@
         ],
         "cta": "Start Pro Trial"
       },
+      "starter": {
+        "name": "Starter",
+        "price": "$3",
+        "period": "per month",
+        "features": [
+          "Everything in Free",
+          "HD 1080p video",
+          "Priority processing",
+          "No ads",
+          "200+ platforms supported",
+          "30 requests/min",
+          "5,000 requests/month"
+        ],
+        "cta": "Go Starter"
+      },
+      "forStarters": "For regular downloaders",
       "team": {
         "name": "Team",
         "price": "$29",
@@ -885,7 +901,7 @@
     "faq1Q": "Can I switch plans at any time?",
     "faq1A": "Yes, you can upgrade or downgrade at any time. Changes take effect immediately.",
     "faq2Q": "What payment methods do you accept?",
-    "faq2A": "We accept all major credit cards, PayPal, and cryptocurrency.",
+    "faq2A": "We accept Bitcoin (BTC). Pick monthly or annual in your dashboard billing tab and send the exact amount — Pro activates automatically after 1 confirmation.",
     "faq3Q": "Is there a free trial for Pro?",
     "faq3A": "Yes, we offer a 7-day free trial of our Pro plan with no commitment required.",
     "faq4Q": "Can I cancel anytime?",

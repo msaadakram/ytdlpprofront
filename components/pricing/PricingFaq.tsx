@@ -11,7 +11,7 @@ export function PricingFaq() {
 
   const faqs = [
     { q: t("faq1Q", { defaultValue: "Can I switch plans at any time?" }), a: t("faq1A", { defaultValue: "Yes, you can upgrade or downgrade at any time. Changes take effect immediately." }) },
-    { q: t("faq2Q", { defaultValue: "What payment methods do you accept?" }), a: t("faq2A", { defaultValue: "We accept all major credit cards, PayPal, and cryptocurrency." }) },
+    { q: t("faq2Q", { defaultValue: "What payment methods do you accept?" }), a: t("faq2A", { defaultValue: "We accept Bitcoin (BTC). Pick monthly or annual in your dashboard billing tab and send the exact amount — Pro activates automatically after 1 confirmation." }) },
     { q: t("faq3Q", { defaultValue: "Is there a free trial for Pro?" }), a: t("faq3A", { defaultValue: "Yes, we offer a 7-day free trial of our Pro plan with no commitment required." }) },
     { q: t("faq4Q", { defaultValue: "Can I cancel anytime?" }), a: t("faq4A", { defaultValue: "Absolutely. No contracts, no cancellation fees. Your access continues until the end of the billing period." }) },
   ];

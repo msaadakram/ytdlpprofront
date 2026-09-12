@@ -17,12 +17,15 @@ import {
   listInvoices,
   setPlan,
   getBtcRate,
+  getQuota,
   createBtcInvoice,
   getPendingBtcInvoice,
   getBtcInvoice,
   cancelBtcInvoice,
 } from "@/lib/api-client";
-import type { BillingPlan, Invoice, BtcRate, BtcInvoice } from "@/lib/api-client";
+import type { BillingPlan, Invoice, BtcRate, BtcInvoice, Quota } from "@/lib/api-client";
+
+const PLAN_PRICES: Record<"starter" | "pro", number> = { starter: 3, pro: 9 };
 
 const POLL_MS = 12_000;
 const ACTIVE_STATUSES = ["pending", "confirming", "underpaid"];
@@ -62,7 +65,9 @@ export function BillingTab() {
   const [plan, setPlanState] = useState<BillingPlan | null>(null);
   const [invoices, setInvoices] = useState<Invoice[]>([]);
   const [rate, setRate] = useState<BtcRate | null>(null);
+  const [quota, setQuota] = useState<Quota | null>(null);
   const [btcInvoice, setBtcInvoice] = useState<BtcInvoice | null>(null);
+  const [btcPlan, setBtcPlan] = useState<"starter" | "pro">("pro");
   const [btcPeriod, setBtcPeriod] = useState<"month" | "year">("month");
   const [loading, setLoading] = useState(true);
   const [busy, setBusy] = useState<"invoice" | "cancel" | "downgrade" | null>(null);
@@ -72,15 +77,16 @@ export function BillingTab() {
   const [qrFailed, setQrFailed] = useState(false);
   const prevStatus = useRef<string | null>(null);
 
-  // Initial load: plan + history + live BTC rate + resume any open invoice.
+  // Initial load: plan + quota + history + live BTC rate + resume any open invoice.
   useEffect(() => {
     let cancelled = false;
-    Promise.all([getPlan(), listInvoices(), getBtcRate(), getPendingBtcInvoice()]).then(
-      ([planRes, invRes, rateRes, pendingRes]) => {
+    Promise.all([getPlan(), listInvoices(), getBtcRate(), getQuota(), getPendingBtcInvoice()]).then(
+      ([planRes, invRes, rateRes, quotaRes, pendingRes]) => {
         if (cancelled) return;
         if (planRes.success && planRes.data) setPlanState(planRes.data);
         if (invRes.success && invRes.data) setInvoices(invRes.data.invoices);
         if (rateRes.success && rateRes.data) setRate(rateRes.data);
+        if (quotaRes.success && quotaRes.data) setQuota(quotaRes.data);
         if (pendingRes.success && pendingRes.data?.invoice) {
           setBtcInvoice(pendingRes.data.invoice);
           prevStatus.current = pendingRes.data.invoice.status;
@@ -107,9 +113,10 @@ export function BillingTab() {
       const fresh = res.data.invoice;
       setBtcInvoice(fresh);
       if (fresh.status === "confirmed" && prevStatus.current !== "confirmed") {
-        const [planRes, invRes] = await Promise.all([getPlan(), listInvoices()]);
+        const [planRes, invRes, quotaRes] = await Promise.all([getPlan(), listInvoices(), getQuota()]);
         if (planRes.success && planRes.data) setPlanState(planRes.data);
         if (invRes.success && invRes.data) setInvoices(invRes.data.invoices);
+        if (quotaRes.success && quotaRes.data) setQuota(quotaRes.data);
       }
       prevStatus.current = fresh.status;
     }, POLL_MS);
@@ -117,15 +124,16 @@ export function BillingTab() {
   }, [btcInvoice?.id, btcInvoice?.status]);
 
   async function refreshAll() {
-    const [planRes, invRes] = await Promise.all([getPlan(), listInvoices()]);
+    const [planRes, invRes, quotaRes] = await Promise.all([getPlan(), listInvoices(), getQuota()]);
     if (planRes.success && planRes.data) setPlanState(planRes.data);
     if (invRes.success && invRes.data) setInvoices(invRes.data.invoices);
+    if (quotaRes.success && quotaRes.data) setQuota(quotaRes.data);
   }
 
   async function handleCreateInvoice() {
     setError(null);
     setBusy("invoice");
-    const res = await createBtcInvoice(btcPeriod);
+    const res = await createBtcInvoice(btcPeriod, btcPlan);
     setBusy(null);
     if (!res.success || !res.data) {
       setError(res.error?.message || "Failed to create BTC invoice.");
@@ -182,7 +190,7 @@ export function BillingTab() {
   }
 
   const isPro = plan?.plan === "pro";
-  const monthlyUsd = plan?.price || 9;
+  const monthlyUsd = PLAN_PRICES[btcPlan];
   const periodUsd = btcPeriod === "year" ? monthlyUsd * 10 : monthlyUsd;
   const approxBtc = rate && rate.usd_per_btc > 0
     ? (periodUsd / rate.usd_per_btc).toFixed(8).replace(/\.?0+$/, "")
@@ -259,6 +267,27 @@ export function BillingTab() {
         </div>
       </div>
 
+      {/* Monthly usage vs plan quota */}
+      {quota && (
+        <div className="bg-card rounded-2xl border border-border/70 p-4 sm:p-6 shadow-[0_1px_2px_rgba(13,31,38,0.04)]">
+          <div className="flex items-center justify-between gap-3 mb-2">
+            <h3 className="text-sm font-bold text-foreground font-heading">Monthly usage</h3>
+            <span className="text-xs text-muted-foreground font-sans">
+              {quota.used_this_month.toLocaleString()} / {quota.monthly_quota.toLocaleString()} requests
+            </span>
+          </div>
+          <div className="h-2 rounded-full bg-muted overflow-hidden">
+            <div
+              className="h-full rounded-full bg-gradient-to-r from-[#5baab8] to-[#F7931A] transition-all"
+              style={{ width: `${Math.min(100, (quota.used_this_month / Math.max(1, quota.monthly_quota)) * 100)}%` }}
+            />
+          </div>
+          <p className="mt-2 text-xs text-muted-foreground font-sans">
+            {quota.remaining.toLocaleString()} left · resets {formatDate(quota.resets_at)} · {quota.per_minute}/min burst on {quota.name}
+          </p>
+        </div>
+      )}
+
       {/* Bitcoin payment */}
       <div className="bg-card rounded-2xl border border-border/70 p-4 sm:p-6 shadow-[0_1px_2px_rgba(13,31,38,0.04)]">
         <div className="flex items-center gap-2.5 mb-1">
@@ -273,16 +302,29 @@ export function BillingTab() {
 
         {!invActive && (
           <div className="space-y-4">
-            <div className="inline-flex items-center gap-1 bg-muted/60 border border-border/60 rounded-full p-1">
-              {(["month", "year"] as const).map((p) => (
-                <button
-                  key={p}
-                  onClick={() => setBtcPeriod(p)}
-                  className={`px-4 py-1.5 rounded-full text-xs font-bold transition-all ${btcPeriod === p ? "bg-[#0d1f26] dark:bg-white text-white dark:text-[#0d1f26] shadow" : "text-muted-foreground hover:text-foreground"}`}
-                >
-                  {p === "month" ? `Monthly · $${monthlyUsd}` : `Annual · $${monthlyUsd * 10}`}
-                </button>
-              ))}
+            <div className="flex flex-wrap items-center gap-2">
+              <div className="inline-flex items-center gap-1 bg-muted/60 border border-border/60 rounded-full p-1">
+                {(["starter", "pro"] as const).map((p) => (
+                  <button
+                    key={p}
+                    onClick={() => setBtcPlan(p)}
+                    className={`px-4 py-1.5 rounded-full text-xs font-bold capitalize transition-all ${btcPlan === p ? "bg-[#F7931A] text-white shadow" : "text-muted-foreground hover:text-foreground"}`}
+                  >
+                    {p} · ${PLAN_PRICES[p]}
+                  </button>
+                ))}
+              </div>
+              <div className="inline-flex items-center gap-1 bg-muted/60 border border-border/60 rounded-full p-1">
+                {(["month", "year"] as const).map((p) => (
+                  <button
+                    key={p}
+                    onClick={() => setBtcPeriod(p)}
+                    className={`px-4 py-1.5 rounded-full text-xs font-bold transition-all ${btcPeriod === p ? "bg-[#0d1f26] dark:bg-white text-white dark:text-[#0d1f26] shadow" : "text-muted-foreground hover:text-foreground"}`}
+                  >
+                    {p === "month" ? `Monthly · $${monthlyUsd}` : `Annual · $${monthlyUsd * 10}`}
+                  </button>
+                ))}
+              </div>
             </div>
             <div className="flex flex-col sm:flex-row sm:items-center gap-3">
               <button
@@ -324,7 +366,7 @@ export function BillingTab() {
                   </button>
                 </div>
                 <p className="text-xs text-muted-foreground font-sans mt-0.5">
-                  {Number(inv.sats).toLocaleString()} sats · ${inv.usd_amount} · {inv.period === "year" ? "12 months Pro" : "30 days Pro"}
+                  {Number(inv.sats).toLocaleString()} sats · ${inv.usd_amount} · {inv.period === "year" ? "12 months" : "30 days"} {inv.plan === "starter" ? "Starter" : "Pro"}
                 </p>
               </div>
               <div className="sm:ml-auto flex items-center gap-2 text-sm font-bold font-sans">
@@ -416,7 +458,7 @@ export function BillingTab() {
                 <li>Open your Bitcoin wallet app and scan the QR, or copy the address and amount.</li>
                 <li>Send <strong className="text-foreground">exactly ₿ {inv.btc_amount}</strong> on the <strong className="text-foreground">Bitcoin network</strong> (not Lightning, not another coin).</li>
                 <li>Wait for {inv.required_confirmations} confirmation (~10–30 min) — this status updates automatically.</li>
-                <li>Pro activates immediately on confirmation{inv.period === "year" ? " for 12 months" : " for 30 days"}.</li>
+                <li>{inv.plan === "starter" ? "Starter" : "Pro"} activates immediately on confirmation{inv.period === "year" ? " for 12 months" : " for 30 days"}.</li>
               </ol>
               <p className="mt-2.5 text-[11px] text-muted-foreground/80 font-sans">
                 Each invoice has a unique exact amount — always create a fresh invoice per payment. Payments are final; there is no auto-renewal, renew manually before expiry.
