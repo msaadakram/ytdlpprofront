@@ -223,8 +223,9 @@
   .text-shimmer,
   .animate-float-soft,
   .animate-marquee,
-  .df-orbit,
-  .df-halo,
+  .df-arc,
+  .df-arc-glow,
+  .df-ping,
   .df-loading-bar,
   .skeleton-shimmer::after {
     animation: none;
@@ -305,24 +306,36 @@
 
 /* ── Dashboard loading system ─────────────────────────────────────────── */
 
-/* Orbit ring spinner — conic brand gradient masked to a ring */
-.df-orbit {
-  background: conic-gradient(from 0deg, transparent 0%, #5baab8 25%, #3d8896 50%, transparent 85%);
-  -webkit-mask: radial-gradient(farthest-side, transparent calc(100% - 3px), black calc(100% - 3px));
-  mask: radial-gradient(farthest-side, transparent calc(100% - 3px), black calc(100% - 3px));
-  animation: df-spin 1.1s linear infinite;
+/* Pro spinner arc — short crisp brand arc on a long transparent tail */
+.df-arc {
+  background: conic-gradient(from 0deg, transparent 0%, transparent 58%, rgba(91, 170, 184, 0.35) 76%, #8fd3df 92%, #5baab8 100%);
+  -webkit-mask: radial-gradient(farthest-side, transparent calc(100% - 4px), black calc(100% - 4px));
+  mask: radial-gradient(farthest-side, transparent calc(100% - 4px), black calc(100% - 4px));
+  animation: df-arc-spin 0.9s linear infinite;
 }
-@keyframes df-spin {
+@keyframes df-arc-spin {
   to { transform: rotate(360deg); }
 }
 
-/* Soft counter-rotating halo behind the orbit ring */
-.df-halo {
-  background: conic-gradient(from 180deg, transparent 0%, rgba(91, 170, 184, 0.35) 40%, transparent 90%);
-  -webkit-mask: radial-gradient(farthest-side, transparent calc(100% - 2px), black calc(100% - 2px));
-  mask: radial-gradient(farthest-side, transparent calc(100% - 2px), black calc(100% - 2px));
-  animation: df-spin 2.6s linear infinite reverse;
-  opacity: 0.6;
+/* Blurred copy of the arc for a soft neon edge (same rotation) */
+.df-arc-glow {
+  background: conic-gradient(from 0deg, transparent 0%, transparent 58%, rgba(91, 170, 184, 0.4) 76%, #8fd3df 92%, #5baab8 100%);
+  -webkit-mask: radial-gradient(farthest-side, transparent calc(100% - 5px), black calc(100% - 5px));
+  mask: radial-gradient(farthest-side, transparent calc(100% - 5px), black calc(100% - 5px));
+  animation: df-arc-spin 0.9s linear infinite;
+  filter: blur(6px);
+  opacity: 0.7;
+}
+
+/* Slow expanding ring behind the spinner for depth */
+.df-ping {
+  border: 1px solid rgba(91, 170, 184, 0.5);
+  animation: df-ping-soft 2.4s cubic-bezier(0.2, 0.6, 0.4, 1) infinite;
+}
+@keyframes df-ping-soft {
+  0% { transform: scale(0.82); opacity: 0; }
+  25% { opacity: 0.7; }
+  100% { transform: scale(1.18); opacity: 0; }
 }
 
 /* Indeterminate progress sweep */

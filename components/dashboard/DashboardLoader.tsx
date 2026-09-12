@@ -11,8 +11,9 @@ type DashboardLoaderProps = {
  * Branded full-screen loading state for the dashboard.
  *
  * Matches the site's design language: blueprint grid backdrop, ambient
- * accent glow, glass surfaces, brand conic-gradient orbit ring around the
- * DownForge mark, indeterminate shimmer progress bar, and mono micro-label.
+ * accent glow, glass logo tile, pro dual-ring spinner (track + crisp brand
+ * arc with neon edge and slow ping), indeterminate progress bar with glow,
+ * and mono micro-label.
  * All motion is disabled under `prefers-reduced-motion` (see globals.css).
  */
 export function DashboardLoader({ message, children }: DashboardLoaderProps) {
@@ -26,26 +27,28 @@ export function DashboardLoader({ message, children }: DashboardLoaderProps) {
       {/* Blueprint grid + ambient brand glow */}
       <div className="absolute inset-0 bg-grid bg-grid-fade pointer-events-none" aria-hidden />
       <div
-        className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[480px] h-[480px] rounded-full bg-[#5baab8]/10 dark:bg-[#5baab8]/[0.08] blur-[110px] pointer-events-none animate-float-soft"
+        className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[420px] h-[420px] rounded-full bg-[#5baab8]/10 dark:bg-[#5baab8]/[0.08] blur-[100px] pointer-events-none"
         aria-hidden
       />
 
       <div className="relative flex flex-col items-center text-center">
-        {/* Logo mark with orbiting brand ring + counter halo */}
+        {/* Steady glass logo tile inside a pro dual-ring spinner */}
         <motion.div
           initial={{ opacity: 0, scale: 0.85 }}
           animate={{ opacity: 1, scale: 1 }}
           transition={{ duration: 0.45, ease: [0.22, 1, 0.36, 1] }}
           className="relative w-20 h-20 sm:w-24 sm:h-24"
         >
-          <div className="absolute -inset-1.5 rounded-full df-halo" aria-hidden />
-          <div className="absolute inset-0 rounded-full df-orbit" aria-hidden />
-          <div className="absolute inset-[9px] sm:inset-[11px] rounded-2xl bg-white dark:bg-[#0f1e26] border border-border/60 dark:border-white/10 shadow-[0_12px_36px_-10px_rgba(13,31,38,0.25)] flex items-center justify-center">
+          <div className="absolute inset-0 rounded-full df-ping" aria-hidden />
+          <div className="absolute inset-0 rounded-full border-[3px] border-[#0d1f26]/[0.07] dark:border-white/10" aria-hidden />
+          <div className="absolute inset-0 rounded-full df-arc-glow" aria-hidden />
+          <div className="absolute inset-0 rounded-full df-arc" aria-hidden />
+          <div className="absolute inset-[10px] sm:inset-[12px] rounded-[1.35rem] bg-white dark:bg-[#0f1e26] border border-border/60 dark:border-white/10 shadow-[0_16px_40px_-12px_rgba(13,31,38,0.3)] flex items-center justify-center">
             <img
               src="/logo.png"
               alt=""
               aria-hidden
-              className="w-11 h-11 sm:w-14 sm:h-14 object-contain scale-110 animate-float-soft"
+              className="w-10 h-10 sm:w-12 sm:h-12 object-contain"
             />
           </div>
         </motion.div>
@@ -60,15 +63,15 @@ export function DashboardLoader({ message, children }: DashboardLoaderProps) {
           Downforge
         </motion.span>
 
-        {/* Indeterminate progress sweep */}
+        {/* Indeterminate progress sweep with glow */}
         <motion.div
           initial={{ opacity: 0 }}
           animate={{ opacity: 1 }}
           transition={{ delay: 0.15, duration: 0.4 }}
-          className="mt-3 w-44 sm:w-52 h-1 rounded-full bg-[#ddedf1] dark:bg-white/10 overflow-hidden"
+          className="mt-3 w-44 sm:w-52 h-1 rounded-full bg-[#0d1f26]/[0.08] dark:bg-white/10 overflow-hidden ring-1 ring-inset ring-[#0d1f26]/[0.04] dark:ring-white/10"
           aria-hidden
         >
-          <div className="df-loading-bar h-full w-1/3 rounded-full bg-gradient-to-r from-[#5baab8] via-[#8fd3df] to-[#3d8896]" />
+          <div className="df-loading-bar h-full w-1/3 rounded-full bg-gradient-to-r from-[#3d8896] via-[#5baab8] to-[#8fd3df] shadow-[0_0_12px_rgba(91,170,184,0.9)]" />
         </motion.div>
 
         {/* Status line */}
