@@ -138,7 +138,10 @@ export function PricingSection() {
                     >
                       {p.cta} <ArrowRight className="w-4 h-4 group-hover:translate-x-0.5 transition-transform" />
                     </Link>
-                    <p className={`mt-3 text-center text-xs ${isPro ? "text-white/40" : "text-muted-foreground"} font-sans`}>{plan.key === "free" ? t("noCreditCard", { defaultValue: "No credit card" }) : plan.key === "pro" ? t("cancelAnytime", { defaultValue: "Cancel anytime" }) : t("contactSales", { defaultValue: "Contact sales" })}</p>
+                    {plan.key === "pro" && (
+                      <p className="mt-2.5 text-center text-xs font-bold text-[#F7931A] font-sans">{t("btcAccepted", { defaultValue: "₿ Bitcoin accepted" })}</p>
+                    )}
+                    <p className={`mt-3 text-center text-xs ${isPro ? "text-white/40" : "text-muted-foreground"} font-sans`}>{plan.key === "free" ? t("noCreditCard", { defaultValue: "No credit card" }) : plan.key === "pro" ? t("btcManual", { defaultValue: "₿ Bitcoin · renews manually" }) : t("contactSales", { defaultValue: "Contact sales" })}</p>
                   </div>
                 </div>
               </motion.div>

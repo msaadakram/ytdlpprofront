@@ -204,7 +204,9 @@
       "contactSales": "Contact sales",
       "noSetupFee": "No setup fee",
       "moneyBack": "30-day money back",
-      "downgrade": "Downgrade anytime"
+      "downgrade": "Downgrade anytime",
+      "btcAccepted": "₿ Bitcoin accepted",
+      "btcManual": "₿ Bitcoin · renews manually"
     },
     "cta": {
       "title": "Ready to Start Downloading?",

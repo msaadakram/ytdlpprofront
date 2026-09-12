@@ -404,6 +404,12 @@ export interface BillingPlan {
   status: string;
   renews_at: string | null;
   stripe_enabled: boolean;
+  btc?: {
+    enabled: boolean;
+    address: string;
+    invoice_minutes: number;
+    required_confirmations: number;
+  };
 }
 
 export interface Invoice {
@@ -411,12 +417,43 @@ export interface Invoice {
   number: string;
   amount: number;
   currency: string;
+  btc_amount?: string | null;
+  sats?: number | null;
+  txid?: string | null;
   status: string;
   period_start: string | null;
   period_end: string | null;
   hosted_url: string | null;
   pdf_url: string | null;
   created_at: string;
+}
+
+export interface BtcRate {
+  usd_per_btc: number;
+  source: string | null;
+  cached: boolean;
+  address: string;
+  invoice_minutes: number;
+  required_confirmations: number;
+}
+
+export interface BtcInvoice {
+  id: string;
+  number: string;
+  plan: "free" | "pro";
+  period: "month" | "year";
+  usd_amount: number;
+  btc_amount: string;
+  sats: number;
+  address: string;
+  status: "pending" | "confirming" | "confirmed" | "expired" | "cancelled" | "underpaid";
+  txid: string | null;
+  received_sats: number;
+  confirmations: number;
+  required_confirmations: number;
+  expires_at: string;
+  created_at: string;
+  confirmed_at: string | null;
 }
 
 export interface UserProfile {
@@ -497,6 +534,26 @@ export const setPlan = (plan: "free" | "pro") =>
   authRequest<BillingPlan>("/api/proxy/billing/plan", {
     method: "PATCH",
     body: JSON.stringify({ plan }),
+  });
+
+export const getBtcRate = () =>
+  request<BtcRate>("/api/proxy/billing/btc/rate");
+
+export const createBtcInvoice = (period: "month" | "year" = "month") =>
+  authRequest<{ invoice: BtcInvoice }>("/api/proxy/billing/btc/invoice", {
+    method: "POST",
+    body: JSON.stringify({ period }),
+  });
+
+export const getPendingBtcInvoice = () =>
+  authRequest<{ invoice: BtcInvoice | null }>("/api/proxy/billing/btc/pending");
+
+export const getBtcInvoice = (id: string) =>
+  authRequest<{ invoice: BtcInvoice }>(`/api/proxy/billing/btc/invoice/${id}`);
+
+export const cancelBtcInvoice = (id: string) =>
+  authRequest<{ invoice: BtcInvoice }>(`/api/proxy/billing/btc/invoice/${id}/cancel`, {
+    method: "POST",
   });
 
 /* ─── Profile + notifications ─── */
