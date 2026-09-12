@@ -226,6 +226,12 @@ export function AuthPage({ mode }: { mode: AuthMode }) {
         }
         const result = await signup({ first_name, last_name, email, password: pwd });
         if (!result.success) {
+          // Retry on an unverified account: the backend re-sent a fresh code,
+          // so continue on the verify screen instead of showing a dead error.
+          if (result.code === "EMAIL_NOT_VERIFIED") {
+            router.push(`/verify-email?email=${encodeURIComponent(email)}`);
+            return;
+          }
           setError(result.error || t("errorSignUp"));
           return;
         }
