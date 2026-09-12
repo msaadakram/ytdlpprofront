@@ -4,7 +4,7 @@ import { useState, useEffect, type FormEvent } from "react";
 import Link from "next/link";
 import { useRouter, useSearchParams } from "next/navigation";
 import { motion } from "motion/react";
-import { Mail, ShieldCheck, ArrowRight, ArrowLeft, RefreshCw, Check } from "lucide-react";
+import { Mail, ShieldCheck, ArrowRight, ArrowLeft, RefreshCw, Check, MailWarning, TriangleAlert, CircleCheck } from "lucide-react";
 import { useAuth } from "@/lib/auth-context";
 import { useTranslations } from "next-intl";
 
@@ -173,21 +173,27 @@ export function VerifyEmailForm() {
           </label>
 
           {mailWarning && (
-            <motion.div initial={{ opacity: 0, y: -6 }} animate={{ opacity: 1, y: 0 }} className="text-sm text-amber-800 dark:text-amber-200 bg-amber-50/90 dark:bg-amber-950/20 border border-amber-300/60 dark:border-amber-900/30 rounded-2xl px-4 py-3 font-sans flex items-start gap-2.5">
-              <span className="mt-1.5 w-1.5 h-1.5 rounded-full bg-amber-500 shrink-0" />
-              <span className="break-words">{t("mailFailedNotice")}</span>
+            <motion.div initial={{ opacity: 0, y: -6 }} animate={{ opacity: 1, y: 0 }} className="rounded-2xl border border-amber-300/60 dark:border-amber-900/30 bg-gradient-to-b from-amber-50 to-amber-50/60 dark:from-amber-950/30 dark:to-amber-950/10 px-4 py-3.5 font-sans flex items-start gap-3 shadow-[0_8px_24px_-12px_rgba(217,119,6,0.35)]">
+              <span className="grid place-items-center w-9 h-9 rounded-xl bg-amber-500/15 border border-amber-500/25 shrink-0">
+                <MailWarning className="w-[18px] h-[18px] text-amber-600 dark:text-amber-400" />
+              </span>
+              <span className="min-w-0 text-sm leading-relaxed text-amber-900 dark:text-amber-100 break-words">{t("mailFailedNotice")}</span>
             </motion.div>
           )}
           {error && (
-            <motion.div initial={{ opacity: 0, y: -6 }} animate={{ opacity: 1, y: 0 }} className="text-sm text-red-700 dark:text-red-300 bg-red-50/90 dark:bg-red-950/20 border border-red-200/60 dark:border-red-900/30 rounded-2xl px-4 py-3 font-sans flex items-start gap-2.5">
-              <span className="mt-1.5 w-1.5 h-1.5 rounded-full bg-red-500 shrink-0" />
-              <span className="break-words">{error}</span>
+            <motion.div initial={{ opacity: 0, y: -6 }} animate={{ opacity: 1, y: 0 }} className="rounded-2xl border border-red-200/60 dark:border-red-900/30 bg-gradient-to-b from-red-50 to-red-50/60 dark:from-red-950/30 dark:to-red-950/10 px-4 py-3.5 font-sans flex items-start gap-3 shadow-[0_8px_24px_-12px_rgba(220,38,38,0.3)]">
+              <span className="grid place-items-center w-9 h-9 rounded-xl bg-red-500/12 border border-red-500/25 shrink-0">
+                <TriangleAlert className="w-[18px] h-[18px] text-red-600 dark:text-red-400" />
+              </span>
+              <span className="min-w-0 text-sm leading-relaxed text-red-800 dark:text-red-100 break-words">{error}</span>
             </motion.div>
           )}
           {notice && (
-            <motion.div initial={{ opacity: 0, y: -6 }} animate={{ opacity: 1, y: 0 }} className="text-sm text-emerald-700 dark:text-emerald-300 bg-emerald-50/90 dark:bg-emerald-950/20 border border-emerald-200/60 dark:border-emerald-900/30 rounded-2xl px-4 py-3 font-sans flex items-start gap-2.5">
-              <span className="mt-1.5 w-1.5 h-1.5 rounded-full bg-emerald-500 shrink-0" />
-              <span className="break-words">{notice}</span>
+            <motion.div initial={{ opacity: 0, y: -6 }} animate={{ opacity: 1, y: 0 }} className="rounded-2xl border border-emerald-200/60 dark:border-emerald-900/30 bg-gradient-to-b from-emerald-50 to-emerald-50/60 dark:from-emerald-950/30 dark:to-emerald-950/10 px-4 py-3.5 font-sans flex items-start gap-3 shadow-[0_8px_24px_-12px_rgba(16,185,129,0.3)]">
+              <span className="grid place-items-center w-9 h-9 rounded-xl bg-emerald-500/12 border border-emerald-500/25 shrink-0">
+                <CircleCheck className="w-[18px] h-[18px] text-emerald-600 dark:text-emerald-400" />
+              </span>
+              <span className="min-w-0 text-sm leading-relaxed text-emerald-800 dark:text-emerald-100 break-words">{notice}</span>
             </motion.div>
           )}
 
@@ -221,9 +227,17 @@ export function VerifyEmailForm() {
             type="button"
             onClick={handleResend}
             disabled={cooldown > 0 || submitting}
-            className="w-full inline-flex items-center justify-center gap-2 rounded-2xl border border-[#0d1f26]/10 dark:border-white/10 bg-white/60 dark:bg-white/[0.04] px-4 py-3 text-sm font-semibold text-[#0d1f26] dark:text-white hover:bg-white dark:hover:bg-white/[0.08] transition-colors disabled:opacity-50 disabled:cursor-not-allowed font-sans"
+            className={
+              mailWarning
+                ? "w-full inline-flex items-center justify-center gap-2 rounded-2xl bg-[#0d1f26] dark:bg-white px-4 py-3.5 text-sm font-bold text-white dark:text-[#0d1f26] hover:bg-[#122a35] dark:hover:bg-[#f1f5f9] transition-all shadow-[0_12px_32px_-12px_rgba(13,31,38,0.45)] disabled:opacity-60 disabled:cursor-not-allowed font-sans"
+                : "w-full inline-flex items-center justify-center gap-2 rounded-2xl border border-[#0d1f26]/10 dark:border-white/10 bg-white/60 dark:bg-white/[0.04] px-4 py-3 text-sm font-semibold text-[#0d1f26] dark:text-white hover:bg-white dark:hover:bg-white/[0.08] transition-colors disabled:opacity-50 disabled:cursor-not-allowed font-sans"
+            }
           >
-            <RefreshCw className={`w-4 h-4 ${cooldown > 0 ? "opacity-40" : ""}`} />
+            {cooldown > 0 || submitting ? (
+              <span className={`w-4 h-4 border-2 rounded-full animate-spin ${mailWarning ? "border-white/30 dark:border-[#0d1f26]/20 border-t-white dark:border-t-[#0d1f26]" : "border-[#0d1f26]/20 dark:border-white/20 border-t-[#0d1f26] dark:border-t-white"}`} />
+            ) : (
+              <RefreshCw className="w-4 h-4" />
+            )}
             {cooldown > 0 ? t("resendIn", { seconds: cooldown }) : t("resendCode")}
           </button>
 
