@@ -3,7 +3,7 @@
 import Link from "next/link";
 import { usePathname, useRouter } from "next/navigation";
 import { motion, AnimatePresence } from "motion/react";
-import { Bitcoin, Cookie, Home, Inbox, ListVideo, LogOut, Megaphone, Receipt, ScrollText, Server, Settings, Shield, Users, X, ChevronLeft } from "lucide-react";
+import { Bitcoin, Cookie, FlaskConical, Home, Inbox, ListVideo, LogOut, Megaphone, Receipt, ScrollText, Server, Settings, Shield, Users, X, ChevronLeft } from "lucide-react";
 
 interface AdminUser {
   id: number;
@@ -18,6 +18,7 @@ const navItems = [
   { href: "/admin/inbox", label: "Inbox", icon: Inbox },
   { href: "/admin/notices", label: "Notices", icon: Megaphone },
   { href: "/admin/cookies", label: "Platform Cookies", icon: Cookie },
+  { href: "/admin/yt-test", label: "YouTube Test", icon: FlaskConical },
   { href: "/admin/system", label: "System", icon: Server },
   { href: "/admin/jobs", label: "Jobs", icon: ListVideo },
   { href: "/admin/invoices", label: "Invoices", icon: Receipt },
