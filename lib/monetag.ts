@@ -2,37 +2,34 @@
  * Monetag OnClick tag (zone 11806240). Fired ONLY from download-button
  * handlers — never globally — so ads show on user download intent.
  *
- * Frequency cap: max 2 ads per 5-minute window (sliding). Further download
- * clicks inside the window do nothing; once the window expires the counter
- * resets. Persisted in localStorage so the cap survives page navigation.
- * Failures (private mode, ad-blockers) fall back to memory / silence —
- * ads must never break the download flow.
+ * Frequency cap: at most ONE ad per minute. A download click within 60s
+ * of the last ad does nothing; after a minute the next click may show one
+ * again. The timestamp persists in localStorage so the cap survives page
+ * navigation. Failures (private mode, ad-blockers) fall back to memory /
+ * silence — ads must never break the download flow.
  */
 const MONETAG_ZONE = "11806240";
 const MONETAG_SRC = "https://al5sm.com/tag.min.js";
-const MAX_ADS = 2;
-const WINDOW_MS = 5 * 60 * 1000;
-const MIN_GAP_MS = 4000; // ignore accidental double-clicks within 4s
-const STORAGE_KEY = "monetag_ad_fires";
+const MIN_GAP_MS = 60 * 1000; // one ad per minute, max
+const STORAGE_KEY = "monetag_last_ad";
 
-const memoryFallback: number[] = [];
+let memoryFallback = 0;
 
-function readFires(): number[] {
+function readLast(): number {
   try {
     const raw = localStorage.getItem(STORAGE_KEY);
-    if (!raw) return [...memoryFallback];
-    const arr = JSON.parse(raw);
-    return Array.isArray(arr) ? arr.filter((t) => typeof t === "number") : [...memoryFallback];
+    const t = raw ? parseInt(raw, 10) : NaN;
+    if (Number.isFinite(t) && t > 0) return t;
   } catch {
-    return [...memoryFallback];
+    /* private mode — use memory fallback */
   }
+  return memoryFallback;
 }
 
-function writeFires(fires: number[]): void {
-  memoryFallback.length = 0;
-  memoryFallback.push(...fires);
+function writeLast(now: number): void {
+  memoryFallback = now;
   try {
-    localStorage.setItem(STORAGE_KEY, JSON.stringify(fires));
+    localStorage.setItem(STORAGE_KEY, String(now));
   } catch {
     /* private mode — memory fallback already updated */
   }
@@ -42,16 +39,14 @@ export function triggerMonetagAd(zone: string = MONETAG_ZONE): void {
   if (typeof document === "undefined") return;
   try {
     const now = Date.now();
-    const recent = readFires().filter((t) => now - t < WINDOW_MS);
-    if (recent.length >= MAX_ADS) return; // cap reached — stay silent
-    if (recent.length > 0 && now - recent[recent.length - 1] < MIN_GAP_MS) return; // double-click guard
+    if (now - readLast() < MIN_GAP_MS) return; // too soon — stay silent
     const s = document.createElement("script");
     s.dataset.zone = zone;
     s.src = MONETAG_SRC;
     const parent =
       [document.documentElement, document.body].filter(Boolean).pop() as HTMLElement | undefined;
     parent?.appendChild(s);
-    writeFires([...recent, now]);
+    writeLast(now);
   } catch {
     /* ignore — ads must never break the download flow */
   }
