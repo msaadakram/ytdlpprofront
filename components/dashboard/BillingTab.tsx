@@ -19,6 +19,7 @@ import {
   getBtcRate,
   getQuota,
   createBtcInvoice,
+  switchBtcInvoice,
   getPendingBtcInvoice,
   getBtcInvoice,
   cancelBtcInvoice,
@@ -144,10 +145,22 @@ export function BillingTab() {
 
   function friendlyInvoiceError(res: { success: boolean; error?: { code?: string; message?: string } } | null): string {
     const msg = res?.error?.message || "";
-    if (res && (res.error?.code === "PROXY_ERROR" || /502|504|timeout|timed out/i.test(msg))) {
+    const code = res?.error?.code || "";
+    if (code === "RATE_LIMIT" || /too many/i.test(msg)) {
+      return "Too many requests — wait a few seconds, then try again. Your invoice state was refreshed below.";
+    }
+    if (code === "PROXY_ERROR" || code === "NETWORK_ERROR" || /502|504|timeout|timed out|failed to reach/i.test(msg)) {
       return "The server took too long — your invoice may still have been created. Refreshed below; try again if nothing appears.";
     }
     return msg || "Failed to create BTC invoice.";
+  }
+
+  function friendlySwitchError(res: { success: boolean; error?: { code?: string; message?: string } } | null): string {
+    const msg = res?.error?.message || "";
+    if (/already detected|confirming|underpaid|strand funds/i.test(msg)) {
+      return msg; // locked: payment on the way, must wait
+    }
+    return friendlyInvoiceError(res);
   }
 
   /** Create with one retry on proxy/timeout failures (slow upstream chain scans). */
@@ -191,33 +204,93 @@ export function BillingTab() {
   }
 
   /**
-   * Switching plan/period while a *pending, unpaid* invoice is open cancels
-   * it and immediately issues the newly selected one — one click, no trap.
-   * Invoices with a detected payment (confirming/underpaid) are locked:
-   * switching there could strand funds, so the user must wait or contact support.
+   * Switching plan/period while a *pending, unpaid* invoice is open uses ONE
+   * atomic backend call (POST /btc/invoice/switch) — cancel+create in a single
+   * request so slow chain scans can't stack into a proxy 502. Falls back to
+   * legacy cancel→create when the backend doesn't know /switch yet.
+   * Confirming/underpaid invoices are LOCKED (funds may be on the way).
+   * Expired invoices auto-issue the newly selected one in one click.
    */
   async function handlePickChange(nextPlan: "starter" | "pro", nextPeriod: "month" | "year") {
     if (busy !== null) return;
-    const live = btcInvoice && btcInvoice.status === "pending";
-    const changed = nextPlan !== btcPlan || nextPeriod !== btcPeriod || (live && (btcInvoice.plan !== nextPlan || btcInvoice.period !== nextPeriod));
-    if (!changed) {
+    const cur = btcInvoice;
+    const selectionChanged = nextPlan !== btcPlan || nextPeriod !== btcPeriod;
+    const invoiceDiffers = !!cur && (cur.plan !== nextPlan || cur.period !== nextPeriod);
+
+    // No open invoice (or already settled) → just move the selector; the Pay
+    // button below issues the invoice.
+    if (!cur || cur.status === "confirmed" || cur.status === "cancelled") {
       setBtcPlan(nextPlan);
       setBtcPeriod(nextPeriod);
       return;
     }
-    if (live && (btcInvoice.plan !== nextPlan || btcInvoice.period !== nextPeriod)) {
+    // Locked: payment detected — never auto-switch, could strand funds.
+    if (cur.status === "confirming" || cur.status === "underpaid") {
+      setError(
+        cur.status === "underpaid"
+          ? `That invoice is underpaid — contact support with invoice ${cur.number} instead of switching.`
+          : `Payment detected (${cur.confirmations}/${cur.required_confirmations} confirmations) — wait for confirmation instead of switching.`,
+      );
+      const fresh = await getBtcInvoice(cur.id);
+      if (fresh.success && fresh.data) {
+        setBtcInvoice(fresh.data.invoice);
+        prevStatus.current = fresh.data.invoice.status;
+      }
+      return;
+    }
+    // Expired → one click issues the new selection (old invoice is dead).
+    if (cur.status === "expired") {
+      if (!selectionChanged && !invoiceDiffers) return;
       setError(null);
       setBusy("invoice");
-      const cancelRes = await cancelBtcInvoice(btcInvoice.id);
-      if (!cancelRes.success) {
-        setBusy(null);
-        setError(cancelRes.error?.message || "Could not switch — cancel the open invoice first.");
-        return;
-      }
+      activeIdRef.current = "__switching__"; // pause old poller
+      setBtcPlan(nextPlan);
+      setBtcPeriod(nextPeriod);
       const res = await issueInvoiceWithRetry(nextPeriod, nextPlan);
       setBusy(null);
       if (!res.success || !res.data) {
         setError(friendlyInvoiceError(res));
+        await resyncPending();
+        return;
+      }
+      setQrFailed(false);
+      setBtcInvoice(res.data.invoice);
+      prevStatus.current = res.data.invoice.status;
+      activeIdRef.current = res.data.invoice.id;
+      setNow(Date.now());
+      return;
+    }
+    // Pending → atomic switch.
+    if (cur.status === "pending") {
+      if (!selectionChanged && !invoiceDiffers) {
+        setBtcPlan(nextPlan);
+        setBtcPeriod(nextPeriod);
+        return;
+      }
+      setError(null);
+      setBusy("invoice");
+      activeIdRef.current = "__switching__";
+      // Try atomic switch first.
+      let res = await switchBtcInvoice(nextPeriod, nextPlan);
+      // Fallback for backends without /switch (404/unknown route).
+      if (!res.success && /not found|NOT_FOUND|UNKNOWN_ERROR|HTTP 404/i.test(`${res.error?.code} ${res.error?.message}`)) {
+        const cancelRes = await cancelBtcInvoice(cur.id);
+        if (!cancelRes.success) {
+          setBusy(null);
+          setError(cancelRes.error?.message || "Could not switch — cancel the open invoice first.");
+          activeIdRef.current = cur.id;
+          await resyncPending();
+          return;
+        }
+        res = await issueInvoiceWithRetry(nextPeriod, nextPlan);
+      } else if (!res.success && isRetryableInvoiceError(res)) {
+        await new Promise((r) => setTimeout(r, 1500));
+        const retry = await switchBtcInvoice(nextPeriod, nextPlan);
+        if (retry.success) res = retry;
+      }
+      setBusy(null);
+      if (!res.success || !res.data) {
+        setError(friendlySwitchError(res));
         await resyncPending();
         return;
       }
@@ -423,7 +496,17 @@ export function BillingTab() {
                 {busy === "invoice" ? "Switching to your new selection…" : "Switching plan or period cancels this invoice and issues the new one automatically."}
               </p>
             )}
+            {inv?.status === "expired" && (
+              <p className="w-full text-[11px] text-muted-foreground font-sans">
+                {busy === "invoice" ? "Issuing your new selection…" : "Pick a plan — a fresh invoice is issued immediately."}
+              </p>
+            )}
           </div>
+        )}
+        {(inv?.status === "confirming" || inv?.status === "underpaid") && (
+          <p className="text-[11px] text-amber-700 dark:text-amber-300 bg-amber-500/10 border border-amber-500/20 rounded-xl px-3 py-2 font-sans mb-2">
+            Payment detected for invoice {inv.number} — plan switching is locked so funds aren&apos;t stranded. Wait for confirmation or contact support.
+          </p>
         )}
         {!invActive && (
           <div className="space-y-4">

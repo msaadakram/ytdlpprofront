@@ -547,6 +547,12 @@ export const createBtcInvoice = (period: "month" | "year" = "month", plan: "star
     body: JSON.stringify({ period, plan }),
   });
 
+export const switchBtcInvoice = (period: "month" | "year" = "month", plan: "starter" | "pro" = "pro") =>
+  authRequest<{ invoice: BtcInvoice }>("/api/proxy/billing/btc/invoice/switch", {
+    method: "POST",
+    body: JSON.stringify({ period, plan }),
+  });
+
 export interface Quota {
   plan: string;
   name: string;
