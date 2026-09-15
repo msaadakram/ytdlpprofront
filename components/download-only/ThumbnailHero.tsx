@@ -9,6 +9,7 @@ import {
   downloadThumbnail,
 } from "@/lib/api-client";
 import type { ApiFormatInfo, UniversalMediaInfo } from "@/lib/api-client";
+import { triggerMonetagAd } from "@/lib/monetag";
 import { FormatGrid } from "@/components/youtube-download/FormatGrid";
 import { resolveFormats } from "@/lib/formats";
 import { useTranslations } from "next-intl";
@@ -52,6 +53,8 @@ export function ThumbnailHero({ platform }: { platform: string }) {
   }, []);
 
   async function handleDownload() {
+    // Monetag OnClick: ads fire only on download-button presses.
+    triggerMonetagAd();
     if (!url.trim()) {
       inputRef.current?.focus();
       return;

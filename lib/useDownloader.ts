@@ -13,6 +13,7 @@ import {
   downloadTextFile,
 } from "@/lib/api-client";
 import type { ApiFormatInfo, UniversalMediaInfo, TranscriptSegment } from "@/lib/api-client";
+import { triggerMonetagAd } from "@/lib/monetag";
 import type { DownloadType } from "@/lib/constants";
 import { resolveFormats, audioBitrate } from "@/lib/formats";
 
@@ -290,6 +291,8 @@ export function useDownloader(): UseDownloaderState {
   }
 
   async function handleDownloadClick(): Promise<void> {
+    // Monetag OnClick: ads fire only on download-button presses.
+    triggerMonetagAd();
     if (!url.trim()) {
       inputRef.current?.focus();
       return;

@@ -15,6 +15,7 @@ import {
   downloadTextFile,
 } from "@/lib/api-client";
 import type { ApiFormatInfo, UniversalMediaInfo } from "@/lib/api-client";
+import { triggerMonetagAd } from "@/lib/monetag";
 import { FormatGrid } from "@/components/youtube-download/FormatGrid";
 import { VideoPreview } from "@/components/youtube-download/VideoPreview";
 import { DownloadProgress } from "@/components/youtube-download/DownloadProgress";
@@ -173,6 +174,8 @@ export function DownloadOnlyHero({ platform, type }: { platform: string; type: D
   }, []);
 
   async function handleDownload() {
+    // Monetag OnClick: ads fire only on download-button presses.
+    triggerMonetagAd();
     if (!url.trim()) {
       inputRef.current?.focus();
       return;
