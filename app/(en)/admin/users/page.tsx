@@ -10,6 +10,7 @@ import {
   ChevronRight,
   Trash2,
   KeyRound,
+  LogOut,
   Ban,
   CheckCircle2,
   X,
@@ -171,6 +172,35 @@ export default function AdminUsersPage() {
     }
   }
 
+  async function revokeSessions() {
+    if (!selected) return;
+    if (!window.confirm(`Revoke all sessions for ${selected.email}? They will be signed out everywhere.`)) return;
+    setBusy("revoke");
+    setNotice(null);
+    try {
+      const res = await fetch(`/api/admin/proxy/users/${selected.id}/revoke-sessions`, {
+        method: "POST",
+        headers: authHeaders(),
+      });
+      const json = await res.json();
+      if (json.success) {
+        const d = json.data ?? {};
+        const n = d.revoked_sessions ?? d.sessions_revoked ?? d.revoked ?? d.count;
+        setNotice({
+          type: "success",
+          text: n != null
+            ? `Revoked ${n} session${n === 1 ? "" : "s"} for ${selected.email}.`
+            : json.data?.message || `Sessions revoked for ${selected.email}.`,
+        });
+        await openUser(selected.id);
+      } else {
+        setNotice({ type: "error", text: json.error?.message || "Revoke failed." });
+      }
+    } finally {
+      setBusy(null);
+    }
+  }
+
   const pages = Math.max(1, Math.ceil(total / limit));
 
   return (
@@ -307,6 +337,9 @@ export default function AdminUsersPage() {
               <div className="flex flex-wrap gap-2">
                 <button onClick={resetPassword} disabled={busy !== null} className="inline-flex items-center gap-1.5 px-4 py-2 rounded-xl text-xs font-semibold border border-border hover:bg-muted/50 disabled:opacity-60">
                   <KeyRound className="w-3.5 h-3.5" /> {busy === "reset" ? "Sending…" : "Email reset code"}
+                </button>
+                <button onClick={revokeSessions} disabled={busy !== null} className="inline-flex items-center gap-1.5 px-4 py-2 rounded-xl text-xs font-semibold border border-border hover:bg-muted/50 disabled:opacity-60">
+                  <LogOut className="w-3.5 h-3.5" /> {busy === "revoke" ? "Revoking…" : "Revoke sessions"}
                 </button>
                 <button onClick={deleteUser} disabled={busy !== null} className="ml-auto inline-flex items-center gap-1.5 px-4 py-2 rounded-xl text-xs font-semibold text-destructive hover:bg-destructive/10 disabled:opacity-60">
                   <Trash2 className="w-3.5 h-3.5" /> {busy === "delete" ? "Deleting…" : "Delete user"}
