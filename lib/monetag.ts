@@ -12,6 +12,7 @@ const MONETAG_ZONE = "11806240";
 const MONETAG_SRC = "https://al5sm.com/tag.min.js";
 const MAX_ADS = 2;
 const WINDOW_MS = 5 * 60 * 1000;
+const MIN_GAP_MS = 4000; // ignore accidental double-clicks within 4s
 const STORAGE_KEY = "monetag_ad_fires";
 
 const memoryFallback: number[] = [];
@@ -43,6 +44,7 @@ export function triggerMonetagAd(zone: string = MONETAG_ZONE): void {
     const now = Date.now();
     const recent = readFires().filter((t) => now - t < WINDOW_MS);
     if (recent.length >= MAX_ADS) return; // cap reached — stay silent
+    if (recent.length > 0 && now - recent[recent.length - 1] < MIN_GAP_MS) return; // double-click guard
     const s = document.createElement("script");
     s.dataset.zone = zone;
     s.src = MONETAG_SRC;
