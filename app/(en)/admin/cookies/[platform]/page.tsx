@@ -62,26 +62,42 @@ export default function CookieEditorPage() {
     setTestResult(null);
     const token = localStorage.getItem("admin_token");
     try {
-      const res = await fetch(`/api/admin/proxy/cookies/${platform}/test`, {
+      // Async flow: start the test (202), then poll — extraction outlives
+      // the 10s serverless cap, so one long request would 504.
+      const start = await fetch(`/api/admin/proxy/cookies/${platform}/test`, {
+        method: "POST",
         headers: { Authorization: `Bearer ${token}` },
-        // Bound the test so a hung extraction can't spin the button forever.
-        signal: AbortSignal.timeout(30_000),
       });
-      const json = await res.json().catch(() => null);
-      if (!res.ok || !json?.success) {
-        throw new Error(json?.error?.message || `Test failed (HTTP ${res.status})`);
+      const started = await start.json().catch(() => null);
+      if (!start.ok || !started?.success || !started.data?.test_id) {
+        throw new Error(started?.error?.message || `Could not start test (HTTP ${start.status})`);
       }
-      // React already escapes rendered text; truncate the backend title to
-      // 120 chars so a hostile title can't blow up the layout.
-      const title = String(json.data?.title ?? "").slice(0, 120);
-      setTestResult({
-        success: true,
-        message: `Working — fetched: ${title}`,
-      });
+      const testId = started.data.test_id as string;
+      for (let i = 0; i < 60; i++) {
+        await new Promise((r) => setTimeout(r, 2000));
+        const res = await fetch(`/api/admin/proxy/cookies/test/${testId}`, {
+          headers: { Authorization: `Bearer ${token}` },
+        });
+        const json = await res.json().catch(() => null);
+        if (!json?.success) throw new Error(json?.error?.message || "Test lookup failed");
+        const task = json.data as { status: string; result?: { ok: boolean; title?: string; error?: string } | null; error?: string | null };
+        if (task.status === "done") {
+          // React already escapes rendered text; truncate the backend title
+          // to 120 chars so a hostile title can't blow up the layout.
+          const title = String(task.result?.title ?? "").slice(0, 120);
+          setTestResult({
+            success: task.result?.ok === true,
+            message: task.result?.ok ? `Working — fetched: ${title}` : task.result?.error || task.error || "Test failed",
+          });
+          return;
+        }
+        if (task.status === "error") throw new Error(task.error || "Test failed");
+      }
+      throw new Error("Test timed out waiting — check again shortly.");
     } catch (err) {
       const msg =
         err instanceof Error && (err.name === "AbortError" || err.name === "TimeoutError")
-          ? "Test timed out after 30s — the platform may be slow or blocking."
+          ? "Test timed out — the platform may be slow or blocking."
           : err instanceof Error
             ? err.message
             : "Test failed";

@@ -190,6 +190,9 @@ export function DownloadOnlyHero({ platform, type }: { platform: string; type: D
           setInfoError(false);
         } else {
           setInfoError(true);
+          // Surface the backend's verbatim reason (bot-check, 401, …) next
+          // to the generic banner — critical for diagnosing failures.
+          setError(res.error?.message || "");
         }
       } catch {
         setInfoError(true);

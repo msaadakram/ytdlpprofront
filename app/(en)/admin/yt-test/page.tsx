@@ -68,16 +68,43 @@ export default function YoutubeTestPage() {
     setError(null);
     setResult(null);
     try {
-      const res = await fetch("/api/admin/proxy/test/youtube", {
+      // Async flow: start the dry-run (202), then poll — extraction
+      // outlives the 10s serverless cap, so one long request would 504.
+      const start = await fetch("/api/admin/proxy/test/youtube", {
         method: "POST",
         headers: authHeaders(),
         body: JSON.stringify({ user_id: user.id, url: url.trim() }),
       });
-      const json = await res.json();
-      if (json.success) setResult(json.data as TestResult);
-      else setError(json.error?.message || "Test failed");
+      const started = await start.json().catch(() => null);
+      if (!start.ok || !started?.success || !started.data?.test_id) {
+        setError(started?.error?.message || `Could not start test (HTTP ${start.status})`);
+        return;
+      }
+      const testId = started.data.test_id as string;
+      for (let i = 0; i < 60; i++) {
+        await new Promise((r) => setTimeout(r, 2000));
+        const res = await fetch(`/api/admin/proxy/test/${testId}`, {
+          headers: authHeaders(),
+        });
+        const json = await res.json().catch(() => null);
+        if (!json?.success) {
+          setError(json?.error?.message || "Test lookup failed");
+          return;
+        }
+        const task = json.data as { status: string; result?: TestResult | null; error?: string | null };
+        if (task.status === "done") {
+          if (task.result) setResult(task.result);
+          else setError(task.error || "Test finished with no result");
+          return;
+        }
+        if (task.status === "error") {
+          setError(task.error || "Test failed");
+          return;
+        }
+      }
+      setError("Test timed out waiting — check the audit log shortly");
     } catch {
-      setError("Test failed — could not reach backend (extraction can take up to ~45s, try again)");
+      setError("Test failed — could not reach backend");
     } finally {
       setRunning(false);
     }

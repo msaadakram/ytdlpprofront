@@ -308,6 +308,9 @@ export function useDownloader(): UseDownloaderState {
           setInfoError(false);
         } else {
           setInfoError(true);
+          // Surface the backend's verbatim reason (bot-check, 401, …) next
+          // to the generic banner — critical for diagnosing failures.
+          setError(res.error?.message || "");
         }
       } catch {
         setInfoError(true);
