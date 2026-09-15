@@ -9,6 +9,7 @@ export async function generateMetadata(): Promise<Metadata> {
   return {
     title: `${t("title")} — DownForge`,
     alternates: { canonical: `https://www.downforge.me/dashboard` },
+    robots: { index: false, follow: false },
   };
 }
 

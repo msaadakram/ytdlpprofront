@@ -1,6 +1,7 @@
 const PLATFORM_DETECTORS: { platform: string; test: (host: string) => boolean }[] = [
-  { platform: 'youtube',     test: (h) => h === 'youtu.be' || h.endsWith('youtube.com') || h.endsWith('youtube-nocookie.com') },
-  { platform: 'tiktok',      test: (h) => h.endsWith('tiktok.com') },
+  { platform: 'youtube',     test: (h) => h === 'youtu.be' || h.endsWith('youtube.com') || h.endsWith('youtube-nocookie.com') || h.endsWith('music.youtube.com') },
+  { platform: 'tiktok',      test: (h) => h.endsWith('tiktok.com') || h === 'vm.tiktok.com' || h === 'vt.tiktok.com' },
+  { platform: 'twitter',     test: (h) => h === 'x.com' || h.endsWith('x.com') || h.endsWith('twitter.com') || h === 't.co' || h.endsWith('twimg.com') || h.endsWith('video.twimg.com') },
   { platform: 'instagram',   test: (h) => h.endsWith('instagram.com') },
   { platform: 'facebook',    test: (h) => h.endsWith('facebook.com') || h.endsWith('fb.watch') },
   { platform: 'vimeo',       test: (h) => h.endsWith('vimeo.com') },

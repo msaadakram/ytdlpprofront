@@ -83,6 +83,8 @@ export function BillingTab() {
   // Generation guard: a poll started for an old invoice must never overwrite
   // a newer one (cancel → recreate race).
   const activeIdRef = useRef<string | null>(null);
+  // In-flight guard: skip a 12s tick while the previous poll is still pending.
+  const inFlightRef = useRef(false);
 
   // Initial load: plan + quota + history + live BTC rate + resume any open invoice.
   useEffect(() => {
@@ -118,22 +120,30 @@ export function BillingTab() {
     if (!btcInvoice || !ACTIVE_STATUSES.includes(btcInvoice.status)) return;
     if (btcInvoice.status === "confirmed" || btcInvoice.status === "cancelled") return;
     const polledId = btcInvoice.id;
+    let disposed = false;
     const id = setInterval(async () => {
-      if (activeIdRef.current !== polledId) return;
-      const res = await getBtcInvoice(polledId);
-      if (!res.success || !res.data) return;
-      if (activeIdRef.current !== polledId) return;
-      const fresh = res.data.invoice;
-      setBtcInvoice(fresh);
-      if (fresh.status === "confirmed" && prevStatus.current !== "confirmed") {
-        const [planRes, invRes, quotaRes] = await Promise.all([getPlan(), listInvoices(), getQuota()]);
-        if (planRes.success && planRes.data) setPlanState(planRes.data);
-        if (invRes.success && invRes.data) setInvoices(invRes.data.invoices);
-        if (quotaRes.success && quotaRes.data) setQuota(quotaRes.data);
+      // Skip this tick if the previous poll is still pending (slow chain scans).
+      if (inFlightRef.current || activeIdRef.current !== polledId || disposed) return;
+      inFlightRef.current = true;
+      try {
+        const res = await getBtcInvoice(polledId);
+        if (!res.success || !res.data) return;
+        if (activeIdRef.current !== polledId || disposed) return;
+        const fresh = res.data.invoice;
+        setBtcInvoice(fresh);
+        if (fresh.status === "confirmed" && prevStatus.current !== "confirmed") {
+          const [planRes, invRes, quotaRes] = await Promise.all([getPlan(), listInvoices(), getQuota()]);
+          if (disposed) return;
+          if (planRes.success && planRes.data) setPlanState(planRes.data);
+          if (invRes.success && invRes.data) setInvoices(invRes.data.invoices);
+          if (quotaRes.success && quotaRes.data) setQuota(quotaRes.data);
+        }
+        prevStatus.current = fresh.status;
+      } finally {
+        inFlightRef.current = false;
       }
-      prevStatus.current = fresh.status;
     }, POLL_MS);
-    return () => clearInterval(id);
+    return () => { disposed = true; clearInterval(id); };
   }, [btcInvoice?.id, btcInvoice?.status]);
 
   function isRetryableInvoiceError(res: { success: boolean; error?: { code?: string; message?: string } } | null): boolean {
@@ -362,8 +372,12 @@ export function BillingTab() {
     : null;
   const inv = btcInvoice;
   const invActive = inv && (ACTIVE_STATUSES.includes(inv.status) || inv.status === "expired");
+  // Expired invoices keep the amount box (so the user sees what lapsed) but
+  // must NOT show the QR / address / how-to — the address is dead and the QR
+  // would invite payment to an expired invoice.
+  const isExpired = inv?.status === "expired";
   const bitcoinUri = inv ? `bitcoin:${inv.address}?amount=${inv.btc_amount}` : "";
-  const qrUrl = inv && !qrFailed
+  const qrUrl = inv && !qrFailed && !isExpired
     ? `https://api.qrserver.com/v1/create-qr-code/?size=220x220&margin=10&data=${encodeURIComponent(bitcoinUri)}`
     : null;
 
@@ -561,12 +575,13 @@ export function BillingTab() {
               </div>
             </div>
 
-            {/* QR + address */}
+            {/* QR + address blocks hidden when expired (address is dead);
+                amount box above + status/expired-note/Create-new below stay visible */}
             <div className="flex flex-col sm:flex-row gap-4">
-              {qrUrl ? (
+              {!isExpired && (qrUrl ? (
                 <div className="mx-auto sm:mx-0 bg-white rounded-2xl border border-border/60 p-3 shrink-0">
                   {/* eslint-disable-next-line @next/next/no-img-element */}
-                  <img src={qrUrl} alt="Bitcoin payment QR code" width={180} height={180} className="w-[180px] h-[180px]" onError={() => setQrFailed(true)} />
+                  <img src={qrUrl} alt="Bitcoin payment QR code" width={180} height={180} className="w-[180px] h-[180px]" loading="lazy" referrerPolicy="no-referrer" onError={() => setQrFailed(true)} />
                 </div>
               ) : (
                 <div className="mx-auto sm:mx-0 rounded-2xl border border-border/60 bg-muted/40 p-4 shrink-0 w-[204px] text-center">
@@ -578,8 +593,9 @@ export function BillingTab() {
                     Retry QR
                   </button>
                 </div>
-              )}
+              ))}
               <div className="flex-1 min-w-0 space-y-3">
+                {!isExpired && (
                 <div>
                   <p className="text-[11px] font-bold uppercase tracking-wider text-muted-foreground font-sans mb-1">To this address</p>
                   <div className="flex items-center gap-2 rounded-xl bg-muted/60 border border-border/60 px-3 py-2.5">
@@ -593,6 +609,7 @@ export function BillingTab() {
                     </button>
                   </div>
                 </div>
+                )}
                 <div className="flex items-center gap-2 text-xs font-sans">
                   <span className={`inline-flex items-center gap-1.5 font-bold px-2.5 py-1 rounded-full ${
                     inv.status === "confirmed" ? "text-green-700 bg-green-500/10 dark:text-green-400"
@@ -643,7 +660,8 @@ export function BillingTab() {
               </div>
             </div>
 
-            {/* How to pay */}
+            {/* How to pay — hidden when expired (nothing left to pay) */}
+            {!isExpired && (
             <div className="rounded-2xl border border-border/60 bg-muted/30 p-4">
               <p className="text-xs font-bold text-foreground font-sans mb-2.5 flex items-center gap-1.5">
                 <ShieldCheck className="w-3.5 h-3.5 text-[#5baab8]" /> How to pay
@@ -658,6 +676,7 @@ export function BillingTab() {
                 Each invoice has a unique exact amount — always create a fresh invoice per payment. Payments are final; there is no auto-renewal, renew manually before expiry.
               </p>
             </div>
+            )}
           </div>
         )}
       </div>

@@ -107,6 +107,10 @@ export function TranscriptHero({ platform }: { platform: string }) {
   const [totalBytes, setTotalBytes] = useState(0);
   const [error, setError] = useState("");
   const cancelPoll = useRef<(() => void) | null>(null);
+  // Leak-safe poll bookkeeping: timeout id + mounted guard + abort.
+  const pollTimeoutRef = useRef<ReturnType<typeof setTimeout> | null>(null);
+  const mountedRef = useRef(true);
+  const pollAbortRef = useRef<AbortController | null>(null);
 
   const [mediaInfo, setMediaInfo] = useState<UniversalMediaInfo | null>(null);
   const [fetchingInfo, setFetchingInfo] = useState(false);
@@ -147,8 +151,12 @@ export function TranscriptHero({ platform }: { platform: string }) {
   }, []);
 
   useEffect(() => {
+    mountedRef.current = true;
     return () => {
+      mountedRef.current = false;
       cancelPoll.current?.();
+      if (pollTimeoutRef.current) clearTimeout(pollTimeoutRef.current);
+      pollAbortRef.current?.abort();
     };
   }, []);
 
@@ -207,18 +215,33 @@ export function TranscriptHero({ platform }: { platform: string }) {
       setStatusText(st("transcribing", { defaultValue: "Transcribing..." }));
       await pollUntilDone(res.data.job_id);
     } catch (err) {
+      if (!mountedRef.current) return;
       setError(err instanceof Error ? err.message : st("errorDownloadFailed"));
       setProcessing(false);
-      setTimeout(() => setError(""), 5000);
+      pollTimeoutRef.current = setTimeout(() => {
+        if (mountedRef.current) setError("");
+      }, 5000);
     }
   }
 
   async function pollUntilDone(jobId: string): Promise<void> {
+    if (pollTimeoutRef.current) clearTimeout(pollTimeoutRef.current);
+    pollAbortRef.current?.abort();
+    const ctrl = new AbortController();
+    pollAbortRef.current = ctrl;
+    cancelPoll.current = () => {
+      if (pollTimeoutRef.current) clearTimeout(pollTimeoutRef.current);
+      ctrl.abort();
+    };
+    const safe = (fn: () => void) => {
+      if (mountedRef.current && !ctrl.signal.aborted) fn();
+    };
     return new Promise((resolve, reject) => {
       let retries = 0;
       const maxRetries = 180;
 
       const poll = async () => {
+        if (!mountedRef.current || ctrl.signal.aborted) return;
         if (retries >= maxRetries) {
           reject(new Error(st("errorDownloadFailed")));
           return;
@@ -227,31 +250,37 @@ export function TranscriptHero({ platform }: { platform: string }) {
 
         try {
           const res = await getJobStatus(jobId);
+          if (!mountedRef.current || ctrl.signal.aborted) return;
           if (!res.success || !res.data) {
             reject(new Error(res.error?.message || st("errorDownloadFailed")));
             return;
           }
 
           const job = res.data;
-          setProgress(job.progress ?? 0);
-          setDownloadSpeed(job.speed ?? "");
-          setDownloadEta(job.eta ?? null);
-          setDownloadedBytes(job.downloaded ?? 0);
-          setTotalBytes(job.total ?? 0);
+          safe(() => {
+            setProgress(job.progress ?? 0);
+            setDownloadSpeed(job.speed ?? "");
+            setDownloadEta(job.eta ?? null);
+            setDownloadedBytes(job.downloaded ?? 0);
+            setTotalBytes(job.total ?? 0);
+          });
 
           if (job.status === "downloading") {
-            setStatusText(st("downloading"));
+            safe(() => setStatusText(st("downloading")));
           } else if (job.status === "processing") {
-            setStatusText(st("processing"));
+            safe(() => setStatusText(st("processing")));
           } else if (job.status === "queued") {
-            setStatusText(st("queued"));
+            safe(() => setStatusText(st("queued")));
           }
 
           if (job.status === "completed") {
-            setProgress(100);
-            setStatusText(st("complete"));
+            safe(() => {
+              setProgress(100);
+              setStatusText(st("complete"));
+            });
 
             const finalRes = await getJobResult(jobId);
+            if (!mountedRef.current || ctrl.signal.aborted) return;
             if (finalRes.success && finalRes.data) {
               const data = finalRes.data;
 
@@ -266,16 +295,22 @@ export function TranscriptHero({ platform }: { platform: string }) {
                   downloadTextFile(data.transcript, data.filename || `${safeTitle}.${ext}`);
                 }
                 // Keep content for the in-page viewer (copy / search / format switch)
-                setTranscript(data.transcript ?? null);
-                setTranscriptSegments(data.segments || null);
-                setTranscriptFilename(data.filename || null);
-                setTranscriptJsonUrl(data.jsonDownloadUrl || null);
-                setTranscriptJsonFilename(data.jsonFilename || null);
+                safe(() => {
+                  setTranscript(data.transcript ?? null);
+                  setTranscriptSegments(data.segments || null);
+                  setTranscriptFilename(data.filename || null);
+                  setTranscriptJsonUrl(data.jsonDownloadUrl || null);
+                  setTranscriptJsonFilename(data.jsonFilename || null);
+                });
               }
             }
-            setProcessing(false);
-            setDone(true);
-            setTimeout(() => setDone(false), 3000);
+            safe(() => {
+              setProcessing(false);
+              setDone(true);
+            });
+            pollTimeoutRef.current = setTimeout(() => {
+              if (mountedRef.current) setDone(false);
+            }, 3000);
             resolve();
             return;
           }
@@ -285,7 +320,7 @@ export function TranscriptHero({ platform }: { platform: string }) {
             return;
           }
 
-          setTimeout(poll, 1000);
+          pollTimeoutRef.current = setTimeout(poll, 1000);
         } catch (err) {
           reject(err);
         }

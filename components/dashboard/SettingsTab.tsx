@@ -102,14 +102,18 @@ export function SettingsTab() {
   }
 
   async function handleNotificationToggle(key: NotificationKey) {
-    const next = { ...notifications, [key]: !notifications[key] };
-    setNotifications(next);
+    // Functional update so rapid toggles never clash on stale state.
+    let nextValue = false;
+    setNotifications((prev) => {
+      nextValue = !prev[key];
+      return { ...prev, [key]: nextValue };
+    });
     setSavingNotifs(true);
-    const res = await updateNotifications({ [key]: next[key] });
+    const res = await updateNotifications({ [key]: nextValue });
     setSavingNotifs(false);
     if (!res.success) {
-      // Revert on failure
-      setNotifications(notifications);
+      // Revert on failure (functional — no stale closure).
+      setNotifications((prev) => ({ ...prev, [key]: !nextValue }));
       toast.error(res.error?.message || "Failed to update notifications.");
     }
   }
@@ -178,7 +182,8 @@ export function SettingsTab() {
                 </div>
               </div>
               {(profile.provider === "google" || profile.provider === "both") && profile.avatar_url && (
-                <img src={profile.avatar_url} alt="Google avatar" className="w-8 h-8 rounded-full object-cover border border-border" />
+                // eslint-disable-next-line @next/next/no-img-element
+                <img src={profile.avatar_url} alt="Google avatar" className="w-8 h-8 rounded-full object-cover border border-border" referrerPolicy="no-referrer" onError={(e) => { (e.target as HTMLImageElement).style.display = "none"; }} />
               )}
             </div>
             <div className="flex items-center gap-3 p-3 rounded-xl border bg-muted/30 border-border">
@@ -210,7 +215,8 @@ export function SettingsTab() {
         <div className="space-y-4">
           {profile?.avatar_url && (
             <div className="flex items-center gap-4 p-3 bg-muted/30 rounded-xl border border-border">
-              <img src={profile.avatar_url} alt={profile.name || "Avatar"} className="w-12 h-12 rounded-full object-cover border border-border" />
+              {/* eslint-disable-next-line @next/next/no-img-element */}
+              <img src={profile.avatar_url} alt={profile.name || "Avatar"} className="w-12 h-12 rounded-full object-cover border border-border" referrerPolicy="no-referrer" onError={(e) => { (e.target as HTMLImageElement).style.display = "none"; }} />
               <div>
                 <div className="text-sm font-semibold text-foreground font-sans">{profile.name}</div>
                 <div className="text-xs text-muted-foreground font-sans">{profile.email}</div>

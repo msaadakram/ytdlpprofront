@@ -57,20 +57,38 @@ export default function CookieEditorPage() {
   };
 
   const handleTest = async () => {
+    if (!platform) return;
     setTestLoading(true);
     setTestResult(null);
     const token = localStorage.getItem("admin_token");
-    const res = await fetch(`/api/admin/proxy/cookies/${platform}/test`, {
-      headers: { Authorization: `Bearer ${token}` },
-    });
-    const json = await res.json();
-    setTestLoading(false);
-    setTestResult({
-      success: json.success,
-      message: json.success
-        ? `Working — fetched: "${json.data.title}"`
-        : json.error?.message || "Test failed",
-    });
+    try {
+      const res = await fetch(`/api/admin/proxy/cookies/${platform}/test`, {
+        headers: { Authorization: `Bearer ${token}` },
+        // Bound the test so a hung extraction can't spin the button forever.
+        signal: AbortSignal.timeout(30_000),
+      });
+      const json = await res.json().catch(() => null);
+      if (!res.ok || !json?.success) {
+        throw new Error(json?.error?.message || `Test failed (HTTP ${res.status})`);
+      }
+      // React already escapes rendered text; truncate the backend title to
+      // 120 chars so a hostile title can't blow up the layout.
+      const title = String(json.data?.title ?? "").slice(0, 120);
+      setTestResult({
+        success: true,
+        message: `Working — fetched: ${title}`,
+      });
+    } catch (err) {
+      const msg =
+        err instanceof Error && (err.name === "AbortError" || err.name === "TimeoutError")
+          ? "Test timed out after 30s — the platform may be slow or blocking."
+          : err instanceof Error
+            ? err.message
+            : "Test failed";
+      setTestResult({ success: false, message: msg });
+    } finally {
+      setTestLoading(false);
+    }
   };
 
   const name = platformNames[platform] || platform;
@@ -150,7 +168,7 @@ Example:
             </button>
             <button
               onClick={handleTest}
-              disabled={testLoading || !cookieData}
+              disabled={testLoading || !platform}
               className="inline-flex items-center justify-center gap-2 bg-card border border-border text-foreground px-6 py-2.5 rounded-xl text-sm font-semibold hover:bg-muted transition-colors disabled:opacity-50"
             >
               {testLoading && <Loader2 className="w-4 h-4 animate-spin" />}

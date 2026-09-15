@@ -305,6 +305,10 @@ export function StatusClient() {
           {platformIds.map((id) => {
             const cfg = platformConfigs[id];
             const Logo = cfg?.Logo;
+            // A platform without server cookies extracts less reliably — show
+            // it as degraded (amber) rather than fully operational.
+            const cookieEntry = statusData?.platforms.find((p) => p.id === id);
+            const platState = cookieEntry && cookieEntry.hasCookies === false ? "degraded" as const : "operational" as const;
             return (
               <div
                 key={id}
@@ -317,8 +321,8 @@ export function StatusClient() {
                   <Globe className="w-7 h-7 text-muted-foreground" />
                 )}
                 <span className="text-[11px] font-bold text-foreground font-sans truncate max-w-full">{cfg?.name ?? id}</span>
-                <span className="inline-flex items-center gap-1 text-[10px] font-bold text-emerald-600 dark:text-emerald-400">
-                  <StateDot state="operational" className="w-1.5 h-1.5" /> {t("operational")}
+                <span className={`inline-flex items-center gap-1 text-[10px] font-bold ${platState === "degraded" ? "text-amber-600 dark:text-amber-400" : "text-emerald-600 dark:text-emerald-400"}`}>
+                  <StateDot state={platState} className="w-1.5 h-1.5" /> {platState === "degraded" ? t("degraded") : t("operational")}
                 </span>
               </div>
             );

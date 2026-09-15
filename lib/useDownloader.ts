@@ -74,6 +74,10 @@ export function useDownloader(): UseDownloaderState {
   const [infoReady, setInfoReady] = useState(false);
   const [infoError, setInfoError] = useState(false);
   const cancelPoll = useRef<(() => void) | null>(null);
+  // Leak-safe poll bookkeeping: timeout id + mounted guard + abort.
+  const pollTimeoutRef = useRef<ReturnType<typeof setTimeout> | null>(null);
+  const mountedRef = useRef(true);
+  const pollAbortRef = useRef<AbortController | null>(null);
 
   // Transcript state
   const [transcript, setTranscript] = useState<string | null>(null);
@@ -97,17 +101,34 @@ export function useDownloader(): UseDownloaderState {
   }, []);
 
   useEffect(() => {
+    mountedRef.current = true;
     return () => {
+      mountedRef.current = false;
       cancelPoll.current?.();
+      if (pollTimeoutRef.current) clearTimeout(pollTimeoutRef.current);
+      pollAbortRef.current?.abort();
     };
   }, []);
 
   async function pollUntilDone(jobId: string): Promise<void> {
+    // Cancel any in-flight poll before starting a new one.
+    if (pollTimeoutRef.current) clearTimeout(pollTimeoutRef.current);
+    pollAbortRef.current?.abort();
+    const ctrl = new AbortController();
+    pollAbortRef.current = ctrl;
+    cancelPoll.current = () => {
+      if (pollTimeoutRef.current) clearTimeout(pollTimeoutRef.current);
+      ctrl.abort();
+    };
+    const safe = <T extends unknown>(fn: () => void) => {
+      if (mountedRef.current && !ctrl.signal.aborted) fn();
+    };
     return new Promise((resolve, reject) => {
       let retries = 0;
       const maxRetries = 180;
 
       const poll = async () => {
+        if (!mountedRef.current || ctrl.signal.aborted) return;
         if (retries >= maxRetries) {
           reject(new Error("Download timed out"));
           return;
@@ -116,31 +137,37 @@ export function useDownloader(): UseDownloaderState {
 
         try {
           const res = await getJobStatus(jobId);
+          if (!mountedRef.current || ctrl.signal.aborted) return;
           if (!res.success || !res.data) {
             reject(new Error(res.error?.message || "Failed to check status"));
             return;
           }
 
           const job = res.data;
-          setProgress(job.progress ?? 0);
-          setDownloadSpeed(job.speed ?? "");
-          setDownloadEta(job.eta ?? null);
-          setDownloadedBytes(job.downloaded ?? 0);
-          setTotalBytes(job.total ?? 0);
+          safe(() => {
+            setProgress(job.progress ?? 0);
+            setDownloadSpeed(job.speed ?? "");
+            setDownloadEta(job.eta ?? null);
+            setDownloadedBytes(job.downloaded ?? 0);
+            setTotalBytes(job.total ?? 0);
+          });
 
           if (job.status === "downloading") {
-            setStatusText("Downloading...");
+            safe(() => setStatusText("Downloading..."));
           } else if (job.status === "processing") {
-            setStatusText("Processing...");
+            safe(() => setStatusText("Processing..."));
           } else if (job.status === "queued") {
-            setStatusText("Queued...");
+            safe(() => setStatusText("Queued..."));
           }
 
           if (job.status === "completed") {
-            setProgress(100);
-            setStatusText("Complete!");
+            safe(() => {
+              setProgress(100);
+              setStatusText("Complete!");
+            });
 
             const finalRes = await getJobResult(jobId);
+            if (!mountedRef.current || ctrl.signal.aborted) return;
             if (finalRes.success && finalRes.data) {
               const data = finalRes.data;
 
@@ -155,19 +182,26 @@ export function useDownloader(): UseDownloaderState {
                   downloadTextFile(data.transcript, data.filename || `${safeTitle}.${ext}`);
                 }
                 // Then keep the content for the in-page viewer (download pages)
-                setTranscript(data.transcript ?? null);
-                setTranscriptSegments(data.segments || null);
-                setTranscriptFilename(data.filename || null);
-                setTranscriptJsonUrl(data.jsonDownloadUrl || null);
-                setTranscriptJsonFilename(data.jsonFilename || null);
+                safe(() => {
+                  setTranscript(data.transcript ?? null);
+                  setTranscriptSegments(data.segments || null);
+                  setTranscriptFilename(data.filename || null);
+                  setTranscriptJsonUrl(data.jsonDownloadUrl || null);
+                  setTranscriptJsonFilename(data.jsonFilename || null);
+                });
               } else if (data.downloadUrl) {
                 // For video/audio types, trigger download as before
                 triggerDownload(data.downloadUrl, data.filename);
               }
             }
-            setProcessing(false);
-            setDone(true);
-            setTimeout(() => setDone(false), 3000);
+            safe(() => {
+              setProcessing(false);
+              setDone(true);
+            });
+            const doneId = setTimeout(() => {
+              if (mountedRef.current) setDone(false);
+            }, 3000);
+            pollTimeoutRef.current = doneId;
             resolve();
             return;
           }
@@ -177,7 +211,7 @@ export function useDownloader(): UseDownloaderState {
             return;
           }
 
-          setTimeout(poll, 1000);
+          pollTimeoutRef.current = setTimeout(poll, 1000);
         } catch (err) {
           reject(err);
         }
@@ -200,10 +234,14 @@ export function useDownloader(): UseDownloaderState {
 
     try {
       if (activeType === "video") {
-        const fmt = formats[selectedFormat] as unknown as { format_id?: string; ext?: string };
-        const formatId = fmt.format_id;
+        const fmt = formats[selectedFormat] as unknown as { format_id?: string; ext?: string; quality_label?: string | null };
+        // Static fallbacks carry format_id:"" — send quality label instead of an
+        // empty format_id so the backend picks the right rendition.
+        const rawId = (fmt.format_id || "").trim();
+        const formatId = rawId ? rawId : undefined;
+        const quality = rawId ? undefined : (fmt.quality_label || undefined);
         const container = CONTAINER_MAP[fmt.ext || "mp4"] || "mp4";
-        const res = await universalDownloadVideo(url, formatId, undefined, container);
+        const res = await universalDownloadVideo(url, formatId, quality, container);
         if (!res.success || !res.data) {
           throw new Error(res.error?.message || "Download failed to start");
         }
@@ -242,9 +280,12 @@ export function useDownloader(): UseDownloaderState {
         return;
       }
     } catch (err) {
+      if (!mountedRef.current) return;
       setError(err instanceof Error ? err.message : "Download failed");
       setProcessing(false);
-      setTimeout(() => setError(""), 5000);
+      pollTimeoutRef.current = setTimeout(() => {
+        if (mountedRef.current) setError("");
+      }, 5000);
     }
   }
 

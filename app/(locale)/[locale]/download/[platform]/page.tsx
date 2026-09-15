@@ -9,6 +9,7 @@ import { PlatformFaq } from "@/components/platform-download/PlatformFaq";
 import { PlatformToolFeatures } from "@/components/platform-download/PlatformToolFeatures";
 import { PlatformHowItWorks } from "@/components/platform-download/PlatformHowItWorks";
 import { platformConfigs, platformSlugs } from "@/lib/platform-config";
+import { routing } from "@/lib/i18n/routing";
 import { getUniversalContent } from "@/lib/content/registry";
 import { getTemplatedFaqs } from "@/lib/content/templated-faqs";
 import { relatedLinksFor } from "@/lib/content/related-links";
@@ -19,8 +20,8 @@ import { ExploreOtherTools } from "@/components/content/ExploreOtherTools";
 type Props = { params: Promise<{ platform: string; locale: string }> };
 
 export function generateStaticParams() {
-  const locales = ["en", "es", "fr", "de", "pt", "ja", "ar", "ru", "zh"];
-  return locales.flatMap((locale) =>
+  // Single source of truth — do not hardcode the locale list here.
+  return routing.locales.flatMap((locale) =>
     platformSlugs.map((platform) => ({ locale, platform }))
   );
 }
@@ -197,7 +198,7 @@ export default async function PlatformDownloadPage({ params }: Props) {
         author: { "@type": "Organization", name: "DownForge", url: "https://www.downforge.me" },
         publisher: { "@type": "Organization", name: "DownForge", logo: { "@type": "ImageObject", url: "https://www.downforge.me/organization-logo.png" } },
         datePublished: "2025-08-22",
-        dateModified: new Date().toISOString().slice(0, 10),
+        dateModified: "2026-08-29", // fixed — new Date() here rewrites structured data daily
         mainEntityOfPage: `https://www.downforge.me/${locale}/download/${config.slug}`,
         wordCount: 2700,
       },

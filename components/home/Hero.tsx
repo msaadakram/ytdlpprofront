@@ -13,7 +13,7 @@ import { useDownloader } from "@/lib/useDownloader";
 import { VideoPreview } from "@/components/youtube-download/VideoPreview";
 
 function formatBytes(bytes: number): string {
-  if (!bytes || bytes <= 0) return "";
+  if (!Number.isFinite(bytes) || bytes <= 0) return "";
   if (bytes < 1024) return `${bytes} B`;
   if (bytes < 1024 * 1024) return `${(bytes / 1024).toFixed(1)} KB`;
   if (bytes < 1024 * 1024 * 1024) return `${(bytes / 1024 / 1024).toFixed(1)} MB`;
@@ -176,6 +176,8 @@ export function Hero() {
                       onChange={(e) => handleUrlChange(e.target.value)}
                       onKeyDown={(e) => e.key === "Enter" && handleDownloadClick()}
                       placeholder={t("placeholder", { defaultValue: "Paste your video URL here..." })}
+                      aria-invalid={infoError ? true : undefined}
+                      aria-describedby={infoError ? "hero-url-error" : undefined}
                       className="w-full bg-transparent text-base sm:text-[15px] text-foreground placeholder:text-muted-foreground/60 outline-none font-sans tracking-wide"
                     />
                     {fetchingInfo && (
@@ -303,6 +305,8 @@ export function Hero() {
 
               {infoError && !mediaInfo && !fetchingInfo && url.trim() && (
                 <motion.p
+                  id="hero-url-error"
+                  role="alert"
                   initial={{ opacity: 0, y: -4 }}
                   animate={{ opacity: 1, y: 0 }}
                   className="text-xs text-destructive mt-3 font-sans"
@@ -399,7 +403,8 @@ export function Hero() {
           className="overflow-hidden [mask-image:linear-gradient(to_right,transparent,black_12%,black_88%,transparent)]"
           dir="ltr"
         >
-          <div className="flex w-max gap-3 animate-marquee">
+          {/* Decorative duplicate marquee — hidden from AT; honors reduced-motion via CSS + utility */}
+          <div className="flex w-max gap-3 animate-marquee motion-reduce:animate-none" aria-hidden>
             {[...marqueePlatforms, ...marqueePlatforms].map((p, i) => {
               const Logo = p.Logo;
               return (

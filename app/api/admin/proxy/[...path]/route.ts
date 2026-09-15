@@ -11,6 +11,28 @@ function backendUrl(pathStr: string) {
   return `${API_BASE.replace(/\/+$/, "")}/api/admin/${pathStr}`;
 }
 
+/**
+ * Safe JSON parse: backend outages return HTML — never throw on .json().
+ * Maps aborts to a 504 so the UI can show "timed out" instead of PROXY_ERROR.
+ */
+async function safeJson(res: Response) {
+  return res.json().catch(() => null);
+}
+
+function proxyError(err: unknown) {
+  const isAbort = err instanceof Error && (err.name === "AbortError" || err.name === "TimeoutError");
+  return NextResponse.json(
+    {
+      success: false,
+      error: {
+        code: isAbort ? "PROXY_TIMEOUT" : "PROXY_ERROR",
+        message: isAbort ? "Backend request timed out" : "Failed to reach backend service",
+      },
+    },
+    { status: isAbort ? 504 : 502 },
+  );
+}
+
 export async function GET(
   _req: NextRequest,
   { params }: { params: Promise<{ path: string[] }> },
@@ -26,13 +48,10 @@ export async function GET(
       headers: token ? { Authorization: token } : {},
       signal: AbortSignal.timeout(50_000),
     });
-    const data = await res.json();
+    const data = await safeJson(res);
     return NextResponse.json(data, { status: res.status });
-  } catch {
-    return NextResponse.json(
-      { success: false, error: { code: "PROXY_ERROR", message: "Failed to reach backend service" } },
-      { status: 502 },
-    );
+  } catch (err) {
+    return proxyError(err);
   }
 }
 
@@ -58,13 +77,42 @@ export async function POST(
       ...(body !== null ? { body: JSON.stringify(body) } : {}),
       signal: AbortSignal.timeout(50_000),
     });
-    const data = await res.json();
+    const data = await safeJson(res);
     return NextResponse.json(data, { status: res.status });
-  } catch {
-    return NextResponse.json(
-      { success: false, error: { code: "PROXY_ERROR", message: "Failed to reach backend service" } },
-      { status: 502 },
-    );
+  } catch (err) {
+    return proxyError(err);
+  }
+}
+
+/**
+ * PATCH passthrough (same forwarding as POST). Current admin user updates use
+ * POST /users/:id per the backend's admin routes — keep POST there; PATCH
+ * exists for future-proofing and any backend routes that expect PATCH.
+ */
+export async function PATCH(
+  req: NextRequest,
+  { params }: { params: Promise<{ path: string[] }> },
+) {
+  const { path } = await params;
+  const pathStr = path.join("/");
+  const token = req.headers.get("authorization");
+  const url = backendUrl(pathStr) + (req.nextUrl.search || "");
+
+  try {
+    const body = await req.json().catch(() => null);
+    const res = await fetch(url, {
+      method: "PATCH",
+      headers: {
+        "Content-Type": "application/json",
+        ...(token ? { Authorization: token } : {}),
+      },
+      ...(body !== null ? { body: JSON.stringify(body) } : {}),
+      signal: AbortSignal.timeout(50_000),
+    });
+    const data = await safeJson(res);
+    return NextResponse.json(data, { status: res.status });
+  } catch (err) {
+    return proxyError(err);
   }
 }
 
@@ -75,7 +123,8 @@ export async function DELETE(
   const { path } = await params;
   const pathStr = path.join("/");
   const token = req.headers.get("authorization");
-  const url = backendUrl(pathStr);
+  // Forward query strings (same as GET/POST) — some DELETEs carry ? params.
+  const url = backendUrl(pathStr) + (req.nextUrl.search || "");
 
   try {
     const res = await fetch(url, {
@@ -83,12 +132,9 @@ export async function DELETE(
       headers: token ? { Authorization: token } : {},
       signal: AbortSignal.timeout(50_000),
     });
-    const data = await res.json();
+    const data = await safeJson(res);
     return NextResponse.json(data, { status: res.status });
-  } catch {
-    return NextResponse.json(
-      { success: false, error: { code: "PROXY_ERROR", message: "Failed to reach backend service" } },
-      { status: 502 },
-    );
+  } catch (err) {
+    return proxyError(err);
   }
 }

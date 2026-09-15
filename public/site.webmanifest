@@ -24,5 +24,6 @@
   "background_color": "#ffffff",
   "display": "standalone",
   "start_url": "/",
-  "scope": "/"
+  "scope": "/",
+  "_comment": "Intentional duplicate of public/manifest.json \u2014 some clients request /manifest.json, layout references /site.webmanifest. Keep both in sync; do not delete either."
 }

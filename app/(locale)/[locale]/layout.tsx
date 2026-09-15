@@ -115,6 +115,8 @@ export async function generateMetadata({ params }: Props): Promise<Metadata> {
         ar: "https://www.downforge.me/ar",
         ru: "https://www.downforge.me/ru",
         zh: "https://www.downforge.me/zh",
+        // x-default signals the fallback for unmatched languages (Google hreflang spec).
+        "x-default": "https://www.downforge.me/en",
       },
     },
     robots: {

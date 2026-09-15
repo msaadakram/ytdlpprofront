@@ -189,7 +189,7 @@ export default async function YoutubeDownloadPage({ params }: Props) {
         author: { "@type": "Organization", name: "DownForge", url: "https://www.downforge.me" },
         publisher: { "@type": "Organization", name: "DownForge", logo: { "@type": "ImageObject", url: "https://www.downforge.me/organization-logo.png" } },
         datePublished: "2025-08-22",
-        dateModified: new Date().toISOString().slice(0, 10),
+        dateModified: "2026-08-29", // fixed — new Date() here rewrites structured data daily
         mainEntityOfPage: `https://www.downforge.me/${locale}/youtube-download`,
         wordCount: 2800,
       },

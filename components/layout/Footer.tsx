@@ -18,7 +18,7 @@ import {
   ShieldCheck,
   Zap,
 } from "lucide-react";
-import { useId, useState } from "react";
+import { useId, useState, useRef, useEffect } from "react";
 import { subscribeNewsletter } from "@/lib/api-client";
 
 const platformLinks: [string, string][] = [
@@ -179,6 +179,17 @@ export function Footer() {
   const [email, setEmail] = useState("");
   const [subscribeState, setSubscribeState] = useState<"idle" | "loading" | "success" | "error">("idle");
   const subscribed = subscribeState === "success";
+  // Timer ref so the reset timeout is cleared on unmount (no setState on dead tree).
+  const resetTimer = useRef<ReturnType<typeof setTimeout> | null>(null);
+  useEffect(() => {
+    return () => {
+      if (resetTimer.current) clearTimeout(resetTimer.current);
+    };
+  }, []);
+  const scheduleReset = () => {
+    if (resetTimer.current) clearTimeout(resetTimer.current);
+    resetTimer.current = setTimeout(() => setSubscribeState("idle"), 8000);
+  };
 
   const columns: FooterColumnData[] = [
     {
@@ -197,15 +208,21 @@ export function Footer() {
     e.preventDefault();
     const value = email.trim();
     if (!value || subscribeState === "loading") return;
+    // Client-side email gate so obviously-invalid input never hits the API.
+    if (!/^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(value)) {
+      setSubscribeState("error");
+      scheduleReset();
+      return;
+    }
     setSubscribeState("loading");
     const res = await subscribeNewsletter(value);
     if (res.success) {
       setSubscribeState("success");
       setEmail("");
-      setTimeout(() => setSubscribeState("idle"), 8000);
+      scheduleReset();
     } else {
       setSubscribeState("error");
-      setTimeout(() => setSubscribeState("idle"), 8000);
+      scheduleReset();
     }
   };
 

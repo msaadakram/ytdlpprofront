@@ -3,13 +3,11 @@
   "buildCommand": "next build",
   "outputDirectory": ".next",
   "installCommand": "npm install",
+  "_comment": "maxDuration 10 = Vercel Hobby-safe (60 requires Pro). NEXT_PUBLIC_API_URL is intentionally NOT set here — set it in the Vercel dashboard per-environment instead of baking a hardcoded backend URL into the client bundle.",
   "functions": {
-    "app/api/proxy/[[...path]]/route.ts": { "maxDuration": 60 },
-    "app/api/admin/proxy/[...path]/route.ts": { "maxDuration": 60 },
-    "app/api/thumbnail/route.ts": { "maxDuration": 30 }
-  },
-  "env": {
-    "NEXT_PUBLIC_API_URL": "https://ytback-production.up.railway.app"
+    "app/api/proxy/[[...path]]/route.ts": { "maxDuration": 10 },
+    "app/api/admin/proxy/[...path]/route.ts": { "maxDuration": 10 },
+    "app/api/thumbnail/route.ts": { "maxDuration": 10 }
   },
   "headers": [
     {

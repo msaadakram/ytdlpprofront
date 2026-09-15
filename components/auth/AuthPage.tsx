@@ -158,8 +158,10 @@ export function AuthPage({ mode }: { mode: AuthMode }) {
   // instead of allowing dashboard access — closes signup-without-verify loophole.
   useEffect(() => {
     if (!authLoading && user && user.email_verified === false) {
-      const email = encodeURIComponent(user.email || emailRef.current?.value?.trim() || "");
-      router.replace(`/verify-email?email=${email}`);
+      // Guard: never redirect to /verify-email with an empty email param.
+      const email = (user.email || emailRef.current?.value?.trim() || "").trim();
+      if (!email) return;
+      router.replace(`/verify-email?email=${encodeURIComponent(email)}`);
       return;
     }
     if (!authLoading && isAuthenticated) {

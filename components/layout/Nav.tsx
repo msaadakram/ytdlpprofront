@@ -125,7 +125,13 @@ export function Nav() {
   }
 
   function switchLocale(nextLocale: Locale) {
-    router.replace(pathname, { locale: nextLocale });
+    // Preserve query string + hash across locale switches (router.replace with
+    // bare pathname would drop ?search and #anchors).
+    const suffix =
+      typeof window !== "undefined"
+        ? `${window.location.search}${window.location.hash}`
+        : "";
+    router.replace(`${pathname}${suffix}` as any, { locale: nextLocale });
     setLangOpen(false);
   }
 
@@ -339,7 +345,7 @@ export function Nav() {
               className="flex items-center gap-0.5 lg:gap-1 xl:gap-1.5 pl-0.5 pr-1 xl:pl-1 xl:pr-2 py-0.5 xl:py-1 rounded-full bg-white border border-border/60 shadow-sm hover:shadow-md hover:border-border hover:bg-white transition-all font-sans shrink-0 scale-[0.9] lg:scale-90 xl:scale-100 origin-center"
               aria-label={lt("label")}
             >
-              <span className="w-5 h-5 lg:w-[20px] lg:h-[20px] xl:w-7 xl:h-7 rounded-full flex items-center justify-center text-[11px] lg:text-[12px] xl:text-[16px] bg-gradient-to-br from-slate-50 to-slate-100 border border-border/40 shadow-inner shrink-0">
+              <span className="w-5 h-5 lg:w-[20px] lg:h-[20px] xl:w-7 xl:h-7 rounded-full flex items-center justify-center text-[11px] lg:text-[12px] xl:text-[16px] bg-gradient-to-br from-slate-50 to-slate-100 border border-border/40 shadow-inner shrink-0" role="img" aria-label={lt(locale as Locale)}>
                 {localeFlags[locale as Locale] ? localeFlags[locale as Locale] : <Globe className="w-2.5 h-2.5 lg:w-3 lg:h-3 xl:w-3.5 xl:h-3.5 text-muted-foreground" />}
               </span>
               <span className="hidden xl:block text-sm font-semibold text-foreground">{lt(locale as Locale)}</span>
@@ -372,7 +378,7 @@ export function Nav() {
                               isActive ? "bg-[#0d1f26] text-white shadow-md dark:bg-white dark:text-[#0d1f26]" : "hover:bg-muted/60 text-foreground"
                             }`}
                           >
-                            <span className="w-6 h-6 lg:w-6 lg:h-6 xl:w-9 xl:h-9 rounded-full flex items-center justify-center text-[13px] lg:text-[14px] xl:text-[18px] bg-white border border-border/50 shadow-sm shrink-0">
+                            <span className="w-6 h-6 lg:w-6 lg:h-6 xl:w-9 xl:h-9 rounded-full flex items-center justify-center text-[13px] lg:text-[14px] xl:text-[18px] bg-white border border-border/50 shadow-sm shrink-0" role="img" aria-label={lt(l)}>
                               {localeFlags[l]}
                             </span>
                             <div className="min-w-0 flex-1 text-left">
@@ -577,7 +583,7 @@ export function Nav() {
                             isActive ? "bg-[#0d1f26] dark:bg-white text-white dark:text-[#0d1f26] border-[#0d1f26] dark:border-white shadow-md" : "bg-white dark:bg-[#0f1e26] border-border dark:border-white/5 hover:border-border hover:bg-slate-50 dark:hover:bg-white/5 text-foreground"
                           }`}
                         >
-                          <span className="w-7 h-7 sm:w-8 sm:h-8 rounded-full flex items-center justify-center text-[14px] sm:text-[16px] bg-slate-50 dark:bg-white/10 border border-border/40 dark:border-white/10 shadow-sm shrink-0">
+                          <span className="w-7 h-7 sm:w-8 sm:h-8 rounded-full flex items-center justify-center text-[14px] sm:text-[16px] bg-slate-50 dark:bg-white/10 border border-border/40 dark:border-white/10 shadow-sm shrink-0" role="img" aria-label={lt(l)}>
                             {localeFlags[l]}
                           </span>
                           <div className="min-w-0 flex-1">

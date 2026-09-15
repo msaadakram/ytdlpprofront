@@ -1,5 +1,6 @@
 "use client";
 
+import { useState } from "react";
 import { motion } from "motion/react";
 import { Play, Eye, ThumbsUp, Clock, Calendar, User, MonitorPlay } from "lucide-react";
 import type { UniversalMediaInfo } from "@/lib/api-client";
@@ -21,17 +22,30 @@ function formatDate(dateStr: string | null, locale: string): string {
   if (!dateStr) return "";
   const d = new Date(dateStr);
   if (Number.isNaN(d.getTime())) return "";
-  const rtf = new Intl.RelativeTimeFormat(locale, { numeric: "auto" });
-  const diffDays = Math.floor((Date.now() - d.getTime()) / 86400000);
-  if (diffDays < 1) return rtf.format(0, "day");
-  if (diffDays < 30) return rtf.format(-diffDays, "day");
-  if (diffDays < 365) return rtf.format(-Math.floor(diffDays / 30), "month");
-  return rtf.format(-Math.floor(diffDays / 365), "year");
+  try {
+    const rtf = new Intl.RelativeTimeFormat(locale, { numeric: "auto" });
+    const diffDays = Math.floor((Date.now() - d.getTime()) / 86400000);
+    if (diffDays < 1) return rtf.format(0, "day");
+    if (diffDays < 30) return rtf.format(-diffDays, "day");
+    if (diffDays < 365) return rtf.format(-Math.floor(diffDays / 30), "month");
+    return rtf.format(-Math.floor(diffDays / 365), "year");
+  } catch {
+    // Unknown/unsupported locale tag — fall back to English formatting.
+    try {
+      const rtf = new Intl.RelativeTimeFormat("en", { numeric: "auto" });
+      const diffDays = Math.floor((Date.now() - d.getTime()) / 86400000);
+      if (diffDays < 30) return rtf.format(-Math.max(diffDays, 0), "day");
+      return d.toLocaleDateString("en");
+    } catch {
+      return d.toLocaleDateString();
+    }
+  }
 }
 
 export function VideoPreview({ info }: VideoPreviewProps) {
   const locale = useLocale();
   const st = useTranslations("PlatformShared");
+  const [imgHidden, setImgHidden] = useState(false);
   const videoQualities = resolveFormats(info, "video").map(
     (f) => f.quality_label || (f.height ? `${f.height}p` : null),
   ).filter(Boolean) as string[];
@@ -45,13 +59,17 @@ export function VideoPreview({ info }: VideoPreviewProps) {
     >
       <div className="flex flex-col md:flex-row" itemScope itemType="https://schema.org/VideoObject">
         <figure className="relative md:w-72 lg:w-80 shrink-0 bg-[#0d1f26] overflow-hidden">
-          {info.thumbnail ? (
+          {info.thumbnail && !imgHidden ? (
             <>
               <motion.img
                 src={info.thumbnail}
                 alt={`Thumbnail for ${info.title}`}
+                width={640}
+                height={360}
                 className="w-full aspect-video md:aspect-[4/3] object-cover opacity-90"
                 loading="lazy"
+                referrerPolicy="no-referrer"
+                onError={() => setImgHidden(true)}
                 itemProp="thumbnail"
                 whileHover={{ scale: 1.05 }}
                 transition={{ duration: 0.4, ease: "easeOut" }}

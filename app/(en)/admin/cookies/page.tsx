@@ -34,8 +34,15 @@ interface CookieEntry {
   updated_at: string;
 }
 
-function StatusBadge({ set }: { set: boolean }) {
-  return set ? (
+/**
+ * Backend timestamps may or may not carry a timezone suffix — append "Z"
+ * only when missing so dates don't shift (or NaN) across environments.
+ */
+function parseDate(v: string): Date {
+  return new Date(/[zZ+-]\d{0,2}:?\d{0,2}$/.test(v.trim()) || v.trim().endsWith("Z") ? v : `${v}Z`);
+}
+
+function StatusBadge({ set }: { set: boolean }) {  return set ? (
     <span className="text-xs font-medium text-emerald-700 bg-emerald-500/10 px-2 py-0.5 rounded-full">Set</span>
   ) : (
     <span className="text-xs font-medium text-muted-foreground bg-muted px-2 py-0.5 rounded-full">Not Set</span>
@@ -113,7 +120,7 @@ export default function AdminCookiesPage() {
               </div>
               {entry && (
                 <p className="text-xs text-muted-foreground mb-3">
-                  Updated {new Date(entry.updated_at + "Z").toLocaleDateString()}
+                  Updated {parseDate(entry.updated_at).toLocaleDateString()}
                   {entry.notes ? ` · ${entry.notes}` : ""}
                 </p>
               )}
@@ -171,7 +178,7 @@ export default function AdminCookiesPage() {
                       <StatusBadge set={Boolean(entry)} />
                     </td>
                     <td className="px-4 py-3 text-sm text-muted-foreground">
-                      {entry ? new Date(entry.updated_at + "Z").toLocaleDateString() : "—"}
+                      {entry ? parseDate(entry.updated_at).toLocaleDateString() : "—"}
                     </td>
                     <td className="px-4 py-3 text-sm text-muted-foreground max-w-[200px] truncate">
                       {entry?.notes || "—"}

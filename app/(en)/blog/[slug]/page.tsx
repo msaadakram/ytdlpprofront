@@ -31,6 +31,9 @@ export async function generateMetadata({ params }: Props): Promise<Metadata> {
       canonical: `https://www.downforge.me/blog/${slug}`,
       languages: { en: `https://www.downforge.me/blog/${slug}`, "x-default": `https://www.downforge.me/blog/${slug}` },
     },
+    // Placeholder article (no full content yet) — keep out of the index until
+    // the real post ships to avoid thin-content flags.
+    robots: { index: false, follow: true },
     openGraph: {
       title: `${title} — DownForge Blog`,
       description: `DownForge blog: ${title}`,

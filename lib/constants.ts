@@ -109,6 +109,9 @@ export const plans: PricingPlan[] = [
     features: ["Unlimited downloads", "4K Ultra HD video", "All formats incl. FLAC, WebP & SRT", "Priority processing", "200+ platforms supported", "Batch playlist downloads", "No ads"],
     cta: "Start Pro Trial", highlight: true,
   },
+  // NOTE: dashboard billing sells starter/pro only (BTC invoices + plan switching
+  // support just those two). "Team" is a marketing-tier placeholder here — no
+  // checkout path references it, so keep it display-only.
   {
     name: "Team", price: "$29", period: "per month",
     features: ["Everything in Pro", "5 team seats", "API access", "Webhook notifications", "Priority email support", "Custom retention (30 days)"],
@@ -135,10 +138,10 @@ export const testimonials = [
 ];
 
 export function formatBytes(bytes: number): string {
-  if (bytes === 0) return "0 B";
+  if (!Number.isFinite(bytes) || bytes <= 0) return bytes === 0 ? "0 B" : "—";
   const k = 1024;
   const sizes = ["B", "KB", "MB", "GB", "TB"];
-  const i = Math.floor(Math.log(bytes) / Math.log(k));
+  const i = Math.min(sizes.length - 1, Math.floor(Math.log(bytes) / Math.log(k)));
   return parseFloat((bytes / Math.pow(k, i)).toFixed(1)) + " " + sizes[i];
 }
 

@@ -35,8 +35,13 @@ function authHeaders() {
   return { "Content-Type": "application/json", Authorization: `Bearer ${token}` };
 }
 
-function formatDate(iso: string | null): string {
-  if (!iso) return "—";
+/** Only well-formed emails become mailto: links (sender input is untrusted). */
+function safeMailto(email: string): string | null {
+  const v = email.trim();
+  return /^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(v) ? `mailto:${v}` : null;
+}
+
+function formatDate(iso: string | null): string {  if (!iso) return "—";
   return new Date(iso).toLocaleString("en-US", {
     month: "short",
     day: "numeric",
@@ -253,9 +258,13 @@ export default function AdminInboxPage() {
               </button>
               <p className="text-[11px] font-bold uppercase tracking-wider text-[#5baab8]">{selected.subject}</p>
               <h2 className="text-lg font-bold text-foreground font-heading mt-1">{selected.name}</h2>
-              <a href={`mailto:${selected.email}`} className="text-sm text-[#5baab8] hover:underline break-all">
-                {selected.email}
-              </a>
+              {safeMailto(selected.email) ? (
+                <a href={safeMailto(selected.email) as string} className="text-sm text-[#5baab8] hover:underline break-all">
+                  {selected.email}
+                </a>
+              ) : (
+                <span className="text-sm text-muted-foreground break-all">{selected.email}</span>
+              )}
               <p className="text-[11px] text-muted-foreground mt-1">{formatDate(selected.created_at)}</p>
               <div className="mt-4 rounded-xl bg-muted/40 border border-border/60 p-4 text-sm text-foreground whitespace-pre-wrap break-words">
                 {selected.message}
@@ -269,12 +278,14 @@ export default function AdminInboxPage() {
                   {busy === "replied" ? <Loader2 className="w-3.5 h-3.5 animate-spin" /> : <Reply className="w-3.5 h-3.5" />}
                   {selected.replied ? "Marked replied" : "Mark as replied"}
                 </button>
-                <a
-                  href={`mailto:${selected.email}?subject=${encodeURIComponent(`Re: ${selected.subject}`)}`}
-                  className="inline-flex items-center gap-1.5 px-4 py-2 rounded-xl text-xs font-semibold border border-border text-foreground hover:bg-muted/50 transition-colors"
-                >
-                  Reply by email
-                </a>
+                {safeMailto(selected.email) && (
+                  <a
+                    href={`${safeMailto(selected.email)}?subject=${encodeURIComponent(`Re: ${selected.subject}`)}`}
+                    className="inline-flex items-center gap-1.5 px-4 py-2 rounded-xl text-xs font-semibold border border-border text-foreground hover:bg-muted/50 transition-colors"
+                  >
+                    Reply by email
+                  </a>
+                )}
                 <button
                   onClick={deleteMessage}
                   disabled={busy === "delete"}

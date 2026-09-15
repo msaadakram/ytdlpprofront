@@ -1,7 +1,7 @@
 "use client";
 
-import { useState, useEffect, useCallback } from "react";
-import { Search, Download, File, Globe, Type, FileText, Calendar, CheckCircle, XCircle } from "lucide-react";
+import { useState, useEffect, useCallback, useRef } from "react";
+import { Search, Download, File, Globe, Type, FileText, Calendar, CheckCircle, XCircle, ChevronLeft, ChevronRight } from "lucide-react";
 import { BarChart, Bar, XAxis, YAxis, CartesianGrid, Tooltip, ResponsiveContainer } from "recharts";
 import { getDownloadsHistory } from "@/lib/api-client";
 import type { DownloadRow } from "@/lib/api-client";
@@ -51,23 +51,48 @@ export function DownloadsTab() {
   const [items, setItems] = useState<DownloadRow[]>([]);
   const [weekly, setWeekly] = useState<{ day: string; downloads: number }[]>([]);
   const [totalPages, setTotalPages] = useState(1);
+  const [page, setPage] = useState(1);
   const [loading, setLoading] = useState(true);
+  // Stale-guard per search/page fetch — a new keystroke or page turn marks the
+  // previous in-flight request obsolete so late results can't overwrite fresh ones.
+  const abortRef = useRef<AbortController | null>(null);
 
-  const fetchHistory = useCallback(async () => {
+  const fetchHistory = useCallback(async (p: number, q: string) => {
+    abortRef.current?.abort();
+    const ctrl = new AbortController();
+    abortRef.current = ctrl;
     setLoading(true);
-    const res = await getDownloadsHistory({ search, page: 1, limit: 50 });
-    if (res.success && res.data) {
-      setItems(res.data.items);
-      setWeekly(res.data.weekly);
-      setTotalPages(res.data.totalPages);
+    try {
+      const res = await getDownloadsHistory({ search: q, page: p, limit: 50 });
+      if (ctrl.signal.aborted) return;
+      if (res.success && res.data) {
+        setItems(res.data.items);
+        setWeekly(res.data.weekly);
+        setTotalPages(res.data.totalPages);
+      }
+    } finally {
+      if (!ctrl.signal.aborted) setLoading(false);
     }
-    setLoading(false);
+  }, []);
+
+  // Single fetch path: page (and the search value captured with it) drives
+  // loading. Typing resets to page 1; the page effect below does the fetch.
+  useEffect(() => {
+    setPage(1);
   }, [search]);
 
   useEffect(() => {
-    const debounce = setTimeout(fetchHistory, 300);
-    return () => clearTimeout(debounce);
-  }, [fetchHistory]);
+    const debounce = setTimeout(() => fetchHistory(page, search), page === 1 ? 300 : 150);
+    return () => {
+      clearTimeout(debounce);
+      abortRef.current?.abort();
+    };
+    // eslint-disable-next-line react-hooks/exhaustive-deps
+  }, [page, search]);
+
+  useEffect(() => {
+    return () => abortRef.current?.abort();
+  }, []);
 
   if (loading) {
     return (
@@ -177,6 +202,30 @@ export function DownloadsTab() {
               </table>
             </div>
           </>
+        )}
+        {/* Simple pager driven by the API's totalPages */}
+        {totalPages > 1 && (
+          <div className="flex items-center justify-between pt-4 mt-4 border-t border-border/50">
+            <span className="text-xs text-muted-foreground font-sans">Page {page} of {totalPages}</span>
+            <div className="flex gap-1.5">
+              <button
+                disabled={page <= 1}
+                onClick={() => setPage((p) => Math.max(1, p - 1))}
+                className="h-8 px-3 rounded-lg border border-border flex items-center gap-1 text-xs font-semibold text-foreground disabled:opacity-40 hover:bg-muted/50 transition-colors"
+                aria-label="Previous page"
+              >
+                <ChevronLeft className="w-4 h-4" /> Prev
+              </button>
+              <button
+                disabled={page >= totalPages}
+                onClick={() => setPage((p) => Math.min(totalPages, p + 1))}
+                className="h-8 px-3 rounded-lg border border-border flex items-center gap-1 text-xs font-semibold text-foreground disabled:opacity-40 hover:bg-muted/50 transition-colors"
+                aria-label="Next page"
+              >
+                Next <ChevronRight className="w-4 h-4" />
+              </button>
+            </div>
+          </div>
         )}
       </div>
     </div>

@@ -7,6 +7,7 @@ import { VideoOnlyHero } from "@/components/video-downloader/VideoOnlyHero";
 import { VideoFeatures } from "@/components/video-downloader/VideoFeatures";
 import { VideoFaq } from "@/components/video-downloader/VideoFaq";
 import { platformConfigs, platformSlugs } from "@/lib/platform-config";
+import { routing } from "@/lib/i18n/routing";
 import { getContent } from "@/lib/content/registry";
 import { relatedLinksFor } from "@/lib/content/related-links";
 import { BlogContent } from "@/components/content/BlogContent";
@@ -16,8 +17,8 @@ import { ExploreOtherTools } from "@/components/content/ExploreOtherTools";
 type Props = { params: Promise<{ platform: string; locale: string }> };
 
 export function generateStaticParams() {
-  const locales = ["en", "es", "fr", "de", "pt", "ja", "ar", "ru", "zh"];
-  return locales.flatMap((locale) =>
+  // Single source of truth — do not hardcode the locale list here.
+  return routing.locales.flatMap((locale) =>
     platformSlugs.map((platform) => ({ locale, platform }))
   );
 }
@@ -46,6 +47,8 @@ export async function generateMetadata({ params }: Props): Promise<Metadata> {
   // generic platform meta when a locale hasn't translated the video variant.
   const title = t.has("metaTitleVideo") ? t("metaTitleVideo") : t("metaTitle");
   const description = t.has("metaDescriptionVideo") ? t("metaDescriptionVideo") : t("metaDescription");
+  // Same OG pattern as the /download pages (per-tool image directory).
+  const ogImage = `https://www.downforge.me/og/video-downloader/${config.slug}.png`;
 
   return {
     title,
@@ -57,11 +60,13 @@ export async function generateMetadata({ params }: Props): Promise<Metadata> {
       siteName: "DownForge",
       locale: ogLocaleMap[locale] ?? locale,
       type: "website",
+      images: [{ url: ogImage, width: 1200, height: 630, alt: title }],
     },
     twitter: {
       card: "summary_large_image",
       title,
       description,
+      images: [ogImage],
     },
     robots: { index: true, follow: true },
     alternates: {

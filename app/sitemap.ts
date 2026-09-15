@@ -66,10 +66,9 @@ function buildLanguageAlternates(path: string): Record<string, string> {
 }
 
 export default function sitemap(): MetadataRoute.Sitemap {
-  const now = new Date();
-  // Stagger lastmod slightly per content type to avoid identical-all flag
-  const platformLastMod = new Date(now);
-  platformLastMod.setHours(now.getHours() - 1);
+  // Fixed lastmod for platform/localized entries — stable across builds so
+  // crawlers don't see every URL as "changed daily". Blog keeps real dates.
+  const fixedLastMod = new Date("2026-08-29");
 
   const entries: MetadataRoute.Sitemap = [];
 
@@ -79,7 +78,7 @@ export default function sitemap(): MetadataRoute.Sitemap {
       const url = `${BASE_URL}/${locale}${route}`;
       entries.push({
         url,
-        lastModified: now,
+        lastModified: fixedLastMod,
         alternates: {
           languages: buildLanguageAlternates(route),
         },
@@ -93,7 +92,7 @@ export default function sitemap(): MetadataRoute.Sitemap {
         const url = `${BASE_URL}/${locale}${path}`;
         entries.push({
           url,
-          lastModified: platformLastMod,
+          lastModified: fixedLastMod,
           alternates: {
             languages: buildLanguageAlternates(path),
           },
@@ -108,7 +107,7 @@ export default function sitemap(): MetadataRoute.Sitemap {
     const url = `${BASE_URL}${route}`;
     entries.push({
       url,
-      lastModified: now,
+      lastModified: fixedLastMod,
       // No alternates — English only, no hreflang.
     });
   }
@@ -127,7 +126,7 @@ export default function sitemap(): MetadataRoute.Sitemap {
   for (const route of topLevelRoutes) {
     entries.push({
       url: `${BASE_URL}${route}`,
-      lastModified: now,
+      lastModified: fixedLastMod,
     });
   }
 

@@ -56,7 +56,12 @@ export function ApiKeysTab() {
   }
 
   async function copyMasked(id: string, masked: string) {
-    await navigator.clipboard.writeText(masked);
+    try {
+      await navigator.clipboard.writeText(masked);
+    } catch {
+      setError("Copy failed in this browser — select the text manually to copy it.");
+      return;
+    }
     setCopiedId(id);
     setTimeout(() => setCopiedId(null), 2000);
   }

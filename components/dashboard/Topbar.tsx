@@ -108,9 +108,13 @@ export function HeaderActions({ onNavigate }: HeaderActionsProps) {
   }, []);
 
   // Load once on mount and keep the bell fresh with a light poll.
+  // Skips ticks while the tab is hidden (no wasted requests on return).
   useEffect(() => {
     fetchNotifications();
-    const id = setInterval(fetchNotifications, 30_000);
+    const id = setInterval(() => {
+      if (document.hidden) return;
+      fetchNotifications();
+    }, 30_000);
     return () => clearInterval(id);
   }, [fetchNotifications]);
 
@@ -322,11 +326,15 @@ export function HeaderActions({ onNavigate }: HeaderActionsProps) {
                             <span className="block text-xs text-muted-foreground font-sans leading-relaxed line-clamp-2">{n.body}</span>
                             <span className="block text-[11px] font-mono text-muted-foreground/70 mt-1">{timeAgo(n.created_at)}</span>
                           </span>
+                          {/* Nested interactive element inside a row with role="button":
+                              stop both click and keydown propagation so deleting
+                              never also toggles the row's read state. */}
                           <button
                             onClick={(e) => {
                               e.stopPropagation();
                               handleDeleteOne(n.id);
                             }}
+                            onKeyDown={(e) => e.stopPropagation()}
                             aria-label="Delete notification"
                             title="Delete notification"
                             className="p-1.5 rounded-lg text-muted-foreground/50 hover:text-destructive hover:bg-destructive/10 transition-all opacity-60 group-hover:opacity-100 focus-visible:opacity-100 shrink-0 mt-0.5"

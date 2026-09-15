@@ -39,6 +39,24 @@ export function usePlatformTranslations(
   const config = platformConfigs[platform];
   const t = useTranslations(`Platform.${platform}`);
 
+  /**
+   * Centralized safe getter: uses t.has() (this app's intl config renders
+   * missing keys as the key path instead of throwing) with try/catch around
+   * everything so a missing/broken key can never crash a page.
+   */
+  const safeGet = (key: string, fallback: string, fb = ""): string => {
+    try {
+      if (t.has(key as any)) return t(key as any) as unknown as string;
+      if (fallback && t.has(fallback as any)) return t(fallback as any) as unknown as string;
+      return fb;
+    } catch {
+      try {
+        return fallback ? (t(fallback as any) as unknown as string) : fb;
+      } catch {
+        return fb;
+      }
+    }
+  };
   // Prefer audio/all-tools keys with fallback (audio-downloader and download/* pages)
   const tryRaw = (key: string) => {
     try {
@@ -47,13 +65,14 @@ export function usePlatformTranslations(
       return null;
     }
   };
-  const tryGet = (key: string, fallback: string) => {
+  // Same observable behavior as before (missing key → fallback key path), but
+  // routed through the centralized safeGet so nothing can throw.
+  const tryGet = (key: string, fallback: string): string => {
     try {
-      // This app's intl config renders missing keys as the key path instead of
-      // throwing, so t.has() (not try/catch) drives the fallback decision.
-      return t.has(key as any) ? t(key as any) : t(fallback as any);
+      if (t.has(key as any)) return t(key as any) as unknown as string;
+      return t(fallback as any) as unknown as string;
     } catch {
-      return t(fallback as any);
+      return safeGet(fallback, "", fallback);
     }
   };
 

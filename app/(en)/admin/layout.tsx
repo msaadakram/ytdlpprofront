@@ -18,6 +18,18 @@ export default function AdminLayout({ children }: { children: React.ReactNode })
   const [collapsed, setCollapsed] = useState(false);
   const router = useRouter();
   const pathname = usePathname();
+  // Early token check (synchronous, first render): redirect immediately with no
+  // spinner flash when there is clearly no session. The async /me validation
+  // below still runs for tokens that exist.
+  const [hasToken] = useState<boolean>(() => {
+    if (typeof window === "undefined") return true; // SSR/prerender: don't redirect
+    if (pathname === "/admin/login") return true;
+    try {
+      return Boolean(localStorage.getItem("admin_token"));
+    } catch {
+      return true;
+    }
+  });
 
   useEffect(() => {
     if (pathname === "/admin/login") {
@@ -58,8 +70,20 @@ export default function AdminLayout({ children }: { children: React.ReactNode })
     };
   }, [mobileOpen]);
 
+  // Keep the early no-token redirect in an effect (render stays pure).
+  useEffect(() => {
+    if (!hasToken && pathname !== "/admin/login") {
+      router.push("/admin/login");
+    }
+  }, [hasToken, pathname, router]);
+
   if (pathname === "/admin/login") {
     return <>{children}</>;
+  }
+
+  // No token at all → render nothing (avoids spinner flash); the effect above redirects.
+  if (!hasToken) {
+    return null;
   }
 
   if (loading || !admin) {

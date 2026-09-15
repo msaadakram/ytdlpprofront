@@ -7,6 +7,7 @@ import { TranscriptHero } from "@/components/download-only/TranscriptHero";
 import { DownloadFeatures } from "@/components/download-only/DownloadFeatures";
 import { DownloadFaq } from "@/components/download-only/DownloadFaq";
 import { platformConfigs, platformSlugs } from "@/lib/platform-config";
+import { routing } from "@/lib/i18n/routing";
 import { getContent } from "@/lib/content/registry";
 import { getTemplatedFaqs } from "@/lib/content/templated-faqs";
 import { BlogContent } from "@/components/content/BlogContent";
@@ -17,8 +18,8 @@ import { ExploreOtherTools } from "@/components/content/ExploreOtherTools";
 type Props = { params: Promise<{ platform: string; locale: string }> };
 
 export function generateStaticParams() {
-  const locales = ["en", "es", "fr", "de", "pt", "ja", "ar", "ru", "zh"];
-  return locales.flatMap((locale) =>
+  // Single source of truth — do not hardcode the locale list here.
+  return routing.locales.flatMap((locale) =>
     platformSlugs.map((platform) => ({ locale, platform }))
   );
 }

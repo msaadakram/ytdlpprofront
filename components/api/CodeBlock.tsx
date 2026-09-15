@@ -20,23 +20,15 @@ export function CodeBlock({ code, language, filename, className }: CodeBlockProp
   const highlighted = useMemo(() => highlightCode(code, language), [code, language]);
 
   async function handleCopy() {
+    // Modern clipboard only — the legacy execCommand textarea fallback is
+    // removed (deprecated, flaky on mobile, and unnecessary on HTTPS).
     try {
       await navigator.clipboard.writeText(code);
+      setCopied(true);
     } catch {
-      const ta = document.createElement("textarea");
-      ta.value = code;
-      ta.style.position = "fixed";
-      ta.style.opacity = "0";
-      document.body.appendChild(ta);
-      ta.select();
-      try {
-        document.execCommand("copy");
-      } catch {
-        /* no-op */
-      }
-      document.body.removeChild(ta);
+      setCopied(false);
+      return;
     }
-    setCopied(true);
     setTimeout(() => setCopied(false), 2000);
   }
 

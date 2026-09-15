@@ -27,7 +27,9 @@ export function ContactForm() {
 
   async function handleSubmit(e: React.FormEvent) {
     e.preventDefault();
-    if (!name.trim() || !email.trim() || !subject.trim() || !message.trim() || !email.includes("@")) {
+    // Mirror backend limits (name 80 / email 160 / subject 120 / message 2000).
+    const emailOk = /^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(email.trim());
+    if (!name.trim() || !email.trim() || !subject.trim() || !message.trim() || !emailOk) {
       toast.error(t("errorRequired"));
       return;
     }
@@ -81,7 +83,7 @@ export function ContactForm() {
           </span>
           <div className="flex items-center gap-2.5 rounded-xl bg-slate-50 dark:bg-white/[0.06] border border-border/60 dark:border-white/10 px-3.5 py-3 focus-within:bg-white dark:focus-within:bg-white/[0.08] focus-within:border-[#5baab8]/40 focus-within:ring-4 focus-within:ring-[#5baab8]/10 transition-all">
             <User className="w-4 h-4 text-muted-foreground shrink-0" />
-            <input value={name} onChange={(e) => setName(e.target.value)} placeholder={t("namePlaceholder")} className="flex-1 bg-transparent text-sm font-medium placeholder:text-muted-foreground outline-none font-sans min-w-0" autoComplete="name" required />
+            <input value={name} onChange={(e) => setName(e.target.value)} placeholder={t("namePlaceholder")} maxLength={80} className="flex-1 bg-transparent text-sm font-medium placeholder:text-muted-foreground outline-none font-sans min-w-0" autoComplete="name" required />
           </div>
         </label>
         <label className="block">
@@ -90,7 +92,7 @@ export function ContactForm() {
           </span>
           <div className="flex items-center gap-2.5 rounded-xl bg-slate-50 dark:bg-white/[0.06] border border-border/60 dark:border-white/10 px-3.5 py-3 focus-within:bg-white dark:focus-within:bg-white/[0.08] focus-within:border-[#5baab8]/40 focus-within:ring-4 focus-within:ring-[#5baab8]/10 transition-all">
             <Mail className="w-4 h-4 text-muted-foreground shrink-0" />
-            <input value={email} onChange={(e) => setEmail(e.target.value)} type="email" inputMode="email" placeholder={t("emailPlaceholder")} className="flex-1 bg-transparent text-sm font-medium placeholder:text-muted-foreground outline-none font-sans min-w-0" autoComplete="email" required />
+            <input value={email} onChange={(e) => setEmail(e.target.value)} type="email" inputMode="email" placeholder={t("emailPlaceholder")} maxLength={160} className="flex-1 bg-transparent text-sm font-medium placeholder:text-muted-foreground outline-none font-sans min-w-0" autoComplete="email" required />
           </div>
         </label>
       </div>
@@ -119,16 +121,18 @@ export function ContactForm() {
         <div className="rounded-xl bg-slate-50 dark:bg-white/[0.06] border border-border/60 dark:border-white/10 focus-within:bg-white dark:focus-within:bg-white/[0.08] focus-within:border-[#5baab8]/40 focus-within:ring-4 focus-within:ring-[#5baab8]/10 transition-all">
           <div className="flex gap-2.5 px-3.5 pt-3">
             <MessageSquare className="w-4 h-4 text-muted-foreground shrink-0 mt-0.5" />
-            <textarea value={message} onChange={(e) => setMessage(e.target.value)} placeholder={t("messagePlaceholder")} rows={5} maxLength={1000} className="flex-1 bg-transparent text-sm font-medium placeholder:text-muted-foreground outline-none font-sans min-w-0 resize-none" required />
+            <textarea value={message} onChange={(e) => setMessage(e.target.value)} placeholder={t("messagePlaceholder")} rows={5} maxLength={2000} className="flex-1 bg-transparent text-sm font-medium placeholder:text-muted-foreground outline-none font-sans min-w-0 resize-none" required />
           </div>
           <div className="flex items-center justify-between px-3.5 pb-3 pt-2">
-            <span className="text-xs text-muted-foreground font-mono">{message.length}/1000</span>
+            <span className="text-xs text-muted-foreground font-mono">{message.length}/2000</span>
             <span className="text-xs text-muted-foreground font-sans hidden sm:inline">We reply within 24 hours</span>
           </div>
         </div>
       </label>
 
-      {/* Honeypot - hidden (bots fill this; real users never see it) */}
+      {/* Honeypot - off-screen (bots fill this; real users never see it).
+          Uses absolute positioning instead of `hidden` so naive bots that skip
+          display:none fields still trip it, while AT/screen-readers ignore it. */}
       <input
         type="text"
         name="website"
@@ -136,7 +140,7 @@ export function ContactForm() {
         onChange={(e) => setHoneypot(e.target.value)}
         tabIndex={-1}
         autoComplete="off"
-        className="hidden"
+        className="absolute -left-[9999px] top-auto w-px h-px opacity-0"
         aria-hidden
       />
 

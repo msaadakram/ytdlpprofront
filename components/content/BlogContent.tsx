@@ -5,7 +5,7 @@ import { FormatComparisonTable } from "./FormatComparisonTable";
 import { ProTipsGrid } from "./ProTipsGrid";
 import { TableOfContents } from "./TableOfContents";
 
-export function BlogContent({ content }: { content: PageContent }) {
+export function BlogContent({ content, locale = "en" }: { content: PageContent; locale?: string }) {
   const sections: Array<{ id: string; label: string }> = [
     { id: "guide-intro", label: "Overview" },
     { id: "guide-what-is", label: content.whatIsPlatform.heading },
@@ -22,9 +22,13 @@ export function BlogContent({ content }: { content: PageContent }) {
 
   return (
     <div className="divide-y divide-border/40">
-      <div className="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8 pt-10 md:pt-14">
-        <TableOfContents entries={sections} />
-      </div>
+      {/* Long-form guide content is English-only — hide the TOC as well when
+          the locale isn't English (callers already gate `content` to en). */}
+      {locale === "en" && (
+        <div className="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8 pt-10 md:pt-14">
+          <TableOfContents entries={sections} />
+        </div>
+      )}
 
       <div id="guide-intro" className="scroll-mt-24">
         <ContentSection section={content.introduction} />

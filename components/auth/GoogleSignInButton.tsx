@@ -41,7 +41,10 @@ function loadGsiScript(): Promise<void> {
     const existing = document.querySelector(`script[src="${GSI_SCRIPT_URL}"]`) as HTMLScriptElement | null;
     if (existing) {
       existing.addEventListener("load", () => resolve());
-      existing.addEventListener("error", () => reject(new Error("Failed to load Google Sign-In script")));
+      existing.addEventListener("error", () => {
+        gsiLoadPromise = null;
+        reject(new Error("Failed to load Google Sign-In script"));
+      });
       if ((existing as unknown as { dataset: { loaded?: string } }).dataset?.loaded === "true") resolve();
       return;
     }
@@ -53,8 +56,18 @@ function loadGsiScript(): Promise<void> {
       (script as unknown as { dataset: { loaded?: string } }).dataset.loaded = "true";
       resolve();
     };
-    script.onerror = () => reject(new Error("Failed to load Google Sign-In script"));
+    script.onerror = () => {
+      // Reset so a later retry actually creates a fresh <script> instead of
+      // reusing the rejected promise forever.
+      gsiLoadPromise = null;
+      reject(new Error("Failed to load Google Sign-In script"));
+    };
     document.head.appendChild(script);
+  });
+  // If the shared promise rejects (network blip), clear the cache so the next
+  // mount retries the load instead of hanging on a rejected promise.
+  gsiLoadPromise.catch(() => {
+    gsiLoadPromise = null;
   });
   return gsiLoadPromise;
 }
@@ -153,9 +166,18 @@ export function GoogleSignInButton({ mode = "signin", onError, disabled }: Googl
       }
     };
     render();
-    const onResize = () => render();
+    // Debounced resize (200ms) — re-rendering the GSI button on every pixel
+    // of a resize/orientation change is wasteful and can flicker.
+    let resizeTimer: ReturnType<typeof setTimeout> | null = null;
+    const onResize = () => {
+      if (resizeTimer) clearTimeout(resizeTimer);
+      resizeTimer = setTimeout(render, 200);
+    };
     window.addEventListener("resize", onResize);
-    return () => window.removeEventListener("resize", onResize);
+    return () => {
+      window.removeEventListener("resize", onResize);
+      if (resizeTimer) clearTimeout(resizeTimer);
+    };
   }, [scriptReady, mode]);
 
   if (!clientId) {

@@ -87,6 +87,8 @@ export function OverviewTab() {
   const [timeseries, setTimeseries] = useState<TimeseriesBucket[]>([]);
   const [recent, setRecent] = useState<DownloadRow[]>([]);
   const [loading, setLoading] = useState(true);
+  // Surface load failures as a banner instead of silently showing zeros.
+  const [loadError, setLoadError] = useState<string | null>(null);
   const isMobile = useIsMobile();
 
   useEffect(() => {
@@ -111,7 +113,16 @@ export function OverviewTab() {
     ]).then((results) => {
       if (cancelled) return;
       const [ovRes, tsRes, rcRes] = results;
-      if (ovRes.status === "fulfilled" && (ovRes.value as any)?.success && (ovRes.value as any)?.data) setOverview((ovRes.value as any).data);
+      if (ovRes.status === "fulfilled" && (ovRes.value as any)?.success && (ovRes.value as any)?.data) {
+        setOverview((ovRes.value as any).data);
+      } else if (!cancelled) {
+        // Overview is the headline stat — if it failed, say so (don't show zeros).
+        const errMsg =
+          ovRes.status === "fulfilled"
+            ? ((ovRes.value as any)?.error?.message as string | undefined)
+            : "Request timed out";
+        setLoadError(errMsg || "Could not load dashboard stats.");
+      }
       if (tsRes.status === "fulfilled" && (tsRes.value as any)?.success && (tsRes.value as any)?.data) setTimeseries((tsRes.value as any).data.buckets);
       if (rcRes.status === "fulfilled" && (rcRes.value as any)?.success && (rcRes.value as any)?.data) setRecent((rcRes.value as any).data.recent);
     }).finally(() => {
@@ -158,6 +169,12 @@ export function OverviewTab() {
           <p className="text-xs sm:text-sm text-muted-foreground font-sans">Your download activity and API usage at a glance.</p>
         </div>
       </div>
+
+      {loadError && !overview && (
+        <div role="alert" className="flex items-center gap-2 text-xs text-red-600 dark:text-red-300 bg-red-500/[0.07] border border-red-500/20 rounded-xl px-3.5 py-2.5 font-sans">
+          {loadError} Stats below may be incomplete — try refreshing.
+        </div>
+      )}
 
       <div className="grid grid-cols-2 lg:grid-cols-4 gap-3 sm:gap-4">
         <StatCard

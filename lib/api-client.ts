@@ -215,6 +215,7 @@ export function pollJob(
 ): { cancel: () => void } {
   let cancelled = false;
   let retries = 0;
+  let timer: ReturnType<typeof setTimeout> | null = null;
 
   async function poll() {
     if (cancelled || retries >= maxRetries) return;
@@ -233,20 +234,43 @@ export function pollJob(
       }
     }
 
-    setTimeout(poll, intervalMs);
+    timer = setTimeout(poll, intervalMs);
   }
 
   poll();
-  return { cancel: () => { cancelled = true; } };
+  return {
+    cancel: () => {
+      cancelled = true;
+      if (timer) {
+        clearTimeout(timer);
+        timer = null;
+      }
+    },
+  };
 }
 
 /** ─── Trigger browser download from server URL ─── */
 
 export function triggerDownload(downloadUrl: string, filename?: string) {
   const apiBase = process.env.NEXT_PUBLIC_API_URL || "";
-  const fullUrl = downloadUrl.startsWith("http")
-    ? downloadUrl
-    : `${apiBase}${downloadUrl}`;
+  let fullUrl: string;
+  if (downloadUrl.startsWith("/")) {
+    // Backend-relative path (e.g. /download/<file>) → prefix the API host.
+    fullUrl = `${apiBase}${downloadUrl}`;
+  } else {
+    // Absolute URL: allow only same-origin or the configured API host to
+    // avoid open-redirect / arbitrary-URL downloads from server payloads.
+    try {
+      const parsed = new URL(downloadUrl, typeof window !== "undefined" ? window.location.origin : apiBase);
+      const apiHost = apiBase ? new URL(apiBase).hostname : null;
+      const sameOrigin = typeof window !== "undefined" && parsed.origin === window.location.origin;
+      if (parsed.protocol !== "https:" && parsed.protocol !== "http:") throw new Error("bad protocol");
+      if (!sameOrigin && (!apiHost || parsed.hostname !== apiHost)) throw new Error("untrusted host");
+      fullUrl = parsed.toString();
+    } catch {
+      return;
+    }
+  }
   const a = document.createElement("a");
   a.href = fullUrl;
   if (filename) a.download = filename;
@@ -298,7 +322,12 @@ function getStoredToken(): string | null {
     const raw = window.localStorage.getItem(AUTH_STORAGE_KEY);
     if (!raw) return null;
     const parsed = JSON.parse(raw);
-    return parsed?.token || null;
+    if (parsed && typeof parsed.token === "string" && parsed.token.length > 0) {
+      return parsed.token;
+    }
+    // Corrupt shape — clear so it can't linger.
+    window.localStorage.removeItem(AUTH_STORAGE_KEY);
+    return null;
   } catch {
     return null;
   }
@@ -317,6 +346,15 @@ async function authRequest<T>(
     const res = await fetch(endpoint, { headers: { ...headers, ...options.headers }, ...options });
     const json = await res.json().catch(() => null);
     if (!res.ok) {
+      // Token rejected → clear stored session so stale auth can't linger.
+      // (Tokens are never logged anywhere in this client.)
+      if (res.status === 401 && typeof window !== "undefined") {
+        try {
+          window.localStorage.removeItem(AUTH_STORAGE_KEY);
+        } catch {
+          /* ignore */
+        }
+      }
       return {
         success: false,
         error: (json && typeof json === "object" && "error" in json && (json as { error: { code: string; message: string } }).error) || { code: "UNKNOWN_ERROR", message: `HTTP ${res.status}: ${res.statusText}` },

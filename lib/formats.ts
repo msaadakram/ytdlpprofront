@@ -82,6 +82,9 @@ export function resolveFormats(
   }
 
   // Static fallbacks (coerced to ApiFormatInfo shape).
+  // NOTE: format_id:"" means "no backend id" — callers must treat empty as
+  // absent and send the quality label / ext instead (see useDownloader
+  // startDownload). Never send "" as format_id to the backend.
   if (type === "video") {
     return videoFormats.map((f) => ({
       format_id: "",

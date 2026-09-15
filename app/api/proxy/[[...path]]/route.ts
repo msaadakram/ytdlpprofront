@@ -71,12 +71,21 @@ async function forward(
       });
     }
     
-    const data = await res.json();
+    const data = await res.json().catch(() => null);
     return NextResponse.json(data, { status: res.status });
-  } catch {
+  } catch (err) {
+    // Map aborts (AbortSignal.timeout) to 504 so clients can distinguish
+    // "backend timed out" from a generic 502 proxy failure.
+    const isAbort = err instanceof Error && (err.name === "AbortError" || err.name === "TimeoutError");
     return NextResponse.json(
-      { success: false, error: { code: "PROXY_ERROR", message: "Failed to reach backend service" } },
-      { status: 502 },
+      {
+        success: false,
+        error: {
+          code: isAbort ? "PROXY_TIMEOUT" : "PROXY_ERROR",
+          message: isAbort ? "Backend request timed out" : "Failed to reach backend service",
+        },
+      },
+      { status: isAbort ? 504 : 502 },
     );
   }
 }

@@ -39,12 +39,13 @@ function formatDuration(seconds: number): string {
   return `${m}:${String(s).padStart(2, "0")}`;
 }
 
-/** SRT requires strict HH:MM:SS,mmm timestamps. */
+/** SRT requires strict HH:MM:SS,mmm timestamps (carries ms overflow to seconds). */
 function toSrtTimestamp(seconds: number): string {
-  const h = Math.floor(seconds / 3600);
-  const m = Math.floor((seconds % 3600) / 60);
-  const s = Math.floor(seconds % 60);
-  const ms = Math.round((seconds - Math.floor(seconds)) * 1000);
+  const totalMs = Math.max(0, Math.round(seconds * 1000));
+  const h = Math.floor(totalMs / 3_600_000);
+  const m = Math.floor((totalMs % 3_600_000) / 60_000);
+  const s = Math.floor((totalMs % 60_000) / 1000);
+  const ms = totalMs % 1000;
   return `${String(h).padStart(2, "0")}:${String(m).padStart(2, "0")}:${String(s).padStart(2, "0")},${String(ms).padStart(3, "0")}`;
 }
 
@@ -98,6 +99,9 @@ export function TranscriptViewer({
     }
   };
 
+  const sanitizeFilename = (name: string, fallback: string): string =>
+    name.replace(/[^a-zA-Z0-9._-]+/g, "_").slice(0, 120) || fallback;
+
   const handleDownloadTxt = () => {
     if (downloadUrl && filename) {
       triggerDownload(downloadUrl, filename);
@@ -107,11 +111,13 @@ export function TranscriptViewer({
       const url = URL.createObjectURL(blob);
       const a = document.createElement("a");
       a.href = url;
-      a.download = `${title || "transcript"}.txt`;
+      a.download = sanitizeFilename(`${title || "transcript"}.txt`, "transcript.txt");
       document.body.appendChild(a);
       a.click();
       document.body.removeChild(a);
-      URL.revokeObjectURL(url);
+      // Delayed revoke (10s, same as downloadTextFile) — immediate revoke can
+      // abort the download in some browsers before the save starts.
+      setTimeout(() => URL.revokeObjectURL(url), 10_000);
     }
   };
 
@@ -138,11 +144,12 @@ export function TranscriptViewer({
     const url = URL.createObjectURL(blob);
     const a = document.createElement("a");
     a.href = url;
-    a.download = `${title || "transcript"}.srt`;
+    a.download = sanitizeFilename(`${title || "transcript"}.srt`, "transcript.srt");
     document.body.appendChild(a);
     a.click();
     document.body.removeChild(a);
-    URL.revokeObjectURL(url);
+    // Delayed revoke (10s) — see handleDownloadTxt.
+    setTimeout(() => URL.revokeObjectURL(url), 10_000);
   };
 
   // Highlight search matches: the capture group makes odd indices the matches

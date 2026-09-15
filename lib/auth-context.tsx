@@ -78,15 +78,38 @@ const AuthContext = createContext<AuthContextType>({
   logout: async () => {},
 });
 
+// NOTE (XSS/token-storage mitigation): the session JWT lives in localStorage
+// (architectural — a full httpOnly-cookie rewrite is out of scope). Mitigations:
+// - tokens are never logged (no console.* of token/session anywhere),
+// - any 401 / ACCOUNT_DISABLED clears the stored session immediately,
+// - stored shape is validated before use (corrupt → cleared),
+// - cross-tab `storage` events sync logout/login across open tabs.
 function readStored(): StoredSession | null {
   if (typeof window === "undefined") return null;
   try {
     const raw = window.localStorage.getItem(STORAGE_KEY);
     if (!raw) return null;
     const parsed = JSON.parse(raw);
-    if (parsed && parsed.token && parsed.user) return parsed;
+    // Shape validation: token must be a non-empty string and user an object
+    // with a string email — anything else is corrupt/tampered → clear it.
+    if (
+      parsed &&
+      typeof parsed === "object" &&
+      typeof (parsed as StoredSession).token === "string" &&
+      (parsed as StoredSession).token.length > 0 &&
+      (parsed as StoredSession).user &&
+      typeof (parsed as StoredSession).user === "object" &&
+      typeof (parsed as StoredSession).user.email === "string"
+    ) {
+      return parsed as StoredSession;
+    }
+    window.localStorage.removeItem(STORAGE_KEY);
   } catch {
-    /* ignore */
+    try {
+      window.localStorage.removeItem(STORAGE_KEY);
+    } catch {
+      /* ignore */
+    }
   }
   return null;
 }
@@ -111,6 +134,9 @@ async function apiCall<T>(
     });
     const json = await res.json().catch(() => ({}));
     if (!res.ok || json.success === false) {
+      // Any 401 means the stored token is rejected — drop it immediately so a
+      // stale/invalid session can never linger.
+      if (res.status === 401) writeStored(null);
       return {
         ok: false,
         status: res.status,
@@ -177,8 +203,11 @@ export function AuthProvider({ children }: { children: ReactNode }) {
           setToken(null);
           setUserState(null);
         } else if (result.status === 0) {
-          // Network/timeout: keep optimistic session so dashboard can still render
-          // but don't block loading forever
+          // Offline / backend unreachable: go logged-out instead of keeping an
+          // optimistic session — an unverifiable token must not look active.
+          writeStored(null);
+          setToken(null);
+          setUserState(null);
         } else if ((result as any).code === "EMAIL_NOT_VERIFIED") {
           // Backend explicitly says token belongs to unverified user
           writeStored(null);
@@ -202,10 +231,30 @@ export function AuthProvider({ children }: { children: ReactNode }) {
     };
   }, []);
 
+  // Cross-tab sync: a logout (or login) in another tab updates this tab too.
+  useEffect(() => {
+    function onStorage(e: StorageEvent) {
+      if (e.key !== STORAGE_KEY) return;
+      const next = readStored();
+      if (!next) {
+        setToken(null);
+        setUserState(null);
+      } else {
+        setToken(next.token);
+        setUserState(next.user);
+      }
+    }
+    window.addEventListener("storage", onStorage);
+    return () => window.removeEventListener("storage", onStorage);
+  }, []);
+
   const setUser = useCallback((u: AuthUser | null) => {
     setUserState(u);
-    const currentToken = token || readStored()?.token;
-    if (u && currentToken) writeStored({ token: currentToken, user: u });
+    // Read localStorage fresh (never the possibly-stale `token` closure) so a
+    // token written after this callback was created is still picked up.
+    const freshToken = readStored()?.token || token;
+    if (u && freshToken) writeStored({ token: freshToken, user: u });
+    if (!u) writeStored(null);
   }, [token]);
 
   const login = useCallback(async (email: string, password: string) => {
@@ -294,6 +343,14 @@ export function AuthProvider({ children }: { children: ReactNode }) {
       return { success: false, error: result.error };
     }
     const { token: newToken, user: newUser } = result.data;
+    // Same gate as password login: never treat an unverified Google user as
+    // authenticated — force the verify flow and drop the token.
+    if ((newUser as any).email_verified === false) {
+      writeStored(null);
+      setToken(null);
+      setUserState(null);
+      return { success: false, error: "Please verify your email before signing in.", code: "EMAIL_NOT_VERIFIED" };
+    }
     writeStored({ token: newToken, user: newUser });
     setToken(newToken);
     setUserState(newUser);

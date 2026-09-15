@@ -30,12 +30,21 @@ function tokenize(text: string, patterns: Array<{ regex: RegExp; className: stri
   const segments: Segment[] = [];
   let pos = 0;
 
+  // Enforce sticky matching so `lastIndex` is honored (without the `y` flag
+  // exec() ignores lastIndex and scans from 0 — the old code only worked by
+  // accident via the m.index === pos check, and `^`-anchored patterns could
+  // never match past position 0).
+  const sticky = patterns.map(({ regex, className }) => ({
+    regex: new RegExp(regex.source, regex.flags.includes("y") ? regex.flags : `${regex.flags}y`),
+    className,
+  }));
+
   while (pos < text.length) {
     let matched = false;
-    for (const { regex, className } of patterns) {
+    for (const { regex, className } of sticky) {
       regex.lastIndex = pos;
       const m = regex.exec(text);
-      if (m && m.index === pos) {
+      if (m && m.index === pos && m[0].length > 0) {
         segments.push({ text: m[0], className });
         pos = m.index + m[0].length;
         matched = true;
