@@ -2,15 +2,15 @@
  * Monetag OnClick tag (zone 11806240). Fired ONLY from download-button
  * handlers — never globally — so ads show on user download intent.
  *
- * Frequency cap: at most ONE ad per minute. A download click within 60s
- * of the last ad does nothing; after a minute the next click may show one
- * again. The timestamp persists in localStorage so the cap survives page
- * navigation. Failures (private mode, ad-blockers) fall back to memory /
- * silence — ads must never break the download flow.
+ * Frequency cap: at most ONE ad per 10 minutes. A download click within
+ * 10 minutes of the last ad does nothing; after that the next click may
+ * show one again. The timestamp persists in localStorage so the cap
+ * survives page navigation. Failures (private mode, ad-blockers) fall back
+ * to memory / silence — ads must never break the download flow.
  */
 const MONETAG_ZONE = "11806240";
 const MONETAG_SRC = "https://al5sm.com/tag.min.js";
-const MIN_GAP_MS = 60 * 1000; // one ad per minute, max
+const MIN_GAP_MS = 10 * 60 * 1000; // one ad per 10 minutes, max
 const STORAGE_KEY = "monetag_last_ad";
 
 let memoryFallback = 0;

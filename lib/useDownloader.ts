@@ -126,7 +126,9 @@ export function useDownloader(): UseDownloaderState {
     };
     return new Promise((resolve, reject) => {
       let retries = 0;
-      const maxRetries = 180;
+      // ~30 min horizon matching the backend job timeout: brisk 1s polls
+      // for the first 3 min, then 3s cadence to spare the API.
+      const maxRetries = 720;
 
       const poll = async () => {
         if (!mountedRef.current || ctrl.signal.aborted) return;
@@ -212,7 +214,7 @@ export function useDownloader(): UseDownloaderState {
             return;
           }
 
-          pollTimeoutRef.current = setTimeout(poll, 1000);
+          pollTimeoutRef.current = setTimeout(poll, retries < 180 ? 1000 : 3000);
         } catch (err) {
           reject(err);
         }

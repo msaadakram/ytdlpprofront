@@ -31,7 +31,9 @@ export function usePollJob() {
   }, []);
 
   /**
-   * Poll `fn` every `intervalMs` until `isDone` returns true or maxRetries.
+   * Poll `fn` until `isDone` returns true or maxRetries. Brisk `intervalMs`
+   * for the first `fastRetries` ticks, then `slowIntervalMs` — defaults
+   * cover ~30 min to match the backend job timeout without hammering it.
    * `onStatus`/`onDone` are only invoked while mounted.
    */
   const poll = useCallback(
@@ -42,12 +44,14 @@ export function usePollJob() {
         onStatus: (v: T) => void;
         onDone: (v: T) => void;
         intervalMs?: number;
+        slowIntervalMs?: number;
+        fastRetries?: number;
         maxRetries?: number;
         onTimeout?: () => void;
         onError?: (err: unknown) => void;
       },
     ): Promise<void> => {
-      const { isDone, onStatus, onDone, intervalMs = 1000, maxRetries = 180, onTimeout, onError } = opts;
+      const { isDone, onStatus, onDone, intervalMs = 1000, slowIntervalMs = 3000, fastRetries = 180, maxRetries = 720, onTimeout, onError } = opts;
       cancel();
       const ctrl = new AbortController();
       abortRef.current = ctrl;
@@ -71,7 +75,7 @@ export function usePollJob() {
               resolve();
               return;
             }
-            pollRef.current = setTimeout(tick, intervalMs);
+            pollRef.current = setTimeout(tick, retries < fastRetries ? intervalMs : slowIntervalMs);
           } catch (err) {
             if (!mountedRef.current || ctrl.signal.aborted) return;
             onError?.(err);
