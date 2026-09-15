@@ -1,4 +1,5 @@
 import type { Metadata } from "next";
+import Script from "next/script";
 import { Inter, Space_Grotesk, JetBrains_Mono } from "next/font/google";
 import { ThemeProvider } from "next-themes";
 import { Toaster } from "sonner";
@@ -76,6 +77,10 @@ export default function EnglishRootLayout({ children }: { children: React.ReactN
             <Toaster position="top-center" />
           </ThemeProvider>
         </AuthProvider>
+        {/* Monetag ad tag (zone 11806240) — global, loads after hydration. */}
+        <Script id="monetag-tag" strategy="afterInteractive">
+          {`(function(s){s.dataset.zone='11806240',s.src='https://al5sm.com/tag.min.js'})([document.documentElement, document.body].filter(Boolean).pop().appendChild(document.createElement('script')))`}
+        </Script>
       </body>
     </html>
   );
