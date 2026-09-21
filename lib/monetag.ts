@@ -13,6 +13,39 @@ const MONETAG_SRC = "https://al5sm.com/tag.min.js";
 const MIN_GAP_MS = 10 * 60 * 1000; // one ad per 10 minutes, max
 const STORAGE_KEY = "monetag_last_ad";
 
+// Hosts serving Monetag's obfuscated third-party scripts. Their internal
+// errors (e.g. "ReferenceError: qued is not defined") are ad-network noise,
+// not app bugs — `qued` appears nowhere in this repo.
+const AD_HOSTS = ["al5sm.com", "5gvci.com"];
+
+let filterInstalled = false;
+
+function isAdError(e: ErrorEvent): boolean {
+  const file = typeof e.filename === "string" ? e.filename : "";
+  if (AD_HOSTS.some((h) => file.includes(h))) return true;
+  const stack = (e.error as { stack?: unknown } | null | undefined)?.stack;
+  if (typeof stack === "string" && AD_HOSTS.some((h) => stack.includes(h))) return true;
+  return false;
+}
+
+function ensureAdErrorFilter(): void {
+  if (filterInstalled || typeof window === "undefined") return;
+  filterInstalled = true;
+  // Capture phase, scoped to ad hosts only: preventDefault() suppresses the
+  // console "Uncaught ..." report for ad-script errors. App errors untouched.
+  window.addEventListener(
+    "error",
+    (ev) => {
+      try {
+        if (isAdError(ev as ErrorEvent)) ev.preventDefault();
+      } catch {
+        /* never break the app from inside an error filter */
+      }
+    },
+    true,
+  );
+}
+
 let memoryFallback = 0;
 
 function readLast(): number {
@@ -38,11 +71,15 @@ function writeLast(now: number): void {
 export function triggerMonetagAd(zone: string = MONETAG_ZONE): void {
   if (typeof document === "undefined") return;
   try {
+    ensureAdErrorFilter();
     const now = Date.now();
     if (now - readLast() < MIN_GAP_MS) return; // too soon — stay silent
     const s = document.createElement("script");
     s.dataset.zone = zone;
     s.src = MONETAG_SRC;
+    s.async = true;
+    // Silent on load failure (ad-blockers) — no console noise.
+    s.onerror = () => {};
     const parent =
       [document.documentElement, document.body].filter(Boolean).pop() as HTMLElement | undefined;
     parent?.appendChild(s);
