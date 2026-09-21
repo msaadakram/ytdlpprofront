@@ -28,11 +28,38 @@ const nextConfig: NextConfig = {
   async headers() {
     return [
       {
-        // Keep CSP out (risky inline-script breakage); HSTS + Permissions-Policy are safe.
         source: "/(.*)",
         headers: [
           { key: "Strict-Transport-Security", value: "max-age=63072000; includeSubDomains; preload" },
           { key: "Permissions-Policy", value: "camera=(), microphone=(), geolocation=()" },
+          { key: "X-Content-Type-Options", value: "nosniff" },
+          { key: "Referrer-Policy", value: "strict-origin-when-cross-origin" },
+          { key: "X-Frame-Options", value: "DENY" },
+          {
+            key: "Content-Security-Policy",
+            value: [
+              "default-src 'self'",
+              "script-src 'self' 'unsafe-inline' https://accounts.google.com https://al5sm.com",
+              "style-src 'self' 'unsafe-inline' https://fonts.googleapis.com",
+              "img-src 'self' data: blob: https:",
+              "font-src 'self' data: https://fonts.gstatic.com",
+              "connect-src 'self' https: wss:",
+              "frame-src https://accounts.google.com",
+              "object-src 'none'",
+              "base-uri 'self'",
+              "form-action 'self'",
+              "frame-ancestors 'none'",
+              "upgrade-insecure-requests",
+            ].join("; "),
+          },
+        ],
+      },
+      {
+        // Admin + dashboard + auth: never index, never cache at edge.
+        source: "/(admin|dashboard|sign-in|sign-up|verify-email|forgot-password)(/:path*)?",
+        headers: [
+          { key: "X-Robots-Tag", value: "noindex, nofollow, noarchive" },
+          { key: "Cache-Control", value: "no-store, max-age=0" },
         ],
       },
       {

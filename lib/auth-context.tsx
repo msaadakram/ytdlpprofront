@@ -129,6 +129,7 @@ async function apiCall<T>(
 ): Promise<{ ok: boolean; status: number; data?: T; error?: string; code?: string }> {
   try {
     const res = await fetch(endpoint, {
+      credentials: "include",
       headers: { "Content-Type": "application/json", ...options.headers },
       ...options,
     });

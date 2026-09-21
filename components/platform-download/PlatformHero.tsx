@@ -13,9 +13,9 @@ import { useDownloader } from "@/lib/useDownloader";
 import { usePlatformTranslations } from "@/lib/usePlatformTranslations";
 import { useTranslations } from "next-intl";
 
-function SkeletonPreview() {
+function SkeletonPreview({ label = "Loading video information" }: { label?: string }) {
   return (
-    <div className="mt-4 animate-pulse" role="status" aria-label="Loading video information">
+    <div className="mt-4 animate-pulse" role="status" aria-label={label}>
       <div className="h-px bg-border mb-4" />
       <div className="flex flex-col md:flex-row gap-4">
         <div className="md:w-72 lg:w-80 aspect-video md:aspect-[4/3] bg-muted rounded-xl" />
@@ -186,7 +186,7 @@ export function PlatformHero({ platform }: { platform: string }) {
                 />
               </div>
               {url && (
-                <button onClick={() => handleUrlChange("")} aria-label="Clear URL" className="text-muted-foreground hover:text-foreground transition-colors shrink-0">
+                <button onClick={() => handleUrlChange("")} aria-label={st("clearUrlAria", { defaultValue: "Clear URL" })} className="text-muted-foreground hover:text-foreground transition-colors shrink-0">
                   <X className="w-3.5 h-3.5" />
                 </button>
               )}
@@ -263,7 +263,7 @@ export function PlatformHero({ platform }: { platform: string }) {
                 animate={{ opacity: 1 }}
                 exit={{ opacity: 0 }}
               >
-                <SkeletonPreview />
+                <SkeletonPreview label={st("loadingInfo", { defaultValue: "Loading video information" })} />
               </motion.div>
             )}
           </AnimatePresence>

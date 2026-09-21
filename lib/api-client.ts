@@ -111,6 +111,7 @@ async function request<T>(
     const base = baseUrl();
     const url = base ? `${base}${endpoint}` : endpoint;
     const res = await fetch(url, {
+      credentials: "include",
       headers: { "Content-Type": "application/json", ...options.headers },
       ...options,
     });
@@ -191,6 +192,15 @@ export async function universalDownloadTranscript(
   });
 }
 
+export async function universalDownloadThumbnail(
+  url: string,
+): Promise<ApiResponse<JobStart>> {
+  return request<JobStart>("/api/proxy/thumbnail", {
+    method: "POST",
+    body: JSON.stringify({ url }),
+  });
+}
+
 /** ─── Job polling ─── */
 
 export async function getJobStatus(
@@ -254,19 +264,38 @@ export function pollJob(
 export function triggerDownload(downloadUrl: string, filename?: string) {
   const apiBase = process.env.NEXT_PUBLIC_API_URL || "";
   let fullUrl: string;
-  if (downloadUrl.startsWith("/")) {
-    // Backend-relative path (e.g. /download/<file>) → prefix the API host.
-    fullUrl = `${apiBase}${downloadUrl}`;
+  if (downloadUrl.startsWith("/download/")) {
+    // Backend-relative file path (e.g. /download/<file>) → route through the
+    // same-origin proxy (/api/proxy/download/<file>). This preserves the
+    // page's protocol (https) and avoids mixed-content / CORS issues caused
+    // by prefixing the raw API host (which may be http).
+    fullUrl = `/api/proxy${downloadUrl}`;
+  } else if (downloadUrl.startsWith("/")) {
+    // Any other same-origin relative path — keep it same-origin so the
+    // protocol (http/https) always matches the page.
+    fullUrl = downloadUrl;
   } else {
     // Absolute URL: allow only same-origin or the configured API host to
     // avoid open-redirect / arbitrary-URL downloads from server payloads.
     try {
-      const parsed = new URL(downloadUrl, typeof window !== "undefined" ? window.location.origin : apiBase);
+      const pageOrigin = typeof window !== "undefined" ? window.location.origin : apiBase;
+      const parsed = new URL(downloadUrl, pageOrigin);
       const apiHost = apiBase ? new URL(apiBase).hostname : null;
       const sameOrigin = typeof window !== "undefined" && parsed.origin === window.location.origin;
       if (parsed.protocol !== "https:" && parsed.protocol !== "http:") throw new Error("bad protocol");
       if (!sameOrigin && (!apiHost || parsed.hostname !== apiHost)) throw new Error("untrusted host");
-      fullUrl = parsed.toString();
+      // If the page is served over https, never trigger an http download
+      // (mixed-content is blocked by browsers). Upgrade backend http → https.
+      if (typeof window !== "undefined" && window.location.protocol === "https:" && parsed.protocol === "http:") {
+        parsed.protocol = "https:";
+      }
+      // Prefer the same-origin proxy for backend-host file URLs so the
+      // download stays on https even if the API host env is misconfigured.
+      if (apiHost && parsed.hostname === apiHost && parsed.pathname.startsWith("/download/")) {
+        fullUrl = `/api/proxy${parsed.pathname}${parsed.search}`;
+      } else {
+        fullUrl = parsed.toString();
+      }
     } catch {
       return;
     }
@@ -343,7 +372,7 @@ async function authRequest<T>(
   if (token) headers["Authorization"] = `Bearer ${token}`;
 
   try {
-    const res = await fetch(endpoint, { headers: { ...headers, ...options.headers }, ...options });
+    const res = await fetch(endpoint, { credentials: "include", headers: { ...headers, ...options.headers }, ...options });
     const json = await res.json().catch(() => null);
     if (!res.ok) {
       // Token rejected → clear stored session so stale auth can't linger.

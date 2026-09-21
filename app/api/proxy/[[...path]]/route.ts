@@ -1,6 +1,25 @@
 import { NextRequest, NextResponse } from "next/server";
 
-const API_BASE = process.env.API_BASE_URL || process.env.NEXT_PUBLIC_API_URL || "http://localhost:4000";
+function resolveApiBase(): string {
+  const raw = process.env.API_BASE_URL || process.env.NEXT_PUBLIC_API_URL || "http://localhost:4000";
+  const trimmed = raw.trim().replace(/\/+$/, "");
+  // Never allow http in production for non-local hosts — upgrade to https
+  // to prevent mixed-content and credential leakage over cleartext.
+  // Local dev (localhost / 127.0.0.1) keeps http.
+  try {
+    const u = new URL(trimmed);
+    const isLocal = /^(localhost|127\.0\.0\.1|\[::1\])$/.test(u.hostname);
+    if (u.protocol === "http:" && !isLocal) {
+      u.protocol = "https:";
+      return u.toString().replace(/\/+$/, "");
+    }
+  } catch {
+    /* leave as-is, fetch will surface PROXY_ERROR */
+  }
+  return trimmed;
+}
+
+const API_BASE = resolveApiBase();
 
 /**
  * Same-origin proxy to the ytback API. Forwards the Authorization header when
@@ -26,10 +45,13 @@ async function forward(
       : `${normalizedBase}/api/${pathStr}`;
   const token = req.headers.get("authorization");
   const range = req.headers.get("range");
+  const cookie = req.headers.get("cookie");
 
   try {
     const headers: Record<string, string> = {};
     if (token) headers["Authorization"] = token;
+    // Forward httpOnly session cookie (downforge_session) to backend.
+    if (cookie) headers["Cookie"] = cookie;
     if (range && isFileDownload) headers["Range"] = range;
     const init: RequestInit = { method, headers };
     // Bound API calls so a hung backend surfaces as a clean JSON 502 instead
@@ -72,7 +94,11 @@ async function forward(
     }
     
     const data = await res.json().catch(() => null);
-    return NextResponse.json(data, { status: res.status });
+    const out = NextResponse.json(data, { status: res.status });
+    // Forward backend Set-Cookie (session login/logout) to the browser.
+    const setCookie = res.headers.get("set-cookie");
+    if (setCookie) out.headers.set("set-cookie", setCookie);
+    return out;
   } catch (err) {
     // Map aborts (AbortSignal.timeout) to 504 so clients can distinguish
     // "backend timed out" from a generic 502 proxy failure.

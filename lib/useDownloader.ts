@@ -6,6 +6,7 @@ import {
   universalDownloadVideo,
   universalDownloadAudio,
   universalDownloadTranscript,
+  universalDownloadThumbnail,
   getJobStatus,
   getJobResult,
   triggerDownload,
@@ -269,18 +270,27 @@ export function useDownloader(): UseDownloaderState {
         setStatusText("Transcribing...");
         await pollUntilDone(res.data.job_id);
       } else {
-        // Thumbnail — use the info we already fetched (no second API call)
-        const thumbUrl = mediaInfo?.thumbnail;
-        if (!thumbUrl) {
-          throw new Error("No thumbnail available for this URL");
+        // Thumbnail — server-side via same ytultra URL (video → ffmpeg frame → /download/*.jpg).
+        // Falls back to CDN proxy when backend rejects (non-YouTube).
+        try {
+          const thumbRes = await universalDownloadThumbnail(url);
+          if (thumbRes.success && thumbRes.data) {
+            setStatusText("Processing...");
+            await pollUntilDone(thumbRes.data.job_id);
+            return;
+          }
+          throw new Error(thumbRes.error?.message || "Thumbnail job failed to start");
+        } catch (thumbErr) {
+          const thumbUrl = mediaInfo?.thumbnail;
+          if (!thumbUrl) throw thumbErr instanceof Error ? thumbErr : new Error("No thumbnail available for this URL");
+          const ext = formats[selectedFormat]?.ext || "jpg";
+          const safeTitle = (mediaInfo?.title || "thumbnail").replace(/[^\w\s.-]+/g, "").trim() || "thumbnail";
+          downloadThumbnail(thumbUrl, `${safeTitle}.${ext}`);
+          setProcessing(false);
+          setDone(true);
+          setTimeout(() => setDone(false), 3000);
+          return;
         }
-        const ext = formats[selectedFormat]?.ext || "jpg";
-        const safeTitle = (mediaInfo?.title || "thumbnail").replace(/[^\w\s.-]+/g, "").trim() || "thumbnail";
-        downloadThumbnail(thumbUrl, `${safeTitle}.${ext}`);
-        setProcessing(false);
-        setDone(true);
-        setTimeout(() => setDone(false), 3000);
-        return;
       }
     } catch (err) {
       if (!mountedRef.current) return;

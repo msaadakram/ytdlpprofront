@@ -45,6 +45,8 @@ export default function AdminLayout({ children }: { children: React.ReactNode })
 
     fetch("/api/admin/proxy/me", {
       headers: { Authorization: `Bearer ${token}` },
+      credentials: "include",
+      cache: "no-store",
     })
       .then((r) => r.json())
       .then((res) => {

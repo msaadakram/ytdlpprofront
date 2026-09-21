@@ -542,7 +542,7 @@ export function DownloadOnlyHero({ platform, type }: { platform: string; type: D
                 )}
               </div>
               {url && (
-                <button onClick={() => { setUrl(""); setMediaInfo(null); setInfoReady(false); setInfoError(false); }} aria-label="Clear URL" className="text-muted-foreground hover:text-foreground transition-colors shrink-0">
+                <button onClick={() => { setUrl(""); setMediaInfo(null); setInfoReady(false); setInfoError(false); }} aria-label={st("clearUrlAria", { defaultValue: "Clear URL" })} className="text-muted-foreground hover:text-foreground transition-colors shrink-0">
                   <X className="w-3.5 h-3.5" />
                 </button>
               )}

@@ -241,7 +241,7 @@ export function ThumbnailHero({ platform }: { platform: string }) {
                 <button
                   onClick={() => { setUrl(""); setMediaInfo(null); setInfoReady(false); setInfoError(false); inputRef.current?.focus(); }}
                   className="text-muted-foreground hover:text-foreground dark:hover:text-white transition-all duration-200 shrink-0 p-1 rounded-lg hover:bg-white/50 dark:hover:bg-white/10"
-                  aria-label="Clear URL"
+                  aria-label={st("clearUrlAria", { defaultValue: "Clear URL" })}
                 >
                   <X className="w-4 h-4" />
                 </button>

@@ -441,13 +441,7 @@ export function TranscriptHero({ platform }: { platform: string }) {
             <div className="flex items-center gap-2.5 lg:w-auto flex-shrink-0">
               <label htmlFor="language" className="hidden md:inline-flex items-center gap-1.5 text-xs font-semibold text-muted-foreground dark:text-white/60 whitespace-nowrap">
                 <Globe className="w-3.5 h-3.5" />
-                {(() => {
-                  try {
-                    return t("transcriptLanguageLabel");
-                  } catch {
-                    return "Language:";
-                  }
-                })()}
+                {t("transcriptLanguageLabel", { defaultValue: "Language:" })}
               </label>
               <select
                 id="language"
@@ -505,7 +499,7 @@ export function TranscriptHero({ platform }: { platform: string }) {
                 <button
                   onClick={() => { setUrl(""); setMediaInfo(null); setInfoReady(false); setInfoError(false); inputRef.current?.focus(); }}
                   className="text-muted-foreground hover:text-foreground dark:hover:text-white transition-all duration-200 shrink-0 p-2 -m-1 rounded-lg hover:bg-white/50 dark:hover:bg-white/10"
-                  aria-label="Clear URL"
+                  aria-label={st("clearUrlAria", { defaultValue: "Clear URL" })}
                 >
                   <X className="w-4 h-4" />
                 </button>
