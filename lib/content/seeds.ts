@@ -16,6 +16,8 @@ export const platformSeeds: Record<string, PlatformContentSeed> = {
       { title: "Download Watch Shows Before They Expire", body: "Facebook Watch shows and episodes may be removed or made private over time. Download them promptly to build a permanent archive." },
       { title: "Choose the Right Quality", body: "Facebook compresses uploaded videos. Download in the highest available quality to get the best version possible. You can always create smaller copies later." },
       { title: "Use Audio Mode for Podcasts", body: "Many Facebook creators post audio-centric content like interviews and discussions. Use the Audio extraction mode to save these as MP3 for listening on the go." },
+      { title: "Save Stories Before They Expire", body: "Facebook Stories and Status videos disappear after 24 hours. Copy the Story link and download it promptly to keep it in the best available quality, with audio included." },
+      { title: "Downloads Have No Extra Watermark", body: "DownForge saves the original Facebook video file, so your HD/MP4 download carries no added watermark. For reposts, always credit the original creator." },
       { title: "Check Privacy Settings", body: "Only publicly accessible Facebook videos can be downloaded. Content shared with friends-only or custom privacy settings cannot be accessed." },
     ],
     troubleshooting: [
@@ -23,6 +25,8 @@ export const platformSeeds: Record<string, PlatformContentSeed> = {
       { q: "Why is the downloaded video quality low?", a: "Facebook applies compression to uploaded videos. The quality you get is the best available version that Facebook serves. Downloading in HD requires the original upload to be HD." },
       { q: "Can I download Facebook live streams?", a: "Facebook live streams must be completed and available as a recording before they can be downloaded. Active live streams cannot be processed." },
       { q: "Does this work with Facebook Reels?", a: "Yes, Facebook Reels are fully supported. Paste the Reel URL and choose your preferred format and quality for download." },
+      { q: "Can I download Facebook Stories or Status videos?", a: "Yes. Copy the Story link and paste it into DownForge before the 24-hour expiry. Public Stories and Status videos download in the best available quality with audio." },
+      { q: "Will my download have a watermark?", a: "No. DownForge downloads the original Facebook video file, so there is no added watermark. Choose HD/MP4 quality for the cleanest result." },
       { q: "Can I download multiple Facebook videos at once?", a: "Pro and Team subscribers can batch download multiple Facebook videos simultaneously. Free accounts process one video at a time." },
     ],
     steps: {

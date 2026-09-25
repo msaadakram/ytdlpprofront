@@ -104,6 +104,16 @@ export default async function VideoDownloaderPage({ params }: Props) {
   const metaDescription = t.has("metaDescriptionVideo") ? t("metaDescriptionVideo") : t("metaDescription");
   const related = relatedLinksFor("video-downloader", platform);
 
+  // HowTo steps come from the EN long-form guide (content is EN-only by design).
+  // Emit HowTo/Article nodes only when the guide exists so non-EN JSON-LD
+  // never carries hardcoded English step text.
+  const howToSteps = content?.stepByStepGuide?.steps?.map((s, i) => ({
+    "@type": "HowToStep",
+    position: i + 1,
+    name: s.title,
+    text: s.body,
+  })) ?? [];
+
   const breadcrumbHome = (() => {
     try {
       return pt("breadcrumbHome");
@@ -142,8 +152,35 @@ export default async function VideoDownloaderPage({ params }: Props) {
         applicationCategory: "Multimedia",
         operatingSystem: "All",
         browserRequirements: "Requires JavaScript",
+        featureList: ["HD 1080p", "MP4 download", "No watermark", "Reels & Stories", "No sign-up"],
+        screenshot: `https://www.downforge.me/og/video-downloader/${config.slug}.png`,
         offers: { "@type": "Offer", price: "0", priceCurrency: "USD" },
       },
+      ...(howToSteps.length > 0
+        ? [
+            {
+              "@type": "HowTo",
+              "@id": `https://www.downforge.me/${locale}/video-downloader/${config.slug}#howto`,
+              name: `How to Download ${config.name} Videos in HD`,
+              description: `Save ${config.name} videos, Reels and live streams in HD/MP4 without watermark in 3 steps. Paste or copy a link, choose quality, and download.`,
+              totalTime: "PT30S",
+              tool: [{ "@type": "HowToTool", name: "DownForge Video Downloader" }],
+              step: howToSteps,
+            },
+            {
+              "@type": "Article",
+              "@id": `https://www.downforge.me/${locale}/video-downloader/${config.slug}#article`,
+              headline: `${config.name} ${typeVideo} — DownForge`,
+              description: metaDescription,
+              inLanguage: locale,
+              author: { "@type": "Organization", name: "DownForge", url: "https://www.downforge.me" },
+              publisher: { "@type": "Organization", name: "DownForge", logo: { "@type": "ImageObject", url: "https://www.downforge.me/organization-logo.png" } },
+              datePublished: "2025-08-22",
+              dateModified: "2026-08-29", // fixed — new Date() here rewrites structured data daily
+              mainEntityOfPage: `https://www.downforge.me/${locale}/video-downloader/${config.slug}`,
+            },
+          ]
+        : []),
       {
         "@type": "FAQPage",
         "@id": `https://www.downforge.me/${locale}/video-downloader/${config.slug}#faq`,

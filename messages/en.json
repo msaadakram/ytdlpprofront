@@ -1234,14 +1234,14 @@
   "Platform": {
     "facebook": {
       "badge": "Facebook Downloader",
-      "heading": "Download Facebook Videos",
-      "headingAccent": "in HD",
-      "subheading": "Paste any Facebook video link and download in seconds. Save Facebook Watch videos, live streams, and Reels. Get AI transcripts too — no account required.",
+      "heading": "Free Facebook Video Downloader",
+      "headingAccent": "Online in HD · No Watermark",
+      "subheading": "Download Facebook videos online in seconds — paste or copy any public link. Save Reels, Watch shows, Stories & live streams in HD/MP4 without watermark. Free, no app, no sign-up.",
       "placeholder": "Paste your Facebook video URL here...",
       "features": [
         {
           "title": "Download HD Videos",
-          "desc": "Save Facebook videos in up to 1080p HD quality. Perfect for offline viewing of Watch shows, live streams, and shared content."
+          "desc": "Save Facebook videos in up to 1080p HD quality without watermark. Perfect for offline viewing of Watch shows, Reels, Stories, live streams, and shared content."
         },
         {
           "title": "Extract Audio",
@@ -1253,7 +1253,7 @@
         },
         {
           "title": "Works with All Facebook URLs",
-          "desc": "Supports public videos, Watch shows, page posts, group videos, and embedded clips across Facebook."
+          "desc": "Supports public videos, Watch shows, Reels, Stories, page posts, group videos, and embedded clips. Just copy the link — no app needed."
         },
         {
           "title": "AI Transcripts",
@@ -1267,7 +1267,7 @@
         },
         {
           "q": "What video qualities are available?",
-          "a": "Facebook videos can be downloaded in various qualities including HD (720p/1080p) and standard definition (480p/360p), depending on what the uploader originally provided."
+          "a": "Facebook videos can be downloaded in various qualities including Full HD (1080p), HD (720p) and standard definition (480p/360p) as MP4, depending on what the uploader originally provided."
         },
         {
           "q": "Can I download Facebook Reels?",
@@ -1278,38 +1278,87 @@
           "a": "Yes, Facebook Watch shows and episodes are supported. Simply copy the video URL from Watch and paste it into the downloader."
         },
         {
+          "q": "Can I download Facebook videos without watermark?",
+          "a": "Yes. DownForge saves the original Facebook video file directly, so downloads have no extra watermark. Paste any public video, Reel or Story link and download it in HD for free."
+        },
+        {
+          "q": "How do I download a Facebook video by copy link?",
+          "a": "Copy the Facebook video link from your browser address bar or the Share → Copy link button, paste it into the input above, pick HD or SD quality, and click Download. No app or sign-up required."
+        },
+        {
+          "q": "Can I download Facebook Stories and Status videos?",
+          "a": "Yes. Paste the Story link to save Facebook Stories and Status videos before they disappear. Public stories download in the best available quality, with audio included."
+        },
+        {
           "q": "Is there a limit on video length?",
           "a": "Free accounts can download videos up to 30 minutes. Pro accounts support longer videos and batch processing for entire playlists."
         }
       ],
-      "metaTitle": "Facebook Video Downloader — Download Facebook Videos in HD | DownForge",
-      "metaDescription": "Free Facebook video downloader. Download Facebook videos, Watch shows, Reels, and live streams in HD. Extract audio as MP3. No sign-up required.",
+      "metaTitle": "Facebook Video Downloader — Download FB Videos Free Online | DownForge",
+      "metaDescription": "Free Facebook video downloader online. Download Facebook videos, Reels, Watch & live in HD/MP4 without watermark. Copy link to save — no app, no sign-up.",
       "keywords": [
         "facebook video downloader",
-        "download facebook videos",
         "fb video downloader",
-        "facebook video saver",
+        "fb download",
+        "download facebook videos",
+        "facebook video download online",
+        "download from facebook",
+        "facebook video downloader hd",
+        "fb video downloader online",
+        "fb video downloader hd",
+        "free facebook video downloader",
+        "save video from facebook",
+        "save from facebook",
+        "facebook downloader online",
+        "facebook downloader app",
+        "facebook video downloader app",
+        "fb video downloader app",
         "facebook to mp4",
-        "download facebook watch",
+        "fb to mp4",
+        "facebook video download link",
+        "facebook link download",
+        "download from facebook link",
+        "fb link download",
+        "facebook video download copy link",
+        "facebook video download without watermark",
+        "fb video download in hd",
+        "download facebook live video",
+        "facebook story download",
+        "download facebook story",
         "facebook reels downloader",
-        "facebook hd downloader",
-        "save facebook video",
-        "facebook video download free"
+        "save facebook video"
       ],
-      "metaTitleVideo": "Facebook Video Downloader — Save Facebook Videos, Reels & Live in HD | DownForge",
-      "metaDescriptionVideo": "Free Facebook video downloader. Paste a link to save Facebook videos, Reels, Watch shows and live streams in HD or MP4. No app, no sign-up.",
-      "metaTitleAudio": "Facebook to MP3 — Convert Facebook Videos to MP3 | DownForge",
-      "metaDescriptionAudio": "Free Facebook to MP3 converter. Extract audio from videos, Reels & Watch as MP3 320kbps, FLAC or AAC. Paste a link — no sign-up required.",
+      "metaTitleVideo": "Free Facebook Video Downloader Online – HD, No Watermark | DownForge",
+      "metaDescriptionVideo": "Free Facebook video downloader online. Save Facebook videos, Reels, Watch & live streams in HD/MP4 without watermark. Copy link to download — no app, no sign-up.",
+      "metaTitleAudio": "Facebook to MP3 – Free FB Video to MP3 Converter Online | DownForge",
+      "metaDescriptionAudio": "Free Facebook to MP3 converter online. Turn Facebook videos, Reels & live into MP3 320kbps, FLAC or AAC. Download Facebook audio fast — no app, no sign-up.",
       "keywordsAudio": [
         "facebook to mp3",
+        "fb to mp3",
         "facebook mp3 downloader",
         "convert facebook video to mp3",
         "download facebook audio",
-        "fb to mp3"
+        "fb video download mp3",
+        "fb video downloader mp3",
+        "fb video to audio downloader",
+        "fb video to mp3",
+        "facebook video download audio",
+        "fb video audio download",
+        "facebook video converter mp3",
+        "facebook converter mp3",
+        "fb audio downloader",
+        "fb mp3 download",
+        "facebook download mp3",
+        "download facebook video in audio",
+        "facebook video to audio",
+        "facebook video download in mp3",
+        "fb video to mp3 converter",
+        "facebook video converter",
+        "fb video converter"
       ],
-      "headingAudio": "Facebook to MP3 — Extract Audio from Facebook Videos",
-      "headingAccentAudio": "MP3, FLAC & AAC",
-      "subheadingAudio": "Free Facebook to MP3 converter. Convert Facebook to MP3 320kbps, FLAC, AAC, WAV & OGG — paste a link and download high-quality audio instantly.",
+      "headingAudio": "Free Facebook to MP3 Converter",
+      "headingAccentAudio": "Online – MP3 320kbps & FLAC",
+      "subheadingAudio": "Convert Facebook videos, Reels & live streams to MP3 320kbps, FLAC, AAC, WAV or OGG online. Paste any link and download Facebook audio free — no app, no sign-up.",
       "placeholderAudio": "Paste your Facebook link here...",
       "badgeAudio": "Facebook to MP3",
       "featuresAudio": [
@@ -1348,6 +1397,14 @@
           "a": "Yes. Open this page in Safari (iPhone) or Chrome (Android), paste the link, pick MP3 or FLAC, and download. On iPhone files save to the Files app; on Android to Downloads — then open in any player."
         },
         {
+          "q": "Can I download Facebook audio or music from Reels and live streams?",
+          "a": "Yes. Paste any public Facebook video, Reel or live-stream link and pick MP3, FLAC or AAC to download just the audio track. Ideal for interviews, talks, and music clips."
+        },
+        {
+          "q": "Does it support FB to MP3 and FB to MP4?",
+          "a": "This page converts Facebook videos to audio (MP3, FLAC, AAC, WAV, OGG). Need the full video as MP4? Use our free Facebook Video Downloader page instead — paste the same link there."
+        },
+        {
           "q": "Is converting Facebook to MP3 safe and legal?",
           "a": "Converting publicly accessible Facebook content for personal offline listening is generally permitted. Do not re-upload copyrighted tracks without the creator's permission. DownForge processes files ephemerally and deletes them after your download — no storage, no tracking."
         },
@@ -1356,39 +1413,107 @@
           "a": "Most tracks complete in under 10 seconds. Longer VODs or playlists may take 30–60 seconds. Pro users get priority processing during peak times."
         }
       ],
-      "metaTitleAll": "Facebook Downloader — Video, Audio & Thumbnail | DownForge",
-      "metaDescriptionAll": "Free Facebook downloader. Save videos, Reels & live in HD, audio as MP3, HD thumbnails & AI transcripts. No app, no sign-up.",
+      "metaTitleAll": "Facebook Downloader – Video, Reels, MP3, Thumbnail Free | DownForge",
+      "metaDescriptionAll": "Free Facebook downloader online. Save videos, Reels, Stories & live in HD/MP4 without watermark, audio as MP3, HD thumbnails & AI transcripts. No app, no sign-up.",
       "keywordsAll": [
         "facebook downloader",
         "facebook video downloader",
         "download facebook videos",
+        "download from facebook",
+        "free facebook video downloader",
+        "facebook downloader online",
+        "facebook downloader app",
         "facebook to mp3",
+        "fb to mp3",
+        "facebook to mp4",
         "facebook reels downloader",
-        "facebook thumbnail"
+        "facebook story download",
+        "download facebook live video",
+        "facebook video downloader hd",
+        "facebook video download without watermark",
+        "facebook thumbnail",
+        "facebook thumbnail downloader",
+        "facebook transcript downloader",
+        "facebook subtitles downloader",
+        "save video from facebook",
+        "facebook video download link",
+        "fb video downloader",
+        "fb download",
+        "download facebook videos without watermark"
       ],
-      "headingAll": "Download from Facebook",
-      "headingAccentAll": "Video, Audio & More",
-      "subheadingAll": "All-in-one Facebook downloader. Save videos, Reels & live streams in HD, audio as MP3, HD thumbnails & AI transcripts. Paste any link — no app, no sign-up.",
-      "metaTitleThumbnail": "Facebook Thumbnail Downloader — Download Facebook Thumbnails in HD | DownForge",
-      "metaDescriptionThumbnail": "Free Facebook thumbnail downloader. Save Facebook video thumbnails in HD, JPG, PNG & WebP. No app, no sign-up.",
+      "headingAll": "Free Facebook Downloader",
+      "headingAccentAll": "Video, Reels, MP3 & More",
+      "subheadingAll": "All-in-one free Facebook downloader online. Save videos, Reels, Stories & live in HD/MP4 without watermark, convert to MP3, grab HD thumbnails & AI transcripts. Paste or copy any link — no app, no sign-up.",
+      "metaTitleThumbnail": "Facebook Thumbnail Downloader – Save HD Thumbnails Free | DownForge",
+      "metaDescriptionThumbnail": "Free Facebook thumbnail downloader online. Save video thumbnails, covers & profile pictures in HD — JPG, PNG or WebP. Paste link, no app, no sign-up.",
       "keywordsThumbnail": [
         "facebook thumbnail downloader",
         "download facebook thumbnails",
         "facebook thumbnail saver",
-        "facebook profile picture downloader",
         "save facebook thumbnails",
-        "facebook hd thumbnail"
+        "facebook hd thumbnail",
+        "facebook profile picture downloader",
+        "facebook video thumbnail download",
+        "facebook cover downloader",
+        "download facebook profile picture hd",
+        "facebook thumbnail jpg png",
+        "free facebook thumbnail downloader",
+        "facebook thumbnail downloader online",
+        "facebook video cover saver",
+        "save facebook cover photo"
       ],
-      "metaTitleTranscript": "Facebook Transcript Generator — Download Facebook Transcripts with AI | DownForge",
-      "metaDescriptionTranscript": "Free Facebook transcript generator. Get accurate AI transcripts with timestamps. Download as SRT, VTT, TXT or JSON. No sign-up.",
+      "metaTitleTranscript": "Free Facebook Transcript Downloader – SRT, VTT & TXT | DownForge",
+      "metaDescriptionTranscript": "Free Facebook transcript downloader. Generate accurate AI transcripts, captions & subtitles with timestamps. Download SRT, VTT, TXT or JSON — no sign-up.",
       "keywordsTranscript": [
-        "facebook transcript generator",
+        "facebook transcript downloader",
         "download facebook transcripts",
+        "facebook transcript generator",
         "facebook subtitles downloader",
+        "facebook captions downloader",
         "facebook srt downloader",
+        "facebook vtt subtitles",
+        "facebook video to text",
         "facebook transcript ai",
-        "save facebook transcript"
-      ]
+        "save facebook transcript",
+        "free facebook transcript downloader",
+        "facebook transcript with timestamps",
+        "facebook video subtitles download",
+        "convert facebook video to text"
+      ],
+      "keywordsVideo": [
+        "facebook video downloader",
+        "fb video downloader",
+        "download facebook videos",
+        "facebook video download online",
+        "fb download",
+        "download from facebook",
+        "facebook video downloader hd",
+        "fb video downloader hd",
+        "fb video downloader online",
+        "free facebook video downloader",
+        "facebook downloader online",
+        "facebook video downloader app",
+        "fb video downloader app",
+        "save video from facebook",
+        "save from facebook",
+        "facebook video download link",
+        "facebook video download copy link",
+        "download from facebook link",
+        "facebook video download without watermark",
+        "download facebook video without watermark",
+        "fb video download in hd",
+        "download facebook live video",
+        "private facebook video downloader",
+        "facebook story download",
+        "download facebook story",
+        "facebook reels downloader",
+        "facebook status download",
+        "fb video download 4k"
+      ],
+      "badgeVideo": "Free Online Video Downloader",
+      "headingVideo": "Free Facebook Video Downloader",
+      "headingAccentVideo": "Online in HD · No Watermark",
+      "subheadingVideo": "Save any public Facebook video online — Reels, Watch, Stories & live in HD/MP4 without watermark. Paste or copy the link, pick quality, download free."
     },
     "instagram": {
       "badge": "Instagram Downloader",
