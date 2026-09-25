@@ -14,6 +14,7 @@ import {
 } from "@/lib/api-client";
 import type { ApiFormatInfo, UniversalMediaInfo, TranscriptSegment } from "@/lib/api-client";
 import { triggerMonetagAd } from "@/lib/monetag";
+import { trackGoogleAdsConversion } from "@/lib/google-ads";
 import { FormatGrid } from "@/components/youtube-download/FormatGrid";
 import { VideoPreview } from "@/components/youtube-download/VideoPreview";
 import { DownloadProgress } from "@/components/youtube-download/DownloadProgress";
@@ -291,16 +292,21 @@ export function TranscriptHero({ platform }: { platform: string }) {
             if (!mountedRef.current || ctrl.signal.aborted) return;
             if (finalRes.success && finalRes.data) {
               const data = finalRes.data;
+              // Only conversions for actually delivered results — set iff a
+              // browser download was triggered below.
+              let delivered = false;
 
               if (data.transcript || data.downloadUrl) {
                 // Trigger the actual transcript file download
                 if (data.downloadUrl) {
                   triggerDownload(data.downloadUrl, data.filename || undefined);
+                  delivered = true;
                 } else if (data.transcript) {
                   const fmt = formats[selectedFormat];
                   const ext = fmt?.ext || "srt";
                   const safeTitle = (mediaInfo?.title || "transcript").replace(/[^\w\s.-]+/g, "").trim() || "transcript";
                   downloadTextFile(data.transcript, data.filename || `${safeTitle}.${ext}`);
+                  delivered = true;
                 }
                 // Keep content for the in-page viewer (copy / search / format switch)
                 safe(() => {
@@ -310,6 +316,13 @@ export function TranscriptHero({ platform }: { platform: string }) {
                   setTranscriptJsonUrl(data.jsonDownloadUrl || null);
                   setTranscriptJsonFilename(data.jsonFilename || null);
                 });
+
+                if (delivered) {
+                  // Backend confirmed the transcript and the file save was
+                  // handed to the browser — Google Ads conversion point,
+                  // deduped per backend job. No URL or user data is sent.
+                  trackGoogleAdsConversion({ type: "transcript", dedupeKey: `job:${jobId}` });
+                }
               }
             }
             safe(() => {

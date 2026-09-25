@@ -16,6 +16,7 @@ import {
 } from "@/lib/api-client";
 import type { ApiFormatInfo, UniversalMediaInfo } from "@/lib/api-client";
 import { triggerMonetagAd } from "@/lib/monetag";
+import { trackGoogleAdsConversion } from "@/lib/google-ads";
 import { FormatGrid } from "@/components/youtube-download/FormatGrid";
 import { VideoPreview } from "@/components/youtube-download/VideoPreview";
 import { DownloadProgress } from "@/components/youtube-download/DownloadProgress";
@@ -225,6 +226,9 @@ export function DownloadOnlyHero({ platform, type }: { platform: string; type: D
         // cross-origin, so a direct link would open a tab instead of saving.
         const safeTitle = (mediaInfo.title || "thumbnail").replace(/[^\w\s.-]+/g, "").trim() || "thumbnail";
         downloadThumbnail(mediaInfo.thumbnail, `${safeTitle}.${fmt.ext || "jpg"}`);
+        // Direct-delivery success (no backend job): Google Ads conversion.
+        // Deduped per source URL + format so repeat clicks don't recount.
+        trackGoogleAdsConversion({ type: "thumbnail", dedupeKey: `thumb:${url}::${fmt.ext || "jpg"}` });
         setProcessing(false);
         setDone(true);
         setTimeout(() => setDone(false), 3000);
@@ -315,17 +319,22 @@ export function DownloadOnlyHero({ platform, type }: { platform: string; type: D
             if (!mountedRef.current || ctrl.signal.aborted) return;
             if (finalRes.success && finalRes.data) {
               const data = finalRes.data;
+              // Only conversions for actually delivered results — set iff a
+              // browser download was triggered below.
+              let delivered = false;
 
               // For transcript type, trigger the file download and store
               // the content for the in-page viewer
               if (type === "transcript" && (data.transcript || data.downloadUrl)) {
                 if (data.downloadUrl) {
                   triggerDownload(data.downloadUrl, data.filename || undefined);
+                  delivered = true;
                 } else if (data.transcript) {
                   const fmt = formats[selectedFormat];
                   const ext = fmt?.ext || "srt";
                   const safeTitle = (mediaInfo?.title || "transcript").replace(/[^\w\s.-]+/g, "").trim() || "transcript";
                   downloadTextFile(data.transcript, data.filename || `${safeTitle}.${ext}`);
+                  delivered = true;
                 }
                 safe(() => {
                   setTranscript(data.transcript ?? null);
@@ -337,6 +346,14 @@ export function DownloadOnlyHero({ platform, type }: { platform: string; type: D
               } else if (data.downloadUrl) {
                 // For audio/thumbnail types, trigger download as before
                 triggerDownload(data.downloadUrl, data.filename);
+                delivered = true;
+              }
+
+              if (delivered) {
+                // Backend confirmed the result and the file save was handed
+                // to the browser — Google Ads conversion point, deduped per
+                // backend job. No URL or user data is sent.
+                trackGoogleAdsConversion({ type, dedupeKey: `job:${jobId}` });
               }
             }
             safe(() => {

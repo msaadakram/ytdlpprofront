@@ -6,6 +6,7 @@ import { ThemeProvider } from "next-themes";
 import { Toaster } from "sonner";
 import { routing } from "@/lib/i18n/routing";
 import { AuthProvider } from "@/lib/auth-context";
+import { GoogleAdsTag } from "@/components/analytics/GoogleAdsTag";
 import "@/styles/globals.css";
 import { notFound } from "next/navigation";
 
@@ -193,6 +194,7 @@ export default async function LocaleLayout({ children, params }: Props) {
       className={`${inter.variable} ${spaceGrotesk.variable} ${jetbrainsMono.variable}`}
     >
       <body className="antialiased font-sans">
+        <GoogleAdsTag />
         <AuthProvider>
           <NextIntlClientProvider messages={messages} locale={locale}>
             <ThemeProvider

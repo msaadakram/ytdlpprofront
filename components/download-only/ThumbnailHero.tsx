@@ -10,6 +10,7 @@ import {
 } from "@/lib/api-client";
 import type { ApiFormatInfo, UniversalMediaInfo } from "@/lib/api-client";
 import { triggerMonetagAd } from "@/lib/monetag";
+import { trackGoogleAdsConversion } from "@/lib/google-ads";
 import { FormatGrid } from "@/components/youtube-download/FormatGrid";
 import { resolveFormats } from "@/lib/formats";
 import { useTranslations } from "next-intl";
@@ -97,6 +98,9 @@ export function ThumbnailHero({ platform }: { platform: string }) {
       // cross-origin, so a direct link would open a tab instead of saving.
       const safeTitle = (mediaInfo.title || "thumbnail").replace(/[^\w\s.-]+/g, "").trim() || "thumbnail";
       downloadThumbnail(mediaInfo.thumbnail, `${safeTitle}.${fmt.ext || "jpg"}`);
+      // Direct-delivery success: Google Ads conversion point, deduped per
+      // source URL + format so repeat clicks don't recount.
+      trackGoogleAdsConversion({ type: "thumbnail", dedupeKey: `thumb:${url}::${fmt.ext || "jpg"}` });
       setProcessing(false);
       setDone(true);
       setTimeout(() => setDone(false), 3000);

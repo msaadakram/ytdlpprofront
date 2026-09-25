@@ -15,6 +15,7 @@ import {
 } from "@/lib/api-client";
 import type { ApiFormatInfo, UniversalMediaInfo, TranscriptSegment } from "@/lib/api-client";
 import { triggerMonetagAd } from "@/lib/monetag";
+import { trackGoogleAdsConversion } from "@/lib/google-ads";
 import type { DownloadType } from "@/lib/constants";
 import { resolveFormats, audioBitrate } from "@/lib/formats";
 
@@ -174,16 +175,22 @@ export function useDownloader(): UseDownloaderState {
             if (!mountedRef.current || ctrl.signal.aborted) return;
             if (finalRes.success && finalRes.data) {
               const data = finalRes.data;
+              // Only conversions for actually delivered results: the flag is
+              // set iff a browser download was triggered below — never on
+              // click, never when the backend reports failure/empty results.
+              let delivered = false;
 
               if (activeType === "transcript" && (data.transcript || data.downloadUrl)) {
                 // Trigger the actual transcript file download first
                 if (data.downloadUrl) {
                   triggerDownload(data.downloadUrl, data.filename || undefined);
+                  delivered = true;
                 } else if (data.transcript) {
                   const fmt = formats[selectedFormat];
                   const ext = fmt?.ext || "srt";
                   const safeTitle = (mediaInfo?.title || "transcript").replace(/[^\w\s.-]+/g, "").trim() || "transcript";
                   downloadTextFile(data.transcript, data.filename || `${safeTitle}.${ext}`);
+                  delivered = true;
                 }
                 // Then keep the content for the in-page viewer (download pages)
                 safe(() => {
@@ -196,6 +203,15 @@ export function useDownloader(): UseDownloaderState {
               } else if (data.downloadUrl) {
                 // For video/audio types, trigger download as before
                 triggerDownload(data.downloadUrl, data.filename);
+                delivered = true;
+              }
+
+              if (delivered) {
+                // Backend confirmed the result and the file save was handed
+                // to the browser — this is the Google Ads conversion point.
+                // Deduped per backend job: re-clicks/re-saves of the same
+                // job never double-count. No URL or user data is sent.
+                trackGoogleAdsConversion({ type: activeType, dedupeKey: `job:${jobId}` });
               }
             }
             safe(() => {
@@ -286,6 +302,9 @@ export function useDownloader(): UseDownloaderState {
           const ext = formats[selectedFormat]?.ext || "jpg";
           const safeTitle = (mediaInfo?.title || "thumbnail").replace(/[^\w\s.-]+/g, "").trim() || "thumbnail";
           downloadThumbnail(thumbUrl, `${safeTitle}.${ext}`);
+          // Direct-delivery success (no backend job): conversion point.
+          // Deduped per source URL + format so repeat clicks don't recount.
+          trackGoogleAdsConversion({ type: "thumbnail", dedupeKey: `thumb:${url}::${ext}` });
           setProcessing(false);
           setDone(true);
           setTimeout(() => setDone(false), 3000);

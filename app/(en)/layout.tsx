@@ -3,6 +3,7 @@ import { Inter, Space_Grotesk, JetBrains_Mono } from "next/font/google";
 import { ThemeProvider } from "next-themes";
 import { Toaster } from "sonner";
 import { AuthProvider } from "@/lib/auth-context";
+import { GoogleAdsTag } from "@/components/analytics/GoogleAdsTag";
 import "@/styles/globals.css";
 
 // Same font setup as the locale layout — required on <html> so the
@@ -65,6 +66,7 @@ export default function EnglishRootLayout({ children }: { children: React.ReactN
       className={`${inter.variable} ${spaceGrotesk.variable} ${jetbrainsMono.variable}`}
     >
       <body className="antialiased font-sans">
+        <GoogleAdsTag />
         <AuthProvider>
           <ThemeProvider
             attribute="class"
