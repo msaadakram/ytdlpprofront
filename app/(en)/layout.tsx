@@ -4,6 +4,7 @@ import { ThemeProvider } from "next-themes";
 import { Toaster } from "sonner";
 import { AuthProvider } from "@/lib/auth-context";
 import { GoogleAdsTag } from "@/components/analytics/GoogleAdsTag";
+import { Analytics } from "@vercel/analytics/next";
 import "@/styles/globals.css";
 
 // Same font setup as the locale layout — required on <html> so the
@@ -76,6 +77,7 @@ export default function EnglishRootLayout({ children }: { children: React.ReactN
           >
             {children}
             <Toaster position="top-center" />
+            <Analytics />
           </ThemeProvider>
         </AuthProvider>
       </body>
