@@ -7,6 +7,7 @@ import { Toaster } from "sonner";
 import { routing } from "@/lib/i18n/routing";
 import { AuthProvider } from "@/lib/auth-context";
 import { GoogleAdsTag } from "@/components/analytics/GoogleAdsTag";
+import { Analytics } from "@vercel/analytics/next";
 import "@/styles/globals.css";
 import { notFound } from "next/navigation";
 
@@ -205,6 +206,7 @@ export default async function LocaleLayout({ children, params }: Props) {
             >
                 {children}
                 <Toaster position="top-center" />
+                <Analytics />
                 <script
                   type="application/ld+json"
                   dangerouslySetInnerHTML={{ __html: JSON.stringify(orgJsonLd) }}
